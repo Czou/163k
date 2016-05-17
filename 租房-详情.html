@@ -191,58 +191,12 @@
 </script>
 <script src="{$Default_tplPath}js/select.jQuery.js"></script>
 <script src="{$Default_tplPath}js/fc2015.js"></script>
-<script src="{$Default_tplPath}js/fc2015_map.js"></script>
-<script>
-$(function() {
-    $('#mySle').selectbox();
-    $(document).modCity();
-    $('#fabu').showMore();
-    $('#weixin').showMore();
-    $.returnTop();
-    $('#fixed').fixed($('#fixed_can'));
-    $('#fixed').doMaodian();
-    $('[data-scrolld]').scrolld({speed: 500,callback: function(){}});
-    $('#dialog_pro').houseGallery();
-    $('#fc_home').removeClass('select');
-    $('#fc_chuzhu').addClass('select');
-});
-var obj_xyz = {'x':{$House_shop_x},'y':{$House_shop_y}};
-var icity = '{$city}';
-var zb_style = 0;
-var zb_style_arr = [{'key':'公交','img':'gongjiao.gif'},{'key':'超市','img':'chaoshi.gif'},{'key':'学校','img':'xuexiao.gif'},{'key':'医院','img':'yiyuan.gif'}];
-var map = new BMap.Map("allmap",{enableMapClick:false}),mPoint;
-map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
-map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
-map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
-if(!obj_xyz.x||!obj_xyz.y||obj_xyz.x==='0'||obj_xyz.y==='0'){
-    map.centerAndZoom(icity , 13);
-}else{
-    mPoint = new BMap.Point(obj_xyz.x,obj_xyz.y);  
-    map.centerAndZoom(mPoint, 16);
-    var icon = new BMap.Icon('{$Default_tplPath}images/markerred.gif', new BMap.Size(20, 20),{anchor: new BMap.Size(10, 10)});
-    var mkr = new BMap.Marker(mPoint,{icon:icon});
-    map.addOverlay(mkr);
-    var myLabel = new BMap.Label("{$House_chrloupan}",{offset:new BMap.Size(14,-9),position:mPoint});
-    myLabel.setStyle({fontSize:"12px",border:"1px solid #36c"});
-    map.addOverlay(myLabel);                             //把label添加到地图上
-    //检索初始化
-    var local = new BMap.LocalSearch(map, options);
-    local.searchNearby(zb_style_arr[0].key,mPoint,500);
-    $('#mapSel li').click(function(e){
-        e.preventDefault();
-        $(this).siblings('li').removeClass('current');
-        $(this).addClass('current');
-        zb_style = parseInt($(this).attr('data-val'));
-        local.searchNearby(zb_style_arr[zb_style].key,mPoint,500);
-    });
-}
-</script>
-
-<iframe src="https://www.google.com/maps/embed/v1/place?q={$House_shop_y}%2C{$House_shop_x}&key=AIzaSyBHaZ3r2i46DGt_823SvTX0w8YkwNpAoCQ&zoom=15" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-<br><br><br>
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:700px;'><div id='gmap_canvas' style='height:440px;width:700px;'></div><div><small><a href="http://embedgooglemaps.com">                                   embed google maps                           </a></small></div><div><small><a href="http://www.proxysitereviews.com/squid-proxies">squid proxies</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(40.04823100000001,116.59122100000002),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(40.04823100000001,116.59122100000002)});infowindow = new google.maps.InfoWindow({content:'<strong>测试租房位置</strong><br>中国北京 首都机场 智慧花园<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+<style type="text/css">
+    .fang_map{ visibility: hidden;}
+</style>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:435px;width:830px;'><div id='gmap_canvas' style='height:435px;width:830px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){
+    $('.fang_map').empty().css({visibility:'visible'}); $('#gmap_canvas').detach().appendTo(".fang_map");
+    var myOptions = {zoom:14,center:new google.maps.LatLng({$House_shop_y},{$House_shop_x}),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng({$House_shop_y},{$House_shop_x})});infowindow = new google.maps.InfoWindow({content:'<strong>{$House_chrloupan}</strong><br>{$House_chraddress}<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 
 </body>
 </html>
