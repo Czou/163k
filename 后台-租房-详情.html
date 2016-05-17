@@ -1,0 +1,255 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/java.js"></script>
+<script src="{$atplPath}js/CJL.0.1.min.js"></script>
+<script src="{$atplPath}js/ImagePreview.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+var ismouse="0";
+</script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">修改二手房源&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至二手房列表" onClick="javscript:window.location.href='shoulou.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=editSave" onsubmit="return checkaddchuzhu(this)" enctype="multipart/form-data">
+        <tr >
+          <td height="20" class="category"   colspan=6>出租房源资料： </td>
+        </tR>
+        <tr >
+          <td height="25" >房源编号<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="text" name="chrlive" value="{$chrlive}" maxsize=11 onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+            <em class="global_tip">(最长11位，只能输入数字)</em></td>
+        </tr>
+        <tr >
+          <td height="25" >标题<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="text" name="chrtitle" value="{$chrtitle}" size=56 maxsize=40>
+            <em class="global_tip">(描述生动准确能更快把房子租出去，限6-30个字)</em></td>
+        </tr>
+        <tr >
+          <td height="25">小区<font color="#FF0000"></font>： </td>
+          <td  class="category" colspan=3 ><input type="radio" value="1" {$R11} name="R1">
+            从小区中选择：
+            <input id="xiaoqu" title="请输入小区名称" name="xiaoqu"  class="text" style="width: 200px;" type="text" onkeyup="getKeyWord();" onclick="getKeyWord();" value="{$chrloupan}" autocomplete="off" onblur='if(ismouse=="0"){document.getElementById("keytishi").style.display = "none";}'>
+            <em class="global_tip">请输入小区名称,如:上海绿城</em>
+            <div>
+              <div id="keytishi" onmouseover="ismouse='1';" onmouseout="ismouse='0';">
+                <iframe id="listComm" src=""  scrolling="no" width="330" frameborder="0" ></iframe>
+              </div>
+              
+            </div>
+            <input id="CommId" name="CommId" type="hidden"  value="{$loupanid}"/>
+            <p>
+              <input type="radio" value="2" {$R12}  name="R1" onclick='document.getElementById("keytishi").style.display = "none";'>
+              自定小区名称：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="zidingyi" value="{$zidingyi}" style="width: 200px;">
+              &nbsp; 
+              提醒：前台将无法提供该小区的详细介绍链接</td>
+        </tr>
+        <tr >
+          <td height="25"  >区域/地段<font color="#FF0000">*</font>： </td>
+          <td  class="category"  colspan=3 > {$qu_classid} 地址：
+            <input type="text" name="chraddress" id="chraddress" value="{$chraddress}" size=40>
+            <a href="#" onclick='set_newimage()'><font  color="red"><em class="global_tip">标注地图位置</em></font></a>
+            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
+            <input type="hidden" id="shop_z" name="shop_z"  value="0">
+			<input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"></td>
+        </tr>
+		
+        <tr >
+          <td height="25" width="15%" >类型<font color="#FF0000">*</font>： </td>
+          <td  class="category"  >{$leixing}</td>
+          <td height="25" width="13%" >户型<font color="#FF0000">*</font>： </td>
+          <td  class="category"  ><input name="shi" value="{$shi}" id="shi" style="width: 25px;"  onKeyUp="value=value.replace(/\D+/g,'')">
+            室
+            <input name="ting" id="ting" style="width: 25px;"  value="{$ting}" onKeyUp="value=value.replace(/\D+/g,'')" >
+            厅
+            <input name="wei" id="wei" style="width: 25px;"  value="{$wei}" onKeyUp="value=value.replace(/\D+/g,'')">
+            卫 </td>
+        </tr>
+        <tr >
+          <td height="25" >面积<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="text" name="chrsize" value="{$chrsize}"  onKeyUp="if(isNaN(value))execCommand('undo')" size=10>
+            平米</td>
+          <td height="25" >房龄： </td>
+          <td  class="category" ><input type="text" name="fangling" value="{$fangling}" size=10>
+            年</td>
+        </tr>
+        <tr >
+          <td height="25" >装修<font color="#FF0000">*</font>： </td>
+          <td  class="category" >{$zhuangxiu}</td>
+          <td height="25" >朝向： </td>
+          <td  class="category" ><input type="text" name="chaoxiang" value="{$chaoxiang}" size=15></td>
+        </tr>
+		<tr >
+          <td height="25" >付租方式： </td>
+          <td  class="category" ><select size="1" name="fuzhufangshi">
+
+	<option selected value="付三押一" {$fuzhufangshi付三押一}>付三押一</option>
+	<option value="付三压二" {$fuzhufangshi付三压二}>付三压二</option>
+	<option value="半年付" {$fuzhufangshi半年付}>半年付</option>
+	<option value="年付" {$fuzhufangshi年付}>年付</option>
+	<option value="单月付" {$fuzhufangshi单月付}>单月付</option>
+	<option value="面议" {$fuzhufangshi面议}>面议</option>
+	</select></td>
+          <td height="25" >承租方式： </td>
+          <td  class="category" ><select size="1" name="cengzhufangshi">
+	<option selected value="整租" {$cengzhufangshi整租}>整租</option>
+	<option value="合租" {$cengzhufangshi合租}>合租</option>
+	</select></td>
+        </tr>
+        <tr >
+          <td height="25" >楼层： </td>
+          <td  class="category"  colspan=3>楼层总高
+            <input type="text" name="zonglou" value="{$zonglou}" size=8>
+            层  本房在
+            <input type="text" name="nowlou" value="{$nowlou}" size=8>
+            层</td>
+        </tr>
+		 <tr >
+          <td height="25" >房屋配置： </td>
+          <td  class="category" colspan=3><table width=100%><tr><td  width="30"><a href="javascript:selected('peizhi');">全选</a></td><td><ul class="i_list_li clearfix">{$peizhi}</ul></td></tr></table></td>
+        </tr>
+		<tr >
+          <td height="25" >基础设施： </td>
+          <td  class="category" colspan=3><table width=100%><tr><td width="30"><a href="javascript:selected('sheshi');">全选</a></td><td><ul class="i_list_li clearfix">{$sheshi}</ul></td></tr></table></td>
+        </tr>
+        <tr >
+          <td height="25" >特色： </td>
+          <td  class="category" colspan=3><table width=100%><tr><td  width="30"><a href="javascript:selected('categoryid');">全选</a></td><td><ul class="i_list_li clearfix">{$teshe}</ul></td></tr></table></td>
+        </tr>
+        <tr >
+          <td height="25" >详细描述： </td>
+          <td  class="category" colspan=3>
+		  <textarea cols="80" id="chrmark" name="chrmark" rows="10">{$chrmark}</textarea>
+             
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrmark"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+		   </td>
+        </tr>
+        <tr>
+                  <td>上传图片(最佳尺寸900*670)</td>
+                  <td   class="category" valign=top colspan=3>
+		<input type="button" id="J_selectImage" value="批量上传" class="global_btn_blue_big" />
+		<div id="J_imageView" class="clearfix">{$filevalues}<!--house/house_chuzhu_smallfile.html--></div>
+		<input id="filewidth" type="hidden" value="900">
+		<input id="fileheight" type="hidden" value="">	
+		<input type="hidden" id="smallfilewidth" value="195">
+		<input type="hidden" id="smallfileheight" value="145">
+		<input name="url0" type="hidden" id="url0"  value="{$url0}" />
+		<input name="filewidth" type="hidden" value="195" data-txt="控制代表图的宽度">
+		<input name="fileheight" type="hidden" value="145" data-txt="控制代表图的高度">	
+				  </td>
+                </tr>
+        <tr>
+		
+		
+		
+        <tr >
+          <td height="25" class="category"   colspan=4>属性设置： </td>
+        </tR>
+        <tr>
+          <td height="25" >房源性质<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3><input type="radio" name="styleid" {$styleid0} value="0" >
+            个人
+            <input type="radio" name="styleid" value="1"  {$styleid1}>
+            中介   赋给经纪人：{$manid}</td>
+        </tr>
+        <tr>
+          <td height="25" >联系电话<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="text" name="chrtel"  maxlength=13 value="{$chrtel}" size=20></td>
+          <td height="25" >租金<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="text" name="price" value="{$price}" size=10 onKeyUp="if(isNaN(value))execCommand('undo')">
+            元/月 <em class="global_tip">（<font color=red>如果填0则表示“面议”</font>）</em></td>
+        </tr>
+        <td height="25"  >排序<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input name="intorder" value="{$intorder}" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')">
+            <em class="global_tip">数字越大越靠前</em></td>
+          <td height="25"  >浏览次数<font color="#FF0000">*</font>： </td>
+          <td class="category" colspan="5"><input type="text" name="views" value="{$views}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/>
+            <em class="global_tip">(会在该数字基础上累加)</em></td>
+        </tr>
+        <tr >
+          <td height="25" >其它<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="checkbox" name="indexjingxuan" {$indexjingxuan} value="1">
+            首页精选
+            <input type="checkbox" name="jingxuan" value="1" {$jingxuan}>
+            精选房源 <em class="global_tip">(应用列表页和经纪人店铺)</em>
+            <input type="checkbox" name="indexjishou" value="1" {$indexjishou}>
+            首页急租
+            <input type="checkbox" name="jishou" value="1" {$jishou}>
+            急租房源 <em class="global_tip">(应用到列表页)</em></td>
+        </tr>
+        <tr>
+          <td height="25"  >出租状态<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" name="typeid" value="0" {$typeid0}>
+            出租中
+            <input type="radio" name="typeid" value="1"  {$typeid1}>
+            已租出 </td>
+          <td height="25"  >状  态<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" name="iskill" value="0"  {$iskill0}>
+            待审
+            <input type="radio" name="iskill" value="1" {$iskill1}>
+            通过审核
+            <input type="radio" name="iskill" value="2" {$iskill2} >
+            下线</td>
+        </tr><tr  >
+          <td>刷新记录:</td>
+          <td height="25" colspan="4" class="category" id="flushnumbers">{$shuaxin}</td>
+        </tr>
+        <tr  >
+          <td></td>
+          <td height="25" colspan="4" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+            &nbsp;<input type="hidden" name="id" id="id" value="{$id}">
+            <input type="submit" name="Submit" class="global_btn_blue_big" value="提交保存">
+			 &nbsp;
+            <input name="button" type="button" id="button" class="global_btn_big" value="清空刷新记录" onclick="deleteflushdetails({$id},1)"></td>
+        </tr>
+        </form>
+        
+      </table></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<div id="i_ifm_upload" style="z-index:9; display:none; position:absolute; top:50%; left:50%; margin-left:-340px; width:660px; padding-left:20px; height:50px; background-color:#fff; border:2px solid #36c; border-radius:5px;box-shadow:2px 2px 8px #000;"><a href="#" id="i_ifm_upload_close" style="position:absolute; z-index:10; top:5px; right:5px; display:block; color:#36c;">关闭</a><iframe name="ifm_upload" id="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="about:blank"></iframe></div>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.cookie.js"></script>
+<script src="{$atplPath}js/upLoadImg2015.js"></script>
+<script>
+var table_id = 'house_chuzhu_file';
+window['state'] = "";
+window['logincookieStr'] = $.cookie('{$adminlogincookieName}');
+if(!!window['logincookieStr']){
+	var imgURL = window['siteUrl']+"kindeditor/upload_json.ashx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val()+"&" + window['logincookieStr'];
+	newPLUploadImg();
+}
+$('#url0').compareFM('#J_imageView');
+</script>
+</body></html>
