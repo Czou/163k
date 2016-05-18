@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>新房列表-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}loupan.html">新房</a>';
+</script>
+{$top$}
+<div class="nav_house_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/manage_chuzhu.aspx">
+     <span class="sm"></span>
+     发信息
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+<div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_areaid">区域</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_price">均价</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_lei">类型</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_tt1">状态</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+		{$Loupan_quyu}
+	</div>
+	<div class="inner" style="display:none;">
+		{$House_Searchprice}
+	</div>
+	<div class="inner" style="display:none;">
+		{$loupan_Searchlei}
+	</div>
+	<div class="inner" style="display:none;">
+		<a href="{$House_Seurltt1}0" id="s_tt1_0">不限</a><a href="{$House_Seurltt1}1" id="s_tt1_1">预售期房</a><a href="{$House_Seurltt1}2" id="s_tt1_2">现房销售</a>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<div class="proper_num">共{$Loupan_total}个楼盘</div>
+<div class="new_active">
+<div class="info_list">
+  <ul>
+   <tag:Loop ListType="LISTLOUPANLIST" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_loupan_Tr.html" />
+  </ul>
+   <div class="pageNav2 pageNav3">
+     {$PageSplit}
+   </div>
+ </div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script>
+var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="?" method="get">'+
+		'<input type="text" name="keyword" id="keyword" class="s_ipt" value="" placeholder="输入关键字" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	$('#windowIframe .back').show();
+	$('#myform').submit(function(){
+		if($('#keyword').val() === ''){
+			MSGwindowShow('index','0','请输入搜索关键字','','')
+		}
+	});
+}
+(function($){
+	$('#login_ico').hide();
+	$('#search_ico').show();
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['bigid'] !== '' && url_obj['bigid'] !== '0'){
+		var txt=$('#s_areaid_'+url_obj['bigid']).html();
+		$('#s_txt_areaid').html(txt);
+	}
+	if(url_obj['price'] !== '' && url_obj['price'] !== '0'){
+		var txt=$('#s_price_'+url_obj['price']).html();
+		$('#s_txt_price').html(txt);
+	}
+	if(url_obj['lei'] !== '' && url_obj['lei'] !== '0'){
+		var txt=$('#s_lei_'+url_obj['lei']).html();
+		$('#s_txt_lei').html(txt);
+	}
+	if(url_obj['tt1'] !== '' && url_obj['tt1'] !== '0'){
+		$('#s_tt1_'+url_obj['tt1']).addClass('current');
+		var txt=$('#s_tt1_'+url_obj['tt1']).html();
+		$('#s_txt_tt1').html(txt);
+	}
+})(jQuery);
+</script>
+</body>
+</html>

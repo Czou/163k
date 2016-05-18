@@ -1,0 +1,11 @@
+﻿@charset "utf-8";
+/* 页脚 */
+#footer { margin-top:10px;  border-top:1px solid #dedede; padding-top:5px; clear:both;}
+#footer .logo_gay { float:left; display:inline; margin-right:12px; width:263px; height:57px; margin-top:10px;}
+#footer .logo_gay a { display:block; background:url(../images/logo_gay.gif) no-repeat 0 0; width:263px; height:57px; overflow:hidden; text-indent:-999em;}
+#footer .foot_info { float:left; width:566px; height:70px; text-align:left; line-height:22px;}
+#footer .foot_nav { color:#666;}
+#footer a { color:#0135af; text-decoration:underline;}
+#footer a:hover { color:#f30; text-decoration:underline;}
+#footer .safety { float:left; width:109px;}
+#footer .bor { overflow:hidden; height:5px; background:url(../images/bg_repeatX.png) repeat-x 0 -133px; margin:8px 0;}

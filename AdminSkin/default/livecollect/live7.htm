@@ -1,0 +1,24 @@
+   <tr >
+  <td align="right">属性设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="z_shuxingType" {$z_shuxingType0} onClick="z_shuxingshow1.style.display='none';z_shuxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="z_shuxingType" {$z_shuxingType1}  onClick="z_shuxingshow1.style.display='';z_shuxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="z_shuxingType" {$z_shuxingType2} onClick="z_shuxingshow1.style.display='none';z_shuxingshow2.style.display=''">
+    自定义属性</td>
+</tr>
+<tr   id="z_shuxingshow1" style="display:{$z_shuxingshow1}">
+  <td align="right" ><font color=blue>属性开始标记：</font>
+    <p>　</p>
+    <font color=blue>属性结束标记：</font></td>
+  <td alang="left"><textarea name="z_shuxingsString" cols="70" rows="3">{$z_shuxingsString}</textarea>
+    <br>
+    <textarea name="z_shuxingoString" cols="70" rows="3">{$z_shuxingoString}</textarea></td>
+</tr>
+<tr  id="z_shuxingshow2" style="display:{$z_shuxingshow2}">
+  <td align="right" ><font color=blue>请指定属性：</font></td>
+  <td align=left><input type="radio" name="z_shuxing" value="0" {$z_shuxing0}>
+    个人
+    <input type="radio" name="z_shuxing" value="1"  {$z_shuxing1}>
+    商家 </td>
+</tr>

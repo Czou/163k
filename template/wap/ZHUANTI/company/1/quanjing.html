@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$shopmenustr}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<div class="star_nav" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main bgk_main n_mb">
+ <!--news-->
+ <div class="shop_intro" id="player">
+  <div class="intro_con" style="text-align:center;padding:0;">
+	<!--<embed src="{$zhangguifile}" allowFullScreen="true" quality="high" width="100%" height="192" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
+	<iframe src="{$zhangguifile}" frameborder="0" width="100%" height="300" style="vertical-align:top"></iframe>
+  </div>
+ </div>
+	<div class="module_video">
+		<div class="hd">更多精彩视频</div>
+		<div class="bd main_list clearfix">
+			<ul>{$Mh163k_wap_星级店铺_全景视频_更多精彩视频}</ul>
+		</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	/*if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}*/
+	
+	/*if(!q.isIOS()){
+		var phone_w = $(document).width();	
+		$("embed").height(phone_w *0.6);
+	}else{
+		$('#player').hide();	
+	}*/
+	
+},false);
+var Na=window.navigator.userAgent.toLowerCase(),q={},Hd;
+q.isChrome=function(){return-1<Na.indexOf('chrome')||-1<Na.indexOf('CrMo')};
+var lb;
+-1<Na.indexOf('iphone')?lb='iphone':-1<Na.indexOf('ipad')?lb='ipad':-1<Na.indexOf('android')&&q.isChrome()?lb='chromeandroid':-1<Na.indexOf('android')||-1<Na.indexOf('htc_evo3d')?lb='android':-1<Na.indexOf('playbook')?lb='playbook':-1<Na.indexOf('ipod')?lb='ipod':-1<navigator.platform.indexOf('Win')&&(lb='windows',(Hd=/msapphost\/(\d+\.\d+)/i.exec(Na))&&(Hd=parseFloat(Hd[1])));lb||(lb='unknown');
+q.type=lb;
+q.isIOS=function(){return'iphone'===q.type||'ipad'===q.type||'ipod'===q.type};
+</script>
+</body>
+</html>

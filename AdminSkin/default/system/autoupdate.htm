@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>163k地方门户网站自助升级系统-163K系统</title>
+<meta name="keywords" content="163k地方门户网站自助升级系统-163K系统">
+<meta name="description" content="163k地方门户网站自助升级系统-163K系统">
+<script type="text/javascript" src="{$atplPath}js/IncJS.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shengji.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cookies.js"></script>
+<script type="text/javascript" src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/jquery.cookie.js"></script>
+<script language="javascript" src="{$atplPath}js/java.js"></script>
+<script type="text/javascript">var filenum = {$filenum$}; var goversion = "{$toversion}";</script>
+<style type="text/css">
+@charset "utf-8";
+body {margin: 0 auto;padding: 0;text-align:center;}
+div, span {margin: 0 auto;padding: 0;font:12px/1.5 微软雅黑,tahoma,arial;color:#555;	text-align:left;}
+img {border: 0;}
+:link, :visited , ins { text-decoration: none;}
+a{color:#0152b9;	text-decoration:none;}
+a:hover{color:#0152b9;text-decoration:underline;}
+.green { color:#3c8e00;}
+.blue { color:#36c;}
+.red { color:#d00;}
+.header { height:67px; background:url({$atplPath}images/bg.gif) repeat-x 0 0;text-align:center;}
+.footer { height:51px; color:#6f6f6f;  background-color:#222;margin-top:10px;text-align:center;padding-top:30px;}
+.footer a { color:#6f6f6f;}
+.content { background-color:#fff;  width:1000px; margin:0 auto;}
+.g_box{ font:14px/30px "微软雅黑"; padding:5px 0 5px 0; color:#333; border-bottom:1px solid #ddd; text-align:left;}
+.goversionlist li{cursor:pointer;float:left;width:245px;height:21px;line-height:21px;margin-right:2px;position:relative;text-align:left;font-size:14px;}
+ .updatejindu {width:998px;height:100px;}
+.updatejindu .tit { color:#666;  margin-top:5px; font-size:14px; font-weight:normal;}
+.updatejindu span { text-align:center; width:100px; float:left; display:inline; margin:10px 4px 0; white-space:nowrap; font-weight:bold; color:#333; padding:4px 9px; background-color:#f1f1f1; font-size:12px;}
+.updatejindu .jian { width:auto; background-color:#fff;}
+.updatejindu .cur { background-color:#51a614; color:#fff;}
+.updatejindu .active { background:#85c15a url({$atplPath}images/gou.gif) no-repeat 10px 9px; color:#fff;} 
+.currentjindu {width:998px;text-align:left;margin-top:10px;}
+.currentjindu span { font-weight:bold;margin-right:10px;}
+.start { width:998px;margin-top:10px;height:260px;overflow:hidden;}
+.start1 {width:490px; float:left;text-align:left;margin-top:4px;height:18px;overflow:hidden;}
+.tips { background-color:#ddecd2;width:980px; margin-top:10px; text-align:left;padding:10px 0px 10px 10px; }
+.tips .tit { text-align:left; width:980px; font-weight:bold; border-bottom:1px solid #b3d09e; margin-bottom:10px; padding-bottom:6px;}
+</style>
+</head>
+
+<body class="s">
+ <div class="header">
+	<img src="{$atplPath}images/shengjilogo.png" alt="" />
+ </div>
+ <div class="content">
+	<div class="g_box">您的网站当前版本：<span class="red">{$version}</span>　　升级目标版本：<span class="green" id="toversion">{$toversion}</span></div>
+	<div  class="updatejindu">
+	 		<div class="tit">升级进度：</div>
+				<span id="jd1">检查升级环境</span><span class="jian"> → </span><span  id="jd2">下载升级文件</span><span class="jian"> → </span><span  id="jd3">备份数据库</span><span class="jian"> → </span><span id="jd4">备份现有文件</span><span class="jian"> → </span><span id="jd5">锁定网站访问</span><span class="jian"> → </span><span  id="jd6">更新网站文件</span><span class="jian"> → </span><span id="jd7">更新数据库</span><span class="jian"> → </span><span  id="jd8">清空临时文件</span><span class="jian"> → </span><span  id="jd9">升级完成!</span>
+	</div>
+	<div  class="start">
+		 <div class="currentjindu">
+			<span>当前进度: </span><span class="green" id="jdzt">准备升级中... <span class="red">{$updatemessage$}</span><div style="text-align:center;width:998px;margin-top:5px;"><a href="javascript:autoupdatestart();" id="ahref"><img src="{$atplPath}images/update_start.gif" alt="开始升级" /></a> </div><div class="goversionlist"><ul>{$goversionlist$}</ul></div></span><span id="sqltext"></span><span id="wancheng" style="display:none;">恭喜你,升级完成</span>
+		 </div>
+	   <div id="start1"  class="start1"></div>
+	   <div id="start2"  class="start1"></div>
+	   <div id="start3"  class="start1"></div>
+	   <div id="start4"  class="start1"></div>
+	   <div id="start5"  class="start1"></div>
+	   <div id="start6"  class="start1"></div>
+	   <div id="start7"  class="start1"></div>
+	   <div id="start8"  class="start1"></div>
+	   <div id="start9"  class="start1"></div>
+	   <div id="start10" class="start1"></div>
+	   <div id="start11" class="start1"></div>
+	   <div id="start12" class="start1"></div>
+	   <div id="start13" class="start1"></div>
+	   <div id="start14" class="start1"></div>
+	   <div id="start15" class="start1"></div>
+	   <div id="start16" class="start1"></div>
+	   <div id="start17" class="start1"></div>
+	   <div id="start18" class="start1"></div>
+	   <div id="start19" class="start1"></div>
+	   <div id="start20" class="start1"></div>
+	   <div id="start21" class="start1"></div>
+	   <div id="start0"  class="start1"></div>
+	</div>
+	<div class="tips">
+	  	<div class="tit">温馨提示：</div>
+	  	  1、为升级顺利进行，请不要在高峰期进行升级。如出现Not find manager image of memory, Program exception ! 错误，请回收程序池或重启动IIS后点“重试”<br />
+				2、升级过程中请不要离开本页面.请勿刷新<br />
+				3、如果遇到断网不进行.也不要离开或刷新本页面.网络恢复后会自动继续进行，如长时间未继续进行，请点“重试”<br />
+				4、如果你使用的是远程数据库,请先自行备份好数据库.<br />
+				5、如果你的服务器无法访问外网，将离线升级包解压到update/shengji文件夹下,断网也能照常使用自动升级功能.<br />
+				6、如果升级过程出现异常到 <a href="http://fuwu.163k.com/" target="_blank"><b>官方服务论坛</b></a> 求助或手动升级或购买增值服务代操作.<br/>
+				7、自动备份的数据库和原网站摸板程序都在：/bak/ 和 /bak/webbakup/中。
+	</div>
+ </div>
+ <div class="footer">Powered by <a href="http://www.163k.com/" target="_blank">163k.com</a> &copy; 2003-2014中国·北京 | <a href="#">京ICP备06054220号</a></div>
+</body>
+</html>

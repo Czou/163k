@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-优惠券-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_yhqShow.css" type="text/css" rel="stylesheet" />
+<script>
+function DrawImage(ImgD,iwidth,iheight){   
+    var image=new Image();   
+    image.src=ImgD.src;   
+    if(image.width>0 && image.height>0){   
+      if(image.width/image.height>= iwidth/iheight){   
+          if(image.width>iwidth){     
+              ImgD.width=iwidth;   
+              ImgD.height=(image.height*iwidth)/image.width;   
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }else{   
+          if(image.height>iheight){     
+              ImgD.height=iheight;   
+              ImgD.width=(image.width*iheight)/image.height;           
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }   
+    }   
+} 
+</script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}coupon/">优惠券</a> &gt; {$chrtitle}</div>
+	<!-- 主体 -->
+	<div id="content">
+		<div class="mod_yhq_01">
+			<!-- 温馨提示 -->
+			<div class="tips">
+				<b>温馨提示：</b>如果电子优惠券长时间未显示，或者页面打开速度比较慢，请稍待，或者点击<a href="javascript:void(0);"  onclick="window.location.href=window.location.href" class="orange">刷新页面</a>重新载入页面。 
+			</div>
+			<h2>{$chrtitle}</h2>
+			<div><input type="button"  onclick="copyToClipBoard();" value="复制标题和链接，发送给你的QQ和MSN好友" class="copy_title" /></div>
+			<p class="time">使用有效期：<span class="red_skin">（截至{$chrdate}）</span></p>
+			<div class="green_box">{$youxiaoqi}</div>
+			<div class="dayin">
+				<img src="{$Default_tplPath}images/icon_print_01.gif" alt="" /> <a href="preview_{$detailsid}.html" target="_blank">打印预览</a> <a href="javascript:window.external.AddFavorite(window.location.href,document.title);">收藏本页</a> <input type="button" value="打印优惠券" class="dayin_input" onClick="window.open('preview_{$detailsid}.html');" /> <a href="javascript:void(0);"  onclick="window.location.href=window.location.href" >刷新页面</a> <a href="javascript:void(0)" onClick="copyToClipBoard();">复制链接</a>
+			</div>
+			<div class="dayin_info"><b>打印说明：</b>点击“打印优惠券”按钮，只有优惠券会被打印，而页面上的文字不会被打印（查看<a href="preview_{$detailsid}.html" target="_blank">打印预览</a>），请放心打印！</div>
+			<div class="shuaxin">如果长时间未显示，请点击<a href="javascript:void(0);"  onclick="window.location.href=window.location.href">刷新本面</a></div>
+			<div class="pic_main"  id="votecontent"><img src="{$filepath}" alt="" onload="DrawImage(this,760,700)" /></div>
+			<div class="jianqiexian"><span class="jiandao"></span></div>
+			<div class="dayin">
+				<img src="{$Default_tplPath}images/icon_print_01.gif" alt="" /> <a href="preview_{$detailsid}.html" target="_blank">打印预览</a> <a href="javascript:window.external.AddFavorite(window.location.href,document.title);">收藏本页</a> <input type="button" value="打印优惠券" class="dayin_input" onClick="window.open('preview_{$detailsid}.html');"/> <a href="javascript:void(0);"  onclick="window.location.href=window.location.href">刷新页面</a> <a href="javascript:void(0)" onClick="copyToClipBoard();">复制链接</a>
+			</div>
+			<div class="html_editor">{$chrcontent}</div>
+			
+			
+			
+			<div class="more_youhuiquan">
+				<h3>最新推荐优惠券 »</h3>
+				<ul>
+					{$tuijian3}
+				</ul>
+			</div>
+			<div class="copy_href">
+				<h3><b>一键复制</b>下面的代码，你可以通过QQ或MSN发给朋友分享，也可以发布到自己的博客或论坛上 </h3>
+				<ul>
+					<li class="clearfix"><span>UBB代码：</span><textarea name="tt1" class="code_input" cols="" rows="">[url={$SiteUrl}coupon/show_{$detailsid}.html][img]{$SiteUrl}{$filepath1}[/img][/url][url={$SiteUrl}coupon/show_{$detailsid}.html]点击此打印：{$chrtitle}[/url]</textarea> <input type="button" value="复制" class="code_submit" onClick="copyTo(tt1.value,'论坛/社区');"/> 用于论坛/社区</li>
+					<li class="clearfix"><span>HTML代码：</span><textarea name="tt2" class="code_input" cols="" rows=""><a href="{$SiteUrl}coupon/show_{$detailsid}.html" title="{$chrtitle}" target="_blank"><img src="{$SiteUrl}{$filepath1}" border="0"><br />
+	<a href="{$SiteUrl}coupon/show_{$detailsid}.html" title="{$chrtitle}" target="_blank">点击此打印：{$chrtitle}</a></textarea> <input type="button" value="复制" class="code_submit" onClick="copyTo(tt2.value,'博客/空间');"/> 用于博客/空间</li>
+					<li class="clearfix"><span>链接和标题：</span><textarea name="tt3" class="code_input" cols="" rows="">{$SiteUrl}coupon/show_{$detailsid}.html</textarea> <input type="button" value="复制" class="code_submit"  onclick="copyTo(tt3.value,'');"/> 发送到QQ/MSN</li>
+				</ul>
+			</div>
+			<div class="tebiesm"><b>特别说明：</b>电子优惠券无论彩色黑白、打印复印、放大缩小，只要在有效期内均可在对应的门店、区域享受相应优惠。 </div>
+			<div class="fot_menu_box"><a href="../help/index_34.html" class="fot_menu">电子优惠券常见问题解答</a></div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+</script>
+</body>
+</html>

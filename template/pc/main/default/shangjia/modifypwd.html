@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改安全信息-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.chrname.value==""){
+		alert("请输入您的昵称!");
+		o.chrname.focus();
+		return false;
+	}
+	if(o.chremail.value==""){
+		alert("请输入您的邮箱地址!");
+		o.chremail.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("请输入您的手机号码!");
+		o.chrtel.focus();
+		return false;
+	}
+}
+</script>
+<style>
+.qqmember_no_1,.qqmember_yes_0 { display:none;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">修改安全信息</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=pwdsave" onSubmit="return checkform(this)">
+								<p class="tr"><span class="sp_a">昵称：</span><span class="sp_b"><input type="text" name="chrname" id="chrname" class="sys_form_ipt" value="{$chrname}" /></span><span class="sp_c">必填，昵称可以作为您在本站的登录名之一</span></p>
+								<p class="tr"><span class="sp_a">邮箱地址：</span><span class="sp_b"><input type="text" name="chremail" id="chremail" class="sys_form_ipt" value="{$chremail}" /></span><span class="sp_c">必填，邮箱地址可以作为您在本站的登录名之一</span></p>
+								<p class="tr"><span class="sp_a">手机号码：</span><span class="sp_b"><input type="text" name="chrtel" id="chrtel" class="sys_form_ipt" value="{$chrtel}" /></span><span class="sp_c">必填，手机号码可以作为您在本站的登录名之一</span></p>
+								<p class="tr"><span class="sp_a">绑定QQ登录：</span><span class="sp_b"><a href="qq.aspx?from={$SiteUrl}member%2fuserindex.aspx%3f" target="_blank" class="sys_btn_white qqmember_no_{$isqqlogin}">绑定QQ登录</a><a href="qq.aspx?from={$SiteUrl}member%2fuserindex.aspx%3f" target="_blank" class="sys_btn_white qqmember_yes_{$isqqlogin}">绑定QQ登录</a></span><span class="sp_c"></span></p>
+								
+								<p class="tr"><span class="sp_a">绑定微信登录：</span><span class="sp_b"><a href="qq.aspx?action=weixin&from={$SiteUrl}member%2fuserindex.aspx%3f" target="_blank" class="sys_btn_white qqmember_no_{$isweixinlogin}">绑定微信登录</a><a href="qq.aspx?action=weixin&from={$SiteUrl}member%2fuserindex.aspx%3f" target="_blank" class="sys_btn_white qqmember_yes_{$isweixinlogin}">绑定微信登录</a></span><span class="sp_c"></span></p>
+								
+								<p class="tr"><span class="sp_a">您的新密码：</span><span class="sp_b"><input type="password" name="userpass" id="userpass" class="sys_form_ipt" value="" /></span><span class="sp_c">不修改请留空，6-15个字符，必须包含数字和英文字母，区分大小写</span></p>
+								<p class="tr"><span class="sp_a">重复新密码：</span><span class="sp_b"><input type="password" name="password" id="password" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+</body>
+</html>

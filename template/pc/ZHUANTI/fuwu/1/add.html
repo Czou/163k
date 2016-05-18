@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>免费加入超级黄页-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$tplPath}skin/yp2011.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+
+<body bgcolor="{$SiteColor}">
+<div class="wrapper">
+ 	{$top$}
+ 	<div id="content" class="yp2011">
+		<div class="join_tp">
+				<ul class="clearfix">
+					<li class="col">
+						<ul>
+							<li>为您的服务进行网上宣传介绍</li>
+							<li>发布您的企业机构介绍、服务报价</li>
+							<li>服务介绍、招商加盟、促销信息等</li>
+							<li>简单实用，免费个性域名</li>
+						</ul>
+						<div class="link"><a href="{$SiteUrl}member/bianming.aspx?action=add" class="menu1">申请开通</a></div>
+					</li>
+					<li class="col">
+						<ul>
+							<li>建立您的公司企业网上展示平台</li>
+							<li>公司介绍、公司新闻、产品介绍</li>
+							<li>案例展示、招聘信息</li>
+							<li>丰富模板，免费个性二级域名</li>
+						</ul>
+						<div class="link"><a href="{$SiteUrl}member/qiye.aspx?action=add" class="menu2">申请开通</a></div>
+					</li>
+					<li class="col">
+						<ul>
+							<li>建立您的本地电子商务平台</li>
+							<li>集网上宣传、销售、订单管理</li>
+							<li>团购打折，促销信息发布</li>
+							<li>强大管理功能，免费个性域名</li>
+						</ul>
+						<div class="link"><a href="{$shopurl}join.aspx" class="menu3">申请开通</a></div>
+					</li>
+				</ul>
+		</div>
+		<div class="join_bt" id="TabAdS02">
+			<div class="hd">案例展示</div>
+			<div class="tab">
+				<ul class="tab-hd">
+					<li class="select"><a href="javascript:;">服务行业</a></li>
+					<li><a href="javascript:;">公司企业</a></li>
+					<li><a href="javascript:;">网上店铺</a></li>
+				</ul>
+			</div>
+			<div class="bd">
+				<ul class="small_pic clearfix tab-cont">
+					{$listbianming}
+				</ul>
+				<ul class="t_list t_list2 clearfix tab-cont">
+						{$listqiye}
+					</ul>
+					<ul class="small_pic clearfix tab-cont">
+					{$listshop}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$tplPath}js/theme.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jQuery.tabs.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#TabAdS02").TabADS2();
+});
+</script>
+</body>
+</html>

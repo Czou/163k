@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>登陆{$SiteName}</title>
+<style type="text/css">
+<!--
+body {
+	padding: 0px;
+	font-size: 12px;
+	margin-top: 1px;
+	margin-left: 1px;
+}
+.dl {
+	width: 294px;
+	border: 1px solid #999999;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.clear {
+	clear: both;
+}
+.dl_1 {
+	background-color: #f3f8fe;
+	height: 58px;
+}
+.dl_11 {
+	padding-left: 10px;
+	color: #766b73;
+	width: 190px;
+	float: left;
+	margin-top: 10px;
+}
+.dl_12 {
+	background-color: #696969;
+	float: right;
+	height: 16px;
+	width: 49px;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 10px;
+	margin-right: 12px;
+	padding-top: 3px;
+}
+.dl_13 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #c7c7c7;
+	line-height: 20px;
+	margin-bottom: 6px;
+	margin-top: 20px;
+}
+.dl_13 span {
+	color: #0875b6;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #c7c7c7;
+	border-left-color: #c7c7c7;
+	padding-right: 6px;
+	padding-left: 6px;
+	margin-left: 15px;
+}
+.dl_14 {
+	padding-left: 28px;
+	line-height: 22px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.dl_15 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #706c6d;
+	padding-left: 28px;
+}
+.dl_15 a {
+	color: #151a51;
+	text-decoration: underline;
+}
+.dl_15 a:hover {
+	color: #FF0000;
+}
+.input0 {
+	border: 1px solid #aaaaaa;
+	width: 140px;
+        vertical-align:middle;
+}
+-->
+</style>
+</head>
+<base target=_top>
+<SCRIPT language=javascript src="{$tplPath}js/common.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/member.js"></SCRIPT>
+<script type="text/javascript" src="{$tplPath}js/java.js"></script>
+<body topmargin="0">
+<div class="dl">
+<div class="dl_1">
+<div class="dl_11"><img src="{$tplPath}images/reg/hy.jpg" width="26" height="28" align="absmiddle" /> 登陆{$SiteName}</div>
+<div class="dl_12"><span onclick="parent.LoginHide();" style="cursor:hand">×关闭</span></div>
+</div>
+<form id="formRegStep1Main" name="formRegStep1Main" method="post" onsubmit="return checkfloatlogin();">
+<div class="dl_13"><span>输入会员资料</span></div>
+<div class="dl_14">用户名：
+  <input name="logname" type="text" class="input0" value=""  /><span id="loginnamecheck"></span>
+</div>
+<div class="dl_14">密&nbsp;&nbsp;&nbsp;&nbsp;码：
+  <input name="originalLogpasswd" type="password" class="input0" value="" /><span id="loginpwdcheck"></span>
+</div>
+<div class="dl_14"><input type="image" src="{$tplPath}images/reg/input1.jpg" width="58" height="21" /> <img src="{$tplPath}images/reg/input2.jpg" width="58" height="21" border=0 style="cursor:hand" onclick="reset()"/> <a href="member/register.html" target=_blank><img src="{$tplPath}images/reg/input3.jpg" width="73" height="21" border=0/></a></div>
+<div class="dl_15">忘记密码？<a href="{$bbsurl}logging.php?action=login&fdo=findpsw" target=_blank>点击这里</a>取回或与联系客服</div>
+<div class="clear"></div>
+</form>
+</div>
+</body>
+</html>

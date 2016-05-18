@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改店铺展示图-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<script>
+function myforms(o){
+	if(document.getElementById('categoryid').value == ''){
+		alert('请选择分类！');
+		return false;
+	}
+	if(document.getElementById('url0').value == ''){
+		alert('请先上传图片！');
+		return false;
+	}
+	if(document.getElementById('chrmark').value == ''){
+		alert('请输入图片描述！');
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">修改店铺展示图</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" enctype="multipart/form-data" action="?action=piceditSave" onSubmit="return myforms(this)" >
+								<p class="tr"><span class="sp_a">上传到的分类：</span><span class="sp_b">{$categoryid}</span><span class="sp_c">必填</span></p>
+								
+								<p class="tr"><span class="sp_a">店铺展示图：</span><span class="sp_b"><span id="str1" style="display:none;"><a href="{$url1}" rel="facebox"><img src="{$url0}" class="img_block" width="180" height="180" alt="" /></a><a href="#" onClick="return upload_img_action_X('str1','str2');" class="sys_btn_small_blue">重新上传</a></span><span id="str2" style="display:none">
+								<input type="file" name="file" class="sys_form_ipt" size="40"><input type="hidden" name="url0" id="url0" value="{$url0}" /></span></span><span class="sp_c">必填　图片长宽比为1:1</span></p>
+								
+								<p class="tr"><span class="sp_a">描述：</span><span class="sp_b"><input type="text" name="chrmark" id="chrmark" class="sys_form_ipt" value="{$chrmark}" size="70" /></span><span class="sp_c">必填</span></p>
+								
+								
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><input type="hidden" name="id" value="{$ID}" /><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox();
+  if($('#url0').val() === ''){
+		upload_img_action_X('str1','str2');
+	}else{
+		upload_img_action_X('str2','str1');
+	}
+});
+</script>
+</body>
+</html>

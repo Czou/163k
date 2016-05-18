@@ -1,0 +1,168 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkform(o){
+	if(document.all.chrshop.value==""){
+		alert("请输入商家名称!");
+		document.all.chrshop.focus();
+		return false;
+	}
+	if(document.all.qu_catgoryid.value==""){
+		alert("请选择商家大类!");
+		document.all.qu_catgoryid.focus();
+		return false;
+	}
+	if(document.all.qu_classid.value==""){
+		alert("请选择商家小类!");
+		document.all.qu_classid.focus();
+		return false;
+	}
+	if(document.all.chrdiqu.value==""){
+		alert("请选择商家地区!");
+		document.all.chrdiqu.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("请输入排序！");
+		o.intorder.focus();
+		return false;
+	}
+	if(!isInt(o.intorder.value)){
+		alert("排序只能为数字！");
+		o.intorder.select();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改订单信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至订单列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+<tr > 
+      <td height="25" width="15%"  >订单编号<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> {$chrorder$}</td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">下单时间<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$dtappenddate$}</td>
+    </tr>
+	<tr>
+        <td >商品名称：</td>
+        <td class="category"><span id="ProName"><a href="{$goodurl}shop_{$shopid$}.html" target="_blank">{$chrgood$}</a></span></td>
+    </tr>
+    <tr>
+        <td >我们价格：</td>
+        <td class="category">{$price2$}(元)</td>
+    </tr>
+	 <tr>
+        <td >交易价格：</td>
+        <td class="category"><input type="text" name="chrmoney" value="{$chrmoney1$}" onKeyUp="if(isNaN(value))execCommand('undo')" >(元)</td>
+    </tr>
+    <tr>
+        <td >订购数量<span style="color:Red">*</span> ：</td>
+        <td class="category"><input name="intnum" type="text" value="{$intnum$}" maxlength="10" onKeyUp="if(isNaN(value))execCommand('undo')" style="width:40px;" /> 件</td>
+    </tr>
+	<tr > 
+      <td  height="25">交易方式<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="styleid" type="radio"  value="0" onclick="set(1)"  {$styleid1$}>网上交易
+	   <input name="styleid" type="radio"  value="1"  onclick="set(2)" {$styleid2$}>上门自取
+	    <input name="styleid" type="radio"  value="2" onclick="set(3)"  {$styleid3$}>送货上门
+	   <input name="styleid" type="radio"  value="3" onclick="set(4)"  {$styleid4$}>预约交易</td>
+    </tr>
+	 <tr > 
+      <td  height="25"> 
+      </td>
+      <td  class="category"> <span id="tr1">联 系 人： <input name="chrman" type="text" size="16"  value="{$chrman$}">收货地址： <input name="songhuochraddress" type="text" size="20"  value="{$chraddress$}"></span>
+	  <span id="tr2">取货时间： <input name="quhuodate" type="text" size="20"  value="{$quhuodate$}">
+	  取 货 人： <input name="quhuo" type="text" size="16"  value="{$chrman$}"></span>
+	   <span id="tr3">联 系 人： <input name="songchrman" type="text" size="16"  value="{$chrman$}">送货地址： <input name="chraddress" type="text" size="20"  value="{$chraddress$}">
+	  邮政编码： <input name="chrcode" type="text" size="10"  value="{$chrcode$}"></span>
+	   <span id="tr4">联 系 人： <input name="yuyuechrman" type="text" size="16"  value="{$chrman$}">预约地点： <input name="yuyuedi" type="text" size="20"  value="{$chraddress$}">
+	  预约时间： <input name="yuyueshi" type="text" size="20"  value="{$quhuodate$}"></span></td>
+    </tr>
+	 <tr > 
+      <td  height="25">联系方式： 
+      </td>
+      <td  class="category"> 固定电话： <input name="chrtel" type="text" size="16"  value="{$chrtel$}">
+	  手机号码： <input name="chrmobile" type="text" size="16"  value="{$chrmobile$}">
+	  QQ/MSN： <input name="chrqq" type="text" size="16"  value="{$chrqq$}"></td>
+    </tr>
+    <tr> 
+      <td >简短附言： 
+      </td>
+      <td class="category"><textarea name=chrmark cols=90 rows=5>{$chrmark$}</textarea> </td>
+    </tr>
+	<tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="iskill" type="radio"  value="0" {$iskill1$}> 等待处理 <input name="iskill" type="radio"  value="1" {$iskill2$} > 已付款
+	    <input name="iskill" type="radio"  value="2" {$iskill3$} > 已发货 <input name="iskill" type="radio"  value="3" {$iskill4$}> 交易成功
+	    <input name="iskill" type="radio"  value="4" {$iskill5$}> 交易失败</td>
+    </tr>
+<script>
+var ss="{$styleid$}";
+if(ss=="0"){
+	$("tr1").style.display="";
+	$("tr2").style.display="none";
+	$("tr3").style.display="none";
+	$("tr4").style.display="none";
+}
+else if(ss=="1"){
+	$("tr1").style.display="none";
+	$("tr2").style.display="";
+	$("tr3").style.display="none";
+	$("tr4").style.display="none";
+}
+else if(ss=="2"){
+	$("tr1").style.display="none";
+	$("tr2").style.display="none";
+	$("tr3").style.display="";
+	$("tr4").style.display="none";
+}
+else if(ss=="3"){
+	$("tr1").style.display="none";
+	$("tr2").style.display="none";
+	$("tr3").style.display="none";
+	$("tr4").style.display="";
+}
+function set(val){
+	for(var i=1;i<5;i++){
+		if(i==val){
+			$("tr"+i).style.display="";
+		}else{
+			$("tr"+i).style.display="none";
+		}
+	}
+}
+</script>
+    <tr > <td></td>
+      <td height="25"  class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

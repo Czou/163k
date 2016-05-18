@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$chrtitle}-{$chrshop}-店铺动态-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_kbShop.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/swfobject.js"></script>
+{$top950$}{$Mh163k_口碑商家_独立头部}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="cuxiao/notice.aspx">店铺动态</a> &gt; <a href="{$indexurl}">{$chrshop}</a> &gt; {$chrtitle}</div>
+	<!-- 主体 -->
+	<div id="content" class="{$moban}">
+		<div class="banner">
+			<div class="swf" id="topflashcontent"></div>
+			<div class="positionS">
+				<div class="shopName clearfix">
+					<div class="pic show{$showlogo}" id="shop_logo"><img src="{$filepath}" alt="" width="140" height="60">&nbsp;</div><div class="text show{$showname}">{$chrshop}</div>
+				</div>
+               
+				
+			</div>
+			<div class="navC" style="clear:both;" >
+					<ul class="clearfix">
+					<li class="first"><a href="{$indexurl}" >店铺首页</a></li>
+					<li ><a href="content_{$shopid}.html" >店铺介绍</a></li>
+					<li><a href="notice_{$shopid}.html" class="current">店铺动态</a></li>
+					<li><a href="pic_{$shopid}.html">店铺展示</a></li>
+					<li><a href="shop_{$shopid}.html">商品展厅</a></li>
+					<li><a href="cuxiao_{$shopid}.html">团购与打折</a></li>
+					<li><a href="comment_{$shopid}.html">网友点评</a></li>
+					{$sslist}
+					<li><a href="contact_{$shopid}.html">联系方式</a></li>
+					<li><a href="yuyue_{$shopid}.html" style="font-weight:bold; color:#f50;">在线预约</a></li>
+					</ul>
+				</div>
+		</div>
+		<script type="text/javascript">
+			var tonglang="{$tonglang}";
+			if(tonglang.indexOf(".swf")!=-1){
+				var so = new SWFObject(tonglang, "sotester", "950", "148", "9", "#ffffff");
+				so.addParam("wmode", "opaque");
+				so.write("topflashcontent");
+			}
+			else{
+				document.getElementById("topflashcontent").innerHTML="<img src='"+tonglang+"' onerror=\"javascript:this.src='{$Default_tplPath}images/transparent_1px.gif'\" />";
+			}
+			$('#shop_logo').find('img').bind('error',function(e){
+				$(this).attr({'src':'{$Default_tplPath}images/wscbp.gif'});
+			});
+		</script>
+		<div class="kbNewsShow">
+			<h1>{$chrtitle}</h1>
+			<div class="infoNews">时间：<span class="time">{$dtappenddate}</span>　　　浏览：<span class="count">{$views}</span>次</div>
+			<div class="newsCont">
+				{$chrcontent}
+			</div>
+			<div class="gs">
+				
+				<div class="bd"><table>
+<tbody><tr>
+      <td colspan="6" scope="col" valign="middle" align="left" height="20" style=" color:#000;">&nbsp;&nbsp;您看过此文后的感受是：    
+    </td></tr>
+    <tr>
+      <td scope="col" valign="bottom" width="60" align="center" >
+      	{$xin1}<br>
+   	  <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height1}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin2}<br>
+
+   	  <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height2}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin3}<br>
+   	  <img src="{$Default_tplPath}images/vote/100.gif" width="20" height="{$height3}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin4}<br>
+   	  <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height4}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+
+      	{$xin5}<br>
+   	  <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height5}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+     	 {$xin6}<br>
+      <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height6}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin7}<br>
+
+   	  <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height7}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+     	 {$xin8}<br>
+      <img src="{$Default_tplPath}images/vote/101.gif" width="20" height="{$height8}"></td>
+    </tr>
+    <tr>
+      <td align="center" height="50"><label id="mood1"><img src="{$Default_tplPath}images/vote/1.gif" width="40" height="40"></label></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/2.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/3.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/4.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/5.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/6.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/7.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$Default_tplPath}images/vote/8.gif" width="40" height="40"></td>
+    </tr>
+    <tr>
+      <td align="center">欠扁</td>
+      <td align="center">支持</td>
+      <td align="center">很棒</td>
+      <td align="center">找骂</td>
+      <td align="center">搞笑</td>
+      <td align="center">软文</td>
+      <td align="center">不解</td>
+      <td align="center">吃惊</td>
+    </tr>
+    <tr>
+      <td align="center"><input name="mood" id="mood1" value="mood1" onClick="setshoparticle(1,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood2" value="mood2" onClick="setshoparticle(2,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood3" value="mood3" onClick="setshoparticle(3,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood4" value="mood4" onClick="setshoparticle(4,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood5" value="mood5" onClick="setshoparticle(5,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood6" value="mood6" onClick="setshoparticle(6,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood7" value="mood7" onClick="setshoparticle(7,{$detailsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood8" value="mood8" onClick="setshoparticle(8,{$detailsid});" type="radio"></td>
+    </tr>
+  </tbody>
+</table></div>
+			</div>
+			<div class="navBar clearfix">
+				<div class="left">上一条：{$lastone}</div>
+				<div class="right">下一条：{$nextone}</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

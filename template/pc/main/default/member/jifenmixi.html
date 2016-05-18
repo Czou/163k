@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$jifenname}明细--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var name0="{$jifenname}"; var name1 = "{$daijinname}";</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; {$jifenname}明细</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main2">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">消费明细</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		这里罗列的是您所有的消费明细；</td>
+	</tr>
+</table>
+<div class="smalltitle">消费明细</div>
+
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+<tr>
+        <td width="13%" class="tditem" >登录帐号：</td>
+        <td width="87%" class="tdcontent">
+            <span>{$chrname}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">会员类型：</td>
+        <td class="tdcontent">
+            <span style="color:#;font-weight:bold;">{$styleid}</span></td>
+    </tr>
+        	<tr>
+        <td class="tditem">{$daijinname}：</td>
+        <td class="tdcontent">
+            <span style="color:#ff3300;font-weight:bold;">{$daijinnum}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">{$jifenname}：</td>
+        <td class="tdcontent">
+            <span style="color:#ff3300;font-weight:bold;">{$jifennum}</span></td>
+    </tr>
+  
+    	
+    <input name="styleid" id="styleid" type="hidden" value="0"/>
+    <input name="typeid" id="typeid" type="hidden" value="2" />
+    <input name="actions" id="actions" type="hidden" />
+
+<script>
+
+    function chaxunform(){
+		var styleid=$("#styleid").val();
+		var typeid=$("#typeid").val();
+		var ondate=$("#ondate").val();
+		var offdate=$("#offdate").val();
+		var actions="";
+
+		//echo("jifendetails1","actions=" + actions + ",typeid=" + typeid +",styleid="+styleid + ",ondate=" +ondate+",offdate=" + offdate);
+		showjifen2(actions,typeid,styleid,ondate,offdate,'jifendetails');
+		
+	}
+	function showjifen2(actions,typeid,styleid,ondate,offdate,obj){
+	
+		var url ="../member/modify.aspx?action=mingxi&actions=" + actions + "&typeid=" + typeid + "&styleid=" + styleid + "&ondate=" + ondate + "&offdate=" + offdate;
+		
+		if(styleid==='0'){
+			$('#jifenname').val(name0);
+		}else{
+			$('#jifenname').val(name1);
+		}
+		
+		$.ajax({url:url,success:function(data){
+			$('#'+obj).html(data);							 
+		}});
+		
+	}
+
+</script>
+
+    
+</table>
+<style>
+.acti1 {display;none;}
+#jifendetails li{list-style-type:none;}
+	</style>
+<div class="blank10"></div>
+<div class="smalltitle">消费明细查询</div>
+<table width="100%" class="table" border="0" cellpadding="1" cellspacing="1">
+  			<tr>
+    <td width="13%" class="tditem">查询种类：</td>
+    <td width="87%" colspan="2"><input type="radio"  name="styleids" style="vertical-align:middle"  onclick="show_val('styleid',0);show_val('actions','');" value="0" checked > {$jifenname}
+    <input type="radio" name="styleids" style="vertical-align:middle"  onclick="show_val('styleid',1);" value="1" > {$daijinname}
+ 
+    </td>
+     </tr>
+     <tr>
+    <td class="tditem">交易方式：</td>
+    <td colspan="2"><input type="radio" name="typeids" style="vertical-align:middle"   onclick="show_val('typeid',2);" value="2" checked > 
+    全 部
+      <input type="radio" name="typeids" style="vertical-align:middle"   onclick="show_val('typeid',0);" value="0" > 
+    增 加
+      <input  type="radio" name="typeids"  onclick="show_val('typeid',1);" value="1" style=" margin-left:8px;_margin-left:7px;vertical-align:middle" > 
+      扣 除</td>
+  </tr>
+ 
+	<tr>
+  <td width="133" class="tditem">交易时间：</td>
+  <td width="473" colspan="2">起始时间 <input type="text" name="ondate"  id="ondate" value=""  style="vertical-align:middle" class="Wdate" >
+ 结束时间 <input type="text" name="offdate" id="offdate" value="" style="vertical-align:middle" class="Wdate" ></td>
+  
+  
+  </tr>
+  <tr>
+  <td width="133">&nbsp;</td>
+  <td width="433" colspan="2"><input type="submit"  onclick="chaxunform();" class="global_btn_blue_big" value="查询" /></td>
+  
+  
+  </tr>
+
+</table>
+<DIV ID="jifendetails" style="padding:10px 0;">请输入搜索条件</DIV>
+<input id="jifenname" value="" type="hidden" />
+        </div>　
+	</div>
+			
+			
+			</div>
+		</div>
+		<div class="col_sub2">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$Default_tplPath}js/cal/cal.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+
+</script>
+</body>
+</html>

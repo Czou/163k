@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>兼职人才简历-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+{$top$}
+<div class="nav_job_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+ <li>
+    <a href="{$SiteUrl}member/myzhiwei.aspx?action=add">
+     <span class="sjob"></span>
+     发布职位
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/myjianli.aspx">
+     <span class="post_resumes"></span>
+     登记简历
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <div class="job_tabs">
+  <ul>
+   <li><a href="{$zpurl}rencai.html?key=0">全职简历</a></li>
+   <li class="current">兼职简历</li>
+  </ul>
+ </div>  
+ <!--排序-->
+<div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="str_sex_node">性别不限</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_xueli_node">学历不限</span><em></em></a></li>
+	</ul>
+	
+	<div class="inner" style="display:none;" id="navbox_sex">
+		<ul>
+			<li><a href="rencai.html?sex=" id="s_sex_">性别不限</a></li>
+			<li><a href="rencai.html?sex=1" id="s_sex_1">男</a></li>
+			<li><a href="rencai.html?sex=2" id="s_sex_2">女</a></li>
+		</ul>
+	</div>
+	<div class="inner" style="display:none;" id="navbox_xueli">
+		<ul>
+			<li><a href="rencai.html?xueli=" id="s_xueli_">学历不限</a></li>
+			<li><a href="rencai.html?xueli=42" id="s_xueli_42">初中</a></li>
+			<li><a href="rencai.html?xueli=31" id="s_xueli_31">高中/中专</a></li>
+			<li><a href="rencai.html?xueli=32" id="s_xueli_32">大专及同等学历</a></li>
+			<li><a href="rencai.html?xueli=33" id="s_xueli_33">本科/学士及同等学历</a></li>
+			<li><a href="rencai.html?xueli=34" id="s_xueli_34">硕士及以上学历</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div> 
+
+<!--找人才-->
+<div class="person_list jianzhi_list">
+ <ul>
+  <tag:Loop ListType="listjzzhiweiqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="110" RecColumn="5" CusTpl="1" Template="job/list_rencaijz_Tr.html" />
+ </ul>
+ <div class="pageNav">{$PageSplit}</div>
+</div>
+{$bottom$}
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+var current_host = window.location;
+var url_obj = $.url(current_host).param();
+
+$.fn.jobUrl = function(){
+	var that = $(this),txt_obj = {};
+	for(var i in url_obj){
+		$('#'+i+url_obj[i]).addClass('current');
+	}
+	that.find('a').each(function(i,item){
+		var txt='?';
+		var txt_now = $(item).attr('href');
+		var txt_obj_now = $.url(txt_now).param();
+		txt_obj = $.extend({},url_obj,txt_obj_now);
+		
+		for(var v in txt_obj){
+			txt = txt+v+'='+txt_obj[v]+'&';
+		}
+		$(item).attr('href',txt);
+	});	
+}
+$('#navbox_xueli').jobUrl();
+$('#navbox_sex').jobUrl();
+
+
+if(!url_obj['xueli'] || url_obj['xueli'] === ''){
+	$('#s_xueli_').parent().addClass('cur');
+}else{
+	var txt=$('#s_xueli_'+url_obj['xueli']).html();
+	$('#str_xueli_node').html(txt);
+	$('#s_xueli_'+url_obj['xueli']).parent().addClass('cur');
+}
+
+if(!url_obj['sex'] || url_obj['sex'] === ''){
+	$('#s_sex_').addClass('cur');
+}else{
+	var txt=$('#s_sex_'+url_obj['sex']).html();
+	$('#str_sex_node').html(txt);
+	$('#s_sex_'+url_obj['sex']).parent().addClass('cur');
+}
+(function($){
+	window['myScroll_parent'] = null;
+	window['myScroll_inner'] = null;
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/help2012.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}help/">{$lanmuname}</a> &gt; {$chrtitle}</div>
+	<div id="content" class="help2012">
+		<div class="help_head">
+			<div class="help_nav">
+				<ul class="clearfix">
+					{$wenticategory}
+				</ul>
+			</div>
+			
+		</div>
+		<div class="other_question">
+			<ul class="clearfix">
+				{$helplist}
+			</ul>
+		</div>
+		<div class="help_body">
+			<h2>{$chrtitle}</h2>
+			<div class="bd">
+				{$chrcontent}
+			</div>
+		</div>
+		<div class="ft">上文对您是否有帮助？如有疑问请直接咨询客服</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

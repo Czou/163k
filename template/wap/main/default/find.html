@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>找回密码-{$SiteName}</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<link href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<link href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" rel="stylesheet" rev="stylesheet" />
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.nofixed { padding-top:0;}
+</style>
+</head>
+<body class="nofixed">
+<div class="header">
+<div class="back"><a href="javascript:void(0);" onClick="return window.history.go(-1);">返回</a></div>
+找回密码
+</div>
+<div class="o_main">
+<form name="findpass" method="post"  style="margin:0;" onSubmit="return findsumit(this);">
+	<div class="get_pw">
+	 <ul>
+	  <li class="email_phone"><input type="text" placeholder="邮箱/手机" id="chrname" value="" /><button type="button" onClick="getCodes(this);" id="buttons" class="get_vcode">获取验证码</button><span id="daojishiNode" style="display:none;"><span id="daojishi" style="color:#f30;">30秒</span>后重发</span></span></li>
+	  
+	  <li class="vcode"><input type="text" id="code" placeholder="输入验证码" value="" /></li>
+	  <li class="pw"><input type="password" id="password" placeholder="新密码" value="" /></li>
+	  <li class="confirm_pw"><input type="password" id="password2" placeholder="确认密码" value="" /></li>
+	 </ul>
+	</div> 
+	<button type="submit" class="reg_btn">提 交</button>
+</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+<script>
+var timei = 31;
+function send(){
+ timei--;
+ if(timei==-1){
+	timei = 30;
+    $('#buttons').show();
+	$('#daojishiNode').hide();
+	return null;
+ }
+  $("#daojishi").html(timei + "秒") ;
+  setTimeout("send();",1000);
+}
+function getCodes(o){
+	var chrname = $("#chrname");
+	if(chrname.val()===""){
+		MSGwindowShow('find','0',"请输入您账户的邮箱地址/手机号码！",'','');
+		return false;
+	}
+	
+	var url = '/request.aspx?action=find&styleid=&chrname='+encodeURIComponent(chrname.val());
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	$.get(url,function(data){
+		if(data.islogin=="1"){
+			$('#buttons').hide();
+			$('#daojishiNode').show();
+			send();
+			MSGwindowShow('find','0',data.MSG,'','');
+		}else{
+			MSGwindowShow('find','4',data.error,'','');
+		}	
+	});
+	return false;
+}
+function findsumit(o){
+	var chrname = $("#chrname"),
+		password = $("#password"),
+		password2 = $("#password2"),
+		code = $('#code');
+	
+	if(chrname.val()===""){
+		MSGwindowShow('find','0',"请输入您账户的邮箱地址/手机号码！",'','');
+		return false;
+	}
+	if(code.val()===""){
+		MSGwindowShow('find','0',"请输入您获取到的验证码！",'','');
+		return false;
+	}
+	if(password.val()===""){
+		MSGwindowShow('find','0',"请输入您的新密码！",'','');
+		return false;
+	}
+	if(password2.val()===""){
+		MSGwindowShow('find','0',"请再输入一次您的新密码！",'','');
+		return false;
+	}
+	if(password2.val()!==password.val()){
+		MSGwindowShow('find','0',"您两次输入的密码不一致，请确认后重试！",'','');
+		return false;
+	}
+	
+	
+	var url='/request.aspx?action=find&styleid=1&chrname='+encodeURIComponent(chrname.val())+'&chrcode='+encodeURIComponent(code.val())+'&userpass='+encodeURIComponent(password.val())+'&password='+encodeURIComponent(password2.val());
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	$.get(url,function(data){
+		if(data.islogin=="1"){
+			MSGwindowShow('find','1',data.MSG,'{$SiteUrl}member/login.html','');
+		}else{
+			MSGwindowShow('find','4',data.error,'','');
+		}	
+	});
+	return false;
+}
+</script>
+</body>
+</html>

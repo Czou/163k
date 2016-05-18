@@ -1,0 +1,22 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td align="center">{$chrtitle}</td>
+	<td align="center"><span style="display:{$show}"><input type="radio" name="intorder{$ID}" {$intorder0} value="0" />启用<input type="radio" name="intorder{$ID}" {$intorder1} value="1" />关闭</span></td>
+	<td align="center">
+	<textarea cols="80" id="chrmark{$ID}" name="chrmark{$ID}" rows="10">{$chrmark}</textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrmark{$ID}"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '98%',height : '200px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+
+			});
+		});
+	</script></td>
+</tr>

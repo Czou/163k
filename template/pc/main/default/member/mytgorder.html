@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的省啦订单--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tuikuan.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我的省啦订单</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">我的省啦订单</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  消费/服务类:您凭订单号和消费券序号，或者手机短信，即可前往商家消费<br />
+                  实物-全款类:付款后商家将快递送货到您家 <br />
+				  实物-定金类:支付定金后商家将联系您，或者您联系商家确定后续交易事宜，商品余款您于商家自行结算
+                </td>
+              </tr>
+            </table>
+            <div class="ptag">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr><td style="width:100px" class="{$style8$}">{$url8$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style0$}">{$url0$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style1$}">{$url1$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style2$}">{$url2$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style3$}">{$url3$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style4$}">{$url4$}</td>
+                  <td class="card_line"></td>
+				   <td style="width:100px" class="{$style5$}">{$url5$}</td>
+                  
+                </tr>
+              </table>
+            </div>
+                    
+            <tag:Loop ListType="LISTMYTGORDER" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_tgorder_Tr.htm" />
+                  
+            <div class="manu clearfix" style="text-align:center;"> {$PageSplit} </div>
+				
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+   
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+  <!--申请退款 start-->
+
+    
+ <div class="sq_tuankuan" id="sq_tuankuan" style="display:none">
+   
+ <div class="order_details_title clearfix">
+            <strong>申请退款</strong>
+        </div>
+
+            <div class="a_nmq_module">
+                省啦项目：<span id="titlestr"></span></div>
+                <div class="a_nmq_list">消费券<span id="chrcodestr"></span>
+                     </div>
+            
+            <div class="a_refund_list">退款金额：
+
+                    <span class="a_refund_money" id="intmoneystr"></span>
+               </div>
+                <div class="tkfs">
+                    退款方式：
+
+                    <div class="a_refund_content a_refund_way">
+                        <label><span id="iskill19" style="display:none; font-weight:bolder"> <input type="radio" name="iskill" id="iskill" checked="checked" onClick="javascript:show_val('iskills','19');" value="">退至{$daijinname}账户余额（2个工作日内完成，无手续费）<span style="color:#949494; margin-left:24px; margin-top:6px;">账户余额可在下次购买商品时直接冲抵现金</span>
+                      </span>
+                        </label>
+                        <label>
+                          <span id="iskill9" style="display:none;">  <input type="radio" name="iskill" id="iskill"  onclick="javascript:show_val('iskills','9');"  value="">原路退回（2-5个工作日内完成，无手续费） 钱款将退回您的原支付账户</span>
+                          <span id="noiskill" style="display:none; font-weight:bolder; position:relative; bottom:8px;"> 对不起，本省啦项目不支持退款或已超过退款有效期！ </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="notes">
+                退款说明：
+                	<div class="notessm">
+                    <span>1.申请退款期限：消费券有效期截止后，七日内申请有效，过期作废。<br />
+                    2.购买省啦时使用了"{$daijinname}",退款只能退为{$daijinname}。<br />
+                    3.消费券有效期内，全额在线支付的消费券，可以申请原路返回，退回至您的付款账号。<br />
+                    4.消费券超过有效期，且省啦项目支持退款的消费券，退款只退为{$daijinname}。<br />
+                    5.不支持退款的省啦项目，无法申请退款。</span>
+                    </div>
+                </div>
+			
+            <div class="a_submit">
+            <input type="hidden" name="iskills" id="iskills" value="19" />
+            <input type="hidden" name="chrcodes" id="chrcodes" value="" />
+                <a href="javascript:tgtuikuan_select();hide('sq_tuankuan');" class="pink_btn_new">申请退款</a>
+                <a href="javascript:hide('sq_tuankuan');" class="pink_quxiao">取消</a> 
+        
+            </div>
+           
+       
+
+    </div>
+<!--申请退款 end-->
+ 
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+
+var daijinname = "{$daijinname}";
+function tgtuikuan_get(chrcode,iskill,title,intmoney){
+	if(iskill== 9 || iskill== 19 || iskill== -1 ){
+		var div3 = document.getElementById('sq_tuankuan');
+		var w_w = $(window).width();
+		var s_w = $('#sq_tuankuan').width();
+		
+		
+		$('#sq_tuankuan').css({'position':'absolute','z-index':'10','left':(w_w - s_w)/2+'px','top':($(document).scrollTop()+20)+'px','display':'block'});
+
+		
+  	 	show("sq_tuankuan");
+		show("titlestr",title);
+		echo("intmoneystr",intmoney);
+		echo("chrcodestr",chrcode);
+		if(iskill==9){
+			show("iskill19");hide("noiskill");show("iskill9");
+		}else if(iskill==19){
+			hide("iskill9");hide("noiskill");show("iskill19");
+		}else if(iskill== -1){
+			hide("iskill9");hide("iskill19");show("noiskill");
+		}
+		show_val("chrcodes",chrcode);
+	}else{
+		tgtuikuan(chrcode,iskill);
+	}
+}
+
+	
+	
+	
+function tgtuikuan_select(){
+	var iskill = document.getElementById("iskills").value;
+	var chrcode = document.getElementById("chrcodes").value;
+	tgtuikuan(chrcode,iskill);
+}
+function tgtuikuan(chrcode,xiaokill){ 
+	
+		var xmlhttp=createxmlhttp();
+		if(!xmlhttp)
+		{
+			alert("你的浏览器不支持XMLHTTP！！");
+			return;
+		}
+		
+		var url="mytgorder.aspx?action=tuikuan&chrcode=" + chrcode + "&xiaokill=" + xiaokill;
+		//echo("tuikuanhtmla",url);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		xmlhttp.onreadystatechange=requestdeletefilet;
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send(null);
+		function requestdeletefilet()
+		{
+			if(xmlhttp.readyState==4)
+			{
+				
+				if(xmlhttp.status==200)
+				{
+				if(xmlhttp.responseText == "ok"){
+					if(xiaokill=="9"){
+					document.getElementById("cid" + chrcode).innerHTML="<a href='#' onclick=\"tgtuikuanget('" + chrcode + "',0,'');\"><font color='red'>退款中!,取消退款申请？</font></a>";
+				alert("退款申请成功." + "\n" + "你的退款将在5个工作日内将你的退款返回到你的付款账户");
+				}else if(xiaokill=="0"){
+						document.getElementById("cid" + chrcode).innerHTML="正常!";
+				
+					}else if(xiaokill=="19"){
+						document.getElementById("cid" + chrcode).innerHTML="<a href='#' onclick=\"tgtuikuanget('" + chrcode + "',0,'');\"><font color='red'>退款中!,取消退款申请？</font></a>";
+				    alert("退款申请成功." + "\n" + "由于你使用了[" + daijinname + "]账户抵扣购买，" + "\n" + "你的退款将在2个工作日内将你的退款返回到你的[" + daijinname + "]账户," + "\n" + "你可以使用[" + daijinname + "]账户中的余额继续购买。");
+				
+					}
+				
+					
+					return false;
+	      }else{
+	      	alert(xmlhttp.responseText);
+          return false;
+		    }
+
+				//	return xmlhttp.responseText;
+				}
+			}
+		}
+}
+</script>
+</body>
+</html>

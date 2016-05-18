@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>用户注册-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<link href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<link href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" rel="stylesheet" rev="stylesheet" />
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.nofixed { padding-top:0;}
+</style>
+</head>
+<body class="nofixed">
+<div class="header">
+<div class="back"><a href="javascript:void(0);" onClick="return window.history.go(-1);">返回</a></div>
+用户注册
+</div>
+<div class="o_main">
+<form name="form1" id="form1" method="post" action="" onSubmit="return checkregister();">
+			<input type="hidden" name="telmust" id="telmust" value="{$istelmust}">
+			<input type="hidden" name="ismember" id="ismember" value="{$ismember}">
+			<input type="hidden" id="allok" value="1">
+			<input type="hidden" id="styleid" value="1" />
+<div class="user_reg">
+ <div class="reg_type clearfix" id="sel_styleid">
+  <div class="personal item current" data-val="1">
+   <i></i>
+   个人
+  </div>
+  <div class="business item" data-val="2">
+   <i></i>
+   商家/企业
+  </div>
+ </div>
+ <ul>
+  <li class="userName"><input type="text" placeholder="昵称/手机/邮箱" name="chremail" id="chremail" maxlength="30" onBlur="test_email2();" autocomplete="off" /></li>
+  <li class="pw"><input type="password" name="chrpwd" id="chrpwd" maxlength="16" placeholder="密码长度6-16，区分大小写" autocomplete="off" /><div class="open" id="showpwd"></div></li>
+  
+  <li class="userqq display0"><input type="text" placeholder="QQ号码" name="chrqq" id="chrqq" maxlength="30" autocomplete="off" /><input type="hidden" name="qqmust" id="qqmust" value="0"></li>
+
+  <li class="vcode"><input type="text" name="code" id="code" maxlength="10" autocomplete="off" placeholder="输入验证码" /><img src="" id="vadimg" onClick="this.src='../regcode.html?'+(new Date().getTime());" /></li>
+ </ul>
+</div> 
+ <button type="submit" class="reg_btn" id="form_submit_disabled">注 册</button>
+ <div class="loadding" id="loadding"><img src="{$Default_tplPath}images/loadding.gif"></div>
+</form>
+ <div class="reg_tips">点击"注册"按钮就表示我已同意<a href="../request.aspx?action=showxieyi">会员注册协议！</a></div>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_reg.js"></script>
+
+<script>
+document.getElementById('vadimg').src='../regcode.html?'+(new Date().getTime());
+var nowdomain = '{$SiteUrl}';
+$('#sel_styleid .item').each(function(){
+	var that = $(this);
+	that.click(function(e){
+		e.preventDefault();
+		$(this).siblings('.item').removeClass('current');
+		$(this).addClass('current');
+		$('#styleid').val($(this).attr('data-val'));
+	});
+});
+if($('#ismember').val() === '1'){
+	$('#loginNamechr').html('邮箱地址');
+	$('#chremail').attr('placeholder','设置一个邮箱作为登录名');
+}
+if($('#ismember').val() === '2'){
+	$('#loginNamechr').html('手机号码');
+	$('#chremail').attr('placeholder','设置手机号码作为您的登录名');
+}
+if($('#qqmust').val() === '1'){
+	$('.userqq').removeClass('display0');
+}
+var if_eye_show = false;
+$('#showpwd').click(function(){
+	if(!!if_eye_show){
+		$(this).removeClass('on');
+		$('#chrpwd').attr({'type':'password'});
+		if_eye_show = false;
+	}else{
+		$(this).addClass('on');
+		$('#chrpwd').attr({'type':'text'});
+		if_eye_show = true;
+	}
+});
+var jump_url = purl().param('from');
+if(jump_url =='' || jump_url == null){
+	jump_url= decodeURIComponent(nowdomain);
+}else{
+	jump_url = decodeURIComponent(jump_url);
+}
+$.cookie('reg_jump_url', jump_url ,{ expires: 3, path: '/', domain: '{$SiteYuming}' });
+</script>
+</body>
+</html>

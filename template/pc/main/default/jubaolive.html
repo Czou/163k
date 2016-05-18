@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<script src="{$tplPath}js/common.js"></script>
+<SCRIPT language=javascript src="{$tplPath}js/java.js"></SCRIPT>
+<body><style>
+/*分页2*/
+body{font-size:12px; font-family:"微软雅黑"; padding:0; margin:0;}
+a{
+	color:#36c;
+	text-decoration:underline;
+	font-family:"Verdana";
+	font-size:12px;
+}
+a:hover{
+	color:#f30;
+	text-decoration:underline;
+}
+.manu { padding:3px; margin:3px; margin-top:10px; text-align:right; font-size:12px; font-family:"Verdana";}
+.manu a { border:1px solid #eee; color:#036cb4; margin:2px; text-decoration:none; padding:2px 5px;}
+.manu a:hover { border:1px solid #999;}
+.manu a:active { border:1px solid #999; color:#666;}
+.manu .current { border:1px solid #036cb4; padding:2px 5px; margin:2px; color:#fff; background:#036cb4; font-weight:bold;}
+.manu .disabled { border:1px solid #eee; padding:2px 5px; margin:2px; color:#ddd;}
+input { vertical-align:middle;}
+.btn { background-color:#005ac7; margin-top:10px; border:1px solid #004faf; color:#fff; padding:4px 20px; cursor:pointer;}
+</style>
+
+<form name="form1" method="post" style="margin:0" onsubmit="return jubaolivesave(this.id.value,this);">
+<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+<Tr><Td valign=top>
+<table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td style="font-size:13px;padding:5px; background-color:#005ac7; color:#fff;">如果您发现这条信息有问题，请举报。</td></tr> 
+
+<tr><td height="25" style="padding-top:10px;">　<input type="radio" name="typeid" value="虚假信息" checked onclick="chrmark.value='虚假信息';">虚假信息　　　<input type="radio" name="typeid" value="违法信息"  onclick="chrmark.value='违法信息';">违法信息</td></tR>
+<tr><td height="25">　<input type="radio" name="typeid" value="联系方式无效" onclick="chrmark.value='联系方式无效';">联系方式无效　<input type="radio" name="typeid" value="分类错误" onclick="chrmark.value='分类错误';">分类错误</td></tR>
+<tR><td height="25" align="center"><input type="submit" name="submit" class="btn" value="提交"><input type="hidden" name="id" id="id" value="{$id}">
+<input type="hidden" name="chrmark" id="chrmark" value="虚假信息"></td></tr>
+<tr><td align="right"><img src="{$tplPath}images/关闭按钮.BMP" style="cursor:pointer"  onclick="parent.LoginHide();"/></td></tr>
+</table>
+</td></tr>
+</table>
+</form>
+</body>
+</html>

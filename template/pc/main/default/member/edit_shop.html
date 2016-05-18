@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>店铺管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<link  media="screen" rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script>
+function checkform(o){
+	if(o.chrshop.value==""){
+		alert("请输入店铺名称!");
+		o.chrshop.focus();
+		return false;
+	}
+	if(o.qu_catgoryid.value==""){
+		alert("请选择商品大类!");
+		o.qu_catgoryid.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("请选择商品小类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.chrdiqu.value==""){
+		alert("请选择店铺地区!");
+		o.chrdiqu.focus();
+		return false;
+	}
+	if(!confirm("修改资料后需要等待管理员的重新审核,您确认要提交吗?")){
+		return false;
+	}
+}
+function set_newimage(){
+	var chraddress=document.getElementById('chraddress').value;
+	if(chraddress==""){
+		//alert("对不起,请先输入详细地址,再进行地图标注");
+		//document.getElementById('chraddress').focus();
+		//return false;
+	}
+	var shop_x=document.getElementById('shop_x').value;
+	var shop_y=document.getElementById('shop_y').value;
+	var ggmap=document.getElementById('ggmap').value;
+ 	var url='../ezmarker/index.aspx?city='+escape(chraddress)+'&x='+shop_x+'&y='+shop_y+'&ggmap='+ggmap;
+	window.open(url,'newindow','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=yes');
+}
+</script>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 店铺管理</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">店铺管理</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  如果修改了店铺信息,将需要管理员重新审核 <br />
+                </td>
+              </tr>
+            </table>
+            
+            <form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr>
+                  <td class="tditem" style="width:18%;"><span style="color:Red">*</span> 店铺名称：</td>
+                  <td class="tdcontent" colspan=3><input name="chrshop" type="text" class="text" size="40"  value="{$chrshop$}">
+                  </td>
+                </tr>
+				<tr>
+                  <td class="tditem" style="width:18%;">店铺访问：</td>
+                  <td class="tdcontent" colspan=3><span  style="display:{$oldwangzhi}">您的店铺网址：<a href="{$shopsurl}" target=_blank>{$shopsurl}</a>&nbsp;&nbsp;&nbsp;   </span>二级域名：{$dianpuurl} &nbsp;&nbsp;  <a href="dianconfig.aspx">申请/修改绑定</a></td>
+                </tr>
+                <tr>
+                  <td class="tditem">店铺风格模板：</td>
+                  <td class="tdcontent" colspan=3>{$moban}
+                    <font color=blue> &nbsp;是否在通栏背景上显示店铺LOGO：
+                    <input type="checkbox" name="showlogo" value="0" {$showlogo$}>
+                    显示
+                    &nbsp;&nbsp;&nbsp;&nbsp;是否在通栏背景上显示店铺名称：
+                    <input type="checkbox" name="showname" value="0" {$showname$}>
+                    显示 </font> </td>
+                </tr>
+                <tr id="tr1">
+                  <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 店铺分类：</td>
+                  <td class="tdcontent" style="width:30%"  >{qu_classid} </td>
+                  <td class="tditem"><span style="color:Red">*</span> 所在区域：</td>
+                  <td class="tdcontent">{$chrdiqu$} <span>(请如实填写)</span></td>
+                </tr>
+                <tr id="tr2">
+                  <td class="tditem"><span style="color:Red">*</span> 详细地址：</td>
+                  <td class="tdcontent" colspan=3><input name="chraddress" id="chraddress" type="text" size="40"  class="text" value="{$chraddress$}">
+                    <span>(请如实填写)</span></td>
+                </tr>
+				<tr >
+                  <td class="tditem"><span style="color:Red">*</span> 店铺SEO标题：</td>
+                  <td class="tdcontent" colspan=3><input name="seotitle" id="seotitle" type="text" size="40" maxlength="100"  class="text" value="{$seotitle$}">
+                    <span>(结构：店名+店铺SEO标题 +栏目名+站名)</span></td>
+                </tr>
+				<tr >
+                  <td class="tditem"><span style="color:Red">*</span> 店铺SEO关键词：</td>
+                  <td class="tdcontent" colspan=3><input name="seokeyword" id="seokeyword" type="text" size="60" maxlength="200"  class="text" value="{$seokeyword$}">
+                    <span>(多个用,隔开)</span></td>
+                </tr>
+				<tr >
+                  <td class="tditem"><span style="color:Red">*</span> 店铺SEO描述：</td>
+                  <td class="tdcontent" colspan=3><textarea name="seodescription" id="seodescription"  maxlength="500"  class="text" style="width:400px;height:100px;">{$seodescription$}</textarea>
+                    <span>(建议不要超过100汉字)</span></td>
+                </tr>
+                <tr  >
+                  <td class="tditem">地图标注： </td>
+                  <td class="tdcontent" colspan=3><a href="#" onclick='set_newimage()'><font  color="red">{$map$}</font></a>
+                    <input type="hidden" id="shop_x" name="shop_x"  value="{$shop_x$}">
+                    <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y$}">
+                    <input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap$}">
+                    <input type="hidden" id="shop_z" name="shop_z"  value="{$shop_z$}">
+                    <span class="red">标注后,店铺将定位到电子地图上</span></td>
+                </tr>
+                <tr id="">
+                  <td class="tditem"> 折扣 ：</td>
+                  <td class="tdcontent" colspan=3><input name="zhe" type="text" class="text" size="20"  value="{$zhe}">
+                    (比如95折，88折) </td>
+                </tr>
+				<tr id="">
+                  <td class="tditem"> 人均消费 ：</td>
+                  <td class="tdcontent" colspan=3><input name="consumption" type="text" class="text" size="20"  value="{$consumption}"></td>
+                </tr>
+				<tr id="">
+                  <td class="tditem"> 本店特色 ：</td>
+                  <td class="tdcontent" colspan=3><input name="shoptese" value="{$shoptese}" type="text" class="text" size="20" >  (比如：绿色、无污染、土特产品) </td>
+                </tr>
+                <tr id="tr2_1">
+                  <td class="tditem"> 联系电话：</td>
+                  <td class="tdcontent"><input name="chrtel" type="text" class="text" size="20"  value="{$chrtel$}">
+                  </td>
+                  <td class="tditem"> 联系Q  Q：</td>
+                  <td class="tdcontent"><input name="chrqq" type="text" class="text" size="20"  value="{$chrqq$}">
+                  </td>
+                </tr>
+                <tr id="tr3">
+                  <td class="tditem"> 交通线路：</td>
+                  <td class="tdcontent"><input name="chrjiaotong" type="text" size="30" class="text"   value="{$chrjiaotong$}">
+                  </td>
+                  <td class="tditem"> 营业时间：</td>
+                  <td class="tdcontent"><input name="chrdate" type="text" size="30" class="text"   value="{$chrdate$}">
+                  </td>
+                </tr>
+                <!--<tr id="tr3_1">
+        <td class="tditem"> 优惠促销：</td>
+        <td class="tdcontent" colspan=3><input name="zhe" type="text"  class="text"  size="40"  value="{$zhe$}"> 
+           </td>
+    </tr>-->
+                <tr   >
+                  <td class="tditem">形象图片<font color="#FF0000">*</font><br>
+                    (140*60)： </td>
+                  <td  colspan=3  class="tdcontent"><span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+                    <input type="file" name="file" size="80"  class="text" >
+                    </span>
+                    <input type=hidden name="url1"  value="{$url1$}">
+                    <input type=hidden name="url2"  value="{$url2$}">
+                  </td>
+                </tr>
+                <tr   >
+                  <td class="tditem">店铺简介： <bR>
+                    (50汉字内) </td>
+                  <td  colspan=3  class="tdcontent"><textarea name=chrmark class="text" style="width:600px;height:100px;">{$chrmark$}</textarea>
+                  </td>
+                </tr>
+				<tr   >
+                  
+                  <td  colspan=4 align="center"><input type="submit" class="global_btn_blue_big" name="Submit" value=" 确认无误，提交 " id="Submit" /></td>
+                </tr>
+                <script>
+function hid2()
+{
+document.getElementById("str1").style.display="none";
+document.getElementById("str2").style.display="block";
+
+}
+</script>
+              </table>
+              
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我发起的活动管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+<script src="{$Default_tplPath}WdatePicker.js"></script>
+
+
+<script>
+function set_newimage(){
+	var chraddress=document.getElementById('chraddress').value;
+	if(chraddress==""){
+		//alert("对不起,请先输入详细地址,再进行地图标注");
+		//document.getElementById('chraddress').focus();
+		//return false;
+	}
+	var shop_x=document.getElementById('shop_x').value;
+	var shop_y=document.getElementById('shop_y').value;
+	var ggmap=document.getElementById('ggmap').value;
+ 	var url='../ezmarker/index.aspx?city='+escape(chraddress)+'&x='+shop_x+'&y='+shop_y+'&ggmap='+ggmap;
+	window.open(url,'newindow','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=yes');
+}
+</script>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我发起的活动管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">我发起的活动管理</div>
+
+ <form name="aspnetForm" method="post" action="?action=myeditSave" onsubmit="return checkmyactive(this)" enctype="multipart/form-data">
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		请如实填写下面的资料，方便我们对您所发布信息的审核！</td>
+	</tr>
+</table>
+<span id="_ctl0_ContentPlaceHolder1_lbError" style="color:Red;font-size:Small;"></span>
+<div class="smalltitle">1、基本信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:20%;"><span style="color:Red">*</span> 活动编号：</td>
+        <td class="tdcontent" style="width:80%">
+            <input type="text" name="activenum" class="text" value="{$activenum}" /></td>
+    </tr>
+    <tr>
+        <td class="tditem" style="width:20%;"><span style="color:Red">*</span> 活动名称：</td>
+        <td class="tdcontent" style="width:80%">
+            <input name="chrtitle" type="text" class="text" size="40" value="{$chrtitle$}">
+            <span>(最多30个字)</span></td>
+    </tr>
+	 <tr>
+        <td class="tditem" ><span style="color:Red">*</span> 活动分类：</td>
+        <td class="tdcontent" >
+            {$categoryid$}</td>
+    </tr>
+	 <tr>
+        <td class="tditem" ><span style="color:Red">*</span> 所在区域：</td>
+        <td class="tdcontent" >
+            {$quyu$}</td>
+    </tr>
+	 <tr>
+        <td class="tditem" ><span style="color:Red">*</span> 集合时间：</td>
+        <td class="tdcontent" >
+            <input name="jihe" type="text" class="text" size="20" value="{$jihe$}"></td>
+    </tr>
+	 <tr>
+        <td class="tditem" ><span style="color:Red">*</span> 活动地点：</td>
+        <td class="tdcontent" >
+            <input name="chraddress" type="text" class="text" size="20" value="{$chraddress$}"></td>
+    </tr>
+     <tr  >
+                  <td class="tditem">地图标注： </td>
+                  <td class="tdcontent" colspan=3><a href="#" onclick='set_newimage()'><font  color="red">{$map$}</font></a>
+                    <input type="hidden" id="shop_x" name="shop_x"  value="{$shop_x$}">
+                    <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y$}">
+                    <input type="hidden" id="ggmap" name="ggmap"  value="1">
+                    <input type="hidden" id="shop_z" name="shop_z"  value="0">
+                    <span class="red">标注后,店铺将定位到电子地图上</span></td>
+                </tr>
+    
+	 <tr>
+        <td class="tditem" ><span style="color:Red">*</span> 结束时间：</td>
+        <td class="tdcontent" >
+            <input name="enddate" type="text" class="text" size="20" class="Wdate" readonly="true"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})" value="{$enddate$}"></td>
+    </tr>
+	 <tr>
+        <td class="tditem" >  带队团长：</td>
+        <td class="tdcontent" >
+            <input name="tuanzhang" type="text" class="text" size="20" value="{$tuanzhang$}"></td>
+    </tr>
+	<tr>
+        <td class="tditem" >  团长QQ：</td>
+        <td class="tdcontent" >
+            <input name="chrqq" type="text" size="20" class="text"   value="{$chrqq$}" >(供活动详情页面中 团长旁边的在线QQ调用)</td>
+    </tr><input name="intorder" type="hidden" size="4" value="{$intorder$}" >
+	<tr>
+        <td class="tditem" >  讨论地址：</td>
+        <td class="tdcontent" >
+            <input name="chrurl" type="text" size="30" class="text"  value="{$chrurl$}"></td>
+    </tr>
+
+	<tr>
+        <td class="tditem" >  活动简介：</td>
+        <td class="tdcontent" >
+            <textarea name="chrmark" class="text"  style="width:600px; height:60px;">{$chrmark$}</textarea></td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 上传图片：</td>
+        <td class="tdcontent">
+             <div style="width:490px; float:left;">
+            <input type="file" name="File" id="File" size="60"  class="text"  onchange="preview('File');" /><p><br /></p>
+            <span>图片限定120k内，jpg或gif格式，请确保图片在浏览器中可以正常打开。一张好图胜千言，建议500×500象素，主体突出。
+            </span></div>
+            <div style="width:120px; float:left;">
+                <div id="previewImage" style="width:100px;height:100px;border:solid 1px #DDD;line-height:100px;vertical-align:middle;text-align:center;">
+                没有图片</div>
+            </div>
+            <input type=hidden name="url1"  value="">
+        </td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color: Red">*</span> 活动详情：</td>
+        <td class="tdcontent">
+		 <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent$}</textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+		
+            </td>
+    </tr>
+</table>
+<br />
+<div class="smalltitle">2、联系方式</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:20%;"><span style="color:Red">*</span> 真实姓名：</td>
+        <td class="tdcontent" style="width:80%">
+            <input name="chrtruename" type="text" class="text"  size="20" value="{$chrtruename$}">
+            <span>(请如填写，方便别人与您联系)</span></td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 身份证号码：</td>
+        <td class="tdcontent">
+            <input name="chrmancode" type="text" class="text"  size="30" value="{$chrmancode$}">
+            <span>(作为信息审核的凭证，请如实填写！此信息不会在页面的任何地方显示)</span></td>
+    </tr>
+    
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 联系电话：</td>
+        <td class="tdcontent">
+            <input name="chrtel" type="text" class="text"  size="20"  value="{$chrtel$}" >
+            </td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 与此次活动的商家关系：</td>
+        <td class="tdcontent">
+            <input name="chrguanxi" type="text" class="text"  size="30"  value="{$chrguanxi$}" >
+           </td>
+    </tr>
+</table>
+<div class="submit">
+<span id="submit1"></span>
+<span id="btn"><input type=hidden name=ID value="{$id$}">
+<input type="submit" name="btnSubmit" value=" 确认无误，提交 "  language="javascript" id="btnSubmit" /></span></div>
+<script>
+function $(id){
+  return document.getElementById(id);
+}
+if($('url1').value!='' && $('url1').value!="undefined")
+{ 
+    $('previewImage').innerHTML="<img src=\"" + $('url1').value + "\" width=\"100\" height=\"100\" onload=\"ResizeImage(this, 100, 100, true);\" />";
+}
+</script>
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

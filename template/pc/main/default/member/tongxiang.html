@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改头像--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+
+
+
+<script>
+function showsize(){
+	document.Form1.Image1.src = document.Form1.m_file.value;
+}
+</script>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改头像</div>
+	<!-- 主体 -->
+	<form name="Form1" method="post" action="?action=tousave" style="margin:0" enctype="multipart/form-data">
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">个人头像设置</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		可上传个性图片作为你个人头像，宽度不大于110，高度不大于110，300K以内；</td>
+	</tr>
+</table>
+<div class="smalltitle">个人头像设置（打 <span style="color:Red">*</span> 为必填项）</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:25%;"> 当前头像：</td>
+        <td class="tdcontent" style="width:75%">
+            <img src="{$chrpic}" id="Image1"  width=110 height=110></td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 上传新头像：</td>
+        <td class="tdcontent">
+            <input type="file" name="m_file"  style="width:400px;height:22px;" onchange="setTimeout('showsize()',500)"/></td>
+    </tr>
+   
+</table>
+<div class="submit"><input type="submit" name="submit" value=" 提交上传 " id="" /></div>
+
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

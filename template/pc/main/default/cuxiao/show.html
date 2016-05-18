@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/information2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}cuxiao/">{$lanmuname}</a> &gt; {$chrtitle}</div>
+		<div class="mod_03">
+			<div class="hd clearfix"><h3 class="left">同城商家打折促销信息大全</h3><p class="left tips">注意：您必须持有本站“打折一卡通”才能享有以下优惠、折扣、促销</p><p class="right btn"><a href="{$shopurl}join.aspx" target="_blank">商家结盟合作</a><a href="card.aspx" target="_blank">申领打折卡</a></p></div>
+			<div class="bd">
+				<h2>{$chrtitle}</h2>
+				<div class="info">发布商家：<a href="{$shopid}" target="_blank">{$chrshop}</a>　　有效截止时间：{$enddate}　　浏览数：{$views}</div>
+				<div class="inner">
+					{$chrcontent}
+					<div class="share clearfix">
+						<div class="left">分享到：</div>
+						<div class="left">{$Mh163k_整站通用_分享代码}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

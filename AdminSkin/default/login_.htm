@@ -1,0 +1,185 @@
+﻿<html>
+<title>{$SiteName}-后台登陆</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #1D3647;
+	font-size:9pt;
+}
+-->
+</style>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+    var arVersion = navigator.appVersion.split("MSIE")
+    var version = parseFloat(arVersion[1])
+    if ((version >= 5.5) && (document.body.filters)) 
+    {
+       for(var j=0; j<document.images.length; j++)
+       {
+          var img = document.images[j]
+          var imgName = img.src.toUpperCase()
+          if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+          {
+             var imgID = (img.id) ? "id='" + img.id + "' " : ""
+             var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+             var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+             var imgStyle = "display:inline-block;" + img.style.cssText 
+             if (img.align == "left") imgStyle = "float:left;" + imgStyle
+             if (img.align == "right") imgStyle = "float:right;" + imgStyle
+             if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+             var strNewHTML = "<span " + imgID + imgClass + imgTitle
+             + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+             + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+             + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+             img.outerHTML = strNewHTML
+             j = j-1
+          }
+       }
+    }    
+}
+window.attachEvent("onload", correctPNG);
+
+function ChkLogin()
+{
+ if(LoginForm.ChrName.value.length < 1 || LoginForm.ChrName.value.length > 16){
+	alert("您的用户名长度应在1-16字之间！");
+	LoginForm.ChrName.focus();
+	return false;
+ }
+
+ if(LoginForm.ChrPwd.value.length < 2 || LoginForm.ChrPwd.value.length > 32){
+	alert("您的密码长度应在2-32字之间！");
+	LoginForm.ChrPwd.focus();
+    return false;
+ }
+  if(LoginForm.Confirm.value.length < 2 || LoginForm.Confirm.value.length > 32){
+	 alert("请输入验证码！");
+	 LoginForm.Confirm.focus();
+	 return false;
+ }
+}
+</script>
+<SCRIPT language=JavaScript src="{$atplPath}js/Admin_SoftKey.Js"></SCRIPT>
+<link href="{$atplPath}login/skin.css" rel="stylesheet" type="text/css">
+<body style='margin:0;color:#FFFFFF;overflow:hidden;border:0'>
+<table width="100%" height="166" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="42" valign="top"><table width="100%" height="42" border="0" cellpadding="0" cellspacing="0" class="login_top_bg">
+      <tr>
+        <td width="1%" height="21">&nbsp;</td>
+        <td height="42"><span class="login-buttom-txt">授权给：{$SiteName} 使用</span></td>
+        <td width="17%"><span class="login-buttom-txt">163K地方门户网站系统6.0版本 </span></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" height="532" border="0" cellpadding="0" cellspacing="0" class="login_bg">
+      <tr>
+        <td width="49%" align="right"><table width="91%" height="532" border="0" cellpadding="0" cellspacing="0" class="login_bg2">
+            <tr>
+              <td height="138" valign="top"><table width="89%" height="427" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td height="149">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="80" align="right" valign="top"><img src="{$atplPath}login/logo.png" width="279" height="68"></td>
+                </tr>
+                <tr>
+                  <td height="198" align="right" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="35%">&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>1- 地方门户网站首选方案...</p></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>2- 
+						强大的后台系统，管理<span lang="zh-cn">网站</span>易如反掌...</p></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt">3- 
+						打造商业网站系统旗舰品牌</td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td height="25" colspan="2" class="left_txt"><p>4- 
+						追求品质与服务的双重卓越</p></td>
+                    </tr>
+                    <tr>
+                      <td>&nbsp;</td>
+                      <td width="30%" height="40"><img src="{$atplPath}login/icon-demo.gif" width="16" height="16"><a target="_blank" class="left_txt3" href="http://www.163k.com"> 
+						官方网站</a> </td>
+                      <td width="35%"><img src="{$atplPath}login/icon-login-seaver.gif" width="16" height="16"><a class="left_txt3" target="_blank" href="http://fuwu.163k.com"> 
+						技术支持</a></td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table></td>
+            </tr>
+            
+        </table></td>
+        <td width="1%" >&nbsp;</td>
+        <td width="50%" valign="bottom"><table width="100%" height="59" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="4%">&nbsp;</td>
+              <td width="96%" height="38"><span class="login_txt_bt">输入管理员账号信息</span></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td height="21"><table cellSpacing="0" cellPadding="0" width="100%" border="0" id="table211" height="328">
+                  <tr>
+                    <td height="164" colspan="2" align="middle"><FORM METHOD=POST ACTION="index.aspx?action=login" name="LoginForm" onSubmit="return ChkLogin()">
+                        <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="143" id="table212">
+                          <tr>
+                            <td width="13%" height="38" class="top_hui_text"><span class="login_txt">管理员：&nbsp;&nbsp; </span></td>
+                            <td height="38" colspan="2" class="top_hui_text"><input type="text" id="ChrName" name="ChrName"  title="请输入用户名"  size="20" value="" />                            </td>
+                          </tr>
+                          <tr>
+                            <td width="13%" height="35" class="top_hui_text"><span class="login_txt"> 密 码： &nbsp;&nbsp; </span></td>
+                            <td height="35" colspan="2" class="top_hui_text"><input type="password" id="ChrPwd" name="ChrPwd" size=18 title="请输入密码" value="" /> <img align=absmiddle src="{$atplPath}login/Dot_Info.gif" border=0 style='cursor:pointer' onKeyDown="Calc.Password.value=LoginForm.Password.value" title="点此使用小键盘输入密码，使你的帐号信息更安全！" onClick="inputpass=LoginForm.ChrPwd;showkeyboard();LoginForm.ChrPwd.readOnly=1;"  readOnly onchange=Calc.passcnbbr.value=LoginForm.passcnbbr.value>
+                              <!--<img src="{$atplPath}login/luck.gif" width="19" height="18"> --></td>
+                          </tr>
+                          <tr>
+                            <td width="13%" height="35" ><span class="login_txt">a验证码：</span></td>
+                            <td height="35" colspan="2" class="top_hui_text"><input type="text" id="Confirm" name="Confirm"  size="8" title="请输入验证码"  value="" />
+                              &nbsp; <img src="GetCode.aspx" onClick="src='GetCode.aspx?s='+Math.random();" border=0 style="cursor:hand;" align="absmiddle"></td>
+                          </tr>
+                          <tr>
+                            <td height="35" >&nbsp;</td>
+                            <td width="20%" height="35" ><input name="Submit" type="submit" class="button" id="Submit" value="登 陆"> </td>
+                            <td width="67%" class="top_hui_text"><input name="cs" type="button" class="button" id="cs" value="取 消" onClick="showConfirmMsg1()"></td>
+                          </tr>
+                        </table>
+                        <br>
+                    </form></td>
+                  </tr>
+                  <tr>
+                    <td width="433" height="164" align="right" valign="bottom"><img src="{$atplPath}login/login-wel.gif" width="242" height="138"></td>
+                    <td width="57" align="right" valign="bottom">&nbsp;</td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+          </td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="20"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="login-buttom-bg">
+      <tr>
+        <td align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center"><span style="font-size: 9pt">警示：只有合法(<span lang="zh-cn">授权</span>)用户才可正常登陆网站后台！</span><p>
+		<span style="font-size: 9pt">&nbsp;&nbsp;&nbsp; Copyright © 2003-2010 
+		163K Systems Incorporated. All rights reserved</span></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+

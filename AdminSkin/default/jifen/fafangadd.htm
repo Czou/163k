@@ -1,0 +1,91 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function deleteall(){
+	if(confirm("此操作不可逆,您确认要清空所有的发放记录吗?")){
+		window.location.href="?action=fadel";
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">发放{$jifenname}(如果会员多，刚慎重选择全部)&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=fasave">
+    
+	 <tr > 
+      <td width="16%" height="25" >发放类型<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" value="0"  name="R1" onclick="setduo(0)">向全体会员 
+<input type="radio" value="1"  name="R1" onclick="setduo(1)">向全体个人会员 
+<input type="radio" value="2" checked name="R1" onclick="setduo(2)">全体普通企业会员 
+<input type="radio" value="3" checked name="R1" onclick="setduo(3)">全体高级企业会员 
+<input type="radio" value="4"  name="R1" onclick="setduo(4)">按用户名发放
+<bR><span id=tt style="display:none">
+<textarea name="cname" cols=70 rows=5></textarea>(支持多用户，每个用户用回车换行)
+</span>
+</td>
+    </tr>
+   <tr > 
+      <td  height="25" >向用户发放<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="num"  class="agannum" onkeypress="return checkNum(event.keyCode)"/>{$jifenname}/人</td>
+    </tr>
+	  <tr > 
+      <td  height="25" >发放理由<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="40" name="title" /></td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big">　<input type="button" name="button" class="global_btn_big" value="清空发放记录" onclick="deleteall();">
+		
+		</td>
+    </tr>
+	<tr><td><font color=red>{$jifenname}发放记录列表</font></td>
+	<td class="category">{$slist}</td>
+	</tR>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+
+
+	<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

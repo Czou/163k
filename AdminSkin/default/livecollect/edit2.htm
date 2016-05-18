@@ -1,0 +1,65 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;信息采集管理</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center"><a href="live_Collect.aspx">信息采集管理首页</a> | <a href="live_Collect.aspx?Action=Add">信息采集添加</a> | <a href="Admin_Inflow.aspx">信息采集入库</a></td>
+        </tr>
+        </tbody>
+        
+      </table>
+      <table align="center" cellpadding="4" cellspacing="1" class="toptable grid" >
+        <form name="Form" action="live_Collect.aspx?Action=edit3" method="post">
+          <tbody>
+            <tr>
+              <td colspan=2 background="{$atplPath}Images/r_0.gif">采集列表连接设置</td>
+            </tr>
+            <tr>
+              <td width="21%" height=32 align="right" >资源列表开始代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.LsString.rows>2)document.Form.LsString.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.LsString.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="LsString" cols="70" rows="4">{$LsString}</textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >资源列表结束代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.LoString.rows>2)document.Form.LoString.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.LoString.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="LoString" cols="70" rows="4">{$LoString}</textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >资源链接开始代码：</td>
+              <td height=32 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.HsString.rows>2)document.Form.HsString.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.HsString.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="HsString" cols="70" rows="4">{$HsString}</textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >资源链接结束代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.HoString.rows>2)document.Form.HoString.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.HoString.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="HoString" cols="70" rows="4">{$HoString}</textarea></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td height=32 colspan="2" align="left" class="category" ><input type="hidden" name="ID" id="ID" value="{$ID}">
+                <input  type="button" name="button" value="上一步" onClick="window.location.href='javascript:history.go(-1)'">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="Submit" type="submit" id="Submit" value="下一步"></td>
+            </tr>
+          </tbody>
+        </form>
+      </table></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}后台管理系统</title>
+<link href="{$atplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$atplPath}skin/admin2013.css" type="text/css" rel="stylesheet" />
+<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<style>
+html {overflow-x: hidden; overflow-y: hidden;}
+</style>
+</head>
+<body>
+
+	<div class="header" id="header">
+		<div class="topbar clearfix" id="topBar">
+			<ul class="left clearfix">
+				{$topmenu}
+				<li class="no_bor po_re" id="quickly_menu"><a href="javascript:void(0);" class="t">快速操作</a>
+					<ul class="po_ab clearfix">
+						{$smenu}
+					</ul>
+				</li>
+				<li class="no_bor" style="background-color:#f60;"><a href="Admin_WapConfig.aspx" style="color:#fff;" target="content" class="green">手机版配置</a></li>
+			</ul>
+			<ul class="right clearfix">
+				<li><a href="Admin_Main.aspx" target="content" class="green">返回桌面</a></li>
+				<li><a href="create.aspx" target="content" class="purple">缓存配置</a></li>
+				<li><a href="/" target="_blank" class="yellow">前台首页</a></li>
+				<li><a href="#" onClick="if( confirm('确定要退出吗？')){parent.location.href='index.aspx?action=logout';}" class="red">安全退出</a></li>
+			</ul>
+		</div>
+		<div class="sub_nav" id="topBarCont"></div>
+		<div class="nav" id="nav">
+			<ul class="clearfix">
+				{$menu}
+			</ul>
+		</div>
+		<div class="sub_nav show" id="navCont"></div>
+		
+	</div>
+	<iframe id="content" name="content" src="Admin_Main.aspx" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" style=" vertical-align:top; margin:0; padding:0; border:0 none;border-style: none" scrolling="auto"></iframe>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$atplPath}js/webMessage.js"></script>
+<script>
+window['tplPath'] = '{$atplPath}';
+loadWEBmessage();
+$(function(){
+	$.fn.showMore = function(){
+		var $this = $(this);
+		$this.hover(function(){
+			$this.toggleClass("open")
+		});
+		$(document).mouseleave(function(){
+			$this.removeClass("open")
+		});
+	}
+	$.fn.navTab = function(contsID,closeID){
+		var $this = $(this),
+			$list = $this.find('.tab'),
+			$allList = $('li.tab'),
+			$cont = $('#'+contsID),
+			$close = $('#'+closeID),datalist = $list.find('ul.inner');
+		
+		datalist.each(function(){
+			$cont.append($(this).detach());
+		});
+		
+		//console.info($cont.find('li').size());
+		$cont.delegate("li", "click", function() {
+			$cont.find('.cur').removeClass('cur');
+			$(this).addClass('cur');
+		});
+		
+		var $conts = $cont.find('.tab-cont');
+		$('#nav').find('.tab').eq(0).addClass('cur');
+		$('#navCont').find('.tab-cont').eq(0).addClass('show');
+		
+		$list.each(function(i){
+			$(this).bind('click',function(e){
+				e.preventDefault();
+				$conts.removeClass('show').eq(i).addClass('show');
+				$allList.removeClass('cur');
+				$list.eq(i).addClass('cur');
+				$cont.addClass('show');
+				$close.removeClass('show');
+				addPageSize();
+			});
+		});
+	}
+	var addPageSize = function(){
+		var head_height = $('#header').height();
+		var p_height = $(window).height();
+		var c_height = p_height-head_height;
+		$("#content").attr({'height':c_height});
+	};
+	$("#quickly_menu").showMore();
+	$('#nav').navTab('navCont','topBarCont');
+	$('#topBar').navTab('topBarCont','navCont');
+	addPageSize();
+	$(window).resize(function(){
+		addPageSize();
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗,删除网址大类将会删除下面的所有小类和所有网址？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "?action=del&ID=" + id
+        }
+}
+function del_Wangzhi()
+{
+    if ( confirm("该操作将不可逆！\n此操作会清空所有的网址数据,请谨慎操作？"))
+    {
+         location.href = "?action=delall" 
+    }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;网址管理</td>
+	  <td align="right">&nbsp;<a href="?action=Add" class="global_btn_blue">添加网址</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td align=right></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="get" action="" ID="Form1">
+<tr> 
+	<td height="25">
+		按标题：
+		<input name="KeyWord" type="text" id="KeyWord" size="16" value="{$KeyWord}">
+		按网址类别：
+		{$classid} 按属性:<input type="checkbox" name="styleid" value="1" {$styleid}>推荐<input name="istop" type="checkbox" value="1"  ID="istop" {$istop}>名站导航
+		<input type="submit" name="Submit3" class="global_btn" value="Go" ID="Submit1"></td>
+		<td align=right><a href="javascript:del_Wangzhi();" class="global_btn">清空所有网址数据</a></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="?action=del&key={$key}" ID="form">
+				<tr align=center>
+				<td width="50" class="Category">ID</td>
+				<td  class="Category">网站标题</td>
+				<td  class="Category">所属类别</td>
+				<td  class="Category">属性</td>
+				<td  class="Category">排序</td>
+				<td  class="Category">状态</td>
+				<td class="Category">添加时间</td>
+				<td  align="center" class="Category">操作</td>
+				<td width="60" align="center" class="Category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				<strong>全选</strong></td>
+				</tr>
+				<tag:Loop ListType="Listwangzhi" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="wangzhi/Listwangzhi.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','显示');"><font color=red>显示？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','关闭');"><font color=blue>关闭？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'3','关闭');"><font color=red>设为名站导航？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'4','关闭');"><font color=blue>设为推荐？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,6,'删除');">删除选中？</a></strong><input type="hidden" name="styleid" id="styleid" value="1"></td></td></tr>	
+				</form>
+				<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

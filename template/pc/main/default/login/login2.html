@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}--会员登陆</title>
+<link rel="stylesheet" href="{$Default_tplPath}skin/global2.css" />
+<link rel="stylesheet" href="{$Default_tplPath}skin/log2.css" />
+<link type="text/css" rel="stylesheet" href="{$Default_tplPath}skin/common2013.css">
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/common.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/javascript.js"></SCRIPT>
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/java.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/member.js"></SCRIPT>
+<script>var nowdomain="{$SiteUrl}";</script>
+</head>
+<body style="background:none;">
+<div class="wrapper">
+  <div id="header">
+    <h1 class="logo"><a href="../"><img src="{$topurl}" alt="" /></a></h1>
+    <div class="subLogo">{$sitebiao}<br>
+      <strong>{$SiteUrl}</strong></div>
+    <div class="h_nav"><a href="../">网站首页</a>|<a href="../help/index.html">帮助中心</a>|<a href="../notice/">网站公告</a></div>
+    <div class="c_position">您所在的位置：<a href="../">首页</a> &gt; <span class="high">快速登录</span></div>
+  </div>
+  <div id="content">
+    <div class="clearfix">
+      <div class="left">
+        <h3>已经是会员，马上登录</h3>
+        <div class="zone">
+    		<form id="formRegStep1Main" name="formRegStep1Main" method="post" onSubmit="return checkinput(this);">
+          <ul>
+            <li class="fix"><span class="sp_01">登录名：</span><span class="sp_02">
+              <input type="text" class="s_t"  id="logname" name="logname" onBlur="if(this.value==''){this.value='昵称/邮箱地址/手机号码';this.style.color='#aaa'}" onFocus="if(this.value=='昵称/邮箱地址/手机号码'){this.value='';this.style.color='#666'}" value="昵称/邮箱地址/手机号码" style="color: #aaa;" /></span></li>
+            <li class="fix"><span class="sp_01">密　码：</span><span class="sp_02">
+              <input type="password" class="s_t"  name="originalLogpasswd"/>
+              </span></li>
+            <li class="l_3">
+              <input type="checkbox" id="remember_password" name="remember_password" value="true" class="cb"/>
+              记住登录　<a href="../find.aspx">忘记密码？</a></li>
+            <li class="l_4">
+              <button type="submit" >登录</button>
+            </li>
+          </ul>
+  			</form>
+			<div class="blank10"></div>
+			<a href="{$SiteUrl}member/qq.aspx?from={$from}" style="display:{$qqnone}"><img src="{$Default_tplPath}images/qqLogin.gif" style="vertical-align:top" alt="" /></a>　<a href="{$SiteUrl}member/qq.aspx?action=weixin&from={$from}" class="display{$isweixinlogin}"><img src="{$Default_tplPath}images/weixinlogin.gif" style="vertical-align:top" /></a>
+			
+      </div>
+      </div>
+      <div class="right">
+        <h3>没有账号？马上注册</h3>
+        <div class="zone">
+          <p>只需要花费您极短的时间免费注册一个账号，就能立即享受强大的会员功能，开启您丰富多彩的网络生活</p>
+          <a href="register.html" class="regMenu">免费注册</a> </div>
+      </div>
+    </div>
+    <div class="service fix">
+      <div class="hd">您有什么问题？可以联系我们</div>
+      <div class="bd">
+        <ul>
+          <li>客服热线：{$sitetel}</li>
+          <li>客服QQ1：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}" target="_blank">{$siteqq1}</a></li>
+          <li>客服QQ2：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}" target="_blank">{$siteqq2}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {$bottom$} </div>
+</body>
+</html>

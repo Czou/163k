@@ -1,0 +1,312 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/order2015.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/cal/calendar.css" />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>今日订单：<span style="color:#f60;">{$Todaynum}</span>　昨日订单：<span style="color:#f60;">{$Yesterdaynum}</span>　本月订单：<span style="color:#f60;">{$Thismonthnum}</span>　上月订单：<span style="color:#f60;">{$Lastmonthnum}</span></td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<tr> 
+	<td height="25">
+		<div class="searcher">
+<form ID="Form1">
+
+<select id="iskill">
+	<option value="">订单状态</option>
+	<option value="0">未支付</option>
+	<option value="1">已支付</option>
+	<option value="2">已发货</option>
+	<option value="3">已完成</option>
+	<option value="4">已取消</option>
+	</select> <select id="payid">
+	<option value="">支付方式</option>
+	<option value="1">支付宝</option>
+	<option value="2">网银在线</option>
+	<option value="3">财付通</option>
+	<option value="6">微信公众平台</option>
+	<option value="7">微信开放平台</option>
+	<option value="99">货到付款</option>
+	</select> <select id="skill">
+	<option value="">配送状态</option>
+	<option value="-1">等待接单</option>
+	<option value="1">已接单，待派送</option>
+	<option value="2">派送途中</option>
+	<option value="10">派送完成</option>
+	<option value="7">派送失败，已退回</option>
+	</select>　时间：<select id="colname">
+	<option value="0">下单时间</option>
+	<option value="1">付款时间</option>
+	</select> <input id="startdate" name="startdate"  type="text" class="Wdate" style="width:100px;" value="{$startdate}" >&nbsp;到：<input id="enddate" name="enddate" type="text" class="Wdate" style="width:100px;" value="{$enddate}">&nbsp;关键字类型：<select id="keystyleid">
+	<option value="0" selected="selected">快店名</option>
+	<option value="1">用户名</option><option value="2">商品名</option>
+	</select>&nbsp;<input id="keyword" type="text" style="width:180px;" value="" >&nbsp;<button type="submit" class="global_btn">Go</button> <a href="#" target="_blank" class="global_btn_blue" id="download_order_xsl">导出全部订单到Excel</a>
+</form>
+						</div>
+	</td>
+</tr>
+
+</table>
+<!--<div class="reload_order po_re" id="reload_order">
+	<input type="checkbox" id="countdownswitch" checked /> 开启自动刷新　<span id="countdown" style="font-size:18px; font-weight:bold; color:#f50;">10</span>秒后自动刷新　<a href="javascript:void(0);" onClick="getNewPage('1');" class="blue_font">手动刷新</a>
+</div>-->
+<div id="orderAjaxNode"></div>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td>&nbsp;</td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$atplPath}js/cal/cal.js"></script>
+<script src="{$atplPath}js/order2015.js"></script>
+<script>
+window['siteUrl'] = '../';
+window['tplPath'] = '{$atplPath}';
+$(function(){
+	getNewPage('1');
+	setLink_order_xls();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	$('#orderAjaxNode').on('click','.view_order_detial',function(e){
+		e.preventDefault();
+		$(this).parent().siblings('.item').removeClass('cur');
+		$(this).parent().siblings('.item').find('.order_detial').hide();
+		$(this).parent().siblings('.item').find('.view_order_detial').removeClass('open');
+		var $order_detial = $(this).siblings('.order_detial');
+		$order_detial.toggle();
+		$(this).toggleClass('open');
+		$(this).parent().toggleClass('cur');
+	});
+	$('#Form1').submit(function(){
+		getNewPage('1');
+		setLink_order_xls();
+		return false;
+	});
+	$('#iskill').change(function(){
+		$("#skill")[0].selectedIndex = '';
+		getNewPage('1');
+		setLink_order_xls();
+	});
+	$('#skill').change(function(){
+		$("#iskill")[0].selectedIndex = '';
+		getNewPage('1');
+		setLink_order_xls();
+	});
+	$('#payid').change(function(){
+		getNewPage('1');
+		setLink_order_xls();
+	});
+	//countdown();
+});
+function setLink_order_xls(){
+	
+	var url = '/request.ashx?action=kd_order_xls&isadmin=1&colname='+$('#colname').val()+'&payid='+$('#payid').val()+'&iskill='+$('#iskill').val()+'&skill='+$('#skill').val()+'&KeyWord='+$('#keyword').val()+'&keystyleid='+$('#keystyleid').val()+'&startdate='+$('#startdate').val()+'&enddate='+$('#enddate').val();
+	$('#download_order_xsl').attr({'href':url});
+};
+function tuikuan(o,sid){//确认退款
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=&isadmin=1';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','退款成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+function orderPagePolling(){
+	var url = window['siteUrl']+'request.ashx?action=getnewmyorder&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			hasPageNewOrder();
+		}else{
+			$('#newOrderId:visible').hide();
+		}
+	});
+}
+function hasPageNewOrder(notplay){
+	var newOrderId='newOrderId';
+	var node = $("#reload_order");
+	var newOrderNode = '<a href="#" class="'+newOrderId+'" style="display:none;" id="'+newOrderId+'">您有未处理的新订单，请点击查看</a>';
+	if(!$('#'+newOrderId)[0]){
+		$.ajax({url:window['tplPath']+"js/jquery.jplayer.min.js",dataType:'script'}).done(function(){
+			setTimeout(function(){
+				$('body').append('<div id="jquery_jplayer"></div>');
+				window['my_jPlayer'] = $("#jquery_jplayer");
+				
+				my_jPlayer.jPlayer({
+						ready: function (event) {
+							$(this).jPlayer("setMedia",{mp3: window['tplPath']+'images/message.mp3'});
+							if(typeof notplay === 'undefined'){window['my_jPlayer'].jPlayer('play');}
+						},
+						swfPath: window['tplPath']+"js", // jquery.jplayer.swf 文件存放的位置
+						supplied: "mp3",
+						wmode: "window"
+				});
+				
+			},200);
+		});
+		node.addClass('po_re').append(newOrderNode);
+		
+		$('#'+newOrderId).show().bind('click',function(event){
+			event.preventDefault();
+			$(this).hide();
+			//加载新订单
+			getNewOrder();
+		});
+	}else{
+		$('#'+newOrderId).show();
+		if(typeof notplay === 'undefined'){window['my_jPlayer'].jPlayer('play');}
+	}
+}
+
+function tgQuick(o,sid){
+	var tgQuickid='tgQuick';
+	if(!$('#'+tgQuickid)[0]){
+		var tgQuickHTML = '<div class="po_ab tgQuick" id="'+tgQuickid+'"><a href="#" onclick="return changekill(this,\'1\');">已支付</a><a href="#" onclick="return changekill(this,\'2\');">已发货</a><a href="#" onclick="return changekill(this,\'3\');">已完成</a><a href="#" onclick="return changekill(this,\'4\');">已取消</a><s class="s"></s></div>';
+		$('body').append(tgQuickHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+tgQuickid+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + tgQuickid).length === 0) && !$target.hasClass('event_lift')){
+				$('#'+tgQuickid).hide();
+			}
+		});
+	}
+	$('#'+tgQuickid).attr('data-id',sid).css({'left':($(o).offset().left-12)+'px','top':($(o).offset().top+24)+'px'}).show();
+	return false;
+}
+function tgQuick2(o,sid){
+	var tgQuickid='tgQuick2';
+	if(!$('#'+tgQuickid)[0]){
+		var tgQuickHTML = '<div class="po_ab tgQuick" id="'+tgQuickid+'"><a href="#" onclick="return changekill2(this,\'1\');">已接单,待派送</a> <a href="#" onclick="return changekill2(this,\'2\');">派送途中</a><a href="#" onclick="return changekill2(this,\'10\');">派送完成</a><a href="#" onclick="return changekill2(this,\'7\');">派送失败,退回</a><s class="s"></s></div>';
+		
+		$('body').append(tgQuickHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+tgQuickid+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + tgQuickid).length === 0) && !$target.hasClass('event_lift')){
+				$('#'+tgQuickid).hide();
+			}
+		});
+	}
+	$('#'+tgQuickid).attr('data-id',sid).css({'left':($(o).offset().left-12)+'px','top':($(o).offset().top+24)+'px'}).show();
+	return false;
+}
+function showchangeskill(url){
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','状态修改成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+}
+function iChangekill(sid){//取消订单
+	if(!window.confirm('您确定要取消该订单吗？')){return false;}
+	if(typeof sid === 'undefined'){return false;}
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=';
+	showchangeskill(url);
+	return false;
+}
+
+function changekill(o,val){
+	var sid=$(o).parent().attr('data-id');
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill='+val+'&skill=';
+	showchangeskill(url);
+	return false;
+}
+function changekill2(o,val){
+	var sid = $(o).parent().attr('data-id');
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=&skill='+val;
+	showchangeskill(url);
+	return false;
+}
+//时间控件
+var secArr = [],timer=null;
+function getInitTime(){
+  var cur_time = Date.parse($('#system_date').val());
+  
+  var start_time;
+  $('.time_left').each(function(){
+	 var jobj = $(this);
+	 var sec = {};
+	 var theid = jobj.attr('data-id');
+	 if(jobj.attr('data-iskill') === '3'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">订单完成</p>');
+	 }else if(jobj.attr('data-state') === '7'){
+		 $("#time_"+theid).html('<p">派送失败</p>');
+	 }else if(jobj.attr('data-state') === '10'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">派送完成</p>');
+	 }else if(jobj.attr('data-iskill') === '4'){
+		 $("#time_"+theid).html('<p">订单取消</p>');
+	 }else if(jobj.attr('data-iskill') === '0'){
+		 if(jobj.attr('data-payid') == '99'){
+			 start_time = Date.parse(jobj.html());
+			 var SysSecond = parseInt(cur_time - start_time)/1000;
+			 sec['sec']= SysSecond;
+			 sec['sid'] = theid;
+			 secArr.push(sec);
+		 }else{
+			 $("#time_"+theid).html('<p">付款后开始计时</p>');
+		 }
+	 }else{
+		if(jobj.attr('data-payid') == '99'){
+			 start_time = Date.parse(jobj.html());
+		}else{
+			 start_time = Date.parse($('.time_left_'+theid).html());
+		}
+		 var SysSecond = parseInt(cur_time - start_time)/1000;
+		 sec['sec']= SysSecond;
+		 sec['sid'] = theid;
+		 secArr.push(sec);
+	 }
+	 if(!!timer) {clearInterval(timer);timer=null;}
+	 timer = window.setInterval(function(){SetRemainTime()},1000);
+	
+  });
+ 
+}
+function SetRemainTime(){
+	for(var i=0;i<secArr.length;i++){
+		setRemainTimeSite(secArr[i]);
+	}
+}
+function setRemainTimeSite(secObj){
+  var second = Math.floor(secObj.sec % 60).toString();
+  var minite = Math.floor((secObj.sec / 60) % 60).toString();
+  var hour = Math.floor((secObj.sec / 3600) % 24).toString();
+  var day = Math.floor((secObj.sec / 3600) / 24).toString();
+  if(day > 0){
+	$("#time_"+secObj.sid).html('<p style="font-weight:bold;color:#d00;">派送超时</p>已经超过24小时!');
+  }else{
+	$("#time_"+secObj.sid).html('<p style="font-weight:bold;color:#d00;">客人已等候</p>'+hour+"时"+minite+"分"+second+"秒");
+ 	secObj.sec++;
+  }
+}
+
+</script>
+</body></html>

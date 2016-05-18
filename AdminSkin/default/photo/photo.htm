@@ -1,0 +1,152 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script language="javascript">
+function del(sid){
+	if( confirm("该操作将不可逆！您确定要删除吗？")){
+		
+		var url = 'photo.aspx?action=del&ID=' + sid;
+		var Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin === '1'){
+				alert('操作成功！');
+				window.location.reload();
+			}else{
+				alert(data.error);
+			}
+		}});
+	}
+	return false;
+}
+function changeCat(sid){
+	
+	jQuery.ajax({
+	  method: "POST",
+	  url: "photo.aspx?action=del",
+	  data: { 'styleid': jQuery("#styleid").val(), 'photocategoryid1': jQuery("#photocategoryid1").val(), 'classid1': jQuery("#classid1").val(), 'ID': sid}
+	}).done(function(data){
+		if(data.islogin === '1'){
+			alert('转移成功！');
+			window.location.reload();
+		}else{
+			alert(data.error);
+		}
+	})
+	
+	return false;
+}
+
+function delAll(){
+	var cname="删除";
+	var sid = '',sidArr = [];
+	jQuery('input[name="ID"]:checked').each(function(){
+		sidArr.push(jQuery(this).attr('value'));
+	});
+	sid = sidArr.join(',');
+	if(document.form.styleid.value=="0"){
+		del(sid);
+	}
+	if(document.form.styleid.value=="4"){
+		cname="转移";
+		if ( confirm("此操作不可逆,您确定要"+cname+"所有选中的图片吗？")){
+			//return true;
+			changeCat(sid);
+		}
+	}
+	return false;
+}
+function opentt()
+{
+    if ( confirm("该操作将不可逆！\n您确定要全部审核通过吗?？"))
+    {
+		setCookie("delurl",window.location.href);
+        location.href = "?action=del&styleid=2"
+     }
+}
+
+
+function shenhe(url){
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			window.location.reload();
+		}else{
+			alert('操作失败！');
+		}
+	}});
+}
+</script>
+<style>
+#photo{ width:100%;}
+#photo li{
+	float:left;
+	width:152px;
+	height:184px;
+}
+.thumb230Image {
+    max-width: 132px;
+    max-height: 92px;
+ }
+*html .thumb230Image {
+    width: expression(this.width > 132 && this.width > this.height ? 132 : true);
+    height: expression(this.height > 92 ? 92 : true);
+ }
+</style>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;图片管理,共有图片{$num}张</td>
+	  <td align="right"><a href="javascript:shenhe('?action=del&styleid=2');" class="global_btn">通过全部未审核图片</a>&nbsp;<a href="?action=Add" class="global_btn_blue">添加图片</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="get" action="" ID="Form1">
+<tr> 
+	<td height="25">
+		按用户名查找：
+		<input name="KeyWord" type="text" id="KeyWord" size="10" value="{$KeyWord}">
+		照描述关键词搜索：
+		<input name="keyword1" type="text" id="keyword1" size="10" value="{$keyword1}">
+		按图集分类查询:{$classid}
+		<input type="submit" name="Submit3" class="global_btn" value="Go" ID="Submit1"></td>
+		
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="photo.aspx?action=del" ID="form" onsubmit="return delAll();"><input type="hidden" name="styleid"  id="styleid" value="0">
+				<tr><Td>全选：<input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">转移到：{$zhuan} <input type="submit" name="submit" onclick="this.form.styleid.value='4';" class="global_btn" value="批量转移">&nbsp;&nbsp;&nbsp; <input type="submit" name="submit" onclick="this.form.styleid.value='0';" class="global_btn" value="批量删除"></Td></tr>
+				<tr><td><div id="photo"><ul>
+				<tag:Loop ListType="listphoto" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="photo/Listphoto.htm" />
+				</ul></div>
+				</td></tr>
+				</form>
+				<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

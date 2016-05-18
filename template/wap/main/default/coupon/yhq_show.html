@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}coupon/">{$lanmuname}</a> &gt; 正文</div>
+		<div class="news_nr po_re">
+			<span class="icon_yiguoqi hide{$guoqi}">已过期</span>
+			<h1>{$chrtitle}</h1>
+			<div class="news_info">
+				<p>使用有效期：<span class="red_skin">截至{$chrdate}</span></p>
+			</div>
+			<div class="article_content" id="resizeIMG">
+				<p style="text-align:center"><img src="{$filepath}" alt="" /></p>
+				{$chrcontent}
+				<div style="margin-top:15px;"><a href="#" id="use_coupon" class="comn-submit btn_block">使用本优惠</a></div>
+				<div class="company">
+					<p><em>商家名称：</em><a href="{$indexurl}" target="_blank">{$chrshop}</a></p>
+					<p><em>商家地址：</em>{$chraddress}</p>
+					<p><em>商家电话：</em>{$chrtel}</p>
+				</div>
+			</div>
+			<div class="share_fd">
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+
+			<div class="mod_01">
+				<div class="hd">最新推荐优惠券</div>
+				<div class="bd">
+					<ul class="list_normal">
+						{$Mh163k_wap_优惠券详细页_最新推荐优惠券}
+					</ul>
+					<div class="inner_html"><a href="{$SiteUrl}coupon/" class="comn-submit gray btn_block">返回优惠券频道<span class="jian"></span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),300,480);
+	$('#use_coupon').click(function(e){
+		e.preventDefault();
+		$('#use_coupon').addClass('gray').text('您已使用过本优惠');
+	});
+})(jQuery);
+</script>
+</body>
+</html>

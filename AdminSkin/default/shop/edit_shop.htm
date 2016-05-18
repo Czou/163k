@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店超级管理</title>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/cal/calendar.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+body { margin:0; padding:0; color:#404040;}
+.list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px;}
+.sp_a,.sp_b { float:left;}
+.sp_a { width:100px; text-align:right; color:#888;}
+.sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.name { font-weight:bold; color:#36c;}
+.t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px;}
+.t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+
+ul { margin:0; padding:0;}
+ul li { list-style:none;}
+.nav_extra { margin-bottom:-1px; position:relative;}
+.nav_extra li { float:left; font-size:14px; margin-right:-1px; margin-bottom:-1px;}
+.nav_extra li a { display:block; padding:5px 15px; border:1px solid #bebfc0; background-color:#d5d6d8; text-shadow:0 1px 0 #fff; box-shadow:0px 0px 2px #fafafa inset; border-top-left-radius:6px; border-top-right-radius:6px; color:#000; text-decoration:none;}
+.nav_extra li a:hover { color:#333; text-decoration:none; background-color:#cdcdcf;}
+.nav_extra li .cur,.nav_extra li .cur:hover { background-color:#fff; border-bottom:1px solid #fff; color:#333; text-decoration:none; cursor:default;}
+.clearfix:after{content:'\20';display:block;height:0;clear:both;}
+.clearfix,.col-sub,.col-extra{*zoom:1;}
+.tab_cont { padding-top:10px;}
+.tips { border:1px solid #e6e6e6; background-color:#f6f6f6; padding:10px; margin:10px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+	<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+		<ul class="clearfix">
+			<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,2)',200);">内容管理</a></li>
+			<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,2)',200);">店铺克隆</a></li>
+		</ul>
+	</div>
+	<div class="tab_cont" id="tabadcontent_10" style="">
+		<form id="myform" name="myform" action="?" target="tijiao" method="post" style="margin:0; padding:0; border:0 none;">
+			<input type="hidden" name="ID" value="{$ID}" />
+			<input type="hidden" name="action" value="editsave" />
+			<div class="list">
+		<span class="sp_a">店铺名称：</span>
+		<span class="sp_b"><span class="name">{$chrshop}　</span></span>
+		<span class="sp_a">开通时间：</span>
+		<span class="sp_b">{$dtappenddate}</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">星级评分：<input type="hidden" id="score_1" name="koubei" value="{$koubei}" /></span>
+		<span class="sp_b write"><span class="i_star_{$koubei}" id="selStar"><a href="#" class="s_star" data-index="1">1星</a><a href="#" class="s_star" data-index="2">2星</a><a href="#" class="s_star" data-index="3">3星</a><a href="#" class="s_star" data-index="4">4星</a><a href="#" class="s_star" data-index="5">5星</a></span></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">所属用户：</span>
+		<span class="sp_b"><span class="name">{$chrname}</span>　转给：<input type="text" class="t_ipt" id="chrname" name="chrname" value="" /> <em>企业用户，名下无店铺</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">显示排序：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="intorder" name="intorder" value="{$intorder}" /></span>
+		<span class="sp_a">浏览人数：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="hits" name="hits" value="{$hits}" /></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">是否推荐：</span>
+		<span class="sp_b"><input type="radio" name="isanli" value="0" {$isanli_c_0} />不推荐　<input type="radio" name="isanli" value="1" {$isanli_c_1} />推荐</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">是否认证：</span>
+		<span class="sp_b"><input type="radio" name="renzheng" value="0" {$renzheng_c_0} />没认证　<input type="radio" name="renzheng" value="1" {$renzheng_c_1} />已认证</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">是否签约：</span>
+		<span class="sp_b"><input type="radio" name="qianyue" value="0" {$qianyue_c_0} />不签约　<input type="radio" name="qianyue" value="1" {$qianyue_c_1} />签约　有效期至：<input type="text" name="qianyuedate" id="qianyuedate" class="t_ipt Wdate" value="{$qianyuedate}" /></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">是否置顶：</span>
+		<span class="sp_b"><input type="radio" name="iszhiding" value="0" {$iszhiding_c_0} />不置顶　<input type="radio" value="1" name="iszhiding" {$iszhiding_c_1} />置顶　有效期至：<input type="text" name="zhidingdate" id="zhidingdate" class="t_ipt Wdate" value="{$zhidingdate}" style="width:120px;" />　置顶排序：<input type="text" class="t_ipt" id="zhidingnum" name="zhidingnum" value="{$zhidingnum}" style="width:50px;" /></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">店铺状态：</span>
+		<span class="sp_b"><input type="radio" name="iskill" value="0" {$iskill_c_0} />待审核　<input type="radio" value="1" name="iskill" {$iskill_c_1} />审核通过　<input type="radio" name="iskill" value="2" {$iskill_c_2} />未通过　<input type="radio" name="iskill" value="3" {$iskill_c_3} />吊销</span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">&nbsp;</span>
+		<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+	</div>
+		</form>
+		</div>
+		<div class="tab_cont" id="tabadcontent_11" style="display: none;">
+			<div class="tips">店铺克隆功能是完整的将指定店铺的全部数据信息复制给指定的目标用户，该功能的设计是为了让站长快速复制出店铺数据，帮助网站建立初期的网站内容。<br><br>店铺克隆的内容涵盖：店铺基本信息、店铺介绍 、店铺资讯、 店铺图片、 团购、 视频 、优惠信息、 自定义栏目、 商品 、快店基本信息、 快店公告 、快店商品、 评论等内容。</div>
+		<form id="myform" name="myform" action="?" target="tijiao" style="margin:0; padding:0; border:0 none;" onSubmit="return checkform(this);">
+			<input type="hidden" name="ID" value="{$ID}" />
+			<input type="hidden" name="action" value="editsave" />
+			<div class="list">
+				<span class="sp_a">是否克隆：</span>
+				<span class="sp_b"><input type="checkbox" name="iscopy" value="1" checked /></span>
+			</div>
+			<div class="list">
+				<span class="sp_a">目标用户：</span>
+				<span class="sp_b"><input type="text" class="t_ipt" id="chrname2" name="chrname" value="" /> <em>请填写会员名，须为企业用户且名下无店铺</em></span>
+			</div>
+			<div class="list">
+				<span class="sp_a">&nbsp;</span>
+				<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+			</div>
+		</form>
+		</div>
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script src="{$atplPath}js/MSGwindowShow.js"></script>
+<script>
+function Show_TabADSMenu(tabadid_num,tabadnum,tabNums){
+	for(var i=0;i<tabNums;i++){document.getElementById("tabadcontent_"+tabadid_num+i).style.display="none";}
+	for(var i=0;i<tabNums;i++){document.getElementById("tabadmenu_"+tabadid_num+i).className="";}
+	document.getElementById("tabadmenu_"+tabadid_num+tabadnum).className="cur";
+	document.getElementById("tabadcontent_"+tabadid_num+tabadnum).style.display="block";
+}
+function showTgCategory(pdid,str,docId,nowcc){
+	var url="../request.ashx?action=category&id="+pdid;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var data;
+	jQuery.ajax({url:url,success: function(d){
+		for(var i=0;i<d.MSG.length;i++){
+			if(d.MSG[i].id === str){
+				data = d.MSG[i].arr;
+				break;
+			}
+		}
+		var sel=document.getElementById(docId);
+		var val="::请选择::";
+		var k=0;
+		sel.options.length=0;
+		sel.options.add(new Option( val,""));
+		sel.options[0].selected=true;
+		for(var i in data){
+			k++;
+			sel.options.add(new Option(data[i],i)); 
+			if(nowcc==i){
+				sel.options[k].selected=true;
+			}
+		}
+	}});
+}
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2,y:-200,x:0 });
+	$('#bigclassid').change(function(){
+		showTgCategory('21',$(this).val(),'classid');
+	});
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+		});
+	};
+	$('#selStar').selStar();
+})(jQuery);
+function checkform(o){
+	if(o.chrname2.value==""){
+		alert("请输入企业用户名称!");
+		o.chrname2.focus();
+		return false;
+	}
+}
+</script>
+</body>
+</html>

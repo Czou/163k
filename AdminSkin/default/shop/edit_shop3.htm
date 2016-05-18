@@ -1,0 +1,112 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起，请输入标题！");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("对不起，请输入排序！");
+		o.intorder.focus();
+		return false;
+	}
+}
+function deletearticle(shopid,articleid)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除店铺动态吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		location.href = "shop.aspx?action=delarticle&ID=" + shopid+"&articleid="+articleid
+	}
+}
+</script>
+<style>
+#listarticleall{margin:0}
+#listarticleall ul{margin:0; list-style-type:none}
+#listarticleall ul li{ line-height:22px; height:22px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">七、店铺动态：&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+ 
+   <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li  ><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li class="selected"><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=e3save"  onsubmit="return checkform(this);">
+  <tr><td colspan=4 class="category">已经发布的店铺动态：</td></tr>
+   <tr><td colspan=4 class="category"><div id="listarticleall">
+                <ul >
+                  <tag:Loop ListType="Listshoparticle" RecType="New" PageSize="200" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="shop/Listshoparticle.htm" />
+                </ul>
+              </div></td></tr>
+ 
+   <tr><td colspan=4 class="category">{$cname}店铺动态</td></tr>
+   <tr><td>标题<font color="#FF0000">*</font>：</td><td colspan=3><input type="text" name="chrtitle" value='{$chrtitle}' size=80></td></tr>
+   <tr><td>颜色：</td><td><input name="chrcolor" type="text" id="cptext" value="{$chrcolor}" style="color:{$chrcolor}" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+   <td>排序<font color="#FF0000">*</font>：</td><td><input type="text" name="intorder" size=5 value="{$intorder}"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"></td></tr>
+    <tr   > <td>内容<font color="#FF0000">*</font>：</td>
+      <td    class="category" colspan=3><textarea cols="100" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent}
+      </textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script> </td>
+    </tr>
+	
+ 
+    <tr > 
+      <td height="25" colspan=4 style="text-align:center" class="category"><input type=hidden name=articleid value="{$articleid}"><input type=hidden name=ID value="{$ID}">
+		<input type="button"  onclick="window.location.href='?action=e2&id={$ID}';" name="button1" class="global_btn_big" value="上一页"> &nbsp;  <input type="submit" name="Submit" class="global_btn_big" value="保存店铺动态"> &nbsp;  
+		<input type="button"  onclick="window.location.href='?action=e4&id={$ID}';" name="button1" class="global_btn_big" value="下一页"> &nbsp;  <input type="button" name="button12"  onclick="window.location.href='shop.aspx';" class="global_btn_blue_big" value="完成">
+        </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	
+})(jQuery);
+</script>
+  </body>
+</html>

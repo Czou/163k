@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-小区详情-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_xq.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/highslide.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="{$SiteUrl}";var tplPath = '{$Default_tplPath}';</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/mustache.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="xiaoqu_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">小区详情</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>现代简约建筑设计</p>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li class="current"><a href="xiaoqu_{$Loupan_loupanid}.html">小区详情</a></li>
+        <li><a href="xiaoquzhu_{$Loupan_loupanid}.html">出租房源</a></li>
+        <li><a href="xiaoqushou_{$Loupan_loupanid}.html">出售房源</a></li>
+        <li><a href="xiaoqufang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li><a href="xiaoqupic_{$Loupan_loupanid}.html">小区照片</a></li>
+        <li><a href="xiaoquping_{$Loupan_loupanid}.html">小区评价</a></li>
+       <!-- <li><a href="{$yezhu}" target="_blank">业主论坛</a></li> -->
+      </ul>
+     </div>
+   </div>
+   <div class="fang_detail">
+   <!--焦点图-->
+   <div class="fang_focus">
+     <ul>
+      <li style="display:block;"><img src="{$Loupan_filepath}" alt="" onerror="this.src='{$Default_tplPath}images/morenbigloupan.gif';"/></li>
+     </ul>
+     <p>{$Loupan_chrloupan}楼盘概况展示</p>
+     <s></s>
+   </div>
+   <div class="fang_info">
+     <dl class="clearfix">
+      <dt>小区地址：</dt>
+      <dd>{$Loupan_chraddress}</dd>
+      <dt>建筑类别：</dt>
+      <dd>{$Loupan_jianzhuleibie}</dd>
+      <dt>小区类型：</dt>
+      <dd>{$Loupan_leixing}</dd>
+      <dt>建筑年代：</dt>
+      <dd>{$Loupan_niandai}年</dd>
+      <dt>小区形态：</dt>
+      <dd>{$Loupan_xingtai}</dd>
+      <dt>总建筑面积：</dt>
+      <dd>{$Loupan_zhangdi}平方米</dd>
+      <dt>总占地面积：</dt>
+      <dd>{$Loupan_jianzhu}平方米</dd>
+      <dt>总户数：</dt>
+      <dd>{$Loupan_hushu}</dd>
+      <dt>物业公司：</dt>
+      <dd>{$Loupan_wuyecompany}</dd>
+      <dt>物业管理费：</dt>
+      <dd>{$Loupan_wuyeguanli}元/平方米/月</dd>
+      <dt>开发商：</dt>
+      <dd>{$Loupan_chrsupply}</dd>
+      <dt>得房率：</dt>
+      <dd>{$Loupan_defang}</dd>
+      <dt>容积率：</dt>
+      <dd>{$Loupan_rongji}</dd>
+      <dt>车位数：</dt>
+      <dd>{$Loupan_chewei}</dd>
+      <dt>绿化率：</dt>
+      <dd>{$Loupan_lvhua}</dd>
+      <dt>均价：</dt>
+      <dd><em style="color:#f60;">{$Loupan_avgprice}</em>元/㎡</dd>
+     </dl>
+    </div>
+   <!--房源描述-->
+   <div class="intro">
+    <div class="tit"><span>{$Loupan_chrloupan}项目介绍</span></div>
+    <div class="con">
+      {$Loupan_chrmark}
+    </div>
+   </div> 
+    <!--图片展示-->
+    <div class="fang_pic">
+      <div class="tit"><span>{$Loupan_chrloupan}图片展示</span></div>
+      <div class="gallery po_re" id="dialog_pro">
+		<div class="big_photo_inner" id="superAlbum">
+			<img src="{$Default_tplPath}images/houseGalleryDefault.png" id="dialog_img" class="viewimg" />
+			<a id="preArrow" title="上一张" class="contextDiv" href="javascript:void(0)" style="display:none;"><span id="preArrow_A"></span></a>
+			<a id="nextArrow" title="下一张" class="contextDiv" href="javascript:void(0)"><span id="nextArrow_A"></span></a>
+		</div>
+		<div class="imgListNode po_re">
+			<ul class="imgList clearfix" id="dialog_imgList"></ul>
+			<ul id="dialog_data" style="display:none;">{$Loupan_pics}</ul>
+		</div>
+		<a href="javascript:void(0);" class="btn_prev btn_disabled" id="dialog_img_prev">上一个</a><a href="javascript:void(0);" class="btn_next" id="dialog_img_next">下一个</a>
+	</div>
+    </div>
+    <!--地图-->
+    <div class="fang_map clearfix">
+      <div class="tit"><span>{$Loupan_chrloupan}周边地图</span></div>
+      <div class="map"><div id="allmap" style="width:830px; height:435px;"></div></div>
+      <div class="zb_info">
+        <div class="tabs clearfix">
+          <ul id="mapSel">
+            <li class="current" data-val="0"><i class="i_1"></i>交通</li>
+            <li data-val="1"><i class="i_2"></i>商业</li>
+            <li data-val="2"><i class="i_3"></i>教育</li>
+            <li data-val="3"><i class="i_4"></i>医疗</li>
+          </ul>
+        </div>
+        <!--交通-->
+        <div class="con">
+         <ul id="r-result"></ul>
+         <a href="#" class="zb_lou">进入地图找房查看周边楼盘</a>
+        </div>
+      </div>
+      <!--地址-->
+      <div class="address">地址：{$Loupan_chraddress}</div>
+    </div>
+  </div>
+ </div> 
+{$bottom$} 
+ </div>
+<div id="mask" style="display:none"></div>
+<script type="text/template" id="tp">
+<li data-x="{{point.lng}}" data-y="{{point.lat}}">
+             <dl>
+              <dt class="s_title">{{title}}</dt>
+              <dd classs="s_distance">{{distance}}</dd>
+             </dl>
+             <p class="s_address">{{address}}</p>
+</li>
+</script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/fc2015_map.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	//$('#fixed').fixed($('#fixed_can'));
+	//$('#fixed').doMaodian();
+	//$('[data-scrolld]').scrolld({speed: 500,callback: function(){}});
+	$('#dialog_pro').houseGallery();
+    $('#fc_home').removeClass('select');
+	$('#fc_xiaoqu').addClass('select');
+});
+
+var obj_xyz = {'x':{$Loupan_loupan_x},'y':{$Loupan_loupan_y}}; 
+var icity = '{$city}';
+var zb_style = 0;
+var zb_style_arr = [{'key':'公交','img':'gongjiao.gif'},{'key':'超市','img':'chaoshi.gif'},{'key':'学校','img':'xuexiao.gif'},{'key':'医院','img':'yiyuan.gif'}];
+var map = new BMap.Map("allmap",{enableMapClick:false}),mPoint;
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
+if(!obj_xyz.x||!obj_xyz.y||obj_xyz.x==='0'||obj_xyz.y==='0'){
+	map.centerAndZoom(icity , 13);
+}else{
+	mPoint = new BMap.Point(obj_xyz.x,obj_xyz.y);  
+	map.centerAndZoom(mPoint, 16);
+	var icon = new BMap.Icon('{$Default_tplPath}images/markerred.gif', new BMap.Size(20, 20),{anchor: new BMap.Size(10, 10)});
+	var mkr = new BMap.Marker(mPoint,{icon:icon});
+	map.addOverlay(mkr);
+	var myLabel = new BMap.Label("{$Loupan_chrloupan}",{offset:new BMap.Size(14,-9),position:mPoint});
+	myLabel.setStyle({fontSize:"12px",border:"1px solid #36c"});
+	map.addOverlay(myLabel);                             //把label添加到地图上
+	//检索初始化
+	var local = new BMap.LocalSearch(map, options);
+	local.searchNearby(zb_style_arr[0].key,mPoint,500);
+	$('#mapSel li').click(function(e){
+		e.preventDefault();
+		$(this).siblings('li').removeClass('current');
+		$(this).addClass('current');
+		zb_style = parseInt($(this).attr('data-val'));
+		local.searchNearby(zb_style_arr[zb_style].key,mPoint,500);
+	});
+}
+</script>   
+</body>
+</html>

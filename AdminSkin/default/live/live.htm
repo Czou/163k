@@ -1,0 +1,137 @@
+﻿<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "?action=del&key={$key}&ID=" + id
+        }
+}
+function deltt(tt)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除全部{$cname}信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "?action=deltt&key={$key}&style="+tt;
+        }
+}
+function delelteall()
+{
+	if ( !(confirm("该操作将不可逆！\n您确定要删除信息吗？")))
+        {
+			return false;
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+			document.getElementById("styleid").value=str;
+            document.getElementById("form").submit();
+        }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>目前共有<font color="#0000FF">{$cname}</font>信息{$num1}条</td>
+	  <td align="right"><a href="?action=out&key={$key}" class="global_btn">导出全部手机号码信息</a>&nbsp;<a href="javascript:deltt(2);" class="global_btn">一键所有清空过期信息</a>&nbsp;<a href="javascript:deltt(1);" class="global_btn">一键清空全部{$cname}信息</a>&nbsp;<a href="?action=Add&key={$key}" class="global_btn_blue">请点击这里添加信息</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="get" action="" ID="form2">
+<tr> 
+	<td height="25">
+		按关键字查询：<input type="hidden" value="{$key}" name="key">
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+		按用户查询：
+		<input name="keyword1" type="text" id="keyword1" size="20" value="{$keyword1}">
+        按电话/手机查询：
+		<input name="keyword2" type="text" id="keyword2" size="20" value="{$keyword2}">
+		按类别查询：{$parentid} <input type="submit" name="Submit3" value="Go" class="global_btn" ID="Submit1"><br />
+		按日期范围查询：
+              <input type="text" name="startdate" class="Wdate" size="21" value="{$startdate}" />
+              &nbsp;至&nbsp;
+              <input type="text" name="enddate" class="Wdate" size="21"  value="{$enddate}" />
+		<input type="submit" value="Go" class="global_btn"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="0" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="?action=del&key={$key}" ID="form">
+				<tr align=center><td class="category">ID</td>
+				<td class="category">信息编号</td>
+				<td class="category">信息标题</td>
+				<td class="category">分类</td>
+				<td class="category">发布人</td>
+				<td class="category">联系电话</td>
+				<td class="category">发布IP</td>
+				
+				<td class="category">发布时间</td>
+				<td class="category">状态</td>
+				<td  align="center" class="category" nowrap="nowrap">操作</td>
+				<td width="53"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+				</tr>
+				<tag:Loop ListType="listlive" RecType="New" PageSize="20" ColorSplit="1" TitleLen="40" RecColumn="4" CusTpl="0" Template="live/listlive.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=20><strong><a href="javascript:delAll(this,'1','审核通过');"><font color=red>审核通过？</font></a></strong>
+				<strong><a href="javascript:delAll(this,13,'删除');">删除？</a></strong><strong><a href="javascript:delAll(this,2,'刷新');">刷新？</a></strong>
+	<input type="hidden" name="styleid" value="1" id="styleid">			  
+</td></tr>				
+ 				</form>
+				<tr>
+      <td height="24" align="right" bgcolor="#FFFFFF" colspan=20>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="Formdel" method="post" action="?action=delno" ID="Formdel" onsubmit="return delelteall();">
+<tr> 
+	<td height="25">
+		批量删除：<input type="hidden" value="{$key}" name="key">
+		按ID从：<input name="startid" type="text" id="startid" size="10" value=""  onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">
+		到：
+		<input name="endid" type="text" id="endid" size="10" value=""  onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">
+        按发布时间从：
+		<input name="startdate" type="text" id="startdate" size="20" value="" class="cal_1">
+		到：<input name="enddate" type="text" id="enddate" size="20" value="" class="cal_1" >
+		<input type="submit" name="Submitdel" class="global_btn" value="批量删除" ID="Submitdel"></td>
+</tr>
+</form>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.cal_1').simpleDatepicker({ startdate: 2014, enddate: y+2, x:45, y: -200  });
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+
+</script>
+</body></html>

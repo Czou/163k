@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-楼盘详情-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_lou.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="loupan_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">楼盘详情</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>{$Loupan_biaoyu}</p>
+    <span class="{$Loupan_xiaoshoutypeid}_middle">在售</span><span class="{$Loupan_xiaoshoutypeid}_true">待售</span><span class="{$Loupan_xiaoshoutypeid}_false">售罄</span>
+	<span class="xianfang{$Loupan_xiaoshoustyleid}">{$Loupan_xiaoshoustyleid_str}</span>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="loupan_{$Loupan_loupanid}.html">楼盘概况</a></li>
+        <li class="current"><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+        <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+        <li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li><a href="list.aspx?action=s&lid={$Loupan_loupanid}" target="_blank">销售动态</a></li>
+        <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+        <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+        <li><a href="revert_{$Loupan_loupanid}.html">在线咨询</a></li>  
+        <!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+        <li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+      </ul>
+     </div>
+   </div>
+   <!--楼盘详情-->
+   <div class="lp_detail">
+     <div class="lp_info">
+     <dl class="clearfix">
+      <dt>楼盘地址：</dt>
+      <dd>{$Loupan_chraddress}</dd>
+      <dt>楼盘形态与栋数：</dt>
+      <dd>{$Loupan_xingtai}</dd>
+      <dt>总占地面积：</dt>
+      <dd>{$Loupan_zhangdi}</dd>
+      <dt>总建筑面积：</dt>
+      <dd>{$Loupan_jianzhu}</dd>
+      <dt>楼盘类型：</dt>
+      <dd>{$Loupan_leixing}</dd>
+      <dt>建筑类型：</dt>
+      <dd>{$Loupan_jianzhuleibie}</dd>
+      <dt>开发商：</dt>
+      <dd><a href="{$Loupan_chrsupplyurl}" target="_blank">{$Loupan_chrsupply}</a></dd>
+      <dt>装修情况：</dt>
+      <dd>{$Loupan_zhuangxiucategory}</dd>
+      <dt>物业公司：</dt>
+      <dd>{$Loupan_wuyecompany}</dd>
+      <dt>物业管理费：</dt>
+      <dd>{$Loupan_wuyeguanli}</dd>
+      <dt>绿化率：</dt>
+      <dd>{$Loupan_lvhua}</dd>
+      <dt>得房率：</dt>
+      <dd>{$Loupan_defang}</dd>
+      <dt>容积率：</dt>
+      <dd>{$Loupan_rongji}</dd>
+      <dt>车位数：</dt>
+      <dd>{$Loupan_chewei}</dd>
+      <dt>开工时间：</dt>
+      <dd>{$Loupan_kaigongdate}</dd>
+      <dt>骏工时间：</dt>
+      <dd>{$Loupan_jungongdate}</dd>
+      <dt>预计开盘时间：</dt>
+      <dd>{$Loupan_kaipandate}</dd>
+      <dt>预计交房时间：</dt>
+      <dd>{$Loupan_jiaofangdate}</dd>
+      <dt>售楼电话：</dt>
+      <dd>{$Loupan_shouloutel}</dd>
+      <dt>售楼处地址：</dt>
+      <dd>{$Loupan_shoulouaddress}</dd>
+     </dl>
+    </div>
+    
+    <!--项目介绍-->
+   <div class="intro">
+    <div class="tit"><span>{$Loupan_chrloupan}项目介绍</span></div>
+    <div class="con">
+      {$Loupan_chrmark}
+    </div>
+   </div> 
+   </div>
+  </div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+    $('#fc_home').removeClass('select');
+	$('#fc_loupan').addClass('select');
+});
+</script>  
+</body>
+</html>

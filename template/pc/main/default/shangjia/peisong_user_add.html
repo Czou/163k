@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>添加员工-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.chrname.value==""){
+		alert("对不起,请填写会员昵称或姓名!");
+		o.chrname.focus();
+		return false;
+	}
+	
+}
+var colname='{$colname}';
+var classid='{$classid}';
+var styleid='{$styleid}';
+function SubmitSelect(colname,classid,styleid){
+	window.parent.location.href="mypeisong_user.aspx?action=add&classid=" + classid + "&colname=" + colname + "&styleid=" + styleid;
+}
+</script>
+<style type="text/css">
+.quanxian strong { color:#369; font-weight:bold;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">添加员工</div>
+						<div class="right"><a href="mypeisong_user.aspx" class="sys_btn_small_white">返回员工管理</a></div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" action="?action=addSave" target="tijiao" onSubmit="return checkform(this)">
+								<p class="tr"><span class="sp_a">会员昵称或姓名：</span><span class="sp_b"><input type="text" name="chrname" id="chrname" class="sys_form_ipt" size="70" /></span><span class="sp_c">只能填写当前已注册的会员昵称或姓名</span></p>
+								<p class="tr"><span class="sp_a">手机号码：</span><span class="sp_b"><input type="text" name="chrtel" id="chrtel" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">可留空，若填写请与该用户资料中的手机号码保持一致</span></p>
+								<p class="tr"><span class="sp_a">工作分组：</span><span class="sp_b">{$styleid_select}   <a href="mypeisong_user.aspx?action=fenzulist" class="sys_btn_white">分组管理</a></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">提交保存</button></span><span class="sp_c">&nbsp;</span></p>
+								
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+						
+					</div>
+				</div>
+				<div class="blank10"></div>
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">应聘的配送员</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="searcher">
+							<form name="form2" method="get">
+								<input name="action" type="hidden" value="add"/>
+								<input name="keyword" type="text" class="sys_form_small_ipt" value="{$KeyWord}" size="70">&nbsp;<select name='colname' id='colname'><option value=''>::按昵称或姓名查找::</option><option value='0' {$colname_s_0}>::按手机号码::</option></select>&nbsp;<select name='classid' id='classid'> <option value='-3'>::所有待审::</option>
+			<option value='-2' {$classid_s_-2}>::店铺待审::</option>
+			<option value='-1' {$classid_s_-1}>::会员待审::</option>
+			</select>&nbsp;{$styleid_select}&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>
+</form>
+						</div>
+						<div class="blank10"></div>
+						<div class="m_list">
+							<ul>
+								<li class="t">
+									<span class="td sp_a">序号</span>
+									<span class="td sp_b">用户名/姓名</span>
+									<span class="td sp_c">手机</span>
+									<span class="td sp_d">时间</span>
+									<span class="td sp_e">类型</span>
+									<span class="td sp_f">状态</span>
+									<span class="td sp_g">操作</span>
+								</li>
+								<tag:Loop ListType="LISTPEISONGUSER" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_add_peisong_user_Tr.htm" />
+							</ul>
+						</div>
+						<div class="pageNavigation">{$PageSplit}</div>
+						
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿
+<link href="{$atplPath}css/tool.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$atplPath}js/tool.js"></script>
+<div ondblclick="this.style.display='none'" align="center" valign="middle" style="display:none;Z-INDEX: 101; LEFT: 300px; WIDTH: 393px; POSITION: absolute; TOP: 120px; HEIGHT: 50px;border:2px solid #CFE7FF;background:#F8FCFF;color:#ff000;font-size:14px;font-weight:normal;" name="loaddiv" id="loaddiv" width="200" height="200"><br>正在运行，请耐心等候！</div>
+<!--主体-->
+<div id="box">
+
+  <div class="frame">
+    <h1>Alexa排名查询</h1>
+    <div class="Content_1">
+      <img src="{$atplPath}Images/tool/ico_Earth.gif" />
+	<input name="url" class="input_2" value="{$url}" size="80" />
+	<input name="提交" type="submit" class="btn_1" value="排名查询" />
+	<div class="clear"></div>
+	<p>友情提示：Alexa网站排名是根据对用户安装 Alexa工具条 嵌入到 IE 等浏览器，监控其访问的网站数据进行统计，因此排名并不具有绝对的可靠性。</p>
+	</form>
+    </div>
+  </div>
+  
+<div class="frame">
+{$details}
+
+<h6>在线服务</h6>
+<div class="Content_1 service"><a title="万年历" href="tool.aspx">万年历</a> <a href="tool.aspx?action=ji">计算器</a> <a title="今天到期域名" href="tool.aspx?action=jin">今天到期域名</a><a title="昨天到期域名" href="tool.aspx?action=jin&tt=2">昨天到期域名</a> <a title="前天到期域名" href="tool.aspx?action=jin&tt=3">前天到期域名</a> <a title="明天拟删除域名" href="tool.aspx?action=jin&tt=4">明天拟删除域名</a> <a title="后天拟删除域名" href="tool.aspx?action=jin&tt=5">后天拟删除域名</a> </div>
+</div>
+
+
+
+
+
+
+</div>
+<!--主体结束-->

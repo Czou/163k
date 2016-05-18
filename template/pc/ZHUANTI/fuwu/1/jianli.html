@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$chrname}的简历-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="{$SiteUrl}";</script>
+{$top$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">招聘求职</a> &gt; {$chrname}的简历</div>
+  <!-- 主体 -->
+  <div id="content" class="v2013">
+		<div class="jianli_2013 clearfix">
+			<div class="left">简历编号：{$chrrencai}</div>
+			<div class="right"></div>
+		</div>
+		<div class="zp_2013 clearfix">
+			<div class="left">
+				<div class="jl_menu">
+					<a href="javascript:mianshiyqing({$jobid});" class="btn btn_1">邀请面试</a>
+					<a href="javascript:window.external.AddFavorite(window.location.href,document.title);" class="btn btn_2">收藏简历</a>
+					<a href="{$SiteUrl}member/myjianli.aspx#tt3" class="btn btn_3">更新简历</a>
+					<a href="{$SiteUrl}member/myjianli.aspx#tt3" class="btn btn_4">发布简历</a>
+					<a href="rencai.html" class="more">浏览更多人的简历 >></a>
+				</div>
+				<div class="adv">
+					{$jobleftadv}
+				</div>
+			</div>
+			<div class="right">
+				<div class="jl">
+					<h2>{$chrname}的个人简历</h2>
+					<p class="updata">更新日期：{$dtappenddate}</p>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="15%" rowspan="3" align="left"><img src="{$filepath}" onerror="javascript:this.src='{$Default_tplPath}images/job_rencai_{$chrsex}_icon.gif';" class="photo" width="73" height="90" alt="" /></td>
+							<td width="31%" align="left">姓 名：<span class="blue">{$chrname}</span></td><td width="28%" align="left">出 生：<span class="blue">{$chusheng}年</span></td>
+						  <td width="26%" align="left" valign="middle">性 别：<img src="{$Default_tplPath}images/{$chrsex}.png" alt="{$chrsex}" /></td>
+					    </tr>
+						<tr align="left">
+							<td>籍 贯：<span class="blue">{$jiguan}</span></td><td>民 族：<span class="blue">{$mingzu}族</span></td>
+						  <td>婚 否：<span class="blue">{$hunyin}</span></td>
+					    </tr>
+						<tr align="left">
+							<td>身 高：<span class="blue">{$shenggao}CM</span></td><td>体 重：<span class="blue">{$tizhong}KG</span></td>
+						  <td>健 康：<span class="blue">{$jiankang}</span></td>
+					    </tr>
+					</table>
+				</div>
+				<div class="mo_3">
+					<div class="hd">教育背景</div>
+					<div class="bd jl">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr><td width="32%" align="left">最高学历：<span class="blue">{$xueli}</span></td>
+						<td width="32%" align="left">毕业学校：<span class="blue">{$biyeyuanxiao}</span></td>
+						  <td width="36%" align="left" valign="middle">毕业时间：<span class="blue">{$biyeyear}年{$biyemonth}月</span></td>
+					   </tr>
+						<tr align="left"><td>所学专业：<span class="blue">{$zhuangye}</span></td><td>外语水平：<span class="blue">{$waiyu}</span></td>
+						  <td>&nbsp;</td>
+					    </tr>
+						<tr align="left">
+						  <td colspan="3">电脑水平：{$diannao}</td>
+					  </tr>
+						<tr align="left">
+						  <td colspan="3">其他教育：{$qita}</td>
+					  </tr>
+					</table>
+					</div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">工作经历</div>
+					<div class="bd jl">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr align="left">
+						  <td>截至今年我有{$gongzuoyear}年的工作经验:</td>
+					  </tr>
+					  <tr align="left">
+						  <td>{$gongzuojingli}</td>
+					  </tr>
+					  
+					</table>
+					</div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">求职意向</div>
+					<div class="bd jl">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+						<tr><td width="32%" align="left">求职类型：<span class="blue">{$qiuzhileixing}</span></td>
+						<td width="32%" align="left">希望行业：<span class="blue">{$chrcategory}</span></td>
+						  <td width="36%" align="left" valign="middle">希望岗位：<span class="blue">{$smallcategory}</span></td>
+					   </tr>
+						<tr align="left"><td>期望月薪：<span class="blue">{$yuexin}</span></td><td>希望地区：<span class="blue">{$gongzuodiqu}</span></td><td>到岗时间：<span class="blue">{$daogang}</span></td></tr>
+						<tr align="left"><td colspan="3">擅长技能：{$jineng}</td></tr>
+					</table>
+						<div class="zijian"><b>自我荐言：</b>{$jianyan}</div>
+					</div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">联系方式</div>
+					<div class="bd jl">
+						<div class="zp_tips">
+						{$contact}
+						</div>
+						<a href="javascript:mianshiyqing({$jobid});" class="btn_sq_03">邀请面试</a>
+						<div class="fenxiang clearfix"><span style="float:left; font-size:12px; line-height:44px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

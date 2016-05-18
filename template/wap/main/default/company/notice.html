@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-店铺介绍-{$SiteName}</title>
+<meta name="keywords" content="{$seokeyword}" />
+<meta name="description" content="{$seodescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/huangye-mb.css" />
+{$top$}
+{$Mh163k_wap_口碑商家_独立头部_层1}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a></div>
+		<div class="huangye_header clearfix">
+			<div class="img show{$showlogo}" style="margin:8px 10px 0 0"><img src="{$filepath}" width="98" height="42" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="" /></div>
+			<h1>{$chrshop}</h1>
+			<p><img src="{$Default_tplPath}/images/koubei/{$chrimage}" style="vertical-align:middle" alt="{$chrlevel}" /> <span style="color:#090">{$koubei}</span></p>
+		</div>
+		<div class="lp_nav">
+			<a href="{$indexurl}" class="comn-submit gray btn_block">店铺首页<span class="jian"></span></a>
+			<a href="{$TargetUrl}content_{$shopid}.html" class="comn-submit gray btn_block">店铺介绍<span class="jian"></span></a>
+			<a href="{$TargetUrl}notice_{$shopid}.html" class="comn-submit btn_block">店铺动态</a>
+			<a href="{$TargetUrl}pic_{$shopid}.html" class="comn-submit gray btn_block">店铺展示<span class="jian"></span></a>
+			<a href="{$TargetUrl}comment_{$shopid}.html" class="comn-submit gray btn_block">网友点评<span class="jian"></span></a>
+		</div>
+		
+		<div class="huangye_content">
+			<div class="hd">店铺动态</div>
+			<ul class="list_normal">
+				<tag:Loop ListType="Listshoparticle" RecType="New" PageSize="16" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="company/list_notice_tr.html" />
+			</ul>
+			<div class="pageNav2">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+</body>
+</html>
+
+
+
+
+

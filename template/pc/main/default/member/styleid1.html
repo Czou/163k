@@ -1,0 +1,75 @@
+﻿<tr>
+  <td class="tditem"><span style="color:Red">*</span> 手机号码：</td>
+  <td class="tdcontent"><input name="chrtel" type="text" class="text" value="{$chrtel}" id="chrtel" readonly="readonly" disabled="disabled" /> <a href="modify.aspx?action=pass" class="blue_font">点击这里修改</a>
+  </td>
+</tr>
+<tr>
+  <td class="tditem"><span style="color:Red">*</span> 企业名称：</td>
+  <td class="tdcontent"><input name="chrtruename" type="text" class="text" value="{$chrtruename}" id="chrtruename" />
+  </td>
+</tr>
+<tr>
+  <td class="tditem"><span style="color:Red">*</span> 法人代表：</td>
+  <td class="tdcontent"><input name="faren" type="text" class="text" value="{$faren}" id="faren" />
+  </td>
+</tr>
+<tr>
+  <td class="tditem"><span style="color:Red">*</span> 企业地址：</td>
+  <td class="tdcontent"><input name="qiyedizhi" type="text" class="text" value="{$qiyedizhi}" id="chraddress" />　<a href="#" class="sys_btn_blue" onClick="return set_image();">地图标注</a><input type="hidden" id="shop_x" name="shop_x"  value="{$shop_x}"><input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}"><input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"><input type="hidden" id="shop_z" name="shop_z"  value="{$shop_z}">
+  </td>
+</tr>
+<tr>
+  <td class="tditem"> 企业规模：</td>
+  <td class="tdcontent">{$qiyeguimo}
+  </td>
+</tr>
+<tr>
+  <td class="tditem"><span style="color:Red">*</span> 企业性质：</td>
+  <td class="tdcontent">{$qiyexizhi}
+  </td>
+</tr>
+<tr>
+  <td class="tditem"> 营业执照号：</td>
+  <td class="tdcontent"><input name="yingye" type="text" class="text" value="{$yingye}" id="yingye" />
+  </td>
+</tr>
+<tr>
+  <td class="tditem"><span style="color:Red">*</span> 所属行业：</td>
+  <td class="tdcontent">{$hangye}
+  </td>
+</tr>
+
+<tr>
+  <td class="tditem"> 传真号码：</td>
+  <td class="tdcontent"><input name="chrfax" type="text" class="text" value="{$chrfax}" id="chrfax" />
+  </td>
+</tr>
+<tr>
+  <td class="tditem"> 联系人：</td>
+  <td class="tdcontent"><input name="chrcode" type="text" class="text" value="{$chrcode}" id="chrcode" />
+  </td>
+</tr>
+<tr>
+  <td class="tditem"> 企业描述：</td>
+  <td class="tdcontent">
+   <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent}</textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '300px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+  
+  </td>
+</tr>

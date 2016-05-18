@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/tieba.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script>
+window['Bigcategory'] = '{$bigcategoryid}';
+window['istiebaNav'] = true;
+</script>
+<style type="text/css">
+.wrap_kalendar_node { left:auto; right:-3px;}
+.sign_tip_bd_arr { left:auto; right:70px;}
+</style>
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$tiebaurl}">{$lanmuname}</a><span class="display{$bigcategoryid}"> &gt; <a href="../tieba_a{$bigcategoryid}_b0_c0_d0_e0_f0_g0_h0_i0_p1.html">{$bigchrcategory}</a></span> &gt; {$title}</div>
+		
+		<div class="tieba clearfix">
+          <div class="definit">{$Mh163k_贴吧_自定义html}</div>
+          <!--侧栏-->
+          <div class="tb_side right">
+            <div class="reg" id="qiandaoWrap">
+              <div class="reg_inner clearfix"><a href="javascript:void(0);" onClick="return checkQD();" id="qiandao" class="qiandao">签到</a><span class="left">{$system_datetime MM月dd日}<br>漏签<em class="yellow" id="qdlou">0</em>天</span></div>
+			 <div id="wrap_kalendar_node" class="wrap_kalendar_node" style="display:none;"><div class="sign_tip_bd_arr"></div><div id="wrap_kalendar"></div><p class="qiandaolx">连续签到：<em id="qdlian">0</em>天　当月累计签到：<em id="qdmonths">0</em>天　总计：<em id="qdallnum">0</em>天</p></div>
+            </div>
+            <div class="title">我的贴吧</div>
+            <div class="user_info" id="userInfo" style="display:none;">
+				<div class="head_img"><img src="{$Default_tplPath}images/defalut_face.gif" alt="" /></div>
+             <div style="text-align:center;">您还没有<a href="{$SiteUrl}member/login.html?from={$tiebaurl}" target="_blank">登录</a></div>
+             
+			</div>
+            <div class="tb_nav">
+             <ul><li class="cur"><a href="/tieba_a0_b0_c0_d0_e0_f0_g0_h0_i0_p1.html" data-bazhu="0" onClick="return showCatA('items00',{'a':'0','b':'0'},this)">全部版块</a></li>{$Category_div}</ul>
+            </div>
+            <div class="ewm"><p>手机访问贴吧</p><img src="{$tiebawapimg}" onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" /></div>
+          </div>
+          <!--侧栏 ernd-->
+          <!--列表-->
+		  <div class="tb_main col_tb_main left" id="resizeIMG">
+           <div class="post_title">
+            <h2>{$title}<img src="{$Default_tplPath}images/jing.gif" alt="精" class="display{$isjinghua}" /><img src="{$Default_tplPath}images/zd.gif" class="display{$iszhiding}" alt="置顶" /></h2>
+            <div class="praise" onClick="return putRevertPage(this,'{$id}','styleid=1&isyes=1');">(<em class="num">{$num1}</em>)<s class="s"></s></div>
+            <dl class="clearfix">
+             <dt><a href="javascript:void(0);" id="showLouzhu" data-showLouzhu="0" class="lz">只看楼主</a> <a href="#{$id}" class="fav">收藏</a> <a href="#fabuForm" id="myFabu_1" class="quick_reply">回复</a></dt>
+             <dd>人气：{$hits}　回复：{$revertnum}</dd>
+            </dl>
+           </div>
+           
+           <div class="post_item user_{$userid} clearfix" id="louzhuNode" data-userid="{$userid}">
+             <div class="t_author">
+               <i class="icon"></i>
+			   <i class="icon_online" title="在线"></i>
+               <div class="author_face"><img src="{$chrpic}" /></div>
+               <div class="username">{$chrname}</div>
+               <div class="badge">{$chrlevel}<em>{$djid}</em></div>
+			   <div class="bazhu display{$isbazhu}">版主</div>
+               <ul>
+                <li>帖子：{$tiebanum}</li>
+                <li>精华：{$tiebajinghuanum}</li>
+                <li>注册：{$regdate yyyy-MM-dd}</li>
+               </ul>
+             </div>
+             <div class="post_con">
+              <div class="con">{$chrcontent}</div>
+              <div class="share"><span style="float:left; font-size:12px; line-height:32px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+              <div class="bot_reply" id="louzhuCon">
+				 <span class="">楼主</span>　<span class="r_time">{$dtappenddate}</span>
+				 <span class="manage">　<a href="javascript:void(0);" onClick="superManage('{$id}');" class="blue">超级管理</a>　<a href="{$SiteUrl}tieba/addedit.aspx?action=edit&id={$id}" target="_blank" class="blue">编辑</a>　<a href="javascript:void(0);" onClick="$.managerTBisdel('{$id}','{$bigcategoryid}');" class="blue">删除</a></span>
+             </div>
+             <div class="reply_con"></div>
+             </div>
+           </div>
+           <div id="pagingList" class="isrevert{$isrevert}">
+		   <Paging:{
+						"table_id":"252",
+						"pagesize":20,		
+						"strlen":220,	
+						"titlelen":100,
+						"tplpath":"tieba",	
+						"tplname":"paging_tieba_revert_show_list.html",	
+						"isjson":0
+						}/>
+           </div>
+            <div class="pageNavigation" id="pageNavigation">{$PageSplit}</div>
+            <!--精华帖-->
+            <div class="reco_arc">
+             <h4>精华帖推荐</h4>
+             <ul class="clearfix">
+              {$Mh163k_贴吧_帖子页_精华帖推荐}
+             </ul>
+            </div>
+            <!--发表新帖-->
+            <div class="send_new clearfix">
+              <h4 id="fabuForm">我要回复</h4>
+			  <p class="display_isrevert_{$isrevert}">该帖已关闭回复</p>
+			  <input type="hidden" id="isfabukill" value="0" />
+			  <form class="display{$isrevert}" action="tieba/tieba_ajax.ashx?action=saverevert" id="myform" method="post" target="tijiao">
+			  <input type="hidden" name="id" value="{$id}" />
+			 	<input type="hidden" value="tieba" name="table_id" />
+				<input type="hidden" value="" name="state" id="state" />
+				<input type="hidden" value="900" name="filewidth" />
+				<input type="hidden" value="0" name="filehight" />
+              <div class="editor" id="ue_editor"><script id="chrmark" name="chrmark" type="text/plain" style="height:246px;"></script></div>
+              <div class="send_btn"><input type="submit" class="send" />承诺遵守文明发帖，国家相关法律法规</div>
+			  </form>
+            </div>
+          </div>
+        </div>
+	</div>
+	{$bottom$}
+</div>
+<div class="rmenu"><ul><li class="huifu"><a href="javascript:void(0);" class="link" id="myFabu_1" title="回复">回复</a></li><li class="fabu"><a href="javascript:void(0);" class="link" id="seniorSend" title="发帖">发帖</a></li><li class="f5"><a href="javascript:void(0);" onClick="return getPagingGlobal();" class="link" title="刷新">刷新</a></li><li class="share po_re" title="分享" id="myShare"><a href="javascript:void(0);" class="link">分享</a><div class="po content"><span style="float:left; font-size:12px; line-height:40px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div></li><li id="top"><a href="javascript:void(0);" class="link" title="返回顶端">返回顶端</a></li></ul></div>
+
+<div class="writeTB" id="replay" data-isevent="0" style="display:none;">
+<form id="myformReplay" action="tieba/tieba_ajax.ashx?action=saverevert" method="post" target="tijiao">
+<input type="hidden" name="id" value="{$id}" />
+<input type="hidden" id="isrep" name="isrep" value="1" />
+<input type="hidden" id="parentid" name="Parentid" value="" />
+				<input type="hidden" value="tieba" name="table_id" />
+				<input type="hidden" value="" name="state" id="state2" />
+				<input type="hidden" value="900" name="filewidth" />
+				<input type="hidden" value="0" name="filehight" />
+<script id="chrcontent2" name="chrmark" type="text/plain" style="width:100%;height:100px;"></script>
+<div class="send_btn"><input type="submit" class="send">承诺遵守文明发帖，国家相关法律法规</div></form>
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js?{$CacheHash}"></script>
+<script>
+var mathState = Math.round(Math.random()*1E16);
+$('#state,#state2').val(mathState);
+window["ueuploadcfg"]={"table_id":"tieba","filewidth":"900","state":mathState};
+window['logincookieStr'] = $.cookie('{$logincookieName}');
+if(!!window['logincookieStr']){
+	var arr_logincookieStr = window['logincookieStr'].split('&');
+	for(var iii = 0;iii<arr_logincookieStr.length;iii++){
+		window["ueuploadcfg"][arr_logincookieStr[iii].split('=')[0]] = arr_logincookieStr[iii].split('=')[1];
+	}
+}
+</script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js?{$CacheHash}"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/tieba.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/kalendar.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.colorpicker.js?{$CacheHash}"></script>
+<script>
+window['STYLEID'] = '1';//回评操作时的是否可回
+var nowdomain ="{$SiteUrl}";
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$id}';
+
+var ueConfig = {toolbars: [['fullscreen', 'emotion', 'simpleupload', 'insertimage', 'scrawl', 'music', 'insertvideo', 'snapscreen', 'map']],theme:'defaulti',wordCount:true,maximumWords:10000,autoHeightEnabled:false};
+var ueSize2 = '{$isrepfabusize}';
+ueSize2 === '0'&&(ueConfig.wordCount = false);
+ueConfig.maximumWords = ueSize2;
+var ue = UE.getEditor('chrmark',ueConfig);
+var ue2 = UE.getEditor('chrcontent2',ueConfig);
+$(function() {
+    $('#resizeIMG .post_con').resizeIMG('866','1000');
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.rmenuShow();
+	$('#listEmpty')[0]&&$('#listEmpty').html('沙发空缺中，赶紧来抢哦！');
+	$('#showLouzhu').click(function(e){
+		e.preventDefault();
+		if($(this).attr('data-showLouzhu') === '1'){
+			getPagingGlobal({'g':'0'});
+			$(this).removeClass('cur').attr('data-showLouzhu','0');
+		}else{
+			getPagingGlobal({'g':'{$userid}'});
+			$(this).addClass('cur').attr('data-showLouzhu','1');
+		}
+	});
+	$("#myform").chackTextarea(ue,postRevertPage);
+	$("#myformReplay").chackTextarea(ue2,postRevertPage);
+	$('#myShare').hover(function(){
+		$(this).toggleClass('open');
+	});
+	ue.addListener('focus',function(){
+		isfabukill();
+	});
+	ue2.addListener('focus',function(){
+		isfabukill();
+	});
+	function isfabukill(){
+		if($('#isfabukill').val() === '0'){
+			MSGwindowShow('tieba','1','请登录后再发表回复！',nowdomain+'member/login.html?from='+encodeURIComponent('{$tiebaurl}../tieba_show_{$id}.html'),'');
+			return false;
+		}
+		return true;
+	}
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#super_color")
+	});
+	$('#seniorSend').click(function(e){
+		e.preventDefault();
+		isfabukill()&&window.open('{$tiebaurl}addedit.aspx?bigcategoryid={$bigcategoryid}&categoryid={$categoryid}');
+	});
+	//搜集当前页的用户ID，获取在线状态
+	var userid_arr = [],new_arr = [];
+	userid_arr.push($('#louzhuNode').attr('data-userid'));
+	$('#pagingList').find('.post_item').each(function(){
+		userid_arr.push($(this).attr('data-userid'));
+	});
+	new_arr = unique(userid_arr);
+	get_user_isOnline(new_arr.join());
+});
+var keyvalues = {
+	"table_id":"252",	
+	"i":"{$id}",	
+	"pagesize":20,		
+	"strlen":220,	
+	"titlelen":100,
+	"tplpath":"tieba",	
+	"tplname":"paging_tieba_revert_show_list.html",	
+	"p":"{$iPageNo}",
+	"_key":"{$_key}",
+	"g":"{$g}"//只查看某用户回复(userid)
+};
+function MSGwindowShow_JSON(data){
+	if(data.islogin === '1'){
+		if(data.isopen === '0'){
+			MSGwindowShow('revert','0','恭喜你，回复成功！请耐心等待系统审核！','','');
+			$('#isrep').val('');
+			$('#parentid').val('');
+			ue.setContent('');
+			ue2.setContent('');
+			$('#replay').hide();
+		}else{
+			successPostRevert(data);
+		}
+	}else{
+		MSGwindowShow('revert','0',data.error,'','');
+	}
+}
+function successPostRevert(data){
+	$('#isrep').val('');
+	$('#parentid').val('');
+	ue.setContent('');
+	ue2.setContent('');
+	$('#replay').hide();
+	$('#pagingList').append(data.MSG);
+	$('#listEmpty')[0]&&$('#listEmpty').remove();
+	$("html,body").animate({scrollTop: $("#pagingList .post_item:last-child").offset().top},300);
+	setTimeout(function(){
+		MSGwindowShow('revert','0','恭喜您！回复成功！','','');
+		
+	},400);
+}
+function contrastUser(){//是否该会员的帖子
+	if('{$userid}'==window['userDate'].userid){
+		$('#louzhuCon .manage').show().find('a').eq(0).hide();
+	}
+}
+</script>
+</body>
+</html>

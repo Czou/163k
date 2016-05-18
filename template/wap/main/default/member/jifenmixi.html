@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$jifenname}明细-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '{$jifenname}明细';
+var name0="{$jifenname}";
+var name1 = "{$daijinname}";
+</script>
+<style>
+.acti1 {display;none;}
+#jifendetails li{list-style-type:none;}
+</style>
+{$top$}
+<div class="o_main">
+ 
+ <!--填写信息-->
+<div class="tabItem tab-cont" style="display:block;">
+ <div class="inp_Itembox">
+    <input name="styleid" id="styleid" type="hidden" value="0"/>
+    <input name="typeid" id="typeid" type="hidden" value="2" />
+    <input name="actions" id="actions" type="hidden" />
+  <dl class="clearfix">
+   <dt>登录帐号</dt>
+   <dd>{$chrname}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>会员类型</dt>
+   <dd>{$styleid}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>{$daijinname}</dt>
+   <dd>{$daijinnum}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>{$jifenname}</dt>
+   <dd>{$jifennum}</dd>
+  </dl>
+ </div>
+ 
+ 
+ 
+ 
+ <div class="inp_Itembox">
+  <dl class="clearfix sel_radio_form" data-name="styleids">
+   <dt>查询种类</dt>
+   <dd>
+   <span class="display0"><input type="radio"  name="styleids" value="0" checked > 
+    <input type="radio" name="styleids" value="1" ></span>
+    <span class="gx_radio current" data-val="0" onclick="show_val('styleid',0);show_val('actions','');">{$jifenname}</span>
+    <span class="gx_radio" data-val="1" onclick="show_val('styleid',1);">{$daijinname}</span>
+   </dd>
+  </dl>
+  
+  
+  
+  
+  <dl class="clearfix sel_radio_form" data-name="typeids">
+   <dt>交易方式</dt>
+   <dd>
+   <span class="display0"><input type="radio"  name="typeids" value="2" checked ><input type="radio" name="typeids" value="0" ><input type="radio" name="typeids" value="1" ></span>
+    <span class="gx_radio current" data-val="2" onclick="show_val('typeid',2);">全部</span>
+    <span class="gx_radio" data-val="0" onclick="show_val('typeid',0);">增加</span>
+	<span class="gx_radio" data-val="1" onclick="show_val('typeid',1);">扣除</span>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>起始时间</dt>
+   <dd><input type="date" name="ondate"  id="ondate" placeholder="交易时间">
+ </dd>
+  </dl>
+   <dl class="clearfix">
+   <dt>结束时间</dt>
+   <dd> <input type="date" name="offdate" id="offdate" placeholder="交易时间" ></dd>
+  </dl>
+ 
+ </div>
+<button type="button" onclick="chaxunform();" class="save">查 询</button>
+	<div class="inp_Itembox" style="padding:10px;">
+		<div style=" font-size:16px; font-weight:bold;">查询结果</div>
+		<DIV ID="jifendetails" style="padding:10px 0;">请输入搜索条件</DIV><input id="jifenname" value="" type="hidden" />
+	</div>
+</div>
+{$bottom$}  
+<script>
+$('.sel_radio_form').radioForm();
+
+function chaxunform(){
+	var styleid=$("#styleid").val();
+	var typeid=$("#typeid").val();
+	var ondate=$("#ondate").val();
+	var offdate=$("#offdate").val();
+	var actions="";
+	showjifen2(actions,typeid,styleid,ondate,offdate,'jifendetails');
+}
+function showjifen2(actions,typeid,styleid,ondate,offdate,obj){
+	var url ="../member/modify.aspx?action=mingxi&actions=" + actions + "&typeid=" + typeid + "&styleid=" + styleid + "&ondate=" + ondate + "&offdate=" + offdate;
+	if(styleid==='0'){
+		$('#jifenname').val(name0);
+	}else{
+		$('#jifenname').val(name1);
+	}
+	$.ajax({url:url,success:function(data){
+		$('#'+obj).html(data);							 
+	}});
+}
+function show_val(key,val){
+	$('#'+key).val(val);			
+}
+</script>
+</body>
+</html>

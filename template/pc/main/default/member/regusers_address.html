@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>配送地址管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<style>
+.blue_font { color:#36c;}.blue_font:hover { color:#d00;}
+.s_btn_red { background:url("{$Default_tplPath}images/kuaisonSP.gif") no-repeat 0 0;}
+.addressList { margin-bottom:20px; font-size:14px;}
+.addressList .item { padding:12px 0 12px 15px; position:relative; z-index:1; *zoom:1; color:#222; border-bottom:1px solid #f2f2f2;}
+.addressList .item0 { display:none;} 
+.addressList .radio { display:none;}
+.addressList .name { color:#222;}
+.addressList .chraddress,.addressList .tel { color:#999;}
+.addressList .edit,.addressList .del { position:absolute; top:12px; right:45px;}
+.addressList .del { right:5px;}
+.addressList .tit { display:none; position:absolute; left:0px; top:6px; font-size:12px; color:#f30; padding-left:25px; background-position:-580px -887px;}
+.addressList .morenok { color:#aaa; display:none;}
+.addressList .ismoren1 .morenok { display:inline;}
+.addeditNode { display:none; border:6px solid rgba(0,0,0,0.4); *border:6px solid #666; z-index:100; position:fixed; _position:absolute; top:0; left:50%; width:788px; margin-left:-400px;}
+.addeditMask { display:none; z-index:99; position:absolute; top:0; left:0; background-color:#000; FILTER: alpha(opacity=30); moz-opacity: 0.3; opacity: 0.3;}
+.address .p { overflow:hidden; *zoom:1; margin:15px;}
+.address .a,.address .b { float:left;}
+.address .a { width:80px; line-height:36px;}
+.address .s_ipt { width:400px; padding:9px 8px; outline:0; color:#333; border:1px solid #ccc;}
+.address .s_btn,.address .s_btn2,.s_btn_green,.s_btn_gray,.s_btn_red { color:#fff; outline:0; background-color:#3f952d; border-radius:4px; padding:6px 25px; border:1px solid #398c27; cursor:pointer; *overflow:visible; font-size:14px;}
+.address .s_btn2 { background-color:#979797; border:1px solid #878787;}
+.s_btn_green,.s_btn_gray { padding:8px 30px; font-size:16px;}
+.s_btn_gray { background-color:#979797; border:1px solid #878787;}
+.s_btn_red { margin-top:15px; display:inline-block; *display:inline; *zoom:1; padding-left:40px; background-color:#e74c3c; border:1px solid #ce4031; background-position:-570px -845px;}
+.s_btn_red:hover { text-decoration:none; color:#fff;}
+#tip_error { color:#d00; padding-left:20px; line-height:36px;}
+.mod_02 .hds { background-color:#d0cece; padding:8px; color:#333;}
+.mod_02 .bds { background-color:#f6f6f6; padding:20px; font-size:14px;}
+.node0 { display:none;}
+</style>
+<script>var siteUrl = '{$SiteUrl}';</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 配送地址管理</div>
+  <!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="bigtitle">配送地址管理</div>
+			<div class="smalltitle" style="margin-top:15px;">地址列表</div>
+			<ul class="addressList" id="addressList">{$regusers_address_list}<li><a href="javascript:void(0);" id="addAddress_btn" class="s_btn_red">添加地址</a></li></ul>
+			<div class="mod_02 addeditNode" id="addeditNode" style="display:none;">
+				<div class="hds" id="s_tit">请填写新的配送地址</div>
+				<div class="bds address">
+					<form method="get" id="myformAddress">
+					<input type="hidden" id="s_id" value="" />
+					<input type="hidden" id="s_styleid" value="" />
+					<input type="hidden" id="s_ismoren" value="" />
+					<p class="p"><span class="a">联系人：</span><span class="b"><input type="text" class="s_ipt" id="s_realname" /></span></p>
+					<p class="p"><span class="a">电话：</span><span class="b"><input type="text" class="s_ipt" id="s_phone" /></span></p>
+					<p class="p"><span class="a">配送地址：</span><span class="b"><input type="text" class="s_ipt" id="s_address" /></span></p>
+					<p class="p"><span class="a">&nbsp;</span><span class="b"><button class="s_btn" type="submit">确认</button>　<button class="s_btn2 close" type="button">取消</button></span><span class="b" id="tip_error"></span></p>
+					</form>
+				</div>
+			</div>
+			<div class="addeditMask" id="addeditMask"></div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+    {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/kuaisonCommon.js?{$CacheHash}"></script>
+<script>
+(function($){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#addressList').addressList();
+	$('#myformAddress').bind('submit',function(e){
+		function checkmobile(value){
+			return /^(13\d{9}|18\d{9}|14\d{9}|15\d{9}|659\d{7}|658\d{7})$/i.test(value) || /(\(\d{3,4}\)|\d{3,4}-|\s)?\d{8}/i.test(value);	
+		}
+		var $realname = $('#s_realname'),$address = $('#s_address'),$phone = $('#s_phone'),tip_error = $('#tip_error');
+		if($realname.val() === ''){
+			tip_error.html('请输入配送人姓名！');
+			return false;
+		}
+		if($phone.val() === ''){
+			tip_error.html('请输入电话号码！');
+			return false;
+		}
+		if(!checkmobile($phone.val())){
+			tip_error.html('请输入有效的电话号码！');
+			return false;
+		}
+		if($address.val() === ''){
+			tip_error.html('请输入配送地址！');
+			return false;
+		}
+		addeditAddress(encodeURIComponent($realname.val()),encodeURIComponent($address.val()),encodeURIComponent($phone.val()),$('#s_id').val(),$('#s_styleid').val(),$('#s_ismoren').val());
+		return false;
+	});
+	
+})(jQuery);
+</script>
+</body>
+</html>

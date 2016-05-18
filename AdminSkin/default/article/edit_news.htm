@@ -1,0 +1,491 @@
+﻿<style>
+.p_list ul {list-style:none;}
+.p_list li { margin-bottom:10px; list-style:none; float:left; width:132px; display:inline; padding:5px; margin-right:10px;}
+.p_list p { font-weight:normal;}
+.p_list a { font-weight:bold;}
+#J_imageView li { position:relative; *zoom:1; z-index:1; list-style:none; float:left; overflow:hidden; margin:15px; height:160px; display:inline; vertical-align:top; padding:0; text-align:left;}
+#J_imageView img { vertical-align:top; display:block; border:2px solid #ccc;}
+#J_imageView .i_img_alt { position:absolute; left:0; bottom:0; width:112px; margin:5px 0 0 0; display:block;}
+.my_prop_imgitem{ font-weight:normal; width:124px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:106px; width:auto; padding:2px 5px;}
+.my_prop_imgitem .p { margin:5px 0;}
+.my_prop_imgitem .i_img_alt { width:115px;}
+</style>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入文章信息!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.qu_catgoryid.value=="" && o.qu_classid.value=="" ){
+		alert("请选择文章分类!");
+		o.qu_catgoryid.focus();
+		return false;
+	}
+	/*if(o.keyword.value==""){
+		alert("请输入关键词(SEO)!");
+		o.keyword.focus();
+		return false;
+	}*/
+	if(o.intorder.value==""){
+		alert("请输入排序！");
+		o.intorder.focus();
+		return false;
+	}
+	if(!isInt(o.intorder.value)){
+		alert("排序只能为数字！");
+		o.intorder.select();
+		return false;
+	}
+	if(o.chrauthor.value==""){
+		alert("请输入编辑!");
+		o.chrauthor.focus();
+		return false;
+	}
+	if(o.hits.value==""){
+		alert("请输入点击数！");
+		o.hits.focus();
+		return false;
+	}
+	if(!isInt(o.hits.value)){
+		alert("点击数只能为数字！");
+		o.hits.select();
+		return false;
+	}
+	
+}
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+    {
+		setCookie("delurl",window.location.href);
+        location.href = "?action=delphoto&ID=" + id
+     }
+}
+</script>
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script type="text/javascript" src="{$atplPath}js/highslide/highslide.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/highslide/highslide.css" />
+<script type="text/javascript">
+	hs.graphicsDir = '{$atplPath}js/highslide/graphics/';
+	hs.wrapperClassName = 'wide-border';
+</script>
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改文章信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" class="global_btn" type="submit" id="GoToGQList" value="返回至文章列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+    <tr > 
+      <td height="25" width="12%" >文章标题<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" width="40%" colspan=3> <input name="chrtitle" type="text" size="70" value="{$chrtitle$}"></td>
+	  
+	   <td height="25"   width="12%" >标题颜色： 
+      </td>
+      <td class="category"> <input name="color" type="text" id="cptext" value="{$color$}" style="color:{$color}" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+    </tr>
+	<tR>
+	 <td height="25">文章分类<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" w colspan=3> {categoryid}</td>
+	   <td height="25" >标题加粗： 
+      </td>
+      <td class="category"> <input name="isfont" type="radio"  value="0"   {$isfont0}>&nbsp;&nbsp;否 <input name="isfont" type="radio"  value="1"  {$isfont1} >&nbsp;&nbsp;是</td>
+	</tR>
+    <tr > 
+ 	  <td  height="25">关键词(SEO)<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan="3"> <input name="keyword" type="text" size="60"  value="{$keyword$}"> <em class="global_tip">(多个用,隔开)</em></td>
+    
+	  <td  height="25">排序<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <input name="intorder" type="text" size="10" value="{$intorder$}"  onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">越大越靠前！</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">编辑<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="chrauthor" type="text" size="20" value="{$chrauthor$}"></td>
+	  <td  height="25">来源： 
+      </td>
+      <td class="category" > <input name="chrfrom" type="text" size="20"  value="{$chrfrom$}"></td>
+	  <td  height="25">点击数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" > <input name="hits" type="text" size="20" value="{$hits$}"   onKeyUp="if(isNaN(value))execCommand('undo')"></td>
+    </tr>
+    	 <tr> 
+      <td  height="25">文章属性:
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="styleid" {$styleid0$} onclick="showxtr(0,'news','','');">资讯文章 <input type="radio" value="1" name="styleid" {$styleid1$} onclick="showxtr(1,'news' ,'','');">网址跳转  <input type="radio" value="2" name="styleid" {$styleid2$} onclick="showxtr(2,'news','{$ID}','{$IDOK}');">专题文章 <span id="xtr0" style="display:{$display0$}"><span id="xtr1" style="display:{$display1$}">,网址跳转至(直接跳转到指定的网址)：<input type="text" name="chrurlstr" size="26" value="{$chrurl$}"></span><span id="xtr2" style="display:{$display2$}">,选择专题模版：../TempLate/Pc/Zhuanti/News/ {$template}</span></span>
+      	<input type="hidden" name="chrurl" id="chrurl"  value="{$chrurl$}">
+      	</td>
+    </tr>
+	<tr > 
+      <td  height="25">是否首页推荐： 
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="shouye" {$shouye0}>不推荐 
+					<input  type="radio" value="1" name="shouye" {$shouye1}>推荐</td>
+    </tr>
+    
+    
+	<tr > 
+      <td  height="25">是否加入到头条： 
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="toutiao" {$toutiao0}>不加入 
+					<input  type="radio" value="1" name="toutiao" {$toutiao1}>加入&nbsp; <em class="global_tip">(加入的文章按照点击数大小显示排序)</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" colspan=2> <input name="iskill" type="radio"  value="0"  {$iskill1$}> 等待审核 <input name="iskill" type="radio"  value="1"  {$iskill2$}> 审核通过</td>
+	   <td  height="25">是否设置推荐<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" colspan=2> <input name="istop" type="radio"  value="0"  {$istop1$}> 不推荐 <input name="istop" type="radio"  value="1" {$istop2$} > 推荐</td>
+    </tr>
+	<tr > 
+      <td  height="25">是否设置为焦点文章： 
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="isjiaodian" onclick="filepath_init()" {$isjiaodian0}>否 
+					<input  type="radio" value="1" name="isjiaodian" {$isjiaodian1} onclick="filepath_init()">是 <em class="global_tip">(设置焦点文章则必须上传图片，否则无效。将显示在文章首页幻灯图)</em></td>
+    </tr>
+	<tr >
+      <td  height="25">是否含有图片： 
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="istuwen" onclick="filepath_init()" {$istuwen0}>否 
+					<input  type="radio" value="1" name="istuwen" {$istuwen1} onclick="filepath_init()">是 <em class="global_tip">(必须上传图片或关联图集，否则无效)</em></td>
+    </tr>
+	 <tr style="display:none;" id="file_upload"> 
+      <td >文章封面(图片文章需上传)
+      </td>
+      <td  colspan=5  class="category"> <input type="radio" value="0" name="isonephoto"  checked="checked">单独上传 
+					<input  type="radio" value="1" name="isonephoto">重新提取图集第一张
+					<input  type="radio" value="2" name="isonephoto">重新提取文章中第一张
+	  <span id="str1" ><a href='{$filepath$}' class="highslide" onclick="return hs.expand(this)"><img src="{$filepath$}" style="margin:5px 0; display:block; width:100px; height:100px" id="showpic" border="0" /></a>  <span onclick="hid2()" class="global_btn">重新上传</span></span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=news&type=1"></iframe>
+	  </span>
+	  <input type=hidden name="url1"  id="url1" value="{$url1}">
+	  
+	  
+	  
+	  <p>文章首页轮换图宽度:<input name="newsfilewidth" id="newsfilewidth" type="text" size="8" value="572" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	文章首页轮换图高度:<input name="newsfileheight" id="newsfileheight" type="text" size="8" value="429" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"></p>
+	  <p>缩略图截取宽度:<input name="smallfilewidth" type="text" size="8" value="200" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	缩略图截取高度:<input name="smallfileheight" type="text" size="8" value="150" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"></p>
+	  </td>
+    </tr>
+    
+    
+		<tr id="photoset"> 
+      <td  height="25" width=15%>文章图片： 
+      </td>
+      <td class="category"  colspan="5">
+	  <input type="radio" value="2" id="isnewphoto2" onclick="showTuji()" name="isnewphoto" checked="checked">不修改现有图集　<input type="radio" value="0" id="isnewphoto0" onclick="showTuji()" name="isnewphoto" >从已有图集中选择　<input  type="radio" value="1" id="isnewphoto1" name="isnewphoto" onclick="showTuji()" >自动创建一个新的图集<br>
+	  <div id="isnewphoto0_inner" style=" padding:15px 0;">
+	  {$photo_classid}
+	  </div>
+	  
+	  </td>
+    </tr ><input type="hidden" name="photostyleid" id="photostyleid" value="2" />
+    	 <!--<tr id="photouptype"> 
+      <td  height="25" >图集上传方式：
+      </td>
+      <td class="category"colspan="5">  <input type="radio" name="phototypeid" value="2"  onclick="newphotosetclicknews('2','photostyleid')" checked="checked" />从电脑上传（批量）
+      	 <input type="radio" name="phototypeid" value="1"  onclick="newphotosetclicknews('1','photostyleid')" />从网上导入
+      	 </td>
+    </tr>-->
+    	<tr  id="photoup"> 
+      <td  height="25" >选择图片：<br />
+      </td> 
+      <td class="category" style="padding-left:4px;"colspan="5"> 
+<div id="upload_way_2" style="display:;">
+	<input type="button" id="J_selectImage" value="批量上传" />
+	<div id="J_imageView"></div>
+<script>
+var table_id = 'photo';
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id,
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					var i=0;
+					jQuery("#urlhidden").val();
+					jQuery("#urlmark").val();
+					K.each(urlList, function(i, data) {
+						if( jQuery("#urlhidden").val()=="" ){
+							jQuery("#urlhidden").val(data.id);
+						}else{
+							jQuery("#urlhidden").val(jQuery("#urlhidden").val()+","+data.id);
+						}
+						i++;
+					});
+					saveMyImage();
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+function saveMyImage(){
+	var classid = jQuery('#classid').val();
+	var photocategoryid = jQuery('#photocategoryid').val();
+	var urlhidden = jQuery('#urlhidden').val();
+	var urlmark = jQuery('#urlmark').val();
+	var smallfilewidth = jQuery('#smallfilewidth').val();
+	var smallfileheight = jQuery('#smallfileheight').val();
+	var url = '/request.ashx?action=picBatchUpload&table_id='+table_id+'&parentid='+photocategoryid+'&classid='+classid+'&isadmin=1&urlhidden='+urlhidden+'&urlmark='+urlmark+'&smallfilewidth='+smallfilewidth+'&smallfileheight='+smallfileheight+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			showMyImage(data['MSG']);
+		}else{
+			alert(data);
+		}
+	}});
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	var classid = jQuery('#classid').val();
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<input type="text" value="'+o[i]["chrmark"]+'" onblur="editMark(this,\''+o[i]["id"]+'\')" class="i_img_alt" />'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return set_FM(this,\''+o[i]["filepath"]+'\',\''+o[i]["id"]+'\');" class="set_FM">设为封面</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\'photo&classid='+classid+'\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\'photo&classid='+classid+'\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+function editMark(o,id){
+	var chrmark = jQuery(o).val();
+	var url = '/request.ashx?action=setpicmark&iskill=1&table_id='+table_id+'&id='+id+'&chrmark='+encodeURIComponent(chrmark)+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			//alert('图片注释编辑成功！');
+		}else{
+			alert(data);
+		}
+	}});
+}
+function set_FM(o,imgURL,imgid){
+	var url = siteUrl+'request.ashx?action=phototop&table_id='+table_id+'&istop=1&id='+imgid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery('#url0').val(imgURL);
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			jQuery('#xiangce').find('.set_FM').html('设为封面');
+			jQuery(o).html('已设封面');
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+function delfile(o,sid,type){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = 'photo.aspx?action=del&id='+sid+'&styleid='+type;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+</script>
+			</div>
+			<div id="upload_way_1" style="display:none;">
+				<p><img src="{$atplPath}images/add.jpg" style="cursor:pointer"  onclick="addphotorownews(1);"> </p>
+				<table width="100%"  border="0" cellpadding="2" cellspacing="1" id="SignFrame">
+				<tR id="SignItem1" valign="top" >
+				<td>
+				
+					<input type="text" name="url_1" style="width:320px;" onBlur="up_blur(this,0,'urlhidden',i_url)" value='' /> 描述：<input type="text"  style="width:200px;" onBlur="up_blur(this,0,'urlmark',i_urlmark)" />
+				</td></tR>
+				</table>
+			</div>
+			<div id="xiangce">
+			<tag:Loop ListType="newslistphoto" RecType="New" PageSize="40" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="article/Listphoto.htm" />
+			</div>
+		
+		<script>
+		var i_url= {};
+		var i_urlmark= {};
+		</script>
+	   <input type="hidden" name="urlhidden" id="urlhidden" value="" />
+	   <input type="hidden" name="urlmark" id="urlmark" value="" />
+	   <input type="hidden" name="total" id="total" value="1" />
+	  <input type="hidden" name="count" id="count" value="1" />
+	  <input name="url0" id="url0" type="hidden" value="{$url0}" />
+	  <input name="filewidth" type="hidden" value="600" />
+      	<input name="fileheight" type="hidden" value="400" />
+		<input type="hidden" id="smallfilewidth" value="200" />
+		<input type="hidden" id="smallfileheight" value="150" />
+	  </td>
+    </tr>
+	<tr> 
+      <td >是否分页：</td>
+      <td colspan=5  class="category"><input type="radio" value="0" name="autopage">不分页　<input type="radio" value="1" name="autopage" checked />手动分页<em class="global_tip">(编辑器中插入分页符)</em>　<input type="radio" value="2" name="autopage" />自动分页 <em class="global_tip">自动分页字数：</em><input type="text" name="autopagesize" value="2000" style="width:100px;" /></td>
+    </tr>
+    <tr  > 
+      <td >内容： 
+      </td>
+      <td  colspan=5  class="category">	 <div>保存图片：<input type="checkbox" name="savefile" id="savefile" value="1" />将编辑器里面第三方网站的图片保存到本地</div>
+ <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent$}</textarea>
+<script>
+
+
+
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="Chrcontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+		
+	});
+});
+</script>
+	  </td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	var filepath_inner = $('#file_upload');
+	window.filepath_init = function(){
+		var istuwen_val = $('input[name="istuwen"]:checked').val();
+		var isjiaodian_val = $('input[name="isjiaodian"]:checked').val();
+		if(istuwen_val === '1' || isjiaodian_val === '1'){
+			filepath_inner.show();
+		}
+		if(istuwen_val === '0' && isjiaodian_val === '0'){
+			filepath_inner.hide();
+		}
+	}
+	filepath_init();
+	
+	
+	window.showTuji = function(){
+		  if($('#isnewphoto0').attr('checked')){
+			   $('#classid').show();
+  	  }else{
+			  $('#classid').hide();
+		  }
+	  };
+	window.iistuwen = function(k){
+			if (k==0)
+	{
+	 $('#photoset').hide();
+	  $('#photoup').hide();
+	   $('#photouptype').hide();
+	
+	}
+else{
+	 $('#photoset').show();
+	  $('#photoup').show();
+	   $('#photouptype').show();
+	}
+	  };
+})(jQuery);
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+	//封面和推荐的默认值
+	node.find('.set_FM').each(function(){
+		if(jQuery(this).attr('data-istop') === '1'){
+			jQuery(this).html('已设封面');
+		}
+	});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+
+function hid2(){
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+{$showxtr$}
+ </script>
+  </body>
+</html>

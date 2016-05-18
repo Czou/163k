@@ -1,0 +1,66 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<b><font color="#FF0000">是否想制作一个属于自己的个性网址前缀图标呢？</font></b> 
+		在线生成Favicons图标</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td bgcolor="#FFFFFF" >
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+<form name="form1" method="post" action="?action=icosave"  encType=multipart/form-data target="_fristtform">
+     <tr > 
+      <td width="15%" height="25">原始图像<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input type="file" name="file" size=40></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">目标尺寸<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <SELECT id=select class="input3" name=size> 
+										<OPTION value=1 >16x16</OPTION> 
+										<OPTION value=2 selected>32x32</OPTION> 
+										<OPTION value=3>48x48</OPTION>
+										</SELECT></td>
+    </tr>
+   <tr><td><font color=red>友情提醒</font></td>
+	<td class="category">favicon.ico一般用于作为缩略的网站标志,它显示位于浏览器的地址栏或者在标签上,用于显示网站的logo, 
+												目前主要的浏览器都支持favicon.ico图标<p>
+												<strong>说明:</strong>原始图像可以接受:.jpg 
+												.jpeg .gif .png等图像格式原始图像文件大小限制在小于500k建议制作一张400x400的jpg图像，然后等比缩小到你想转换的ico尺寸最后用比特虫转换成<strong>ico图标</strong>格式.</p>
+												<p><strong>注：</strong>成功生成favicon.ico图像后会自动存放在网站根目录下</td>
+	</tR>
+    <tr > 
+	<td></td>
+      <td height="25"  class="category">
+		<input type="submit" name="Submit" value="生成ico"> &nbsp; 
+    </tr>
+	<Tr id="showtt" style="display:none">
+	
+      <td height="25" colspan=2 class="category">
+		<img id="imgid" src="" />
+        ICO文件生成成功,已经生成favicon.ico并自动存放在网站根目录下</td>
+    </tr>
+	<iframe width="0" id="fristtform" name="_fristtform" height="0"  src="about:blank"></iframe>
+  </form>
+	
+</table>
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

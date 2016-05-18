@@ -1,0 +1,207 @@
+<tr >
+  <td align="right">我的性别设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_sexType" {$j_sexType0} onClick="j_sexshow1.style.display='none';j_sexshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_sexType" {$j_sexType1}  onClick="j_sexshow1.style.display='';j_sexshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_sexType" {$j_sexType2} onClick="j_sexshow1.style.display='none';j_sexshow2.style.display=''">
+    自定义我的性别</td>
+</tr>
+<tr   id="j_sexshow1" style="display:{$j_sexshow1}">
+  <td align="right" ><font color=blue>我的性别开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的性别结束标记：</font></td>
+  <td alang="left"><textarea name="j_sexsString" cols="70" rows="3">{$j_sexsString}</textarea>
+    <br>
+    <textarea name="j_sexoString" cols="70" rows="3">{$j_sexoString}</textarea></td>
+</tr>
+<tr  id="j_sexshow2" style="display:{$j_sexshow2}">
+  <td align="right" ><font color=blue>请指定我的性别：</font></td>
+  <td align=left><input type="radio" name="j_sex" value="0" {$j_sex0}>
+    男
+    <input type="radio" name="j_sex" value="1" {$j_sex1} >
+    女</td>
+</tr>
+<tr >
+  <td align="right">我的年龄设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_ageType" {$j_ageType0} onClick="j_ageshow1.style.display='none';j_ageshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_ageType" {$j_ageType1}  onClick="j_ageshow1.style.display='';j_ageshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_ageType" {$j_ageType2} onClick="j_ageshow1.style.display='none';j_ageshow2.style.display=''">
+    自定义我的年龄</td>
+</tr>
+<tr   id="j_ageshow1" style="display:{$j_ageshow1}">
+  <td align="right" ><font color=blue>我的年龄开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的年龄结束标记：</font></td>
+  <td alang="left"><textarea name="j_agesString" cols="70" rows="3">{$j_agesString}</textarea>
+    <br>
+    <textarea name="j_ageoString" cols="70" rows="3">{$j_ageoString}</textarea></td>
+</tr>
+<tr  id="j_ageshow2" style="display:{$j_ageshow2}">
+  <td align="right" ><font color=blue>请指定我的年龄：</font></td>
+  <td align=left>{$j_age}</td>
+</tr>
+<tr >
+  <td align="right">我的户籍设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_hujiType" {$j_hujiType0} onClick="j_hujishow1.style.display='none';j_hujishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_hujiType" {$j_hujiType1}  onClick="j_hujishow1.style.display='';j_hujishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_hujiType" {$j_hujiType2} onClick="j_hujishow1.style.display='none';j_hujishow2.style.display=''">
+    自定义我的户籍</td>
+</tr>
+<tr   id="j_hujishow1" style="display:{$j_hujishow1}">
+  <td align="right" ><font color=blue>我的户籍开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的户籍结束标记：</font></td>
+  <td alang="left"><textarea name="j_hujisString" cols="70" rows="3">{$j_hujisString}</textarea>
+    <br>
+    <textarea name="j_hujioString" cols="70" rows="3">{$j_hujioString}</textarea></td>
+</tr>
+<tr  id="j_hujishow2" style="display:{$j_hujishow2}">
+  <td align="right" ><font color=blue>请指定我的户籍：</font></td>
+  <td align=left><input type="text" name="j_huji" value="{$j_huji}" /> </td>
+</tr>
+<tr >
+  <td align="right">我的身高设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_shenggaoType" {$j_shenggaoType0} onClick="j_shenggaoshow1.style.display='none';j_shenggaoshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_shenggaoType" {$j_shenggaoType1}  onClick="j_shenggaoshow1.style.display='';j_shenggaoshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_shenggaoType" {$j_shenggaoType2} onClick="j_shenggaoshow1.style.display='none';j_shenggaoshow2.style.display=''">
+    自定义我的身高</td>
+</tr>
+<tr   id="j_shenggaoshow1" style="display:{$j_shenggaoshow1}">
+  <td align="right" ><font color=blue>我的身高开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的身高结束标记：</font></td>
+  <td alang="left"><textarea name="j_shenggaosString" cols="70" rows="3">{$j_shenggaosString}</textarea>
+    <br>
+    <textarea name="j_shenggaooString" cols="70" rows="3">{$j_shenggaooString}</textarea></td>
+</tr>
+<tr  id="j_shenggaoshow2" style="display:{$j_shenggaoshow2}">
+  <td align="right" ><font color=blue>请指定我的身高：</font></td>
+  <td align=left><input type="text" name="j_shenggao" value="{$j_shenggao}" /></td>
+</tr>
+<tr >
+  <td align="right">我的职业设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_zhiyeType" {$j_zhiyeType0} onClick="j_zhiyeshow1.style.display='none';j_zhiyeshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_zhiyeType" {$j_zhiyeType1}  onClick="j_zhiyeshow1.style.display='';j_zhiyeshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_zhiyeType" {$j_zhiyeType2} onClick="j_zhiyeshow1.style.display='none';j_zhiyeshow2.style.display=''">
+    自定义我的职业</td>
+</tr>
+<tr   id="j_zhiyeshow1" style="display:{$j_zhiyeshow1}">
+  <td align="right" ><font color=blue>我的职业开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的职业结束标记：</font></td>
+  <td alang="left"><textarea name="j_zhiyesString" cols="70" rows="3">{$j_zhiyesString}</textarea>
+    <br>
+    <textarea name="j_zhiyeoString" cols="70" rows="3">{$j_zhiyeoString}</textarea></td>
+</tr>
+<tr  id="j_zhiyeshow2" style="display:{$j_zhiyeshow2}">
+  <td align="right" ><font color=blue>请指定我的职业：</font></td>
+  <td align=left><input type="text" name="j_zhiye" value="{$j_zhiye}" /> </td>
+</tr>
+<tr >
+  <td align="right">我的学历设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_xueliType" {$j_xueliType0} onClick="j_xuelishow1.style.display='none';j_xuelishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_xueliType" {$j_xueliType1}  onClick="j_xuelishow1.style.display='';j_xuelishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_xueliType" {$j_xueliType2} onClick="j_xuelishow1.style.display='none';j_xuelishow2.style.display=''">
+    自定义我的学历</td>
+</tr>
+<tr   id="j_xuelishow1" style="display:{$j_xuelishow1}">
+  <td align="right" ><font color=blue>我的学历开始标记：</font>
+    <p>　</p>
+    <font color=blue>我的学历结束标记：</font></td>
+  <td alang="left"><textarea name="j_xuelisString" cols="70" rows="3">{$j_xuelisString}</textarea>
+    <br>
+    <textarea name="j_xuelioString" cols="70" rows="3">{$j_xuelioString}</textarea></td>
+</tr>
+<tr  id="j_xuelishow2" style="display:{$j_xuelishow2}">
+  <td align="right" ><font color=blue>请指定我的学历：</font></td>
+  <td align=left>{$j_xueli}
+  </td>
+</tr>
+<tr >
+  <td align="right">年龄要求设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_nianlingType" {$j_nianlingType0} onClick="j_nianlingshow1.style.display='none';j_nianlingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_nianlingType" {$j_nianlingType1}  onClick="j_nianlingshow1.style.display='';j_nianlingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_nianlingType" {$j_nianlingType2} onClick="j_nianlingshow1.style.display='none';j_nianlingshow2.style.display=''">
+    自定义年龄要求</td>
+</tr>
+<tr   id="j_nianlingshow1" style="display:{$j_nianlingshow1}">
+  <td align="right" ><font color=blue>年龄要求开始标记：</font>
+    <p>　</p>
+    <font color=blue>年龄要求结束标记：</font></td>
+  <td alang="left"><textarea name="j_nianlingsString" cols="70" rows="3">{$j_nianlingsString}</textarea>
+    <br>
+    <textarea name="j_nianlingoString" cols="70" rows="3">{$j_nianlingoString}</textarea></td>
+</tr>
+<tr  id="j_nianlingshow2" style="display:{$j_nianlingshow2}">
+  <td align="right" ><font color=blue>请指定年龄要求：</font></td>
+  <td align=left>{$j_nianling}
+  </td>
+</tr>
+<tr >
+  <td align="right">性别要求设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="j_xingbieType" {$j_xingbieType0} onClick="j_xingbieshow1.style.display='none';j_xingbieshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="j_xingbieType" {$j_xingbieType1}  onClick="j_xingbieshow1.style.display='';j_xingbieshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="j_xingbieType" {$j_xingbieType2} onClick="j_xingbieshow1.style.display='none';j_xingbieshow2.style.display=''">
+    自定义性别要求</td>
+</tr>
+<tr   id="j_xingbieshow1" style="display:{$j_xingbieshow1}">
+  <td align="right" ><font color=blue>性别要求开始标记：</font>
+    <p>　</p>
+    <font color=blue>性别要求结束标记：</font></td>
+  <td alang="left"><textarea name="j_xingbiesString" cols="70" rows="3">{$j_xingbiesString}</textarea>
+    <br>
+    <textarea name="j_xingbieoString" cols="70" rows="3">{$j_xingbieoString}</textarea></td>
+</tr>
+<tr  id="j_xingbieshow2" style="display:{$j_xingbieshow2}">
+  <td align="right" ><font color=blue>请指定性别要求：</font></td>
+  <td align=left><input type="radio" name="j_xingbie" value="0" {$j_xingbie0}>
+    男
+    <input type="radio" name="j_xingbie" value="1" {$j_xingbie1} >
+    女<input type="radio" name="j_xingbie" value="2" {$j_xingbie2} >
+    不限 </td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

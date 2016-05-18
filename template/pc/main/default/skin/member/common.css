@@ -1,0 +1,6 @@
+/*基本样式*/
+*{margin:0 auto;padding:0;}
+img{border:0;}
+select{font-size:12px;margin:0;padding:0;}
+ul,li{list-style:none;}
+div,ul,li,dl,dt,dd,table,td,h5{font:12px/20px "宋体";color:#333;}

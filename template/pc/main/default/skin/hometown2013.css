@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+.mod_1 { border:1px solid #;}
+.mod_1 .tab { border-bottom:2px solid #f60;}
+.mod_1 .tab li { float:left; margin-right:3px; border:1px solid #dcdee1; border-bottom:0 none; padding:8px 16px; font-size:14px;}
+.mod_1 .tab li.select { background-color:#f60; border:1px solid #f60; border-bottom:0 none; font-weight:bold;}
+.mod_1 .tab li.select a,.mod_1 .tab li.select a:hover { color:#fff;}
+.mod_1 .bd { border:1px solid #dadada; padding:25px; background:#fefbea url(../images/hometown.jpg) no-repeat 0 0;}
+.mod_1 .bd h2 { font-size:20px; font-weight:bold; color:#333; text-align:center;}
+.mod_1 .bd .inner { padding:15px; font-size:14px;}
+.mod_1 .bd .inner p { margin:15px 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

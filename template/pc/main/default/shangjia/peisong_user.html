@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>员工管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">员工管理</div>
+						<div class="right"><a href="mypeisong_user.aspx?action=fenzulist" class="sys_btn_small_blue">员工分组管理</a>  <a href="mypeisong_user.aspx?action=add#tt9" class="sys_btn_small_blue">添加员工</a></div>
+					</div>
+					<div class="bd">
+						<div class="searcher">
+							<form name="form2" method="post">
+		查询：<input name="KeyWord" type="text" id="KeyWord" value="{$KeyWord}" class="sys_form_small_ipt" />&nbsp;<select name='colname' id='colname' >
+			<option value='' >::昵称/姓名::</option>
+			<option value='0' {$colname_s_0}>::手机号码::</option>
+			</select>&nbsp;<select name='classid' id='classid' > <option value=''>::所有状态::</option>
+  			<option value='-2' {$classid_s_-2}>::店铺待审中::</option>
+  		<option value='-1' {$classid_s_-1}>::会员确认中::</option>
+			<option value='0' {$classid_s_0}>::正常::</option>
+			<option value='1' {$classid_s_1}>::派送中::</option>
+			</select>&nbsp;{$styleid_select}&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>
+</form>
+						</div>
+						<p>共有：{$userall$}名员工　闲置中：{$iskill_0_all$}人　送货中：{$iskill_1_all$}人</p>
+						<div class="blank10"></div>
+						<div class="m_list">
+							<ul>
+								<li class="t">
+									<span class="td sp_a">序号</span>
+									<span class="td sp_b">昵称</span>
+									<span class="td sp_b">姓名</span>
+									<span class="td sp_c">手机</span>
+									<span class="td sp_d">时间</span>
+									<span class="td sp_e">类型</span>
+									<span class="td sp_f">状态</span>
+									<span class="td sp_g">操作</span>
+								</li>
+								<tag:Loop ListType="LISTPEISONGUSER" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_peisong_user_Tr.htm" />
+							</ul>
+						</div>
+						<div class="pageNavigation">{$PageSplit}</div>
+						
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</body>
+</html>
+
+
+

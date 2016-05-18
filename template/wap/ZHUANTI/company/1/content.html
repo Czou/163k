@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$shopmenustr}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '{$chrshop}';
+</script>
+{$top$}
+<div class="star_nav mb_15" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main bgk_main n_mb">
+ <!--news-->
+ <div class="shop_intro">
+  <div class="shop_tabs" id="nav_extra">
+	<ul>
+		<li data-id="0"><a href="{$TargetUrl}content_{$shopid}.html">商家简介</a></li>
+		{$content_menu_list}
+	</ul>
+  </div>
+  <div class="intro_con" id="resizeIMG">
+	{$chrcontent}
+  </div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var current_host = window.location.href;
+	var host_arr = current_host.split('_');
+	
+	if(host_arr.length === 2){
+		$('#nav_extra').find('li[data-id="0"]').addClass('cur');
+	}else{
+		var pageid = host_arr[host_arr.length-1].split('.')[0];
+		$('#nav_extra').find('li[data-id="'+pageid+'"]').addClass('cur');
+	}
+	/*if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}*/
+	IDC.resizeIMG(document.getElementById('resizeIMG'),$(window).width()-20,480);
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+},false);
+
+</script>
+</body>
+</html>

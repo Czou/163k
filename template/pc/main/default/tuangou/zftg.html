@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自发团购--{$SiteName}</title>
+<link href="{$tplPath}skin/_tuangoulist.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}WdatePicker.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+<script type="text/javascript" src="{$tplPath}js/zftg.js"></script>
+</head>
+<script>loadss();</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<!-- 主体 --><div id="content">
+<!--网站主体内容开始-->
+<form name="aspnetForm" style="margin:0" method="post" action="?action=Save" onsubmit="return checkaddzftg(this)" enctype="multipart/form-data">
+<div id="center" style="text-align:left">
+<div class="zftg"></div>
+<div class="zftgc">
+<div class="zftgc_1">
+{$islogin$}
+<div class="li_10"><strong>活动编号：</strong>
+<input name="activenum" type="text" value="" onblur="chktgactivenum()"  class="input0"/>
+ <span id="checktgactivenum">*十位的活动编号</span></div>
+<div class="li_10"><strong>活动标题：</strong>
+<input name="chrtitle" type="text" value="{$chrtitle}" class="input2"  onblur="chktgchrtitle()" onpropertychange="MaxLength(this, 60,'font1')" oninput="MaxLength(this,60,'font1')"/>
+ <span id="checktgchrtitle">*请给要发起的活动起个标题，30汉字以内</span> </div>
+<div class="li_10"><strong>活动分类：</strong>
+ {$categoryid$} 
+ <span id="checkfenlei">*请选择活动分类</span></div>
+<div class="li_10"><strong>上传图片：</strong>
+<input type="file" size="40" name="file"  class="input2">上传一个活动标识图片(160*160大小)</div>
+<div class="li_10"><strong>所在地区：</strong>
+{$quyu$} 
+<span id="checkfququ">*这次活动在哪个地区进行</span></div>
+<div class="li_10"><strong>活动地点：</strong>
+<input name="chraddress" type="text" value=""  class="input0" onblur="chktgchraddress()"/>
+ <span id="checktgchraddress">*活动的详细地点</span></div>
+ 
+ 
+  <div class="li_10"><strong>活动地图：</strong>
+<a href="javascript:void(0)" onclick="set_newimage();"> 标注地理位置</a> <span id="checkchraddress">标注后，团购将定位到电子地图上</span><input type="hidden" id="shop_x" name="shop_x" >
+      <input type="hidden" id="shop_y" name="shop_y" >
+      <input type="hidden" id="shop_z" name="shop_z" > <input type="hidden" id="ggmap" name="ggmap" value="1" >
+ <span >*</span></div>
+ 
+ 
+<div class="li_10"><strong>集合时间：</strong>
+ <input name="jihe" type="text" value="" class="input0"  onblur="chktgjihe()" /> 
+ <span id="checktgchrjihe">*活动的集合时间</span></div>
+<div class="li_10"><strong>报名截止：</strong>
+ <input name="enddate" type="text" value="" class="input0" readonly="true"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss',onpicked:function(){chktgenddate();},minDate:'%y-%M-%d'})"  /> 
+ <span id="checktgchrenddate">*活动接受报名的最后时间</span></div>
+<div class="li_10"><strong>活动简介：</strong>
+   <textarea name="chrmark" class="mark" onblur="chktgchrmark()"></textarea> 
+ <span id="checktgchrmark">*活动的一段简单描述</span></div>
+<div class="li_10"><strong>腾&nbsp; 讯QQ：</strong>
+  <input name="chrqq" type="text" value="" class="input0"  onblur="chktgchrqq()"/> 
+ <span id="checktgchrqq">*方便网友与您交流</span></div>
+<div class="li_10"><strong>详细介绍：</strong>请在下面填写此次活动详情，如：流程，商家，商品，服务等事宜的介绍</div>
+<div class="li_10">
+ <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10"></textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+</div>
+</div>
+<div class="zftgc_2"><font color="red">发起</font><img src="{$tplPath}images/icon15.gif" width="25" height="26" />审核<img src="{$tplPath}images/icon15.gif" width="25" height="26" />报名<img src="{$tplPath}images/icon15.gif" width="25" height="26" />活动</div>
+<div class="clear"></div>
+</div>
+<div class="zftgbot"></div>
+<div class="zrda">个人信息备案</div>
+<div class="zrdac">
+<div class="li_3">真实姓名：<input name="truename" type="text" value="" class="input00" onblur="chktgtruename()"/><span id="checktgtruename">*</span></div>
+<div class="li_3">联系电话：<input name="chrtel" type="text" value="" class="input00" onblur="chktgchrtel()"/><span id="checktgchrtel">*</span></div>
+<div class="li_3">身份证号：<input name="chrmancode" type="text" value="" class="input00" onblur="chktgchrmancode()"/><span id="checktgchrmancode">*</span></div>
+<div class="li_3">与此活动的商家关系：<input name="chrguanxi" type="text" value="" class="input00" onblur="chktgchrguanxi()"/><span id="checktgchrguanxi">*</span></div>
+
+<div class="clear"></div>
+<div ID="XIEYI" style="display:none" style="font-size: 14px;">
+网友自发团购活动协议：<br>
+<textarea name="TEXTAREA1"  class="mark11">{$xieyi$}</textarea>
+</div>
+</div>
+<div style="text-align:center;margin-top:20px;margin-bottom:10px">
+  <input type="image" name="Submit2"src="{$tplPath}images/tj.jpg" align="absmiddle" value="提交" />&nbsp; &nbsp;  
+  <input type="checkbox" name="checkbox" value="checkbox" checked/>
+ 我已经阅读并接受<a href="javascript:showxieyi('XIEYI');">网友自发团购活动</a> </div>
+<div class="clear"></div>
+</div>
+</from>
+<!--网站主体内容结束-->
+<!-- 主体 结束 -->
+	{$bottom$}
+</div><div id="mask" style="display:none"></div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news2016-mb.css" />
+{$top$}
+<div class="city_btn">
+ <ul>
+  <li><a href="#myform">我要评论</a></li>
+  <li class="tg"><a href="{$SiteUrl}member/myarticle.aspx?action=add">我要投稿</a></li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+			<div id="slide" class="clearfix" style="display:none">
+				<div id="content">
+					{$Mh163k_wap_本地资讯_图集新闻_小图列表}
+				</div>
+				<ul id="indicator"></ul>
+				<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+			</div>
+<!--详情-->
+<div class="zx_detail">
+ <h1>{$chrtitle}</h1>
+ <span class="r_time">{$dtappenddate}</span>
+ <span class="source">{$chrfrom}</span>
+ <span class="num">{$hits}</span>
+ <span class="r_count"><span id="show_total_revert1">评论</span></span>
+ 
+ <div class="info">
+  	<div class="article_content" id="resizeIMG">
+		{$chrcontent}
+		<div class="pageNav2 pageNav4">{$split}</div>
+	</div>
+ </div>
+</div>
+<div class="zdyhtml mb_10">{$Mh163k_wap_文章详细页自定义html广告}</div>
+<!--分享-->
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   {$Mh163k_wap_整站通用_分享代码}
+  <div class="tips"><i></i>频道所载文章、图片、数据等类容以及相关文章评论纯属个人观点和网友上传，并不代表本站立场。如有发现违法信息或侵权行为，请留言或直接与本站联系，我们将在收到您的信息后24小时内作出删除处理。</div> 
+</div>
+<!--列表-->
+ <div class="zx_list mb_10">
+ <div class="title"><span>精彩推介</span></div>
+  <ul>
+   {$Mh163k_wap_新闻频道_精彩推荐}
+ </ul>
+ </div>
+<div class="user_reviews">
+<div class="title"><span>网友评论</span><div class="ComentNum" id="show_total_revert">0</div></div>
+   <div id="showcomment">正在加载数据，请稍等......</div>
+   <form id="myform">
+					<div class="write2014">
+						<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+						<input type="hidden" id="isrep" value="" />
+						<input type="hidden" id="istg" value="" />
+						<input type="hidden" id="parentid" value="" />
+						<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+						<div class="cmt_control clearfix">
+							<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+							<div class="left">文明上网 礼貌发帖 仅限300字</div>
+						</div>
+					</div>
+				</form>
+  </div> 
+
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#resizeIMG').find('img').eq(0).attr('src');
+if(typeof filepath1 !== 'undefined'){shareImg = nowdomain + filepath1.replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','来源：{$chrfrom}，发布时间：{$dtappenddate}',shareImg,'{$articleurl}article_{$newsid}.html');
+	});
+}
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$newsid}';
+window['STYLEID'] = '8';
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-20,480);
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		list.each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			//list.css({'height':min_height+'px','overflow':'hidden'});
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:$(window).width(),intervalTime:5000,lazyIMG:!!0});},200);
+	}
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+})(jQuery);
+</script>
+</body>
+</html>

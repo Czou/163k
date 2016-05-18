@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购订单-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<link href="{$Default_tplPath}skin/order2015.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li class="{$style8$}">{$url8$}</li>
+						<li class="{$style0$}">{$url0$}</li>
+						<li class="{$style1$}">{$url1$}</li>
+						<li class="{$style2$}">{$url2$}</li>
+						<li class="{$style3$}">{$url3$}</li>
+						<li class="{$style4$}">{$url4$}</li>
+						<li class="{$style5$}">{$url5$}</li>
+					</ul>
+					<div class="right">&nbsp;</div>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">你可以在这里管理查看你的省啦订单</div>
+						</div>
+						<form action="?" method="get">
+						<input type="hidden" name="colname" value="{$colname}" />
+						<div class="searcher">
+						商品类型：<select name="styleid" onChange="this.form.submit();">
+							<option value="">全部类型</option>
+							<option value="0" {$styleid_s_0}>消费服务</option>
+							<option value="1" {$styleid_s_1}>实物</option>
+							<option value="2" {$styleid_s_2}>订单</option>
+							<option value="3" {$styleid_s_3}>代金券类</option>
+						</select>
+
+按时间搜索：<input id="startdate" name="startdate" type="text" class="Wdate sys_form_small_ipt" style="width:100px;" value="{$startdate}" >&nbsp;到：<input id="enddate" name="enddate" type="text" class="Wdate sys_form_small_ipt" style="width:100px;" value="{$enddate}">&nbsp;<input type="text" class="sys_form_small_ipt" value="{$keyword}" name="keyword" />&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>&nbsp;<a  class="sys_btn_small_blue" href="{$SiteUrl}request.ashx?action=tg_order_xls&isadmin=0&ondate={$_startdate}&offdate={$_enddate}" target="_blank">导出全部订单到Excel</a>
+
+						</div>
+						</form>
+						<div id="order_list"><tag:Loop ListType="LISTMANAGETGORDER" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_mymanageorder_Tr.htm" /></div>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+$(function() {
+	$('a[rel*=facebox]').facebox();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+function PeisongFahuo(val,sid){
+	if( !confirm("您确定要进行发货吗？")){return false;}
+	var url = siteUrl+'request.ashx?action=peisongfahuo&styleid=2&id='+sid+'&skill=1';
+	var Digital=new Date();
+	Digital=Digital+40000; 
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert(data.MSG);
+			window.location.reload();
+		}else{
+			MSGwindowShow('tgorder','0',data.error,'','');
+		}
+	});
+}
+</script>
+</body>
+</html>

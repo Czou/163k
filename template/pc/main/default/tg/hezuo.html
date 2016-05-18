@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商务合作</title>
+<link href="{$tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$tplPath}js/java.js"></script>
+
+<style type="text/css"><!--
+#float { border:7px solid #a1d7ff; width:584px; margin:0 auto;}
+#float .hd { background:#ebf8ff; height:30px; line-height:30px; vertical-align:middle; font-size:14px; font-weight:bold; color:#085ba2; padding:0 0 0 10px; text-align:left;}
+#float .close { float:right; font-weight:normal; font-size:12px; margin:3px 8px 0 0; _display:inline;}
+#float .bd { padding:10px;}
+#float .in_t { border:1px solid #d9ecfa; height:22px; line-height:22px; padding-left:3px;}
+#float input.tel { }
+#float .in_b { background:url({$tplPath}images/tijiao_13.jpg) no-repeat 0 0; height:26px; width:87px; border:none; cursor:pointer;}
+#float .bd input { vertical-align:middle;}
+#float .tips { padding-left:15px; color:#999;}
+#float .tab_f td { height:36px;}
+#float .tab_f td img { vertical-align:middle;}
+#float .tab_f td a { text-decoration:underline; zoom:1;}
+#float .green { color:#3c7103;}
+#float .tab_x td { height:28px;}
+
+/* select */
+div.selectbox-wrapper {
+  position:absolute;
+  background-color:white;
+  border:1px solid #ccc;
+  margin:0px;
+  margin-top:0px;
+  padding:0px;
+  font-size:12px;
+  text-align:left; 
+}
+div.selectbox-wrapper ul {
+  list-style-type:none;
+  margin:0px;
+  padding:0px;
+}
+div.selectbox-wrapper ul li.selected { 
+  background-color:#a1d7ff;
+}
+div.selectbox-wrapper ul li.current { 
+  background-color:#d9ecfa;
+}
+div.selectbox-wrapper ul li {
+  list-style-type:none;
+  display:block;
+  margin:0;
+  padding:3px;
+  line-height:20px;
+  cursor:pointer;
+  width:198px;
+}
+.selectbox
+{
+  margin: 0px 5px 0px 0px;
+  font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size:12px;
+  display : block;
+  width:203px;
+  text-align:left; 
+  background: url({$tplPath}images/f_10.jpg) no-repeat right;
+  padding:6px 0px 2px 0px;
+  cursor: pointer;
+  border:1px solid #d9ecfa;
+  color:#333;
+  text-indent:.5em;
+}
+--></style>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/selectbox.js"></script>
+<script type="text/javascript">
+</script>
+<script type="text/javascript" src="{$tplPath}js/common.js"></script>
+</head>
+<body>
+<form name="form1" method="post" action="?" style="margin:0" onsubmit="submithezuo();return false;">
+<div id="float">
+	<div class="hd cleafix"><a href="javascript:parent.LoginHide();" class="close">关闭</a>商务合作</div>
+	<div class="bd">
+		<table width="100%" border="0" class="tab_f" cellspacing="0" cellpadding="0">
+		
+	<tr>
+		<td align="right" width="100px">您的称呼：</td>
+		<td align="left"><input type="text"  name="chrname" id="chrname" style="width:200px;" class="in_t" />  </td>
+	</tr>
+	<tr>
+		<td align="right">联系方式：</td>
+		<td align="left"><input type="text"  name="chrtel" id="chrtel" style="width:200px;" class="in_t" />  </td>
+	</tr>
+	<tr>
+		<td align="right">合作意向：</td>
+		<td align="left"><textarea  style="width:400px;height:82px;" name="chrmark" id="chrmark" class="in_t" /></textarea> </td>
+	</tr>
+	<tr>
+		<td align="right">&nbsp;</td>
+		<td align="left"><input type="submit" class="in_b" value=" "  />　</td>
+	</tr>
+</table>
+
+	</div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商家管理平台 - {$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg_duihuan_2014.css?{$CacheHash}" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script>var nowdomain = "{$SiteUrl}";</script>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/tgduihuan2014.js?{$CacheHash}"></script>
+<script>is_login("{$SiteUrl}","{$tplPath}",'{$Mh163k_QQ登录调用}');</script>
+</head>
+<body>
+<div class="wrapper">
+	<div class="" id="header"></div>
+	<div class="content">
+		<div class="loadding" id="loadding">登录状态载入中...</div>
+		<div class="is_login_fail clearfix" id="is_login_fail" style="display:none;">
+			<div class="left">
+            	<span class="t">使用企业账号进行登录</span>
+                <form method="post" onSubmit="return checkinput(this);">
+					<p class="ipt_bg po_re"><input type="text" class="ipt" id="username" /><s class="s po_ab"></s></p>
+					<p class="ipt_bg po_re"><input type="password" class="ipt" id="pwd" /><s class="s po_ab"></s></p>
+					<p><button type="submit" class="btn login_btn">登录</button><span class="remember"><input type="checkbox" id="remember" class="cb" /> <label for="remember">记住登录</label>　<a href="{$SiteUrl}find.aspx" target="_blank">忘记密码</a></span></p>
+				</form>
+            </div>
+            <div class="right">
+            	<span class="t">没有账号？马上注册</span>
+                <p class="p">只需要花费您极短的时间免费注册一个账号，就能立即享受强大的会员功能，开启您的网络营销时代。</p>
+                <p><a href="{$SiteUrl}member/register.html" target="_blank" class="btn reg_btn">免费注册</a></p>
+            </div>
+		</div>
+        <div class="is_login" id="is_login" style="display:none;">
+			<span class="t">请输入消费券号：</span>
+            <form method="post" id="dhform" onSubmit="return duihuan(this);">
+				<p class="ipt_bg ipt_bg_all po_re"><input type="text" class="ipt" id="quan_num" maxlength="14" /><s class="s"></s></p>
+				<p class="state">兑换状态：<span class="txt" id="state">请正确输入消费券号</span></p>
+				<p><button type="submit" class="btn dh_btn">确认兑换</button></p>
+			</form>
+			<div class="login_node po_re" id="login_info"><s class="s po_ab"></s></div>
+			<div class="query">
+				<p class="info">我 <em id="data">最近</em> 兑换的消费券（一共兑换 <em id="num">0</em> 张）</p>
+				<div class="form clearfix">
+					<form method="post" onSubmit="return findRecord(this);">
+						<p class="left"><input type="text" class="ipts Wdate" id="data_start" /></p>
+						<p class="left l2"><input type="text" class="ipts Wdate" id="data_end" /></p>
+						<p class="left l3"><button type="submit" class="btns">查询</button></p>
+					</form>
+				</div>
+			</div>
+			<div class="results" id="results" style="display:none;">
+				<div class="hd">查询结果</div>
+				<div class="bd" id="results_node"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">Copyright &copy; 2003-2015 {$SiteYuming} All Right Reserved. {$sitetongji}</div>
+</div>
+<div class="mask" id="mask" style="display:none;"><div id="inner"></div><a href="#" class="close"></a></div>
+<script src="{$Default_tplPath}js/cal/cal.js?{$CacheHash}"></script>
+<script>
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2,x:-7,y:-221 });
+	$('#quan_num').keyup(function(){
+		var str=$.trim($(this).val());
+		str = str.replace(/\s/g,"");
+		str = str.replace(/\D/g,"");
+		str=str.replace(/(\d{4})/g,'$1 ').replace(/\s*$/,'');
+		$('#quan_num').val(str);
+		var str2 = str.replace(/\s/g,"");
+		if(str2.length === 12){
+			$('#state').html('查询中，请稍后...');
+			getQuan(str);
+		}else{
+			$('#state').html('请正确输入消费券号');
+		}
+	})
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>网友点评-{$name}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonBL.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonCMT.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<script>var siteUrl = '{$SiteUrl}';var nowdomain = '{$SiteUrl}';</script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_快送_头部}
+	<div class="header header_cart clearfix" id="header_cart" style="display:none;">
+		<div class="w-1200 po_re">
+			<div class="logo"><a href="{$SiteUrl}"><img src="{$topurl}" alt="163k地方门户网站系统" /></a></div>
+			<div class="subLogo"><a href="{$SiteUrl}k"><img src="{$Default_tplPath}images/kuaisonLogo.gif" alt="快买快送" /></a></div>
+			<div class="login_info" id="login_info2">
+				<a href="{$SiteUrl}member/myorder.aspx?action=myshoppay&shopid={$shopid}" class="buy_cart" id="h_cart">购物车 <span class="num" id="h_cart_num">0</span> 件</a>
+			</div>
+			<div class="h_cart_inner" id="h_cart_inner" style="display:none;"></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="w-1200">
+			<div class="grid_subHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$name}</span><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="i_qianyue display1{$qianyue}">签约商家</span></p>
+					<p class="shop_address">地址：{$areabigstr}{$areastr}{$chraddress}</p>
+					<p class="shop_state"><span class="inner" id="state_node"></span>　外送时间：<span class="display1{$startkill}">{$startdate HH:mm}-{$enddate HH:mm} </span><span class="display1{$start2kill}">{$startdate2 HH:mm}-{$enddate2 HH:mm}</span></p>
+					<p class="shop_btn"><a href="/k{$shopid}.html" class="sys_btn sys_btn_gray">商品货架</a> <a href="javascript:void(0);" class="sys_btn">网友点评</a> <a href="{$MyShopUrl}" target="_blank" class="sys_btn sys_btn_gray">商家网站</a></p>
+				</div></div>
+				<div class="col_sub"><div class="shop_logo"><img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" alt="" /></div></div>
+				<div class="col_extra">
+					<ul class="songcan_data clearfix">
+						<li>
+							<span>送达时间</span>
+							<strong><em>{$shippingtime}</em>分钟</strong>
+					   </li>
+					   <li class="renjun">
+							<span>起送价</span>
+							<strong>￥ <em><span id="shipmoney1">{$shipmoney1}</span></em></strong>
+					   </li>
+					   <li class="peison">
+							<span>配送费</span>
+							<strong>￥ <em class="psfee_">{$shipmoney}</em></strong>
+					   </li>
+				   </ul>
+				   <div class="bdsharebuttonbox"><span class="txt">分享到：</span><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				</div>
+				<div class="mobile_href po_ab"><img src="{$wapimg}" onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" width="88" height="88" alt="" />手机访问</div>
+			</div>
+			<div class="announcement po_re" id="announcement">
+				<div class="clearfix"  id="at_inner">
+					<s class="tit">店铺公告</s>
+					{$Mh163k_快送_店铺公告}
+				</div>
+				<div class="btn po_ab"><a href="#" class="disable" id="prev"><span class="prev">上一条</span></a><a href="#" id="next"><span class="next">下一条</span></a></div>
+				<div class="ft"><span class="display1{$isrogramme}"><s class="i_zeng"></s> {$rogramme}</span>　<span class="display1{$isdiscount}"><s class="i_jian"></s> 支持立减优惠，每单满{$discount}元减{$discount1}元</span>　<span class="display1{$isfirstgive}"><s class="i_first"></s> {$firstgive}</span></div>
+
+			</div>
+		</div>
+		<div class="bgk">
+			<div class="w-1200">
+				<div class="comments">
+					<div class="grid_cmt clearfix">
+						<div class="col_main"><div class="main_wrap">
+							<div class="cmt_statistical">
+								<ul class="clearfix">
+									<li><span>好评[{$num11}%]</span><span class="inner"><em style="width:{$num11}px;"></em></span><span>[{$num1}]</span></li>
+									<li><span>中评[{$num12}%]</span><span class="inner"><em style="width:{$num12}px;"></em></span><span>[{$num2}]</span></li>
+									<li><span>差评[{$num13}%]</span><span class="inner"><em style="width:{$num13}px;"></em></span><span>[{$num3}]</span></li>
+								</ul>
+							</div>
+							
+						</div></div>
+						<div class="col_sub">
+							<div class="percentage"><em>{$num11}<s>%</s></em>好评度</div>
+						</div>
+						<div class="col_extra">
+							<div class="btn_write"><a href="#write" class="btn po_re">我来点评<s class="s"></s></a></div>
+						</div>
+					</div>
+					<div class="module_02"><div class="filter po_re">
+						<ul class="clearfix" id="filter">
+							<li class="cur"><a href="#" class="item" data-val="">全部</a></li>
+							<li><a href="#" class="item" data-val="1">好评</a></li>
+							<li><a href="#" class="item" data-val="2">中评</a></li>
+							<li><a href="#" class="item" data-val="3">差评</a></li>
+						</ul>
+						<input type="hidden" id="fscore" value="" />
+						<div class="num">共有 <em id="show_total_revert">0</em> 人参与评论</div>
+					</div></div>
+					<div id="showcomment"></div>
+					<div class="write" id="write">
+						<div class="hds">发布点评</div>
+						<form id="myform" action="" method="get">
+							<input id="chrmarkForm" name="chrmark" type="hidden" />
+							<input type="hidden" id="needScore" value="1">
+							<input type="hidden" id="isrep" value="">
+							<input type="hidden" id="istg" value="0">
+							<input type="hidden" id="parentid" value="">
+							<input type="hidden" id="total_score" value="" />
+							<input type="hidden" id="score_1" value="" />
+							<div class="select_star" id="selScore">
+								<span class="sp">总体评价：</span>
+								<a href="#" class="btn" data-index="1"><span class="btn_1">好评</span></a>
+								<a href="#" class="btn" data-index="2"><span class="btn_2">中评</span></a>
+								<a href="#" class="btn" data-index="3"><span class="btn_3">差评</span></a>
+								<span class="sp">　星级：</span>
+								<span class="i_star_0" id="selStar"><a href="#" class="s_star" data-index="1">1星</a><a href="#" class="s_star" data-index="2">2星</a><a href="#" class="s_star" data-index="3">3星</a><a href="#" class="s_star" data-index="4">4星</a><a href="#" class="s_star" data-index="5">5星</a></span>
+							</div>
+							<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+							<div class="cmt_control clearfix">
+								<p class="left">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></p>
+								<div class="right"><button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer" id="footer">
+	{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/kuaisonCommon.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script>
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '0';
+window['SHOPID'] = '{$shopid}';
+window['STYLEID'] = '3';  //comment styleid
+window['TPLNUM'] = '2';
+window['ALLOWBUY'] = !1;
+window['ISBL'] = '0';
+window['ISHTML'] = '1';
+window['GOODSTYLEID'] = '1'; //shopping styleid
+(function($){
+	getkill();
+	$('#announcement').slideText();
+	$('#header_cart').header_cart();
+	$.returnTop();
+	$('#selStar').selStar();
+	$('#selScore').selScore();
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	getNewRevertPage('1');
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('li').removeClass('cur');
+			$(this).parent().addClass('cur');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+	$('#filter').cmtfilter();
+	getShoppingCart(!1);
+})(jQuery);
+
+function getkill(){
+	var isopen = "{$isopen}",
+		state_node = $('#state_node');
+	if(isopen === '2'){
+		state_node.addClass('state_2').html('暂停营业，{$noopenmark}');
+		return;
+	}
+	var startkill = "{$startkill}",
+	startdate = "{$startdate HH:mm}",
+	enddate = "{$enddate HH:mm}",
+	start2kill = "{$start2kill}",
+	startdate2 = "{$startdate2 HH:mm}",
+	enddate2 = "{$enddate2 HH:mm}";
+	
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	var thestartdate = Date.parse(today + startdate + ':00');
+	var theenddate = Date.parse(today + enddate + ':00');
+	var thestartdate2 = Date.parse(today + startdate2 + ':00');
+	var theenddate2 = Date.parse(today + enddate2 + ':00');
+	
+	if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+		showkill(!0);
+	}else{
+		showkill(!1);
+	}
+	function showkill(allow){
+		if(!!allow){
+			state_node.addClass('state_1').html('营业中');
+			window['ALLOWBUY'] = !0;
+		}else{
+			var shipkill = "{$shipkill}";
+			shipkill === '0'?(state_node.addClass('state_3').html('打烊了，可以预订'),window['ALLOWBUY'] = !0):(state_node.addClass('state_2').html('打烊了，不可下单'),window['ALLOWBUY'] = !1);
+		}
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改基本资料--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script>
+function showsize(){
+	document.Form1.Image1.src = document.Form1.m_file.value;
+}
+</script>
+<style>
+.text { width:400px;}
+.upjibie1,.upjibie2 { display:none;}
+</style>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改基本资料</div>
+	<!-- 主体 -->
+<form name="form1" onSubmit="return checkmodify();" method="post" target="tijiao"  action="?action=listsave">
+	<div id="content" class="clearfix">
+		<div class="col_main2">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="contentt">
+<div class="bigtitle">会员基本信息</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		请牢记您自己的注册信息！</td>
+	</tr>
+</table>
+<div class="smalltitle">修改注册信息（打 <span style="color:Red">*</span> 为必填项）</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem">会员ID：</td>
+        <td class="tdcontent">
+            <span style="font-weight:bold;">{$userid}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem" style="width:15%;">会员状态：</td>
+        <td class="tdcontent" style="width:85%">
+            <span style="color:#333;">注册时间：{$regdate}，登录 {$loginnum} 次，最后登录时间：{$lastdate}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">会员类型：</td>
+        <td class="tdcontent">
+            <span style="font-weight:bold;">{$styleidstr}</span> <a href="?action=styleid" class="blue_font upjibie{$styleid}" onClick="return window.confirm('您确定升级成为企业会员吗？');">升级为企业会员</a></td>
+    </tr>
+	
+	<tr>
+        <td class="tditem">昵称：</td>
+        <td class="tdcontent">
+            <span style="color:#333;">{$chrname}</span> <a href="modify.aspx?action=pass" class="blue_font">点击这里修改</a></td>
+    </tr>
+	<tr>
+        <td class="tditem">头像：</td>
+        <td class="tdcontent">
+            <img src="{$chrpic}" id="Image1"  width="60" height="60" align="top" /><br><a href="modify.aspx?action=tou" class="blue_font">点击这里修改</a></td>
+    </tr>
+    	<tr>
+        <td class="tditem">{$daijinname}：</td>
+        <td class="tdcontent">
+            <span style="color:#f30;font-weight:bold;">{$daijinnum}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">{$jifenname}：</td>
+        <td class="tdcontent">
+            <span style="color:#f30;font-weight:bold;">{$jifennum}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">打折卡卡号：</td>
+        <td class="tdcontent">
+            <span style="color:#c00;font-weight:bold;">{$chrcard}</span></td>
+    </tr>
+	
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 电子邮件：</td>
+        <td class="tdcontent">
+            <input name="chremail" type="text" class="text" value="{$chremail}" id="chremail" readonly disabled="disabled" /> <a href="modify.aspx?action=pass" class="blue_font">点击这里修改</a>
+           </td>
+    </tr>
+     <tr>
+        <td class="tditem"><span style="color:Red"></span> 腾讯QQ：</td>
+        <td class="tdcontent">
+            <input name="chrqq" type="text" class="text" value="{$chrqq}" onKeyUp="value=value.replace(/\D+/g,'')" id="chrqq" />
+           </td>
+    </tr>
+   {$styleuserid}
+  <tr>
+       <td class="tditem">&nbsp;</td>
+		<td class="tdcontent"><input type="hidden" name="fromto" id="formto" value="{$fromto}" /><input type="hidden" name="styleid" value="{$styleid11}" /><input type="submit" class="global_btn_blue_big" name="btnSubmit" value=" 提交修改 " id="btnSubmit" />
+		</td>
+	    
+        
+    </tr>
+</table>
+
+ </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub2">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

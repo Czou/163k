@@ -1,0 +1,92 @@
+@charset "utf-8";
+.mod_1,.mod_2 .hd,.touban li,.mod_2 .hd li,.mod_3 .hd .jian,.mod_4 .hd .jian,.shopPH li .info p.menu,.shopDynamic,.mod_5 .hd,.shopDynamic_hd .s { background:url(../images/index2013_1_sp.gif) no-repeat 0 0;}
+
+.mod_1 { border:1px solid #d2e1f1; background-position:0 -518px;}
+.mod_1 .hd h3 { color:#408ed6; font-size:14px; font-weight:bold; padding:5px 0 0 8px}
+
+.mod_2 { border:1px solid #d2e1f1; border-top:0 none;}
+.mod_2 .hd { background-position:0 -452px; background-repeat:repeat-x;}
+.mod_2 .hd li { text-align:center; width:98px; float:left; font-size:14px; padding:2px 0 0; line-height:30px; height:30px; font-weight:bold; background-position:-402px -272px;}
+.mod_2 .hd .selected { background-color:#fff; border-top:2px solid #458fce; padding:0;}
+.mod_2 .hd .selected a { color:#408ed6;}.mod_2 .hd .selected a:hover { color:#408ed6;}
+
+.mod_3 { border:1px solid #d0e3f4; border-top:2px solid #4490ce;}
+.mod_3 .hd { border-bottom:1px solid #d8ede8;}
+.mod_3 .hd h3 { color:#408ed6; font-size:14px; font-weight:bold; padding:3px 0 4px 8px;}
+.mod_3 .hd .jian { display:inline; float:left; width:11px; height:11px; background-position:-489px -304px; overflow:hidden; margin:10px 0 0 5px;}
+
+.mod_4 { border:1px solid #d0e3f4; border-top:2px solid #fb6204;}
+.mod_4 .hd { border-bottom:1px solid #d8ede8;}
+.mod_4 .hd h3 { color:#f95a00; font-size:14px; font-weight:bold; padding:3px 0 4px 8px;}
+.mod_4 .hd .jian { display:inline; float:left; width:11px; height:11px; background-position:-489px -316px; overflow:hidden; margin:10px 0 0 5px;} 
+
+.mod_5 .hd { border-right:1px solid #d2e1f1; background-position:0 -485px; padding-top:2px;}
+.mod_5 .hd li { text-align:center; width:133px; float:left; font-size:14px; line-height:30px; height:30px; font-weight:bold; border-left:1px solid #d2e1f1; position:relative; z-index:2; *zoom:1;}
+.mod_5 .hd .selected { background-color:#fff;}
+.mod_5 .hd .selected a { color:#408ed6;}.mod_5 .hd .selected a:hover { color:#408ed6;}
+.mod_5 .bd { border:1px solid #d2e1f1; border-top:0 none;}
+
+.mod_1 .more,.mod_2 .more { display:inline; margin:8px 6px 0 0;}
+.mod_3 .more,.mod_4 .more { display:inline; margin:6px 6px 0 0;}
+.mod_1 .more a,.mod_2 .more a,.mod_3 .more a,.mod_4 .more a { color:#408ed6;}
+.mod_1 .more a:hover,.mod_2 .more a:hover,.mod_3 .more a:hover,.mod_4 .more a:hover { color:#d00;}
+.mod_1 .bd,.mod_2 .bd,.mod_3 .bd,.mod_4 .bd { padding:10px;}
+
+.mod_2 .touban { padding:13px;}
+.mod_2 .touban ul { height:175px;}
+.touban li { width:428px; float:left; background-position:-494px -230px; padding-left:13px; line-height:25px; height:25px; font-size:14px; overflow:hidden; vertical-align:middle; _display:inline; margin-right:5px;}
+.touban a { color:#36c;}.touban a:hover { color:#d00;}
+.touban .gray { color:#666;}.touban .gray:hover { color:#d00;}
+.touban li em { padding-left:8px; font-size:11px; color:#999;}
+.touban li img { vertical-align:middle;}
+
+.hometown .zone .pic { float:left; width:78px; margin-top:3px;}
+.hometown .zone .pic img { border:1px solid #ddd; padding:1px; vertical-align:top;}
+.hometown .zone .text { float:left; width:260px; color:#666; height:72px; overflow:hidden;}
+.hometown .data { color:#36c; text-align:left;}
+.hometown .data a { color:#f30;}.hometown .data a:hover { color:#d00;}
+.hometown .btn { margin:14px 0 9px;}
+.hometown .btn a {color:#36c; margin-right:8px;}.hometown .btn a:hover {color:#d00;}
+
+.slide{ position:relative; z-index:1; zoom:1; height:179px; overflow:hidden;}
+.slide .dot{ position:absolute; z-index:5; bottom:7px; right:2px;}
+.slide .dot li{ display:inline; float:left; font-size:14px; line-height:20px; padding:2px 8px; margin-right:5px; cursor:pointer; background-color:#949491; color:#fff; text-align:center;}
+.slide .dot .on { background-color:#c00;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:550px; height:179px;}
+
+.more .small_nav a { color:#404040;}.small_nav a:hover { color:#d00;}
+
+.wrapper .content .shopPH { height:249px;}
+.wrapper .content .shopPH .bd { padding:0 10px; margin:10px 0 0;}
+.shopPH li { float:left; width:284px; height:90px; padding:6px 0 2px 10px;}
+.shopPH li .pic { float:left; width:143px; text-align:left;}
+.shopPH li .pic img { width:135px; height:90px; display:block; background-color:#fff;}
+.shopPH li .info { float:left; width:131px; text-align:left;}
+.shopPH li .info h3 { margin-bottom:2px; height:18px; overflow:hidden;}
+.shopPH li .info p.star { color:#888;}
+.shopPH li .info p.star img { vertical-align:middle;}
+.shopPH li .info p.menu { margin-top:6px; background-position:0 -61px; width:101px; height:23px; line-height:23px; text-align:center;}
+.shopPH li .info p.menu a { color:#36c;}
+.shopPH li .info p.menu a:hover { color:#d00;}
+
+.tcShopI { padding:3px 8px 15px 8px;}
+.tcShopI li { width:86px; float:left; margin:9px 0 0; padding:0 3px 7px 10px;}
+.tcShopI li h3 { padding:0 8px; text-align:left; line-height:16px; height:32px; overflow:hidden; margin-top:3px; cursor:pointer; color:#36c;}
+.tcShopI li a:hover h3 { color:#d00; text-decoration:underline;}
+.tcShopI li .price { display:block; text-align:left; padding-left:8px; color:#f50; font-size:14px; font-weight:bold; height:18px; overflow:hidden; margin-top:2px;}
+.tcShopI li .price em { font-size:11px;}
+.tcShopI li .price .yen { font-size:11px; color:#aaa; margin-right:2px;}
+.tcShopI li img { display:block; margin:0 auto; width:80px; height:80px; padding:1px; border:1px solid #d3d3d3;}
+
+.mod_5 .shopDynamic { background-position:17px -102px; padding:7px 8px 10px; height:312px;}
+.shopDynamic li { height:46px; padding:5px 0 0 55px; border-bottom:1px dotted #aaa;}
+.shopDynamic li p { line-height:20px; vertical-align:middle; text-align:left; color:#999; height:20px; overflow:hidden;}
+.shopDynamic li em { color:#404040;}
+.shopDynamic li em a { color:#404040;}
+.shopDynamic_hd .s { display:block; position:absolute; width:17px; height:19px; top:-7px; left:95px; overflow:hidden;}
+.shopDynamic_hd .s_1 { background-position:-102px -61px;}
+.shopDynamic_hd .s_2 { background-position:-120px -61px;}
+
+.friendLink { border:1px solid #d2e1f1; border-top:1px solid #458fce;}
+.friendLink .hd { background-color:#f6f9fe; color:#408ed6; font-size:14px; font-weight:bold; padding:4px 0 5px 6px;}

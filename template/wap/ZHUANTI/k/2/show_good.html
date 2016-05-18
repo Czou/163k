@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$good_chrgood}-{$name}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0"/>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+{$AppSDKJS}<!--必须在现有的script外-->
+<script>
+var isapp ="{$IsApp}";//在现有的js内:是否app平台
+</script>
+</head>
+<body style="padding-top:0;">
+<div class="p_main">
+<div class="d_header">
+<div class="back"><a href="javascript:void(0);" onClick="return window.history.go(-1);">返回</a></div>
+<div class="top_cart"><a href="{$SiteUrl}member/myorder.aspx?action=myshoppay&shopid={$shopid}">购物车</a></div>
+</div>
+<div class="product_details"> 
+<div id="slide" class="clearfix" style="display:none;">
+	<div id="content"></div>
+	<ul id="indicator"></ul>
+</div>
+<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+ <!--详情-->
+ <div class="pro_info">
+  <h2>{$good_chrgood}<!--<span class="">新</span><span class="">荐</span>--></h2>
+  <div class="share"><a href="#" id="share2015">分享</a></div>
+  <div class="price">&yen;{$good_price2}<del>&yen;{$good_price1}</del></div>
+  <ul>
+   <li>品牌：{$good_chrpinpai}</li>
+   <li>出品商：{$good_goodnum}</li>
+   <li>规格：{$good_xinghao}</li>
+   <li>库存：{$good_kcnum}</li>
+  </ul>
+ </div>
+ <div class="shop_support explan clearfix">
+   <ul>
+	<li class="display1{$isrogramme}"><span class="r">赠</span> {$rogramme}</li>
+	<li class="display1{$isdiscount}"><span class="g">减</span> 支持立减优惠，每单满{$discount}元减{$discount1}元</li>
+	<li class="display1{$isfirstgive}"><span class="y">1st</span> {$firstgive}</li>
+   </ul>
+ </div>
+ <!--店铺名称-->
+ <div class="store_box clearfix">
+   <div class="slogo"><img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" alt="{$name}" /></div>
+   <h4>{$name}</h4>
+   <s class="s_{$koubei}"></s>
+   <a href="/k_shop_a0_b0_c0_d0_e0_f{$shopid}_g0_p1.html">进入快店</a>
+ </div>
+ <!--图文详情-->
+ <div class="g_details">
+  <div class="title">
+    <h3>图文详情</h3>
+  </div>
+  <div class="pic" id="resizeIMG">
+   {$good_chrcontent}
+  </div>
+ </div>
+</div>
+<div class="p_detail_cart" id="Cart_main" data-kcnum="{$good_kcnum}">
+ <div class="price">&yen;<span id="simplePrice">{$good_price2}</span></div>
+ <div class="dec" id="Cart_dec">-</div>
+ <div class="amount" id="Cart_num">1</div>
+ <div class="add" id="Cart_add">+</div>
+ <button type="button" id="Cart_submit" data-id="{$good_goodid}">加入购物车</button>
+</div>
+<input type="hidden" value='{$goodpiclist}' id="goodpiclist" />
+{$bottom$}
+<div class="share_fd_po" id="bdsharebuttonbox" style="display:none;">
+   {$Mh163k_wap_整站通用_分享代码}
+  <a href="#" class="close"></a>
+</div>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/json2.js?{$CacheHash}"></script>
+<script>
+var YDB;
+if(isapp === '1'){
+	YDB = new YDBOBJ();YDB.SetDragRefresh(0);
+}
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#goodpiclist').val();
+var data = JSON.parse(filepath1);
+var arr = data['bigimg'];
+if(!arr){
+	arr = ['{$Default_tplPath}images/kuaison_nofind_product2.gif'];
+}else{
+	shareImg = nowdomain + arr[0].replace('../','');
+}
+document.addEventListener('DOMContentLoaded',function(){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-20,480);
+	var content = $('#content');
+	var i=0;
+	if(arr.length > 0){
+		var txt = '',txt2 = '';
+		$.each(arr,function(){
+			if(i === 0){
+				txt2 += '<li class="active">1</li>';
+			}else{
+				txt2 += '<li>'+(i+1)+'</li>';
+			}
+			txt +='<div class="cell"><img src="'+arr[i]+'" alt=""></div>';
+			i++;
+		});
+		$('#content').html(txt);
+		$('#indicator').html(txt2);
+		var w_w = $(window).width();
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+		setTimeout(function(){$('#slide').show();},20);
+	}
+	$('#share2015').click(function(e){
+		e.preventDefault();
+		if(isapp === '1'){
+			YDB.Share('{$good_chrgood}','品牌：{$good_chrpinpai}，规格：{$good_xinghao}，库存：{$good_kcnum}',shareImg,'{$SiteUrl}k{$shopid}_g{$good_goodid}.html');
+		}else{
+			var node = $('#bdsharebuttonbox');
+			node.show();
+			node.find('.close').click(function(e){
+				e.preventDefault();
+				node.hide();
+			});
+		}
+	});
+},false);
+$.fn.myCart = function(){
+	var node = $(this),
+		simplePrice = $('#simplePrice'),
+		Cart_num = $('#Cart_num'),
+		Cart_dec = $('#Cart_dec'),
+		Cart_add = $('#Cart_add'),
+		Cart_submit = $('#Cart_submit');
+		
+	var kcnum = node.attr('data-kcnum');
+	var price = simplePrice.html();
+	if(kcnum === '0'){
+		Cart_submit.html('卖光了').addClass('disabled').prop('disabled',true);
+	}else{
+		Cart_submit.click(function(e){
+			e.preventDefault();
+			setShoppingCart($(this).attr('data-id'),parseInt(Cart_num.html()));
+		});
+	}
+	Cart_dec.click(function(e){
+		e.preventDefault();
+		var num = parseInt(Cart_num.html());
+		if(num !== 1){
+			Cart_num.html(num-1);
+			simplePrice.html(changeTwoDecimal_f(price*(num-1)));
+		}
+	});
+	Cart_add.click(function(e){
+		e.preventDefault();
+		var num = parseInt(Cart_num.html());
+		Cart_num.html(num+1);
+		simplePrice.html(changeTwoDecimal_f(price*(num+1)));
+	});
+}
+$('#Cart_main').myCart();
+window['SHOPID'] = '{$shopid}';
+window['GOODSTYLEID'] = '1';
+window['ISHTML'] = '1';
+function changeTwoDecimal_f(x){
+    var f_x = parseFloat(x);
+    if (isNaN(f_x)) {
+        alert('function:changeTwoDecimal->parameter error');
+        return false;
+    }
+    var f_x = Math.round(x * 100) / 100;
+    var s_x = f_x.toString();
+    var pos_decimal = s_x.indexOf('.');
+    if (pos_decimal < 0) {
+        pos_decimal = s_x.length;
+        s_x += '.';
+    }
+    while (s_x.length <= pos_decimal + 2) {
+        s_x += '0';
+    }
+    return s_x;
+}
+function setShoppingCart(sid,num){
+	var url=window['siteUrl']+'request.ashx?action=addmyshopping&id='+sid+'&styleid='+window['GOODSTYLEID']+'&num='+num+'&shopid='+window['SHOPID']+'&ishtml='+window['ISHTML']+'&delid=&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			setTimeout(function(){
+				window.location.href=window['siteUrl']+'member/myorder.aspx?action=myshoppay&shopid='+window['SHOPID'];
+			},200);
+		}else{
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "Admin_Users.aspx?action=logdel&ID=" + id
+        }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的登陆日志吗？"))
+        {
+            document.getElementById("form").submit()
+        }
+}
+function delAllxx()
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除所有的日志吗？"))
+        {
+            location.href = "Admin_Users.aspx?action=logdel&styleid=0";
+        }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;后台用户登陆日志管理</td>
+	  <td align="right"><a href="javascript:delAllxx();"><b><font color=red class="global_btn">清空所有日志</font></b></a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按昵称查询：
+		<input name="KeyWord" type="text" id="KeyWord" value="{$KeyWord$}" size="20"> 会员性质: <input name="Colname" type="radio" value="0" {$Colname0$}>后台管理员 <input name="Colname" type="radio" value="1" {$Colname1$}>前台会员
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=logdel">
+				<tr align="center">
+				<td width="25" class="category">ID</td>
+				<td class="category">昵称</td>
+				<td class="category">真实姓名</td>
+				<td class="category">登陆日期</td>
+				<td class="category">登陆IP</td>
+				<td class="category">登陆源端口</td>
+				<td class="category">错误次数</td>
+				<td width="80" align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				<strong><a href="javascript:delAll(this);">删？</a></strong></td>
+				</tr>
+				<tag:Loop ListType="ListUserslog" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="List_Userslog_Tr.htm" />
+				</form>
+			<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

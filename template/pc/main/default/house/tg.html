@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购意向表</title>
+<link href="{$Default_tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<style type="text/css"><!--
+body { font-family:"微软雅黑"; font-size:14px;}
+#float .hd { background:#f78115; font-size:16px; color:#fff; padding:6px 0 6px 10px; text-align:left;}
+#float .close { float:right; font-weight:normal; font-size:12px; margin:3px 8px 0 0; _display:inline; color:#fff;}
+#float .bd { padding:10px;}
+#float .in_t { border:1px solid #eee; height:20px; line-height:20px; padding:8px 6px; width:90%; outline:0;}
+#float input.tel { background:url("{$Default_tplPath}images/f_14.jpg") no-repeat 6px 7px; padding-left:40px;}
+#float .in_b { border-radius:6px; font-family:"微软雅黑"; border:0 none; outline:0; cursor:pointer; padding:8px 28px; color:#fff; font-size:16px; background:#f78115;}
+#float .bd input { vertical-align:middle;}
+#float .tips { padding-left:15px; color:#999;}
+#float .tab_f td { line-height:28px; padding:10px 0;}
+-->
+</style>
+</head>
+<script type="text/javascript" src="{$Default_tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/java.js"></script><body>
+<form name="form1" method="post" action="?" style="margin:0" onSubmit="return checkjiarutg(this);">
+<div id="float">
+	<!--<div class="hd cleafix"><a href="javascript:parent.LoginHide();" class="close">关闭</a>欢迎您提交 <strong>{$chrloupan}</strong> 团购意向表</div>-->
+	<div class="bd">
+		<table width="100%" border="0" class="tab_f" cellspacing="0" cellpadding="0">
+	<tr>
+		<td colspan="2" align="center" valign="middle" nowrap="nowrap">(提交本意向表后我们将及时通知您该楼盘<font color="#cc0000">开盘</font>、<font color="#3366cc">看房</font>、<font color="#4c8c00">团购</font>的消息)</td>
+		</tr>
+	<tr>
+		<td width="24%" align="right" valign="middle" nowrap="nowrap">您打算购房的时间：</td>
+		<td width="76%" align="left" valign="middle"><input type="text"  name="shijian" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">您的购房预算：</td>
+		<td align="left" valign="middle"><input type="text"  name="yusuan" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">购买户型与面积：	</td>
+		<td align="left" valign="middle"><input type="text" name="huxing" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">购房付款方式：</td>
+		<td align="left" valign="middle"><input type="text" name="fukuan" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">您的姓名：</td>
+		<td align="left" valign="middle"><input type="text" name="chrname" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right" valign="middle">您的联系电话：</td>
+		<td align="left" valign="middle"><input type="text" name="chrtel" class="in_t" /></td>
+	</tr>
+	<tr>
+		<td align="right">&nbsp;</td>
+		<td align="left"><input type="hidden" name="loupanid" value="{$loupanid}"><input type="submit" class="in_b" value="确 定" /></td>
+	</tr>
+</table>
+
+	</div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.grid_k1 .main_wrap { margin:0 252px 0 0;}
+.grid_k1 .col_sub { width:242px; margin-left:-242px;}
+
+.mod_01 { border:1px solid #cfcfcf; border-top:2px solid #f60;}
+.mod_01 .hd { border-bottom:1px dotted #ddd; color:#333; font-size:16px; font-weight:bold; padding:9px 0 8px 12px}
+.mod_01 .bd li { padding:0 15px 0 35px; border-bottom:1px dotted #ddd; line-height:42px; height:42px; font-size:14px; overflow:hidden; background:url(../images/sp2013.gif) no-repeat -832px -64px; vertical-align:top;}
+.mod_01 .bd .time { font-size:12px; color:#999;}
+.mod_01 .bd li a { color:#36c;}.mod_01 .bd li a:hover { color:#d00;}
+.mod_01 .bd .odd { background-color:#fafafa;}
+
+.date_box table {border-spacing:1px; border-collapse:separate;}
+.date_box table td { background:#ededed; height:28px; text-align:center;}
+.date_box table td.today { font-weight:bold; background:#f50; color:#000;}
+.mod_02 { border:1px solid #ccc;}
+.mod_02 .hd { color:#333; background-color:#f5f5f5; font-size:14px; font-weight:bold; padding:9px 0 8px 12px}
+.mod_02 .bd { padding:10px;}
+.mod_02 .bd a { color:#36c;}.mod_02 .bd a:hover { color:#d00;}
+.mod_03 { border:1px solid #cfcfcf; border-top:2px solid #f60;}
+.mod_03 h2 { font-weight:bold; font-size:20px; color:#232323; text-align:center; margin:15px 0 8px;}
+.mod_03 .info { padding-bottom:10px; text-align:center; color:#999; border-bottom:1px solid #eee; margin:0 10px;}
+.mod_03 .info em { color:#333;}
+.mod_03 .inner { padding:20px; font-size:14px; color:#212121;}
+.mod_03 .inner p { margin:15px 0;}
+.share { margin:20px; line-height:37px;}
+.prev_next { padding:10px; border-top:1px solid #ddd; color:#999;}
+.prev_next a { color:#36c;}.prev_next a:hover { color:#d00;}
+
+

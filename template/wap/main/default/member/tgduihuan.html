@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦券兑换系统 - {$SiteName}</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0"/>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script>var nowdomain = "{$SiteUrl}";</script>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/tgduihuan2014.js?{$CacheHash}"></script>
+<script>is_login("{$SiteUrl}","{$tplPath}",'{$Mh163k_QQ登录调用}');</script>
+<style type="text/css">
+body { background-color:#003064; color:#fff; 
+}
+a,.login .txt a { color:#fff;}
+a:hover { color:#fff;}
+.login .txt a,.login_node a { text-decoration:underline;}
+.comn-submit { background-color:#e1c65f; color:#472f00; box-shadow:#333 0 1px 1px;}
+.comn-submit:hover { background-color:#d29f44; color:#472f00;}
+.header { text-align:center; padding:40px 0 30px; font-size:28px; font-weight:bold; color:#fff; text-shadow:#333 0 1px 1px;}
+.footer { font-size:12px;}
+.register-form .box { background-color:#fff;}
+.login_node,.results { margin:15px;}
+.quan_num { border:1px solid #333; border-radius:4px; padding:10px 0; width:100%; text-indent:12px; background-color:#fff; display:block; font-size:24px;}
+.login_node { margin:15px; text-align:center;}
+.state { margin:15px 0; text-align:center;}
+.query { margin:30px 0 15px; padding:15px; background-color:#0766a8; border:1px solid #004479; border-left:0 none; border-right:0 none;}
+.form { margin-top:10px;}
+.ipts { width:100px; margin-right:6px; border:1px solid #004479; vertical-align:middle; padding:2px 4px; font-size:14px; line-height:22px; height:22px;}
+.btns,.xsl_btn { border:1px solid #004479; border-radius:3px; background-color:#0088e6; font-size:12px; width:50px; vertical-align:middle;}
+.datepicker { color:#555;}
+.xsl_btn { font-size:16px; padding:5px 15px; background-color:#2b8b00; display:block; margin:12px auto 0; width:65px;}
+.mask {
+    background-color: #fff;
+	opacity:1;
+    color: #333;
+    font-size: 16px;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 280px;
+	margin:0 0 0 -150px;
+    z-index: 999;
+	height:auto;
+	border: 3px solid #003f79;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #222;
+	padding:20px 10px;
+}
+.mask .close {
+    background: url("{$Default_tplPath}images/close.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 52px;
+    overflow: hidden;
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    width: 52px;
+}
+.errormes {
+    color: #c00;
+    font-size: 48px;
+}
+.okmes {
+    color: #3b8300;
+    font-size: 32px;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="header">省啦消费券兑换系统</div>
+	<div class="content">
+		<div class="loadding" id="loadding">登录状态载入中...</div>
+		<div class="is_login_fail clearfix" id="is_login_fail" style="display:none;">
+			<div class="login">
+				<form id="formRegStep1Main" name="formRegStep1Main" method="post" onSubmit="return checkinput(this);">
+					<p class="codebox name"><s></s><input type="text" id="username" name="username" class="codebox-input" maxlength="32" placeholder="用户名" /></p>
+					<p class="codebox pwd"><s></s><input type="password" name="pwd" id="pwd" class="codebox-input" maxlength="32" autocomplete="off" placeholder="密码" /></p>
+					<input class="comn-submit btn_block" type="submit" value="登录" />
+					<p class="txt">还没有帐号？<a href="{$SiteUrl}member/register.html">立即注册</a></p>
+				</form>
+			</div>
+		</div>
+        <div class="is_login" id="is_login" style="display:none;">
+			<div class="login_node po_re" id="login_info"><s class="s po_ab"></s></div>
+			<div class="register-form">
+				<form method="post" onSubmit="return duihuan(this);">
+					
+					<input type="text" maxlength="14" name="quan_num" id="quan_num" class="quan_num" placeholder="请输入消费券号" />
+					<p class="state">兑换状态：<span class="txt" id="state">请正确输入消费券号</span></p>
+					
+					<input class="comn-submit btn_block" type="submit" value="确认兑换" />
+				</form>
+			</div>
+
+			
+			<div class="query">
+				<p class="info">我 <em id="data">最近</em> 兑换的消费券（一共兑换 <em id="num">0</em> 张）</p>
+				<div class="form clearfix">
+					<form method="post" onSubmit="return findRecord(this);">
+						<p class="left"><input type="text" class="ipts Wdate" id="data_start" placeholder="开始时间" /></p>
+						<p class="left l2"><input type="text" class="ipts Wdate" id="data_end" placeholder="结束时间" /></p>
+						<p class="left l3"><button type="submit" class="btns">查询</button></p>
+					</form>
+				</div>
+			</div>
+			<div class="results" id="results" style="display:none;">
+				<div class="hd">查询结果</div>
+				<div class="bd" id="results_node"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">Copyright &copy; 2003-2010 {$SiteYuming} All Right Reserved. <span style="display:none">{$sitetongji}</span></div>
+</div>
+<div class="mask" id="mask" style="display:none;"><div id="inner"></div><a href="#" class="close"></a></div>
+<script src="{$Default_tplPath}js/cal/cal.js?{$CacheHash}"></script>
+<script>
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2,x:-7,y:-221 });
+	$('#quan_num').keyup(function(){
+		var str=$.trim($(this).val());
+		str = str.replace(/\s/g,"");
+		str = str.replace(/\D/g,"");
+		str=str.replace(/(\d{4})/g,'$1 ').replace(/\s*$/,'');
+		$('#quan_num').val(str);
+		var str2 = str.replace(/\s/g,"");
+		if(str2.length === 12){
+			$('#state').html('查询中，请稍后...');getQuan(str);
+		}else{
+			$('#state').html('请正确输入消费券号');
+		}
+	});
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<style>
+
+#facebox .mytable { border-top:1px solid #ddd; border-left:1px solid #ddd;}
+#facebox .mytable td{ text-align:left; border-bottom:1px solid #ddd; border-right:1px solid #ddd; padding:6px; font-size:14px;}
+#facebox .mytable .td_left { background-color:#f5f5f5; font-weight:bold; text-align:right;}
+</style>
+                        <table width="570" border="0" cellpadding="10" cellspacing="0">
+                            <tr>
+                                <td valign="top" >             
+                                    <p style="font-size:12px"><strong>报名详情：</strong></p>
+                                    <table width="100%" border="0" cellpadding="5" cellspacing="5" class="mytable">
+										<tr>
+                                            <td class="td_left" width="100">活动编号：</td>
+											<td><span style='color:blue'>{$activenum}</span></td>
+                                        </tr>                  <tr>
+                                            <td class="td_left" valign="top">活动名称：</td>
+											<td><a href="{$tuangouurl}huodong_{$activeid}.html" target="_blank">{$chrtitle}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td_left">报名时间：</td>
+											<td>{$dtappenddate}</td>
+                                        </tr>
+										 <tr>
+                                            <td class="td_left">报名人：</td>
+											<td>{$truename}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td_left">联系电话：</td>
+											<td>{$chrtel}</td>
+                                        </tr>                  
+										 <tr>
+                                            <td class="td_left">联系QQ：</td>
+											<td>{$chrqq}</td>
+                                        </tr> 
+										<tr>
+                                            <td class="td_left">简短附言：</td>
+											<td>{$chrmark}</td>
+                                        </tr>   
+										<!--<tr>
+                                            <td  colspan="3">性别：{$chrsex}</td>
+                                       
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">年龄：{$chrage}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">参加人数：{$num}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">所在区域：{$chrcategory}</td>
+                                        </tr>
+										 <tr>
+                                            <td colspan="3">是否参与砍价：{$styleid}</td>
+                                        </tr>-->
+                                                     
+                                    </table>
+                                          </td>
+                            </tr>
+                        </table>

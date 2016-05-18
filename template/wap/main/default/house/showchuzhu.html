@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$House_chrtitle}-出租房-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}chuzhu.html">出租房</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4><span id="str_truename">{$House_truename}</span>(<span id="str_manid" data-manid="{$House_manid}">{$House_manid}</span>)</h4>
+  <p>{$House_chrtel}</p>
+ </div>
+ <div class="email"><a href="sms:{$House_chrtel}">{$House_chrtel}</a></div>
+ <div class="phone"><a href="tel:{$House_chrtel}">{$House_chrtel}</a></div>
+</div>
+<div class="o_main mar_b_50">
+<div class="home_focus">
+  <div id="scroller">
+  	 <ul style="display:none;" id="slide_data">
+	   {$House_filepath}
+	  </ul>
+    <div id="slide" class="clearfix" style="display:none;">
+        <div id="content">
+         
+        </div>
+        <div class="num" id="indicator">
+        </div>
+        <div class="total">共<span id="total"></span>张</div>
+    </div>
+    <span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  </div>
+ </div>
+<!--房子信息-->
+<div class="e_detail">
+  <h2>{$House_chrtitle}</h2>
+  <p>
+   <span class="price">{$House_price}</span>　{$House_fuzhufangshi}({$House_cengzhufangshi})
+  </p> 
+  <span class="time">{$House_dtappenddate}</span>
+  <span class="num">{$House_views}</span>
+  <!--是否出租-->
+  <div class="daizu" style="display:{$daishouzhong}"></div>
+  <div class="yizu" style="display:{$yishouchu}"></div>
+</div>  
+<div class="e_condit">
+ <dl>
+  <dt>户型</dt>
+  <dd>{$House_shi}室{$House_ting}厅{$House_wei}卫</dd>
+ </dl>
+ <dl>
+  <dt>面积</dt>
+  <dd>{$House_chrsize}</dd>
+ </dl>
+ <dl>
+  <dt>装修</dt>
+  <dd>{$House_zhuangxiucategory}</dd>
+ </dl>                                                         
+</div>
+<!--其他信息-->
+<div class="o_info">
+ <dl>
+  <dt>区域</dt>
+  <dd>{$House_chrcategory}-{$House_smallcategory}</dd>
+ </dl> 
+ <dl>
+  <dt>小区</dt>
+  <dd>{$House_chrloupan}</dd>
+ </dl>
+ <dl>
+  <dt>地址</dt>
+  <dd>{$House_chraddress}</dd>
+ </dl>
+ <dl>
+  <dt>类型</dt>
+  <dd>{$House_leixing}</dd>
+ </dl>
+ <dl>
+  <dt>房龄</dt>
+  <dd>{$House_fangling}年</dd>
+ </dl>
+ <dl>
+  <dt>楼层</dt>
+  <dd>{$House_nowlou}/{$House_zonglou}层</dd>
+ </dl>
+ <dl>
+  <dt>配置</dt>
+  <dd>{$House_peizhi}</dd>
+ </dl>
+ <div class="tag">
+  {$House_teshelist}
+ </div>
+</div>
+<!--联系人信息-->
+<div class="rental_contacts">
+ {$House_Zhongjie}
+  <em>联系电话：</em>{$House_chrtel}
+</div>
+<!--分享--> 
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+<!--周边出租房--> 
+<div class="new_active n_mb">
+<div class="title"><span>周边出租房</span></div>
+<div class="info_list">
+  <ul>
+   {$Mh163k_wap_房产频道_周边出租房}
+  </ul>
+  <!--加 show显示上箭头-->
+  <div class="more arr"><a href="chuzhu.html">更多推介</a></div>
+ </div>
+ </div>
+{$bottom$}
+<script language="javascript">
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#slide_data').find('img').eq(0);
+if(typeof filepath1[0] !== 'undefined'){shareImg = nowdomain + filepath1.attr('src').replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$House_chrtitle}','{$House_chrloupan}，{$House_shi}室{$House_ting}厅{$House_wei}卫，{$House_chrsize}',shareImg,'{$fcurl}chuzhu_{$House_ID}.html');
+	});
+}
+(function(){
+  var manid = $('#str_manid');
+  if(manid.attr('data-manid') === '0'){
+	  manid.html('个人');
+	 // $('#str_truename').html('联系电话'); 
+  }else{
+	manid.html('中介');
+  }
+  var list = $('#slide_data').find('li');
+  var w_w = $(window).width();
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		var txt2 = '';
+		list.each(function(i){
+			txt2 += '<div class="cell"><img src="'+$(this).find('img').attr('data-bigsrc')+'" /></div>';
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#content').html(txt2);
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		$('#total').html(list.length);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}			
+})(jQuery);
+</script>
+</body>
+</html>

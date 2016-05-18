@@ -1,0 +1,8 @@
+﻿        <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+    	  <td >{$NID}</td>
+    	  <td>{$title}</td>
+     	  <td><a href="{$chrurl}" target="_blank">{$chrurl}</a></td>
+      	  <td>{$intorder}</td>
+		  <Td> <a href="?action=edit&ID={$ID}">编辑</a> <a href="javascript:del({$ID});">删除</a></Td>
+		  <td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+       </tr>

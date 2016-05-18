@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购活动在线报名表</title>
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/baoming2014.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/baoming.js"></script>
+</head>
+<body>
+<div class="hdb">
+	<div class="hdbt clearfix"><strong>在线报名</strong><span>提交报名信息，参与同城活动</span><img src="{$Default_tplPath}images/reg/close_small.gif" onClick="parent.LoginHide();" class="hdbc_2" /></div>
+	<div class="content">
+	<form name="form1"  id="form1" method="post" action="" onSubmit="return checkbaoming();">
+		<span class="sp_a">怎么称呼您：<span class="tips" id="chkbaotruename"><span></span></span></span>
+		<div class="hdbc">
+			<span class="sp_b po_re"><input name="truename" id="truename" type="text" class="input0" value="{$truename}" onBlur="checkbaotruename()"/><s class="s"></s></span>
+		</div>
+		<span class="sp_a">怎么联系您：<span class="tips" id="chkbaochrtel"><span></span></span></span>
+		<div class="hdbc">
+			<span class="sp_d po_re"><input name="chrqq" id="chrqq" type="text" class="input1" value="{$chrqq}"/><s class="s2">QQ：</s></span>
+			<span class="sp_d po_re"><input name="chrtel" id="chrtel" type="text" class="input1" value="" onBlur="checkbaochrtel()"/><s class="s"></s><s class="s2">手机：</s></span>
+		</div>
+		<span class="sp_a">您还有什么想对我们说的：</span>
+		<div class="hdbc">
+			<span class="sp_b po_re"><input name="chrmark" id="chrmark" type="text" value="" class="input0" /><s class="s"></s></span>
+		</div>
+		<div class="hdbc" style="display:none;">
+			<span class="sp_a">是否参与砍价：</span>
+			<span class="sp_b"><input type="radio" name="styleid" value="0" checked/> 我在台下配合团长　<input type="radio" name="styleid" value="1" /> 我要上台与JS单挑</span>
+			<span class="sp_c"></span>
+		</div>
+		<div class="hdbtn">
+			<input type="hidden" name="activeid" id="activeid" value="{$activeid}">
+			<button type="submit" class="submit">提交报名</button>
+			<div class="xieyibtn"><input type="checkbox" name="check" id="check" value="checkbox" checked /> 我已经阅读并接受<a href="javascript:showxieyi('XIEYI');" class="blue_font">活动协议</a></div>
+			
+		</div>
+	
+		<div class="xieyi" id="XIEYI" style="display:none;">
+			<p class="hd">活动协议</p>
+			<textarea  class="text11">{$xieyi}</textarea>
+			<a href="javascript:showxieyi('XIEYI');" class="close">关闭</a>
+		</div>
+	</form>
+	</div>
+</div>
+</body>
+</html>

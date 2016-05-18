@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>出租房源列表-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}chuzhu.html">出租房</a>';
+</script>
+{$top$}
+<div class="nav_house_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/manage_chuzhu.aspx">
+     <span class="sm"></span>
+     发信息
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+
+<div class="filter2 filterMore three" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_bigid">区域</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_price">租金</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_lei">类型</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_huxing">户型</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_zhuangxiu">装修</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_teshe">特色</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+        <ul id="inner1"></ul>
+	</div>
+	<div class="inner" style="display:none;">
+		{$House_Searchprice}
+	</div>
+	<div class="inner" style="display:none;">
+		{$House_Searchlei}
+	</div>
+	<div class="inner" style="display:none;">
+		<a href="{$House_Searchhuxingurl}" class="{$House_Searchhuxingcss}" id="s_huxing_0">不限</a><a href="{$House_Searchhuxingurl}1" id="s_huxing_1" class="{$House_Searchhuxingcss1}">一室</a><a href="{$House_Searchhuxingurl}2" id="s_huxing_2" class="{$House_Searchhuxingcss2}">二室</a><a href="{$House_Searchhuxingurl}3" id="s_huxing_3" class="{$House_Searchhuxingcss3}">三室</a><a href="{$House_Searchhuxingurl}4" id="s_huxing_4" class="{$House_Searchhuxingcss4}">四室</a><a href="{$House_Searchhuxingurl}5" id="s_huxing_5" class="{$House_Searchhuxingcss5}">四室以上</a>
+	</div>
+	<div class="inner" style="display:none;">
+		{$House_Searchzhuangxiu}
+	</div>
+	<div class="inner" style="display:none;">
+		{$House_Searchteshe}
+	</div>
+	
+	
+	
+	
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg fullbgMore" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<div class="proper_num">共{$House_total}个房源</div>
+<div class="new_active">
+<div class="info_list">
+  <ul>
+   <tag:Loop ListType="LISTCHUZHULIST" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_chuzhu_Tr.html" />
+  </ul>
+  <div class="pageNav2 pageNav3">
+    {$PageSplit}
+  </div>
+ </div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script>
+var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="?" method="get">'+
+		'<input type="text" name="keyword" id="keyword" class="s_ipt" value="" placeholder="输入关键字" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	$('#windowIframe .back').show();
+	$('#myform').submit(function(){
+		if($('#keyword').val() === ''){
+			MSGwindowShow('index','0','请输入搜索关键字','','')
+		}
+	});
+}
+(function($){
+	$('#login_ico').hide();
+	$('#search_ico').show();
+	getCategory('inner1','0',showQuyu);
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+
+	if(url_obj['lei'] !== '' && url_obj['lei'] !== '0'){
+		var txt=$('#s_lei_'+url_obj['lei']).html();
+		$('#s_txt_lei').html(txt);
+	}
+	if(url_obj['price'] !== '' && url_obj['price'] !== '0'){
+		var txt=$('#s_price_'+url_obj['price']).html();
+		$('#s_txt_price').html(txt);
+	}
+	if(url_obj['huxing'] !== '' && url_obj['huxing'] !== '0'){
+		var txt=$('#s_huxing_'+url_obj['huxing']).html();
+		$('#s_txt_huxing').html(txt);
+	}
+	if(url_obj['zhuangxiu'] !== '' && url_obj['zhuangxiu'] !== '0'){
+		var txt=$('#s_zhuangxiu_'+url_obj['zhuangxiu']).html();
+		$('#s_txt_zhuangxiu').html(txt);
+	}
+	if(url_obj['teshe'] !== '' && url_obj['teshe'] !== '0'){
+		var txt=$('#s_teshe_'+url_obj['teshe']).html();
+		$('#s_txt_teshe').html(txt);
+	}
+})(jQuery);
+
+function showQuyu(node,d){
+	var txt='<li><a href="?tt=0&price=&lei=&size=&huxing=&zhuangxiu=&teshe=&keyword=&paixu=&tt1=&tt2=" data-id="" id="s_bigid_">不限</a></li>',txt2='';
+	for(var i=0;i<d.length;i++){
+		if(!jQuery.isEmptyObject(d[i].arr)){
+			txt2 = '<ul><li><a href="?tt=0&price=&lei=&size=&huxing=&zhuangxiu=&teshe=&keyword=&paixu=&tt1=&tt2=&bigid='+d[i].id+'&smallid=" data-id="'+d[i].id+'" id="s_smallid_'+d[i].id+'">不限</a></li>';
+			for(var k in d[i].arr){
+				txt2 += '<li><a href="?tt=0&price=&lei=&size=&huxing=&zhuangxiu=&teshe=&keyword=&paixu=&tt1=&tt2=&bigid='+d[i].id+'&smallid='+k+'" data-id="'+k+'" id="s_smallid_'+k+'">'+d[i].arr[k]+'</a></li>';
+			}
+			txt2 += '</ul>';
+			txt += '<li><a href="#" id="s_bigid_'+d[i].id+'">'+d[i].name+'</a>'+txt2+'</li>';
+			
+		}else{
+			txt += '<li id="s_bigid_'+d[i].id+'"><a href="?tt=0&price=&lei=&size=&huxing=&zhuangxiu=&teshe=&keyword=&paixu=&tt1=&tt2=&bigid='+d[i].id+'&smallid=" data-id="'+d[i].id+'" id="s_areaid_'+d[i].id+'">'+d[i].name+'</a></li>';
+		}
+	}
+	$('#'+node).html(txt);
+		window['myScroll_parent'] = null;
+		window['myScroll_inner'] = null;
+		showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+		showFilterTxt();
+}
+
+function showFilterTxt(){
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	
+	if(typeof url_obj['bigid'] !== 'undefined' && url_obj['bigid'] !== '' && url_obj['bigid'] !== '0'){
+		$('#s_areaid_'+url_obj['bigid']).parent().addClass('cur');
+		var txt=$('#s_areaid_'+url_obj['bigid']).html();
+		if(url_obj['smallid'] !== '' && url_obj['smallid'] !== '0'){
+			$('#s_smallid_'+url_obj['smallid']).parent().addClass('cur');
+			txt = $('#s_smallid_'+url_obj['smallid']).text();
+		}
+		$('#s_txt_bigid').html(txt);
+	}
+}
+</script>
+</body>
+</html>

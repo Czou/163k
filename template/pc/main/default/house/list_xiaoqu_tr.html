@@ -1,0 +1,32 @@
+﻿<li>
+       <div class="pic"><a href="xiaoqu_{$loupanid}.html" target="_blank"><img src="{$smallfilepath}" onerror="this.src='{$tplPath}images/morenfangyuan.gif';" alt="" /></a></div>
+       <div class="con">
+         <h4><a href="xiaoqu_{$loupanid}.html" target="_blank">{$chrloupan}</a></h4>
+         <dl class="clearfix">
+          <dt>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</dt>
+          <dd>{$leixing}</dd>
+          <dt>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+          <dd><a href="{$Loupan_url1}">{$chrcategory}</a>-<a href="{$Loupan_url2}">{$smallcategory}</a></dd>   
+          <dt>建筑年代：</dt>
+          <dd>{$niandai}</dd>
+         </dl>
+         <div class="count">
+           出租 <span>({$chuzhunum})</span> 出售 <span>({$shoulounum})</span> 相册 <span>({$picnum})</span> 点评 <span>({$revnum})</span>
+         </div>  
+       </div>
+       <!--评分-->
+       <div class="pingf">
+        <dl class="clearfix">
+         <dt>评分：</dt>
+         <dd>
+           <i class="item_pinfen" data-fen="{$pinfen}"></i>
+           <span class="fen">{$pinfen}</span>
+         </dd>
+        </dl>
+       </div>
+       <!--均价-->
+       <div class="fr">
+         <div class="price">均价<span>{$avgprice}</span>元/平米</div>
+         <a href="xiaoqu_{$loupanid}.html" target="_blank">进入小区</a>
+       </div>
+     </li>

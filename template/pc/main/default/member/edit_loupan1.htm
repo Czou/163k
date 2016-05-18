@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>录入楼盘资料--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<style>
+.my_prop_img{ width:100%; margin:0; padding:0;}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM,.my_prop_imgitem .del { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; font-size:12px;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .del { top:104px; width:auto; padding:2px 5px;}
+.i_img_alt { width:114px;}
+.mar8 { margin-top:8px;}
+</style>
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+{$top$}
+<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 录入楼盘资料</div>
+<!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">{$chrloupan}的房型图</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  填写楼盘详细信息 <br />
+                </td>
+              </tr>
+            </table>
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+			  
+		  
+			<tr >
+			  <td class="tditem">已上传房型：</td>
+			  <td  class="tdcontent"  colspan=3 >
+			 <input type="hidden" id="filewidth" value="660">
+		  <input type="hidden" id="fileheight" value="">
+		  <input type="hidden" id="smallfilewidth" value="213">
+		  <input type="hidden" id="smallfileheight" value="258">
+			 <div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;"><input type="button" class="global_btn_blue_big" id="J_selectImage" value="批量上传" /> 最佳尺寸：660x800</div>
+			  <div id="J_imageView" class="clearfix"><tag:Loop ListType="LISTLOUPANFANG" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/Listphoto2_tr.htm" /></div>
+
+			  </td>
+			</tr>
+			
+			  </table>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <input type="hidden" name="id" id="id" value="{$ID}">
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+<script src="{$Default_tplPath}js/upLoadImg2015.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[class*=lightwindow]').facebox();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+window['siteUrl'] = '{$SiteUrl}';
+var table_id = 'house_loupan_huxing';
+window['state'] = "&loupanid={$ID}";
+window['logincookieStr'] = $.cookie('{$logincookieName}');
+if(!!window['logincookieStr']){
+	window['imgURL'] = window['siteUrl']+"kindeditor/upload_json.ashx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val()+"&" + window['logincookieStr'];
+	newPLUploadImg();
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#J_imageView');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<input type="text" value="" id="cname_'+o[i]["id"]+'" class="i_img_alt" />'+
+			
+			'<p class="mar8"><input id="shi_'+o[i]["id"]+'" style="width: 15px;" onkeyup="value=value.replace(/\D+/g,\'\')" value="">室<input id="ting_'+o[i]["id"]+'" style="width: 15px;" onkeyup="value=value.replace(/\D+/g,\'\')" value="">厅<input id="wei_'+o[i]["id"]+'" style="width: 15px;" onkeyup="value=value.replace(/\D+/g,\'\')" value="">卫</p>'+
+	'<p class="mar8"><input id="chrsize_'+o[i]["id"]+'" style="width: 40px;" onkeyup="value=value.replace(/\D+/g,\'\')" value="">平米</p>'+
+	'<p><input type="button" value="确定" class="global_btn" onclick="editMark2(this,\''+o[i]["id"]+'\')" /></p>'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')" class="del">删除</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\'house_loupan_pic&loupanid={$ID}\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\'house_loupan_pic&loupanid={$ID}\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+
+function editMark2(o,id){
+	var shi = '',ting = '',wei = '',chrsize = '',chrmark = '';
+	shi = $('#shi_'+id).val();
+	ting = $('#ting_'+id).val();
+	wei = $('#wei_'+id).val();
+	chrsize = $('#chrsize_'+id).val();
+	chrmark = $('#cname_'+id).val();
+	var url = '/request.ashx?action=setpicmark&table_id='+table_id+'&loupanid='+$('#id').val()+'&id='+id+'&shi='+shi+'&ting='+ting+'&wei='+wei+'&chrsize='+chrsize+'&chrmark='+encodeURIComponent(chrmark)+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			alert('楼盘房型编辑成功！');
+		}else{
+			alert(data);
+		}
+	}});
+}
+</script>
+</body>
+</html>

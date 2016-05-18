@@ -1,0 +1,11 @@
+<tr align="center" class="mytr2">
+  <td>{$NID}</td>
+  <td align="left" width="400"><a href="{$shopurl}noticeshow_{$ID}.html" target="_blank">{$chrtitle}</a></td>
+  <td><a href="{$shopsurl}" target="_blank">{$chrshop}</a></td>
+  <td>{$dtappenddate}</td>
+  <td>{$iskill}</td>
+  <td nowrap="nowrap"><a href="javascript:superManage('{$ID}');">超级管理</a> <a href="users.aspx?action=loginuser&shopid={$shopid}&url=/member/notice.aspx?action=edit%26ID={$ID}" target="_blank">内容维护</a> <a href="javascript:del({$ID});">删除</a></td>
+  <td align="center">
+      <input name='ID' type='checkbox' id='ID' value='{$ID}'>
+    </td>
+</tr>

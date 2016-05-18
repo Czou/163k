@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+
+
+.tcshop_tg_box { border:1px solid #dadada; margin-top:10px;}
+.tcshop_tg_box .hd { height:35px; line-height:35px; text-align:left; padding-left:8px; background:url(../images/tcshop_tg_repeatX.gif) repeat-x 0 0; color:#888;}
+.tcshop_tg_box .hd .title { font-size:20px; color:#ca0000; font-family:"微软雅黑";}
+.tcshop_tg_box .hd .more { text-align:center; line-height:22px; color:#fff; display:block; width:71px; height:22px; background:url(../images/tghdBG.gif) no-repeat -218px -140px; float:right; _display:inline; margin:6px 8px 0 0;}
+
+.wqtg { padding-bottom:5px!important; text-align:left;}
+.wqtg ul.all { background:url(../images/past_body_bg2.gif) repeat-y 0 0; }
+.wqtg .item { width:292px; float:left; _display:inline; margin-left:4px; padding:8px 10px 7px; height:200px;}
+.wqtg .item .time { font-size:14px; font-weight:bold; color:#404040; font-family:Tahoma, Geneva, sans-serif;}
+.wqtg .item .info { font-size:14px; font-family:Tahoma, Geneva, sans-serif; margin:5px 0; height:42px; overflow:hidden;}
+.wqtg .item .info a { color:#666;} 
+.wqtg .item .pic { float:left; width:184px; _display:inline; margin-right:8px; position:relative; *zoom:1;}
+.wqtg .item .pic img { vertical-align:top; width:184px;}
+.wqtg .item .txt { float:left; width:100px;}
+.wqtg .item .txt .num { font-weight:bold; font-size:20px; color:#d00000; font-family:"Verdana";}
+.wqtg .item .txt .em { font-family:"Verdana"; font-weight:bold; font-size:14px; color:#333;}
+.wqtg .item .txt .red { color:#CC3333;}
+.wqtg .item .pic .icon { cursor:pointer; display:block; position:absolute; bottom:0; right:0; width:122px; height:69px; background:url(../images/soldout.png) no-repeat 0 0;
+/* for IE 6 */
+_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://www.163k.com/diaoyong/soldout.png" ,sizingMethod="crop");
+}
+.wqtg .item .pic .tg_ing { cursor:pointer; display:block; position:absolute; bottom:0; right:0; width:65px; height:64px; background:url(../images/tg_ing.png) no-repeat 0 0;
+/* for IE 6 */
+_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://www.163k.com/diaoyong/tg_ing.png" ,sizingMethod="crop");
+}
+.tglist1 { padding:8px 0px 8px 12px; text-align:left;}
+.tglist1 li { width:300px; float:left; margin-right:8px; _display:inline; padding-bottom:8px;}
+.tglist1 li .pic { float:left; margin:3px 8px 0 0; _display:inline;}
+.tglist1 li .pic img { padding:1px; border:1px solid #ddd;}
+.tglist1 li .text { float:left; width:206px;}
+.tglist1 li .text p { color:#888; line-height:22px; height:22px; overflow:hidden;}
+.tglist1 li .text p em { color:#404040;}
+
+.tcshop_tg_xinxi { padding:10px;}
+.tcshop_tg_xinxi .item { overflow:hidden; *zoom:1;}
+.tcshop_tg_xinxi .item li { float:left; padding:3px 0;}
+.tcshop_tg_xinxi .item li.lia { width:40px;}
+.tcshop_tg_xinxi .item li.lib { width:610px; text-align:left; font-size:14px; height:21px; overflow:hidden;}
+.tcshop_tg_xinxi .item li.lic { width:150px;}
+.tcshop_tg_xinxi .item li.lid { width:100px; color:#389301;}
+
+.tcshop_tg_xinxi .item_hd li { font-size:12px!important; color:#999!important;}
+
+
+
+
+
+
+
+

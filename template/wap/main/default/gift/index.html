@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+{$top$}
+<div class="o_main">
+<!-- <div class="tabs">
+  <ul>
+   <li class="current">全部礼品</li>
+   <li>热门礼品</li>
+   <li>最新礼品</li>
+  </ul>
+ </div>-->
+ <!--礼品列表-->
+ <div class="convert_list n_mb">
+  <ul>
+     <tag:Loop ListType="listgiftqian" RecType="New" PageSize="28" ColorSplit="1" TitleLen="12" RecColumn="5" CusTpl="1" Template="gift/listgift.html" />
+  </ul>
+  <div class="pageNav">{$PageSplit}</div>
+ </div>
+{$bottom$}
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script>
+var nowdomain = '{$SiteUrl}';
+function showduihuan(val,tt){
+	var heightV = 335;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var martop = Math.ceil(($(window).height()-heightV)/2);
+	inner_iframe.css({'top':martop+'px'});
+	
+	if(document.getElementById('isLogin').value !== '1'){	
+		window.location.href=nowdomain+"member/login.html?from="+(encodeURIComponent(window.location.href));
+	}
+	else{
+		mask.show();
+		inner_iframe.show();
+		var myiframe = '<iframe src="duihuan.aspx?id='+val+'&tt='+new Date()+'" scrolling="no" frameBorder="0" width="100%" height="'+heightV+'"></iframe>';
+		inner_iframe[0].innerHTML=myiframe;
+	}
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+</script>
+</body>
+</html>

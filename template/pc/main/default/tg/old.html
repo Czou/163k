@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>更多省啦-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tuan2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/java.js"></script>
+<!--[if IE 6]>
+<script src="{$Default_tplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+{$top$}
+	<div id="content" class="w-1200">
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$tgurl}">{$lanmuname}</a> &gt; 更多省啦</div>
+		<div class="tuan_nav" >
+			<ul class="clearfix">
+				<li ><a href="{$tgurl}">今日推荐</a></li>
+				<li class="current"><a href="{$tgurl}more.html">更多省啦</a></li>
+				<li><a href="{$tgurl}miaosha.aspx" target="_blank">限量秒杀</a><s class="s_new"></s></li>
+				<li><a href="{$tgurl}liucheng.html">省啦流程</a></li>
+				<li><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="{$SiteUrl}service/" target="_blank">省啦反馈</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		{$Mh163k_团购频道通栏自定义html广告}
+		<div class="mt_fliter">
+			<div class="lb"><span class="t">类别：</span><a href="more_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$bigcategory_all}">全部</a>{$bigcategory}</div>			
+			<div class="lb lbs display{$a}"><a href="more_a{$a}_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$smallcategory_all}">全部</a>{$smallcategory}</div>
+			<div class="blank10"></div>
+			<div class="lb"><span class="t">区域：</span><a href="more_a{$a}_b{$b}_c0_d0_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$bigareaid_all}">全部</a>{$bigareaid}</div>
+			<div class="lb lbs display{$c}"><a href="more_a{$a}_b{$b}_c{$c}_d0_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$smallareaid_all}">全部</a>{$smallareaid}</div>
+			<div class="bd clearfix">
+				<div class="left" id="paixu_list">
+					<a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e0_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" id="paixu_default">默认排序</a>
+					<a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e1_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="p" id="paixu_jiage">价格<s class="s"></s></a>
+					<a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e3_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="p" id="paixu_xiaoliang">销量<s class="s jiang"></s></a>
+					<a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e6_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="p" id="paixu_zhekou">折扣<s class="s jiang"></s></a>
+				</div>
+				<div class="left s_price">
+					<span class="left">价格：</span>
+					<div class="left sel_price" id="sel_price">
+						<p class="selected"><span id="sel_price_txt">全部</span><s class="s"></s></p>
+						<ul class="po" style="display:none;">
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f0_g0_h{$h}_i{$i}_p1.html">全部</a></li>
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f0_g50_h{$h}_i{$i}_p1.html">50元以下</a></li>
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f50_g100_h{$h}_i{$i}_p1.html">50-100元</a></li>
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f100_g200_h{$h}_i{$i}_p1.html">100-200元</a></li>
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f200_g300_h{$h}_i{$i}_p1.html">200-300元</a></li>
+							<li><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f300_g0_h{$h}_i{$i}_p1.html" class="last">300元以上</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="left s_search">
+					<input type="hidden" id="pageurl" value="more_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" />
+					<form action="?" method="get" onsubmit="return checkSearch(this);">
+						<input type="text" name="_key" value="{$key}" class="s_ipt" />
+						<button type="submit" class="s_btn">搜索</button>
+					</form>
+				</div>
+				<div class="left s_search">
+					<input id="s_mianyuyue" type="checkbox" value="{$h}" onclick="showmianyuyue(this);" />免预约　<input id="s_daijinquan" onclick="showdaijin(this);" type="checkbox" value="{$i}" />代金券
+				</div>
+				<div class="left"><a href="more_a{$a}_b{$b}_c{$c}_d{$d}_e5_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="last">新单</a></div>
+				<div class="right next_prev">
+					{$pages1}
+					{$pages2}
+				</div>
+				<div class="right">
+					{$city}省啦 共<em>{$total}</em>个省啦 <em>{$iPageNo}</em>/{$totalpage}页
+				</div>
+			</div>
+		</div>
+		<div class="mt_list">
+			<ul class="clearfix" id="tgList">
+				<tag:Loop ListType="listtgqian" RecType="New" PageSize="24" ColorSplit="1" TitleLen="26" RecColumn="0" CusTpl="1" Template="tg/list_old.html" />
+			</ul>
+			<div class="mt_pageNav_2013" style="display:{$pagestyle}">
+				{$PageSplit}
+			</div>
+		</div>
+		{$Mh163k_团购频道_页脚}
+	</div>
+	
+	
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/tg2013.js"></script>
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+$('#tgList').get_TG_num('.tg_chrnum');
+var URLOBJ = {};
+deCodeUrl($('#pageurl').val());
+paixu_list();
+$.fn.showDropDown = function(){
+	var t = $(this),
+		btn = t.find('.selected'),
+		po = t.find('.po');
+	t.hover(function(){
+		po.show();
+	},function(){
+		po.hide();
+	});
+}
+$('#sel_price').showDropDown();
+showPrice();
+if(URLOBJ['h'] === '1'){
+	$('#s_mianyuyue').prop("checked", true);
+}
+if(URLOBJ['i'] === '4'){
+	$('#s_daijinquan').prop("checked", true);
+}
+
+$('#mySle').selectbox();
+$(document).modCity();
+$('#fabu').showMore();
+$('#weixin').showMore();
+$.returnTop();
+</script>
+
+</body>
+</html>

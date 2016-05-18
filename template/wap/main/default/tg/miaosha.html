@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>限量秒杀-省啦商城-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+{$top$}
+	<div class="content tg_page">
+		<div class="select_01">
+			<ul>
+				<li><a href="{$tgurl}">最新</a></li><li><a href="{$tgurl}more.html">全部</a></li><li class="current"><a href="{$tgurl}miaosha.aspx">秒杀</a></li><li><a href="{$SiteUrl}member/mytgorder.aspx">订单</a></li>
+			</ul>
+		</div>
+		
+		<div class="mod_02">
+			
+			<div class="bd">
+				<input type="hidden" value="{$system_datetime MM\/dd\/yyyy HH:mm:ss}" id="system_date" />
+				<ul class="list_miaosha">
+					{$Mh163k_wap_团购频道_秒杀列表_正在秒杀}
+					{$Mh163k_wap_团购频道_秒杀列表_即将开始}
+					{$Mh163k_wap_团购频道_秒杀列表_卖光了}
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+	  var secArr = [];
+	  function getInitTime(){
+		  var cur_time = Date.parse($('#system_date').val());
+		  var start_time;
+		  $('.time_left').each(function(){
+			 var jobj = $(this);
+			 var sec = {};
+			 var limit_num = jobj.find('.limit_num');
+			 var sold_ok = jobj.find('.sold_ok');
+			 var is_maiguang = jobj.find('.maiguang');
+			 start_time = Date.parse(jobj.find('.start_time').val());
+			 
+			 var SysSecond = parseInt(start_time - cur_time )/1000;
+			 var theid = parseInt((jobj.attr('id')).replace(/sec_left_/,''));
+			 sec['sec']= SysSecond;
+			 sec['sid'] = theid;
+			 sec['sold']= parseInt(sold_ok.text());
+			 sec['limit']= parseInt(limit_num.text());
+			 sec['maiguang']= is_maiguang.val();
+			 secArr.push(sec);
+		  });
+		   $('.time_left1').each(function(){
+			 var jobj = $(this);
+			 jobj.find('.loadding').removeClass().addClass('buy');
+		  });
+	  }
+	  getInitTime();
+	  function SetRemainTime(){
+			for(var i=0;i<secArr.length;i++){
+				setRemainTimeSite(secArr[i]);
+			}
+	   }
+	  function setRemainTimeSite(secObj){
+		  if((secObj.sold < secObj.limit || secObj.limit ===0) && secObj.maiguang === '0'){
+			  if (secObj.sec > 0) {
+				  var second = Math.floor(secObj.sec % 60).toString();
+				  var minite = Math.floor((secObj.sec / 60) % 60).toString();
+				  var hour = Math.floor((secObj.sec / 3600) % 24).toString();
+				  var day = Math.floor((secObj.sec / 3600) / 24).toString();
+				  $("#time_show_"+secObj.sid).prev().attr({'href':'#','onclick':'return false'}).text('即将开始').removeClass().addClass('wait');
+				  $("#sec_left_"+secObj.sid).find('.countdown').show().html("距秒杀开始:"+day+"天"+hour+"时"+minite+"分"+second+"秒");
+				  $("#sec_left_"+secObj.sid).find('.countdown_maskBg').show();
+				  secObj.sec--;
+			  }else{
+				$("#time_show_"+secObj.sid).prev().removeClass().addClass('buy');
+				$("#sec_left_"+secObj.sid).find('.countdown_maskBg').hide();
+				$("#sec_left_"+secObj.sid).find('.countdown').hide();
+			  }
+		  }else{
+			  $('#time_show_'+secObj.sid).addClass('num2').html('亲，下次早点来哦！').prev().attr({'href':'#','onclick':'return false'}).text('卖光了').removeClass().addClass('soldOut');
+		  }
+	 }
+	 window.setInterval(SetRemainTime,1000);  
+</script>
+</body>
+</html>

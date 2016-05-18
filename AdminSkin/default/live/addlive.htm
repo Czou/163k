@@ -1,0 +1,67 @@
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<style>
+.category_bd { margin:0 10px; padding:10px 0; border-bottom:1px solid #ddd; font-family:"微软雅黑";}
+.category_bd h3 {  margin-top:5px; padding-left:8px; font-size:14px; font-weight:bold; color:#000000;}
+.category_bd h3 span { font-weight:normal; color:#666; font-size:12px;}
+.category_bd h3 a { color:#333;}
+.category_bd h3 a:hover { color:#f60; text-decoration:underline;}
+.category_bd ul { margin:3px 0 0 0; padding:0;}
+.category_bd li { list-style:none; float:left; padding:0 7px 0 8px; line-height:20px; height:20px; overflow:hidden;}
+.category_bd li a:hover { color:#f30;}
+
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin-right:15px;margin-top:5px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:104px; width:auto; padding:2px 5px;}
+</style>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加信息&nbsp;&nbsp;&nbsp;</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至信息列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> 
+								{$details}
+	
+   </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>var siteUrl = '{$SiteUrl}'; </script>
+<script>
+//$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	var d = new Date(),y = d.getFullYear();
+	$('#isindexdate,#istopdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	$('#areaid').change(function(){
+		showloupancategory($(this).val());
+	});
+})(jQuery);
+</script>
+  </body>
+</html>

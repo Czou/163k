@@ -1,0 +1,100 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function check(o){
+   var lent=judgeString(o.chrname.value);
+   if(o.chrname.value==""){
+	alert("对不起,请输入登录名!");
+	o.chrname.focus();
+	return false;
+   }
+   if(o.chrpwd.value==""){
+	alert("对不起,请输入密码!");
+	o.chrpwd.focus();
+	return false;
+   }
+   if(o.chrpwd.value.length<6 || o.chrpwd.value.length>32){
+ 	alert("对不起,密码长度6~32!");
+	o.chrpwd.select();
+	return false;
+   }
+   if(!isRightPW(o.chrpwd.value)){
+	alert("对不起,密码只能是数字和字母!");
+	o.chrpwd.select();
+	return false;
+   }
+   if(o.chrpwd.value!=o.chrpwd_1.value){
+	alert("对不起,两次输入的密码不一致!");
+	o.chrpwd_1.select();
+	return false;
+   }
+   
+   
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">添加前台会员&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至用户列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=addSave" onsubmit="return check(this);">
+    
+	<tr > 
+      <td width="15%" height="25">会员类型<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" value="0" name="styleid"> 个人会员 
+					<input type="radio" value="1" checked name="styleid">企业会员</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">登录名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrname" type="text" size="30" value=""> <em class="global_tip">昵称(限制3-15字符)、邮箱、手机号码</em></td>
+    </tr>
+	
+    <tr > 
+      <td width="15%" height="25">密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrpwd" type="password" size="30" value=""> <em class="global_tip">密码长度6~32，字母区分大小写</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">确认密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrpwd_1" type="password" size="30" value=""> <em class="global_tip">和新密码一致</em></td>
+    </tr>
+    <!--<tr > 
+      <td width="15%" height="25">电子邮件<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chremail" type="text" size="30" value=""></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">腾讯QQ<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrqq" type="text" size="30" value=""></td>
+    </tr>-->
+    <tr  > <td></td>
+      <td height="25"  class="category">
+		
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

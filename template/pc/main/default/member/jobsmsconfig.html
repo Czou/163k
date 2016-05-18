@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>短信通知服务--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+<script>
+function myforms(o){
+	if(document.getElementById('smsconfigmobile').value !== ''){ return true;} 
+	alert('请输入正确的手机号码！');
+	return false;
+}
+</script>
+
+
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 短信通知服务</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+  <div class="col_main">
+  <div class="edit_box">
+  <div id="contentfloat">
+  <div id="content">
+  <form name="form1" action="?action=save" onSubmit="return myforms(this)"  method="post" enctype="multipart/form-data">
+    <div class="bigtitle">短信通知服务</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+      <tr>
+        <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+        <td class="tx_title"><span>短信通知服务简介：</span><br />
+          这是网站为企业用户提供的增值服务，当有人投递简历应聘时候发送手机短信通知</td>
+      </tr>
+    </table>
+    <div class="smalltitle">修改高级设置（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%" style="font-size:14px;">
+		<tr><td class="tditem" style="width:26%;">短信通知服务设置：</td>
+		<td class="tdcontent" >
+		<input type="checkbox" name="smsconfig1" value="1" id="smsconfig1" {$smsconfig11}>有人投递简历应聘的时候发送手机短信通知我<br>
+		</td>
+	 </tr>
+      <tr>
+        <td class="tditem "><span style="color:Red"></span> 用来接收短信通知手机号码：</td>
+        <td class="tdcontent" ><input type="text" name="smsconfigmobile" id="smsconfigmobile" class="text" value="{$smsconfigmobile}" size=20> 提示：不会向该手机收取任何费用
+		</td>
+      </tr>
+	  <tr>
+        <td class="tditem" ><span style="color:Red"></span> 数据统计：</td>
+        <td class="tdcontent" >您的服务状态：<font color=red>{$state}</font><br>
+		当前已经发送短信通知次数：{$smsnum}<Br>
+		当前每发送一次短信通知需扣除金币数：{$jobfen}<br>
+		您当前的账户金币余额数：{$jifenleft} （当金币数不足以接收1条短信通知服务的时候将自动暂停发送）  <br><a href="../member/modify.aspx?action=consume#tt1">充值</a> <a href="../member/modify.aspx?action=jifen#tt1">明细</a><br>
+		</td>
+      </tr>
+	  <tr>
+        <td align="center" colspan="2"><input type="submit" class="global_btn_blue_big" name="submit" value=" 提交修改 " id="" /></td>
+      </tr>
+    </table>
+    
+	</form>
+    </div>
+　
+    </div>
+    </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+    </div>
+  
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+	<script>
+function hid3()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+function hid4()
+{
+	document.getElementById("str5").style.display="none";
+	document.getElementById("str6").style.display="block";
+}
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+function hid22()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+function hid(tt)
+{
+	document.getElementById("pict"+tt).style.display="none";
+	document.getElementById("pict1"+tt).style.display="block";
+}
+</script><script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

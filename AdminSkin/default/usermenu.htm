@@ -1,0 +1,71 @@
+﻿<script language="javascript">
+function selectAll(object)
+{
+	 table = document.all.table1;
+	 var chk = table.getElementsByTagName("input");
+	 for(var i=0;i<chk.length;i++)
+	 {
+		chk[i].checked = object.checked;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">会员中心菜单设置&nbsp;&nbsp;&nbsp; 【注释：您可以把暂时不需要显示在会员中心功能列表勾去】</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> 
+	
+	
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+  <form name="form1" method="post" action="?action=menusave">
+    
+    <tr > 
+      <td  height="25">菜单<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category">
+	  <table width="100%" border="0" id="table1"   align="center" cellpadding="0" cellspacing="0" >
+	  {$power}
+	  </Td></tr>
+	  </table>
+	  </td>
+    </tr>
+    <tr  > 
+	<td></td>
+      <td height="25" class="category">
+		<input type="submit" name="Submit" value="确定提交"> &nbsp; 
+        <input name="Reset" type="reset" id="Reset" value="取消重写"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script>
+function clickall(aa){
+	var obj=eval("document.all.totcount_"+aa);
+	if(obj.value>0){
+		for(var i=0;i<obj.value;i++){
+			var o=eval("document.all.chk"+aa+"_"+i);
+			o.checked=true;
+		}
+	}
+}
+</script>
+

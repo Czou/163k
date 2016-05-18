@@ -1,0 +1,47 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<div align=right style=""></div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid" style="line-height:22px;">
+<tr > 
+      <td  width="20%"  >订单编号： 
+      </td>
+      <td class="category"> {$chrorder$}</td>
+    </tr>
+<tr > 
+      <td  >省啦项目标题： 
+      </td>
+      <td class="category"> <A href="{$tgurl}tg_{$tgid$}.html" target=_blank>{$chrtitle$}</A></td>
+    </tr>
+    <tr > 
+ 	  <td  >类型： 
+      </td>
+      <td  class="category"> {$styleid$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >数量： 
+      </td>
+      <td  class="category"> {$intnum$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >总额(元)： 
+      </td>
+      <td  class="category"> {$intmoney$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >日期： 
+      </td>
+      <td  class="category"> {$dtappenddate$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >状态： 
+      </td>
+      <td  class="category"> {$iskill$}</td>
+    </tr>
+	
+	{$one$}
+
+</table>
+<div style=" padding:10px 0; text-align:center;"><input name="GoToGQList" type="submit" class="global_btn_blue" id="GoToGQList" value="我要打印" onclick="window.print();"> <input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回省啦订单列表" onclick="javscript:window.history.go(-1);"></div>

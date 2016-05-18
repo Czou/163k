@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店订单管理-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '快店订单管理';
+</script>
+{$top$}
+	<div class="p_tabs p_selects clearfix">
+	   <ul>
+		<li><select id="iskill"><option value="">订单状态</option>
+	<option value="0">未支付</option>
+	<option value="1">已支付</option>
+	<option value="2">已发货</option>
+	<option value="3">已完成</option>
+	<option value="4">已取消</option></select><div class="menu"><i></i><i></i><i></i></div></li>
+		<li><select id="skill">
+	<option value="">配送状态</option>
+	<option value="-1">等待接单</option>
+	<option value="1">待派送</option>
+	<option value="2">派送途中</option>
+	<option value="10">派送完成</option>
+	<option value="7">派送失败</option>
+	</select><div class="menu"><i></i><i></i><i></i></div></li>
+	   </ul>
+	</div>
+	<div class="tongji">
+		<ul>
+			<li>今日订单<em>{$Todaynum}</em></li>
+			<li>昨日订单<em>{$Yesterdaynum}</em></li>
+			<li>本月订单<em>{$Thismonthnum}</em></li>
+			<li>上月订单<em>{$Lastmonthnum}</em></li>
+		</ul>
+	</div>
+		
+	
+	
+	<div class="reload_order po_re" id="reload_order">
+		<input type="checkbox" id="countdownswitch" checked /> 开启　<span id="countdown" style="font-size:18px; font-weight:bold; color:#f50;">10</span>秒后刷新　<a href="javascript:void(0);" onClick="getNewPage('1');" class="blue_font">手动刷新</a>
+	</div>
+	<div id="orderAjaxNode"></div>
+
+   
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_order2015.js?{$CacheHash}"></script>
+<script>
+$(function(){
+	getNewPage('1');
+	countdown();
+	$('#orderAjaxNode').on('click','.view_order_detial',function(e){
+		e.preventDefault();
+		$(this).parent().siblings('.item').removeClass('cur');
+		$(this).parent().siblings('.item').find('.order_detial').hide();
+		$(this).parent().siblings('.item').find('.view_order_detial').removeClass('open');
+		var $order_detial = $(this).siblings('.order_detial');
+		$order_detial.toggle();
+		$(this).toggleClass('open');
+		$(this).parent().toggleClass('cur');
+	});
+	$('#iskill').change(function(){
+		$("#skill")[0].selectedIndex = '';
+		getNewPage('1');
+	});
+	$('#skill').change(function(){
+		$("#iskill")[0].selectedIndex = '';
+		getNewPage('1');
+	});
+});
+
+function tuikuan(o,sid){//确认退款
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=&isadmin=0';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','退款成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+function tgQuick(o,sid){
+	var tgQuickid='tgQuick';
+	if(!$('#'+tgQuickid)[0]){
+		var tgQuickHTML = '<div class="po_ab tgQuick" id="'+tgQuickid+'"><a href="#" onclick="return changekill(this,\'2\');">已发货</a><a href="#" onclick="return changekill(this,\'4\');">已取消</a><s class="s"></s></div>';
+		$('body').append(tgQuickHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+tgQuickid+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + tgQuickid).length === 0) && !$target.hasClass('event_lift')){
+				$('#'+tgQuickid).hide();
+			}
+		});
+	}
+	$('#'+tgQuickid).attr('data-id',sid).css({'left':($(o).offset().left-10)+'px','top':($(o).offset().top+28)+'px'}).show();
+	return false;
+}
+function tgQuick2(o,sid){
+	var tgQuickid='tgQuick2';
+	if(!$('#'+tgQuickid)[0]){
+		var tgQuickHTML = '<div class="po_ab tgQuick" id="'+tgQuickid+'"><a href="#" onclick="return changekill2(this,\'1\');">已接单,待派送</a> <a href="#" onclick="return changekill2(this,\'2\');">派送途中</a><a href="#" onclick="return changekill2(this,\'10\');">派送完成</a><a href="#" onclick="return changekill2(this,\'7\');">派送失败,退回</a><s class="s"></s></div>';
+		
+		$('body').append(tgQuickHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+tgQuickid+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + tgQuickid).length === 0) && !$target.hasClass('event_lift')){
+				$('#'+tgQuickid).hide();
+			}
+		});
+	}
+	$('#'+tgQuickid).attr('data-id',sid).css({'left':($(o).offset().left-10)+'px','top':($(o).offset().top+28)+'px'}).show();
+	return false;
+}
+function showchangeskill(url){
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','状态修改成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+}
+function iChangekill(sid){//取消订单
+	if(typeof sid === 'undefined'){return false;}
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=&isadmin=0';
+	showchangeskill(url);
+	return false;
+}
+function changekill(o,val){
+	var sid=$(o).parent().attr('data-id');
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill='+val+'&skill=&isadmin=0';
+	showchangeskill(url);
+	return false;
+}
+function changekill2(o,val){
+	var sid = $(o).parent().attr('data-id');
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=&skill='+val+'&isadmin=0';
+	showchangeskill(url);
+	return false;
+}
+
+//时间控件
+var secArr = [],timer=null;
+function getInitTime(){
+  getpeisonuser();
+  $('#item_1')[0]&&$('#item_1').find('.order_detial').show().end().find('.view_order_detial').addClass('open');
+  
+ 
+}
+
+</script>
+</body>
+</html>

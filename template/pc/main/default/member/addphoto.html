@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>上传相片--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+<script>
+function checkform(o){
+	
+	if(o.classid.value==""){
+		alert("对不起,请选择相册! ");
+		o.classid.focus();
+		return false;
+	}
+}
+</script>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 上传相片</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">上传相片</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		以下内容，打 * 为必填项   您单次可以上传10张GIF、JPG、PNG相片，单张2M内
+
+		<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 选择相册：</td>
+        <td class="tdcontent" style="width:85%;" >{$classid}　　<a href="myce.aspx?action=add" target="_blank">新建相册</a>
+            </td>
+			
+    </tr>
+	 <tr > 
+      <td class="tditem" height="25" >上传方式： 
+      </td>
+      <td class="tdcontent"> <input type="radio" name="typeid" value="2"  onclick="setclick('2',styleid)"  checked="checked"/>从电脑上传（批量） <input type="radio" name="typeid" value="0"   onclick="setclick('0',styleid)"/>从电脑上传（单张） <input type="radio" name="typeid" value="1"  onclick="setclick('1',styleid)" />从网上导入<input type="hidden" name="styleid" value="2" /></td>
+    </tr>
+	<tr  > 
+      <td  class="tditem" height="25" >选择相片：<br /><a href="#" onClick="javascript:addphotorow(1);">添加相片</a>&nbsp;&nbsp;&nbsp;
+      </td>
+      <td class="tdcontent" style="padding-left:4px;"> 
+	  <table width="100%"  border="0" cellpadding="2" cellspacing="1" id="SignFrame"  style="display:none;">
+		<tR id="SignItem1" valign="top" >
+		<td>
+		<input type="file" name="file" style="width:320px;"  class="text" onChange="setupload('1',this.value);"/> 描述：<input type="text"  style="width:200px;" name="chrmark" class="text"/> <a href="javascript:DeleteSignRow('SignItem1');">删除</a>
+		</td></tR>
+		</table>
+		<table width="100%"  border="0" cellpadding="2" cellspacing="1" id="SignFrame_">
+		<tR valign="top" >
+		<td>
+		<input type="button" id="J_selectImage" value="批量上传" />
+		<div id="J_imageView"></div>
+		<link rel="stylesheet" href="/kindeditor/themes/default/default.css" />
+		<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+		<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+		<script>
+			KindEditor.ready(function(K) {
+				var editor = K.editor({
+					uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+					fileManagerJson : '/kindeditor/file_manager_json.ashx',
+	
+					allowFileManager : true,width : '100%',height : '500px'
+				});
+				K('#J_selectImage').click(function() {
+					editor.loadPlugin('multiimage', function() {
+						editor.plugin.multiImageDialog({
+							clickFn : function(urlList) {
+								var div = K('#J_imageView');
+								div.html('');
+								K.each(urlList, function(i, data) {
+									div.append('<img src="' + data.url + '" width=120 height=120 style="margin:5px;">&nbsp;&nbsp;');
+									if( $$("urlhidden").value=="" )
+									{
+										$$("urlhidden").value=data.url;
+									}
+									else
+									{
+										$$("urlhidden").value=$$("urlhidden").value+","+data.url;
+									}
+								});
+								editor.hideDialog();
+							}
+						});
+					});
+				});
+			});
+		</script>
+		</td></tr></table>
+	   <input type="hidden" name="urlhidden" id="urlhidden" value="" />
+	   <input type="hidden" name="total" value="1" />
+	  <input type="hidden" name="count" value="1" />
+	  </td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type="hidden" name="gotourl" value="{$gotourl}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue" id="Submit" />  <input type="button" class="global_btn" value=" 返 回 " onClick="javascript:location.href='myphoto.aspx';" /></td>
+			
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

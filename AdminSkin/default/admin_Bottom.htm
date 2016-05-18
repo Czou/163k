@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+
+<STYLE>
+a{color:red;text-decoration:none;}
+TD {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+</STYLE>
+<script language="JavaScript">
+var screen=false;
+function ChangeLeftFrameStatu()
+{
+	if(screen==false)
+	{
+	  parent.FrameMain.cols='0,*';
+	 screen=true;
+	 self.co.innerHTML = "√ 打开左栏"
+	}
+	else if(screen==true)
+	{
+	  parent.FrameMain.cols='177,*';
+	  screen=false;
+	  self.co.innerHTML = "<font color=red>×</font> 隐藏左栏"
+	}
+}
+</script>
+</HEAD>
+<BODY leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#73a3d4 height=4></TD></TR></TBODY></TABLE>
+<TABLE height=28 cellSpacing=0 cellPadding=0 width="100%" bgColor=#3a6592 
+border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE height="100%" cellSpacing=2 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=right width=134 nowrap="nowrap">
+            <div id='co' align="left" onClick="ChangeLeftFrameStatu();" title="全屏/半屏" style="cursor:hand;"><font color=red>×</font> 隐藏左栏</div></TD>
+		<TD  align=left  nowrap="nowrap">{$site$} 
+  </TD>
+        </TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+</BODY></HTML>

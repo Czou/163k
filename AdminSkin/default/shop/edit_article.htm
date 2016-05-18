@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>店铺资讯超级管理</title>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/cal/calendar.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+body { margin:0; padding:0; color:#404040; background:#fff; color:#404040;}
+div,p { color:#404040;}
+.list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px;}
+.sp_a,.sp_b { float:left;}
+.sp_a { width:100px; text-align:right; color:#888;}
+.sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.name { font-weight:bold; color:#36c;}
+.t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px;}
+.t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<form id="myform" name="myform" action="?" target="tijiao" method="post" style="margin:0; padding:0; border:0 none;">
+	<input type="hidden" name="ID" value="{$ID}" />
+	<input type="hidden" name="action" value="editsave" />
+	
+	<div class="list">
+		<span class="sp_a">资讯标题：</span>
+		<span class="sp_b"><span class="name"><input type="text" class="t_ipt" style="width:300px;" id="chrtitle" name="chrtitle" value="{$chrtitle}" /> <em>必填</em></span></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">发布商家：</span>
+		<span class="sp_b">{$chrshop}<input type="hidden" name="shopid" value="{$shopid}" /> <!--转给：<input type="text" class="t_ipt" style="width:60px;" id="shopid" name="shopid" value="{$shopid}" /> <em>店铺ID</em>--></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">资讯分类：</span>
+		<span class="sp_b">{$categoryid}</span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">排序：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="intorder" name="intorder" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo')" /></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">状态：</span>
+		<span class="sp_b"><input name="iskill" type="radio" value="0" {$checked0} > 等待审核 <input name="iskill" type="radio" value="1" {$checked1} > 审核通过</span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">&nbsp;</span>
+		<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+	</div>
+	</form>
+	<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</div>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/MSGwindowShow.js"></script>
+</body>
+</html>

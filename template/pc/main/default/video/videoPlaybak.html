@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/video2011.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top950$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$videourl}">{$lanmuname}</a> &gt; {$chrtitle}</div>
+	<div id="content" class="video2011">
+		<div class="grid_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="article">
+					<div class="ahd totaldata">
+						<span class="tocomment"><a href="#comment_list"  class="link">我要评论</a></span>
+						<span class="time"><s title="发布时间"></s>发布时间：<em>{$dtappenddate}</em></span>
+						<span class="ply"><s title="播放次数"></s>播放(<em>{$views}</em>)</span>
+						<span class="cms"><s title="评论次数"></s>评论(<em>{$revertnum}</em>)</span>
+					</div>
+					<div class="abd playContent">
+						 
+						<div class="player" >
+							{$videoplay}
+						</div>
+						<div class="share clearfix" id="share" >
+							<a href="#comment_list" class="tocomment">我要评论</a>转帖到：
+							<a title="新浪微博" id="sina-share" href="http://v.t.sina.com.cn/share/share.php?title={$chrtitle}&url={$videourl}video_{$detailsid}.html&source=bookmark" rel="nofollow" target="_blank">新浪微博</a><a title="腾讯微博" id="tencent-share" rel="nofollow" target="_blank" href="http://v.t.qq.com/share/share.php?title={$chrtitle}&url={$videourl}video_{$detailsid}.html&appkey=&site=&pic=">腾讯微博</a><a title="搜狐微博" id="sohu-share" rel="nofollow" href="javascript:void(((function(s,d,e){var f='http://t.sohu.com/third/post.jsp?link=',u=d.location;function a(){if(!window.open([f,e(u)].join(''),'sohushare',['toolbar=0,status=0,resizable=1,width=660,height=470,left=',(s.width-660)/2,',top=',(s.height-470)/2].join('')))u.href=[f,e(u)].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else a();})(screen,document,encodeURIComponent)))">搜狐微博</a><a title="开心网" id="kaixin001-share" rel="nofollow" href="http://www.kaixin001.com/repaste/share.php?rurl={$videourl}video_{$detailsid}.html&rcontent=&rtitle={$chrtitle}" target="_blank">开心网</a><a title="人人网" id="renren-share" rel="nofollow" href="http://share.renren.com/share/buttonshare?link={$videourl}video_{$detailsid}.html" target="_blank">人人网</a><a title="豆瓣" id="douban-share" rel="nofollow" href="http://www.douban.com/recommend/?url={$videourl}video_{$detailsid}.html&title={$chrtitle}" target="_blank">豆瓣</a><a title="QQ空间" id="qqZone-share" rel="nofollow" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={$videourl}video_{$detailsid}.html&rcontent" target="_blank">QQ空间</a>
+						</div>
+						<div class="article_info"><em>简介：</em>{$chrmark}</div>
+						<div class="shop_info clearfix">
+							{$koubeishop}
+						</div>
+					</div>
+					<div class="ahd ordinary yahei">相关视频</div>
+					<div class="abd">
+						<div class="bd main_list clearfix">
+                        {$videos}
+						</div>
+					</div>
+					<div class="ahd ordinary yahei">网友评论<span class="rig">已有 <a id="showcommentnumber" href="javascript:;">{$showcommentnumber}</a> 条评论</span></div>
+					<div class="abd"><a name="comment_list"></a>
+						<div class="comment_list" id="showcomment">正在加载数据，请稍等......
+							
+						</div>
+						<div class="comment_form">
+                         <form name="newscommentform" onSubmit="return checknewscomment(this);return false;" style="margin:0">
+							<strong>发表评论</strong>
+							<div class="c_login">{$Mh163k_评论登录状态}
+                            <input type="hidden" name="newsid" id="newsid" value="{$detailsid}">
+					        <input type="hidden" name="agan" id="agan" value="1">
+                            　　</div>
+							
+							<div style=" width:100%; overflow:hidden;"><div style="margin-right:10px; *height:1%;"><textarea style="width:100%; padding:3px; border:1px solid #ccc; height:120px;" name="chrmark" id="chrmark" ></textarea></div></div>
+							<div class="c_send">验证码：<input name="chrcode" id="chrcode" type="text" style="width:50px" class="c_input" /> <img src="../getcode.html" alt=""   id="vadimg" title="看不清楚请刷新!" onClick="this.src='../getcode.html?'+(new Date().getTime());"  style="cursor:pointer" align="absmiddle"/> <button type="submit" class="send_menu">发表评论</button>　(注意：仅限300汉字)</div>
+                            </form>
+						</div>
+					</div>
+				</div>
+				
+			</div></div>
+			<div class="col_sub">
+				<div class="module_tab" id="TabAdS02">
+					<div class="hd">
+						<ul class="clearfix tab-hd">
+							<li><a href="javascript:;">日榜</a></li>
+							<li><a href="javascript:;">周榜</a></li>
+							<li><a href="javascript:;">月榜</a></li>
+						</ul>
+						
+					</div>
+					
+					<div class="bd paixu">
+						<ol class="tab-cont" id="changeItem">
+							{$daydetails}
+						</ol>
+						<ol class="tab-cont" id="changeItem2">
+							{$weekdetails}
+						</ol>
+						<ol class="tab-cont" id="changeItem3">
+							{$monthdetails}
+						</ol>
+					</div>
+				</div>
+				<div class="blank10"></div>
+				<div class="zdyHtml">{$videocontentright}</div>
+				{$listcategorylist}
+			</div>
+		</div>
+	</div>
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/jQuery.tabs.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/jQuery.changeList.js"></script>
+<script type="text/javascript">
+$('#mySle').selectbox();
+$(document).modCity();
+$('#fabu').showMore();
+$('#weixin').showMore();
+$('#changeItem').changeList();
+$('#changeItem2').changeList();
+$('#changeItem3').changeList();
+$("#TabAdS01").TabADS();
+$("#TabAdS02").TabADS2();
+getdata("../request.aspx?action=shownewscomment&shopid={$detailsid}&agan=1","showcomment","showcomment");
+$(document).ready(function(){$.returnTop();});
+</script>
+</body>
+</html>

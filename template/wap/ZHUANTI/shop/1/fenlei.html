@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>商品分类列表-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$tplPath}skin/_tcShop.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<!-- 主体 -->
+	<div id="content">
+		<div class="tcShop_banner"><div class="zone">{$sitetel}</div></div>
+		<div class="grid_01">
+			<!-- 商品分类目录 -->
+			<div class="module_01 marTop10">
+				<div class="hd clearfix"><a href="pinpai.html" class="f_qh">切换到品牌大全 »</a></div>
+				<div class="title pp3">商品分类目录</div>
+				<div class="bd pp3Zone clearfix">
+					<ul>
+						{$shopfenlei}
+					</ul>
+				</div>
+				<div class="ft"></div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+</body>
+</html>

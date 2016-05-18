@@ -1,0 +1,127 @@
+﻿.zftg {
+	background-image: url(../images/zxtg.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 50px;
+}
+.zftgc {
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #8a84ac;
+	border-left-color: #8a84ac;
+	padding-right: 40px;
+	padding-left: 40px;
+	height: 100%;
+	background-color: #f2eeef;
+}
+.zftgc_1 {
+	width: 724px;
+	color: #777375;
+	font-size: 14px;
+	line-height: 30px;
+	float: left;
+	font-family: "宋体";
+}
+a {
+	color: #0e4be7;
+	text-decoration: underline;
+}
+a:hover {
+	color: #FF0000;
+}
+
+.zftgc_1 strong {
+	color: #404247;
+}
+.zftgc_2 {
+	float: left;
+	width: 30px;
+	margin-top: 78px;
+	margin-left: 70px;
+	color: #494445;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+.zftgc_2 img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.zftgbot {
+	background-image: url(../images/zxtgbot.jpg);
+	background-repeat: no-repeat;
+	background-position: 0px top;
+	padding-top: 11px;
+}
+.li_10 {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.input0 {
+	width: 201px;
+	border: 1px solid #c6c6c6;
+	height: 22px;
+	vertical-align: middle;	
+}
+.input00 {
+	width: 161px;
+	border: 1px solid #c6c6c6;
+	height: 22px;
+	vertical-align: middle;	
+}
+.mark {
+	width: 400px;
+	border: 1px solid #c6c6c6;
+	height: 60px;
+	vertical-align: middle;	
+}
+.mark11 {
+	width: 780px;
+	border: 1px solid #c6c6c6;
+	height: 100px;
+	vertical-align: middle;	
+}
+.input2 {
+	width: 359px;
+	border: 1px solid #c6c6c6;
+	height: 22px;
+	vertical-align: middle;	
+}
+.zrda {
+	font-size: 14px;
+	color: #120208;
+	background-image: url(../images/zrda.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 21px;
+	padding-left: 60px;
+	font-weight: bold;
+	margin-top: 10px;
+	line-height: 21px;
+}.zrdac {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #b9b6b6;
+	border-bottom-color: #b9b6b6;
+	border-left-color: #b9b6b6;
+	padding-left: 30px;
+	height: 100%;
+	padding-top: 15px;
+	padding-bottom: 20px;
+}
+.li_3 {
+	float: left;
+	width: 405px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 14px;
+}
+a:hover {
+	color: #FF0000;
+}

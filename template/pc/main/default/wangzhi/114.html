@@ -1,0 +1,517 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<link href="http://image.39.net/114/css/114a.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+
+<base target="_blank" />
+
+<script type="text/javascript">
+
+
+
+function getObject(objectId){ 
+
+	// checkW3C DOM, then MSIE 4, then NN 4. 
+
+	if(document.getElementById && document.getElementById(objectId)){ 
+
+		return document.getElementById(objectId);
+
+	}else if (document.all && document.all(objectId)){ 
+
+		return document.all(objectId); // IE4,5.0 
+
+	}else if (document.layers && document.layers[objectId]){ 
+
+		return document.layers[objectId];  // Netscape 4.x 
+
+	}else{ 
+
+		return false; 
+
+	} 
+
+}
+
+
+
+
+
+//显示与隐藏列表
+
+function showList(id,num){
+
+	if(num == 1){
+
+		document.getElementById(id).style.display = "block";
+
+	}
+
+	else{
+
+		document.getElementById(id).style.display = "none";
+
+	}
+
+}
+
+
+
+
+
+//选项卡切换
+
+function showTab(n1,n2){
+
+	var h=document.getElementById("tab"+n1).getElementsByTagName("h3");
+
+	var d=document.getElementById("tab"+n1).getElementsByTagName("div");
+
+	for(var i=0;i<h.length;i++){
+
+		if(n2-1==i){
+
+			h[i].className+=" up";
+
+			d[i].className+=" block";
+
+		}
+
+		else {
+
+			h[i].className=" ";
+
+			d[i].className=" ";
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+<body>
+
+
+
+<div class="m_title">
+
+	<div class="logo"><a href="http://www.39.net"><img src="http://image.39.net/114/images/114a/logo.gif" alt="39生活导航" /></a></div>
+
+	
+
+	<div class="link">
+
+	<a href="http://dpvc.39.net/adpolestar/wayl/;ad=69107808_28CE_1C97_FE2D_E4F234F87679;ap=0;pu=san9;/?http://face.39.net/zt/107/9/1382672.html">夏日防晒</a>
+
+<a href="http://dpvc.39.net/adpolestar/wayl/;ad=2177A1DD_616D_FEF8_D319_F3476F926845;ap=0;pu=san9;/?http://disease.39.net/jbzt/104/29/1251082.html">降糖手册</a>
+
+<a href="http://baby.39.net/zt/2010726/1411362.html">消灭妊娠纹</a>
+
+<a href="http://fitness.39.net/a/2010519/1283816.html">夏季减肥</a>
+
+<a href="http://jbk.39.net/keshi/waike/rxwk/4fab3.html">乳腺癌</a>
+
+<a href="http://dpvc.39.net/adpolestar/wayl/;ad=0CEFA50D_9DF7_E86A_7F13_7C4F3322F9DF;ap=0;pu=san9;/?http://webservice.zoosnet.net/LR/Chatpre.aspx?id=LZA57311681&lng=cn&e=39&r=http%3a%2f%2fwww.39.net&p=http%3a%2f%2fwww.tlbaby.com "><font color=red>不孕不育</font></a>
+
+<a href="http://app-g.39.net/rel/k13.php?adid=177">前列腺炎</a>
+
+	</div>
+
+</div>
+
+
+
+
+
+<!-- 导航图标 begin -->
+
+<div class="navigation">
+
+	<div class="nav_icon">
+
+		<li class="nobg"><a class="i1" href="http://nk.39.net/">男科</a></li>
+
+		<li><a class="i2" href="http://fk.39.net/">妇科</a></li>
+
+		<li><a class="i3" href="http://ek.39.net/">儿科</a></li>
+
+		<li><a class="i5" href="http://byby.39.net/">不孕不育</a></li>
+
+		<li><a class="i16" href="http://zx.39.net/">整形科</a></li>
+
+		<li><a class="i4" href="http://cancer.39.net/">肿瘤科</a></li>
+
+		<li><a class="i6" href="http://tnb.39.net/">糖尿病科</a></li>
+
+		<li><a class="i7" href="http://heart.39.net/">心血管科</a></li>
+
+		<li><a class="i8" href="http://wei.39.net/">胃病科</a></li>
+
+		<li><a class="i9" href="http://gan.39.net/">肝病科</a></li>
+
+		<li><a class="i15" href="" onmouseover="showList('ksbox',1);" onmouseout="showList('ksbox',0);"><span>更多</span></a></li>
+
+	</div>
+
+    
+
+	
+
+  <div id="ksbox" onmouseover="showList('ksbox',1);" onmouseout="showList('ksbox',0);"> 
+
+    <div class="title"> <span class="t1">全部科室</span> <span class="t2">快速通道：点击直达您要访问的科室</span> 
+
+      <span class="t3" onclick="showList('ksbox',0);"></span> </div>
+
+    <ul>
+
+      <li><a href="http://nk.39.net/">耳鼻喉</a></li>
+
+      <li><a href="http://fk.39.net/">妇科</a></li>
+
+      <li><a href="http://byby.39.net/">不孕不育</a></li>
+
+      <li><a href="http://cancer.39.net/">肿瘤科</a></li>
+
+      <li><a href="http://pf.39.net/">皮肤科</a></li>
+
+      <li><a href="http://xb.39.net/">性病科</a></li>
+
+      <li><a href="http://neike.39.net/" class="orange">内科</a></li>
+
+      <li><a href="http://hx.39.net/">呼吸科</a></li>
+
+      <li><a href="http://heart.39.net/">心血管</a></li>
+
+      <li><a href="http://wei.39.net/">胃病科</a></li>
+
+      <li><a href="http://shen.39.net/">肾病科</a></li>
+
+      <li><a href="http://tnb.39.net/">糖尿病科</a></li>
+
+      <li></li>
+
+      <li><a href="http://gan.39.net/">肝病科</a></li>
+
+      <li><a href="http://aids.39.net/">艾滋病</a></li>
+
+      <li><a href="http://jbk.39.net/ks/shenjingneike.html">神经科</a></li>
+
+      <li><a href="http://jbk.39.net/ks/xueyeke.html">血液科</a></li>
+
+      <li><a href="http://jbk.39.net/ks/fengshike.html">风湿科</a></li>
+
+      <li><a href="http://wk.39.net/" class="orange">外科</a></li>
+
+      <li><a href="http://gk.39.net/">骨科</a></li>
+
+      <li><a href="http://jbk.39.net/ks/ruxianwaike.html">乳腺外科</a></li>
+
+      <li><a href="http://jbk.39.net/ks/miniaowaike.html">泌尿外科</a></li>
+
+      <li><a href="http://zx.39.net/">整形科</a></li>
+
+      <li></li>
+
+      <li><a href="http://wgk.39.net/" class="orange">五官科</a></li>
+
+      <li><a href="http://eye.39.net/">眼科</a></li>
+
+      <li><a href="http://mouth.39.net/">口腔科</a></li>
+
+      <li><a href="http://jbk.39.net/ks/erbihouke.html">耳鼻喉科</a></li>
+
+      <li></li>
+
+      <li></li>
+
+      <li><span class="orange">其他科</span></li>
+
+      <li><a href="http://ek.39.net/">儿科</a></li>
+
+      <li><a href="http://cm.39.net/">中医科</a></li>
+
+      <li><a href="http://120.39.net/">急诊科</a></li>
+
+      <li><a href="http://tj.39.net/">体检科</a></li>
+
+      <li><a href="http://xl.39.net/">心理科</a></li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- 导航图标 end-->
+
+
+
+
+
+<div class="m_content">
+
+	
+
+<!-- 身体部位 begin-->	
+
+	<div class="jkzz" id="tab2">
+
+        <ul class="btns">
+
+            <ol>
+
+                <h1>男性</h1>
+
+                <h3 onMouseOver="showTab(2,1);" class="up" title="男性正面部位查询">正面</h3>
+
+                <h3 onMouseOver="showTab(2,2);" title="男性背面部位查询">背面</h3>
+
+            </ol>
+
+            <ol style="margin:12px 0 0 0;">
+
+                <h1>女性</h1>
+
+                <h3 onMouseOver="showTab(2,3);" title="女性正面部位查询">正面</h3>
+
+                <h3 onMouseOver="showTab(2,4);" title="女性背面部位查询">背面</h3>
+
+            </ol>
+
+            <ol class="etc">
+
+                <li><a href="http://zzk.39.net/bw/quanshen.html">全身症状</a></li>
+
+                <li><a href="http://zzk.39.net/bw/pifu.html">皮肤症状</a></li>
+
+            </ol>
+
+        </ul>
+
+        
+
+        <div class="block"><img src="http://image.39.net/images/male_front.gif" border="0" usemap="#body1" /></div>
+
+        <div><img src="http://image.39.net/images/male_back.gif" border="0" usemap="#body2" /></div>
+
+        <div><img src="http://image.39.net/images/female_front.gif" border="0" usemap="#body3" /></div>
+
+        <div><img src="http://image.39.net/images/female_back.gif" border="0" usemap="#body4" /></div>
+
+        <map name="body1" id="body1">
+
+            <area shape="circle" coords="63,21,15" href="http://zzk.39.net/bw/toubu.html" alt="头颈部" />
+
+            <area shape="poly" coords="42,44,52,55,62,55,74,55,86,46,73,36,55,36,41,42" href="http://zzk.39.net/bw/xiongbu.html" alt="胸部" />
+
+            <area shape="rect" coords="49,56,78,84" href="http://zzk.39.net/bw/fubu.html" alt="腹部" />
+
+            <area shape="poly" coords="63,100,80,84,47,84,63,100" href="http://zzk.39.net/bw/nanxinggugou.html" alt="男性股沟" />
+
+            <area shape="poly" coords="40,44,49,54,48,59,41,71,38,76,24,90,20,105,13,106,9,101,11,91,18,88,34,66" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="87,47,77,55,78,60,85,69,88,75,100,88,103,97,105,104,112,105,116,100,115,93,111,87,108,87,93,64,87,47" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="48,87,62,100,60,108,53,131,50,137,49,143,50,149,45,173,44,194,41,200,37,200,33,197,33,192,37,183,37,179,38,176,37,150,41,138,42,128,44,106,47,88" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="79,85,64,100,65,108,72,129,75,137,76,143,77,156,81,173,81,194,84,201,91,198,93,194,89,186,87,177,89,153,85,139,84,123,83,109,79,85" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+        </map>
+
+        <map name="body2" id="body2">
+
+          <area shape="poly" coords="45,91,52,98,70,98,79,92,76,78,75,66,49,66,49,76,46,81,45,89" href="http://zzk.39.net/bw/yaobu.html" alt="腰臀部" />
+
+      </map>
+
+        <map name="body3" id="body3">
+
+            <area shape="circle" coords="61,21,15" href="http://zzk.39.net/bw/toubu.html" alt="头颈部" />
+
+            <area shape="poly" coords="46,47,51,55,61,55,73,55,81,45,75,37,54,36,41,42" href="http://zzk.39.net/bw/xiongbu.html" alt="胸部" />
+
+            <area shape="rect" coords="47,56,76,83" href="http://zzk.39.net/bw/fubu.html" alt="腹部" />
+
+            <area shape="poly" coords="62,99,77,83,44,83,62,99" href="http://zzk.39.net/bw/nvxingpengu.html" alt="女性盆骨" />
+
+            <area shape="poly" coords="41,44,49,54,47,58,41,67,38,76,27,93,24,104,15,106,11,100,11,91,20,89,32,67" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="80,47,74,54,77,59,82,69,85,76,93,88,96,98,95,103,104,104,109,100,108,93,105,88,96,82,89,65,83,55" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="46,85,59,99,57,107,53,127,53,137,51,143,51,154,46,173,46,194,41,198,38,198,35,196,34,190,37,183,37,179,38,176,39,150,41,138,42,128,43,106,44,89" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+            <area shape="poly" coords="69,93,63,99,63,108,68,129,69,137,69,146,71,156,75,173,75,194,78,199,85,198,87,194,83,186,81,177,83,153,79,139,78,123,78,109,77,85" href="http://zzk.39.net/bw/sizhi.html" alt="四肢" />
+
+        </map>
+
+        <map name="body4" id="body4">
+
+          <area shape="poly" coords="45,91,52,98,70,98,79,92,76,78,75,66,49,66,49,76,46,81,45,89" href="http://zzk.39.net/bw/yaobu.html" alt="腰臀部" />
+
+        </map>
+
+  </div>
+
+ <!-- 身体部位 end--> 
+
+  
+
+  
+
+<!-- 健康直通车 begin-->   
+
+  <div class="ztc">
+
+  <h2  class="bg">健康直通车</h2>
+
+  <ul>
+
+	 <li><a href="http://ypk.39.net/">药品报价</a></li>
+
+	<li class="bg"><a href="http://yyk.39.net/">医院点评</a></li>
+
+	<li><a href="http://ysk.39.net/">医生点评</a></li>
+
+	<li  class="bg"><a href="http://jbk.39.net/">疾病查询</a></li>
+
+	<li><a href="http://zzk.39.net/">症状查询</a></li>
+
+	<li  class="bg"><a href="http://zxk.39.net/">整形项目库</a></li>
+
+	<li><a href="http://hzpk.39.net/">化妆品查询</a></li>
+
+</ul>
+
+  </div>
+
+ <!-- 健康直通车 end-->  
+
+ 
+
+ 
+
+ 
+
+ 
+
+   <div class="jbdh">
+
+   
+
+   		<dl>
+
+		<dt class="t_title">
+
+		<div>疾病导航</div>
+
+		<span><a href="http://nk.39.net/" class="link1">男科</a><a href="http://wei.39.net/" class="link1">胃病科</a><a href="http://cancer.39.net/">肿瘤科</a></span>
+
+		<dt>
+
+		
+
+		<dd>
+
+		<div>
+
+		<a href="http://disease.39.net/">疾病</a><a href="http://cm.39.net/">中医</a><a href="http://120.39.net/">急救</a><a href="http://tj.39.net/">体检</a><a href="http://drug.39.net/">药品</a>
+
+		</div>
+
+		<span><a href="http://gy.39.net/">医疗协助</a></span>
+
+		</dd>
+
+		
+
+		<dt class="t_title">
+
+		<div>时尚/大众健康</div>
+
+		<span><a href="http://sports.39.net/special/096/19/906036.html" class="link2">健康热点排行</a></span>
+
+		<dt>
+
+		
+
+		<dd><a href="http://care.39.net/">保健</a><a href="http://food.39.net/">饮食</a><a href="http://sex.39.net/">性爱</a><a href="http://xl.39.net/">心理</a><a href="http://face.39.net/">美容</a><a href="http://fitness.39.net/">减肥</a><a href="http://sports.39.net/">健身</a><a href="http://yoga.39.net/">瑜伽</a>
+
+</dd>
+
+<dd><a href="http://fitness.39.net/ssss/mt/">排毒</a><a href="http://zf.39.net/">增肥</a><a href="http://pc.39.net/">评测</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://man.39.net/">男人</a><a href="http://woman.39.net/">女人</a><a href="http://oldman.39.net/">老人</a><a href="http://baby.39.net/">幼儿</a>
+
+		</dd>
+
+		
+
+		<dt class="t_title">
+
+		<div>健康互动</div>
+
+		<span><a href="http://ask.39.net/" class="link1">专家在线咨询</a></span>
+
+		<dt>
+
+		<dd style="padding:0 0 0 15px;">
+
+		<a href="http://ask.39.net/" class="link1"><strong>问病问医生</strong></a><a href="http://bbs.39.net/">论坛</a><a href="http://blog.39.net/">博客</a><a href="http://test.39.net/">自测</a><a href="http://so.39.net/">健康搜</a>
+
+		</dd>
+
+		
+
+		<dd class="t_title" style="text-align:center">
+
+		<a href="http://dpvc.39.net/adpolestar/wayl/;ad=3F4806B9_FD18_0DAC_0734_45FDD7AD6D47;ap=0;pu=san9;/?http://chat.53kf.com/company.php?arg=error&style=1" style="color: red; font-weight: bold;">抗癌防癌</a><a href="http://bbs.39.net/bang.html">热贴排行</a><a href="http://bbs.39.net/fyph.html">论坛风云</a><a href="http://blog.39.net/doctor.html">名博关注</a>
+
+		</dd>
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		</dl>
+
+
+
+  
+
+	
+
+</div>
+
+
+
+<SCRIPT src="http://39net.datamaster.com.cn/dma.js?4713144b849e6" type=text/javascript></SCRIPT>
+
+</body>
+
+</html>
+

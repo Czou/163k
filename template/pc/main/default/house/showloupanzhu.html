@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>出租房源-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_fangchan.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/highslide.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="{$SiteUrl}";</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$fcurl}">{$lanmuname}</a> &gt; 出租房源</div>
+	<!-- 主体 -->
+	<div id="content" class="fangchan">
+		<div class="xqHead">
+			<h1>{$Loupan_chrloupan}</h1>
+			<div class="extraNav">
+				<ul class="navZone">
+					<li><a href="xiaoqu_{$Loupan_loupanid}.html">小区详情</a></li>
+					<li  class="current"><a href="xiaoquzhu_{$Loupan_loupanid}.html">出租房源</a></li>
+					<li><a href="xiaoqushou_{$Loupan_loupanid}.html">出售房源</a></li>
+					<li ><a href="xiaoqufang_{$Loupan_loupanid}.html">房型图</a></li>
+					<li><a href="xiaoqupic_{$Loupan_loupanid}.html">小区照片</a></li>
+					<li><a href="xiaoquping_{$Loupan_loupanid}.html">小区评价</a></li>
+					<!--<li><a href="{$yezhu}" target="_blank">业主论坛</a></li> -->
+					<div class="zu"><img src="{$Default_tplPath}images/p/f_zuNav.gif" alt="租" /></div>
+					<div class="shou"><img src="{$Default_tplPath}images/p/f_shouNav.gif" alt="售" /></div>
+				</ul>
+				<div class="sorting clearfix"><ul><li class="price">均价：<em>{$Loupan_avgprice}</em>元/平米</li><li class="grad">小区评分：<em>{$Loupan_pinfen}</em></li><li class="attention">关注人气：<em>{$Loupan_views}</em></li></ul></div>
+			</div>
+		</div>
+		<div class="gird_xq_czf clearfix">
+			<div class="col_main"><div class="wrap_main">
+				<div class="blank10"></div>
+				<div class="dlanBox">
+					<b class="rc_tp"><b></b></b>
+					<div class="zone">
+						<div class="daohang">
+							<p><em>租金：</em>{$House_Searchprice}</p>
+							<p><em>户型：</em><a href="{$House_Searchhuxingurl}" class="{$House_Searchhuxingcss}">不限</a><a href="{$House_Searchhuxingurl}1" class="{$House_Searchhuxingcss1}">一室户</a><a href="{$House_Searchhuxingurl}2"  class="{$House_Searchhuxingcss2}">二室户</a><a href="{$House_Searchhuxingurl}3"  class="{$House_Searchhuxingcss3}">三室户</a><a href="{$House_Searchhuxingurl}4"  class="{$House_Searchhuxingcss4}">四室户</a><a href="{$House_Searchhuxingurl}5"  class="{$House_Searchhuxingcss5}">四室户以上</a></p>
+							<p><em>装修：</em>{$House_Searchzhuangxiu}</p>
+						</div>
+						<div class="blank3"></div>
+					</div>
+					<b class="rc_ft"><b></b></b>
+				</div>
+				<div class="totalA clearfix"><div class="left">本小区共有出租房源：<b>{$xiaoqu_total}</b>套</div><div class="right small"><s>排序：</s><div class="left"><select  name="mySle1" id="mySle1"  onchange="javascript:window.location.href='{$House_Seurlpaixu}'+this.value">
+	<option {$House_Sepaixu} value="">默认排序</option>
+	<option value="1" {$House_Sepaixu1}>发布时间</option>
+	<option value="2" {$House_Sepaixu2}>租金高到低</option>
+	<option value="3" {$House_Sepaixu3}>租金低到高</option>
+	<option value="4" {$House_Sepaixu4}>面积大到小</option>
+	<option value="5" {$House_Sepaixu5}>面积小到大</option>
+</select></div></div></div>
+				<div class="img"><img src="{$Default_tplPath}images/tit02.png" alt="" /></div>
+				<div class="mainList">
+					<ul>
+						<tag:Loop ListType="LISTCHUZHULIST" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_xiaoquchuzhu_tr.html" />
+					</ul>
+					<div class="clear"></div>
+					<div class="blank7"></div>
+					<div class="right f_pagelist">
+						<span class="total">每页显示15条</span>
+						{$PageSplit}
+					</div>
+				</div>
+				<!-- 插入 -->
+			</div></div>
+			<div class="col_sub">
+				<div class="blank10"></div>
+				<div class="greenBox">
+					<b class="rc_tp"><b></b></b>
+					<div class="zone">
+						<div class="hd">周边其他小区</div>
+						<div class="bd leftPicList xqLP">
+						<ul>
+							{$Loupan_Indexzhoubian}
+						</ul>
+						</div>
+					</div>
+					<b class="rc_ft"><b></b></b>
+				</div>
+				<div class="blank10"></div>
+				<div class="greenBox">
+					<b class="rc_tp"><b></b></b>
+					<div class="zone">
+						<div class="hd">周边房产经纪人</div>
+						<div class="bd tjjjr">
+							<div id="top">
+							<div id="top1">
+							<ul>
+								{$House_xiaoquZhongjie}
+							</ul>
+							</div>
+							<div id="top2"></div>
+							</div>
+						</div>
+					</div>
+					<b class="rc_ft"><b></b></b>
+				</div>
+				<div class="blank10"></div>
+				<div class="greenBox">
+					<b class="rc_tp"><b></b></b>
+					<div class="zone">
+						<div class="hd">周边其它小区出租房</div>
+						<div class="bd qtczf">
+							<ul>
+								{$House_zbchuzhu}
+							</ul>
+						</div>
+					</div>
+					<b class="rc_ft"><b></b></b>
+				</div>
+				<div class="blank10"></div><a href="{$SiteUrl}member/manage_chuzhu.aspx?action=add#tt13" class="fbchuzu" title="免费发布房源出租信息">免费发布房源出租信息</a>
+				<div class="blank10"></div><a href="qiugou.aspx" class="fbqiuzu" title="免费发布房源求租信息">免费发布房源求租信息</a>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div id="mask" style="display:none"></div>
+<script type="text/javascript" src="{$Default_tplPath}js/ppRoll.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/ppRoll.js"></script>
+<script type="text/javascript">
+var top = new ppRoll({speed:50,demo:"top",demo1:"top1",demo2:"top2",objStr:"top",width:"222px",height:"206px",direction:"top"});
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

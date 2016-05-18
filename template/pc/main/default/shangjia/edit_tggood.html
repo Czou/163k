@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改省啦商品-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入省啦标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("请输入活动亮点!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrmark.value.length>200){
+		alert("活动亮点长度不能大于200!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrdate.value==""){
+		alert("请输入结束时间!");
+		o.chrdate.focus();
+		return false;
+	}
+	if(o.chrmoney1.value==""){
+		alert("请输入市场原价!");
+		o.chrmoney1.focus();
+		return false;
+	}
+	if(o.chrmoney2.value==""){
+		alert("请输入省啦价格!");
+		o.chrmoney2.focus();
+		return false;
+	}
+	if(o.chrzhekou.value==""){
+		alert("请输入折扣!");
+		o.chrzhekou.focus();
+		return false;
+	}
+}
+</script>
+<script src="/kindeditor/kindeditor.js"></script>
+<script src="/kindeditor/lang/zh_CN.js"></script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">修改省啦商品</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">编辑修改后前台将暂停显示，待网站方审核通过后恢复显示。</div>
+						</div>
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=editSave" onSubmit="return checkform(this)">
+								<input type="hidden" name="ID" value="{$ID}" />
+								
+								<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,2)',200);">基本内容</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,2)',200);">省啦详情</a></li>
+									</ul>
+									<div class="tab_cont" id="tabadcontent_10" style="padding:0;">
+										<p class="tr"><span class="sp_a">省啦标题：</span><span class="sp_b"><input type="text" name="chrtitle" id="chrtitle" class="sys_form_ipt" value="{$chrtitle}" size="70" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">所属分类：</span><span class="sp_b">{$categorySelect}</span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">所在区域：</span><span class="sp_d">{$areaidSelect}</span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">主图：</span><span class="sp_b"><span id="str1" style="display:none;"><img src="{$url0}" class="img_block" id="for_url_0" width="280" height="132" alt="" /><a href="#" onClick="return upload_img_action_X('str1','str2');" class="sys_btn_small_blue">重新上传</a></span><span id="str2" style="display:none;"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=tg&reqfile=upload_X4.aspx"></iframe>
+										<input type="hidden" value="{$url0}" name="url0" id="url0" /></span><input type="hidden" value="900" name="filewidth" /><input type="hidden" value="425" name="fileheight" /></span><span class="sp_c">最佳尺寸：900x425</span></p>
+										<input type="hidden" name="smallpic" value="1" />
+										<p class="tr"><span class="sp_a">缩略图：</span><span class="sp_b"><span id="str3" style="display:none;"><img src="{$url1}" class="img_block" id="for_url_1" width="280" height="190" alt="" /><a href="#" onClick="return upload_img_action_X('str3','str4');" class="sys_btn_small_blue">重新上传</a></span><span id="str4" style="display:none;"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=1&table_id=tg&reqfile=upload_X4.aspx"></iframe>
+										<input type="hidden" value="{$url1}" name="url1" id="url1" /></span><input type="hidden" value="280" name="filewidth1" /><input type="hidden" value="190" name="fileheight1" /></span><span class="sp_c">最佳尺寸：280x190</span></p>
+										
+										<p class="tr"><span class="sp_a">短信标题：</span><span class="sp_b"><input type="text" name="smstitle" id="smstitle" class="sys_form_ipt" value="{$smstitle}" size="70" /></span><span class="sp_c">发送消费短信时显示的简短标题,限10个字</span></p>
+										<p class="tr"><span class="sp_a">商家电话：</span><span class="sp_b"><input type="text" name="shoptel" id="shoptel" class="sys_form_ipt" value="{$shoptel}" size="70" /></span><span class="sp_c">发送消费短信时显示的咨询电话</span></p>
+										<p class="tr"><span class="sp_a">营业员：</span><span class="sp_b">{$dhuserid_select} <a href="mypeisong_user.aspx" target="_blank" class="sys_btn_blue">员工管理</a></span><span class="sp_c">设置兑换权限会员</span></p>
+										<p class="tr"><span class="sp_a">本单性质：</span><span class="sp_b"><select name="styleid">
+			  <option value="0" {$styleid0}>消费、服务类</option>
+			  <option value="1" {$styleid1}>实物-网购类</option>
+			  <option value="2" {$styleid2}>实物-订单类</option>
+			  <option value="3" {$styleid3}>代金券</option>
+			  </select></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">温馨提示：</span><span class="sp_d">a、消费、服务类商品：消费者在线全额支付，凭码消费  <br>
+				b、实物-网购类商品：消费者在线全额支付,商家包邮快递 <br>
+				c、实物-订单类商品：消费者只需在线支付定金下单,线下与商家取货或送货,余款于线下商家自行结算<br>
+				d、代金券:无套餐,购买任意商家许可产品冲抵相应额度现金.</span></p>
+										
+										<p class="tr"><span class="sp_a">市场原价：</span><span class="sp_d"><input type="text" name="chrmoney1" id="chrmoney1" class="sys_form_ipt" value="{$chrmoney1}" size="20" onKeyUp="if(isNaN(value))execCommand('undo');jishuan();" /> 元</span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">省啦价：</span><span class="sp_d"><input type="text" name="chrmoney2" id="chrmoney2" class="sys_form_ipt" value="{$chrmoney2}" size="20" onKeyUp="if(isNaN(value))execCommand('undo');jishuan();" /> 元</span><span class="sp_c">必填，若是定金类型省啦，本价格为定金</span></p>
+										<p class="tr"><span class="sp_a">折扣：</span><span class="sp_b"><input type="text" name="chrzhekou" id="chrzhekou" class="sys_form_ipt" value="{$chrzhekou}" size="20" onKeyUp="if(isNaN(value))execCommand('undo');" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">购买限制：</span><span class="sp_d">总量限制：<input name="num2" type="text" class="sys_form_ipt"  value="{$num2}" onKeyUp="if(isNaN(value))execCommand('undo')" style="width:40px;" />　单ID数量限制：<input name="num1" type="text" class="sys_form_ipt" value="{$num1}" onKeyUp="if(isNaN(value))execCommand('undo')" style="width:40px;" />　单手机购买限制：<input name="telnum" type="text" class="sys_form_ipt" value="{$telnum}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();" style="width:40px;" /></span><span class="sp_c">0表示不限制</span></p>
+										<p class="tr"><span class="sp_a">状态设置：</span><span class="sp_b">{$selectiskill}</span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a" id="startdate_txt">省啦券有效期：</span><span class="sp_b"><input name="startdate" value="{$startdate}" type="text" class="sys_form_ipt Wdate" style="width:120px;" /><span id="startdate_node">　到　</span><input name="enddate" value="{$enddate}" type="text" class="sys_form_ipt Wdate" style="width:120px;" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">结束时间：</span><span class="sp_b"><input type="text" name="chrdate" id="chrdate" class="sys_form_ipt Wdate" value="{$chrdate}" /></span><span class="sp_c">必填，到期后将不能下单</span></p>
+										<p class="tr"><span class="sp_a">省啦属性：</span><span class="sp_d" style="width:828px;"><input type="checkbox" name="kill2" value="1" {$kill21} /> 特惠　<input type="checkbox" name="kill3" value="1" {$kill31} /> 多套餐　<input type="checkbox" name="kill4" value="1" {$kill41} /> 免预约　<input type="checkbox" name="k1" value="1" {$k1} /> 支持退款　<input type="checkbox" name="k2" value="1" {$k2} /> 闪发　<input type="checkbox" name="k3" value="1" {$k3} /> 七夕　<input type="checkbox" name="k4" value="1" {$k4} /> 中秋　<input type="checkbox" name="k5" value="1" {$k5} /> 国庆　<input type="checkbox" name="k6" value="1" {$k6} /> 圣诞　<input type="checkbox" name="k7" value="1" {$k7} /> 元旦　<input type="checkbox" name="k8" value="1" {$k8} /> 春节　<input type="checkbox" name="k9" value="1" {$k9} /> 端午　<input type="checkbox" name="k10" value="1" {$k10} /> 教师　<input type="checkbox" name="k11" value="1" {$k11} /> 父亲　<input type="checkbox" name="k12" value="1" {$k12} /> 母亲　<input type="checkbox" name="k13" value="1" {$k13} /> 妇女　<input type="checkbox" name="k14" value="1" {$k14} /> 多店通用</span></p>
+										<p class="tr"><span class="sp_a">商品亮点：</span><span class="sp_b"><textarea name="chrmark" id="chrmark" class="sys_form_ipt" style="height:80px;">{$chrmark}</textarea></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">推广属性：</span><span class="sp_d"><input type="checkbox" disabled {$isindex1} /> 是否首页推荐<!--　实际参团人数：{$schrnum}　参团人数修正：{$typeid}--></span><span class="sp_c">不允许修改，只供查看</span></p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_11" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">本单详情：</span><span class="sp_d"><textarea class="sys_form_ipt" id="Chrcontent" name="Chrcontent">{$Chrcontent}</textarea></span><span class="sp_c"></span></p>
+									</div>
+								</div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+(function($){
+	if(!jQuery('#dhuserid').find('option')[0]){
+		jQuery('#dhuserid').html('<option value="">暂无员工分组</option>');
+	}
+	$('#areaidbigid').change(function(){
+		showTgQuyu($(this).val(),'areaid');
+	});
+	$('#bigcategoryid').change(function(){
+		showTgCategory('17',$(this).val(),'categoryid');
+	});
+	var startdate_node = $('#startdate_node');
+	var startdate_txt = $('#startdate_txt');
+	function showiskill(val){
+		if(val ==='-2'){
+			startdate_node.html(' 省啦券有效期：');
+			startdate_txt.html('秒杀开始时间：');
+		}else{
+			startdate_node.html('　到　');
+			startdate_txt.html('省啦券有效期：');
+		}
+	}
+	$('#iskill').change(function(){
+		var val = $(this).val();
+		showiskill(val);
+	});
+	$('#iskill').trigger('change');
+	if($('#url0').val() === ''){
+		upload_img_action_X('str1','str2');
+	}else{
+		upload_img_action_X('str2','str1');
+	}
+	if($('#url1').val() === ''){
+		upload_img_action_X('str3','str4');
+	}else{
+		upload_img_action_X('str4','str3');
+	}
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="Chrcontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '750px',height : '600px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+function jishuan(){
+	if($("#chrmoney1").val()!=="" && $("#chrmoney2").val()!==""){
+		var aa=parseFloat($("#chrmoney1").val());
+		var bb=parseFloat($("#chrmoney2").val());
+		var tt=(bb/aa);
+		$("#chrzhekou").val((tt*10).toFixed(2));
+	}
+}
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	if(num === '0'){
+		tag.attr({'src':surl});
+		upload_img_action_X('str2','str1');
+	}else{
+		tag.attr({'src':surl});
+		upload_img_action_X('str4','str3');
+	}
+}
+</script>
+</body>
+</html>

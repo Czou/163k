@@ -1,0 +1,176 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function clickcolor()
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) $("sitecolor").value=aarr;
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">维护手机版设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=EditSave">
+    <tr > 
+      <td width="15%" height="25" >是否开启手机版<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"><INPUT TYPE="radio" NAME="openwap"   value="0" {$openwap0}>未开启 <INPUT TYPE="radio" NAME="openwap"   value="1" {$openwap1}>开启<em class="global_tip">(开启之前请联系163k客服确认开通"手机版"授权)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >手机版(插件)注册接口key： 
+      </td>
+      <td width="76%"  class="category"> 
+	  <textarea name="wapapikey" id="wapapikey" rows="6" style="width:500px;">{$wapapikey}</textarea>
+	  <br><em class="global_tip">(64到256位随机数字)</em></td>
+    </tr>
+    	 <tr > 
+      <td width="15%" height="25" >手机版网站标语<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="wapsitebiao" type="text" id="wapsitebiao" maxlength="40" size="40" value="{$wapsitebiao}"><em class="global_tip">(例：打造北京地区第一生活门户")</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >手机版首页SEO标题<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="wapchrtitle" type="text" id="wapchrtitle" size="40" value="{$wapchrtitle}"><em class="global_tip">(首页标题结构：网站名称+网站SEO标题)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >手机版首页SEO关键词<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="wapkeywords" type="text" id="wapkeywords" size="70" value="{$wapkeywords}"><em class="global_tip">(多个用,隔开</em>)</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >手机版网站SEO描述<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="wapdescription" type="text" id="wapdescription" size="70" value="{$wapdescription}"></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >手机版介绍页链接<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="waphelpurl" type="text" id="" size="70" value="{$waphelpurl}"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >手机版统计代码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="waptongji" cols="70"  rows="5">{$waptongji}</textarea><em class="global_tip">(推荐您使用cnzz统计，<a href="http://zhanzhang.cnzz.com/" target=_blank style="color:#ff0000">免费注册</a>)</em>
+	  	<p>适用于cnzz的Wap统计替换代码：</p>
+		<p>&lt;img src=&quot;http://c.cnzz.com/wapstat.php?siteid=您在cnzz的ID&amp;r={$UrlReferrer}&amp;rnd={$system_datetime MMddHHmmssfff}&quot; width=&quot;0&quot; height=&quot;0&quot;/&gt;</p>
+		<p>注：无需下载cs.aspx文件，直接使用替换代码</p>
+	  </td>
+    </tr>
+      <tr>
+	  <td>手机版logo<font color="#FF0000">*</font>：<br>宽*高=277*83 png24透明</td>
+	  <td class="category">
+	  
+		<span id="str1">
+	  <img src="{$waplogofile}" id="showpic" width="277" height="83" border="0"> <span onclick="hid1()" style="cursor:hand">重新上传</span>
+	  </span>
+	  
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1" value="{$waplogofile}"></td>
+	</tr>
+	  <tr > 
+      <td width="15%" height="25" >app客户端下载地址： 
+      </td>
+      <td width="76%"  class="category"> <input name="appdownloadurl" type="text" id="" size="70" value="{$appdownloadurl}"></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >APP应用appid： 
+      </td>
+      <td width="76%"  class="category"> <input name="appappid" type="text" id="" size="70" value="{$appappid}"></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >APP接口key(安全码)： 
+      </td>
+      <td width="76%"  class="category"> <input name="appkey" type="text" id="" size="70" value="{$appkey}"> 注:保持和app平台应用-->安全码处配置一致</td>
+    </tr>
+	  <tr>
+	  <td>app客户端下载二维码：</td>
+	  <td class="category">
+		<span id="str3">
+	  <img src="{$appdownloadurlimg}" id="showpic" border="0"> <span onclick="hid2()" style="cursor:hand">重新上传</span>
+	  </span>
+	  
+	  <span id="str4" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=0&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url0" id="url0" value="{$appdownloadurlimg}"></td>
+	</tr>
+    
+  <tr > 
+      <td width="15%" height="25" >手机版版权信息<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> 
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="wapbanquan"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '150px',
+					items : [
+						'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+	<textarea id="wapbanquan" name="wapbanquan">{$wapbanquan}</textarea>
+	  </td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left"><input name="BadWords" type="hidden" id="BadWords" size="20" value="{$BadWords}"><input name="SiteSetting" type="hidden" id="SiteSetting" size="20" value="{$SiteSetting}">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}"><input name="SiteCopyright" type="hidden" id="SiteCopyright" size="10" value="{$SiteCopyright}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+function hid2()
+{
+	$("str3").style.display="none";
+	$("str4").style.display="block";
+}
+function hid3()
+{
+	$("str5").style.display="none";
+	$("str6").style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

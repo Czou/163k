@@ -1,0 +1,79 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">五：短信通知服务：&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li  ><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li class="selected"><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=e7save" >
+			  <tr > 
+			  <td  height="25">短信通知服务设置<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="category" colspan=3><input type="checkbox" name="smsconfig1" value="1" id="smsconfig1" {$smsconfig11}>当我的商品有订单的时候给我发送短信通知<br>
+		<input type="checkbox" name="smsconfig2" value="1" id="smsconfig2" {$smsconfig21}>当我的店铺收到点评的时候给我发短信通知<br>
+		<input type="checkbox" name="smsconfig3" value="1" id="smsconfig3" {$smsconfig31}>当我的店铺收到在线预约的时候给我发短信通知<br></td>
+			 </tr>
+			 <tr> 
+			  <td >用来接收短信通知手机号码<font color="#FF0000">*</font>：
+			  </td>
+			  <td  colspan=3  class="category"><input type="text" name="smsconfigmobile" class="text" value="{$smsconfigmobile}" size=20> <em class="global_tip">提示：不会向该手机收取任何费用</em></td>
+			</tr>
+			
+			<tr > 
+			  <td  height="25">数据统计<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="category"> 服务状态：<font color=red>{$state}</font><br>
+		当前已经发送短信通知次数：{$smsnum}<Br>
+		当前每发送一次短信通知需扣除金币数：{$shopfen}<br>
+		您当前的账户金币余额数：{$jifenleft} （当金币数不足以接收1条短信通知服务的时候将自动暂停发送）  </td>
+			</tr> 
+          <tr >
+            <td height="25" class="category" colspan=2 style="text-align:center"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type=hidden name=ID value="{$ID}">
+              <input type="hidden" name="over" value="0">
+              <input type="button"  onclick="window.location.href='?action=e6&id={$ID}';" name="button1" class="global_btn_big" value="上一页">
+              &nbsp;
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="保存并下一页">
+              &nbsp;
+              <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成">
+              </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+function hid1()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+</script>
+</body></html>

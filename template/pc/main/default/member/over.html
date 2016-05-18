@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>会员注册成功-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+
+
+
+
+<body bgcolor="{$SiteColor}">
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 会员注册成功</div>
+	<div id="content" class="v2013">
+		<div class="yanzheng bg_bai">
+			<div class="clearfix">
+				<div class="left"><s class="success"></s></div>
+				<div class="right">
+					<h3><span class="orange">{$chrname}</span>，恭喜您注册成功并且已登录网站！</h3>
+					<p class="line2">您注册的邮箱：<span class="t11">{$chremail}</span> <span class="t12">(此邮箱可以找回您丢失的密码)</span></p>
+					<!--<p class="">您的账户成功获得<span class="t13">{$registerfen}</span>个积分</p> -->
+					<div class="btn">
+						<a href="{$SiteUrl}member" class="btn_2013 btn_2013_zhong">进入用户中心<s class="s"></s></a>
+						<a href="{$SiteUrl}member/modify.aspx" class="btn_2013 btn_2013_gray">完善个人资料<s class="s"></s></a>
+						<a href="{$fromurl}" class="btn_2013 btn_2013_gray">返回注册前页面<s class="s"></s></a>
+					</div>
+				</div>
+			</div>
+			<div class="success_footer">
+				<div class="item clearfix">
+					<div class="img"><s class="s s_1"></s></div>
+					<div class="text">
+						<h4>申请加盟商家</h4>
+						<p class="info">面向本地市场的网络商圈平台，是集建立店铺、吃喝玩乐，交流互动，本地团购，营销推广，企业建站等全方位的电子商务整合营销的通道，同时实现实体商家产品销售，线上线下结合渠道联盟的电子商务。</p>
+						<p class="t_right"><a href="{$shopurl}join.aspx#tt8" class="btn_2013 btn_2013_ai">我要加盟商家>><s class="s"></s></a></p>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="img"><s class="s s_2"></s></div>
+					<div class="text">
+						<h4>发布生活信息</h4>
+						<p class="info">最真实，火热的城市生活门户。是网友聚集讨论本地消息、浏览新闻，二手跳蚤，电子报刊，发布黄页，投票选举，许愿互动等话题的首选互动网站等。</p>
+						<p class="t_right"><a href="{$liveurl}fabu.html" class="btn_2013 btn_2013_ai">发布生活信息>> <s class="s"></s></a></p>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="img"><s class="s s_3"></s></div>
+					<div class="text">
+						<h4>发布招聘求职</h4>
+						<p class="info">为个人提供最全最新最准确的企业职位招聘信息，为企业提供人才招聘、猎头、培训和人事外包在内的全方位的人力资源服务，帮助个人求职者与企业搭建最佳的桥梁，实现共赢。</p>
+						<p class="t_right"><a href="{$SiteUrl}member/myzhiwei.aspx?action=add#tt7" class="btn_2013 btn_2013_ai">发布招聘信息>> <s class="s"></s></a></p>
+					</div>
+				</div>
+				<div class="item clearfix">
+					<div class="img"><s class="s s_4"></s></div>
+					<div class="text">
+						<h4>发布出租出售房源</h4>
+						<p class="info">效果导向”的新型网络房产平台，提供全面及时的房地产新闻资讯，出租出售房源，拥有独创的房源分析后台，是打造经纪公司以及个人实力形象的首选平台。</p>
+						<p class="t_right"><a href="{$SiteUrl}member/manage_chushou.aspx?action=add#tt3" class="btn_2013 btn_2013_ai">发布房源信息>><s class="s"></s></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	{$bottom$}
+</div>
+{$hiddenurl}
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

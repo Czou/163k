@@ -1,0 +1,196 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkform(o){
+	if(o.qiyename.value==""){
+		alert("对不起,请填写企业名称!");
+		o.qiyename.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("对不起,请选择企业分类!");
+		o.qu_classid.focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加企业&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业列表" onClick="window.location.href='qiye.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" onsubmit="return checkform(this);" enctype="multipart/form-data" >
+    
+    <tr > 
+      <td  height="25" width="200px">企业名称<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="qiyename" class="myinput" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">企业二级域名功能要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan=3>1、正确配置了服务器相关设置 /2、企业二级域名服务状态为“{$bmyumingkillstate}” </td>
+     </tr>
+	<tr > 
+ 	  <td  height="25">是否启用企业二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3> <input name="yumingkill" type="radio" value="0" checked >不启用 <em class="global_tip">（暂停）</em> <input name="yumingkill" type="radio" value="1"  >启用 <em class="global_tip">(正常) </em> <input name="yumingkill" type="radio" value="3"  >启用独立域名 </td>
+     </tr>
+     <tr > 
+ 	  <td  height="25"> 为该企业绑定二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3><input type="text" name="yumingname" id="yumingname" maxlength="20" value="" style="width:100px;"  onblur="checkyuming(this.value,'yumingshow',0,3)">.{$SiteYuming}<span id="yumingshow"> <em class="global_tip">(请设置一个域名前缀)</em></span> </td>
+     </tr>
+	 <tr > 
+ 	  <td  height="25"> 绑定独立域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3><input type="text" name="yijiyuming" id="yijiyuming" maxlength="30" value="" style="width:100px;"  ><em class="global_tip">(如：www.baidu.com 将该独立域名解析到本网站所在服务器IP) </em></td>
+     </tr>
+	 <tr > 
+ 	  <td  height="25"> 独立域名备案号<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3><input type="text" name="yumingbeian" id="yumingbeian" maxlength="30" value="" style="width:100px;"  > <em class="global_tip">(一定要备案才能用哦) </em></td>
+     </tr>
+	 
+	 
+    <tr > 
+      <td  height="25" width="200px">网站辅标题<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrtitle" class="myinput" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+      <td  height="25" width="200px">网站关键词<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrkeyword" class="myinput" style="width:260px;"/> <em class="global_tip">(多个用,隔开)</em></td>
+    </tr>
+     <tr > 
+      <td  height="25" width="200px">网站描述<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><textarea type="text" name="chrdescription" class="myinput" style="width:460px; height:60px"/></textarea></td>
+    </tr>
+    <tr > 
+      <td  height="25">网站分类<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category">{$categoryid}</td>
+    </tr>
+ <tr > 
+ 	  <td  height="25">所在地区<font color="#FF0000">*</font>： 
+      </td>
+      <td  colspan=3 class="category"> {$chrdiqu$}</td>
+    </tr>
+	<tr  > 
+      <td >网站LOGO(340*50)：
+      </td>
+      <td  colspan=5  class="category">
+      <input name="islogo"  type="radio" value="0" checked="checked" />文字 <em class="global_tip">(直接以网站名称为文字LOGO)</em><br />
+      <input name="islogo"  type="radio" value="1"  />图片logo（340*50）<br />
+      <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=qiye&type=1"></iframe><input type=hidden name="url1" id="url1"  value=""> </td>
+    </tr>
+     <tr  > 
+      <td >公司位置地图标注： 
+      </td>
+      <td  colspan=3  class="category"> <a href="#" onclick='set_newimage()'><font  color="red">标注地图位置</font></a>
+        <input type="hidden" id="shop_x" name="shop_x" >
+		<input type="hidden" id="shop_y" name="shop_y" >
+<input type="hidden" id="shop_z" name="shop_z" ><input type="hidden" id="ggmap" name="ggmap"  value="1">
+<span class="red"> <em class="global_tip">标注后,企业将定位到电子地图上</em></span></td>
+    </tr>
+	
+    <tr > 
+      <td  height="25">使用模板<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent">您当前选择的是：<span id="selectmobanshow"></span>&nbsp;&nbsp;&nbsp;<a href="javascript:showmobanid(0);">点击这里选择模板</a>
+	  您当前使用的模板是：<span id="mobanName">企业模板一</span>
+      <input type="hidden" name="mobanid" value="1" id="mobanid" />
+     </td>
+    </tr>
+    <tr > 
+      <td  height="25" width="200px">网站底部(支持html)<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+	  
+	  	  <textarea id="chrbottom" cols="80" rows="10" name="chrbottom"></textarea>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+	KindEditor.ready(function(K) {
+		var editor = K.create('textarea[name="chrbottom"]', {
+			uploadJson : '/kindeditor/upload_json.ashx',
+			afterBlur: function(){this.sync();},
+			fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+			allowFileManager : true,width : '100%',height : '200px',
+			items : [
+						'source','|','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+		});
+	});
+</script>
+	  </td>
+    </tr>
+    <tr > 
+      <td  height="25">联系地址<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chraddress" class="myinput" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+      <td  height="25">联系电话<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrtel" class="myinput" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+      <td  height="25">传真号码<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrcode" class="myinput" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+      <td  height="25">电子邮件<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chremail" class="myinput" style="width:260px;"/></td>
+    </tr>
+     <tr><td height="25"  >管理账号<font color="#FF0000">*</font>： 
+      </td>
+      <td colspan=3 class="category"> <input type="text" name="userid" value="" size="10" onblur="if(this.value!=''){getdata('request.aspx?action=checkqiyeuserid&userid='+encMe(this.value),'tishi');}else{tishi.innerHTML='是否将该网站赋予某个会员，请输入会员账号，1个会员仅能拥有1个 ；若留空，则为仅为管理员后台管理';}"> <span id="tishi"> <em class="global_tip">是否将该网站赋予某个会员，请输入会员账号，1个会员仅能拥有1个 ；若留空，则为仅为管理员后台管理</em></span>
+</td>
+</tr>
+    
+    <tr > 
+      <td  height="25">浏览人数<font color="#FF0000">*</font>：</td>
+      <td   class="category" colspan="3"><input type="text" name="views" class="myinput"  value="1" size=7 onKeyUp="if(isNaN(value))execCommand('undo')"/></td>
+    </tr>
+     <tr > 
+      <td  height="25">排序<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="intorder" class="myinput"  value="{$intorder}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')"/></td>
+	  <td  height="25">审核<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="iskill" type="radio" value="0"  />等待审核
+                <input name="iskill" type="radio" value="1"  checked="checked"/>审核通过  <input name="iskill" type="radio" value="2"  />关闭</td>
+    </tr>
+    <tr >
+	 <td  height="25">是否置顶： 
+      </td>
+      <td class="category" colspan=3> <input type="checkbox" name="iszhiding" id="iszhiding" value="1"> 
+	  置顶排序<font color="#FF0000">*</font>： 
+       <input name="zhidingnum" type="text" size="4" id="zhidingnum"  value="0" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">数字越大越靠前
+	   （置顶顺序是指多个置顶信息之间的排序，跟信息的正常排序无关）</em>
+	   </td>
+      </tr>
+      
+      
+	
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+ <div id="mask" style="display:none"></div>
+ </body>
+</html>

@@ -1,0 +1,15 @@
+<div class="blank10"></div>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style tablelist post_item" border="0">
+	<tbody>
+	<tr class="tabletitle">
+		<td align="left" width="30%" style="font-weight:bold;"><span class="right display2{$isopen}" style="color:#d00;">[待审]</span><span class="right display3{$isopen}" style="color:#aaa;">[已审]</span><input type="checkbox" class="checkbox displaysuper" name="ID" value="{$revertid}" /> {$chrname}</td>
+		<td align="left" width="50%" style="font-weight:bold;">帖子：{$title}</td>
+		<td align="center" width="20%">赞：{$xianhua}</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="background-color:#ffffff; padding:10px; color:#404040;word-break:break-all;"><div class="replaycontent1">{$chrmark}</div><p class="manage_replay display{$isrep}" data-isrep="{$isrep}">{$replaytruename}回复：<span class="replaycontent2">{$replaycontent}</span>　<span class="time">{$replaydate}</span></p></td>
+	</tr>
+	<tr>
+		<td colspan="3" style="background-color:#ffffff; padding:10px; color:#999;"><span class="right displaysuper"><a href="#" onclick="return edit_replay(this,'{$revertid}');" class="global_btn_blue">编辑或回评</a> <a href="#" onclick="return loadDelQuick(this,'{$revertid}');" class="global_btn">更多操作</a></span>时间：{$dtappenddate}　ip：{$chrip}</td>
+	</tr>
+</tbody></table>

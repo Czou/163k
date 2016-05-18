@@ -1,0 +1,78 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function check(o){
+	if($("file").value==""){
+		alert("对不起,请选择要上传EXCEL文件!");
+		$("file").focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_1.gif" alt="" /></font></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%"><font face="Verdana">导入便民黄页信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</font></td>
+          <td width="40%" align="right"><font face="Verdana"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至便民列表" onClick="javscript:window.location.href='bianming.aspx';;"></font></td>
+      </tr>
+    </table></td>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_2.gif" alt="" /></font></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <font face="Verdana"> <!--startprint-->
+   	</font>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   
+  <form name="form1" method="post" action="?action=inSave" onsubmit="return check(this);" enctype="multipart/form-data">
+   
+	 <tr > 
+      <td width="15%" height="25">
+		<font face="Verdana" style="font-size: 10.5pt">EXCEL文件<font color="#FF0000">*</font>： 
+       
+		</font> 
+      </td>
+      <td width="76%" class="category"> <font face="Verdana">
+		<span style="font-size: 10.5pt"> <input type="file" size=40 name="file"> <em class="global_tip">(请上传EXCEL文件)</em></span></font></td>
+    </tr>
+	
+    <tr > 
+      <td height="25" colspan=2>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana" style="font-size: 10.5pt"><font color="#FF0000"><b>&nbsp;&nbsp; 友情提醒：
+	    <a href="{$atplPath}bianming/template.xls" target=_blank><font color=red><b>点此下载EXCEL模板</b></font></a>
+		</b></font>
+	  	</font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; <div class="global_tip">请确保行业分类在网站中已经存在，否则会自动帮你创建，机构名称，行业分类，联系电话这三项是必填项！ </font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana"><span style="font-size: 9pt"> 
+		导入的数据不判断机构名称的重复性，请自行把握</div></span></font></p>
+		</td>
+      
+    </tr>
+	
+    <tr  > <td></td>
+      <td height="25"  class="category">
+		
+		<font face="Verdana">
+		
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></font></td>
+    </tr>
+  </form>
+</table>
+ 	<font face="Verdana">
+ <!--endprint--></font></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_4.gif" alt="" /></font></td>
+    <td></td>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_3.gif" alt="" /></font></td>
+  </tr>
+</table>
+  <font face="Verdana">
+  </body>
+</font>
+</html>

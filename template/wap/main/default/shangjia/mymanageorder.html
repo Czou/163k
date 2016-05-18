@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦订单-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '省啦订单';
+</script>
+<style type="text/css">
+body { background-color:#eee;}
+</style>
+{$top$}
+	<div class="content">
+		<div class="p_tabs clearfix">
+		   <ul>
+		    <li class="{$style8$}">{$url8$}</li>
+			<li class="{$style2$}">{$url2$}</li>
+			<li class="{$style4$}">{$url4$}</li>
+			<li class="{$style5$}">{$url5$}</li>
+		   </ul>
+		</div>
+		
+		
+		<div class="order_list order_list_shangjia">
+			<ul id="tgorderList">
+				<tag:Loop ListType="LISTMANAGETGORDER" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_mymanageorder_Tr.htm" />
+			</ul>
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+var siteUrl = '{$SiteUrl}';
+function PeisongFahuo(val,sid){
+	if( !confirm("您确定要进行发货吗？")){return false;}
+	var url = siteUrl+'request.ashx?action=peisongfahuo&styleid=2&id='+sid+'&skill=1';
+	var Digital=new Date();
+	Digital=Digital+40000; 
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert(data.MSG);
+			window.location.reload();
+		}else{
+			MSGwindowShow('tgorder','0',data.error,'','');
+		}
+	});
+}
+</script>
+</body>
+</html>

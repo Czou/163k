@@ -1,0 +1,109 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/javascript.js"></script>
+<script>
+function checkform(o){
+	
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">信息默认设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=Save" >
+  <tr > 
+      <td width="15%" height="25" >首页“想上头条？”连接地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="text" size="40" name="toutiaourl"  value="{$toutiaourl}"/></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >“参与竞价” 连接地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="text" size="40" name="jingjiaurl"   value="{$jingjiaurl}"/></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >信息内容页面的温馨提示内容<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"><textarea cols="80" id="xinxi" name="xinxi" rows="10">{$xinxi}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="xinxi"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '200px'
+			});
+		});
+	
+	</script>
+</td>
+    </tr>
+  <tr   > 
+      <td width="15%" height="25" style="color:#ff0000">发布信息设置<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category" style="color:#ff0000" title="中文验证码能有效防止注册机注册"> 
+	  
+	  <input name="livecode" type="radio" value="0" {$livecode0} >不使用验证码 <input name="livecode" type="radio" value="1" {$livecode1} >数字验证码 <input name="livecode" type="radio" value="2" {$livecode2} >中文验证码
+	  </td>
+    </tr>
+		<tr > 
+      <td width="15%" height="25" >是否启用回收站<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="checkbox" name="isdelete" value="1" {$isdelete1} />启用 <em class="global_tip">(如果不启用的话，就是直接删除，如果启用则先进入回收站)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >发布生活信息是否显示付费功能<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="livemoney" value="0" {$livemoney0} />显示 <input type="radio" name="livemoney" value="1" {$livemoney1} />不显示</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >是否允许用户删除自己发布的生活信息<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="livedelete" value="0" {$livedelete0} />允许 <input type="radio" name="livedelete" value="1" {$livedelete1} />不允许</td>
+    </tr>
+	<!--<tr > 
+      <td width="15%" height="25" >生活信息列表页默认显示方式<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="liveshow" value="0" {$liveshow0} />图文 <input type="radio" name="liveshow" value="1" {$liveshow1} />列表</td>
+    </tr>-->
+    <tr > 
+      <td width="15%" height="25" >发布生活信息数量<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> 注册会员24小时发布生活信息数量限制：<input name="fenleinum1" type="text" id="fenleinum1" size="8" value="{$fenleinum1}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>   同一IP游客24小时发布生活信息数量限制：<input name="fenleinum2" type="text" id="fenleinum2" size="8" value="{$fenleinum2}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em><br />
+      
+      信息联系方式中同一手机号码/电话号码24小时内限制发布数量限制：<input name="fenleinum3" type="text" id="fenleinum3" size="8" value="{$fenleinum3}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>   
+        </td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type="submit" name="Submit"  class="global_btn_blue_big"  value="提交保存">
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-楼盘概况-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_lou.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="{$SiteUrl}";var tplPath = '{$Default_tplPath}';</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/mustache.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="loupan_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">楼盘概况</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>{$Loupan_biaoyu}</p>
+    <span class="middle_{$Loupan_xiaoshoutypeid}">在售</span><span class="true_{$Loupan_xiaoshoutypeid}">待售</span><span class="false_{$Loupan_xiaoshoutypeid}">售罄</span>
+	<span class="xianfang{$Loupan_xiaoshoustyleid}">{$Loupan_xiaoshoustyleid_str}</span>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li class="current"><a href="loupan_{$Loupan_loupanid}.html">楼盘概况</a></li>
+        <li><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+        <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+        <li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li><a href="list.aspx?action=s&lid={$Loupan_loupanid}" target="_blank">销售动态</a></li>
+        <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+        <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+        <li><a href="revert_{$Loupan_loupanid}.html">在线咨询</a></li>  
+        <!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+        <li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+      </ul>
+     </div>
+   </div>
+   <div class="lp_detail">
+   <!--楼盘概况-->
+   <div class="lpgk_con clearfix">
+    <div class="tuijian" style="display:{$tuijiancss}"></div>
+     <div class="fang_focus">
+     <ul>
+      <li style="display:block;"><img src="{$Loupan_filepath}" alt="" onerror="this.src='{$Default_tplPath}images/morenbigloupan.gif';" /></li>
+     </ul>
+     <p>{$Loupan_chrloupan}楼盘概况展示</p>
+     <s></s>
+   </div>
+   <div class="fr">
+     <dl>
+      <dt>均&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：</dt>
+      <dd>{$Loupan_avgprice}</dd>
+      <dt>开  发  商：</dt>
+      <dd>{$Loupan_chrsupply}</dd>
+      <dt>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+      <dd>{$Loupan_chraddress}</dd>
+      <dt>开盘时间：</dt>
+      <dd>{$Loupan_kaipandate}</dd>
+     </dl>
+     <input type="button" value="我想加入团购" class="addtg jisu_btn" />
+     <div class="phone"><i></i>{$Loupan_shouloutel}<span>（来电请说明信息来自{$SiteName}）</span></div>
+   </div>
+   </div>
+   <!--最新信息-->
+   <div class="lp_news">
+    <div class="tit"><span>{$Loupan_chrloupan}最新消息</span></div>
+    <ul class="clearfix" id="loupanNews">
+     {$Mh163k_房产2015_楼盘概况_楼盘资讯}
+    </ul>
+   </div>
+   <!--房源描述-->
+   <div class="intro">
+    <div class="tit"><span>{$Loupan_chrloupan}项目介绍</span></div>
+    <div class="con">
+      {$Loupan_chrmark}
+    </div>
+   </div>
+   <!--地图-->
+   <div class="fang_map clearfix">
+      <div class="tit"><span>{$Loupan_chrloupan}周边地图</span></div>
+      <div class="map"><div id="allmap" style="width:830px; height:435px;"></div></div>
+      <div class="zb_info">
+        <div class="tabs clearfix">
+          <ul id="mapSel">
+            <li class="current" data-val="0"><i class="i_1"></i>交通</li>
+            <li data-val="1"><i class="i_2"></i>商业</li>
+            <li data-val="2"><i class="i_3"></i>教育</li>
+            <li data-val="3"><i class="i_4"></i>医疗</li>
+          </ul>
+        </div>
+        <!--交通-->
+        <div class="con">
+         <ul id="r-result"></ul>
+         <a href="{$SiteUrl}map/xingfang.aspx" class="zb_lou">进入地图找房查看周边楼盘</a>
+        </div>
+      </div>
+      <!--地址-->
+      <div class="address">地址：{$Loupan_chraddress}</div>
+    </div>
+  </div>
+ </div> 
+{$bottom$}
+</div>
+<div class="po_jisu po_ab" id="po_jisu" style="display:none;">
+	<div class="hd clearfix"><h3 class="left">极速发布信息</h3><a href="#" class="close_all right">关闭</a></div>
+	<div class="bd" id="inner_iframe"></div>
+</div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script type="text/template" id="tp">
+<li data-x="{{point.lng}}" data-y="{{point.lat}}">
+             <dl>
+              <dt class="s_title">{{title}}</dt>
+              <dd classs="s_distance">{{distance}}</dd>
+             </dl>
+             <p class="s_address">{{address}}</p>
+</li>
+</script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/fc2015_map.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$.fn.jisu = function(Loupan_loupanid){
+	var t = $(this),mask = $('#mask'),btns = $('.jisu_btn'),close_btn = $(this).find('.close_all'),d,top,h=Math.ceil(($(window).height()/2) - (t.height()/2));
+	mask.css({'height':$(window).height()+'px'});
+	btns.bind('click',function(e){
+		d = $(document).scrollTop();
+		t.css('top',d+h);
+		t.show();
+		var myiframe = '<iframe src="../request.aspx?action=addtg&id='+Loupan_loupanid+'" scrolling="no" frameBorder=0 width=777 height=520></iframe>';
+		$('#inner_iframe')[0].innerHTML=myiframe;
+		mask.show();
+		e.preventDefault();
+	});
+	close_btn.bind('click',function(e){
+		t.hide();
+		mask.hide();
+		e.preventDefault();
+	});
+	$(window).bind("scroll",function(){
+		var d = $(document).scrollTop();
+		t.css('top',d+h);
+	});
+	$(window).bind("resize",function(){
+		var d = $(document).scrollTop();
+		h=Math.ceil(($(window).height()/2) - (t.height()/2));
+		t.css('top',d+h);
+	});
+}
+$(function() {
+	$('#po_jisu').jisu('{$Loupan_loupanid}');
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fc_home').removeClass('select');
+	$('#fc_loupan').addClass('select');
+	var monthArr = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+	$('#loupanNews').find('.date').each(function(){
+		var txt = $(this).attr('data-date');
+		var cur_time = new Date(txt);
+		var html = '<div class="yue">'+monthArr[cur_time.getMonth()]+'</div><div class="ri">'+cur_time.getDate()+'日</div>';
+		$(this).append(html);
+	});
+});
+var obj_xyz = {'x':{$Loupan_loupan_x},'y':{$Loupan_loupan_y}};
+var icity = '{$city}';
+var zb_style = 0;
+var zb_style_arr = [{'key':'公交','img':'gongjiao.gif'},{'key':'超市','img':'chaoshi.gif'},{'key':'学校','img':'xuexiao.gif'},{'key':'医院','img':'yiyuan.gif'}];
+var map = new BMap.Map("allmap",{enableMapClick:false}),mPoint;
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
+if(!obj_xyz.x||!obj_xyz.y||obj_xyz.x==='0'||obj_xyz.y==='0'){
+	map.centerAndZoom(icity , 13);
+}else{
+	mPoint = new BMap.Point(obj_xyz.x,obj_xyz.y);  
+	map.centerAndZoom(mPoint, 16);
+	var icon = new BMap.Icon('{$Default_tplPath}images/markerred.gif', new BMap.Size(20, 20),{anchor: new BMap.Size(10, 10)});
+	var mkr = new BMap.Marker(mPoint,{icon:icon});
+	map.addOverlay(mkr);
+	var myLabel = new BMap.Label("{$Loupan_chrloupan}",{offset:new BMap.Size(14,-9),position:mPoint});
+	myLabel.setStyle({fontSize:"12px",border:"1px solid #36c"});
+	map.addOverlay(myLabel);                             //把label添加到地图上
+	//检索初始化
+	var local = new BMap.LocalSearch(map, options);
+	local.searchNearby(zb_style_arr[0].key,mPoint,500);
+	$('#mapSel li').click(function(e){
+		e.preventDefault();
+		$(this).siblings('li').removeClass('current');
+		$(this).addClass('current');
+		zb_style = parseInt($(this).attr('data-val'));
+		local.searchNearby(zb_style_arr[zb_style].key,mPoint,500);
+	});
+}
+</script>  
+</body>
+</html>

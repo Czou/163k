@@ -1,0 +1,87 @@
+﻿<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆(删除省啦活动将删除省啦活动下面的订单和消费券)！\n您确定要删除吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "tg.aspx?action=del&ID=" + id
+    }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+    {
+	   setCookie("delurl",window.location.href);
+	   document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+   }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>共有省啦<a href="?quanbu=" class="orange_font">{$goodnumall}</a>条，上线：<a href="?quanbu=3" class="orange_font">{$iskill1num}</a>　秒杀上线：<a href="?quanbu=2" class="orange_font">{$iskill2num}</a>　下线：<a href="?quanbu=0" class="orange_font">{$iskill0num}</a>　待审：<a href="?quanbu=-1" class="orange_font">{$iskill-1num}</a>　秒杀待审：<a href="?quanbu=-2" class="orange_font">{$iskill-2num}</a></td>
+	  <td align="right"><a href="tg.aspx?action=add" class="global_btn_blue">发布新省啦</a></td>   
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按省啦项目标题查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{$keyword}" size="30">
+		按状态查找： <select name="quanbu" style="vertical-align:middle;"><option value="">请选择</option>
+		<option value="3" {$quanbu3}>上线</option>
+		<option value="2" {$quanbu2}>秒杀上线</option>
+		<option value="0" {$quanbu0}>下线</option>
+		<option value="-1" {$quanbu-1}>一般待审</option>
+		<option value="-2" {$quanbu-2}>秒杀待审</option>
+		</select>
+		<input type="submit" name="Submit3" class="global_btn" value="搜索"><div class="blank10"></div></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="0" width="100%" cellspacing="0" class="toptable grid table_style table_style2" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td class="category">序号</td>
+				<td class="category">省啦项目标题</td><td class="category">类型</td><td class="category">发布时间</td>
+				<td class="category">结束时间</td>
+				<td class="category">状态</td><td class="category">订单数</td><td class="category">消费券</td>
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="listtg" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="tg/List_active_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','设为首团');"><font color=red>设为首团？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','上线');"><font color=blue>上线？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'3','待审');"><font color=blue>待审？</font></a></strong>  
+				
+				<strong><a href="javascript:delAll(this,4,'删除(删除活动将删除下面的消费券和订单)');">删除选中？</a></strong><input type="hidden" name="styleid" id="styleid" value="1"></td></tr>				
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

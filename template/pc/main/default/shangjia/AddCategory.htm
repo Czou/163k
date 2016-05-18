@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>添加{$title}一级分类-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function myforms(o){
+	if(document.getElementById('Chrcategory').value == ''){
+		alert('请输入分类名称！');
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">添加{$title}一级分类</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=AddSave&key={$key}" onSubmit="return myforms(this)" >
+								<input type="hidden" name="companyid1" value="{$companyid1}">
+								<p class="tr"><span class="sp_a">名称：</span><span class="sp_b"><input type="text" name="Chrcategory" id="Chrcategory" class="sys_form_ipt" value="" /></span><span class="sp_c">必填</span></p>
+								<p class="tr"><span class="sp_a">是否显示：</span><span class="sp_b"><input name="isopen" type="radio" value="0" checked ID="Radio1"> 显示　<input name="isopen" type="radio" value="1" ID="Radio2"> 隐藏</span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">注释：</span><span class="sp_d"><input type="text" name="chrmark" id="chrmark" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">附加标题：</span><span class="sp_d"><input type="text" name="ctitle" id="ctitle" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">关键字：</span><span class="sp_d"><input type="text" name="ckeyword" id="ckeyword" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">描述：</span><span class="sp_d"><input type="text" name="cdescription" id="cdescription" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">说明内容：</span><span class="sp_d"><input type="text" name="chrcontent" id="chrcontent" class="sys_form_ipt" value="" /></span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿<li id="piclist_xc{$num}">
+<p ><a href="{$chrpic}" rel="facebox"><img src="{$filepath}" class="imgview" style="width:160px; height:160px; vertical-align:top; margin-bottom:8px;" /></a></p>
+<p><a href="?action=picedit&ID={$ID}" class="sys_btn_small_blue">编辑</a> <a href="javascript:delmypic({$ID});" class="sys_btn_small_white">删除</a></p>
+<p style=" margin-top:2px;line-height:22px;height:22px; overflow:hidden;WORD-BREAK: break-all" >描述：{$chrmark}</p>
+<a href="#" onclick="return move_PrevNext(this,1,{$num},{$ID},'piclist_xc','{$table_id}','0');" class="move_prev">前移</a>
+<a href="#" onclick="return move_PrevNext(this,0,{$num},{$ID},'piclist_xc','{$table_id}','0');" class="move_next">后移</a>
+</li>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>微信支付-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/winxin.css" type="text/css" rel="stylesheet" />
+<body>
+<div class="wrapper">
+	<div class="w_header clearfix">
+		<div class="left">
+			<p class="strong">请您及时付款，以便订单尽快处理！ 订单号：{$chrorder}</p>
+			本次请求请在60分钟内完成支付，超时请重新发起{$orderactionstr}支付请求。
+		</div>
+		<div class="right">
+			<p>应付金额：<span class="price">{$paymoney}</span>元</p>
+			<!--<a href="#{$orderid}" data-orderaction="{$orderaction}" style="color:#1e69fe;">订单详情</a>-->
+		</div>
+	</div>
+	<div class="w_content">
+		<div class="hd">微信支付</div>
+		<div class="bd clearfix">
+			<div class="left saomiao">
+				<p class="tit">请使用微信扫描二维码支付</p>
+				<div class="erweima"><img src="{$urlimg}" alt="" /></div>
+				<div class="impowerBox" id="wx_default_msg">等待扫描</div>
+			</div>
+			<div class="right"><img src="{$Default_tplPath}images/phone-bg.png" alt="" /></div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+var nowdomain="{$SiteUrl}";
+function loadweixinLogin(){
+	var url = nowdomain+'request.ashx?action=ispayweixin&apistate={$apistate}&jsoncallback=?';
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			$('#wx_default_msg').html('支付成功!');
+			window.location.href = '{$from}';
+		}else if(data[0].islogin === '0'){
+			$('#wx_default_msg').html(data[0].error);
+			window.setTimeout(function(){loadweixinLogin()},2000);
+		}
+	});
+}
+loadweixinLogin();
+</script>
+</body>
+</html>

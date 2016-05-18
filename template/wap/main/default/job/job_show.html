@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$zhiweiname}-{$chrtruename}-{$daohangweizhi}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/job-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; {$zhiweiname}</div>
+		<div class="select_02">
+			<ul class="clearfix">
+				<li class="current"><a href="#">职位详情</a></li>
+				<li><a href="{$companyurl}">公司信息</a></li>
+			</ul>
+		</div>
+		<div class="job_head po_re">
+			<div class="title">{$zhiweiname} <span class="hot display{$remen}">热门</span><span class="ji display{$jingji}">急聘</span><span class="tui display{$tuijian}">推荐</span><span class="new display{$isnew}">最新</span></div>
+			<div class="date">{$updatetime}　职位编号：{$chrzhiwei}<!--<img src="{$Default_tplPath}images/job_wuxian_ico.png" width="28" height="15" alt="" /> <img src="{$Default_tplPath}images/job_shuangxiu_ico.png" width="28" height="15" alt="" /> <img src="{$Default_tplPath}images/job_danxiu_ico.png" width="28" height="15" alt="" />--></div>
+			<span class="icon_yiguoqi show_false_{$isyouxiao}">已过期</span>
+		</div>
+		<div class="job_info">
+			<p class="xinzi"><em>薪资待遇：</em>{$yuexin}</p>
+			<p><em>公司名称：</em>{$chrtruename}</p>
+			<p><em>工作地点：</em>{$gongzuodidian}</p>
+			<p><em>招聘人数：</em>招{$renshu}人</p>
+			<p><em>学历要求：</em>{$xueli}</p>
+			<p><em>经验要求：</em>{$jingnian}</p>
+			<div class="tel po_re">
+				<p class="no_qx">对不起,招聘的联系方式仅限会员查看,请 <a href="{$SiteUrl}member/login.html" class="blue">登录</a> 或 <a href="{$SiteUrl}member/register.html" class="blue">注册</a></p>
+			</div>
+		</div>
+		<div class="inner_html"><a href="javascript:void(0);" onClick="showtoujianli('{$zhiweiid}');" class="comn-submit btn_block">申请职位</a></div>
+		<div class="job_content">
+			<div class="hd">职位描述</div>
+			<div class="bd">{$chrmark}</div>
+		</div>
+		<div class="inner_html tips">
+			<div class="hd">小提示</div>
+			<div class="bd">收费、不需任何条件、必须QQ联系的信息均有诈骗嫌疑，请保持警惕！</div>
+		</div>
+		<div class="inner_html">{$Mh163k_wap_整站通用_分享代码}</div>
+		<div class="inner_html"><a href="zhiwei.html" class="comn-submit gray btn_block">查看更多推荐职位<span class="jian"></span></a></div>
+	</div>
+{$bottom$}
+<script>
+var SiteUrl = '{$SiteUrl}';
+function showtoujianli(val){
+	var isLogin = $('#isLogin').val();
+	if(isLogin === '0'){
+		alert('对不起,您没有登陆或者登录超时,请重新登录!');
+		window.location.href=SiteUrl+"member/login.html?from="+encodeURIComponent(window.location.href);
+	}else{
+		showtoujianliresult(val);
+	}
+}
+function showtoujianliresult(val){
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url="../request.aspx?action=toujianli&id="+val;
+	url=url+"&k="+(Digital);
+	$.ajax({
+		url: url,
+		success: function(msg){
+			if(msg=="1"){
+				alert("对不起,您没有登陆或者登录超时,请重新登录!");
+				window.location.href=SiteUrl+"member/login.html?from="+(window.location.href);
+			}else if(msg=="0"){
+				alert("您已经成功向该职位投出简历!");
+			}else if(msg=="2"){
+				alert("对不起,您还没有完善简历,请先登录电脑版完善!");
+			}else{
+				alert(msg);
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

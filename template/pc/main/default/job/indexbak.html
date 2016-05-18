@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/jobs2011.css" type="text/css" rel="stylesheet" />
+{$top950$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<div id="content" class="jobs2011">
+		<div class="grid_job_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mod_select" id="TabAdS01">
+					<div class="hd">
+						<ul class="tab-hd clearfix">
+							<li class="select"><a href="javascript:;">搜工作</a></li>
+							<li><a href="javascript:;">找人才</a></li>
+						</ul>
+					</div>
+					<div class="bd">
+                    <form name="form11" method="post" action="zhiwei.html">
+						<div class="tab-cont">
+						<div class="selector">
+							{$searchhangye}
+						</div>
+						<div class="selector">
+							{$searchgangwei}
+						</div>
+						<div class="selector">
+							{$gongzuodidian}
+						</div>
+						<div class="searchbar">
+							<input type="text" name="keyword" class="s_input" value="输入公司职位关键词" onBlur="if(this.value==''){this.value='输入公司职位关键词';}" onFocus="if(this.value=='输入公司职位关键词'){this.value='';}" /><button class="s_button" type="submit">搜索</button>
+						</div>
+						</div>
+                        </form>
+						<div class="tab-cont" style="display:none;">
+                         <form name="form22" method="post" action="rencai.html">
+							<div class="selector">
+							{$xiwanghangye}
+						</div>
+						<div class="selector">
+							{$xueliyaoqiu}
+						</div>
+						<div class="selector">
+							<select style="display: none;" name="sex" id="sex">
+								<option selected="selected" value="0">性别要求</option>
+								<option value="1">男</option>
+                                <option value="2">女</option>
+							</select>
+						</div>
+						<div class="searchbar">
+							<input type="text" class="s_input" name="keyword"  value="请输入关键字" onBlur="if(this.value==''){this.value='请输入关键字';}" onFocus="if(this.value=='请输入关键字'){this.value='';}" /><button class="s_button" type="submit">搜索</button>
+						</div>
+                        </form>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="helpGuest clearfix">
+					<div class="personal">
+						<a href="{$SiteUrl}member/myjianli.aspx" target="_blank" class="m_1">投简历</a>
+						<a href="zhiwei.html" target="_blank" class="m_2">找工作</a>
+						<strong class="yahei">个人免费找工作</strong>
+						<p>加入人才库,好工作主动找你</p>
+					</div>
+					<div class="enterprise">
+						<a href="{$SiteUrl}member/myzhiwei.aspx?action=add" target="_blank" class="m_3">发职位</a>
+						<a href="rencai.html" target="_blank" class="m_4">找人才</a>
+						<strong class="yahei">企业免费招聘</strong>
+						<p>人才是您企业发展的源动力</p>
+					</div>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="module_01">
+					<div class="hd hasicon"><s class="new" title="new"></s><strong>{$top1chrcategory}</strong></div>
+					<div class="bd focusNews">
+                        <h3 class="yahei">{$jobleilisttop1}</h3>
+						<ul>
+							{$jobleilist1}
+						</ul>
+					</div>
+					<div class="ft"><a href="list_{$top1categoryid}.html" target="_blank">更多>></a></div>
+					<b class="rc-tl"></b><b class="rc-tr"></b><b class="rc-bl"></b><b class="rc-br"></b>
+				</div>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="zdyHTML">{$jobadv}</div>
+		<div class="blank10"></div>
+		<div class="module_big">
+			<div class="hd hd_01"><span class="title">热门职位</span><span class="more"><a href="zhiwei.html?key=3" target="_blank">更多>></a></span></div>
+			<div class="bd">
+				<ul class="menu_list clearfix">
+					{$zhiweileibie}
+				</ul>
+				<ul class="three_list clearfix">
+					{$jobredian24}
+				</ul>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="module_big">
+			<div class="hd hd_02"><span class="title">紧急招聘</span><span class="goNav"><a href="zhiwei.html?key=4">返回行业导航</a></span><span class="more"><a href="zhiwei.html?key=4" target="_blank">更多>></a></span></div>
+			<div class="bd">
+                {$mingqilist1}
+				<ul class="three_list clearfix">
+					{$jobjingji24}
+				</ul>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="module_big">
+			<div class="hd hd_03"><span class="title">最新职位</span><span class="goNav"><a href="zhiwei.html?key=5">返回行业导航</a></span><span class="more"><a href="zhiwei.html?key=5" target="_blank">更多>></a></span></div>
+			<div class="bd">
+				{$mingqilist2}
+				<ul class="three_list clearfix">
+               		{$jobindex24}
+					
+				</ul>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="module_big">
+			<div class="hd hd_04"><span class="title">推荐职位</span><span class="goNav"><a href="zhiwei.html?key=6">返回行业导航</a></span><span class="more"><a href="zhiwei.html?key=6" target="_blank">更多>></a></span></div>
+			<div class="bd">
+				{$mingqilist3}
+				<ul class="three_list clearfix">
+					{$jobtuijian24}
+				</ul>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="grid_job_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="module_01">
+					<div class="hd">最新人才</div>
+					<div class="bd rencaibox1 clearfix">
+						<div class="left">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								{$zuixinrencai1}
+							</table>
+						</div>
+						<div class="right">
+							<table width="100%" cellpadding="0" cellspacing="0">
+								{$zuixinrencai2}
+							</table>
+						</div>
+					</div>
+					<div class="ft"><a href="rencai.html" target="_blank">更多>></a></div>
+					<b class="rc-tl"></b><b class="rc-tr"></b><b class="rc-bl"></b><b class="rc-br"></b>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="module_01">
+					<div class="hd">推荐人才</div>
+					<div class="bd imgrencai" id="stable_2">
+						<div id="demo" style="overflow: hidden; width:300px; height:262px; ">
+						<div id="demo1">
+						<ul class="clearfix">
+                        	{$tuijianrencai}
+						</ul>
+						</div>
+						<div id="demo2"></div>
+						</div>
+					</div>
+					<div class="ft2"><a href="{$SiteUrl}member/myjianli.aspx" target="_blank" class="link">马上填写简历>></a></div>
+					<b class="rc-tl"></b><b class="rc-tr"></b><b class="rc-bl"></b><b class="rc-br"></b>
+				</div>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="grid_job_03 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				{$leftnews1}
+			</div></div>
+			<div class="col_sub">
+				{$leftnews2}
+			</div>
+			<div class="col_extra">
+				{$leftnews3}
+			</div>
+		</div>
+	</div>
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#TabAdS01').TabADS();
+	$("#s_hangye").selectbox();$("#s_gangwei").selectbox();$("#s_gongzuo").selectbox();$("#xwhangye").selectbox();$("#xueli").selectbox();$("#sex").selectbox();
+});
+</script>
+ <script type="text/javascript">
+function addEventSimple(obj,evt,fn)
+{ 
+ if(obj.addEventListener)
+ {
+  obj.addEventListener(evt,fn,false);
+ }else if(obj.attachEvent)
+   {
+    obj.attachEvent('on'+evt,fn);
+   }
+ }
+addEventSimple(window,'load',initScrolling);//保存想要滚动的容器
+var scrollingBox;var scrollingInterval;//用于记录是否"滚到头"过一次
+var reachedBottom=false;//记录第一次滚到头时候的scrollTopvar bottom;//初始化滚动效果
+function initScrolling()
+{
+ scrollingBox = document.getElementById("stable_2"); //样式设置，与滚动基本无关，应该用CSS设置。 
+ scrollingBox.style.height = "262px"; 
+ scrollingBox.style.overflow = "hidden"; //滚动 
+ scrollingInterval = setInterval("scrolling()",50); //鼠标划过停止滚动效果
+ scrollingBox.onmouseover = over; //鼠标划出回复滚动效果 
+ scrollingBox.onmouseout = out; 
+}//滚动效果
+function scrolling()
+{ //开始滚动,origin是原来scrollTop 
+ var origin = scrollingBox.scrollTop++; //如果到头了 
+ if(origin == scrollingBox.scrollTop)
+ {  //如果是第一次到头  
+  if(!reachedBottom)
+  {
+   scrollingBox.innerHTML+=scrollingBox.innerHTML;
+   reachedBottom=true;
+   bottom=origin;
+  }else{   //已经到头过，只需回复头接尾的效果
+    scrollingBox.scrollTop=bottom;
+     }
+  }
+}
+function over()
+{
+ clearInterval(scrollingInterval);
+}
+function out()
+{
+ scrollingInterval = setInterval("scrolling()",50);
+}
+</script>
+ </body>
+</html>

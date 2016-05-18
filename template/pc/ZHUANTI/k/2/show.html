@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$name}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonBL.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<script>var siteUrl = '{$SiteUrl}';</script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_快送_头部}
+	<div class="header header_cart clearfix" id="header_cart" style="display:none;">
+		<div class="w-1200 po_re">
+			<div class="logo"><a href="{$SiteUrl}"><img src="{$topurl}" alt="{$SiteName}" /></a></div>
+			<div class="subLogo"><a href="{$SiteUrl}k"><img src="{$Default_tplPath}images/kuaisonLogo.gif" alt="快买快送" /></a></div>
+			<div class="login_info" id="login_info2">
+				<a href="{$SiteUrl}member/myorder.aspx?action=myshoppay&shopid={$shopid}" class="buy_cart" id="h_cart">购物车 <span class="num" id="h_cart_num">0</span> 件</a>
+			</div>
+			<div class="h_cart_inner" id="h_cart_inner" style="display:none;"></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="w-1200">
+			<div class="grid_subHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$name}</span><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="i_qianyue display1{$qianyue}">签约商家</span></p>
+					<p class="shop_address">地址：{$areabigstr}{$areastr}{$chraddress}</p>
+					<p class="shop_state"><span class="inner" id="state_node"></span>　外送时间：<span class="display1{$startkill}">{$startdate HH:mm}-{$enddate HH:mm} </span><span class="display1{$start2kill}">{$startdate2 HH:mm}-{$enddate2 HH:mm}</span></p>
+					<p class="shop_btn"><a href="/k{$shopid}.html" class="sys_btn">商品货架</a> <a href="/k_p{$shopid}.html" class="sys_btn sys_btn_gray">网友点评</a> <a href="{$MyShopUrl}" target="_blank" class="sys_btn sys_btn_gray">商家网站</a></p>
+				</div></div>
+				<div class="col_sub"><div class="shop_logo"><img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" alt="" /></div></div>
+				<div class="col_extra">
+					<ul class="songcan_data clearfix">
+						<li>
+							<span>送达时间</span>
+							<strong><em>{$shippingtime}</em>分钟</strong>
+					   </li>
+					   <li class="renjun">
+							<span>起送价</span>
+							<strong>￥ <em><span id="shipmoney1">{$shipmoney1}</span></em></strong>
+					   </li>
+					   <li class="peison">
+							<span>配送费</span>
+							<strong>￥ <em class="psfee_">{$shipmoney}</em></strong>
+					   </li>
+				   </ul>
+				   <div class="bdsharebuttonbox"><span class="txt">分享到：</span><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				</div>
+				<div class="mobile_href po_ab"><img src="{$wapimg}" onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" width="88" height="88" alt="" />手机访问</div>
+			</div>
+			<div class="announcement po_re" id="announcement">
+				<div class="clearfix"  id="at_inner">
+					<s class="tit">店铺公告</s>
+					{$Mh163k_快送_店铺公告}
+				</div>
+				<div class="btn po_ab"><a href="#" class="disable" id="prev"><span class="prev">上一条</span></a><a href="#" id="next"><span class="next">下一条</span></a></div>
+				<div class="ft"><span class="display1{$isrogramme}"><s class="i_zeng"></s> {$rogramme}</span>　<span class="display1{$isdiscount}"><s class="i_jian"></s> 支持立减优惠，每单满{$discount}元减{$discount1}元</span>　<span class="display1{$isfirstgive}"><s class="i_first"></s> {$firstgive}</span></div>
+
+			</div>
+		</div>
+		<div class="bgk">
+			<div class="w-1200">
+				<div class="grid_01 clearfix">
+					<div class="col_main"><div class="main_wrap" id="fixed_can">
+						<div class="sort clearfix">
+							<ul class="inner">
+								<li class="cur"><a href="/k_shop_a0_b0_c0_d0_e0_f{$f}_g{$g}_p1.html#fixed_can">全部商品</a></li>
+								
+								<li><a href="/k_shop_a{$a}_b{$b}_c{$c}_d{$d}_e7_f{$f}_g{$g}_p1.html?_key={$_key}#fixed_can">按上架时间</a></li>
+								<li><a href="/k_shop_a{$a}_b{$b}_c{$c}_d{$d}_e6_f{$f}_g{$g}_p1.html?_key={$_key}#fixed_can">按商品价格</a></li>
+							</ul>
+							<div class="s_search" id="s_search">
+								<form action="/k_shop_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f{$shopid}_g{$g}_p1.html" id="myform" method="get">
+									<input type="text" name="_key" id="keyword" class="s_ipt" value="{$key}" />
+									<button type="submit" class="s_btn">搜索</button>
+								</form>
+							</div>
+						</div>
+						<div class="brand"><span class="t">品牌筛选：</span>{$pinpaibiglist}<div class="small_pp">{$pinpailist}</div></div>
+						<div class="prolist">
+							<div class="inner">
+								<ul class="clearfix" id="prolist">
+									{$show_good_div}
+								</ul>
+								<div class="sys_more2"><a href="/k_shop_a0_b0_c0_d0_e0_f{$shopid}_g{$g}_p1.html" data-totalcount="{$totalcount}" id="showAllList" style="display:none;">查看全部</a></div>
+							</div>
+						</div>
+					</div></div>
+					<div class="col_sub">
+						<div class="category" id="fixed">
+							<div class="hd"><a href="/k_shop_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_p1.html?_key={$_key}#fixed_can">全部类别</a></div>
+							<div class="bd" id="list_nav_2013">
+								<ul>
+									{$ListCategory5}
+								</ul>
+							</div>
+							<span class="shadow"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer" id="footer">
+	{$Mh163k_快送_页脚}
+	</div>
+</div>
+<div class="dialog_pro" id="dialog_pro" style="display:none">
+	<a href="#" class="close">关闭</a>
+	<div class="inner">
+		<div class="bd clearfix">
+			<div class="img po_re" id="dialog_left">
+				<div class="big_photo_inner" id="superAlbum">
+					<img src="{$Default_tplPath}images/kuaison_nofind_product2.gif" data-superbig="" id="dialog_img" class="img" alt="" />
+					<span class="img_mask" id="img_mask"></span>
+				</div>
+				<div class="po_bigView" id="po_bigView"><img src="" class="superPIC" id="superPIC" /></div>
+				
+				
+				
+				<div class="imgListNode po_re">
+					<ul class="imgList clearfix" id="dialog_imgList"></ul>
+				</div>
+				<a href="javascript:void(0);" class="btn_prev btn_disabled" id="dialog_img_prev">上一个</a><a href="javascript:void(0);" class="btn_next" id="dialog_img_next">下一个</a>
+			</div>
+			<div class="txt" id="dialog_right">
+				<div class="hd" id="dialog_tit"></div>
+				<div class="hds clearfix"><a href="#" id="dialog_shopLink" class="more">查看商品详情</a><span class="tit" id="dialog_shopLink_tit">商品属性</span></div>
+				<div class="details">
+					<iframe src="" id="dialog_shopLink_details" scrolling="auto" frameBorder="0" width="860" height="480"></iframe>
+				</div>
+				<div class="bds clearfix">
+					<div id="dialog_shopLink_change"><p>品牌：<span id="dialog_brand"></span></p>
+					<p>出品商：<span id="dialog_goodnum"></span></p>
+					<p>规格：<span id="dialog_guige"></span></p></div>
+					<p>原价：<span class="price1">&yen;<span id="dialog_price1"></span></span></p>
+					<p>现价：<span class="price">&yen;<span id="dialog_price"></span></span></p>
+					<p>库存：<span id="dialog_kcnum"></span></p>
+					<div class="num clearfix" id="dialog_num_node"><a href="#" class="reduce disabled" data-index="12345">-1</a><input type="text" readonly class="n_ipt" autocomplete="off" id="dialog_num" value="1" /><a href="#" class="increase" data-index="12345">+1</a></div>
+					<p><a href="#" class="btn" id="dialog_submit">添加到入购物车</a><a href="javascript:void(0);" class="btn2" id="dialog_button">已加入购物车</a><input type="hidden" id="dialog_proid" value="0" /></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="{$Default_tplPath}js/kuaisonCommon.js"></script>
+<script src="{$Default_tplPath}js/jquery.scrollTo.js"></script>
+<script>
+window['ALLOWBUY'] = !1;
+window['ISBL'] = '1';
+window['SHOPID'] = '{$shopid}';
+window['GOODSTYLEID'] = '1';
+window['ISHTML'] = '1';
+(function($){
+	getkill();
+	$('#announcement')[0]&&$('#announcement').slideText();
+	$('#header_cart').header_cart();
+	$('#fixed').fixed($('#fixed_can'),70);
+	$('#s_search').keyword('myform','keyword','搜索本店');
+	$.returnTop();
+	getShoppingCart(!1);
+	$('#prolist').pagelist();
+	if($('#listEmpty')[0]){
+		$('#listEmpty').html('没找到符合要求的商品');
+	}
+	parseInt($('#showAllList').attr('data-totalcount')) > 20 &&  $('#showAllList').show();
+})(jQuery);
+function getkill(){
+	var isopen = "{$isopen}",
+		state_node = $('#state_node');
+	if(isopen === '2'){
+		state_node.addClass('state_2').html('暂停营业，{$noopenmark}');
+		return;
+	}
+	var startkill = "{$startkill}",
+	startdate = "{$startdate HH:mm}",
+	enddate = "{$enddate HH:mm}",
+	start2kill = "{$start2kill}",
+	startdate2 = "{$startdate2 HH:mm}",
+	enddate2 = "{$enddate2 HH:mm}";
+	
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	var thestartdate = Date.parse(today + startdate + ':00');
+	var theenddate = Date.parse(today + enddate + ':00');
+	var thestartdate2 = Date.parse(today + startdate2 + ':00');
+	var theenddate2 = Date.parse(today + enddate2 + ':00');
+	
+	
+	if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+		showkill(!0);
+	}else{
+		showkill(!1);
+	}
+	function showkill(allow){
+		if(!!allow){
+			state_node.addClass('state_1').html('营业中');
+			window['ALLOWBUY'] = !0;
+		}else{
+			var shipkill = "{$shipkill}";
+			shipkill === '0'?(state_node.addClass('state_3').html('打烊了，可以预订'),window['ALLOWBUY'] = !0):(state_node.addClass('state_2').html('打烊了，不可下单'),window['ALLOWBUY'] = !1);
+		}
+	}
+}
+$('#superAlbum').superIMG();
+</script>
+</body>
+</html>

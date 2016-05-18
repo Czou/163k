@@ -1,0 +1,75 @@
+@charset "utf-8";
+.filter { border-top:1px solid #d6d6d6;}
+
+.list_huangye { padding:15px 10px; background-color:#f6f6f6; border-bottom:1px solid #dcdcdc;}
+.list_huangye li { background-color:#fff; position:relative; z-index:1; margin-bottom:15px; box-shadow:#ccc 0 0px 5px; padding:15px 80px 15px 15px;}
+.list_huangye .tit { font-size:18px;}
+.list_huangye .txt { font-size:14px; color:#999; line-height:22px;}
+.toPhone { display:inline-block; top:15px; right:15px; width:45px; height:45px; overflow:hidden; text-indent:-999em; background:url(../images/phone_ico.png) no-repeat 0 0; background-size:45px auto;}
+.list_huangye .bg_shangjia,.list_huangye .bg_qiye,.list_huangye .bg_zhiding {display:inline-block; margin-top:-5px; line-height:18px; vertical-align:middle; font-size:14px; padding:2px 5px 1px; color:#fff; background-color:#ff6600;}
+.list_huangye .bg_zhiding { background-color:#cc6633;}
+.list_huangye .bg_qiye { background-color:#ff9900;}
+.list_huangye .istop { background-color:#ffffe6;}
+
+.huangye_header { padding:10px; background-color:#fff; border-bottom:1px solid #ececec; border-top:1px solid #ececec;}
+.huangye_header .img { float:left; margin-right:10px;}
+.huangye_header .img img { vertical-align:top; width:63px; height:42px;}
+.huangye_header h1 { font-size:18px; line-height:32px;}
+.huangye_header .cat { font-size:14px;}
+.huangye_header .cat a { color:#36c;}.huangye_header .cat a:hover { color:#d00;}
+.huangye_info { padding:15px; line-height:30px;}
+.huangye_info img { vertical-align:middle;}
+.huangye_info em { color:#888;}
+.huangye_content {}
+.huangye_content .hd { border-top:1px solid #9c9ea8; border-bottom:1px solid #e3e3e3; background-color:#f8f8f8; padding:10px; font-weight:bold; font-size:18px;}
+.huangye_content .hd .more { position:absolute; display:inline-block; top:9px; right:9px; padding:0 10px; border:1px solid #ddd; background-color:#fff; border-radius:3px; font-size:14px; font-weight:normal;}
+.huangye_content .bd,.huangye_content .wen_all { padding:10px; line-height:28px;}
+.huangye_content .bd p,.huangye_content .wen_all p { margin:10px 0;}
+
+.lp_nav { border-bottom:1px solid #ddd; padding:0 10px;}
+.lp_nav .comn-submit { margin:10px 0;}
+
+.tghd_header { padding-bottom:16px;}
+.tghd_header .img { margin-top:6px;}
+.tghd_header .img img { vertical-align:top; width:80px; height:80px;}
+.tghd_header .style { color:#063;}
+.tghd_header .num { color:#f30; font-weight:bold;}
+.tghd_info .sta { color:#36c;}
+.tghd_info { line-height:30px; padding:15px 15px 0;}
+.huangye_content .tghd_mingdan { padding:0;}
+.tghd_mingdan .item { border-bottom:1px solid #ccc; padding:10px;}
+.tghd_mingdan .item img { display:none;}
+
+.xcList { width:320px; margin:0 auto;}
+.xcList li { text-align:center; width:140px; padding:10px; float:left;}
+.xcList img { vertical-align:top; width:140px;}
+.xcList .tit { line-height:26px; height:26px; overflow:hidden; display:block; font-size:14px; margin-top:3px;}
+.mask { position:absolute; top:0; left:0; width:100%; height:100%; background-color:#000; opacity:.8;}
+.picInner { z-index:2; display:block; position:absolute; top:0; left:0; vertical-align:top; width:100%;}
+
+.contentshow h1 { text-align:center; padding-top:15px; font-size:20px;}
+.contentshow .infoNews { border-bottom:1px solid #eee; padding:5px 0; text-align:center; font-size:12px; color:#999;}
+.contentshow .newsCont { padding:10px;}
+
+.dpContent { padding:10px; border-bottom:1px solid #eee;}
+.dpContent .time { color:#999; font-size:12px;}
+.dpContent .replay { color:#f60;} 
+.dpContent .username { color:#36c;}
+.dpContent .star { color:#999; font-size:12px;}
+.dpContent .star img { width:16px; height:16px;}
+.dpContent .text { padding:8px 0;}
+
+.fabu_comment {}
+.fabu_comment .hd { font-weight:bold; padding-top:10px;}
+.fabu_comment .form_star {}
+.fabu_comment .form_star .item { display:inline-block; width:24px; height:26px; overflow:hidden; text-indent:-999em; background:url(../images/company-sp.png) no-repeat 0 -52px; background-size:100px auto; vertical-align:top;}
+.fabu_comment .form_star .cur { background-position:-66px -52px; }
+
+.zj_nav { margin:15px 10px 0;}
+.zj_nav li { margin:10px 0;}
+.zj_nav li a { display:block; padding:6px 15px; text-align:center; border:0 none; box-shadow:#ddd 0 1px 1px; border-radius:3px; background-color:#f3f3f3; color:#333;}
+.zj_nav .current a { color:#fff; background-color:#f40;}
+
+.ico_zu,.ico_shou { display:inline-block; width:16px; height:16px; overflow:hidden; text-indent:-999em; background:url(../images/company-sp.png) no-repeat 0 0; background-size:100px auto; vertical-align:middle;}
+.ico_zu { background-position:-18px 0;}
+.ico_shou { background-position:-36px 0;}

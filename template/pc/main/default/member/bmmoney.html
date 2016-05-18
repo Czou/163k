@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>在线充值--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+
+<script>
+function showvalue(aa,bb,cc){
+	bb.value = bb.value.replace(/[\D-]+/g,'');
+	$("#bianmingfen").html(parseFloat(aa)*parseFloat(cc));
+}
+</script>
+
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 在线充值</div>
+  <!-- 主体 -->
+  <form name="Form1" method="post" action="?action=moneysave" onSubmit="return moneysave(this)" style="margin:0" >
+    <div id="content" class="clearfix">
+      <div class="col_main">
+        <div class="edit_box">
+          <div id="contentfloat">
+            <div id="content">
+              <div class="bigtitle">在线续费</div>
+              <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+                <tr>
+                  <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                  <td class="tx_title"><span>重要提示：</span><br />
+                    可以通过{$jifenname}来续费，延长超级黄页的使用期限</td>
+                </tr>
+              </table>
+              <div class="smalltitle">在线续费（打 <span style="color:Red">*</span> 为必填项）</div>
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+			  <tr>
+                  <td class="tditem"><span style="color:Red">*</span> 黄页使用费用标准：</td>
+                  <td class="tdcontent">{$bianmingfen}  金币/月
+				  </td>
+                </tr>
+                <tr>
+                  <td class="tditem" style="width:25%;" id="title"><span style="color:Red">*</span> 请输入您要缴费的时间：</td>
+                  <td class="tdcontent" style="width:75%"><input type="text" name="shu" value="1" onKeyUp="showvalue(this.value,this,{$bianmingfen});" class="text"  style="width:50px"  />月
+                    <span id=tishi> （最少为1个月）</span></td>
+                </tr>
+               
+                <tr>
+                  <td class="tditem"><span style="color:Red">*</span> 一共要支付：</td>
+                  <td class="tdcontent"><span id="bianmingfen">{$bianmingfen}</span>  金币
+				  </td>
+                </tr>
+                 <tr>
+                  <td class="tditem"><span style="color:Red">*</span> 您当前积分：</td>
+                  <td class="tdcontent">{$jifennum}{$jifenname}  <a href="modify.aspx?action=consume">在线充值</a>
+				  </td>
+                </tr>
+				<tr>
+                  <td class="tditem">&nbsp;</td>
+                  <td class="tdcontent"><input type="hidden" name="typeid" value="{$typeid}" />
+              <input type="hidden" name="detailsid" value="{$typeid}" />
+                <input type="submit" name="submit" class="global_btn_blue_big" value=" 立即续费 " id="" /></td>
+                </tr>
+              </table>
+              
+            </div>
+　             </div>
+        </div>
+      </div>
+      <div class="col_sub">
+        <!-- 侧边栏菜单 开始 -->
+        <div class="side_bar">
+          <ul>
+            {$usermenu}
+          </ul>
+        </div>
+        <!-- 侧边栏菜单 结束 -->
+      </div>
+    </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

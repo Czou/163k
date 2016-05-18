@@ -1,0 +1,13 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$NID}</td>	
+	<td><a href="activeRevert.aspx?action=revertinfo&key={$key}&ID={$ID}" title="查看内容">{$chrname}</a></td>
+	<td>{$ChrIP}</td>	
+	<td><a href="{$url$}" target=_blank>{$TOPID}</a></td>
+	<td>{$Isopen}</td>
+	<td>{$Dtappenddate}</td>
+	<td>{$Newsdate}</td>
+	<td align="center">
+	 <a href="activeRevert.aspx?action=revertinfo&key={$key}&ID={$ID}" title="查看内容">查看与答复</a>  
+	 <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name='ID' type='checkbox' id='ID' value='{$ID}'></td>
+</tr>

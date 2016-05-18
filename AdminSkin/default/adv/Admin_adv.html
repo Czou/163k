@@ -1,0 +1,153 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+    <TR>
+      <TD bgColor=#73a3d4 height=4></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<TABLE height="100%" cellSpacing=2 cellPadding=0 width="100%" border=0 class="table01">
+  <TBODY>
+    <TR>
+      <TD  align=left  nowrap="nowrap"><script src="{$atplPath}js/cookies.js"></script> 
+        <script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "dingyi.aspx?action=del&key={$key}&ID=" + id
+   }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆,并且只能删除此会员信息！\n您确定要删除所有选中的用户吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        document.getElementById("form").submit();
+   }
+}
+function newdelAll(tt)
+{
+	if ( confirm("该操作将不可逆，此操作针对当前列表页，包括所有分页数据！\n您确定要继续操作吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "dingyi.aspx?action=del&styleid="+tt;
+    }
+}
+function isopen(id)
+{
+   setCookie("delurl",window.location.href);
+   location.href = "shopuser?action=del&styleid=1&ID=" + id
+}
+
+function URLEncode(fld)
+{
+if (fld == "") return false; 
+var encodedField = ""; 
+var s = fld; 
+if (typeof encodeURIComponent == "function") 
+{ 
+// Use javascript built-in function 
+// IE 5.5+ and Netscape 6+ and Mozilla 
+encodedField = encodeURIComponent(s); 
+} 
+else 
+{ 
+// Need to mimic the javascript version 
+// Netscape 4 and IE 4 and IE 5.0 
+encodedField = encodeURIComponentNew(s); 
+} 
+//alert ("New encoding: " + encodeURIComponentNew(fld) + 
+// "\n escape(): " + escape(fld)); 
+return encodedField; 
+} 
+</script>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED" class="table02">
+          <tr>
+            <td>&nbsp; </td>
+            <td width="100%"><table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td>&nbsp;<span class="canshu">广告管理</span> &nbsp;&nbsp;</td>
+                  <td align="right"></td>
+                </tr>
+              </table></td>
+            <td>&nbsp;</td>
+          </tr>
+          
+            <td></td>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <form name="form2" method="POST" action="dingyi.aspx">
+                  <tr>
+                    <td height="25"><input name="type" type="radio" value="0" {$type0$} />
+                      按广告名称查询 &nbsp;&nbsp;
+                      <input name="type" type="radio" value="1" {$type1$}>
+                      按广告编号查询 &nbsp;&nbsp;
+                      <input name="type" type="radio" value="2" {$type2$}/>
+                      按广告标题查询 &nbsp;&nbsp;&nbsp;&nbsp;请输入关键字：
+                      <input name="keyword" type="text" id="keyword" value="{$keyword}" size="30">
+                      <input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+					  <td align="right"><a href='dingyi.aspx?action=add' class="global_btn_blue">添加广告位</a>　<a href="/request.ashx?action=allsqldao&sqlname=adv_all" class="global_btn"target="_blank">备份所有广告位数据</a></td>
+                  </tr>
+                </form>
+                <!--tr>
+                  <td height="25" class="ser"> 按广告编号快捷查询 &nbsp;&nbsp;&nbsp;&nbsp; <a href='dingyi.aspx'><b>&nbsp;&nbsp;所有&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=A'><b>&nbsp;&nbsp;A(首页)&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=B'><b>&nbsp;&nbsp;B&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=C'><b>&nbsp;&nbsp;C&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=D'><b>&nbsp;&nbsp;D&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=F'><b>&nbsp;&nbsp;F(房产)&nbsp;&nbsp;</b></a>
+                  	&nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=G'><b>&nbsp;&nbsp;G(供求)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=I'><b>&nbsp;&nbsp;I(首页活动)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=R'><b>&nbsp;&nbsp;R(人才)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=S'><b>&nbsp;&nbsp;S(社区)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=T'><b>&nbsp;&nbsp;T(团购)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=X'><b>&nbsp;&nbsp;X(新闻)&nbsp;&nbsp;</b></a>
+                    &nbsp;&nbsp; <a href='dingyi.aspx?type=1&keyword=Z'><b>&nbsp;&nbsp;Z(专题)&nbsp;&nbsp;</b></a>&nbsp;&nbsp; </td>
+                </tr-->
+                 <tr>
+ 
+                </tr>
+              </table>
+              <table align="center" cellpadding="0" width="100%" cellspacing="0" class="toptable grid table_style table_style2" border="0">
+                <tr  align=center>
+                	<td  class="category" width="30"  align="left">ID</td>
+                  <td  class="category" width="70"  align="left">广告位编号</td>
+                  <td class="category" align="left">广告位名称</td>
+                  <td class="category">顺序</td>
+                  <td class="category">当前投放内容标题</td>
+                  <td class="category">类型</td>
+                  <td class="category">广告价格</td>
+                  <td class="category">结束时间</td>
+                  <td class="category">状态</td>
+                  <td width="80" align="center" class="category">编辑&nbsp;/&nbsp;删除</td>
+                </tr>
+                <tag:Loop ListType="ListAdvList" RecType="New" PageSize="200" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="adv/List_adv_Tr.htm" />
+        
+                
+                <tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan="10">
+			{$PageSplit}
+	  </td>
+    </tr>
+              </table>
+              
+              <!--endprint--></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+            <td></td>
+            <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+          </tr>
+        </table></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

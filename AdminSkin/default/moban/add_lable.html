@@ -1,0 +1,175 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+    $(document).ready(function () {       
+        tsjx_add_event();
+        tsjx_top_clear();
+        tsjx_type_clear();
+    });
+</script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+.my_prop_img{ width:100%; margin:0; padding:0}
+li{list-style-type:none;}
+#s_ctrl li{float:left;width:220px;line-height:26px;margin-right:2px;text-align:left;font-size:14px;position:relative;}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+    #txt_header
+    {
+        height: 122px;
+        width: 900px;
+    }
+    #txt_content
+    {
+        height: 227px;
+        width: 900px;
+    }
+    #txt_footer
+    {
+        height: 155px;
+        width: 900px;
+    }
+    #txt_sql
+    {
+        height: 74px;
+        width: 900px;
+    }
+    #txt_name
+    {
+        width: 478px;
+    }
+    #txt_remark
+    {
+        width: 475px;
+    }
+    #txt_value1
+    {
+        width: 340px;
+    }
+    #txt_value2
+    {
+        width: 340px;
+    }
+    #txt_value3
+    {
+        width: 340px;
+    }
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif">
+    <table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">新加标签&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至标签列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table>
+    	</td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style">
+<form action="?action=addsave" method="post" id="form1">
+<tr > 
+      <td height="25" class="category">标签<font color="#FF0000">*</font>： 
+      </td>
+       <td><input id="txt_name" name="txt_name" class="global_ipt" type="text" value="{$txt_name}"/>请以"{$"开始 "}"结束的特殊标志,可以含中文 </td>
+       </tr>
+   
+<tr>
+<td width="15%" height="25" class="category">标签说明<font color="#FF0000">*</font>：</td>
+      <td width="76%"><input id="txt_remark" class="global_ipt" name="txt_remark" type="text" /></td>
+     
+</tr>
+<tr>
+<td height="25" class="category"> 标签层：</td><td><input id="txt_power" name="txt_power" class="global_ipt" type="text" value="0"/> 用于标示嵌套关系,模版内可以嵌套小于本层的标签</td>
+</tr>
+    <tr  id="tr_1"> 
+      <td height="25" width="13%"  class="category">标签使用范围<font color="#FF0000">*</font>：
+      </td>
+       <td >客户端<select name='sel_clienttype' id='sel_clienttype'></select>模版套系<select name='sel_template' id='sel_template'></select>栏目<select name='sel_column1' id='sel_column1'></select><span id="s_column2">二级栏目<select name='sel_column2' id='sel_column2'></select></span>登录状态<select name='sel_loginstate' id='sel_loginstate'></select></td>
+ </tr>
+ <tr id="tr_2" >
+ 	     
+<td class="category" >标签类型 </td>
+<td><select name='sel_type' id="sel_type"><option value=''>::请选择::</option><option value='1' >栏目导航菜单</option><option value='2' >内容列表</option><option value='3' >纯文本</option><option value='4' >SQL语句</option></select>
+</td>
+</tr>
+
+ <tr id="d_range" >
+ 	     <td  height="25" class="category">调用内容范围<font color="#FF0000">*</font>：</td>
+       <td><select name='sel_table' id='sel_table'>
+</select>
+       <span id="s_category1"> <select name='sel_category1' id='sel_category1'></select></span>
+       <span id="s_category2"><select name='sel_category2' id='sel_category2'></select></span>
+       <span id="s_category3"><select name='sel_category3' id='sel_category3'></select></span>
+       <span id="s_category4"><select name='sel_category4' id='sel_category4'></select></span>
+       <span id="s_category5"><select name='sel_category5' id='sel_category5'></select></span>
+</td>
+</tr>
+<tr  id="d_display"> 
+ 	  <td  height="25" class="category">调用内容<font color="#FF0000">*</font>： 
+      </td>
+      <td> <span id="s_ctrl"></span></td>
+</tr>
+<tr id="d_condition">
+<td  height="25" class="category">调用附加条件<br>(时间日期类支持sql日期函数如:getdate() )</td>
+<td>
+<select id="sel_field1" name="sel_field1"></select>
+<select id="sel_oper1" name="sel_oper1"><option value="">::请选择::</option><option value=">">大于</option><option value="<">小于</option><option value="=">等于</option><option value="include">包含</option><option value="noinclude">不包含</option><option value="custom">自定义条件</option></select>
+<input id="txt_value1" name="txt_value1" type="text" value=""/>
+<input id='c_form1' type="button" value="外部提交ID"/> <input id='c_form1_1' type="button" value="来自页面参数大类"/> <input id='c_form1_2' type="button" value="来自页面参数小类"/><br />
+<select id="sel_field2" name="sel_field2"></select>
+<select id="sel_oper2" name="sel_oper2"><option value="">::请选择::</option><option value=">">大于</option><option value="<">小于</option><option value="=">等于</option><option value="include">包含</option><option value="noinclude">不包含</option><option value="custom">自定义条件</option></select>
+<input id="txt_value2" name="txt_value2" type="text" value=""/>
+<input id='c_form2' type="button" value="外部提交ID"/> <input id='c_form2_1' type="button" value="来自页面参数大类"/> <input id='c_form2_2' type="button" value="来自页面参数小类"/><br />
+<select id="sel_field3" name="sel_field3"></select>
+<select id="sel_oper3" name="sel_oper3"><option value="">::请选择::</option><option value=">">大于</option><option value="<">小于</option><option value="=">等于</option><option value="include">包含</option><option value="noinclude">不包含</option><option value="custom">自定义条件</option></select>
+<input id="txt_value3" name="txt_value3" type="text" value=""/>
+<input id='c_form3' type="button" value="外部提交ID"/> <input id='c_form3_1' type="button" value="来自页面参数大类"/> <input id='c_form3_2' type="button" value="来自页面参数小类"/>
+</td>
+</tr>
+    
+<tr id="d_count">
+<td  height="25" class="category">调用条数</td>
+<td><input id="txt_count" name="txt_count" type="text" class="global_ipt" value="10"/>条(小于128) 标题字节<input id="txt_titlebytes" class="global_ipt" name="txt_titlebytes" type="text" value="50"/>字节(小于255) 内容字节<input id="txt_contentbytes" class="global_ipt" name="txt_contentbytes" type="text" value="100"/>字节(0为不限制，请用偶数)</td></tr>
+<tr id="d_order">
+<td  height="25" class="category">排序方式</td>
+<td>排序1<select name='sel_orderfield1' id="sel_orderfield1"></select><select name='sel_orderrule1' id="sel_orderrule1"><option value='desc'>降序</option><option value='asc'>升序</option></select>
+排序2<select name='sel_orderfield2' id="sel_orderfield2"></select><select name='sel_orderrule2' id="sel_orderrule2"><option value=''>::请选择排序规则::</option><option value='desc'>降序</option><option value='asc'>升序</option></select>
+</td>
+</tr>
+<tr id="d_sql">
+<td  height="25" class="category">sql语句</td>
+<td>自定义SQL语句的的输出列名前后加{$ 和}为内嵌数据标签<br /><textarea id="txt_sql" name="txt_sql"></textarea></td>
+</tr>
+
+<tr id="d_template">
+
+<td class="category">模版头部</td><td><textarea id="txt_header" name="txt_header" ></textarea></td></tr>
+<tr id="d_template"><td class="category">模版内容</td><td>可用标签:1:系统固定标签,2:排序小于本标签排序的自定义标签.<br>3:可用数据标签:<span id="temp_display"></span><br><textarea id="txt_content" name="txt_content"></textarea></td></tr>
+<tr id="d_template"><td class="category">模版尾部</td><td><textarea id="txt_footer" name="txt_footer"></textarea></td></tr>
+
+<tr  > <td>&nbsp;</td>
+      <td height="25" colspan="5">
+<input id="hid_fields" name="hid_fields" type="hidden" value=""/>
+<input id="hid_display" name="hid_display" type="hidden" value=""/>
+<input type="submit" name="submit" class="global_btn_blue_big" value="确定提交" /></td>
+</tr>
+ </form>
+ </table>
+  <!--endprint--></td>
+    
+  </tr>
+  <tr>
+    <td></td>
+    <td>&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>

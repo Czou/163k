@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-省啦商城-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '省啦详情';
+</script>
+{$top$}
+	<div class="content gray_bg">
+		{$Mh163k_wap_团购频道_团购详细页}
+		<div class="inner_html share_fd" id="share_fd">{$Mh163k_wap_整站通用_分享代码}</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+
+var shareImg = '';
+var filepath1 = $('#resizeIMG').find('img').eq(0).attr('src');
+if(typeof filepath1 !== 'undefined'){shareImg = nowdomain + filepath1.replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','省啦商城-{$SiteName}',shareImg,'{$tgurl}tg_'+$('#tgid').val()+'.html');
+	});
+}
+
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = $('#tgid').val();
+window['SHOPID'] = $('#shopid').val();
+window['STYLEID'] = '13';
+window['TPLNUM'] = '2';
+(function($){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-40,480);
+	IDC.resizeIMG(document.getElementById('resizeIMG2'),parseInt($(window).width())-40,480);
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+		});
+	};
+	$.fn.selScore = function(){
+		var t = $(this),list = t.find('.btn'),total_score = $('#total_score');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.removeClass('cur');
+			$(this).addClass('cur');
+			total_score.val(val);
+		});
+	};
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('li').removeClass('current');
+			$(this).parent().addClass('current');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+	$('#filter').cmtfilter();
+	$('#selStar').selStar();
+	$('#selScore').selScore();
+})(jQuery);
+
+var is_miaosha = !!($('#is_miaosha').val() === '秒杀上线');
+var cur_time = Date.parse($('#system_date').val());
+var end_time = Date.parse($('#sec_left').val());
+var SysSecond = parseInt(end_time - cur_time)/1000;
+function setRemainTimeSite(SysSecond){
+	var limit_num = $('#limit_num').val();
+	var sold_ok = $('#sold_ok').val();
+	var btn_buy = $('#btn_buy,#btn_buy2');
+	if(parseInt(sold_ok) < parseInt(limit_num) || parseInt(limit_num) === 0){
+		 
+		  if (SysSecond > 0) {
+			SysSecond = SysSecond - 1;
+			var txt = '';
+			var hour = Math.floor((SysSecond / 3600) % 24).toString();
+			var day = Math.floor((SysSecond / 3600) / 24).toString();
+			if(day>30){
+				txt = '剩余30天以上';
+			}
+			if(2<day&&day<30){
+				txt = '剩余3天以上';
+			}
+			if(0<day&&day<3){
+				txt = '剩余'+day+'天';
+			}
+			if(day<1){
+				txt = '剩余'+hour+'小时';
+			}
+			$("#time_show").html(txt);
+			btn_buy.show();
+		  }else{
+			  $("#time_show").html("本单已结束")
+			  btn_buy.text('已结束').addClass('end').attr('href','javascript:void(0);');
+			  btn_buy.show();
+			return;
+		  }
+	}else{
+		 btn_buy.text('卖光了').addClass('end').attr('href','javascript:void(0);');
+		 btn_buy.show();
+	}
+}
+
+
+function setMiaoshaTimeSite(){
+	var limit_num = $('#limit_num').val();
+	var sold_ok = $('#sold_ok').val();
+	var cur_time = Date.parse($('#system_date').val());
+	var start_time = Date.parse($('#miaosha_date').val());
+	var btn_buy = $('#btn_buy,#btn_buy2');
+	ms_sec = parseInt(start_time - cur_time)/1000;
+	var end_time = Date.parse($('#sec_left').val());
+	
+	
+	function setMSTimeSite(){
+		if(end_time < cur_time){
+			//抢光了
+			clearInterval(mstimer);
+			btn_buy.text('秒杀结束').addClass('end').attr('href','javascript:void(0);');
+			btn_buy.show();
+			$("#time_show").html("亲，下次记得早点来哦！");
+			return false;
+		}
+		if(parseInt(sold_ok) < parseInt(limit_num) || parseInt(limit_num) === 0){
+			if(ms_sec > 0){
+			//未开始
+				btn_buy.text('即将开始').addClass('end').attr({'href':'javascript:void(0);'});
+				btn_buy.show();
+				
+				var second = Math.floor(ms_sec % 60).toString();
+				var minite = Math.floor((ms_sec / 60) % 60).toString();
+				var hour = Math.floor((ms_sec / 3600) % 24).toString();
+				var day = Math.floor((ms_sec / 3600) / 24).toString();
+				
+				$("#time_show").html("距秒杀开始："+day+"<em>天</em>"+hour+"<em>时</em>"+minite+"<em>分</em>"+second+"<em>秒</em>");
+				$('#order_show').hide();
+				ms_sec--;
+			}else{
+				clearInterval(mstimer);
+				btn_buy.text('立即秒杀').addClass('buy_ms');
+				btn_buy.show();
+				$("#time_show").html('仅限'+limit_num+'位');
+			}
+		}else{
+			//抢光了
+			clearInterval(mstimer);
+			btn_buy.text('卖光了').addClass('end').attr('href','javascript:void(0);');
+			btn_buy.show();
+			$("#time_show").html("亲，下次记得早点来哦！");
+			
+		}
+	}
+	window.mstimer = window.setInterval(setMSTimeSite,1000);
+}
+
+if(!is_miaosha){
+	setRemainTimeSite(SysSecond);
+}else{
+	setMiaoshaTimeSite();
+}
+function getbuyOK(){
+	var buyok_num = $('#buyok_num');
+	var tgid = $('#tgid').val();
+	var url = '{$SiteUrl}request.ashx?action=chrnum&key=tg&jsoncallback=?&id='+tgid;
+	$.getJSON(url, function(data){
+		var n = data[0]['MSG'][0][tgid][0]['chrnum'];
+		buyok_num.html(n);
+	});
+}
+getbuyOK();
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chraddress}-{$chrcode}-{$chrtel}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/yp2011.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script>var nowdomain="{$SiteUrl}";</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$bianmingurl}">{$lanmuname}</a> &gt; <a href="{$bianmingurl}">服务机构</a> &gt; {$chrtitle}</div>
+	<div id="content" class="yp2011">
+			<div class="{$mobanid}"><!-- orange | blue | green | purple | brown | red -->
+				<div class="box_a">
+				<div class="b_1 clearfix">
+					<h2 class="h2">{$chrtitle}</h2>
+					<span class="fr">登记：<em>{$dtappenddate}</em>　|　浏览 <em class="view">{$views}</em> 次</span>
+				</div>
+				<div class="b_2" style="padding:15px 30px;">
+				<table class="tb01" width="100%" cellpadding="0" cellspacing="0" border="0">
+					<tbody>
+						<tr>
+							<td>机构名称：<em>{$chrtitle}</em></td>
+							<td> <!--网站地址：<a href="{$chrurl}" target=_blank>{$chrurl}</a>--></td>
+                            <td width="300" rowspan="5"><iframe src="{$SiteUrl}ezmarker/map.aspx?action=bm&id={$detailsid}"  width="300" height="196" scrolling="no" frameborder="0" ></iframe>
+                            <table width="100%">
+                              <tr>
+                                <td align="left">&nbsp;</td>
+                                <Td align="right"><a href="javascript:showbigmap('bm','{$detailsid}',escape('{$chrtitle}'),escape('{$chraddress}'));" rel="nofollow">查看大图>></a></Td>
+                              </tr>
+                            </table>
+                            </td>
+						</tr>
+						<tr>
+							<td>行业分类：<em>{$chrcategory}>{$smallcategory}</em></td>
+							<td>电子邮件：<em>{$chremail}</em></td>
+						</tr>
+						<tr>
+							<td>联系地址：<em>{$chraddress}</em></td>
+							<td>认证情况：<img src="{$Default_tplPath}images/yellowurlicon_05.gif" alt="手机认证" style="display:{$iskill1show}"  /> <img src="{$Default_tplPath}images/yellowurlicon_03.gif" alt="邮箱认证"  style="display:{$iskill2show}"/> <img src="{$Default_tplPath}images/yellowurlicon_07.gif" alt="身份验证"  style="display:{$iskill3show}"/> <img src="{$Default_tplPath}images/yellowurlicon_09.gif" alt="执照验证"  style="display:{$iskill4show}" /></td>
+						</tr>
+						<tr>
+							<td>联系电话：<em class="tel_txt">{$chrtel}</em></td>
+							<td><img src="{$Default_tplPath}images/yellowurlicon_16.gif" alt="" /> <em>查找更多关于“<a href="http://www.baidu.com/s?ie=UTF-8&wd={$chrtitle1}" target=_blank >{$chrtitle}</a>”的信息</em></td>
+						</tr>
+						<tr>
+							<td colspan="2"><div class="clearfix"><span style="float:left; font-size:12px; line-height:44px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<div class="b_3"><div class="b_3_bg" id="TabAdS02">
+						<div class="change_tab">
+							<ul class="clearfix tab-hd">
+								{$list1}
+							</ul>
+						</div>
+						{$list2}
+				</div>
+				<script type="text/javascript" >
+				function ResizeImages()
+				{
+				   var myimg,oldwidth,oldheight;
+				   var maxwidth=880;
+				   var maxheight=700
+				   var imgs = document.getElementById('TabAdS02').getElementsByTagName('img');   
+				   
+				   for(i=0;i<imgs.length;i++){
+					 myimg = imgs[i];
+				
+					 if(myimg.width > myimg.height)
+					 {
+						 if(myimg.width > maxwidth)
+						 {
+							oldwidth = myimg.width;
+							myimg.height = myimg.height * (maxwidth/oldwidth);
+							myimg.width = maxwidth;
+							
+						 }
+					 }else{
+						 if(myimg.height > maxheight)
+						 {
+							oldheight = myimg.height;
+							myimg.width = myimg.width * (maxheight/oldheight);
+							myimg.height = maxheight;
+							
+						 }
+					 }
+				   }
+				}
+				ResizeImages();
+				</script>
+			</div>
+		</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="yp_mbox">
+			<div class="hd"><h3 class="title">当前行业下其他机构</h3></div>
+			<div class="bd">
+				<ul class="clearfix">
+					{$otherlist}
+				</ul>
+			</div>
+		</div>
+		<div class="services_01">如需对上述信息进行修改、删除、举报，请联系网站客服：<img src="{$Default_tplPath}images/yu_tel.gif" alt="" /> {$sitetel}　<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}"><img src="{$Default_tplPath}images/qq_online.gif" alt="" /> {$siteqq1}</a>　<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}"><img src="{$Default_tplPath}images/qq_online.gif" alt="" /> {$siteqq2}</a></div>
+	</div>
+	{$bottom$}
+</div>
+<div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$("#TabAdS02").TabADS2();
+});
+</script>
+
+</body>
+</html>

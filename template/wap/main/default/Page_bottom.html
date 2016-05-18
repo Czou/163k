@@ -1,0 +1,44 @@
+	<div class="foot_link" id="foot_link">
+		<p class="link"><a href="{$SiteUrl}">首页</a>|<a href="{$SiteUrl}request.ashx?action=iswap&iswap=0">电脑版</a>|<a href="{$appdownloadurl}" data-img="{$appdownloadurlimg}">客户端</a>|<a href="{$SiteUrl}service/">反馈留言</a>|<a href="{$SiteUrl}member/userindex_s.aspx" id="shangjia_btn">商家管理</a></p>
+		<!--{$SiteName}：<a href="{$SiteUrl}">{$SiteYuming}</a>　{$siteip}-->{$WapBanquan}
+	</div>
+	<p style="display:none;">{$WapTongji}</p>
+</div>
+<div class="windowIframe" id="windowIframe">
+	<div class="header"><a href="javascript:;" class="back close">返回</a><span id="windowIframeTitle"></span></div>
+	<div class="body" id="windowIframeBody"></div>
+</div>
+<div id="l-map" style="display:none;"></div>
+<script src="{$Default_tplPath}js/wap_common.js"></script>
+<script>
+var YDB;
+if(isapp === '1'){
+	YDB = new YDBOBJ();YDB.SetDragRefresh(0);
+}
+window['siteUrl'] = '{$SiteUrl}';
+document.addEventListener('DOMContentLoaded',function(){
+	$('#nav_ico').click(function(e){
+		e.preventDefault();
+		$('#nav_APP').fadeToggle('fast');
+	});
+	$('#shangjia_btn').click(function(e){
+		var user_jibie = $('#user_jibie').val(),isLogin = $('#isLogin').val();
+		if(isLogin === '0'){
+			e.preventDefault();
+			MSGwindowShow('user','1','对不起，您还没有登录企业会员！',window['siteUrl']+"member/login.html?from="+(encodeURIComponent(window.location.href)),'');
+			return false;
+		}
+		if($('#user_jibie').val()==='0'){
+			e.preventDefault();
+			MSGwindowShow('user','0','对不起，您还不是企业会员！','','');
+			return false;
+		}
+	})
+	IDC2.isLogin('{$SiteUrl}','{$SiteName}','{$Tempid}');
+	if(!window['ipageTitle']){
+		$('#ipageTitle').show();
+	}else{
+		$('#ipageTitle').html(window['ipageTitleTxt']).show();
+	}
+},false);
+</script>

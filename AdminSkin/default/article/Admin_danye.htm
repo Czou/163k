@@ -1,0 +1,85 @@
+﻿<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "danye.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的单页网页吗？"))
+        {
+	    document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+
+</script>
+<script src="{$atplPath}js/ajax.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>单页网页</td>
+	  <td align="right"><a href="danye.aspx?action=add" class="global_btn_blue">添加单页网页</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按标题查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="20">
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td  class="category">ID</td>
+				<td class="category">标题</td>
+
+				<td class="category">调用地址</td>
+				<td class="category">发布时间</td>
+				
+				
+				<td  align="center" class="category">操作</td>
+				<td  align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listdanye" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="article/List_danye_Tr.htm" />
+				<tr><td colspan=10 align=right>
+				  <strong><a href="javascript:delAll(this,2,'删除');">删除选中？</a></strong>
+
+</td></tr>
+<input type="hidden" name="styleid" id="styleid" value="2">
+
+
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

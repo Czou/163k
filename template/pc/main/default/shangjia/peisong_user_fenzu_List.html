@@ -1,0 +1,8 @@
+﻿<tr><form name="form_{$categoryid}" method="post" action="?action=fenzusave" target="tijiao">
+	<td width="80">{$categoryid}<input name="categoryid" type="hidden" value="{$categoryid}" /><input name="intorder" type="hidden" id="intorder" value="{$intorder}" /></td>
+	<td width="400"><input name="chrcategory" type="text" id="chrcategory" value="{$chrcategory}" class="sys_form_ipt" /></td>
+	<td><button type="submit" class="sys_btn_blue">修改保存</button> <button type="button" onclick="window.location.href='mypeisong_user.aspx?action=fenzupower&categoryid={$categoryid}'" class="sys_btn_green">权限配置</button> 
+		<button type="button" onclick="window.open('mypeisong_user.aspx?action=delfenzu&categoryid={$categoryid}','tijiao');" class="sys_btn_white">删除</button></td>
+
+	</form>
+</tr>

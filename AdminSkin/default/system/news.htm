@@ -1,0 +1,14 @@
+﻿
+<div class="extcredits"><br />
+新闻分类(如果要罗列所有,可以不选择)：{$ssclass}<br />
+		新闻分类: <a href="###" onclick="insertunit('{$categoryid}')">{$categoryid}</a><br />
+		新闻标题: <a href="###" title="含链接" onclick="insertunit('{$chrtitle}')">{$chrtitle}</a>、<a title="不含链接" href="###" onclick="insertunit('{$chrtitle_nolink}')">{$chrtitle_nolink}</a>、<a title="不含链接，且包含标题全部文字" href="###" onclick="insertunit('{$chrtitle_full}')">{$chrtitle_full}</a><bR>
+		关键字: <a href="###" onclick="insertunit('{$keyword}')">{$keyword}</a>
+		作者: <a href="###" onclick="insertunit('{$chrauthor}')">{$chrauthor}</a>
+		来源: <a href="###" onclick="insertunit('{$chrfrom}')">{$chrfrom}</a>
+		<br />
+		发布时间: <a href="###" onclick="insertunit('{$dtappenddate}')">{$dtappenddate}</a>
+		查看数: <a href="###" onclick="insertunit('{$views}')">{$views}</a>  
+		焦点新闻图片: <a href="###" title="如果选择此项,则在罗列数据的时候,只罗列有图片的新闻" onclick="insertunit('{$filepath}')">{$filepath}</a><br />
+</div>
+  <textarea cols="100" rows="5" id="jstemplate" name="parameter" style="width: 95%;" onkeyup="textareasize(this)">{$daima}</textarea>

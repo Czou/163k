@@ -1,0 +1,19 @@
+﻿<table width="98%" border="0" align="right" cellpadding="0" cellspacing="0">
+<tr>
+
+<td nowrap align=right style="padding-right:3px ">
+	<a href='javascript:location.reload()'><img border=0 src="{$atplPath}images/win16.gif">刷新页面</a>&nbsp;<strong><font color="green">{$PageNo}</font></strong> / <strong>{$PageCount}</strong> 页; 每页<strong>{$PageSize}</strong>条;&nbsp;共<strong>{$RecCount}</strong>条记录。
+	<span class="manage_page">
+	{$FirstPage}
+	{$PrevTen}
+	{$MidPage}
+	{$NextTen}
+	{$EndPage}
+</span>
+	<input type="hidden" value="{$Classid}" name="Classid" />
+	<input type="hidden" value="{$PageNo}" name="iPageNo" />
+	<input type="hidden" value="{$PageCount}" name="PageCount" />
+	<input type="hidden" value="{$KeyWord}" name="KeyWord" />
+	</td>
+</tr>
+</table>

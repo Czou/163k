@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店超级管理</title>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/cal/calendar.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+body { margin:0; padding:0; color:#404040;}
+.list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px;}
+.sp_a,.sp_b { float:left;}
+.sp_a { width:100px; text-align:right; color:#888;}
+.sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.name { font-weight:bold; color:#36c;}
+.t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px;}
+.t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+<!--name,dtappenddate,hits,intorder,istop,topdate,iskill,chrname,yumingname,yumingkill,qianyue
+
+{$name}{$dtappenddate}{$hits}{$intorder}{$istop}{$istop_c_0}{$istop_c_1}{$topdate}{$iskill}{$iskill_c_0}{$iskill_c_1}{$chrname}
+{$yumingname}{$yumingkill}{$yumingkill_c_0}{$yumingkill_c_1}{$qianyue}{$qianyue_c_0}{$qianyue_c_1}
+提交?action=editsave 
+ID,hits,intorder,istop,topdate,chrname-->
+<div class="wrapper">
+	<form id="myform" name="myform" action="?" target="tijiao" method="post" style="margin:0; padding:0; border:0 none;">
+	<input type="hidden" name="ID" value="{$ID}" />
+	<input type="hidden" name="action" value="editsave" />
+	<div class="list">
+		<span class="sp_a">性质：</span>
+		<span class="sp_b">{$bigclassid$} {$classid$}</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">店铺名称：</span>
+		<span class="sp_b"><span class="name">{$name}　</span></span>
+		<span class="sp_a">开通时间：</span>
+		<span class="sp_b">{$dtappenddate}</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">星级评分：<input type="hidden" id="score_1" name="koubei" value="{$koubei}" /></span>
+		<span class="sp_b write"><span class="i_star_{$koubei}" id="selStar"><a href="#" class="s_star" data-index="1">1星</a><a href="#" class="s_star" data-index="2">2星</a><a href="#" class="s_star" data-index="3">3星</a><a href="#" class="s_star" data-index="4">4星</a><a href="#" class="s_star" data-index="5">5星</a></span></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">所属用户：</span>
+		<span class="sp_b"><span class="name">{$chrname}</span>　转给：<input type="text" class="t_ipt" id="chrname" name="chrname" value="" /> <em>企业用户，已开通店铺，名下无快店</em></span>
+	</div>
+	<!--<div class="list">
+		<span class="sp_a">二级域名：</span>
+		<span class="sp_b"><input type="radio" name="yumingkill" value="0" {$yumingkill_c_0} />不启用　<input type="radio" name="yumingkill" value="1" {$yumingkill_c_1} />启用　<input type="text" class="t_ipt" id="yumingname" name="yumingname" value="{$yumingname}" /> .{$SiteYuming}</span>
+	</div>-->
+	<div class="list">
+		<span class="sp_a">显示排序：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="intorder" name="intorder" value="{$intorder}" /></span>
+		<span class="sp_a">浏览人数：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="hits" name="hits" value="{$hits}" /></span>
+	</div>
+	<!--<div class="list">
+		<span class="sp_a">是否签约：</span>
+		<span class="sp_b"><input type="radio" name="qianyue" value="0" {$qianyue_c_0} />不签约　<input type="radio" name="qianyue" value="1" {$qianyue_c_1} />签约</span>
+	</div>-->
+	<div class="list">
+		<span class="sp_a">是否置顶：</span>
+		<span class="sp_b"><input type="radio" name="istop" value="0" {$istop_c_0} />不置顶　<input type="radio" value="1" name="istop" {$istop_c_1} />置顶　有效期至：<input type="text" name="topdate" id="topdate" class="t_ipt Wdate" value="{$topdate}" /></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">店铺状态：</span>
+		<span class="sp_b"><input type="radio" name="iskill" value="0" {$iskill_c_0} />待审核　<input type="radio" value="1" name="iskill" {$iskill_c_1} />审核通过</span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">&nbsp;</span>
+		<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+	</div>
+	</form>
+	<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</div>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script src="{$atplPath}js/MSGwindowShow.js"></script>
+<script>
+function showTgCategory(pdid,str,docId,nowcc){
+	var url="../request.ashx?action=category&id="+pdid;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var data;
+	jQuery.ajax({url:url,success: function(d){
+		for(var i=0;i<d.MSG.length;i++){
+			if(d.MSG[i].id === str){
+				data = d.MSG[i].arr;
+				break;
+			}
+		}
+		var sel=document.getElementById(docId);
+		var val="::请选择::";
+		var k=0;
+		sel.options.length=0;
+		sel.options.add(new Option( val,""));
+		sel.options[0].selected=true;
+		for(var i in data){
+			k++;
+			sel.options.add(new Option(data[i],i)); 
+			if(nowcc==i){
+				sel.options[k].selected=true;
+			}
+		}
+	}});
+}
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2,y:-220,x:0 });
+	$('#bigclassid').change(function(){
+		showTgCategory('21',$(this).val(),'classid');
+	});
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+		});
+	};
+	$('#selStar').selStar();
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@charset "utf-8";
+.side_bar li a,.picsa_list .ft a { background-image:url(../images/news_list_bg.png); background-repeat:no-repeat;}
+.picsa_list .hd li a { background-image:url(../images/picsa_menu.gif); background-repeat:no-repeat;}
+
+.col_main { float:right; width:796px;}
+.col_sub { float:left; width:144px;}
+.side_bar { margin-top:10px;}
+.side_bar li { margin-bottom:5px;}
+.side_bar li a { display:block; width:103px; height:34px; background-position:-315px -18px; font-size:14px; color:#fff; line-height:34px; font-weight:bold;}
+.side_bar li a:hover { text-decoration:underline;}
+.side_bar li.current a { background-position:-212px -18px;}
+.picsa_list { position:relative;}
+.picsa_list .hd { border-bottom:2px solid #f9aa99;}
+.picsa_list .hd li { height:26px; width:110px; float:left; overflow:hidden; display:inline; margin-right:5px;}
+.picsa_list .hd li a { text-indent:-999em; overflow:hidden; height:26px; width:110px; display:block;}
+.picsa_list .hd li.li_01 a { background-position:0 -26px;}
+.picsa_list .hd li.li_02 a { background-position:-110px -26px;}
+.picsa_list .hd li.li_03 a { background-position:-220px -26px;}
+.picsa_list .hd li.li_04 a { background-position:-330px -26px;}
+.picsa_list .hd li.li_01 a.selected { background-position:0 0;}
+.picsa_list .hd li.li_02 a.selected { background-position:-110px 0;}
+.picsa_list .hd li.li_03 a.selected { background-position:-220px 0;}
+.picsa_list .hd li.li_04 a.selected { background-position:-330px 0;}
+.picsa_list .ft { position:absolute; top:0; right:0;}
+.picsa_list .ft a { display:block; float:left; display:inline; margin-right:5px; width:100px; height:24px; text-indent:-999em; overflow:hidden;}
+.picsa_list .ft a.menu_1 { background-position:-582px 0;}
+.picsa_list .ft a.menu_2 { background-position:-482px 0;}
+.picsa_list .bd { margin-top:8px}
+.picsa_list .bd li { text-align:left; width:152px; float:left; display:inline; margin:3px; }
+.picsa_list .bd li .pic { background:url(../images/picsa_13.gif) no-repeat 0 0; width:145px; height:105px; padding:8px 0 0 7px;}
+.picsa_list .bd li span { display:block; color:#666; width:138px;overflow:hidden;white-space: nowrap;}
+.picsa_list .bd li span a { text-decoration:underline;}
+.picsa_list .bd li span a.blue_skin { color:#1961b2;}
+.picsa_list .bd li span a.blue_skin:hover { color:#f30;}
+.picsa_list .bd li span .gary_skin { color:#888;}
+.manu .left { float:left; background:url(../images/icon2.gif) no-repeat 0 -86px; padding-left:22px; display:inline;}
+.manu .left span.num { color:#f60; font-size:18px; line-height:20px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;}
+
+
+
+
+
+
+
+
+
+
+

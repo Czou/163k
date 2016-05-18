@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/share-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<style type="text/css">
+.write2014{padding:0 15px 15px;}
+.write2014 .select_star { border:0 none;}
+#selStar {margin-right:10px;}
+.pageNavigation { margin:0; padding-bottom:15px; margin-top:15px;}
+.comment { border-bottom:1px solid #d1d1d1;}
+</style>
+<div class="star_nav" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main bgk_main n_mb">
+<!--店铺-->
+<div class="shop_info">
+ <div class="shop_pic">
+ <div id="slide" class="clearfix">
+	<div id="content"></div>
+	<ul id="indicator"></ul>
+</div>
+<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  <dl class="clearfix">
+   <dt class="hours">正常营业&nbsp;{$chrdate}</dt>
+   <dd>
+    <div class="star">
+     <i class="s_{$koubei}"></i>
+    </div>
+   </dd>
+  </dl>
+  <!--<div class="more"><a href="{$TargetUrl}pic_{$shopid}.html">更多</a></div>-->
+ </div>
+</div>
+<div class="sj_intro tbor">
+  <div class="con">
+   <h3>{$chrshop}<span class="j" style="display:{$qianyue}">签</span><span class="z" style="display:{$renzheng}">证</span></h3>
+  <div class="per_capita">
+   人均<span class="price">&yen;{$consumption}</span>
+  </div>
+  <dl id="mapPoint">
+   <dt class="address item" data-x="{$shop_x}" data-y="{$shop_y}">
+    {$chraddress}
+    <span class="juli item">未知</span>
+   </dt>
+   <dd class="zk">{$zhe}</dd>
+  </dl>
+  </div>
+  <div class="o_info">
+   <ul>
+    <li class="amount" id="show_total_revert1">0</li>
+    <li class="popular">{$hits}</li>
+    <li><a href="javascript:void(0);" onClick="addFav(this,{'shopid':'{$shopid}','productid':'','styleid':'3'});" class="fav">收藏</a></li>
+   </ul>
+  </div>
+ </div>
+ <div class="sj_c_info">
+  <ul>
+   <li><span>电话</span>{$chrtel}<a href="tel:{$chrtel}" class="tel">{$chrtel}</a><a href="sms:{$chrtel}" class="sms">{$chrtel}</a></li>
+   <li><span>QQ</span>{$chrqq}</li>
+   <li><span>微信</span>{$weixin}</li>
+  </ul> 
+ </div>
+<!--分享--> 
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+<!--资讯-->
+<div class="zx_list mb_10">
+ <div class="title clearfix">
+  <h4>商家动态</h4>
+  <span class="more"><a href="../cnotice_a0_b0_c0_d0_e0_f{$shopid}_p1.html">更多</a></span>
+ </div>
+ <ul>
+  {$Mh163k_wap_商家主页_商家动态}
+ </ul>
+</div>
+<!--商品--> 
+<div class="pic_show mb_10">
+ <div class="title">
+  <h4>商品</h4>
+  <span class="more"><a href="{$TargetUrl}shop_{$shopid}.html">更多</a></span>
+ </div>
+ <div class="show_con clearfix">
+  <ul>
+   {$Mh163k_wap_商家主页_商品}
+  </ul>
+ </div>
+</div>
+<!--省啦-->
+<div class="tg_list mb_10">
+  <div class="title2 clearfix">
+   <h4>省啦</h4>
+   <span class="more"><a href="{$TargetUrl}cuxiao_{$shopid}.html">更多</a></span>
+  </div>
+  <ul>
+   {$Mh163k_wap_商家主页_团购}
+  </ul>
+ </div>
+<!--点评-->
+ <div class="user_reviews">
+  <div class="title2">
+   <h4>网友评价</h4>
+   <span class="more"><a href="{$TargetUrl}comment_{$shopid}.html">更多</a></span>
+  </div>
+  <div class="comment">
+	<div id="showcomment">正在加载数据，请稍等......</div>
+  </div>
+ </div>
+<div class="post_reviews">
+  <form id="myform">
+		<div class="write2014" id="write">
+			<input type="hidden" id="needLogin" value="1">
+			<input type="hidden" id="needScore" value="1">
+			<input type="hidden" id="isrep" value="" />
+			<input type="hidden" id="istg" value="" />
+			<input type="hidden" id="parentid" value="" />
+			<input type="hidden" id="total_score" value="" />
+			<input type="hidden" id="score_1" value="" />
+			<div id="selScore" class="select_star">
+				<span id="selStar" class="i_star_0"><a data-index="1" class="s_star" href="#">1星</a><a data-index="2" class="s_star" href="#">2星</a><a data-index="3" class="s_star" href="#">3星</a><a data-index="4" class="s_star" href="#">4星</a><a data-index="5" class="s_star" href="#">5星</a></span>
+			    <span id="pj_txt"></span>
+                <span class="tips">请给商家打分评级</span>
+            </div>
+			<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+            
+            <button type="submit" class="cmt_btn cmt_btn2">提交</button>
+		</div>
+	</form>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_comments.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_kuaisonCommon.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var nowdomain = '{$SiteUrl}';
+
+
+
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = window['$id'] = '0';
+window['SHOPID'] = window['$shopid'] = '{$shopid}';
+window['STYLEID'] = '1';
+window['TPLNUM'] = '2';
+document.addEventListener('DOMContentLoaded',function(){
+	getNewRevertPage('1');
+	if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}
+	setTimeout(function(){
+		$('#nav_2015').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#nav_2015').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+  $('#selStar').selStar();
+},false);
+var Lanterninfo=[{$huangdengpian}];
+var txt = '',
+	txtImg = '';
+if(Lanterninfo.length > 0){
+	for(var i=0;i<Lanterninfo.length;i++){
+		
+		txtImg+='<div class="cell" style="width: 944px;"><img src="'+Lanterninfo[i][0]+'" alt=""></div>';
+		if(i === 0){
+			txt += '<li class="active">1</li>';
+		}else{
+			txt += '<li>'+(i+1)+'</li>';
+		}
+	}
+	$('#content').html(txtImg);
+	$('#indicator').html(txt);
+	var w_w = $(window).width();
+	setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+}else{
+	$('#content').html('<img src="{$Default_tplPath}images/kuaison_nofind_starShop.gif" alt="" />');
+}
+
+(function($){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1'),total_score = $('#total_score'),pj_txt = $('#pj_txt');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+			if(val==1){
+				total_score.val(3);
+				pj_txt.text('差评');
+				}
+			else if(val > 1 && val < 4){
+				total_score.val(2);
+				pj_txt.text('中评');
+				}
+			else{
+				total_score.val(1);
+				pj_txt.text('好评');
+				}	
+		});
+	};
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('li').removeClass('current');
+			$(this).parent().addClass('current');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+})(jQuery);
+var shareImg = '';
+if(typeof Lanterninfo[0] !== 'undefined'){shareImg = Lanterninfo[0][0].replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrshop}','{$chraddress}',shareImg,'{$shopurl}company_{$shopid}.html');
+	});
+}
+</script>
+</body>
+</html>

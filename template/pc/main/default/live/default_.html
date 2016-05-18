@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/live.css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top950$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<div id="content">
+		<div class="lineAdv_box">
+			<ul class="clearfix">
+				{$livetopadv}
+			</ul>
+		</div>
+		<div class="navLive">
+			<ul class="clearfix">
+				{$livecategory1}
+				<li class="more" id="nav_more"><a href="#" class="nav_more">更多</a><div class="po" style="display:none;" id="nav_po">
+						{$livecategory2}
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="searchBar clearfix">
+		<form name="searchlive" method="get"  style="margin:0" action="search.aspx" onSubmit="if(this.keyword.value=='请输入关键字'){this.keyword.value='';}">
+			<span class="title"></span>
+			<div class="txt_input"><input type="text" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字"  name="keyword" /></div>
+			<div class="select">{$areaid}</div>
+			<div class="select">{$leibiekey}</div>
+			<button type="submit">找一下</button>
+			</form>
+		</div>
+		<div class="grid_live_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="scroll_news">
+					<div class="hd">鲜活信息实时滚动播报</div>
+					<div class="bd" id="new-item" style="height:138px">
+						<ul>
+							{$bobaolive}
+						</ul>
+						<span class="scroll-up" title="上一页">上一页</span><span class="scroll-down" title="下一页">下一页</span>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="top6_index">
+					<div class="hd clearfix"><div class="fr"><a href="{$jingjiaurl}" target="_blank">参与竞价</a></div><h3>top6 推荐</h3></div>
+					<ul>
+						{$top6list}
+					</ul>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="menu_live">
+					<ul>
+						<li><a href="{$liveurl}fabu.html" class="m_01">免费发布信息</a></li>
+						<li><a href="{$SiteUrl}member/mylive.aspx" class="m_02">修改刷新信息</a></li>
+						<li><a href="{$jingjiaurl}" class="m_03">推广我的信息</a></li>
+						<li><a href="{$SiteUrl}help/help_3710.html" class="m_04">我 是 新 手</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top:10px; font-size:0;">{$liveindex}</div>
+		<div class="bigBg">
+			<div class="tbd clearfix">
+			{$top6category}
+			</div>
+		</div>
+		<div class="grid_live_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="txb2">
+					<div class="hd"><em class="em">信息关注</em>排行榜</div>
+					<div class="bd">
+						<ul>
+							{$paihanglive}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="txb2">
+					<div class="hd"><h3 class="h3_02"><em class="em">最近回复</em>排行榜</h3></div>
+					<div class="bd">
+						<ul>
+							{$lastrevertlive}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+(function($){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#areaid').selectbox();
+	$('#colname').selectbox();
+	$("#nav_more").hover(function(){
+		$("#nav_po").fadeIn();
+	},function(){
+		$("#nav_po").hide();
+	});
+})(jQuery);
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/core-mini.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/LineMarquee.js"></script>
+</body>
+</html>

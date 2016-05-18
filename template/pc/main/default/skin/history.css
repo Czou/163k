@@ -1,0 +1,79 @@
+#wrap { text-align:center;}
+.container {
+  text-align: left;
+  position: relative;
+  padding: 0;
+  overflow:hidden;
+ 
+}
+.hidetext {white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.red { color:#f00;}
+.gray { color:#666}
+
+.topmeta { border:1px solid #ace; background:#E7F0F8; position: absolute; right:0; padding:0 10px; top:5px; display:inline; font:12px/25px Verdana, Arial;}
+
+#main{ padding-top:15px; }
+.tbox{ overflow:auto; zoom:1; }
+.c_pic{ float:left; padding:0 25px 0 15px; }
+.cbox{ border:1px solid #ACE; padding:6px; margin-top:40px; height:155px; position:relative; }
+.cbox h3{ padding:0; margin:0; position:absolute; left:15px; top:-14px; width:46px; height:26px; font:bold 16px/26px Verdana; text-align:center; background:#FFF; }
+#catalog{ float:left; width:115px; }
+#catalog ul{ font:14px/28px Verdana; padding:10px 0 0 40px; background:url(icon_c.gif) no-repeat -138px 17px; }
+#catalog li{ height:28px; overflow:hidden; }
+#calendar{ float:right; }
+.prompt{ position:absolute; right:0; top:-41px; height:28px; width:750px; }
+.pr,.pl{ float:right; width:3px; height:28px; background:url(icon_c.gif) no-repeat -103px 0; overflow:hidden; }
+.pl{ background:url(icon_c.gif) no-repeat -100px 0; }
+.pm{ float:right; height:26px; background:#EEF3F9; border:solid #ACE; border-width:1px 0; font:12px/26px Verdana; padding:0 10px; position:relative; }
+.ipic{ float:left; width:17px; height:16px; background:url(icon_c.gif) no-repeat -100px -48px; margin:5px 5px 0 0; }
+.arrow{ position:absolute; left:15px; top:26px; width:27px; height:12px; overflow:hidden; background:url(icon_c.gif) no-repeat -100px -28px; }
+#month{ float:left; padding:21px 0 0 10px; width:127px; }
+#month .m{ width:127px; height:95px; background:url(icon_c.gif) no-repeat 0 -73px; font:30px "Î¢ÈíÑÅºÚ","ºÚÌå"; text-align:center; color:#333; _padding-left:25px;}
+#month .m .en{ display:block; font:bold 18px/45px Verdana; color:#638CC0; _padding-left:-0px; }
+#month .bot{ height:26px; background:#EEF3F9; border:1px solid #ACE; padding:0 8px; font:12px/24px Verdana; }
+#day{ float:right; }
+#day table{ width:590px; border-left:1px solid #EFEFEF; border-top:1px solid #EFEFEF; }
+#day th,#day td{ width:48px; height:21px; text-align:center; font:12px/21px Verdana; border-right:1px solid #EFEFEF; border-bottom:1px solid #EFEFEF; }
+#day th{ background:#EEF3F9; }
+#day .hday,#day .hday a{ color:#C00; }
+#day .today{ padding:1px 4px; background:#EEF3F9; border:1px solid #ACE; font-weight:bold; }
+.mbox{ margin-top:20px; padding:2px; border:1px solid #ACE; background:url(icon_c.gif) no-repeat -311px 2px; position:relative; }
+.mbox h3{ position:absolute; left:15px; top:-15px; height:26px; padding:0 10px 0 22px; background:#FFF url(icon_c.gif) no-repeat 8px -220px; font:bold 18px/26px Verdana; }
+.mbox .daycon{ background:url(ttop.jpg) no-repeat right bottom; }
+.mbox ul{ padding:10px 30px 0; }
+.mbox li{ margin-top:20px; line-height:22px; padding-left:85px; text-indent:-74px; background:url(icon_c.gif) no-repeat -299px -225px; }
+.hday li{ text-indent:0; padding-left:11px; }
+.gotop{ height:20px; }
+.gotop a{ float:right; width:42px; height:20px; line-height:60px; overflow:hidden; }
+.th_txt{ margin:20px 56px 0; background:url(underline.gif) repeat-x bottom; padding:8px; font:bold 14px/26px Verdana; }
+.d_txt{ margin:0 56px; padding:12px 8px; line-height:24px; background:url(underline.gif) repeat-x bottom; }
+.pic_txt{ width:750px; margin:0 auto 15px; text-align:center; overflow:hidden; }
+.pic_txt img{ max-width:720px; padding:4px; border:1px solid #ACE; margin-bottom:8px; }
+*html .pic_txt img{ width:expression(this.width>720?"720px":"auto"); }
+.pic_txt span{ padding:10px 0 0 20px; background:url(icon_c.gif) no-repeat -292px -219px; }
+
+.copy_con .input .text { width: 250px; border:1px solid #ace; padding:3px;}
+.copy_con { margin-right:20px;} 
+
+.date_inner { margin:21px; text-align:center; width:170px; height:176px; padding-top:13px; overflow:hidden; background:url(../images/date_lishi.png) no-repeat 0 0;}
+.date_inner .year { display:block; height:50px; font:bold 24px/50px "Microsoft YaHei",Î¢ÈíÑÅºÚ,"Microsoft JhengHei",»ªÎÄÏ¸ºÚ,STHeiti,MingLiu; color:#d00;}
+.date_inner .month { display:block; height:35px; color:#267fbe; font:18px/35px "Microsoft YaHei",Î¢ÈíÑÅºÚ,"Microsoft JhengHei",»ªÎÄÏ¸ºÚ,STHeiti,MingLiu;}
+.date_inner .day { display:block; height:45px; color:#f60; font:bold 42px/45px "Microsoft YaHei",Î¢ÈíÑÅºÚ,"Microsoft JhengHei",»ªÎÄÏ¸ºÚ,STHeiti,MingLiu;}
+.date_inner .weekday { display:block; height:22px; font-size:14px; color:#f50;}
+.date_inner .other { display:block; height:23px; line-height:23px; color:#358d00;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

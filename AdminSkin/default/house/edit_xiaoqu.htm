@@ -1,0 +1,214 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改小区信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至小区列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkaddxiaoqu(this)" enctype="multipart/form-data">
+  <tr >
+          <td height="20" class="category"   colspan=4>小区本资料： </td>
+        </tR>
+         <tr><td height="25"  >所属用户名<font color="#FF0000"></font>：  </td>
+        <td colspan=3 class="category"> <input type="text" name="userid" value="{$userid}" size="20" onblur="if(this.value!=''){getdata('request.aspx?action=checkloupanuserid&userid='+encMe(this.value),'tishi');}else{tishi.innerHTML='（输入用户名后，此用户可以管理此小区资料）';}"> <span id="tishi"> <em class="global_tip">（输入用户名后，此用户可以管理此小区资料）</em></span>
+        </td>
+        </tr>
+        <tr >
+          <td height="25" >小区名称<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="text" name="chrloupan" value="{$chrloupan}" size=70></td>
+        </tr>
+        <tr >
+          <td height="25"  >小区位置<font color="#FF0000">*</font>： </td>
+          <td  class="category"  colspan=3 > {$qu_classid} 地址：
+            <input type="text" name="chraddress" id="chraddress"  value="{$chraddress}" size=40>
+            <a href="#" onclick='set_newimage()'><font  color="red"> <em class="global_tip">标注地图位置</em></font></a>
+            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
+            <input type="hidden" id="shop_z" name="shop_z"  value="0">
+			<input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"></td>
+        </tr>
+        <tr >
+          <td height="25">小区形象图片(400*298)<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><span id="str3" >{$filepath$}</span><span id="str4" style="display:none">
+		<input type="file" name="file" size="70">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		</span>
+	  <input type=hidden name="url1" value="{$url1}">
+	  <input type="hidden" name="filewidth" value="400">
+	  <input type="hidden" name="fileheight" value="298">
+		  <input type="hidden" name="smallfilewidth" value="195">
+		  <input type="hidden" name="smallfileheight" value="145">
+		</td>
+        </tr>
+
+        <tr >
+          <td height="25" >小区类型： </td>
+          <td  class="category" colspan=3><ul class="i_list_li clearfix">{$categoryids}</ul></td>
+        </tr>
+		<tr >
+          <td height="25" >建筑类别： </td>
+          <td  class="category"  ><input type="text" name="jianzhuleibie" value="{$jianzhuleibie}" size=20></td>
+		  <td height="25" >业主论坛： </td>
+          <td  class="category" ><input type="text" name="yezhu" value="{$yezhu}" size=30></td>
+        </tr>
+        <tr >
+          <td height="25" >小区形态与栋数： </td>
+          <td  class="category" ><input type="text" name="xingtai"  value="{$xingtai}" size=30></td>
+		   <td height="25" >建筑年代： </td>
+          <td  class="category" ><input type="text" name="niandai"  value="{$niandai}" size=10> <em class="global_tip">如:2009</em></td>
+        </tr>
+        <tr >
+          <td height="25" >总占地面积： </td>
+          <td  class="category" ><input type="text" name="zhangdi"  value="{$zhangdi}" size=20> <em class="global_tip">平方米</em></td>
+          <td height="25" >总建筑面积： </td>
+          <td  class="category" ><input type="text" name="jianzhu"  value="{$jianzhu}" size=20> <em class="global_tip">平方米</em></td>
+        </tr>
+         <tr >
+          <td height="25" >开发商： </td>
+          <td  class="category" ><input type="text" name="chrsupply" value="{$chrsupply}" size=30></td>
+           <td height="25" >总户数： </td>
+          <td  class="category" ><input type="text" name="hushu" value="{$hushu}" size=20></td>
+       </tr>
+        <tr >
+          <td height="25" >物业公司： </td>
+          <td  class="category" ><input type="text" name="wuyecompany" value="{$wuyecompany}" size=20></td>
+          <td height="25" >物业管理费： </td>
+          <td  class="category" ><input type="text" name="wuyeguanli"  value="{$wuyeguanli}" size=10>
+            <em class="global_tip">平米/月</em></td>
+        </tr>
+        <tr >
+          <td height="25" >绿化率： </td>
+          <td  class="category" ><input type="text" name="lvhua"  value="{$lvhua}" size=20></td>
+          <td height="25" >得房率： </td>
+          <td  class="category" ><input type="text" name="defang"  value="{$defang}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >容积率： </td>
+          <td  class="category" ><input type="text" name="rongji" value="{$rongji}" size=20></td>
+          <td height="25" >车位数： </td>
+          <td  class="category" ><input type="text" name="chewei" value="{$chewei}" size=20></td>
+        </tr>
+         <tr >
+          <td height="25" >小区介绍： </td>
+          <td  class="category" colspan=3><textarea name="chrmark" style="width:500px;height:90px;" >{$chrmark}</textarea></td>
+        </tr>
+        
+        <tr>
+          <td   height="25" class="category"   colspan=4>周边配套、小区配套</td>
+        </tr>
+        <tr>
+          <td  >交通：</td>
+          <td class="category" colspan="3"><input type="text" name="jiaotong"  value="{$jiaotong}" size="48"></td>
+        </tr>
+        <tr>
+          <td >学校：</td>
+          <td class="category" colspan="3"><input type="text" name="xuexiao" value="{$xuexiao}" size="48"></td>
+        </tr>
+        <tr>
+          <td >购物：</td>
+          <td class="category" colspan="3"><input type="text" name="gouwu" value="{$gouwu}" size="48"></td>
+        </tr>
+        <tr>
+          <td >医院：</td>
+          <td class="category" colspan="3"><input type="text" name="yiyuan"  value="{$yiyuan}"size="48"></td>
+        </tr>
+        <tr>
+          <td >银行：</td>
+          <td class="category" colspan="3"><input type="text" name="yinghan" value="{$yinghan}" size="48"></td>
+        </tr>
+        <tr>
+          <td >餐饮：</td>
+          <td class="category" colspan="3"><input type="text" name="canyin" value="{$canyin}" size="48"></td>
+        </tr>
+        <tr>
+          <td >其他：</td>
+          <td class="category" colspan="3"><input type="text" name="qita" value="{$qita}" size="48"></td>
+        </tr>
+       
+        <tr>
+          <td >周边口碑店铺：</span></td>
+          <td class="category" colspan="3"><p style="margin-top: 1px; margin-bottom: 1px">
+              <input type="radio" value="0" {$R10} name="R1">
+              自动调用该区域内口碑值前5位的店铺，如果该区域店铺为0，则随机调用全站口碑店铺</span></p>
+            <p style="margin-top: 1px; margin-bottom: 1px"><input type="radio" value="1" disabled="true"  name="R1"><font color="#808080"> 指定店铺(该功能计划开发中,将在下次升级中提供)</span></font></td>
+        </tr>
+        <tr >
+          <td height="25" class="category"   colspan=4>其他信息： </td>
+        </tR>
+        <tr>
+          <td height="25" >小区二手房均价<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3><input type="text" name="avgprice"  value="{$avgprice}" onKeyUp="value=value.replace(/\D+/g,'')">
+            <em class="global_tip">元/平米</em> <em class="global_tip">（必须填写数字，<font color=red>如果填0则表示“不详”</font>）</em></td>
+        </tr>
+		 <tr>
+          <td >专家点评：</td>
+          <td class="category" colspan="3"><textarea rows="8" name="peitao" cols="78">{$peitao}</textarea></td>
+        </tr>
+       
+        <tr >
+          <td height="25" class="category"   colspan=4>属性设置： </td>
+        </tR>
+        <td height="25"  >排序<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input name="intorder" value="{$intorder}" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')">
+            <em class="global_tip">数字越大越靠前</em></td>
+          <td height="25"  >浏览次数<font color="#FF0000">*</font>： </td>
+          <td class="category" colspan="5"><input type="text" name="views" value="{$views}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/>
+            <em class="global_tip">(会在该数字基础上累加)</em></td>
+        </tr>
+        <tr >
+          <td height="25" >推荐热销<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="checkbox" name="tuijian" value="1" {$tuijian}>
+            推荐
+            <input type="checkbox" name="rexiao" value="1" {$rexiao}>
+            热销</td>
+          <td height="25"  >状  态<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" name="iskill" value="0" {$iskill0}>
+            待审
+            <input type="radio" name="iskill" value="1" {$iskill1}>
+            通过审核
+            <input type="radio" name="iskill" value="2" {$iskill2}>
+            下线</td>
+        </tr>
+    <tr  > <td></td>
+      <td height="25" colspan="4" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=id value="{$id}">
+		 <input type="submit" name="Submit" class="global_btn_blue_big" value="继续下一页"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成"><input type="hidden" name="over" value="0">
+        </td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script>
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+function hid2()
+{
+	$("str3").style.display="none";
+	$("str4").style.display="block";
+}
+</script>

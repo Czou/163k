@@ -1,0 +1,15 @@
+﻿<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+	<tr>
+		<td width="100"><input name="ID" type="checkbox" value="{$revertid}"> ID：{$revertid}</td>
+		<td width="390">评论对象：<span class="target">{$top}</span></td>
+		<td width="80" align="center"><span class="red{$isopen}">[{$isopenstr}]</span></td>
+		<td width="80" align="center"><span style=" color:#096" class="display{$huifunum}">[有回复]</span><span style="color:#999" class="display{$isrep}">[已回复]</span><span style="color:#f00" class="display2{$isrep}">[未回复]</span></td>
+		<td width="240" align="center">{$chrname} (IP:{$chrip})</td>
+		<td width="150" align="center">{$dtappenddate}</td>
+		<td align="center"><a href="javascript:show_replay('{$revertid}','{$id}','{$styleid}');" class="global_btn_blue">编辑或回复</a> <a href="#" onclick="return tgQuick(this,'{$revertid}','{$styleid}');" class="global_btn">更多操作</a></td>
+	</tr>
+	<tr>
+		<td colspan="7" style="background-color:#ffffff; padding:10px; color:#1A438E;">{$chrmark}</td>
+	</tr>
+</table>
+<div class="blank10"></div>

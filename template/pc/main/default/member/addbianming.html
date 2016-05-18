@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>申请开通服务行业黄页--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写机构名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("对不起,请选择行业分类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.chrdiqu.value==""){
+		alert("对不起,请选择所在地区！");
+		o.chrdiqu.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("对不起,请输入联系电话！");
+		o.chrtel.focus();
+		return false;
+	}
+}
+function set_newimage(){
+	var shop_x=document.getElementById('shop_x').value;
+	var shop_y=document.getElementById('shop_y').value;
+	var ggmap=document.getElementById('ggmap').value;
+ 	var url='../ezmarker/index.aspx?city=&x='+shop_x+'&y='+shop_y+'&ggmap='+ggmap;
+	window.open(url,'newindow','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=yes');
+}</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 申请开通服务行业黄页</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">申请开通服务行业黄页</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />成功提交您的基本资料以后，您可以在“管理服务行业黄页”中进行“编辑”，对您的内容进行资料填充和完善！<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+     <tr >
+          <td class="tditem" >机构名称<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 ><input type="text" name="chrtitle" value="" class="text" size=30></td>
+        </tr>
+        <tr >
+          <td class="tditem"  >机构LOGO(140*60)<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  colspan=3 >  <input type="file" class="text"  name="file" size="80"></td>
+        </tr>
+        <tr >
+          <td class="tditem">行业分类<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 >{$categoryid}</td>
+        </tr>
+		 <tr >
+          <td class="tditem" >所在地区<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3>{$chrdiqu$}</td>
+        </tr>
+		
+         <tr >
+          <td class="tditem" >联系电话<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="chrtel" value="" class="text" size=30></td>
+        </tr>
+        <tr >
+          <td class="tditem" >电子邮件： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="chremail" value="" class="text" size=30 /></td>
+        </tr>
+        <tr > 
+          <td  class="tditem">联系地址<font color="#FF0000"></font>：</td>
+          <td  colspan=3  class="tdcontent"><input type="text" name="chraddress" id="chraddress" class="text" value="" style="width:260px;"/></td>
+        </tr>
+		<tr >
+          <td class="tditem" >地图标注： </td>
+          <td  class="tdcontent" colspan=3>
+          <a href="javascript:void(0);" onclick='set_image()'><font  color="red">在地图上标注该机构所作位置</font></a>
+                    <input type="hidden" id="shop_x" name="shop_x"  value="0">
+                    <input type="hidden" id="shop_y" name="shop_y"  value="0">
+                    <input type="hidden" id="ggmap" name="ggmap"  value="0">
+                    <input type="hidden" id="shop_z" name="shop_z"  value="0">
+          </td>
+        </tr>
+		 <tr >
+		<td class="tditem" >主营项目/服务内容：<br />100汉字以内 </td>
+		<td  class="tdcontent"  colspan=3><textarea name="chrcode" class="text" style="width:460px; height:70px;"/></textarea></td>
+		</tr>
+		<tr >
+		<td class="tditem" >模板配色方案： </td>
+		<td  class="tdcontent" colspan=3><select name="mobanid">
+        <option value="1">橙色</option>
+        <option value="2">蓝色</option>
+        <option value="3">绿色</option>
+        <option value="4">紫色</option>
+        <option value="5">棕色</option>
+        <option value="6">红色</option>
+        </select></td>
+		</tr>
+        <tr > 
+ 	  <td class="tditem" height="25">服务机构二级域名功能要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent" colspan=3>{$bmyumingkillstate} </td>
+     </tr>
+    <tr > 
+          <td  class="tditem"  height="25">是否启用服务机构二级域名<font color="#FF0000"></font>： 
+          </td>
+          <td  class="tdcontent" colspan=3> <input name="yumingkill" type="radio" value="0" checked >不启用（暂停） <input name="yumingkill" type="radio" value="1"  >启用(正常)  </td>
+         </tr>
+         <tr > 
+          <td class="tditem" height="25"> 为该服务机构绑定二级域名<font color="#FF0000"></font>： 
+          </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="yumingname" id="yumingname" maxlength="20" value="" style="width:100px;" class="text"   onblur="checkyuming(this.value,'yumingshow',0,2)">.{$SiteYuming}<span id="yumingshow">(请设置一个域名前缀)</span> </td>
+         </tr>
+			<tr > 
+          <td  align="center" colspan=4><input type="submit" name="Submit" value=" 确认无误，提交 " id="Submit" /></td>
+         </tr>	
+</table>
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

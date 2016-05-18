@@ -1,0 +1,166 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+.fangshi li { float:left; display:inline; margin-right:15px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">支付方式修改&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=paysave">
+    
+	 <tr > 
+      <td width="15%" height="25" >接口类别<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> {$payname}</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >显示支付方式名称<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" name="chrpay" size="40" value="{$chrpay}" /> 
+</td>
+    </tr>
+  
+	  <tr > 
+      <td  height="25" >{$companyid1}<font color="#FF0000">*</font>：
+      </td>
+      <td   class="category"> <input type="text" size="40" name="companyid" value="{$companyid}" /></td>
+    </tr>
+	 <tr style="display:none{$chrpwd1};"> 
+      <td  height="25" >{$chrpwd1}<font color="#FF0000">*</font>：<br /> 
+      </td>
+      <td   class="category"> <input type="text" size="40" name="chrpwd" value="{$chrpwd}" /></td>
+    </tr>
+    	<tr style="display:none{$shengfenid1};"> 
+      <td  height="25" >{$shengfenid1}：<font color="#FF0000">*</font>：</span>
+      </td>
+      <td   class="category"> <input type="text" size="40" name="shengfenID" value="{$shengfenid}" /></td>
+    </tr>
+    <tr style="display:none{$paykey1};"> 
+      <td  height="25" >{$paykey1}<font color="#FF0000">*</font>：
+      </td>
+      <td   class="category"> <input type="text" size="40" name="paykey" value="{$paykey}" /></td>
+    </tr>
+
+
+
+	<tr id="p_z_1" style="display:none{$isselfradio1}"> 
+      <td  height="25" >合作方式：
+      </td>
+      <td   class="category"> 
+      	<ul class="fangshi clearfix">{$isselfradio}</ul>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" >是否自动发货<font color="#FF0000">*</font>：
+      </td>
+      <td   class="category"> <input type="radio" value="0" name="isfahuo" {$isfahuo_c_0}>不自动发货
+        <input type="radio" value="1" name="isfahuo" {$isfahuo_c_1}>仅网站自动发货
+		<input type="radio" value="2" name="isfahuo" {$isfahuo_c_2}>支付接口自动发货
+		<input type="radio" value="3" name="isfahuo" {$isfahuo_c_3}>网站,接口均自动发货
+        </td>
+    </tr>
+	 <tr > 
+      <td  height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="5" name="intorder" value="{$intorder}"   class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">数字越小越排在前面</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >是否启用<font color="#FF0000">*</font>：
+      </td>
+      <td   class="category"> <input type="radio" value="0" name="isopen" {$isopen_c_0}>
+        启用
+        <input type="radio" value="1" name="isopen" {$isopen_c_1}>
+        禁用</td>
+    </tr>
+	<tr > 
+      <td  height="25" >手续费率：
+      </td>
+      <td   class="category"> <input type="text" size="5" name="chrmoney" value="{$chrmoney}" />%</td>
+    </tr>
+	 <tr > 
+      <td  height="25" >支付方式说明<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <textarea name="chrmark" cols="70" rows="5">{$chrmark}</textarea></td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left"><input type="hidden" id="payid" name="id" value="{$payid}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+    	 
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+
+<script src="{$atplPath}js/jquery.js"></script>
+<!--script>
+var payid = $('#payid').val();
+var p_c_1 = $('#p_c_1');
+var p_c_2 = $('#p_c_2');
+var p_t_1 = $('#p_t_1');
+var p_t_2 = $('#p_t_2');
+var p_z_1 = $('#p_z_1');
+var t_2_13 = $('#t_2_13');
+var t_2_5 = $('#t_2_5');
+if(payid === '5'){
+	p_t_1.show();
+	p_c_1.show();
+	p_c_2.show();
+	p_z_1.show();
+	t_2_5.show();
+}
+else{
+	p_t_2.show();
+}
+if(payid === '1'){
+	p_t_1.show();
+	p_c_1.show();
+	p_t_2.hide();
+	p_z_1.show();
+	t_2_13.show();
+}
+if(payid === '3'){
+	p_c_1.show();
+	p_z_1.show();
+	t_2_13.show();
+}
+
+
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script-->
+  </body>
+</html>
+

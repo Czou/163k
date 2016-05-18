@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>店铺加盟-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+window['ipageTitleTxt'] = '店铺加盟';
+</script>
+{$top$}
+<script>
+function getUserState(){
+	if(!!$.isEmptyObject(window['userDate'])){
+		MSGwindowShow('company','1','对不起，请登录后再提交加盟申请！',window['siteUrl']+'member/login.html?from='+encodeURIComponent(window.location.href),'');
+	}
+}
+</script>
+<div class="o_main">
+<form name="aspnetForm" method="post" action="/member/myshop.aspx?action=save" target="tijiao" onSubmit="return checkaddshop(this)">
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>店铺名称</dt>
+   <dd><input type="text" name="chrshop" id="chrshop" value="" placeholder="输入店铺名称" /></dd>
+  </dl>		
+  <dl class="clearfix">
+   <dt>形象图片</dt>
+   <dd><span id="str1" style="display:none;"><img src="" style="display:block; margin-bottom:5px;" class="img_block" id="for_url_0" width="150" height="100" alt="" /><a href="#" onClick="return upload_img_action_X('str1','str2');" style=" border:1px solid #e6e6e6; background-color:#f6f6f6; font-size:12px; padding:1px 5px;">重新上传</a></span><span id="str2">
+								<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url0" id="url0" /></span><input type="hidden" value="150" name="filewidth" /><input type="hidden" value="100" name="fileheight" /></dd>
+  </dl>			
+  <div style="display:none;">{qu_classid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>行业</dt>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  <dl class="biyeshijian clearfix">
+   <dt>模板风格</dt>
+   <dd><div class="menu"><i></i><i></i><i></i></div>{$template}</dd>
+  </dl>
+  <div style="display:none;">{$chrdiqu$}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>所在区域</dt>
+   <dd id="categoryid3"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid4"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  <dl class="clearfix"> 
+   <dt>地址</dt>
+   <dd><input type="text" name="chraddress" id="chraddress" class="codebox2-input" placeholder="输入详细地址" value="" /><input type="hidden" id="shop_x" name="shop_x" ><input type="hidden" id="shop_y" name="shop_y" ><input type="hidden" id="shop_z" name="shop_z" > <input type="hidden" id="ggmap" name="ggmap" value="1" ></dd>
+  </dl>
+  
+  <dl class="clearfix">
+   <dt>联系电话</dt>
+   <dd><input type="text" name="chrtel" id="chrtel" value="" placeholder="请输入电话或者手机" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>联系QQ</dt>
+   <dd><input type="text" name="chrqq" id="chrqq" value="" placeholder="请输入常用网络联系方式" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>交通线路</dt>
+   <dd><input type="text" name="chrjiaotong" id="chrjiaotong" value="" placeholder="请输入交通线路,以便找到" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>营业时间</dt>
+   <dd><input type="text" name="chrdate" id="chrdate" value="" placeholder="请输入营业时间" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>折扣</dt>
+   <dd><input type="text" name="zhe" id="zhe" value="" placeholder="比如：95折，88折" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>本店特色</dt>
+   <dd><input type="text" name="shoptese" id="shoptese" value="" placeholder="比如：绿色、无污染、土特产品" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>人均消费</dt>
+   <dd><input type="text" placeholder="请输入人均消费" name="consumption" id="consumption" value="" /><span class="yuan">元</span></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox">
+  <textarea id="chrmark" name="chrmark" placeholder="请输入店铺简介，仅限50字" class="txt"></textarea>
+ </div>
+			<p style="text-align:center; margin:0 0 10px;"><input type="checkbox" name="checkbox" value="checkbox" checked /> 已经阅读并接受<a href="javascript:showxieyi('XIEYI');" style="color:#36c;">店铺加盟协议</a></p>
+			<div style="border:1px solid #ddd; background-color:#fff; padding:6px; margin:10px;display:none;" id="XIEYI">{$xieyi$}</div>
+ <button type="submit" class="fb">确 认</button>
+</form>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0" style="display:none;"></iframe>
+{$bottom$}
+<script>
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	tag.attr({'src':surl});
+	upload_img_action_X('str2','str1');
+}
+function upload_img_action_X(str1,str2){
+	$('#'+str1).hide();
+	$('#'+str2).show();
+	return false;
+}
+function showxieyi(id){
+	if(!!$('#'+id+':visible')[0]){
+		$('#'+id).hide();}
+	else{
+		$('#'+id).show();
+	}
+}
+function checkaddshop(o){
+	
+	if($("#chrshop").val()=="" || $("#chrshop").val().length<3){
+		MSGwindowShow('company','0','对不起，输入店铺名称！','','');
+		return false;
+	}
+	if($("#qu_classid").val()=="" ){
+		MSGwindowShow('company','0','对不起,选择您的行业分类！','','');
+		return false;
+	}
+	if($("#chrdiqu").val()=="" ){
+		MSGwindowShow('company','0','对不起,请选择所在区域！','','');
+		return false;
+	}
+	if($("chraddress").val()=="" || $("#chraddress").val().length<3){
+		MSGwindowShow('company','0','对不起,请输入详细地址！','','');
+		return false;
+	}
+	
+}
+function BuildSel(str,sel){
+	sel.options.length=0;
+	var arrstr = new Array();
+	arrstr = str.split(",");
+	sel.options.add(new Option( "::请选择::","")); 
+	if(str.length>0){
+		for(var i=0;i<arrstr.length-1;i++){
+			var subarrstr=new Array
+			subarrstr=arrstr[i].split("|")
+			sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+		}
+		sel.options[0].selected=true
+	}
+}
+function showquyu(str){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str;
+		$.ajax({url:url,success:function(data){
+			BuildSel(data ,document.getElementById("qu_classid"));
+		}});
+	}
+} 
+function showTgQuyu(str,docId,nowcc){
+	var url="../request.aspx?action=quyu&id="+str;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success: function(data){
+		var sel=document.getElementById(docId);
+		var val="::请选择::";
+		var str =data;
+		sel.options.length=0;
+		var arrstr = [];
+		arrstr = str.split(",");
+		sel.options.add(new Option( val,"")); 
+		if(str.length>0){
+			for(var i=0;i<arrstr.length-1;i++){
+				var subarrstr=[];
+				subarrstr=arrstr[i].split("|");
+				sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+				if(nowcc==subarrstr[0]){
+					sel.options[i+1].selected=true;
+				}
+			}
+		}
+	}});
+}
+$(function() {
+	$('#categoryid1').append($('#qu_classid').detach());
+	$('#categoryid2').append($('#qu_catgoryid').detach());
+	$('#categoryid3').append($('#bigchrdiqu').detach());
+	$('#categoryid4').append($('#chrdiqu').detach());
+	$('#bigchrdiqu').change(function(){
+		showTgQuyu($(this).val(),'chrdiqu');
+	});
+});
+</script>
+</body>
+</html>

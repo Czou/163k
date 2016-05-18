@@ -1,0 +1,32 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   
+  <form name="form1" method="post" action="?action=editsave" >
+    <tr > 
+      <td width="15%" height="25" >标题<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="title" type="text" value="{$title}" size="30">(不超过12字)</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >链接<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrurl" type="text" value="{$chrurl}" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >属性<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="checkbox" name="isbold" value="1" {$isbold1}/>加粗  打开方式：<input type="radio" name="target" value="0" {$target0}  >原窗口 <input type="radio" name="target" value="1" {$target1}  >新窗口</td>
+    </tr>
+	 <tr> 
+             <td height="25" >颜色：
+			  </td><td height="20" align="left" class="category">
+			  <input name="color" type="text"  size=10 value="{$color}">&nbsp;&nbsp;<img src={$atplPath}images/fgcolor.gif alt="字体颜色" style="cursor:hand" onClick="clickcolor(document.form1.color)"><font color="#FF0000">* </font>
+		   </td>
+		   </tr>
+    
+    <tr > <td></td><input type="hidden" name="id" value="{$ID}">
+      <td height="25"   class="category"><input type="hidden" name="gotourl" value="{$gotourl$}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>

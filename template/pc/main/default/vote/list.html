@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$chrkeyword}" />
+<meta name="description" content="{$chrdescription}" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<link href="{$Default_tplPath}skin/mt_h.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tp_style.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}vote/">{$lanmuname}</a> &gt; {$chrtitle}</div>
+	<div class="content tp">
+		<div class="zdy" style="text-align:left;">{$chrcontent}</div>
+		<div class="tp_nav">
+			<ul class="clearfix">
+				<li class="{$colname0}"><a href="?colname=0">默认排行</a><span class="sp"></span></li>
+				<li class="{$colname4}"><a href="?colname=4">最新报名</a><span class="sp"></span></li>
+				<li class="{$colname1}"><a href="?colname=1">得票排行</a><span class="sp"></span></li>
+				<li class="{$colname2}"><a href="?colname=2">浏览排行</a><span class="sp"></span></li>
+				<li class="{$colname3}"><a href="?colname=3">评论排行</a><span class="sp"></span></li>
+				<li class="menu"><a href="../member/myvote.aspx?action=add&id={$voteid}" class="link">我要报名</a></li>
+			</ul>
+		</div>
+		<div class="grid_tp clearfix">
+			<div class="list">
+				<ul class="clearfix">
+					
+					<tag:Loop ListType="listvoteqian" RecType="New" PageSize="40" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="vote/list_vote.html" />
+				</ul>
+				<div class="f_pagelist">{$PageSplit}</div>
+			</div>
+		</div>
+	</div>
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<div id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

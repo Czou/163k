@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的团购活动报名管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我的团购活动报名管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">我的团购活动报名管理</div>
+
+<br />
+<form name="form1" method="post" action="?action=editsave" onSubmit="return checkbaoming(this);">
+<div class="smalltitle">1、活动基本信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" width="25%">活动编号：</td>
+        <td class="tdcontent">
+            <span id="lbOrderId" style="color:Blue;">{$activenum}</span><input type="hidden" name="orderid" id="orderid" value="{$ID}" />
+        </td>
+    </tr>
+    <tr>
+        <td class="tditem">活动名称：</td>
+        <td class="tdcontent"><span id="ProName"><a href="{$tuangouurl}huodong_{$activeid}.html" target="_blank">{$chrtitle}</a></span></td>
+    </tr>
+   
+	 <tr>
+        <td class="tditem">活动状态：</td>
+        <td class="tdcontent"><span id="ProPrice" style="color:Black;">{$aiskill}</span></td>
+    </tr>
+</table><br />
+<div class="smalltitle">2、报名信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+	<tr id="tr1">
+        <td class="tditem" width="25%"><span style="color:Red">*</span> 真实姓名：</td>
+        <td class="tdcontent"><input name="truename" type="text" class="text"  size="22"  value="{$truename}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr2_1">
+        <td class="tditem"><span style="color:Red">*</span> 联系电话：</td>
+        <td class="tdcontent"><input name="chrtel" type="text" class="text"  size="16"  value="{$chrtel}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr3">
+        <td class="tditem">  联系QQ：</td>
+        <td class="tdcontent"><input name="chrqq" type="text" class="text"  size="16"  value="{$chrqq}"> 
+            </td>
+    </tr>
+   
+	<input type="hidden" name="styleid" value="0" />
+   <tr>
+        <td class="tditem">简短附言：</td>
+        <td class="tdcontent"><textarea name="chrmark"  class="text"  style="width:500px; height:50px;" id="chrmark">{$chrmark}</textarea>
+            <span>(限定200字)</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue" id="Submit" />　<input class="global_btn" type="button" value=" 返 回 " onClick="javascript:location.href='myactive.aspx';" /></td>
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

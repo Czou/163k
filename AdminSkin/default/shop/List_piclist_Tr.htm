@@ -1,0 +1,9 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><A href="{$chrpic}" title="点击查看原始图片" class="lightwindow page-options"><img src="{$filepath}" width="80" height="80" border="0" /></A></td>
+	<td><a href="{$shopsurl}" target=_blank>{$chrshop}</a></td>
+	<td>{$chrmark}</td>
+	<td>{$dtappenddate}</td>
+	<td align="center"><!--<a href="?action=picedit&ID={$ID}">查看/编辑</a> --><a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

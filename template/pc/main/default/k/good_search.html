@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品搜索-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonSearch.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_快送_头部}
+	<div class="content bgk">
+		<div class="w-1200">
+			<div class="sort clearfix">
+				<div class="inner">搜索<span class="keyword">「{$key}」</span>的结果</div>
+				<div class="search">
+					<form action="/k_good_a0_b0_c0_d0_e0_f0_g0_p1.html" method="get">
+						<input class="s_ipt" type="text" name="_key" onfocus="if(this.value=='输入您要找的美食、商品关键词'){this.value='';this.style.color='#333'}" value="输入您要找的美食、商品关键词" /><button type="submit" class="s_btn">搜索</button>
+					</form>
+				</div>
+			</div>
+			<div class="list" id="goodshopList">
+				<ul class="clearfix">
+				<tag:Loop ListType="LISTSHOPGOODQIAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="k/good_search_list.html" />
+				</ul>
+				<div class="sys_more pageNavigation">{$PageSplit}</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer">
+	{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script>
+(function($){
+	getkill();
+	$.returnTop();
+	if($('#listEmpty')[0]){
+		$('#listEmpty').html('抱歉，没有找到符合条件的商品');
+	}
+})(jQuery);
+function getkill(){
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	
+	$('#goodshopList').find('.shop').each(function(){
+		var state_node = $(this).find('.state'),
+			isopen = $(this).attr('data-isopen'),
+			shipkill = $(this).attr('data-shipkill'),
+			startkill = $(this).attr('data-startkill'),
+			start2kill = $(this).attr('data-start2kill'),
+			startdate = $(this).attr('data-startdate'),
+			enddate = $(this).attr('data-enddate'),
+			startdate2 = $(this).attr('data-startdate2'),
+			enddate2 = $(this).attr('data-enddate2');
+		if(isopen === '2'){
+			state_node.addClass('state_2').html('暂停营业');
+			return;
+		}
+		var thestartdate = Date.parse(today + startdate + ':00');
+		var theenddate = Date.parse(today + enddate + ':00');
+		var thestartdate2 = Date.parse(today + startdate2 + ':00');
+		var theenddate2 = Date.parse(today + enddate2 + ':00');
+		
+		if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+			showkill(!0);
+		}else{
+			showkill(!1);
+		}
+		function showkill(allow){
+			if(!!allow){
+				state_node.addClass('state_1').html('营业中');
+			}else{
+				shipkill === '0'?(state_node.addClass('state_3').html('打烊了')):(state_node.addClass('state_2').html('打烊了'));
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

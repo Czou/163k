@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦券管理-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '省啦券管理';
+</script>
+<style type="text/css">
+body { background-color:#eee;}
+.color0 {
+    color: #36c;
+}
+.color1 {
+    color: #093;
+}
+.color9 {
+    color: #f60;
+}
+.color10 {
+    color: #999;
+}
+</style>
+{$top$}
+	<div class="content">
+		<div class="p_tabs clearfix">
+		   <ul>
+		    <li id="s_id_"><a href="?action=ss">全部</a></li>
+				<li id="s_id_1"><a href="?action=ss&xiaokill=1">已经消费</a></li>
+				<li id="s_id_0"><a href="?action=ss&xiaokill=0">未消费</a></li>
+				<li id="s_id_9"><a href="?action=ss&xiaokill=9">退款中</a></li>
+				<li id="s_id_10"><a href="?action=ss&xiaokill=10">已经退款</a></li>
+		   </ul>
+		</div>
+		
+		
+		<div class="user_order_list">
+			<ul id="tgorderList">
+				<tag:Loop ListType="LISTMYQUAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_mytgorderquan_Tr.htm" />
+			</ul>
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['xiaokill'] === '' || !url_obj['xiaokill']){
+		$('#s_id_').addClass('cur');
+	}else{
+		$('#s_id_'+url_obj['xiaokill']).addClass('cur');
+	}
+});
+</script>
+</body>
+</html>
+

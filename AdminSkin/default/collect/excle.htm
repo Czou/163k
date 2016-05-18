@@ -1,0 +1,48 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">导入采集规则&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" value="返回至采集规则列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+  <form name="form1" method="post" action="?action=inSave"  enctype="multipart/form-data">
+   
+	 <tr > 
+      <td width="15%" height="25">TXT文本文件<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="file" size=40 name="file">(请上传TXT文本文件)</td>
+    </tr>
+	
+    <tr > 
+      <td height="25" colspan=2>友情提醒<font color="#FF0000">*</font>：请将导出来的规则上传导入,否则有可能会出错! 
+      </td>
+      
+    </tr>
+	
+    <tr  > <td></td>
+      <td height="25"  class="category">
+		
+		<input type="submit" name="Submit" value="确定提交"> &nbsp; 
+        <input name="Reset" type="reset" id="Reset" value="取消重写"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

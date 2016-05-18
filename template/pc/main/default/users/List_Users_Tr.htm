@@ -1,0 +1,9 @@
+﻿       <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td>{$ChrName}</td><td>{$truename}</td><td><img src="{$atplPath}images/qq_online.gif" /><a href="tencent://message/?uin={$chrqq}&Site=&Menu=yes">{$chrqq}</a></td>
+	<td>{$jifennum}</td>
+	<td>{$regdate}</td><td>{$regip}</td><td>{$lastdate}</td>
+	<td>{$lastip}</td>
+	<td>{iskill}</td>
+	<td align="center"><a href="users.aspx?action=edit&ID={$ID}">查看编辑</a>  <a href="javascript:del({$ID});">删除</a>  <a href="javascript:isopen({$ID});">{cname}</a></td><td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

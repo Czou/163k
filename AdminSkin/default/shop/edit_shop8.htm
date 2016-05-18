@@ -1,0 +1,145 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">八：支付方式设置：&nbsp;&nbsp;&nbsp; 说明:本接口主要用于商家商品的网上订单的支付款的接收，只有"签约商家"才可以使用独立接口，否则均自动默认为网站方的支付接口，即网站代为商家收钱网上支付，若使用商家独立支付接口，网上支付将直接支付到商家账户</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li  ><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li ><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li class="selected"><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=e8save" >
+			  <tr > 
+			  <td  height="25" width="16%">是否使用“独立支付接口”<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="category" colspan=3> <input type="radio"  name="shoppay" value="0" {$shoppay0} />否
+              <input type="radio"  name="shoppay" value="1" {$shoppay1} />是 <input type="radio"  name="shoppay" value="2" {$shoppay2} />禁止使用
+              </td>
+			 </tr>
+			 <tr> 
+			  <td >支付宝接口：
+			  </td>
+			  <td  colspan=3  class="category"><em class="global_tip">如果启用您的支付宝，请确保信息都填写正确，否则会支付失败。</em><a href="https://www.alipay.com/" target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  height="25" >支付宝帐号<font color="#FF0000">*</font>：
+                  </td>
+                  <td   class="category"> <input type="text" size="40" name="companyid1" value="{$companyid1}" /></td>
+                </tr>
+			 <tr > 
+              <td  height="25" >交易安全校验码<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td   class="category"> <input type="text" size="40" name="chrpwd1" value="{$chrpwd1}" /></td>
+            </tr>
+            <tr > 
+              <td  height="25" >合作者身份ID：<br />只针对支付宝有效
+              </td>
+              <td   class="category"> <input type="text" size="40" name="shengfenID1" value="{$shengfenID1}" /></td>
+            </tr>
+            <tr > 
+              <td  height="25" >是否启用：
+              </td>
+              <td   class="category"> <input type="radio"  name="isopen1" value="0" {$isopen10} />启用
+              <input type="radio"  name="isopen1" value="1" {$isopen11} />不启用</td>
+            </tr>
+            
+            
+            <tr> 
+			  <td >网银接口：
+			  </td>
+			  <td  colspan=3  class="category"><em class="global_tip">如果启用您的网银，请确保信息都填写正确，否则会支付失败。</em><a href="http://www.chinabank.com.cn/" target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  height="25" >商户编号<font color="#FF0000">*</font>：
+                  </td>
+                  <td   class="category"> <input type="text" size="40" name="companyid2" value="{$companyid2}" /></td>
+                </tr>
+			 <tr > 
+              <td  height="25" >MD5密钥<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td   class="category"> <input type="text" size="40" name="chrpwd2" value="{$chrpwd2}" /></td>
+            </tr>
+            <tr > 
+              <td  height="25" >是否启用：
+              </td>
+              <td   class="category"> <input type="radio"  name="isopen2" value="0" {$isopen20} />启用
+              <input type="radio"  name="isopen2" value="1" {$isopen21} />不启用</td>
+            </tr>
+             <tr> 
+			  <td >财付通接口：
+			  </td>
+			  <td  colspan=3  class="category"><em class="global_tip">如果启用您的财付通，请确保信息都填写正确，否则会支付失败。</em><a href="https://www.tenpay.com/" target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  height="25" >商户编号<font color="#FF0000">*</font>：
+                  </td>
+                  <td   class="category"> <input type="text" size="40" name="companyid3" value="{$companyid3}" /></td>
+                </tr>
+			 <tr > 
+              <td  height="25" >MD5密钥<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td   class="category"> <input type="text" size="40" name="chrpwd3" value="{$chrpwd3}" /></td>
+            </tr>
+            <tr > 
+              <td  height="25" >是否启用：
+              </td>
+              <td   class="category"> <input type="radio"  name="isopen3" value="0" {$isopen30} />启用
+              <input type="radio"  name="isopen3" value="1" {$isopen31} />不启用</td>
+            </tr>
+            
+            
+            
+            
+          <tr >
+            <td height="25" class="category" colspan=2 style="text-align:center"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type=hidden name=ID value="{$ID}">
+              <input type="hidden" name="over" value="0">
+              <input type="button"  onclick="window.location.href='?action=e7&id={$ID}';" name="button1" class="global_btn_big" value="上一页">
+              &nbsp;
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="保存并下一页">
+              &nbsp;
+              <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成">
+              </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+function hid1()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+</script>
+</body></html>

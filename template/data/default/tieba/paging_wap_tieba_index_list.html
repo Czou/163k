@@ -1,0 +1,12 @@
+﻿<div class="item">
+ <h2><span class="j display{$isjinghua}">精</span><span class="d display{$iszhiding}">置顶</span><a href="{$tiebaurl}../tieba_show_{$id}.html" style="color:{$color}" class="link bold{$isbold}">{$title}</a></h2>
+ <div class="con">{$chrcontent}<div class="n_img" id="n_img_{$id}">{$piclist}</div></div>
+ <dl>
+  <dt>{$chrname} <span class="stime">{$dtappenddate yyyy-MM-dd}</span></dt>
+  <dd>
+   <span class="zan" onclick="return putRevertPage(this,'{$id}','styleid=1&isyes=1');">{$num1}</span>
+   <span class="hf"><a href="{$tiebaurl}../tieba_show_{$id}.html">{$revertnum}</a></span>
+  </dd>
+ </dl>
+ <div class="manage"><a href="{$SiteUrl}tieba/addedit.aspx?action=edit&id={$id}" class="blue">编辑</a>　<a href="javascript:void(0);" onclick="superManage('{$id}');" class="blue">超级管理</a>　<a href="javascript:void(0);" onclick="$.managerTBisdel('{$id}');" class="blue">删除</a></div>
+</div>

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>选择会员注册类型-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/site_reg.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 选择会员注册类型</div>
+	<div id="content" class="site_reg_entrance">
+		<div class="hd">注册网站通行证</div>
+		<div class="bd clearfix">
+			<div class="left">
+				<ul>
+					<li>发布生活信息</li>
+					<li>加入人才库</li>
+					<li>在线找工作</li>
+					<li>在线购物</li>
+					<li>参加活动</li>
+					<li>加入社区</li>
+					<li>...... </li>
+				</ul>
+				<p class="btn"><a href="register_1.html" class="link regLink">立即注册</a></p>
+			</div>
+			<div class="left">
+				<ul>
+					<li>拥有个人会员全部功能</li>
+					<li>在线招聘人才</li>
+					<li>查看简历库</li>
+					<li>发布店铺</li>
+					<li>发布商品</li>
+					<li>深入商业合作</li>
+					<li>...... </li>
+				</ul>
+				<p class="btn"><a href="register_2.html" class="link regLink">立即注册</a></p>
+			</div>
+		</div>
+		<div class="ft">我已经注册，现在就<a href="login.html" class="regLink">[登录]</a></div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	
+	var jump_url = purl().param('from');
+	if(jump_url =='' || jump_url == null){
+		jump_url= encodeURIComponent(nowdomain);
+	}else{
+		jump_url = encodeURIComponent(jump_url);
+	}
+	$('.regLink').each(function(){
+		$(this).attr('href',$(this).attr('href')+'?from='+jump_url);
+	});
+});
+</script>
+</body>
+</html>

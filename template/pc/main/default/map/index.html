@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" href="{$tplPath}skin/map.css" />
+<style type="text/css">
+<!--
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea {margin:0;padding:0;}
+body,button, input, select, textarea {font:12px/1.5 arial,simsun,sans-serif;}
+body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {font-size:100%;}
+address, cite, dfn, em, var {font-style:normal;}
+code, kbd, pre, samp {font-family:courier new,courier,monospace;}
+small {font-size:12px;}
+ul, ol {list-style:none;}
+a { text-decoration:none; color:#36c;}
+a:hover {text-decoration:underline; color:#f50;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+legend {color:#000;}
+fieldset, img {border:0;}
+button, input, select, textarea {font-size:100%;}
+
+.fix:after { display:block; content:'\20'; height:0; clear:both;}
+.fix { *zoom:1;}
+.blank10 { height:10px; overflow:hidden;}
+.bigFont { font-size:14px!important;}
+#content { position:relative; *zoom:1; z-index:1; overflow:hidden;}
+
+#allmap{height:100%;width:100%; margin:0; position:relative;}
+#l-result{height:100%; width:365px; position:absolute; left:0; top:0; display:none; overflow-x:hidden; overflow-y:scroll;}
+#mapinfo_but_con { display:none; cursor:pointer; position:absolute; top:0; left:0; z-index:99; width:17px; height:63px; background:url('{$tplPath}images/map_but_con.png') no-repeat -18px 0;}
+
+#mapinfo_but_con.toRight { background:url('{$tplPath}images/map_but_con2.png') no-repeat -18px 0;}
+#mapinfo_but_con.hover { background-position:0 0;}
+
+.map_index_search { float:left; display:inline; margin:11px 0 0 20px;}
+.map_index_search .hd {}
+.map_index_search .hd li { float:left; display:inline; margin-right:3px; border:1px solid #ededed; background-color:#f2f1f6; border-top-right-radius:2px; border-top-left-radius:2px;}
+.map_index_search .hd a { color:#666; display:block; padding:1px 0; width:84px; text-align:center;}.map_index_search .hd a:hover { color:#555; text-decoration:none;}
+.map_index_search .hd .selected { border:1px solid #067ff6; background-color:#278df2; font-weight:bold;}
+.map_index_search .hd .selected a,.map_index_search .hd .selected a:hover { color:#fff;}
+.map_index_search .ipt { float:left; width:300px; border:1px solid #cdcdcd; padding:5px; background-color:#fff;}
+.map_index_search .s_text { border:0 none; width:290px; outline:0; padding:1px 0; font-size:14px; color:#666;}
+.map_index_search .s_btn { float:left; display:inline; margin-left:5px; cursor:pointer; background:url('{$tplPath}images/map_search_form.gif') no-repeat 0 0; width:66px; height:35px; border:0 none; text-indent:-999em; overflow:hidden;}
+.map_index_search .s_text_d,.map_index_search .s_text_d2 { width:133px; padding-left:2px; float:left;}
+.map_index_search .s_text_d2 {}
+.map_index_search .qiehuan { background:url('{$tplPath}images/map_search_form.gif') no-repeat -67px 0; float:left; width:21px; height:22px; text-indent:-999em; overflow:hidden; display:inline; margin:0 4px;}
+
+.nav { width:470px;}
+.nav li a { padding:11px 18px 0;}
+-->
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="{$tplPath}js/clock.js"></script>
+</head>
+
+<body>
+	<div id="header">
+		<div class="topBar fix">
+			<div class="data"><script type="text/javascript">showcal();</script></div>
+			
+			<div class="login"><a href="../help/" target=_blank>帮助</a> | <a href="../service/index.html" target=_blank>留言</a></div>
+		</div>
+		<div class="headBG fix">
+			<h1 class="logo"><a href="../" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></h1>
+			<div class="logoSub"><a href="../map/"><img src="{$tplPath}images/map/logoSub.gif" alt="" /></a></div>
+<div class="map_index_search" id="tab_01">
+	<div class="hd">
+		<ul class="tab-hd fix">
+			<li class="selected"><a href="#">搜索</a></li>
+			<li><a href="#">公交</a></li>
+			<li><a href="#">自驾</a></li>
+		</ul>
+	</div>
+	<div class="bd">
+		<div class="tab-cont fix">
+			<p class="ipt"><input type="text" class="s_text" id="ss_s" value="" /></p><button id="ss_btn" class="s_btn">搜索</button>
+		</div>
+		<div class="tab-cont fix" style="display:none;">
+			<p class="ipt"><input type="text" class="s_text s_text_d" id="gjiao_s" value="" /><a href="#" id="gjiao_qie" class="qiehuan">切换</a>
+			<input type="text" class="s_text s_text_d2" id="gjiao_e" value="" /></p>
+			<button id="gjiao_btn" class="s_btn">搜索</button>
+		</div>
+		<div class="tab-cont fix" style="display:none;">
+			<p class="ipt"><input type="text" class="s_text s_text_d" id="zijia_s" value="" /><a href="#" id="zijia_qie" class="qiehuan">切换</a>
+			<input type="text" class="s_text s_text_d2" id="zijia_e" value="" /></p>
+			<button id="zijia_btn" class="s_btn">搜索</button>
+		</div>
+	</div>
+</div>
+			<div class="nav">
+				<ul class="fix">
+					<li class="first"><a href="index.html" class="current">首页<s class="s"></s></a></li>
+					<li><a href="xingfang.aspx">新房<s class="s"></s></a></li>
+					<li><a href="ershoufang.aspx">二手房<s class="s"></s></a></li>
+					<li><a href="chuzhufang.aspx">出租房<s class="s"></s></a></li>
+					<li><a href="koubeishangjia.aspx">口碑店铺<s class="s"></s></a></li>
+					<li><a href="bianming.aspx">便民机构<s class="s"></s></a></li>
+				</ul>
+				<s class="rc_le"></s><s class="rc_ri"></s>
+			</div>
+			<div class="returnIndex"><a href="../" target="_blank">返回到门户首页</a></div>
+		</div>
+	</div>
+	<div id="content">
+		<div id="l-result"></div>
+		<div id="allmap"></div>
+		<div id="mapinfo_but_con"></div>
+	</div>
+<script type="text/javascript" src="{$tplPath}js/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+var allmap = $('#allmap');
+var l_result = $('#l-result');
+var w_h = $(window).height();
+var w_w = $(window).width();
+var hd_h = $('#header').height();
+var sub_width = 365;
+var if_sub_open = false;
+allmap.css({'height':w_h-hd_h+'px'});
+l_result.css({'height':w_h-hd_h+'px'});
+
+$(window).resize(function(){
+	w_h=$(window).height();
+	w_w=$(window).width();
+	var w = w_w-sub_width;
+	var h = w_h-hd_h;
+	allmap.css({'height':h+'px'});
+	if(!!if_sub_open){
+		allmap.css({'width':w+'px'});
+	}
+	l_result.css({'height':h+'px'});
+	map_b_c.css({'top':(h/2-32)+'px'});
+});
+
+
+// 百度地图API功能
+var icity = "{$city}",arr_xyz = [];
+var xyz_txt = '{$maparea}';
+var map = new BMap.Map("allmap");
+if(xyz_txt!==''){
+	if(xyz_txt.indexOf(',')!='-1'){
+		arr_xyz = xyz_txt.split(',');
+		var latitude=arr_xyz[0],longitude=arr_xyz[1];
+		var point = new BMap.Point(latitude,longitude);
+		map.centerAndZoom(point, 12);
+	}else{
+		map.centerAndZoom(xyz_txt, 12);
+	}
+}else{
+	map.centerAndZoom(icity,12);
+}
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
+map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT}));
+map.addControl(new BMap.OverviewMapControl({isOpen:true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT}));   //右上角，打开
+
+
+var ss_s = $('#ss_s');
+var ss_btn = $('#ss_btn');
+var zijia_s = $('#zijia_s');
+var zijia_e = $('#zijia_e');
+var zijia_btn = $('#zijia_btn');
+var gjiao_s = $('#gjiao_s');
+var gjiao_e = $('#gjiao_e');
+var gjiao_btn = $('#gjiao_btn');
+var map_b_c = $('#mapinfo_but_con');
+var zijia_qie = $('#zijia_qie');
+var gjiao_qie = $('#gjiao_qie');
+
+
+gjiao_qie.click(function(e){
+	e.preventDefault();
+	var now_s = gjiao_s.val();
+	var now_e = gjiao_e.val();
+	gjiao_s.val(now_e);
+	gjiao_e.val(now_s);
+});
+zijia_qie.click(function(e){
+	e.preventDefault();
+	var now_s = zijia_s.val();
+	var now_e = zijia_e.val();
+	zijia_s.val(now_e);
+	zijia_e.val(now_s);
+});
+
+var driving = new BMap.DrivingRoute(map, {renderOptions: {map: map, panel: "l-result", autoViewport: true}});
+var transit = new BMap.TransitRoute(map, {renderOptions: {map: map, panel: "l-result", autoViewport: true}});
+var local = new BMap.LocalSearch(map, {renderOptions:{map: map, panel: "l-result", autoViewport: true}});
+
+ss_btn.click(function(){
+	if(!ss_s.val()){
+		alert('请输入关键字！');
+		return false;
+	}
+	local.search(ss_s.val());
+	showSubbar();
+});
+zijia_btn.click(function(){
+	if(!zijia_s.val()){
+		alert('请输入起点名称！');
+		return false;
+	}
+	if(!zijia_e.val()){
+		alert('请输入终点名称！');
+		return false;
+	}
+	driving.search(zijia_s.val(),zijia_e.val());
+	showSubbar();
+});
+gjiao_btn.click(function(){
+	if(!gjiao_s.val()){
+		alert('请输入起点名称！');return false;
+	}
+	if(!gjiao_e.val()){
+		alert('请输入终点名称！');return false;
+	}
+	transit.search(gjiao_s.val(),gjiao_e.val());
+	showSubbar();
+});
+map_b_c.hover(function(){$(this).toggleClass('hover')});
+map_b_c.click(function(){
+	if(!!if_sub_open){
+		hideSubbar();
+	}else{
+		showSubbar();
+	}
+});
+
+
+function showSubbar(){
+	if_sub_open = true;
+	allmap.css({'margin-left':sub_width+'px','width':(w_w-sub_width)+'px'});
+	map_b_c.css({'left':sub_width+'px'});
+	l_result.show();
+	map_b_c.css({'top':((w_h-hd_h)/2 - 32)+'px'}).addClass('toRight').show();
+}
+function hideSubbar(){
+	if_sub_open = false;
+	allmap.css({'margin-left':'0','width':'100%'});
+	map_b_c.css({'left':'0'});
+	l_result.hide();
+	map_b_c.removeClass('toRight');
+}
+
+$.fn.TabADS = function(){
+	var obj = $(this);
+	var currentClass = "selected";
+	var tabs = obj.find(".tab-hd").find("li");
+	var conts = obj.find(".tab-cont");
+	var t;
+	tabs.eq(0).addClass(currentClass);
+	conts.hide();
+	conts.eq(0).show();
+	tabs.each(function(i){
+		$(this).bind("click",function(e){
+			e.preventDefault();
+			t = setTimeout(function(){
+				conts.hide().eq(i).show();
+				tabs.removeClass(currentClass).eq(i).addClass(currentClass);
+			},200);
+		})
+	});
+}
+
+$('#tab_01').TabADS()
+
+</script>
+</body>
+</html>

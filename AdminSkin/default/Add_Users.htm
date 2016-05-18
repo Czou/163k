@@ -1,0 +1,76 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加后台用户&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至用户列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+   
+  <form name="form1" method="post" action="?action=AddSave">
+    <tr > 
+      <td width="15%" height="25" >用户名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrName" type="text" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >用户密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrPwd" type="password" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >真实姓名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrTrueName" type="text"  size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >性别<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrSex" type="radio" value="男" checked>男 <input name="ChrSex" type="radio" value="女">女</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >创建时间<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="dtBirthday" type="text" size="20" class="Wdate" /></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >所属组别<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category">{$ListRadio}<input name="IsAdmin" type="hidden"  value="0"></td>
+    </tr> 
+	
+    <tr > <td></td>
+      <td height="25"   class="category">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+﻿<tr class=""> 
+	<td align="center" width="25" data-shopid="{$shopid}" data-chrshop="{$chrshop}">{$NID}</td>
+	<td align="left"><a href="{$chrurl}" target="_blank">{$name}</a></td>
+	<td align="center">{$classstr}</td>
+	<td align="center">{$chrname}</td>
+	<td align="center">{$areastr}</td>
+	<td align="center">{$intorder}</td>
+	<td align="center">{$dtappenddate yyyy年MM月}</td>
+	<td align="center"><span class="display_1_{$iskill}">已审核</span><span class="display_0_{$iskill}" style="color:#d00;">待审核</span>　<span class="display_1_{$isopen}">正常营业</span><span class="display_0_{$isopen}" style="color:#d00;">暂停营业</span>　<span class="display{$istop}">置顶</span></td>
+	<!--<td align="center">订单总数:{$orderall} 今日订单:{$orderday}</td>-->
+	<td align="center"><a href="javascript:superManage('{$ID}');">超级管理</a> <a href="users.aspx?action=loginuser&shopid={$shopid}&url=/member/my_good_shop.aspx" target="_blank">内容维护</a> <a href="javascript:del({$shopid});">删除</a></td>
+	<!--<td width="53" align="center"><input name="ID" type="checkbox" value="{$ID}" /></td>     -->
+</tr>

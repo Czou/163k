@@ -1,0 +1,9 @@
+﻿<div class="comment_source">
+	<div class="comment_user"><span class="userName">{$chrname}</span> 的原帖  {$dtappenddate} <img src="{$Default_tplPath}images/scoreStar{$score1}.gif" id="score1_img" style="display:none" alt="" /> <img src="{$Default_tplPath}images/score{$score}.gif"  id="score_img" style="display:none" alt="" /><input type="hidden" value="{$score}" id="score_select"><input type="hidden" value="{$score1}" id="star_score1"></div>
+	<div style="margin-top:8px;display:none;" id="score_node">整体评价：<select onchange="change_score(this,'score_select');"><option value=""> 选择 </option><option value="1"> 好评 </option><option value="2"> 中评 </option><option value="3"> 差评 </option></select>　星级：<select onchange="change_score(this,'star_score1');"><option value=""> 选择 </option><option value="5"> 五星 </option><option value="4"> 四星 </option><option value="3"> 三星 </option><option value="2"> 二星 </option><option value="1"> 一星 </option><option value="0"> 清除 </option></select></div>
+	<p class="comment_content"><div class="input" id="replay_tips_input" contenteditable="true">{$chrmark}</div></p>
+</div>
+<div class="comment_replay_list display{$huifunum}">
+{$repsmall_rep}
+</div>
+<div class="write_2014" id="write_replay"><div class="timer clearfix"><p class="timer display0{$replaydate}" style="float:right; font-size:12px; color:#666;">回复日期：{$replaydate}</p>回复：</div><textarea id="replay_tips_textarea" class="textarea">{$replaycontent}</textarea><button class="global_btn_blue_big" onclick="return post_replay();" type="button">确认提交</button></div>

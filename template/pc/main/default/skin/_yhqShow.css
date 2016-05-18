@@ -1,0 +1,53 @@
+@charset "utf-8";
+.copy_title,.dayin .dayin_input,.shuaxin,.jianqiexian span.jiandao,.code_submit,.fot_menu_box a.fot_menu { background-image:url(../images/youhuiquan_bg2.gif); background-repeat:no-repeat;}
+.tips { margin:20px auto; background-color:#fff9f1; border:1px solid #f4d39e; padding:10px; font-size:14px; color:#333;}
+.orange { color:#f30; text-decoration:underline;}
+.copy_title { background-position:0 0; height:21px; width:378px; border:0; font-size:14px; color:#333; cursor:pointer;}
+h2 { font-size:18px; font-family:"Microsoft YaHei",黑体; color:#333; margin-bottom:20px;}
+.time {font-size:14px; color:#333; font-weight:bold; margin-top:20px;}
+.time .red_skin { color:#f50;}
+.green_box { background-color:#F0FBEB; border:1px solid #9FD788; padding:5px; margin-top:20px; font-size:14px; color:#f30; font-weight:bold;}
+.green_box img { vertical-align:middle;}
+.dayin { margin-top:20px; font-size:14px;}
+.dayin a { text-decoration:underline;}
+.dayin img { vertical-align:middle;}
+.dayin .dayin_input { margin:0 5px; border:0; width:100px; height:28px; line-height:28px; background-position:-40px -115px; font-size:14px; color:#fff; font-weight:bold;}
+.dayin_info { text-align:center; margin-top:20px; border:1px dotted #69c9fc; background-color:#eef8fe; padding:5px; font-size:14px; color:#333;}
+.dayin_info a { color:#f30; text-decoration:underline;}
+.shuaxin { margin:20px auto 0; background-position:0 -21px; width:250px; height:36px; padding-top:6px; font-size:14px; color:#333;}
+.pic_main { margin-top:10px;}
+.jianqiexian { border-top:1px dashed #ccc; position:relative; margin-top:20px;}
+.jianqiexian span.jiandao { display:block; position:absolute; top:-5px; left:50px; background-position:-353px -116px; width:23px; height:10px;}
+.html_editor { background-color:#eff8fa; padding:8px; margin-top:20px; text-align:left; font-size:14px; color:#333;}
+.more_youhuiquan { font-size:14px; text-align:left;}
+.more_youhuiquan h3 { color:#333; font-weight:bold; margin-top:25px;}
+.more_youhuiquan ul { margin-top:5px; margin-left:8px;}
+.more_youhuiquan ul li { line-height:24px;}
+.more_youhuiquan ul li a { text-decoration:underline;}
+.more_youhuiquan ul li span { color:#f30;}
+.copy_href { margin-top:25px; font-size:14px;}
+.copy_href ul { text-align:left; margin-top:8px;}
+.copy_href ul li { margin-bottom:5px;}
+.copy_href ul li span { display:block; float:left; text-align:right; width:120px; font-weight:bold;}
+.code_input { height:20px; line-height:20px; border:1px solid #ccc; width:500px; padding:0 3px; white-space:nowrap; overflow:hidden; color:#333;}
+.code_submit { height:23px; width:40px; color:#333; line-height:px; border:0; cursor:pointer; background-position:0 -115px;}
+.tebiesm { margin-top:30px; background:#ffefef; border:1px dotted #ffb9b9; padding:5px; font-size:14px; color:#333;}
+.tebiesm b { font-weight:bold; color:#f30;}
+.fot_menu_box { margin-top:20px;}
+.fot_menu_box a.fot_menu { margin:0 auto; background-position:0 -63px; display:block; width:175px; height:45px; color:#fff; font-size:14px; font-weight:bold; text-align:left; padding:7px 0 0 30px;}
+
+
+
+.mod_yhq_01 { padding:20px; border:1px solid #ebebeb; border-top:2px solid #ff9f38;}
+
+
+
+
+
+
+
+
+
+
+
+

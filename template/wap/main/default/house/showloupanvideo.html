@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-楼盘视频-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}xq_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a>';
+</script>
+{$top$}
+<div class="o_main mar_b_50">
+ <!--楼盘视频-->
+ <div class="star_nav" id="star_nav">
+  <ul data-scrollable="x" class="clearfix" style="width:450px;">
+   <li><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+   <li><a href="fang_{$Loupan_loupanid}.html">户型图</a></li>
+   <li class="current"><a href="video_{$Loupan_loupanid}.html">视频</a></li>
+   <li><a href="pic_{$Loupan_loupanid}.html">相册</a></li>
+   <li><a href="zb_{$Loupan_loupanid}.html">周边配套</a></li>
+   <li><a href="revert_{$Loupan_loupanid}.html">在线问房</a></li>
+  </ul>
+  <div class="more"><span></span></div>
+ </div>
+ <div class="video" id="videos">{$Loupan_video}</div>
+ <div style=" padding-top:6px; text-align:center;">{$Loupan_chrloupan}-视频</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script language="javascript">
+  
+  document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.current')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.current').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+},false);
+ </script>
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+</body>
+</html>

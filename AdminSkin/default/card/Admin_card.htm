@@ -1,0 +1,94 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "admin_card.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的信息吗？"))
+        {
+            document.getElementById("form").submit();
+        }
+}
+function delcard(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要清空所有数据吗？"))
+    {
+    location.href = "admin_card.aspx?action=deltt";
+   }
+}
+</script>
+<style>
+body{ font-family:"宋体";}
+</style>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>充值卡管理</td>
+          <td align="right">&nbsp;<a href=admin_card.aspx?action=add class="global_btn_blue">请点击这里生成充值卡</a></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td  align="left">按卡号查找：
+		<input type="text" name="keyword" value="{$keyword}">按状态查找：<input type="radio" name="colname" value="" {$colname$}>全部 <input type="radio" name="colname" value="0" {$colname0$}>未使用 <input type="radio" name="colname" value="1" {$colname1$}>已使用  <input type="radio" name="colname" value="2" {$colname2$}>过期
+		</td>
+<td align=right><strong><a href="javascript:delcard(this);" class="global_btn">清空充值卡？</a></strong> <a href="?action=exl&colname={$colname}&keyword={$keyword}&startdate={$startdate}&enddate={$enddate}&key={$key}"><font color=red><b class="global_btn">导出到EXCEL</b></font></a></td>
+</tr>
+<tR><tD colspan=4>按  <input type="radio" name="key" value="0" {$cdate1$}> 生成时间  <input type="radio" name="key" value="1" {$cdate2$}>使用时间查找：从：<input name="startdate"  type="text" size="18" class="Wdate" style="background-color:ffffff" value="{$startdate}"> 到:<input name="enddate"  type="text" size="18" class="Wdate" style="background-color:ffffff" value="{$enddate}"> 面值查找:<select name="keyword3"><option value="" {$keyword3}>请选择</option><option value="5" {$keyword35}>5元</option>
+	  <option value="10" {$keyword310}>10元</option><option value="30" {$keyword330}>30元</option>
+	  <option value="50" {$keyword350}>50元</option><option value="100" {$keyword3100}>100元</option></select> <input type="submit" name="Submit3" class="global_btn" value="查找"></td></tr>
+</form>
+</table>
+	
+      <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form" id="form" method="post" action="?action=del">
+          <tr align="center">
+		   <td width="25" class="category">ID</td>
+				<td class="category">卡号</td><td class="category">面值</td><td class="category">有限期</td>
+				<td class="category">生成者</td><td class="category">生成日期</td><td class="category">使用者</td><td class="category">使用日期</td><td  class="category">生成IP</td>
+				<td class="category">状态</td>
+				<td align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				<strong><a href="javascript:delAll(this);">删？</a></strong></td>
+          </tr>
+         <tag:Loop ListType="Listcard" RecType="New" PageSize="48" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="card/List_card_Tr.htm" />
+        </form>
+       <tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+</body></html>
+

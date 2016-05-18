@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>二手房房源-经纪人-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$seokeyword}" />
+<meta name="description" content="{$seodescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}chushou.html">中介</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>{$House_ZhongjieTruename}(中介)</h4>
+  <p>{$House_ZhongjieChrtel}</p>
+ </div>
+ <div class="email"><a href="sms:{$House_ZhongjieChrtel}">{$House_ZhongjieChrtel}</a></div>
+ <div class="phone"><a href="tel:{$House_ZhongjieChrtel}">{$House_ZhongjieChrtel}</a></div>
+</div>
+<div class="o_main mar_b_50">
+<div class="user_info2">
+ {$House_ZhongjieXinxi}
+</div>
+<div class="slide_tabs" id="wrapper2">
+ <ul id="scroller2">
+  <li><a href="{$jingjirenurl}">首页</a></li>
+  <li class="current"><a href="{$TargetUrl}shop_shou{$House_ZhongjieManid}.html">二手房</a></li>
+  <li><a href="{$TargetUrl}shop_zhu{$House_ZhongjieManid}.html">出租房</a></li>
+  {$genrenlist}
+ </ul>
+ <div class="more" id="iscrollto"><span></span></div>
+</div>
+<div class="new_active">
+<div class="info_list">
+  <ul>
+   <tag:Loop ListType="listshopshoulist" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_shopshou_tr.html" />
+  </ul>
+  <div class="pageNav2 pageNav3">{$PageSplit}</div>
+ </div>
+ </div>
+{$bottom$}
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll-probe.js"></script>
+<script type="text/javascript">
+(function($){	
+	$('#scroller2').css('width',(90*$('#scroller2').find('li').length)+40+'px'); 
+	var myScroll = new IScroll('#wrapper2', {
+		scrollX: true,
+		scrollY: false,
+		click:true,
+		keyBindings: true
+	});
+	$('#iscrollto').click(function(){
+		myScroll.scrollBy(-100,0,500)
+	});
+ })(jQuery);
+</script>
+</body>
+</html>

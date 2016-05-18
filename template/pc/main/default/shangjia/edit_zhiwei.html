@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改职位-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}">
+<script>
+function checkform(o){
+	if(o.zhiweiname.value==""){
+		alert("请输入职位名称!");
+		o.zhiweiname.focus();
+		return false;
+	}
+	if(o.zhiweixinzhi.value==""){
+		alert("请选择职位性质!");
+		o.zhiweixinzhi.focus();
+		return false;
+	}
+	if(o.hangyecategory.value==""){
+		alert("请选择行业分类!");
+		o.hangyecategory.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("请选择岗位分类!");
+		o.categoryid.focus();
+		return false;
+	}
+	if(o.renshu.value==""){
+		alert("请输入招聘人数！");
+		o.renshu.focus();
+		return false;
+	}
+	if(o.youxiaodate.value==""){
+		alert("请选择有效时间！");
+		o.youxiaodate.focus();
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("请输入地址！");
+		o.chraddress.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("请输入电话！");
+		o.chrtel.focus();
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("请输入职位描述！");
+		o.chrmark.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">修改职位</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=editSave" target="tijiao" onSubmit="return checkform(this)" >
+								<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    
+	<tr > 
+      <td height="25" class="tditem"  width="14%" >职位名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="35%" class="tdcontent"  > <input name="zhiweiname" type="text" size="20"  class="sys_form_ipt sys_form_ipt_narrow" value="{$zhiweiname}"> (如：销售经理)</td>
+	   <td height="25" class="tditem" width="14%" >职位性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> {$zhiweixinzhi}</td>
+    </tr>
+    <tr > 
+ 	  <td  height="25" class="tditem">岗位类别<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan="3" > {$categoryid}</td>
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem" >语言能力： 
+      </td>
+      <td  class="tdcontent" > <input name="yuyan" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$yuyan}"></td>
+	  <td  height="25" class="tditem">简历语言： 
+      </td>
+      <td  class="tdcontent" > <input name="jianli" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$jianli}"></td>
+	  </tr>
+	  <tr>
+	  <td  height="25" class="tditem">招聘人数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="tdcontent"> <input name="renshu" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$renshu}"> 人</td>
+	  <td  height="25" class="tditem">有效时间<font color="#FF0000">*</font>： 
+      </td>
+      <td class="tdcontent"> <input name="youxiaodate" value="{$youxiaodate}" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow Wdate" />
+	  </td>
+	  
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">地址<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="chraddress" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$chraddress}"></td>
+      <td  height="25" class="tditem">联系人： 
+      </td>
+      <td  class="tdcontent">  <input name="chrcode" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$chrcode}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">E-mail： 
+      </td>
+      <td  class="tdcontent"> <input name="chremail" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$chremail}"></td>
+      <td  height="25" class="tditem">电话<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="chrtel" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$chrtel}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">工作地点<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="gongzuodidian" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" value="{$gongzuodidian}"></td>
+      <td  height="25" class="tditem">区域： 
+      </td>
+      <td  class="tdcontent"> {$areaid}</td>
+    </tr>
+<tr > 
+      <td  height="25" class="tditem">工作经验<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="jingnian" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow"  value="{$jingnian}"> (如3-5年)</td>
+      <td  height="25" class="tditem">薪资待遇<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> {$daiyu}</td>
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem">学历要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan=3> {$xueli}</td>
+	  
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem">职位描述<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan=3> <textarea name="chrmark" class="sys_form_ipt sys_form_ipt_narrow"  style="width:500px;height:80px;">{$chrmark}</textarea></td>
+    </tr>
+	<tr>
+        <td align="center" colspan="4"><input type="hidden" name="gotourl" value="{$gotourl}"><input type="hidden" name="id" value="{$id}">
+<input type="submit" name="Submit" value="确认提交" class="sys_btn_blue" id="Submit" />　<input type="button" class="sys_btn_white" value=" 返 回 " onClick="javascript:location.href='myzhiwei.aspx';" /></td>
+      </tr>
+</table>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+</body>
+</html>

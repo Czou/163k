@@ -1,0 +1,7 @@
+﻿<tr> 
+	<td>{$NID}</td>
+	<td>{$Chrcategory}</td>
+	<td>{$Intorder} <a href="javascript:showIntorder('1','{$ID}','{$key}')">↑</a> <a href="javascript:showIntorder('0','{$ID}','{$key}')">↓</a></td>
+	<td>{$Isopen}</td>
+	<td align="center"><a href="javascript:hideCategory('{$_IsopenS}','{$ID}','{$key}');" class="sys_btn_small_white">{$IsopenM}</a> <a href="CategoryC.aspx?action=edit&ID={$ID}&key={$key}" class="sys_btn_small_blue">编辑</a> <a href="javascript:delCategory('{$ID}','{$key}');" class="sys_btn_small_white">删除</a></td>
+</tr>

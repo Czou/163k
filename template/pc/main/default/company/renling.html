@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>认领{$chrshop}</title>
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/baoming2014.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script>
+function addshoprenling(o){
+	if(o.chrtel.value==""){
+		alert("请填写联系电话!");
+		o.chrtel.focus();
+		return false;
+	}
+	if(o.chrman.value==""){
+		alert("请填写联系QQ!");
+		o.chrman.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<div class="hdb">
+	<div class="hdbt clearfix"><strong>认领{$chrshop}</strong><span>认领成功后您可以管理本店铺</span><img src="{$Default_tplPath}images/reg/close_small.gif" onClick="parent.LoginHide();" class="hdbc_2" /></div>
+	<div class="content">
+	<form name="form1"  id="form1" method="post" action="request.aspx?action=renlingsave" onSubmit="return addshoprenling(this);">
+		<span class="sp_a">联系电话：</span>
+		<div class="hdbc">
+			<span class="sp_b po_re"><input name="chrtel" id="chrtel" type="text" class="input0" value="" /><s class="s"></s></span>
+		</div>
+		<span class="sp_a">联系QQ：</span>
+		<div class="hdbc">
+			<span class="sp_b po_re"><input name="chrman" id="chrman" type="text" value="" class="input0" /><s class="s"></s></span>
+		</div>
+		<div class="hdbtn">
+			<input type="hidden" name="shopid" value="{$shopid}" />
+			<button type="submit" class="submit">确认提交</button>
+		</div>
+	</form>
+	</div>
+</div>
+</body>
+</html>

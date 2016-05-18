@@ -1,0 +1,198 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/facebox.css" />
+<style>
+#listcategory { list-style-type:none; width:100%; margin:0; padding:0}
+#listcategory ul{ margin:0; padding:0}
+#listcategory ul li{ margin-left:5px;float:left}
+#xiangce { list-style-type:none; width:100%; margin:0; padding:0; font-weight:normal;}
+#xiangce ul{ margin:0; padding:0}
+#xiangce ul li{ margin:10px 0 15px 5px;float:left; display:inline;width:140px; position:relative; z-index:1; *zoom:1;}
+#xiangce p { height:22px; line-height:22px; overflow:hidden;}
+#xiangce .move_prev,#xiangce .move_next { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; font-size:12px; text-decoration:none;}
+#xiangce .move_next { left:41px;}
+#xiangce .imgview { vertical-align:top; border:0 none; width:120px; height:120px; margin-bottom:8px;}
+#xiangce .btn { line-height:18px; margin-bottom:5px;}
+
+</style>
+<script>
+function checkform(o){
+	if(o.categoryid.value==""){
+		alert("对不起，请选择分类！");
+		o.categoryid.focus();
+		return false;
+	}
+}
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除店铺展示图片吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		location.href = "koubei.aspx?action=picdel&ID=" + id
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">六、店铺展示（图片）息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li  class="selected"><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="formt1" method="post" action="?action=e2Save" onsubmit="return checkform(this)"  enctype="multipart/form-data">
+          <tr >
+            <td height="25" width="17%" >新建分类<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"><input name="chrcategory" type="text" size="20"  value="">
+              <input type="button" class="global_btn_blue"  value="建立分类" onclick="addcategory('{$ID}');"/>
+            </td>
+          </tr>
+          <Tr>
+            <td height="25"  >已经建立的分类： </td>
+            <td  class="category" colspan=3><div id="editcategory" style="color:blue;display:none">修改分类<font color="#FF0000">*</font>：
+                <input name="editchrcategory" type="text" size="20"  value="">
+                <input name="editcategoryid" type="hidden" size="20"  value="">
+                <input type="button"  value="修改分类"  style="color:#FF0000" onclick="editcategory();"/>
+              </div>
+              <div id="listcategory">
+                <ul id="listcategoryshow">
+                  loading……
+                </ul>
+              </div></td>
+          </tR>
+          <tR>
+            <td colspan="4" class="category" >上传新图片(限jpg/gif格式，单幅容量小于500K)</td>
+          </tR>
+          <tr >
+            <td  height="25">选择上传到的分类<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> {$categoryid}</td>
+          </tr>
+          <tr >
+            <td  height="25">展示图片： <br>
+              <img src="{$atplPath}images/add.jpg" style="cursor:pointer"  onclick="addSignRow(1);"> </td>
+            <td  class="category" colspan=3><table width="100%"  border="0" cellpadding="0" cellspacing="0" id="SignFrame">
+                <tR id="SignItem1" valign="top" >
+                  <td><table width="100%" >
+                      <tr>
+                        <td valign=top  ><input type=file name=file />
+                          描述（13汉字内）：
+                          <input type="text" name="chrmark" maxlength=20/>
+                          <img  style="cursor:pointer" onclick="DeleteSignRow('SignItem1')" src='{$atplPath}images/del.jpg' border=0> </td>
+                      </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <input type="hidden" name="count" value='1'>
+              <input type="hidden" name="img" value="{$atplPath}images/del.jpg" /></td>
+          </tr>
+          <tr >
+            <td></td>
+            <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type=hidden name=ID value="{$ID}">
+              <input type="button" onclick="window.location.href='?action=e6&id={$ID}'" name="button1" class="global_btn_big" value="上一页">
+              &nbsp;
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="提交上传图片">
+              &nbsp;
+              <input type="button"  onclick="window.location.href='?action=e3&id={$ID}';" name="button1" class="global_btn_big" value="下一页">
+              &nbsp;
+			   <input type="button"  onclick="window.location.href='shop.aspx';" name="button1" class="global_btn_big" value="完成">
+              &nbsp;</td>
+          </tr>
+          <tr >
+            <td  height="25" colspan="4" class="category">管理已上传图片</td>
+          </tr>
+          <tr >
+            <td  class="category" colspan=4><div id="xiangce">
+                <ul >
+                  <tag:Loop ListType="Listshopphoto" RecType="New" PageSize="200" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="shop/Listshopphoto.htm" />
+                </ul>
+              </div></td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+loadcategoryid('{$ID}');
+</script>
+<div id="dialogRelatedProducts" style="position: absolute; display:none;height:;width:700px; margin:0 auto; z-index:100;">
+  <div id="EditProduct_dialogRelatedProducts_HeaderSpan">
+    <table style="filter:alpha(opacity=60);margin:0px;" cellpadding="0" cellspacing="0" border="0" width="700px" height="35" >
+      <tr>
+        <td width="9" height="35" style="background-image:url({$atplPath}Images/bg1.png);"></td>
+        <td height="35" style="background-image:url({$atplPath}Images/bg2.png);height:35px !important;" valign="middle"><span style="color:White;font-size:15px;font-family:Arial;font-weight:bold;">修改展示图片</span> </td>
+        <td width="40" height="35" valign="top" style="background-image:url({$atplPath}Images/bg3.png);"><img src="{$atplPath}Images/bg4.png" style="cursor:default;padding-top:3px;" width="32" height="25" style="margin-top:3px;" onclick="showRelatedProductDialog();" onmouseover="this.src='{$atplPath}Images/bg5.png';" onmouseout="this.src='{$atplPath}Images/bg6.png';"/> </td>
+      </tr>
+    </table>
+  </div>
+  <div id="EditProduct_dialogRelatedProducts_InnerSpan">
+    <table cellpadding="0" style="margin:0px;" cellspacing="0" width="700px">
+      <tr>
+        <td style="background-image:url({$atplPath}Images/bg7.png);filter:alpha(opacity=60);" width="7"></td>
+        <td style="background-color:white;font-size:12px;font-family:Arial;"><table style="width:100%">
+            <tr>
+              <td colspan="6"> 
+                <div id="showinner">loading</div></td>
+            </tr>
+          </table>
+         </td>
+        <td style="background-image:url({$atplPath}Images/bg8.png);filter:alpha(opacity=60);" width="7"></td>
+      </tr>
+    </table>
+  </div>
+  <div id="EditProduct_dialogRelatedProducts_FooterSpan">
+    <table cellpadding="0" cellspacing="0" width="700px" height="7" style="filter:alpha(opacity=60);margin:0px;">
+      <tr>
+        <td width="9" height="7"><img style="display:block;" src="{$atplPath}Images/bg9.png"/></td>
+        <td style="background-image:url({$atplPath}Images/bg10.png);" width="682"></td>
+        <td width="9" height="7"><img style="display:block;" src="{$atplPath}Images/bg11.png"/></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div id="mask" style="display:none"></div>
+<script>
+function showRelatedProductDialog(){
+	if(document.getElementById("dialogRelatedProducts").style.display=="none"){
+		document.getElementById("dialogRelatedProducts").style.display="";
+		document.getElementById("mask").style.display="";
+	}
+	else{
+		document.getElementById("dialogRelatedProducts").style.display="none";
+		document.getElementById("mask").style.display="none";
+	}
+}
+document.getElementById('dialogRelatedProducts').style.left = (document.body.offsetWidth - 620) / 2; 
+document.getElementById('dialogRelatedProducts').style.top = "60px";
+</script>
+
+<script src="{$atplPath}js/jquery.js"></script>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$atplPath}js/movePic2014.js"></script>
+<script type="text/javascript" src="{$atplPath}js/facebox.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$('a[class*=lightwindow]').facebox();
+})(jQuery);
+</script>
+</body></html>

@@ -1,0 +1,10 @@
+﻿<form name="fott{$ID}tt"  method="post" action="?action=helpsave" style="margin:0"  >
+        <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> <input type="hidden" name="ID" value="{$ID}" />
+     	  <td>{$NID}</td>
+   	  <td><input type="text"  name="chrcategory" value="{$chrcategory}"  size=20/></td>
+    	  
+     	  <td><input type="text"  name="intorder" value="{$intorder}" size="5"  class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /></td>
+<td><input type="radio"  name="isopen" value="0" {$isopen0} />显示 <input type="radio"  name="isopen" value="1" {$isopen1} />隐藏</td>
+     	  <td ><a href="javascript:document.fott{$ID}tt.submit();">更新</a> <a href="bao.aspx?action=help">取消</a></td>
+      </tr>
+	   </form>

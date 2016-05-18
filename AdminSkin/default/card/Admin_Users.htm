@@ -1,0 +1,87 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "users.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+        {
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+</script>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;会员卡申请管理,<a href="card.aspx?colname=0">等待批准</a>：<font color="#0000FF"><u>{$num1$}</u></font>人,<a href="card.aspx?colname=1">通过批准</a><font color="#FF0000">
+<b><u>{$num2$}</u></b></font>人,<a href="card.aspx?colname=2">批准失败</A>：{$num3$}人 </span></td>
+	  <td align="right">&nbsp;<font color="#FF0000">提示:点击昵称编辑会员资料，为通过审批的用户填写打折卡卡号</font></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按真实姓名查询：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="15">申请日期 从:<input name="startdate" value="{startdate}" type="text" size="20" class="Wdate"   style="background-color:#ffffff" >到:<input name="enddate" value="{enddate}" type="text" size="20" class="Wdate" style="background-color:#ffffff" >
+		状态：<select name="Colname"><option value="">所有</option><option value="0" {$selected1$}>等待批准</option><option value="1" {$selected2$}>通过批准</option><option value="2" {$selected3$}>批准失败</option></select>
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form"  id="form" method="post" action="?action=del">
+				<tr  align=center>
+				<td  class="category">ID</td>
+				<td class="category">昵称</td><td class="category">真实姓名</td><td class="category">联系电话</td>
+				<td class="category">邮寄地址（邮政编码）</td><td class="category">申请时间</td><td class="category">状态</td>
+				<td width="80" align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				
+				</tr>
+				<tag:Loop ListType="Listallcard" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="card/List_Users_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','通过批准');"><font color=red>通过批准？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','批准失败');"><font color=blue>批准失败？</font></a></strong>  <strong><a href="javascript:delAll(this,3,'删除');">删除选中？</a></strong></td></td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+		<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=19>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+</body></html>

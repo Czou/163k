@@ -1,0 +1,219 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改经纪人信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至经纪人列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkaddjingjiren(this)" enctype="multipart/form-data">
+   <tr><td height="25" width="18%">经纪人会员名<font color="#FF0000">*</font>： 
+      </td>
+      <td colspan=3 class="category"> <input type="text" name="userid" value="{$chrname}" size="10" onblur="if(this.value!=''){getdata('request.aspx?action=checkjingjiren&tt={$userid}&userid='+encMe(this.value),'tishi');}else{tishi.innerHTML='（一个会员只能一个经纪人）';}"> <span id="tishi"> <em class="global_tip">（一个会员只能一个经纪人）</em></span>
+</td>
+</tr>
+        <tr >
+          <td height="25" >经纪人姓名<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="text" name="truename" value="{$truename}" size=70></td>
+        </tr>
+        
+        <tr > 
+ 	  <td  height="25">经纪人二级域名功能要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan=3>1、正确配置了服务器相关设置 2、二级域名服务为开启状态</td>
+     </tr>
+
+<tr > 
+ 	  <td  height="25">该经纪人二级域名状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan=3>{$yumings1} {$yumings2}   </td>
+     </tr>
+    
+<tr > 
+ 	  <td  height="25">是否启用经纪人二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3> <input name="yumingkill" type="radio" value="0" {$yumingkill0} >不启用（暂停） <input name="yumingkill" type="radio" value="1" {$yumingkill1}  >启用(正常)     <input name="yumingkill" type="radio" value="2" {$yumingkill2} >禁止使用  </td>
+     </tr>
+     <tr > 
+ 	  <td  height="25"> 为该经纪人绑定二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="category" colspan=3><input type="text" name="yumingname" id="yumingname" maxlength="20" value="{$yumingname}" style="width:100px;"  onblur="checkyuming(this.value,'yumingshow',{$id},1)">.{$SiteYuming}<span id="yumingshow"> <em class="global_tip">(请设置一个域名前缀)</em></span> </td>
+     </tr>
+        
+        <tr >
+          <td height="25"  >服务区域<font color="#FF0000">*</font>： </td>
+          <td  class="category"  colspan=3 > {$qu_classid}</td>
+        </tr>
+        <tr >
+          <td height="25">个人标准头像(130*160)<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><span id="str3" >{$filepath$}</span><span id="str4" style="display:none">
+		<input type="file" name="file1" size="60">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		</span>
+	  <input type=hidden name="url1" value="{$url1}">
+	  <input type="hidden" name="filewidth" value="130">
+	  <input type="hidden" name="fileheight" value="160">
+	  <input type="hidden" name="smallfilewidth" value="130">
+	  <input type="hidden" name="smallfileheight" value="160">
+	  </td>
+        </tr>
+		 <tr >
+          <td height="25" >所属中介公司/门店<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3><input type="text" name="chrcompany" value="{$chrcompany}" size=30></td>
+        </tr>
+		 <tr >
+          <td height="25">公司LOGO(130*90)： </td>
+          <td  class="category" colspan=3 ><span id="str1" >{$chrlogo$}</span><span id="str2" style="display:none">
+		<input type="file" name="file2" size="60">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		</span>
+	  <input type=hidden name="url2" value="{$url2}"></td>
+        </tr>
+        <tr >
+          <td height="25">经纪人通栏背景： </td>
+          <td  class="category" colspan=3 ><input type="radio" value="1" {$R1}   name="R">使用默认：<input type="radio" value="1" {$R11}  name="R1">默认1&nbsp;
+		<input type="radio" value="2" {$R12} name="R1">默认2&nbsp;
+		<input type="radio" value="3" {$R13} name="R1">默认3&nbsp;
+		<input type="radio" value="4" {$R14} name="R1">默认4&nbsp;
+		<input type="radio" value="5" {$R15} name="R1">默认5<BR><BR>
+		<input type="radio" value="2" {$R2}   name="R">自定义：<span id="str5" >{$tonglang$}</span><span id="str6" style="display:none">
+		<input type="file" name="file3" size="30"> <em class="global_tip">（只有认证经济人才可以显示自定义背景）</em>
+		</span>
+	  <input type=hidden name="url3" value="{$url3}">
+		</td>
+        </tr>
+		 <tr >
+          <td height="25" >通栏背景是否显示名字： </td>
+          <td  class="category" colspan=3><input type="radio" name="ifshow" value="0" {$ifshow0}>显示 <input type="radio" name="ifshow" value="1" {$ifshow1} >不显示</td>
+        </tr>
+       
+         <tr >
+          <td height="25" >经纪人手机<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3><input type="text" name="chrtel" value="{$chrtel}" size=30></td>
+        </tr>
+		 <tr >
+          <td height="25" >经纪人QQ： </td>
+          <td  class="category" colspan=3><input type="text" name="chrqq" value="{$chrqq}" size=30></td>
+        </tr>
+        <tr >
+          <td height="25" class="category"   colspan=4>属性设置： </td>
+        </tR>
+        <td height="25"  >排序<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input name="intorder" value="{$intorder}" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')">
+            <em class="global_tip">数字越大越靠前</em></td>
+          <td height="25"  >经纪人访问量<font color="#FF0000">*</font>： </td>
+          <td class="category"><input type="text" name="views" value="{$views}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/>
+            <em class="global_tip">(会在该数字基础上累加)</em></td>
+        </tr>
+        <tr >
+          <td height="25" >推荐该经纪人<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="checkbox" name="tuijian" value="1" {$tuijian}>
+            推荐
+            </td>
+          <td height="25"  >状  态<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" name="iskill" value="0" {$iskill0} >
+            申请认证
+            <input type="radio" name="iskill" value="1"  {$iskill1}>
+            已认证
+            <input type="radio" name="iskill" value="2"   {$iskill2}>
+            非认证</td>
+        </tr>
+		<tr >
+          <td height="25"  >个人介绍： </td>
+          <td  class="category"  colspan="3"><input type="checkbox" name="gereniskill" {$gereniskill1}  value="1" class="text" > <em class="global_tip">(启用， 只有设置为“启用”状态，且为认证经纪人，前台其经纪人才显示出来，否则不显示)</em></td>
+        </tr>
+		 <tr >
+		<td height="25"  >个人介绍： </td>
+		 <td  class="category" colspan="3" >
+		<textarea cols="80" id="gerencontent" name="gerencontent" rows="10">{$gerencontent}</textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="gerencontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+		</tr>
+		<tr >
+		<td height="25"  >门店介绍： </td>
+		 <td  class="category" colspan="3" ><input type="checkbox" name="mendianiskill" value="1" {$mendianiskill1}  class="text" > <em class="global_tip">(启用， 只有设置为“启用”状态，且为认证经纪人，前台其经纪人才显示出来，否则不显示)</em></td>
+		</tr>
+		<tr >
+		<td height="25"  >门店介绍： </td>
+		 <td  class="category" colspan="3" >
+		 <textarea cols="80" id="mendiancontent" name="mendiancontent" rows="10">{$mendiancontent}</textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="mendiancontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+		</td>
+		</tr>
+		
+    <tr  > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=id value="{$id}">
+		 <input type="submit" name="Submit" class="global_btn_blue_big" value="提交保存"> 
+       </td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script>
+var tonglang="{$url3}";
+if(tonglang.length>0){
+	$("str5").style.display="none";
+	$("str6").style.display="block";
+}
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+function hid2()
+{
+	$("str3").style.display="none";
+	$("str4").style.display="block";
+}
+function hid3()
+{
+	$("str5").style.display="none";
+	$("str6").style.display="block";
+}
+</script>

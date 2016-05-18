@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>您的订单-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$tgurl}">线上团购</a> &gt; 您的订单</div>
+		<div class="order_head po_re">下单<a href="javascript:history.go(-1)" class="po_ab return">返回</a></div>
+		
+		<div class="order_inner">
+			<form name="Form11" id="Form11" method="post" target="pay" action="{$SiteUrl}pay/default.aspx">
+			<div class="table">
+				<p class="p"><em>项目：</em><span class="blue">{$chrtitle}</span></p>
+				<p class="p"><em>单价：</em>&yen;{$chrmoney2}</p>
+				
+				<p class="p number" id="tgNumControl"><em>数量：</em><a href="#" class="reduction">减</a><input type="text" id="intnum" name="intnum" class="ipt" maxlength="5" value="1" /><a href="#" class="jia">加</a></p>
+				<p class="p"><em>应付：</em>&yen;<span class="zongjia" id="zongjia">{$chrmoney2}</span></p>
+				<p class="p"><em>{$daijinname}：</em>¥<span id="daijin_total">{$daijinnum}</span> <em>可抵扣：</em>¥<span id="daijin_available">{$daijinnum}</span></p>
+				
+				<p class="p" style="color:#d00"><em>实付：</em>¥<span class="zonge" id="dmoney_no_cf">{$chrmoneytotal}</span></p>
+			</div>
+			
+			{$songhuo}
+			
+			<div id="payact" style="{$display}">
+			 	<div class="table_hd">支付方式</div>
+				<div class="table_p">	
+					<ul class="zhifu">{$paydetails}</ul>
+				</div>
+				
+				<div class="bankradio" id="bankradio" style="display:none;">
+				<div class="table_hd">选择银行</div>
+				<div class="table_p">
+	    <ul class="bank">
+          
+	    <li><input id="gsyh" name="bank" type="radio"  style="vertical-align:middle; margin-right:6px;" onClick="show1(this,'2');" value="gsyh" /><img src="{$Default_tplPath}images/bank/bank_gsyh2.gif" alt="中国工商银行" align="middle" /></li>	
+
+	         
+	     
+	     <li><input id="zsyh" name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'11');" value="zsyh" /><img src="{$Default_tplPath}images/bank/bank_zsyh2.gif" alt="招商银行" align="middle" /></li>	
+	     
+		
+         
+	     <li><input id="ccb" name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'5');" value="jsyh" /><img src="{$Default_tplPath}images/bank/bank_jsyh2.gif" alt="中国建设银行" align="middle" /></li>	
+         
+         <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'3');" value="nyyh" /><img src="{$Default_tplPath}images/bank/bank_nyyh2.gif" alt="中国农业银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'4');" value="zgyh" /><img src="{$Default_tplPath}images/bank/bank_zgyh2.gif" alt="中国银行" align="middle" /></li>
+     
+       
+         
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'1');" value="jtyh" /><img src="{$Default_tplPath}images/bank/bank_jtyh.gif" alt="交通银行" align="middle" /></li>
+		 
+	     
+	    
+	     <li><input id="hxb" name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'8');" value="hxb" /><img src="{$Default_tplPath}images/bank/bank_hxyh.gif" alt="华夏银行" align="middle" /></li>	
+	     
+	     
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'12');" value="xyyh" /><img src="{$Default_tplPath}images/bank/bank_xyyh.gif" alt="兴业银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'9');" value="msyh" /><img src="{$Default_tplPath}images/bank/bank_msyh2.gif" alt="中国民生银行" align="middle" /></li>
+         
+        
+        <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'10');" value="gfyh" /><img src="{$Default_tplPath}images/bank/bank_gdfz.gif" alt="广东发展银行" align="middle" /></li>
+	     
+		   
+	     <li><input name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'16');" value="szfzyh" /><img src="{$Default_tplPath}images/bank/bank_payh.gif" alt="平安银行" align="middle" /></li>
+	     
+         
+         <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'13');" value="shpfyh" /><img src="{$Default_tplPath}images/bank/bank_pfyh.gif" alt="上海浦东发展银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'6');" value="zxyh" /><img src="{$Default_tplPath}images/bank/bank_zxyh.gif" alt="中信银行" align="middle" /></li>
+	     
+		
+	     
+	     <li><input name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'7');" value="gdyh" /><img src="{$Default_tplPath}images/bank/bank_gdyh.gif" alt="光大银行" align="middle" /></li>
+	     
+         
+	     
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'20');" value="njyh" /><img src="{$Default_tplPath}images/bank/bank_njyh.gif" alt="南京银行" align="middle" /></li>
+         
+		
+	     <li><input id="psbc" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'14');" value="psbc" /><img src="{$Default_tplPath}images/bank/bank_psbc.gif" alt="邮政储蓄银行" align="middle" /></li>	
+		 
+		 <li><input id="hzyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'21');" value="hzyh" /><img src="{$Default_tplPath}images/bank/bank_hangzhou.jpg" alt="杭州银行" align="middle" /></li>
+	     
+	       
+	     <li><input id="nbyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'22');" value="nbyh" /><img src="{$Default_tplPath}images/bank/bank_nbyh.gif" alt="宁波银行" align="middle" /></li>
+	     
+		<li><input id="dyyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'15');" value="dyyh" /><img src="{$Default_tplPath}images/bank/bank_dyyh.gif" alt="东亚银行" align="middle" /></li>
+		 
+		  <li><input id="hbyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'17');" value="hbyh" /><img src="{$Default_tplPath}images/bank/bank_hbyh.gif" alt="河北银行" align="middle" /></li>
+	     
+	     
+		   <li><input id="hsyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'18');" value="hsyh" /><img src="{$Default_tplPath}images/bank/bank_hsyh.gif" alt="徽商银行" align="middle" /></li>
+		  
+		  <li><input id="tjyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'19');" value="tjyh" /><img src="{$Default_tplPath}images/bank/bank_tjyh.gif" alt="天津银行" align="middle" /></li>
+             
+	    </ul></div>
+		
+				<div class="table_hd">选择银行卡类型</div>
+				<div class="table">
+					<p class="p"><input name="pmode_kid" type="radio" checked value="1" /> 储蓄卡</p>
+					<p class="p"><input name="pmode_kid" type="radio" value="2" /> 信用卡</p>
+					<p class="p"><input name="pmode_kid" type="radio" value="4" /> 企业对公户</p>
+				</div>		 
+	   </div>
+			</div>
+			<input type="hidden" name="styleid" id="styleid" value="{$styleid}" />
+			<input name="pmode_zid" type="hidden" value="4" />
+			<input type="hidden" name="tgid" id="tgid" value="{$tgid}" />
+			<input type="hidden" name="order_flag" id="order_flag" value="0" />
+			<input type="hidden" name="action"  value="2" />
+			<input type="hidden" name="pmode_id" id="pmode_id" value="" />
+			</form>
+			<iframe src="about:blank" id="pay" name="pay" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+			
+			<div style="padding-bottom:20px; text-align:center"><a href="javascript:;" onClick="submittgorder(0);" class="comn-submit">立即支付</a> <a href="javascript:;" onClick="submittgorder(1);" class="comn-submit gray">保存订单，暂不支付</a></div>
+		</div>
+
+	</div>
+{$bottom$}
+<script>
+var price={$chrmoney2};
+var daijinnum = {$daijinnum};
+check_amount($('#intnum').val());
+$('#intnum').keyup(function(event){
+	var k=event.keyCode;
+	if(k!=8){
+		check_amount($('#intnum').val());
+	}
+});
+function calculate_daijin(p){
+	var support = $('#daijin_available');
+	if(p<daijinnum){
+		support.html(price);
+	}else{support.html(daijinnum);}
+}
+calculate_daijin(price);
+
+
+function IsNumeric(sText){
+   var ValidChars = "0123456789";
+   var IsNumber=true;
+   var Char;
+   for (i = 0; i < sText.length && IsNumber == true; i++){
+	  Char = sText.charAt(i);
+	  if (ValidChars.indexOf(Char) == -1){
+		 IsNumber = false;
+	  }
+   }
+   return IsNumber;
+}
+function check_amount(val){
+	
+		if(!val){
+			return false;
+		}
+		if(!IsNumeric(val)){
+			alert('请输入正确的购买数量')
+			return false;
+		}
+		if($("#num1").val()=="-1"){
+			alert('您购买的数量超出了限制，不能再购买了！')
+			$("#intnum").val("0")
+			return false;
+		}
+		if($("#intnum").val()=="0"){
+			alert('购买数量不能为零\n请输入正确的购买数量！')
+			//$("#order_amount").val("1")
+			return false;
+		}
+		if(parseInt(val)>parseInt( $("#num1").val()) && parseInt( $("#num1").val())>0 ){
+			alert('团购购买数量不能大于'+$("#num1").val()+'')
+			$('#intnum').val($("#num1").val())
+			return false;
+		}
+		
+		var money_no_cf = Math.round(val *parseFloat(price) *100)/100.0;
+		//代金抵扣
+		var dmoney_no_cf = money_no_cf;
+		if(daijinnum>0 && money_no_cf <= daijinnum){var dmoney_no_cf = "0";}
+		else if(daijinnum>0 && money_no_cf > daijinnum){var dmoney_no_cf = Math.round((money_no_cf - daijinnum) *100)/100.00;}
+		
+		$('#dmoney_no_cf').html(dmoney_no_cf);
+		$('#zongjia').html(money_no_cf);
+		//$('#money_no_cf').html(money_no_cf);
+		$('#shu').val(money_no_cf);
+		calculate_daijin(money_no_cf);
+		return true
+	}
+function submittgorder(val)
+{
+	
+	
+
+	
+
+	
+		$("#order_flag").val("1");
+		var num=$('#order_amount').val();
+		if(num==""){
+			alert("对不起，请输入购买数量！");
+			$('#order_amount').focus();
+			$("#order_flag").val("0");
+			return false;
+		}
+		if(num=="0")
+		{
+			alert("对不起，请正确输入购买数量！");
+			$('#order_amount').focus();
+			$("#order_flag").val("0");
+			return false;
+		}
+		var styleid=$("#styleid").val();
+		var chrtel="",chrtela="";
+		var myreg = /^(((13[0-9]{1})|159|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1}))+\d{8})$/;
+		
+			chrtel=$("#chrtel").val();
+				chrtela=$("#chrtela").val();
+			if(chrtel=="")
+			{
+				alert("对不起，请输入您的手机号码！");
+				$('#chrtel').focus();
+				$("#order_flag").val("0");
+				return false;
+			}
+			if(chrtel!=chrtela)
+			{
+				alert("对不起，您两次输入的手机号码不一致！");
+				$('#chrtel').focus();
+				$("#order_flag").val("0");
+				return false;
+			}
+			if( !(myreg.test(chrtel)) )
+			{
+				alert("对不起，手机号码输入不正确！");
+				$("#chrtel").focus();
+				$("#order_flag").val("0");
+				return false;
+			}
+	
+	
+	var kindid = document.getElementsByName("payid");
+	for(var i=0;i<kindid.length;i++)
+	{
+		if(kindid[i].checked && kindid[i].value=="2" && val=="0")
+		{
+		var p_mode = document.getElementById("Form11").pmode_id.value;
+		  if(p_mode == "" || p_mode == 0){
+			 alert("请选择支付银行和类型");
+			 return false;	
+		  }
+		}
+		
+	}
+			
+      if(val=="0")
+         {
+	        $("#order_flag").val("0");
+	       }else
+	      {
+			   $("#order_flag").val("1");
+			  }
+
+		    $("#have_login").show();
+		    document.Form11.submit();
+		return true;
+	}
+</script>
+<script type="text/javascript">
+function show1(thiz,pid)
+{
+	if(channelmsg(pid)==1){							
+	}
+	var allDivs = document.getElementsByTagName("div");
+	for (var i = 0; i < allDivs.length; ++i)
+	{
+		var div = allDivs[i];
+		if (div.getAttribute("ctrldisp") == "true")
+		{
+			div.style.display="none";
+			if(div.id==thiz.value){
+				div.style.display="";
+			}
+		}				
+	}
+	document.getElementById("Form11").pmode_id.value=pid;
+}
+function channelmsg(pid){
+	var browser = navigator.appName;
+	if(pid=='104'||pid=='313'||pid=='312'){
+		if (browser != "Microsoft Internet Explorer"){
+			alert("请使用IE或者IE核心的浏览器,\n\n其他浏览器可能无法正常使用你选择的银行支付！");
+		  
+				return 0;
+			
+		}				
+	}
+
+	return 0;
+}
+function bankradio(payid){
+	if(payid=='2' ||payid=='5'){
+		 $("#bankradio").show();
+	}else{
+		$("#bankradio").hide();
+	}
+}
+var rank_list = $("input[name='payid']");
+rank_list.each(function(){
+	if($(this).prop("checked")&&($(this).val() === '2' || $(this).val() === '5')){
+		$("#bankradio").show();
+	}
+});
+
+function open_fraud(arg,fn){
+
+  var p_mode = document.getElementById("Form11").pmode_id.value;
+  if(p_mode == "" || p_mode == 0){
+	 alert("请选择支付类型");
+	 return false;
+  }
+  return fn(arg);
+}
+
+
+
+$.fn.tgNumControl = function(){
+	var t = $(this),
+		jia = t.find('.jia'),
+		jian = t.find('.reduction'),
+		ipt = t.find('#intnum');
+	jia.click(function(e){
+		e.preventDefault();
+		ipt.val(parseInt(ipt.val())+1);
+		parseInt(ipt.val())>1?(jian.addClass('jian_ok')):(jian.removeClass('jian_ok'));
+		$('#intnum').trigger('keyup');
+	});
+	jian.click(function(e){
+		e.preventDefault();
+		ipt.val(parseInt(ipt.val())>1?parseInt(ipt.val())-1:1);
+		parseInt(ipt.val())>1?(jian.addClass('jian_ok')):(jian.removeClass('jian_ok'));
+		$('#intnum').trigger('keyup');
+	});
+};
+$('#tgNumControl').tgNumControl();
+function MSGwindowShow(action,showid,str,url){
+	alert(str);
+}
+</script>
+</body>
+</html>

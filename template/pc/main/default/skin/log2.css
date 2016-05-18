@@ -1,0 +1,50 @@
+﻿@charset "utf-8";
+body { text-align:left;}
+.wrapper { width:1200px; margin:0 auto; text-align:left;}
+.service .bd li,.zone .l_4 button,#content .zone .regMenu {background:url(../images/sp5/login2.gif) no-repeat 0 0;}
+
+#header {}
+#header .logo { padding:8px 0;}
+#header .subLogo { border-left:1px solid #ccc; margin:-60px 0 0 280px; padding:5px 0 2px 15px; line-height:20px; color:#999;}
+#header .subLogo strong { color:#404040;}
+#header .h_nav { height:60px; text-align:right; margin-top:-50px; color:#aaa;}
+#header .h_nav a { padding:0 8px;}
+#header .c_position { color:#404040; border:1px solid #e0e0e0; border-top:2px solid #f54100; background-color:#fbfbfb; padding:5px 5px;}
+#header .c_position .high { color:#999;}
+
+#content { border:1px solid #d6dee0; margin-top:10px;}
+#content .left { float:left; width:500px; padding:25px 25px 50px 25px; _display:inline;}
+#content .right { float:right; width:345px; padding:50px 25px 65px; _display:inline; background:url(../images/sp5/line20100621.jpg) no-repeat 0 25px;}
+#content h3 { font-size:20px; color:333; font-family:"黑体"; font-weight:normal;}
+#content .zone { margin-top:10px;}
+#content .zone .regMenu { display:block; width:125px; height:41px; overflow:hidden; background-position:-73px 0; font:0pt/1000px Arial; margin-top:10px;}
+#content .left .zone { padding-left:40px;}
+
+.zone li { padding:6px 0;}
+.zone .s_t { line-height:14px; padding:4px 4px; border:1px solid #aaa; width:180px;}
+.zone .sp_01,.loginPop .bd .sp_02,.loginPop .bd .sp_03 { display:block; float:left; color:#404040;}
+.zone .sp_01 { width:60px; line-height:27px; font-size:14px;}
+.zone .sp_02 { width:200px;}
+.zone .sp_03 { width:80px; line-height:27px;}
+.zone .l_3 { padding-left:55px; color:#008000;}
+.zone .cb { vertical-align:middle; margin-right:5px;}
+.zone .l_3 .t { color:#892608;}
+.zone .l_4 { padding-left:59px;}
+.zone .l_4 button { text-indent:-999em; border:0 none; overflow:hidden; width:73px; height:27px; cursor:pointer;}
+.service { padding:0 10px; background:url(../images/sp5/login2.gif) repeat-x 0 -41px; height:23px; padding-top:7px;}
+.service .hd { float:left; width:175px; padding-left:22px; _display:inline; vertical-align:bottom; color:#ff5500;}
+.service .bd { float:left;}
+.service .bd li { float:left; _display:inline; padding:0 10px 0 20px; background-position:-286px 6px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

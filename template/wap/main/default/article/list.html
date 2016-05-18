@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-scroll5.css" />
+<style type="text/css">
+#wrapper { top:45px;}
+</style>
+{$top$}
+	<div class="content">
+		
+		<div id="wrapper">
+			<div id="scroller">
+			<div id="pullDown" style="display:none;"><span class="loader" style="display:none;">loadding</span></div>
+				<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$articleurl}">{$lanmuname}</a> &gt; {$chrcategory}</div>
+		<div class="select_01 small">
+			<ul>
+				{$smallcategory}
+			</ul>
+		</div>
+				
+				<ul id="innerrow" class="list_normal list_news"></ul>
+				<div id="pullUp" style="display:none;"><span class="loader">loadding</span></div>
+			</div>
+			<div id="reload" style="display:none;"><s class="s"></s><span class="txt">下拉可以刷新</span><br>最后更新：<span class="time">未知</span></div>
+			<span class="loader" id="pageLoader">loadding</span>
+		</div>
+	</div>
+{$bottom$}
+<input id="pagenum" type="hidden" value="1" />
+<input id="bigcatid" type="hidden" value="{$categoryid}" />
+<input id="smallcatid" type="hidden" value="{$classid}" />
+<script type="text/template" id="tp">
+<li class="img">
+	<a href="article_{{newsid}}.html" class="link">
+	<p class="img"><img data-src="{{filepath}}" src="{$Default_tplPath}images/livelistnopic.gif" data-ifshow="0" onerror="this.src='{$Default_tplPath}images/not_find_pic.jpg'" /></p>
+	<p class="tit">{{chrtitle}}</p>
+	<p class="txt">{{chrcontent}}</p>
+	<p class="hot po_ab">{{hits}}</p>
+	</a>
+</li>
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/mustache.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll-probe.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/getArticlePage.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+$('#foot_link').hide();
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+window.onload=function(){loaded_page();}
+</script>
+</body>
+</html>

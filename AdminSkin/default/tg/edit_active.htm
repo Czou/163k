@@ -1,0 +1,402 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<!--<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>-->
+<script src="{$atplPath}js/jquery.js"></script>
+
+<script type="text/javascript" src="{$atplPath}js/highslide/highslide.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/highslide/highslide.css" />
+<script type="text/javascript">
+	hs.graphicsDir = '{$atplPath}js/highslide/graphics/';
+	hs.wrapperClassName = 'wide-border';
+</script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入省啦标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.shopid.value==""){
+		alert("请关联商家!");
+		o.xiaoqu.focus();
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("请输入省啦亮点!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrmark.value.length>200){
+		alert("省啦亮点长度不能大于100个文字!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrdate.value==""){
+		alert("请输入结束时间!");
+		o.chrdate.focus();
+		return false;
+	}
+	if(o.chrmoney1.value==""){
+		alert("请输入市场原价!");
+		o.chrmoney1.focus();
+		return false;
+	}
+	if(o.chrmoney2.value==""){
+		alert("请输入省啦价格!");
+		o.chrmoney2.focus();
+		return false;
+	}
+	if(o.chrzhekou.value==""){
+		alert("请输入折扣!");
+		o.chrzhekou.focus();
+		return false;
+	}
+	if(o.chrnum.value==""){
+		alert("请输入省啦人数！");
+		o.chrnum.focus();
+		return false;
+	}
+}
+function jishuan()
+{
+	var c1 = jQuery('input[name="chrmoney1"]'),c2 = jQuery('input[name="chrmoney2"]');
+	if(c1.val() != "" && c2.val() != "")
+	{
+		var aa=parseFloat(c1.val());
+		var bb=parseFloat(c2.val());
+		var tt=(bb/aa);
+		jQuery('input[name="chrzhekou"]').val((tt*10).toFixed(2));
+	}
+}
+var ismouse="0";
+</script> 
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none; border:1px solid #e6e6e6; background-color:#f6f6f6; padding:8px; line-height:24px;}
+#keytishi li { list-style:none}
+#keytishi a { display:block; padding-left:6px;}
+#keytishi a:hover { background-color:#e6e6e6;}
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+</style>
+<div class="highslide-caption">
+	This caption can be styled using CSS.
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改省啦&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至省啦列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style table_style2">
+  <form name="form1" method="post" target="tijiao" action="?action=editSave" onsubmit="return checkform(this)">
+  <tr > 
+      <td  height="25">友情提示： 
+      </td>
+      <td class="category"  colspan=3>此省啦由 {$chrtruename} 发布,发布IP: {$userip} ,发布时间: {$dtappenddate} </td>
+	  
+    </tr>
+	<tr > 
+      <td height="25" width="13%" >省啦标题<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" ><input name="chrtitle" type="text" value="{$chrtitle}" size="40" maxlength=100 > <em class="global_tip">(最多支持100汉字)</em></td>
+    </tr>
+        <tr > 
+      <td height="25" width="13%" >风格模板套系<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" > ../TempLate/Zhuanti/Tg/{$template} </td>
+    </tr>
+	<tr > 
+      <td height="25"  >所属分类<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" >{$categorySelect}　区域：{$areaidSelect} </td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">省啦商家<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input id="xiaoqu" title="请输入商家名称" name="xiaoqu"  class="text" style="width: 200px;" type="text" onkeyup="getKeyWordShop();" onclick="getKeyWordShop();" autocomplete="off"  value="{$chrshop}" onblur='if(ismouse=="0"){document.getElementById("keytishi").style.display = "none";}'>
+            <em class="global_tip">输入关键字,会自动列出商家名称供选择</em>
+            <div>
+              <ul id="keytishi" onmouseover="ismouse='1';" onmouseout="ismouse='0';">
+                
+              </ul>
+              
+            </div>
+            <input id="shopid" name="shopid" type="hidden"  value="{$shopid}"/>
+			<input id="userid" name="userid" type="hidden"  value="{$userid}"/>
+</td>
+    </tr>
+	<tr > 
+      <td  height="25">设置兑换权限会员为(营业员)： 
+      </td>
+      <td  class="category" colspan="3">
+      	{$dhuserid_select} <a href="#" id="manage_yuangong" target="_blank" class="global_btn">员工管理</a>　<em class="global_tip">消费兑换营业员分配</em></td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">短信设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> 
+	  短信标题:<input id="smstitle" title="请输入短信标题" name="smstitle"  class="text" style="width: 150px;" type="text" value="{$smstitle}"  >
+            <em class="global_tip">请输入发送省啦消费短信时显示的简短标题(商家名称).</em>
+            <br>
+     商家电话:<input id="shoptel" title="请输入商家联系电话号码" name="shoptel"  class="text" style="width: 150px;" type="text" value="{$shoptel}" >
+            <em class="global_tip">请输入发送省啦消费短信时显示的商家咨询联系电话(商家电话).</em>
+            
+  </td>
+    </tr>
+
+	<tr > 
+ 	  <td  height="25">商品主图<font color="#FF0000">*</font>：
+      </td>
+      <td style="font-weight:normal;"> 
+      	<p><strong>主图:</strong> 尺寸:900*425</p>
+		
+	  <span id="str1" ><a href='{$url0}' class="highslide" onclick="return hs.expand(this)"><img src="{$url0}" style="margin:5px 0; display:block; width:300px; height:142px" id="showpic" border="0" /></a>  <span onclick="hid2()" class="global_btn">重新上传</span></span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=tg&type=0"></iframe>
+	  <br>主图截取宽度:<input name="filewidth" id="filewidth" type="text" size="8" value="900" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	主图截取高度:<input name="fileheight" id="fileheight" type="text" size="8" value="425" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+	  </span>
+	  <input type=hidden name="url0"  id="url0"  value="{$url0}">
+	  
+      	<p style="margin:15px 0 5px;"><strong>缩略图:</strong> 尺寸：285*190</p>
+		<p><input type="radio" name="smallpic" value="0" onclick="hid4()" checked >自动截取  <input type="radio" name="smallpic"  onclick="hid5()"  value="1">自定缩略图</p>
+		
+      	<span id="str3" style="display:none;"><a href='{$url1}' onclick="return hs.expand(this)" class="highslide"><img src="{$url1}" style="margin:5px 0; display:block; width:285px; height:190px;" id="showsmallpic" border="0" /></a>  <span onclick="hid3()" class="global_btn">重新上传</span></span><span id="smallup" Style="display:none;"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=tg&type=1"></iframe></span><input type=hidden name="url1" value="{$url1}" id="url1" >
+        <p id="str4">
+       	缩略图截取宽度:<input name="filewidth1" id="smallfilewidth" type="text" size="8" value="285" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">
+      	缩略图截取高度:<input name="fileheight1" id="smallfileheight" type="text" size="8" value="190" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"></p>
+      	
+    
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25">商品亮点<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" > <textarea name="chrmark" type="text" cols="80" rows="5">{$chrmark}</textarea> <em class="global_tip">限制100个文字</em></td>
+    </tr>
+	 
+	
+	<tr > <td  height="25">本单性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" ><select name="styleid">
+	  <option value="0" {$styleid0}>消费、服务类</option>
+	  <option value="1" {$styleid1}>实物-网购类</option>
+	  <option value="2" {$styleid2}>实物-订单类</option>
+	  <option value="3" {$styleid3}>代金券</option>
+	  </select> <em class="global_tip">请选择本次省啦项目的性质</em> <br>
+	    <div class="global_tip_multiple">
+		a、消费、服务类商品：消费者在线全额支付，凭码消费  <br>
+		b、实物-网购类商品：消费者在线全额支付,商家包邮快递 <br>
+		c、实物-订单类商品：消费者只需在线支付定金下单,线下与商家取货或送货,余款于线下商家自行结算<br>
+		d、代金券:无套餐,购买任意商家许可产品冲抵相应额度现金.<br>
+		</div>   </td>
+     
+    </tr>
+	
+	<tr > 
+      <td  height="25">市场原价： 
+      </td>
+      <td  class="category" colspan="3"> <input name="chrmoney1" style="width:200px;" type="text" size="8" value="{$chrmoney1}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"> <em class="global_tip">请输入本省啦商品的市场原价</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">省啦价： 
+      </td>
+      <td  class="category" colspan="3"> <input name="chrmoney2" style="width:200px;" type="text" size="8" value="{$chrmoney2}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"> <em class="global_tip">必须是数字，如果是实物类，建议是包邮价格 ；若是定金类型省啦，本价格为定金</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">折扣</td>
+      <td  class="category" colspan="3"> <input name="chrzhekou" style="width:200px;" type="text" size="8" value="{$chrzhekou}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> <em class="global_tip">请输入省啦价相对市场价的折扣.必须是数字，如4.1</em></td>
+    </tr>
+    <tr > 
+      <td  height="25">下单数量： 
+      </td>
+      <td  class="category" colspan="3"> {$schrnum} 份　<em class="global_tip">实际支付数量以订单查询购买成功为准</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">购买人数： 
+      </td>
+      <td  class="category" colspan="3"> {$chrnum} 份<input name="chrnum" type="hidden" value="{$chrnum}" /><!--<input name="chrnum" type="text" style="width:200px;" size="8" value="{$chrnum}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">-->　<em class="global_tip">人工修改后会在下次购买成功时自动修复为：下单数量+修正数据</em></td>
+    </tr>
+    <tr > 
+      <td  height="25">购买人数修正： 
+      </td>
+      <td  class="category" colspan="3"> <input name="typeid" type="text" style="width:200px;" size="8" value="{$typeid}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> <em class="global_tip">下单数量+修正数据=购买人数</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">其它： 
+      </td>
+      <td  class="category" colspan="3">单ID购买数量限制：<input name="num1" type="text" size="8" value="{$num1}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> <em class="global_tip">（0表示不限制）</em> <br>总量限制：<input name="num2" type="text" size="8" value="{$num2}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> <em class="global_tip">（0表示不限制）</em><br>一个手机购买限制数量：<input name="telnum" type="text" size="8" value="{$telnum}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> <em class="global_tip">（0表示不限制）</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">优先排序：</td>
+      <td  class="category" colspan="3"><input name="intorder" type="text" style="width:200px;" size="8" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"></td>
+    </tr>
+	  <tR>
+	  <td  height="25">属性<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"><input type="checkbox" name="kill1" value="1"  {$kill11}>新单 <em class="global_tip">(新单标志会在有效期开始3天后自动删除)</em> 	 <br><input type="checkbox" name="isindex" value="1" {$isindex1}>首页推荐  <input type="checkbox" name="maiguang"  value="1" {$maiguang1}>卖完了 <em class="global_tip">(设为“已售完”前台的列表中将显示"卖光了"了图标，即使是省啦未结束，本单也将无法继续购买)</em>
+	  <br>
+	   <input type="checkbox" name="kill2" value="1" {$kill21}>特惠   <input type="checkbox" name="kill3" value="1" {$kill31}>多套餐 <input type="checkbox" name="kill4" value="1" {$kill41}>免预约  
+	  <input type="checkbox" name="k1" value="1" {$k1}  >支持退款 
+	  <input type="checkbox" name="k2" value="1" {$k2}  >闪发   
+	  <input type="checkbox" name="k3" value="1" {$k3}  >七夕   
+	  <input type="checkbox" name="k4" value="1" {$k4}  >中秋   
+	  <input type="checkbox" name="k5" value="1" {$k5}  >国庆   
+	  <input type="checkbox" name="k6" value="1" {$k6}  >圣诞   
+	  <input type="checkbox" name="k7" value="1" {$k7}  >元旦   
+	  <input type="checkbox" name="k8" value="1" {$k8}  >春节   
+	  <input type="checkbox" name="k9" value="1" {$k9}  >端午   
+	  <input type="checkbox" name="k10" value="1" {$k10} >教师  
+	  <input type="checkbox" name="k11" value="1" {$k11} >父亲  
+	  <input type="checkbox" name="k12" value="1" {$k12} >母亲  
+	  <input type="checkbox" name="k13" value="1" {$k13} >妇女  
+	  <input type="checkbox" name="k14" value="1" {$k14} >多店通用
+	                                                       
+	  </td>
+    </tr>
+	
+	  <tR>
+	  <td  height="25">状态设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3">{$selectiskill} <!--input type="radio" name="iskill" value="0" {$iskill0} onclick="filepath_init()">待审 <em class="global_tip">(前台不显示)</em>  <input type="radio" name="iskill" {$iskill1} value="1" onclick="filepath_init()">上线 <em class="global_tip">(前台显示)</em>  <input type="radio" name="iskill" value="2" {$iskill2} onclick="filepath_init()">秒杀上线--></td>
+    </tr>
+	<tr > 
+      <td  height="25"><span id="startdate_txt">省啦券有效期</span><font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" ><input name="startdate" value="{$startdate}" type="text" size="20" class="Wdate" style="background-color:#FFFFFF;"><span id="startdate_node"> 到：</span><input name="enddate" value="{$enddate}" type="text" size="20" class="Wdate"  style="background-color:#FFFFFF;"   > <em class="global_tip">(若您要限制到具体时分秒，可以按“2014-12-30 23:59:59”格式自行输入)</em>
+	  
+	  <!--<input type="radio" name="typeid" value="4" {$typeid4}>永久有效-->
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25">结束时间<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="chrdate" type="text" size="20" class="Wdate" value="{$chrdate}" > <em class="global_tip">(到期后将不能下单，前台状态显示为“往日省啦”、“已结束”)</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">本单详情： 
+      </td>
+      <td class="category" > 
+	  <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent}</textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '500px'
+			});
+		});
+	</script>
+	  </td>
+    </tr>
+	<script>
+	var getID = function(ids){return document.getElementById(ids);}
+	function hid2()
+	{
+		document.all.str1.style.display="none";
+		document.all.str2.style.display="block";
+	}
+	function hid3()
+	{
+		document.all.str3.style.display="none";
+		document.all.smallup.style.display="block";
+	}
+	function hid4()
+	{
+		getID('smallup').style.display="none";
+		getID('str3').style.display="none";
+		getID('str4').style.display="";
+	}
+	function hid5()
+	{
+		//getID('smallup').style.display="block";
+		getID('str3').style.display="block";
+		getID('str4').style.display="none";
+	}
+	</script>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+  <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	var startdate_node = $('#startdate_node');
+	var startdate_txt = $('#startdate_txt');
+	function showiskill(val){
+		if(val ==='-2' || val ==='2'){
+			startdate_node.html('省啦券有效期：');
+			startdate_txt.html('秒杀开始时间：');
+		}else{
+			startdate_node.html('到');
+			startdate_txt.html('省啦券有效期：');
+		}
+	}
+	$('#iskill').change(function(){
+		var val = $(this).val();
+		showiskill(val);
+	});
+	$('#iskill').trigger('change');
+	$('#areaidbigid').change(function(){
+		showTgQuyu($(this).val(),'areaid');
+	});
+	$('#bigcategoryid').change(function(){
+		showTgCategory($(this).val(),'categoryid');
+	});
+	if($('#shopid').val() === '' ){
+		$('#manage_yuangong').attr({'href':'javascript:void(0)','onclick':"alert('请先选择该省啦的商家！');"});
+	}else{
+		$('#manage_yuangong').attr({'href':'users.aspx?action=loginuser&ID='+$('#userid').val()+'&url=/member/mypeisong_user.aspx','onclick':""});
+	}
+	if(!jQuery('#dhuserid').find('option')[0]){
+		jQuery('#dhuserid').html('<option value="">暂无员工分组</option>');
+	}
+})(jQuery);
+suitPic(150,150);
+function setshopid(val,chrshop,userid){
+	jQuery('#shopid').val(val);
+	jQuery('#userid').val(userid);
+	jQuery('#xiaoqu').val(chrshop);
+	jQuery('#keytishi').hide();
+	jQuery('#manage_yuangong').attr({'href':'users.aspx?action=loginuser&ID='+userid+'&url=/member/mypeisong_user.aspx','onclick':""});
+	var txt='';
+	if(jQuery('#dhuser_'+val).find('select').html() === ''){
+		txt='<option value="">暂无员工分组</option>';
+	}else{
+		txt=jQuery('#dhuser_'+val).find('select').html();
+	}
+	jQuery('#dhuserid').html(txt);
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>面试邀请</title>
+<link href="{$Default_tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_msyq.css" type="text/css" rel="stylesheet" />
+</head>
+<script type="text/javascript" src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<body>
+<form name="form1" method="post" onsubmit="return checkmsyq(this)" style="margin:0">
+<div class="msyq_box">
+	<div class="hd"><span class="title">面试邀请</span><span class="info">— 在线向<b>{$chrname}</b>发出面试邀请</span></div>
+	<div class="bd">
+		<ul>
+			<li class="blank10"></li>
+			<li><span>面试地点：</span><input type="text" name="chraddress" class="msyq_input" /></li>
+			<li><span>面试时间：</span><input type="text" name="chrdate" class="msyq_input" /></li>
+			<li><span>面试职位：</span><select name="zhiweiid"><option value="">请选择职位</option>{$zhiweiid}</select></li>
+			<li><span>联系人：</span><input type="text" name="chrman" class="msyq_input" /></li>
+			<li><span>联系电话：</span><input type="text" name="chrtel" class="msyq_input" /></li>
+			<li class="textarea1"><span>其他说明：</span><textarea name="chrmark" cols="" rows=""></textarea></li>
+			<li class="menu"><input type="submit" value=" " class="msyq_submit" />  <img src="{$Default_tplPath}images/p/close.jpg"  align="absmiddle" style="cursor:pointer" onclick="parent.LoginHide();"><input type="hidden" name="rencaiid" value="{$rencaiid}" /></li>
+			<li class="blank10"></li>
+		</ul>
+	</div>
+	<div class="ft"></div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$NID}</td>	
+	<td>{$baomingnum}</td>
+	<td>{$chrname}</td>
+	<td>{$truename}</td>
+	<td><a href="{$tuangouurl}huodong_{$activeid$}.html" target="_blank">{$chrtitle}</a></td>
+	<td>{$chrtel}</td>
+	<td>{$Dtappenddate}</td>
+	<td>{$num}</td>
+	<td>{$iskill}</td>
+	<td align="center">
+	 <a href="baoming.aspx?action=revertinfo&ID={$ID}" title="查看活动报名详情"  class="lightwindow page-options">查看详情</a>  
+	 <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name='ID' type='checkbox' id='ID' value='{$ID}'></td>
+</tr>

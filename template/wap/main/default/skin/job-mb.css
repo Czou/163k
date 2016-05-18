@@ -1,0 +1,57 @@
+@charset "utf-8";
+.filter { border-top:1px solid #d6d6d6;}
+.btn_normal a { color:#333;}.btn_normal a:hover { color:#d00;}
+.mod_job_01 {}
+.mod_job_01 .hd { background-color:#fff0db; font-size:18px; font-weight:bold; padding:8px 10px; border-top:1px solid #dda251;}
+.jinji .hd { background-color:#ffe9e5; border-top:1px solid #e1806e;}
+.tuijian .hd { background-color:#d2eef6; border-top:1px solid #54b4ce;}
+.zuixin .hd { background-color:#dcf5dc; border-top:1px solid #71c871;}
+
+.list_job {}
+.list_job li { position:relative; z-index:1; padding:8px; border-bottom:1px solid #e5e5e5;}
+.list_job .tit { font-size:18px; line-height:30px; height:30px; overflow:hidden;}
+.list_job .txt { color:#999; font-size:14px; line-height:24px; height:24px; overflow:hidden;}
+.list_job .treatment { color:#f50; font-size:14px; bottom:8px; right:8px; text-align:right; line-height:24px;}
+.list_job .treatment em { font-size:12px; color:#999; display:block;}
+.list_job .hot,.list_job .tui,.list_job .new,.list_job .urgent { display:inline-block; vertical-align:middle; height:18px; font-size:14px; color:#fff; padding:0 4px 1px; margin-right:5px; line-height:18px;}
+.list_job .hot { background-color:#e50b00;}
+.list_job .tui { background-color:#7f00ae;}
+.list_job .new { background-color:#1e8c00;}
+.list_job .urgent { background-color:#e56600;}
+
+
+.tips { border:1px solid #eee; padding:8px;}
+.tips .hd { color:#4e83ff;}
+.tips .bd { font-size:14px; color:#888; line-height:20px;}
+
+.job_head { padding:15px 15px 18px; border-bottom:1px solid #ccc;}
+.job_head .title { font-size:20px; font-weight:bold;}
+.job_head .hot,.job_head .ji,.job_head .tui,.job_head .new { display:inline-block; padding:1px 5px; color:#fff; font-size:12px; line-height:14px; font-weight:normal; background-color:#e50b00; margin-right:4px; margin-top:-3px; vertical-align:middle;}
+.job_head .ji { background-color:#e56600;}
+.job_head .tui { background-color:#7f00ae;}
+.job_head .new { background-color:#1e8c00;}
+.job_head .date { font-size:12px; color:#aaa; line-height:14px; margin-top:15px;}
+.job_head img { vertical-align:middle; display:inline-block; margin-top:-3px;}
+.job_content .hd { border-top:1px solid #9c9ea8; border-bottom:1px solid #e3e3e3; background-color:#f8f8f8; padding:10px; font-weight:bold; font-size:18px;}
+.job_content .bd { padding:10px; line-height:28px;}
+.job_content .bd p { margin:10px 0;}
+.job_content .bd .c a { color:#36c; background:url(../images/dian.jpg) no-repeat 5px 10px; padding-left:15px;}
+.job_content .bd .c a:hover { color:#d00;}
+
+.job_info { padding:15px; line-height:30px; border-bottom:1px solid #ccc; color:#999;}
+.job_info img { vertical-align:middle;}
+.job_info em { color:#333;}
+.job_info .xinzi { font-size:20px; font-weight:bold; color:#f50;}
+.job_info .xinzi em { font-size:16px; font-weight:normal; color:#f50;}
+.job_info .tel { margin-top:15px; font-size:14px; color:#555;}
+.job_info .tel .num { color:#f50; font-weight:bold; font-size:18px;}
+.job_info .no_qx { border:1px solid #ffb9b9; background-color:#ffefef; padding:3px 10px;}
+
+.toPhone { display:inline-block; top:10px; right:5px; width:45px; height:45px; overflow:hidden; text-indent:-999em; background:url(../images/phone_ico.png) no-repeat 0 0; background-size:45px auto;}
+
+.icon_yiguoqi { display:block; position:absolute; top:20px; right:10px; width:100px; height:53px;  background:url(../images/yhq_yiguoqi.png) no-repeat 0 0; background-size:100px auto; overflow:hidden; text-indent:-999em;}
+.show_false_1 { display:none;}
+
+.job_nav { margin:10px 0; display:table; width:100%;}
+.job_nav .cell { display:table-cell; text-align:center;}
+.job_nav .cell img { display:block; margin:0 auto 4px; vertical-align:top;}

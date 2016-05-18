@@ -1,0 +1,26 @@
+﻿<li>
+ <div class="pic">
+   <a href="shoulou_{$id}.html"><img src="{$filepath}"  onerror="this.src='{$tplPath}images/morenfangyuan.gif';" alt="" width="146" height="110" /></a>
+ </div>
+ <div class="con">
+   <div class="hy_t">
+     <a href="shoulou_{$id}.html">{$chrtitle}</a>
+     <span class="cs" style="display:{$daishouzhong}">出售中</span>
+     <span class="ys" style="display:{$yishouchu}">已售</span>
+   </div>
+   
+   <ul>
+    <li>{$shi}室{$ting}厅</li>
+    <li>{$chrsize}</li>
+    <li>中等装修</li>
+    <li>楼层{$nowlou}/{$zonglou}</li>
+   </ul>
+   <dl>
+     <dt class="userName">{$truename}</dt>
+     <dd class="date">{$updatedate}</dd>
+   </dl>
+   <div class="price"><em>{$price}</div>
+   <div class="jing" style="display:{$jingxuan}">精</div>
+   <div class="ji" style="display:{$ji}">急</div>
+ </div>
+</li>

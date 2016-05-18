@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的购物车-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0"/>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+</head>
+<body>
+<div class="header">
+	<a href="javascript:window.history.go(-1);" class="back">返回</a>购物车
+</div>
+<div class="login_inner" id="login_inner"></div>
+<div class="p_main">
+	<div id="shop_list" class="shop_list">{$PayShopMenu}</div>
+	<div class="shop_cart_list">
+		<form method="get" action="/member/myorder.aspx" onSubmit="return chechLogin(this);">
+			<input type="hidden" name="action" value="shoppay" />
+			<input type="hidden" name="shopid" value="{$shopid}" />
+			<ul id="pro_list">{$pay_small_list}</ul>
+			<div class="total"><span id="numAll">{$numAll}</span>件商品 总计<span class="price">&yen;<span id="chrmoneyAll">{$chrmoneyAll}</span></span></div>
+			<input type="hidden" id="shipmoney1" value="{$shipmoney1}">
+			<div class="account"><button class="disabled" type="submit" data-numAll="{$numAll}" id="submitGo" disabled>去结算</button></div>
+		</form>
+	</div>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common.js"></script>
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+window['SHOPID'] = '{$shopid}';
+function changeTwoDecimal_f(x){
+    var f_x = parseFloat(x);
+    if (isNaN(f_x)) {
+        alert('function:changeTwoDecimal->parameter error');
+        return false;
+    }
+    var f_x = Math.round(x * 100) / 100;
+    var s_x = f_x.toString();
+    var pos_decimal = s_x.indexOf('.');
+    if (pos_decimal < 0) {
+        pos_decimal = s_x.length;
+        s_x += '.';
+    }
+    while (s_x.length <= pos_decimal + 2) {
+        s_x += '0';
+    }
+    return s_x;
+}
+function showQison(val1,val2){
+	if(val2 === 0){$('#submitGo').addClass('disabled').bind('click',function(e){e.preventDefault();});return false;}
+	if((val1 > 0) && (val1 > val2)){
+		$('#submitGo').addClass('disabled').html('还差' + (val1 - val2) + '元起送').bind('click',function(e){e.preventDefault();});
+	}else{
+		$('#submitGo').html('去结算').removeClass('disabled').unbind('click');
+	}
+}
+function showOther(jsn){
+	var chrmoneyAll = $('#chrmoneyAll'),numAll = $('#numAll');
+	chrmoneyAll.html(jsn.chrmoneyAll);
+	numAll.html(jsn.numAll);
+}
+function setShoppingCart(sid,num,node,typeid){
+	var url=siteUrl+'request.ashx?action=addmyshopping&id='+sid+'&styleid=1&num='+num+'&shopid='+window['SHOPID']+'&ishtml=1&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			var chrmoney = node.parent().find('.chrmoney');
+			var result =  changeTwoDecimal_f(parseFloat(chrmoney.html())*parseInt(num));
+			showOther(data[0].CHRMONEY);
+			showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+		}else{
+			if(typeof typeid !== 'undefined'){
+				if('increase' === typeid){
+					$('#gouwuche'+sid).val(parseInt($('#gouwuche'+sid).val())-1);
+				}
+			}
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+function getShoppingCart(delid,node){
+	var Delid = delid || '';
+	var url=siteUrl+'request.ashx?action=getmyshopping&shopid='+window['SHOPID']+'&ishtml=1&delid='+Delid+'&jsoncallback=?';
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			showOther(data[0].CHRMONEY);
+			node.parent().remove();
+			showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+		}else{
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+function shoplist(){
+	var node = $('#pro_list');
+	node.find('.reduce').click(function(e){
+		e.preventDefault();
+		var now_node = $(this).parent().find('.n_ipt'),
+			now_val = parseInt(now_node.val());
+		if(now_val===1){return false;}
+		--now_val === 1?($(this).addClass('disabled'),now_val=1):($(this).removeClass('disabled'));
+		now_node.val(now_val);
+		$(this).parent().find('.increase').removeClass('disabled');
+		setShoppingCart($(this).parent().attr('data-goodid'),now_val,$(this),'reduce');
+	}).end().find('.increase').click(function(e){
+		e.preventDefault();
+		var now_node = $(this).parent().find('.n_ipt'),
+			now_val = parseInt(now_node.val());
+		if(now_val===100){return false;}
+		++now_val === 100?($(this).addClass('disabled'),now_val=100):($(this).removeClass('disabled'));
+		now_node.val(now_val);
+		$(this).parent().find('.reduce').removeClass('disabled');
+		setShoppingCart($(this).parent().attr('data-goodid'),now_val,$(this),'increase');
+	}).end().find('.del').click(function(e){
+		e.preventDefault();
+		getShoppingCart($(this).parent().attr('data-id'),$(this));
+	});	
+}
+shoplist();
+function chechLogin(o){
+	if($('#isLogin')[0] && $('#isLogin').val() === '1'){
+		return true;
+	}else{
+		MSGwindowShow('shopping','1','您需要先登录才能进行购物车结算！',siteUrl+'member/login.html?from='+encodeURIComponent(siteUrl+'member/myorder.aspx?action=shoppay&shopid='+window['SHOPID']),'');
+		return false;
+	}
+}
+document.addEventListener('DOMContentLoaded',function(){
+	IDC2.isLogin('{$SiteUrl}','{$SiteName}');
+},false);
+(function($){
+	var submitGo = $('#submitGo');
+	if(parseInt(submitGo.attr('data-numAll')) > 0){
+		submitGo.prop('disabled',false).removeClass('disabled');
+		$('#shopLink').show();
+		showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+	}
+	$('#shop_list').find('li a').each(function(){
+		$(this).attr('href',siteUrl+'member/myorder.aspx?action=myshoppay&shopid='+$(this).attr('data-id'));
+	});
+})(jQuery);
+</script>
+</body>
+</html>

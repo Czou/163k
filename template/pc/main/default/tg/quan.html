@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>线上省啦-省啦券验证--{$SiteName}</title>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div id="content" class="v2013 mt">
+		<div class="tuan_nav">
+			<ul class="clearfix">
+				<li class="	"><a href="{$tgurl}">今日省啦</a></li>
+				<li><a href="{$tgurl}more.html">更多省啦</a></li>
+				<li><a href="{$tgurl}liucheng.html">省啦流程</a></li>
+				<li><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="http://www.0938.cn/service/index.html" target="_blank">交流论坛</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		<div class="c_box">
+			<div class="hd">省啦券验证及消费登记</div>
+			<div class="bd clearfix">
+				<div class="mt_search">
+					<div class="form"><form action="quan.aspx" method="post" onSubmit="return checkquancode();">省啦券编号：<input type="text" class="t_ipt" name="code" id="code" value="" /><button type="submit" class="t_btn">查询</button></form></div>
+					<p class="tip" id="quantip" style="display:none">请输入省啦券编号</p>
+					<p class="txt">提示:省啦商家如果需要实时查看管理全部省啦订单请使用您的会员账号登录会员中心</p>
+				</div>
+			</div>
+		</div>
+		
+		{$output}
+			
+		{$Mh163k_团购频道_页脚}
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+</script>
+<script>
+function checkquancode()
+{
+	if( $("#code").val().length<5 )
+	{
+		$("#quantip").show();
+		$("#code").focus();
+		return false;
+	}
+	else
+	{
+		$("#quantip").hide();
+	}
+}
+</script>
+</body>
+</html>

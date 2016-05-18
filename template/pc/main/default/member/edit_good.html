@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改商品--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script>
+function checkform(o){
+	if(o.chrgood.value==""){
+		alert("请输入商品名称!");
+		o.chrgood.focus();
+		return false;
+	}
+	if(o.goodnum.value==""){
+		alert("请输入商品编号!");
+		o.goodnum.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("请选择商品分类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.p1[0].checked){
+		if(o.pinpai.value==""){
+			alert("请输入商品的品牌!");
+			o.pinpai.focus();
+			return false;
+		}
+	}else{
+		if(o.pinpaiid.value==""){
+			alert("请选择商品品牌!");
+			o.pinpaiid.focus();
+			return false;
+		}
+	}
+	if(o.price1.value==""){
+		alert("请输入市场价格!");
+		o.price1.focus();
+		return false;
+	}
+	if( !o.price1.value.CheckPrice()){
+		alert("请正确输入市场价格!");
+		o.price1.focus();
+		return false;
+	}
+	if(o.price2.value==""){
+		alert("请输入我们价格!");
+		o.price2.focus();
+		return false;
+	}
+	if( !o.price2.value.CheckPrice()){
+		alert("请正确输入我们价格!");
+		o.price2.focus();
+		return false;
+	}
+}
+String.prototype.CheckPrice = function()
+{   
+    var MyNumber =  this.search(/^\d{1,10}$|^\d{1,10}\.\d{1,2}\w?$/);
+    if(MyNumber == -1)
+        return false;
+    return true;
+}
+
+</script> 
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改商品</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">修改商品</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		修改商品,需要管理员审核
+
+		<br />
+		</td>
+	</tr>
+</table>
+
+  <form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 商品名称：</td>
+        <td class="tdcontent" colspan=3><input name="chrgood"  class="text" value="{$chrgood$}" type="text" size="40" >
+            </td>
+			
+    </tr>
+	<tr id="tr1">
+	 <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 商品编号：</td>
+        <td class="tdcontent" style="width:30%"  ><input name="goodnum" value="{$goodnum$}" class="text" type="text"    size="16" maxlength=11><span>(最长11位)</span>
+            </td>
+        <td class="tditem" style="width:13%;"><span style="color:Red">*</span> 商品分类：</td>
+        <td class="tdcontent">{qu_classid}</td>
+    </tr>
+	<tr id="tr2">
+        <td class="tditem"><span style="color:Red">*</span> 商品品牌：</td>
+        <td class="tdcontent" colspan=3><input type="radio" value="0"  name="p1">自定义:<input name="pinpai" class="text"  type="text" size="20"  value="{$pinpai$}" >  <input type="radio" value="1"  name="p1" checked=true>从商品品牌中选择:{$pinpaiid$}</td>
+    </tr>
+	<tr  > 
+     <td class="tditem">商品型号： 
+      </td>
+      <td class="tdcontent"> <input name="xinghao"  value="{$xinghao$}" class="text"  type="text" size="30"></td>
+	  <td class="tditem">赠送礼品： 
+      </td>
+      <td class="tdcontent"> <input name="zengsong" value="{$zengsong$}" class="text"  type="text" size="20" ></td>
+    </tr>
+	<tr id="tr2_1">
+        <td class="tditem"> <span style="color:Red">*</span>市场价格：</td>
+        <td class="tdcontent" colspan=3><input name="price1" value="{$price1$}" class="text"  type="text" size="12" onKeyUp="if(isNaN(value))execCommand('undo')"><span>(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</span></td>
+    </tr>
+	<tr id="tr3">
+        <td class="tditem"> <span style="color:Red">*</span>我们价格：</td>
+        <td class="tdcontent" colspan=3><input name="price2" value="{$price2$}" class="text"  type="text" size="12" onKeyUp="if(isNaN(value))execCommand('undo')" ><span>(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</span></td>
+    </tr>
+	<tr id="tr3_1">
+        <td class="tditem"> <span style="color:Red">*</span>货源情况：</td>
+        <td class="tdcontent" ><input type="radio" value="0" {$styleid1$} name="styleid">有货 
+				<input type="radio" value="1" name="styleid" {$styleid2$}>缺货
+           </td>
+		   <td class="tditem"> <span style="color:Red">*</span>相关属性：</td>
+        <td class="tdcontent" ><input type="hidden" name="istop" value="{$istop$}" >
+		  <input type="checkbox" name="cuxiao" value="1" {$cuxiao$}>是否加入促销 <input  type="hidden" name="remai" value="{$remai$}">  <input type="checkbox" name="xiaofei" value="1" {$xiaofei$}> 加入消费者保障计划 
+          <input type="checkbox" name="iskill" value="0" {$iskill$}>上架 </td>
+    </tr>
+	<tr>
+	  <td class="tditem">客服QQ1： 
+      </td>
+      <td class="tdcontent" > <input name="chrqq1" class="text" value="{$chrqq1$}" type="text" size="20" >(如果此项不填写，则默认调用网站客服QQ号码)</td>
+	  <Td class="tditem">客服QQ2</td>
+	  <td  class="tdcontent" > <input name="chrqq2" class="text"  type="text" size="20" value="{$chrqq2$}">(如果此项不填写，则默认调用网站客服QQ号码)</td>
+    </tr>
+	<tr>
+	  <td  height="25" class="tditem">属性： 
+      </td>
+      <td class="tdcontent"  colspan="3"> <input name="shu1" value="0" type="checkbox"{$shu1} ><input type="text" size="10" name="shutext1" value="{$shutext1}" class="text"/>  
+	  <input name="shu2" type="checkbox" size="20" value="0" {$shu2} ><input type="text" size="10" name="shutext2" value="{$shutext2}" class="text"/> 
+	  <input name="shu3" type="checkbox" size="20" value="0" {$shu3}><input type="text" size="10" name="shutext3" value="{$shutext3}" class="text"/> 
+	  <input name="shu4" type="checkbox" size="20" value="0" {$shu4}><input type="text" size="10" name="shutext4" value="{$shutext4}" class="text"/>
+	  <input name="shu5" type="checkbox" size="20" value="0" {$shu5}><input type="text" size="10" name="shutext5" value="{$shutext5}" class="text"/> 
+	  <input name="shu6" type="checkbox" size="20" value="0" {$shu6}><input type="text" size="10" name="shutext6" value="{$shutext6}" class="text"/> 
+	  </td>
+	  
+    </tr>
+	 <tr   > 
+      <td class="tditem"><span style="color:Red">*</span>商品主图： 
+      </td>
+      <td  colspan=3  class="tdcontent"> <span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+	
+	  <input type="file" class="text"  name="file" size="80"> <br /><span>为了前台显示美观，建议采用高宽为1：1的图片，格式为jpg/gif/png
+	后台自动生成大（280*280）、中（170*170）、小（100*100）、小（80*80）四种缩略图</span>
+	  </span>
+	  <input type=hidden name="url1" value="{$url1$}">
+	  <input type=hidden name="filepath1" value="{$filepath1$}">
+	  <input type=hidden name="filepath2" value="{$filepath2$}">
+	  <input type=hidden name="filepath3" value="{$filepath3$}"> 
+	  <input type=hidden name="filepath4" value="{$filepath4$}"> 
+	 
+	  </td>
+    </tr>
+     <tr  > 
+      <td class="tditem">售后服务：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R2" onClick="setfuwu(0);">网站方公用设置　<input type="radio" value="2"  name="R2" onClick="setfuwu(2);">我的公用设置　<input type="radio" value="1"  name="R2" onClick="setfuwu(1);">使用自定义内容
+	 <div id="fuwu1" style="display:none"><textarea cols="80" id="fuwu" name="fuwu" rows="10"></textarea></div>
+	  
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fuwu"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	 <tr  > 
+      <td class="tditem">付款方式：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R3" onClick="setfukan(0);">网站方公用设置　<input type="radio" value="2"  name="R3" onClick="setfukan(2);">我的公用设置　<input type="radio" value="1"  name="R3" onClick="setfukan(1);">使用自定义内容
+	 <div id="fukan1" style="display:none"><textarea cols="80" id="fukan1" name="fukan1" rows="10"></textarea></div>
+	  <script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fukan1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr> <tr  > 
+      <td class="tditem">配送/取货方式：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R4" onClick="setpeisong(0);">网站方公用设置　<input type="radio" value="2"  name="R4" onClick="setpeisong(2);">我的公用设置　<input type="radio" value="1"  name="R4" onClick="setpeisong(1);">使用自定义内容
+	  <div id="peisong1" style="display:none"><textarea cols="80" id="peisong1" name="peisong1" rows="10"></textarea></div>
+	  <script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="peisong1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	 <tr  > 
+      
+      <td  colspan=4  class="tdcontent">
+	  详细介绍：<br />
+	   <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent$}</textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	<tr  > 
+      
+      <td  colspan=4 align="center"><input type="hidden" name="id" value="{$ID}" /><input type="hidden" name="aa" value="{$fuwu$}" /><input type="hidden" name="bb" value="{$fukan$}" /><input type="hidden" name="cc" value="{$peisong$}" /><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+    </tr>
+</table>
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+
+<script>
+var pinpai='{$pinpai$}';
+if(pinpai!=""){
+	document.all.p1[0].checked=true;
+}
+else{
+	document.all.p1[1].checked=true;
+}
+function hid2()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+var fuwu="{$fuwu1$}";
+if (fuwu!="0" && fuwu!="fengganru" && fuwu!="fengfeiyang")
+{
+	document.all.R2[2].checked=true;
+	document.getElementById("fuwu1").style.display="";	
+	document.getElementById("fuwu1").innerHTML="<bR><br><input type='hidden' id='FckNr4' name='fuwu' value='"+document.getElementById("aa").value+"' /><input type='hidden' id='FckNr___Config4' value='' /><iframe id='FckNr___Frame4' src='../editor/editor/fckeditor.html?InstanceName=FckNr4&amp;Toolbar=Default' width='100%' height='200px' frameborder='no' scrolling='no'></iframe>";
+} 
+else if(fuwu=="fengfeiyang"){
+	document.all.R2[1].checked=true;
+}
+var fukan="{$fukan1$}";
+if (fukan!="0" && fukan!="fengganru" && fukan!="fengfeiyang")
+{
+	document.all.R3[2].checked=true;
+	document.getElementById("fukan1").style.display="";	
+	document.getElementById("fukan1").innerHTML="<bR><br><input type='hidden' id='FckNr5' name='fukan' value='"+document.getElementById("bb").value+"' /><input type='hidden' id='FckNr___Config5' value='' /><iframe id='FckNr___Frame5' src='../editor/editor/fckeditor.html?InstanceName=FckNr5&amp;Toolbar=Default' width='100%' height='200px' frameborder='no' scrolling='no'></iframe>";
+} 
+else if(fukan=="fengfeiyang"){
+	document.all.R3[1].checked=true;
+}
+var peisong="{$peisong1$}";
+if (peisong!="0" && peisong!="fengganru" && peisong!="fengfeiyang")
+{
+	document.all.R4[2].checked=true;
+	document.getElementById("peisong1").style.display="";	
+	document.getElementById("peisong1").innerHTML="<bR><br><input type='hidden' id='FckNr6' name='peisong' value='"+document.getElementById("cc").value+"' /><input type='hidden' id='FckNr___Config6' value='' /><iframe id='FckNr___Frame6' src='../editor/editor/fckeditor.html?InstanceName=FckNr6&amp;Toolbar=Default' width='100%' height='200px' frameborder='no' scrolling='no'></iframe>";
+}
+else if(peisong=="fengfeiyang"){
+	document.all.R4[1].checked=true;
+} 
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

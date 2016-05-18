@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/video2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/video2015.css" type="text/css" rel="stylesheet" />
+
+{$top$}
+		<div class="crumb-bar clearfix">
+            <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <span class="cur_tit">{$lanmuname}</span>
+        </div>
+        <div class="zx-gg mb-16">{$Mh163k_视频通用通栏广告}</div>
+		
+		<div class="clearfix">
+			<div class="sp-index-rside">
+				<div class="upload"><a href="{$SiteUrl}member/myvideo.aspx?action=add#tt11" target="_blank"><i></i>上传视频</a></div>
+				<div class="upload-rules">
+					<h4>上传规则</h4>
+					<p>1. 禁止上传影音娱乐类、涉及版权的视频；</p>
+					<p>2. 欢迎商家拍摄上传商品、店铺展示视频；</p>
+					<p>3. 高级企业会员可提供免费上门拍摄、后期制作、上传服务；</p>
+					<div class="phone">
+						<p>免费咨询</p>
+						{$sitetel}
+					</div>
+				</div>
+			</div>
+			<div class="index-reco-video">
+				<i class="tj"></i>
+				{$leftbigone}
+			</div>
+			<div class="m-video">
+				<i class="tuijian"></i>
+				<ul>
+					{$Mh163k_视频逛街首页_推荐视频}
+				</ul>
+			</div>
+			
+		</div>
+		<div class="grid_k02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mod_03">
+					<div class="hd clearfix">
+						<h3 class="left">最新视频</h3>
+					</div>
+					<div class="ivideo_list ivideo_list_index ivideo_list_2line">
+						<div class="bd clearfix">
+						{$newdetails}
+						</div>
+					</div>
+				</div>
+				{$videolistall}
+			</div></div>
+			<div class="col_sub">
+				<div class="mod_02" id="TabAdS01">
+					<div class="hd"><ul class="clearfix tab-hd"><li class="selected"><a href="#">最新排行榜</a></li><li><a href="#">周榜</a></li><li><a href="#">月榜</a></li></ul></div>
+					<div class="bd paixu">
+						<ul class="tab-cont" id="changeItem">
+							{$daydetails}
+						</ul>
+						<ul class="tab-cont" id="changeItem2">
+							{$weekdetails}
+						</ul>
+						<ul class="tab-cont" id="changeItem3">
+							{$monthdetails}
+						</ul>
+					</div>
+				</div>
+				{$rightlist}
+			</div>
+		</div>
+		
+		
+		
+		
+		
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#changeItem').changeList();
+	$('#changeItem2').changeList();
+	$('#changeItem3').changeList();
+
+	$("#TabAdS01").TabADS();
+});
+</script>
+</body>
+</html>

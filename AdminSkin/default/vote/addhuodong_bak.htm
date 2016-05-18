@@ -1,0 +1,293 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.chrname.value==""){
+		alert("对不起,请填写选手姓名!");
+		o.chrname.focus();
+		return false;
+	}
+	if(o.voteid.value==""){
+		alert("对不起,请选择关联活动!");
+		o.voteid.focus();
+		return false;
+	}
+	if(o.views.value==""){
+		alert("对不起,请填写人气!");
+		o.views.focus();
+		return false;
+	}
+	 if(o.intnum.value==""){
+		alert("对不起,请填写票数!");
+		o.intnum.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("对不起,请填写排序!");
+		o.intorder.focus();
+		return false;
+	}
+}
+function clickcolor()
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) document.all.color.value=aarr;
+}
+</script>
+<script src="{$atplPath}js/CJL.0.1.min.js"></script>
+<script src="{$atplPath}js/ImagePreview.js"></script><script>
+var imgsrc="{$atplPath}images/fabu_nopic.gif";
+var loadingsrc="{$atplPath}images/upload_120x120.gif";
+</script>
+<script src="{$atplPath}js/jquery.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+<style type="text/css">
+.my_prop_img{ width:100%; margin:0; padding:0;}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:104px; width:auto; padding:2px 5px;}
+.i_img_alt { width:114px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加选手信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至选手信息列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" onsubmit="return checkform(this);" enctype="multipart/form-data" >
+    <tr > 
+      <td  height="25">参赛活动<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category">{$voteid}</td>
+    </tr>
+    <tr > 
+      <td  height="25">选手姓名<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrname" class="myinput" style="width:120px;"/></td>
+    </tr>
+	 <tr > 
+      <td  height="25">选手年龄<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrage" class="myinput" style="width:120px;"/> 岁  <em class="global_tip">(如果留空，前台显示未知)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">选手体重<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="tizhong" class="myinput" style="width:120px;"/>kg  <em class="global_tip">(如果留空，前台显示未知)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">选手身高<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="shenggao" class="myinput" style="width:120px;"/>cm  <em class="global_tip">(如果留空，前台显示未知)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">选手来自<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="laizhi" class="myinput" style="width:120px;"/> <em class="global_tip">可以填如：某地区；某学校；某单位等(如果留空，前台显示未知)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">兴趣爱好<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="aihao" class="myinput" style="width:120px;"/> <em class="global_tip">(如果留空，前台显示未知)</em></td>
+    </tr>
+	<tr  > 
+      <td >代表图片(400*300)：
+      </td>
+      <td  colspan=5  class="category"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=vote&type=0"></iframe><input type=hidden name="url0"  id="url0" value=""> </td>
+    </tr>
+	<tr > 
+      <td  height="25">联系电话<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrtel" class="myinput" style="width:260px;"/> <em class="global_tip">(联系方式仅供网站方查看)</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">人 气<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="views" value="0" class="myinput" style="width:160px;" onKeyUp="if(isNaN(value))execCommand('undo')"/> <em class="global_tip">(修改后在当前基础上累加计算)</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">票 数：</td>
+      <td  colspan=3  class="category"><input type="text" name="intnum" value="0" class="myinput" style="width:160px;" onKeyUp="if(isNaN(value))execCommand('undo')"/> <em class="global_tip">(修改后在当前基础上累加计算)</em></td>
+    </tr>
+	
+	<tr > 
+      <td  height="25">排序<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="intorder" class="myinput"  value="{$intorder}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')"/> <em class="global_tip">数字越大越靠前</em></td>
+	  <td  height="25">状态<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="iskill" type="radio" value="0"  />待审 <em class="global_tip">(前台暂不显示,不可投票)</em>
+                <input name="iskill" type="radio" value="1"  checked/>正常参赛 <em class="global_tip">（前台显示，可投票）</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">上传图片： 
+      </td>
+      <td class="category" colspan="3" style="padding-left:4px;">
+	 <!--<div class="my_prop_img">
+              {$filevalues}
+            </div>-->
+<div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;">
+		<input type="button" id="J_selectImage" value="批量上传" />
+		<div id="J_imageView" class="clearfix"></div>
+		<input type="hidden" name="urlhidden" id="urlhidden" value="" />
+		<input type="hidden" name="urlmark" id="urlmark" value="" />
+	</div>
+	  <div id="xiangce" class="clearfix"></div>
+<script>
+var table_id = 'xuanshou_file';
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id,
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					var i=0;
+					jQuery("#urlhidden").val();
+					jQuery("#urlmark").val();
+					K.each(urlList, function(i, data) {
+						if( jQuery("#urlhidden").val()=="" ){
+							jQuery("#urlhidden").val(data.id);
+						}else{
+							jQuery("#urlhidden").val(jQuery("#urlhidden").val()+","+data.id);
+						}
+						i++;
+					});
+					saveMyImage();
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+var pictempid='0',pictempclassid='0';
+function saveMyImage(){
+	var parentid = jQuery('#parentid').val();
+	var urlhidden = jQuery('#urlhidden').val();
+	var urlmark = jQuery('#urlmark').val();
+	
+	var url = '/request.ashx?action=picBatchUpload&table_id='+table_id+'&id='+pictempid+'&classid='+pictempclassid+'&id=0&isadmin=1&urlhidden='+urlhidden+'&urlmark='+urlmark+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			if(pictempid=="0"){
+				pictempid=data.pictempid;
+				
+			}
+			if(pictempclassid=="0"){
+				pictempclassid=data.pictempclassid;
+				
+			}
+			showMyImage(data['MSG']);
+		}else{
+			alert(data);
+		}
+	}});
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\'xuanshou_file&liveid='+pictempid+'\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\'xuanshou_file&liveid='+pictempid+'\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+
+</script>	
+		</td>
+    </tr>
+	<tr  > 
+      <td >参赛文宣： 
+      </td>
+      <td  colspan=5  class="category"> <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10"></textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script>
+function delfile(o,sid){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = '/request.ashx?action=delpic&id='+sid+'&pictempid='+pictempid+'&pictempclassid='+pictempclassid+'&table_id='+table_id;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&pictempid='+pictempid+'&pictempclassid='+pictempclassid+'&table_id='+tableid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+  </body>
+</html>

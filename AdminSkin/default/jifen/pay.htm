@@ -1,0 +1,57 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>支付接口配置</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+
+      <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form" method="post" action="?action=del">
+          <tr align="center">
+            <td class="category" nowrap="nowrap">排序(ID)</td>
+            <td class="category" >支付方式</td>
+            <td  class="category">商家ID</td>
+            <td  class="category">手续费</td>
+             <td  class="category">排序</td>
+           <td  class="category">状态</td>
+            <td  class="category">管理操作</td>
+           <td  class="category" nowrap="nowrap">申请</td>
+          </tr>
+          <tag:Loop ListType="Listpay" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="jifen/List_pay_Tr.htm" />
+        </form>
+       <tr  > 
+       <td  colspan="8" align="left" style="font-weight:normal; padding:10px; background-color:#fff; line-height:25px;">
+	   <strong>支付方式说明：</strong><br>
+一、网银在线接口,银联支付接口,交通银行接口均支持国内大部分银行卡支付。网站根据发展需要选择其中一家申请签约即可。<br>
+1：网银在线：门槛低，交易费率高。属于中间机构。 <br>
+2：银联在线：门槛稍高，交易费率高。属于中间机构。安全性好<br>
+3：交通银行接口：门槛高，交易费率低，属于垂直机构(直接机构)。安全性高。<br>
+二：配置方式： <br>
+1：网银在线，银联在线 直接到网站申请商户号填写即可开通支付。如需要联调报告请向163K客服索取。<br>
+2：需要安装交行接口的必须是独立服务器（建议）或安全性高的VPS独立系统（慎用，系统和外网之间不能有任何代理或反向代理或路由），虚拟主机请勿安装。也不支持。 <br>
+3：需要安装交行接口的请向交行索取JAVA安装包自行按照默认值安装或向163K客服申请代为安装配置JAVA交行专用环境。<br>
+4：如果您开通使用了网银在线接口，出现支付完成后无法自动返回网站，造成支付失败，请发一封电子邮件到：cs@chinabank.com.cn，内容包括：商户号、自动对账地址(http://您的域名/pay/notify_url.aspx)如有疑问，请联系网银技术客服(QQ:1215008842)<br>
+
+	  </td>
+	  
+    </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

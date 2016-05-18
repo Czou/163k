@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>在线问房-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/_fangchan.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_wenfang.css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="http://www.mh163k.com/";</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$fcurl}">{$lanmuname}</a> &gt; <a href="loupan_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a> &gt; 在线问房</div>
+	<div id="content" class="fangchan">
+		<div class="lpHead">
+			<h1><span class="title">{$Loupan_chrloupan}</span><em>{$Loupan_biaoyu}</em></h1>
+			<div class="extraNav clearfix">
+				<ul>
+					<li><a href="loupan_{$Loupan_loupanid}.html">楼盘概览</a></li>
+                    <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+					<li><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+                    <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+					<li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+					<li><a href="revert_{$Loupan_loupanid}.html">点评</a></li>
+					<li><a href="list.aspx?action=s&lid={$Loupan_loupanid}" target="_blank">销售动态</a></li>
+                    <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+					<!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+					<li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+					
+					<li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+				</ul>
+				<div class="right">浏览：{$Loupan_views}</div>
+			</div>
+		</div>
+		<div class="wenfang">
+			<div class="answer clearfix">
+				<ul>
+					<tag:Loop ListType="LISTLOUPANWEN" RecType="New" PageSize="10" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_showloupanwen.html" />
+				</ul>
+				<div class="right f_pagelist">
+						<span class="total">目前共有问题{$total}条 每页显示10条</span>
+						{$PageSplit}
+					</div>
+			</div>
+			<div class="write_question" id="write_question">
+				<form name="inputStyle" method="post" onSubmit="return checkloupanwen(this);" style="margin:0">
+				<div class="ts">我要提问/回答</div>
+				<div class="c_login">{$Mh163k_评论登录状态}</div>
+				<div class="sr"><textarea cols="120" rows="8" name="chrmark" id="chrmark"></textarea></div>
+				<div class="clearfix comment_login">
+				<input type="hidden" name="parentid" id="parentid" value="0">
+					<span class="left">验证码：<input name="code" class="login_test" style=" width:50px;" type="text" /></span>
+					<span class="left">
+					<input type="hidden" name="loupanid" value="{$Loupan_loupanid}">
+					<img src="../getcode.html" alt=""   id="vadimg" title="看不清楚请刷新!" onClick="this.src='../getcode.html?'+(new Date().getTime());"  style="cursor:pointer" align="absmiddle"/></span>
+				</div>
+				<input name="submit" class="send" value=" " type="submit" />　<span id="checkcompany">(注意：仅限300汉字)</span>
+ 				</form>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

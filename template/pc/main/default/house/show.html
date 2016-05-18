@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$fcurl}">{$lanmuname}</a> &gt; <a href="{$fcurl}list_{$categoryid}.html">{$chrcategory}</a> &gt; 正文</div>
+	<!-- 主体 -->
+	<div id="content" class="v2013">
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_content">
+					<h2>{$chrtitle}</h2>
+					<div class="news_info">{$dtappenddate}　<!--<span class="read">{$hits}人阅读</span>-->来源：<em>{$chrfrom}</em>　<span id="news_font">字号：<a href="javascript:void(0);" id="sma_font" class="small current" >T</a> / <a href="javascript:void(0);" class="big" id="big_font">T</a></span></div>
+					<div class="news_aricle" id="news_aricle">
+						<table width="100%" cellpadding="0"  cellspacing="0" border="0">
+					<tr><td style="WORD-BREAK: break-all;">{$chrcontent}</td></tr>
+					</table>
+					<div style="text-align:center" class="manu">{$split}</div>
+					</div>
+					<div class="prev_next clearfix">
+						<div class="left">
+							<p>上一篇：{$lastone}</p>
+							<p>下一篇：{$nextone}</p>
+							
+						</div>
+						<div class="right">
+							<div class="ding">
+								<p id="cainews">{$xin1}</p>
+								<a href="javascript:void(0)" onClick="sethousearticle(1,{$newsid});" >踩</a>
+							</div>
+							<div class="ding">
+								<p id="dingnews">{$xin2}</p>
+								<a href="javascript:void(0)" onClick="sethousearticle(2,{$newsid});" >顶</a>
+							</div>
+						</div>
+					</div>
+					<div class="prev_next clearfix">
+						<div class="left"><span style="float:left; font-size:12px; line-height:44px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+						<div class="right"><div class="toBBS"><a href="{$bbsurl}" target="_blank">到社区论坛参与互动讨论</a></div></div>
+					</div>
+				</div>
+				<div class="xiangguan">
+					<div class="hd">相关阅读</div>
+					<div class="bd">
+						<ul>
+							{$xiangguan}
+						</ul>
+					</div>
+				</div>
+				
+			</div></div>
+			<div class="col_sub">
+				<div class="mo_2 loupan">
+					<div class="hd">热门楼盘</div>
+					<div class="bd">
+						<ul>
+							{$renmenloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+				<div class="mo_2 marTop10 loupan">
+					<div class="hd">推荐楼盘</div>
+					<div class="bd">
+						<ul>
+							{$rentuiloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#big_font').click(function(){
+		$('.news_aricle').css({'font-size':'16px'});
+		$(this).addClass("current");
+		$('#sma_font').removeClass("current");
+	});
+	$('#sma_font').click(function(){
+		$('.news_aricle').css({'font-size':'14px'});
+		$(this).addClass("current");
+		$('#big_font').removeClass("current");
+	});
+});
+</script>
+</body>
+</html>

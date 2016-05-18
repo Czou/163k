@@ -1,0 +1,182 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">{$jifenname}设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=EditSave">
+     <tr > 
+      <td width="25%" height="25" >[代金券]名称自定义<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="daijinname" value="{$daijinname}"  /> <em class="global_tip">用于:购买任何可现金交易的产品消费1:1抵扣使用,注*:当{$jifenname}不足时,按照兑换比例扣除{$daijinname}</em></td>
+    </tr>
+	 <tr > 
+      <td width="25%" height="25" >[{$jifenname}]名称自定义<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jifenname" value="{$jifenname}"  /></td>
+    </tr>
+   <tr > 
+      <td  height="25" >{$jifenname}兑换比例<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jifenshu" value="{$jifenshu}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">(即1元可以兑换多少{$jifenname})</em></td>
+    </tr>
+	  
+	  <tr > 
+      <td  height="25" >信息附加服务，标题加红所需<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="colorfen" value="{$colorfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/条</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25" >信息附加服务，标题加粗所需<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="fontfen" value="{$fontfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/条</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25" >TOP信息竞价最低标准<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jingjiafen" value="{$jingjiafen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/条</em></td>
+    </tr>
+	  <tr > 
+      <td  height="25" >企业会员查看用户简历联系方式<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="qiyefen" value="{$qiyefen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/份，同一份简历仅第一次查看的时候需要{$jifenname}</em>
+</td>
+    </tr>
+	  <tr > 
+      <td  height="25" >发布生活信息自动奖励<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="fabufen" value="{$fabufen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/条审核通过的信息</em></td>
+    </tr>
+ <tr > 
+      <td  height="25" >在线申领打折卡<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="dazheka" value="{$dazheka}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/张</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >首页头版信息位置<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="weizhi" value="{$weizhi}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/天</em></td>
+    </tr>
+	 
+	  <tr > 
+      <td  height="25" >信息大类置顶位置<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="dalei" value="{$dalei}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}/天</em></td>
+    </tr>
+ 
+	 <tr > 
+      <td  height="25" >新注册会员默认自动赠送<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="registerfen" value="{$registerfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25" >生活信息收费—浏览者支出积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="viewfen" value="{$viewfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >生活信息刷新发布信息扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="flushfenlei" value="{$flushfenlei}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >生活信息收费—发布者收益积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="geifen" value="{$geifen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >招聘频道刷新发布职位扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="flushjob" value="{$flushjob}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	
+	<tr > 
+      <td  height="25" >房产频道刷新发布信息扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="flushfen" value="{$flushfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >非经纪人在房产频道发布信息扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="housefen1" value="{$housefen1}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >未认证经纪人在房产频道发布信息扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="housefen2" value="{$housefen2}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<tr > 
+      <td  height="25" >认证经纪人在房产频道发布信息扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="housefen3" value="{$housefen3}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+	<!--<tr > 
+      <td  height="25" >商家每接受一条短信通知扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="shopfen" value="{$shopfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+    <tr > 
+      <td  height="25" >接收求职通知一条短信通知扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jobfen" value="{$jobfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>-->
+    <tr > 
+      <td  height="25" >超级黄页每月（按30天计算）<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="bianmingfen" value="{$bianmingfen}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+		<tr > 
+      <td  height="25" >普通企业会员发布招聘信息/条扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jobjifen1" value="{$jobjifen1}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+		<tr > 
+      <td  height="25" >高级企业会员发布招聘信息/条扣除积分<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="10" name="jobjifen2" value="{$jobjifen2}" class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/> <em class="global_tip">{$jifenname}</em></td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

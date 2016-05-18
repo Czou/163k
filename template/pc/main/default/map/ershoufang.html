@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" > 
+<head id="Head1">
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<style type="text/css"> 
+<!--
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea {margin:0;padding:0;}
+body,button, input, select, textarea {font:12px/1.5 arial,simsun,sans-serif;}
+body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {font-size:100%;}
+address, cite, dfn, em, var {font-style:normal;}
+code, kbd, pre, samp {font-family:courier new,courier,monospace;}
+small {font-size:12px;}
+ul, ol {list-style:none;}
+a { text-decoration:none; color:#36c;}
+a:hover {text-decoration:underline; color:#f50;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+legend {color:#000;}
+fieldset, img {border:0;}
+button, input, select, textarea {font-size:100%;}
+ 
+.fix:after { display:block; content:'\20'; height:0; clear:both;}
+.fix { *zoom:1;}
+.blank10 { height:10px; overflow:hidden;}
+.bigFont { font-size:14px!important;}
+
+
+#content { position:relative; *zoom:1; z-index:1; overflow:hidden;}
+
+#allmap{height:100%;width:100%; margin:0; position:relative;}
+#l-result{height:100%; width:365px; position:absolute; left:0; top:0; overflow:hidden;}
+#mapinfo_but_con { cursor:pointer; position:absolute; top:0; left:0; z-index:99; width:17px; height:63px; background:url('{$tplPath}images/map_but_con.png') no-repeat -18px 0;}
+#mapinfo_but_con.toRight { background:url('{$tplPath}images/map_but_con2.png') no-repeat -18px 0;}
+#mapinfo_but_con.hover { background-position:0 0;}
+-->
+</style>
+<link rel="stylesheet" href="{$tplPath}skin/map.css" />
+<script type="text/javascript" src="{$tplPath}js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{$tplPath}js/json2.js"></script>
+<script type="text/javascript" src="{$tplPath}js/clock.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+</head>
+<body>
+	<div id="header">
+		<div class="topBar fix">
+			<div class="data"><script type="text/javascript">showcal();</script> <a href="{$SiteUrl}calendar/index.html" target=_blank style="color:#f30;">[万年历]</a></div>
+			
+			<div class="login"><a href="{$SiteUrl}help/" target=_blank>帮助</a> | <a href="{$SiteUrl}service/index.html" target=_blank>留言</a>
+            </div>
+		</div>
+		<div class="headBG fix">
+			<h1 class="logo"><a href="{$SiteUrl}" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></h1>
+			<div class="logoSub"><a href="{$SiteUrl}map/"><img src="{$tplPath}images/map/logoSub.gif" alt="" /></a></div>
+			<div class="nav">
+				<ul class="fix">
+					<li class="first"><a href="index.html">首页<s class="s"></s></a></li>
+					<li><a href="xingfang.aspx">新房<s class="s"></s></a></li>
+					<li><a href="ershoufang.aspx" class="current">二手房<s class="s"></s></a></li>
+					<li><a href="chuzhufang.aspx">出租房<s class="s"></s></a></li>
+					<li><a href="koubeishangjia.aspx">口碑店铺<s class="s"></s></a></li>      
+					<li><a href="bianming.aspx">便民机构<s class="s"></s></a></li> 
+			</ul>
+				<s class="rc_le"></s><s class="rc_ri"></s>
+			</div>
+			<div class="returnIndex"><a href="{$SiteUrl}" target="_blank">返回到门户首页</a></div>
+		</div>
+		
+		<div class="chd fix">
+			<div class="left">当前地图可视区域内找到了<span class="num" id="totalnum"></span>个二手房</div>
+			<div class="right"><a href="{$fcurl}chushou.html" target="_blank">[切换到二手房列表页面]</a></div>
+		</div>
+	</div>
+	<div id="content" class="map2_div" >
+		<div id="l-result">
+			<div class="filter">
+					<div class="search_key fix"><input type="text" id="keyword_input" class="s_w" value="" /><button type="button" id="search_btn" class="s_btn">确定</button>
+				</div>
+			</div>
+			<div class="filter">
+				<div class="hd">区域</div>
+				<div class="bd"> {$chrdiqu} <select id="small_diqu"><option value="">::请选择地段</option></select></div>
+			</div>
+			<div class="filter">
+				<div class="hd">类型</div>
+				<div class="bd bd_s">
+					<input type="hidden" id="f_leixing" value="">
+					<ul class="fix">
+						<li><a href="#" data-id="" data-cat="f_leixing" class="current">不限</a></li>
+						{$Mh163k_地图频道_类型}
+					</ul>
+				</div>
+			</div>
+			<div class="filter">
+				<div class="hd">售价区间</div>
+				<div class="bd">
+					<input type="hidden" id="f_jiage" value="">
+					<ul class="fix">
+						<li><a href="#" data-id="" data-cat="f_jiage" class="current">不限</a></li>
+						{$Mh163k_地图频道_售价区间}
+					</ul>
+				</div>
+			</div>
+			<div class="filter">
+				<div class="hd">面积</div>
+				<div class="bd bd_l">
+					<input type="hidden" id="f_mianji" value="">
+					<ul class="fix">
+						<li><a href="#" data-id="" data-cat="f_mianji" class="current">不限</a></li>
+						<li><a href="#" data-id="1" data-cat="f_mianji">50平米以下</a></li>
+						<li><a href="#" data-id="2" data-cat="f_mianji">50-70平米</a></li>
+						<li><a href="#" data-id="3" data-cat="f_mianji">70-90平米</a></li>
+						<li><a href="#" data-id="4" data-cat="f_mianji">90-110平米</a></li>
+						<li><a href="#" data-id="5" data-cat="f_mianji">110-130平米</a></li>
+						<li><a href="#" data-id="6" data-cat="f_mianji">130-150平米</a></li>
+						<li><a href="#" data-id="7" data-cat="f_mianji">150-200平米</a></li>
+						<li><a href="#" data-id="8" data-cat="f_mianji">200-300平米</a></li>
+						<li><a href="#" data-id="9" data-cat="f_mianji">300-500平米</a></li>
+						<li><a href="#" data-id="10" data-cat="f_mianji">500平米以上</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="filter">
+				<div class="hd">户型</div>
+				<div class="bd">
+					<input type="hidden" id="f_huxing" value="">
+					<ul class="fix">
+						<li><a href="#" data-id="" data-cat="f_huxing" class="current">不限</a></li>
+						<li><a href="#" data-id="1" data-cat="f_huxing">一室</a></li>
+						<li><a href="#" data-id="2" data-cat="f_huxing">二室</a></li>
+						<li><a href="#" data-id="3" data-cat="f_huxing">三室</a></li>
+						<li><a href="#" data-id="4" data-cat="f_huxing">四室</a></li>
+						<li><a href="#" data-id="5" data-cat="f_huxing">五室</a></li>
+						<li><a href="#" data-id="6" data-cat="f_huxing">五室以上</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="filter">
+				<div class="hd">装修程度</div>
+				<div class="bd bd_s">
+					<input type="hidden" id="f_zhaungxiu" value="">
+					<ul class="fix">
+						<li><a href="#" data-id="" data-cat="f_zhaungxiu" class="current">不限</a></li>
+						{$Mh163k_地图频道_装修}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="allmap"></div>
+		<div id="mapinfo_but_con"></div>
+		<div class="map2_commname"></div>
+		<div class="map2_loupan" id="newInfo" style="position:relative; z-index:50;">
+		  <div class="map2_loupan_content" id="newData"> <img class="map2_loupanwind_load" src="../template/pc/default/images/Map/load_18x18.gif" /> </div>
+		  <div class="map2_win_close" onclick="javascript:document.getElementById('newInfo').style.display = 'none';"></div>
+		</div>
+		<div class="map2_notice" id="nottice">
+		  <div class="l1">在这个位置没找到符合您要求的二手房&nbsp;:(</div>
+		  <div class="l2">您可以试试下面的方法：</div>
+		  <ul class="l3ul">
+			<li>拖动地图到其他位置，或者缩小地图试试。</li>
+			<li>如果您选择了某个地区范围，可以考虑换一个再试试。<br/>
+			  其他筛选条件也是一样哦。</li>
+		  </ul>
+		  <div class="l4" onclick="javascript:document.getElementById('nottice').style.display = 'none';"><a href="javascript:void(0);">我知道了</a></div>
+		  <div style="position:absolute; left: 22px; top: 189px;">
+			<input id="nomore" type="checkbox" />
+			不再提示</div>
+		</div>
+		<div class="map2_point" id="mappoint">
+		  <table>
+			<tr>
+			  <td><img src="../template/pc/default/images/Map/load_18x18.gif" style="width: 18px; height: 14px" /></td>
+			  <td><font color="#EB6100">正在为您找二手房，请稍等......</font></td>
+			</tr>
+		  </table>
+		</div>
+		<div class="map2_commname_highlight"></div>
+		<div class="map2_proparrow map2_proparrow_right"></div>
+	 </div>
+<script type="text/javascript">
+var allmap = $('#allmap');
+var l_result = $('#l-result');
+var w_h = $(window).height();
+var w_w = $(window).width();
+var hd_h = $('#header').height();
+var sub_width = 365;
+var map_b_c = $('#mapinfo_but_con');
+var if_sub_open = false;
+allmap.css({'height':w_h-hd_h+'px'});
+l_result.css({'height':w_h-hd_h+'px'});
+$(window).resize(function(){
+	w_h=$(window).height();
+	w_w=$(window).width();
+	var w = w_w-sub_width;
+	var h = w_h-hd_h;
+	
+	allmap.css({'height':h+'px'});
+	if(!!if_sub_open){
+		allmap.css({'width':w+'px'});
+	}
+	l_result.css({'height':h+'px'});
+	map_b_c.css({'top':(h/2-32)+'px'});
+});
+function showSubbar(){
+	if_sub_open = true;
+	allmap.css({'margin-left':sub_width+'px','width':(w_w-sub_width)+'px'});
+	map_b_c.css({'left':sub_width+'px'});
+	l_result.show();
+	map_b_c.css({'top':((w_h-hd_h)/2 - 32)+'px'}).addClass('toRight').show();
+}
+function hideSubbar(){
+	if_sub_open = false;
+	allmap.css({'margin-left':'0','width':'100%'});
+	map_b_c.css({'left':'0'});
+	l_result.hide();
+	map_b_c.removeClass('toRight');
+}
+map_b_c.hover(function(){$(this).toggleClass('hover')});
+map_b_c.click(function(){
+	if(!!if_sub_open){
+		hideSubbar();
+	}else{
+		showSubbar();
+	}
+});
+showSubbar();
+
+
+var SiteUrl = '{$SiteUrl}';
+var houseURL = '{$fcurl}';
+var action = 'zushou_map';
+var action2 = 'zushou_msg';
+var icity = "{$city}";
+var chrdiqu = $('#chrdiqu'),
+	fenlei = $('#fenlei'),
+	small_diqu = $('#small_diqu'),
+	keyword = $('#keyword_input'),
+	f_leixing = $('#f_leixing'),
+	f_jiage = $('#f_jiage'),
+	f_mianji = $('#f_mianji'),
+	f_huxing = $('#f_huxing'),
+	f_zhaungxiu = $('#f_zhaungxiu');
+
+var xyz_arr = '{$xyz$}';
+var obj_xyz = JSON.parse(xyz_arr);
+
+$.fn.mapSearch = function(){
+	var btn = $('#search_btn'),b_arr = [],that=$(this);
+	$.getJSON('../request.ashx?action=category&id=0',function(data){
+		b_arr = data['MSG'];
+	});
+	chrdiqu.bind('change',function(){
+		var txt='<option value="">::请选择地段</option>';
+		var len = b_arr.length,i=0;
+		if(len === 0){ alert('地段数据提取有误！');return false;}
+		for( ;i<len;i++){
+			if(b_arr[i].id === $(this).val()){
+				var s_arr = b_arr[i].arr;
+				for(var k in s_arr){
+					txt += '<option value="'+k+'">'+s_arr[k]+'</option>'
+				}
+			}
+		}
+		small_diqu.html(txt).show();
+		loadMap();
+	});
+	small_diqu.bind('change',function(){
+		loadMap();
+	});
+	btn.bind('click',function(e){
+		e.preventDefault();
+		loadMap();
+	});
+	that.find('a').each(function(){
+		$(this).click(function(e){
+			e.preventDefault();
+			$(this).parent().parent().find('.current').removeClass('current');
+			$(this).addClass('current');
+			$('#'+$(this).attr('data-cat')).val($(this).attr('data-id'));
+			loadMap();
+		});
+	});
+}
+$('#l-result').mapSearch();
+
+// 百度地图API功能
+var map = new BMap.Map("allmap",{enableMapClick:false});
+if(!obj_xyz.x||!obj_xyz.y||obj_xyz.x==='0'||obj_xyz.y==='0'){
+	map.centerAndZoom(icity , 13);
+}else{
+	map.centerAndZoom(new BMap.Point(obj_xyz.x,obj_xyz.y), 13);
+}
+
+
+function ComplexCustomOverlay(point, text, mouseoverText, sid){
+  this._point = point;
+  this._text = text;
+  this._overText = mouseoverText;
+  this._sid = sid;
+}
+ComplexCustomOverlay.prototype = new BMap.Overlay();
+ComplexCustomOverlay.prototype.initialize = function(map){
+  this._map = map;
+  var div = this._div = document.createElement("div");
+  div.style.position = "absolute";
+  div.style.zIndex = BMap.Overlay.getZIndex(this._point.lat);
+  div.style.color = "#555";
+  div.style.height = "29px";
+  div.style.padding = "5px 15px 0 35px";
+  div.style.lineHeight = "18px";
+  div.style.whiteSpace = "nowrap";
+  div.style.MozUserSelect = "none";
+  div.style.background = "url({$tplPath}images/map_overlay_bg.gif) no-repeat";
+  div.style.fontSize = "12px"
+  var span = this._span = document.createElement("span");
+  div.appendChild(span);
+  span.appendChild(document.createTextNode(this._text));      
+  var that = this;
+
+  div.onmouseover = function(){
+	this.getElementsByTagName("span")[0].innerHTML = that._overText;
+	this.style.backgroundPosition = "0 -35px";
+	this.style.cursor = "pointer";
+	this.style.color = "#fff";
+	this.style.zIndex = 99;
+  }
+  div.onmouseout = function(){
+	this.style.color = "#555";
+	this.getElementsByTagName("span")[0].innerHTML = that._text;
+	this.style.backgroundPosition = "0px 0px";
+	this.style.zIndex = BMap.Overlay.getZIndex(that._point.lat);
+  }
+  div.onclick = function(){
+		var url = '../request.ashx?action='+action2+'&id='+that._sid+'&jsoncallback=?';
+		$.getJSON(url,function(data){
+			var d = data[0]['MSG'];
+			var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
+				'<a href="'+houseURL+'shoulou_'+d.id+'.html" target="_blank"><img src="'+d.filepath+'" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:75px;padding:2px;border:1px solid #ddd;margin:5px 3px 0 10px;"/></a><span style="color:#888888;">价格：</span><span style="color:#e7271d; font-weight:bold;">'+d.price+'</span>　<span style="color:#888888;">面积：</span>'+d.chrsize+'平米<br/><span style="color:#888888;">装修：</span>'+d.zhuangxiucategory+'<span style="color:#888888;">　房型：</span>'+d.shi+'室'+d.ting+'厅'+d.wei+'卫<br/><span style="color:#888888;">小区：</span>'+d.chrloupan+'<br/><span style="color:#888888;">地址：</span>'+d.chraddress+'<br/><span style="color:#888888;">发布时间：</span>'+d.lastdate+'<br><a href="'+houseURL+'shoulou_'+d.id+'.html" target="_blank">进入查看详情>></a></div>';
+			var searchInfoWindow = null;
+			searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+				title  : that._text,      //标题
+				width  : 420,             //宽度
+				height : 130,              //高度
+				panel  : "panel",         //检索结果面板
+				enableAutoPan : true,     //自动平移
+				searchTypes   :[
+					BMAPLIB_TAB_SEARCH,   //周边检索
+					BMAPLIB_TAB_TO_HERE,  //到这里去
+					BMAPLIB_TAB_FROM_HERE //从这里出发
+				]
+			});
+			searchInfoWindow.open(that._point);
+		});
+  }
+  map.getPanes().labelPane.appendChild(div);
+  return div;
+}
+ComplexCustomOverlay.prototype.draw = function(){
+  var map = this._map;
+  var pixel = map.pointToOverlayPixel(this._point);
+  this._div.style.left = pixel.x - 46 + "px";
+  this._div.style.top  = pixel.y - 33 + "px";
+}
+// 编写自定义函数,创建标注
+var sContent =
+"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>"+icity+"</h4>" + 
+"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>asdasda asdad  asdas ..</p>" + 
+"</div>";
+var obj_Overlay = {};
+var markers_arr = [];
+function addMarker(point,i_title,i_id){
+  var mouseoverTxt = i_title + " 点击查看详情";
+  obj_Overlay[i_id] = new ComplexCustomOverlay(point,i_title,mouseoverTxt,i_id);
+  map.addOverlay(obj_Overlay[i_id]);
+  markers_arr.push(obj_Overlay[i_id]);
+}
+function loadMap(){
+	if(!$.isEmptyObject(obj_Overlay)){
+		for(var key in obj_Overlay){
+			map.removeOverlay(obj_Overlay[key]);
+		}
+		obj_Overlay={};
+		markers_arr = [];
+	}
+	var i_x1 = 0,i_x2 = 0,i_y1 = 0,i_y2 = 0;
+	
+	function makeMap(){
+		var url = '../request.ashx?action='+action+'&ccid=0&x1='+i_x1+'&x2='+i_x2+'&y1='+i_y1+'&y2='+i_y2+'&quyu='+chrdiqu.val()+'&diduan='+small_diqu.val()+'&keyword='+keyword.val()+'&lei='+f_leixing.val()+'&price='+f_jiage.val()+'&size='+f_mianji.val()+'&huxing='+f_huxing.val()+'&zhuangxiu='+f_zhaungxiu.val()+'&jsoncallback=?';
+		$.getJSON(url,function(data){
+			var arr = data[0].MSG,len = arr.length;
+			$('#totalnum').html(len);
+			$('#mappoint').hide();
+			
+			if(len === 1 && $.isEmptyObject(arr[0])){
+				len = 0;
+				$('#totalnum').html(len);
+				if(!$('#nomore').prop('checked')){
+					$('#nottice').show();
+				}
+				return false;
+			}
+			
+			for (var i = 0; i < len; i ++) {
+				//if(arr[i].ggmap !== '2'){return false;}
+				var point = new BMap.Point(arr[i].x, arr[i].y);
+				addMarker(point,arr[i].chrtitle,arr[i].id);
+			}
+		});	
+	}
+	var bs = map.getBounds();   //获取可视区域
+	var bssw = bs.getSouthWest();   //可视区域左下角
+	var bsne = bs.getNorthEast();   //可视区域右上角
+	i_x1 = bssw.lng;
+	i_x2 = bsne.lng;
+	i_y1 = bssw.lat;
+	i_y2 = bsne.lat;
+	if(keyword.val() !== ''){
+		//i_x1 = obj_xyz.x1;
+		//i_x2 = obj_xyz.x2;
+		//i_y1 = obj_xyz.y1;
+		//i_y2 = obj_xyz.y2;
+		
+		makeMap();
+		//setTimeout(function(){map.setZoom(12);},500);
+	}else{
+		makeMap();
+	}
+}
+map.addEventListener("dragend", function(){
+	loadMap();
+});
+map.addEventListener("zoomend", function(){
+  loadMap();
+});
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
+setTimeout(function(){loadMap();},100);	
+</script>
+</body>
+</html>
+
+

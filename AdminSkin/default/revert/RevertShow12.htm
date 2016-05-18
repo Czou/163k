@@ -1,0 +1,94 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script>
+function checkform(o){
+	if(o.replaycontent.value==""){
+		alert("请输入答复内容!");
+		o.replaycontent.focus();
+		return false;
+	}
+	if(o.replaydate.value==""){
+		alert("请输入答复日期!");
+		o.replaydate.focus();
+		return false;
+	}
+	
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">查看店铺留言信息</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺留言列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   <form name="form1" action="?action=revert&key={$key$}" method="post" onsubmit="return checkform(this);">
+    <tr > 
+      <td width="101">点评人： </td>
+	  <td colspan=3 class="category"> {$chrname}</td>
+    </tr>
+	<tr >
+	  <td width="101">点评时间：</td>
+	  <td colspan=3 class="category">{$Dtappenddate}</td>
+	</tr>	
+	<tr >
+	  <td width="101">点评：</td>
+	  <td colspan=3 class="category">{$score}  </td>
+	</tr>	
+	<tr >
+	  <td width="101">IP地址：</td>
+	  <td colspan=3 class="category">{$Chrip}  </td>
+	</tr>	
+	<tr >
+	  <td width="101">对应商家：</td>
+	  <td colspan=3 class="category"><a href="{$shopsurl}" target="_blank">{$title}</a>  </td>
+	</tr>	
+	<tr >
+	  <td width="101">内容：</td>
+	  <td colspan=3 class="category">{$Chrmark}  </td>
+	</tr>	
+	<tr >
+	  <td width="101">答复内容：</td>
+	  <td colspan=3 class="category"><textarea name="replaycontent"  cols=80 rows=4>{$replaycontent$}</textarea> </td>
+	</tr>
+	<tr >
+	  <td width="101">答复日期：</td>
+	  <td colspan=3 class="category"><input type="text" name="replaydate" value="{$replaydate$}"  size=25 class="Wdate" /> </td>
+	</tr>
+	<tr >
+	  <td width="101">状态：</td>
+	  <td colspan=3 class="category"><input type="radio" name="isopen" value="0"  {$isopen1$}> 等待审核 <input type="radio" name="isopen" value="1" {$isopen2$}> 通过审核 </td>
+	</tr>
+	<tr><Td></td><td class="category"><input type=hidden name=gotourl value="{$gotourl}">
+	<input type="submit" name="" class="global_btn_blue_big" value="提交"><input type="hidden" value="{$id$}" name="id"><input type="hidden" value="{$key$}" name="key">　<input type="button" name="button" value="返回" class="global_btn_big" onclick="window.history.back(-1);"></td></tr>
+	</form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	
+})(jQuery);
+</script>
+  </body>
+</html>

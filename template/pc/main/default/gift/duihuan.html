@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>礼品兑换申请单--</title>
+<style type="text/css">
+<!--
+body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,li,p,input,select,img,em,s,ol{margin:0;padding:0;}
+input,button{background:none;border:0;}
+li{list-style:none;}
+em{font-style:normal;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*zoom:1;}
+.lp-pop-fixed{border-radius:10px;overflow:hidden;font-family:'微软雅黑';}
+.lp-pop-fixed .title{height:55px;line-height:55px;background:#f78115;font-size:18px;color:#fff;padding-left:45px;}
+.lp-pop-fixed .title .close{position:absolute;top:19px;right:40px;height:20px;width:20px;background:url({$tplPath}images/pc_icons_11.png) no-repeat -188px -1527px;text-indent:-999px;overflow:hidden;cursor:pointer;}
+.lp-pop-fixed .con{padding:20px 48px;}
+.lp-pop-fixed .pro-info{border:1px solid #eee;padding:14px 24px;margin-bottom:16px;}
+.lp-pop-fixed .pro-info .pic{float:left;width:300px;height:300px;}
+.lp-pop-fixed .pro-info .pic img{display:block;width:300px;height:300px;}
+.lp-pop-fixed .pro-info .info{float:right;width:476px;color:#999;line-height:26px;font-size:14px;}
+.lp-pop-fixed .pro-info .info h4{margin-bottom:22px;font-size:16px;color:#333;font-weight:normal;}
+.lp-pop-fixed .pro-info .info .price{padding-left:28px;background:url({$tplPath}images/pc_icons_11.png) no-repeat -194px -1421px;}
+.lp-pop-fixed .pro-info .info .price em{color:#f78115;font-size:18px;}
+.lp-pop-fixed .pro-info .info li{float:left;margin-right:25px;}
+.lp-pop-fixed .pro-info .info p{padding-top:10px;text-indent:2em;border-top:1px dashed #eee;margin-top:20px;}
+.lp-pop-fixed .pro-info .info em{font-size:18px;}
+.lp-pop-fixed .user-info{line-height:37px;padding-bottom:11px;border-bottom:1px dashed #eee;margin-bottom:22px;}
+.lp-pop-fixed .user-info input{font-family:'微软雅黑';background:#f3f3f3;line-height:19px;height:19px;font-size:14px;color:#9f9f9f;padding:9px 0 9px 10px; margin-right:10px;}
+.lp-pop-fixed .user-info dt{float:left;width:84px;height:37px;clear:both;font-size:16px;margin-bottom:14px;}
+.lp-pop-fixed .user-info dd{float:left;width:760px;height:37px;margin-bottom:14px;}
+.lp-pop-fixed .user-info dd span{ font-size:12px;}
+.lp-pop-fixed .user-info dd span img { vertical-align:-2px;}
+.lp-pop-fixed .user-info .userName,.lp-pop-fixed .user-info .phone{width:260px;}
+.lp-pop-fixed .user-info .address{width:420px;}
+.lp-pop-fixed .pro-name,.lp-pop-fixed .deduct{color:#999;font-size:14px;line-height:26px;}
+.lp-pop-fixed .pro-name em,.lp-pop-fixed .deduct em{color:#f78115;font-size:16px;margin:0 6px;}
+.lp-pop-fixed .lp-btn{padding-left:85px;margin-top:28px;}
+.lp-pop-fixed .lp-btn .ok,.lp-pop-fixed .lp-btn .cancel{width:115px;height:46px;line-height:46px;color:#fff;font-size:18px;margin-right:20px;border-radius:3px;background:#a0a0a0;cursor:pointer;font-family:'微软雅黑';}
+.lp-pop-fixed .lp-btn .ok{background:#63ba3b;}
+-->
+</style>
+</head>
+<SCRIPT language=javascript src="{$tplPath}js/common.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/duihuan.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/java.js"></SCRIPT>
+<body topmargin="0">
+   <div class="lp-pop-fixed">
+       <div class="title">兑换信息<span class="close" onClick="parent.LoginHide();">关闭</span></div>
+       <form id="Main" name="Main" method="post" onSubmit="return checkduihuan();">
+       <div class="con">
+           <div class="pro-info clearfix">
+               <div class="pic"><img src="{$filepath$}" alt="{$filepath$}"></div>
+               <div class="info">
+                   <h4>{$chrtitle$}</h4>
+                   <ul class="clearfix">
+                       <li>原价：<em>{$price}</em></li>
+                       <li class="price"><em>{$score}</em>{$jifenname}</li>
+                       <li>剩余：<em>{$store}</em>个</li>
+                   </ul>
+                   <p>{$chrmark$}</p>
+               </div>
+           </div>
+           <div class="user-info">
+               <dl class="clearfix">
+                   <dt>真实姓名：</dt>
+                   <dd><input type="text" class="userName" placeholder="请输入您的真实姓名" name="contactname" onBlur="checkcontactname()"><span id="chkcontactname"></span></dd>
+                   <dt>联系电话：</dt>
+                   <dd><input type="text" class="phone" placeholder="请输入您的手机号码" name="contacttel" onBlur="checkcontacttel()"><span id="chkcontacttel"></span></dd>
+                   <dt>邮寄地址：</dt>
+                   <dd><input type="text" class="address" placeholder="请填写详细地址" name="contactaddress" onBlur="checkcontactaddress()"><span id="chkcontactaddress"></span></dd>
+               </dl>
+           </div>
+           <div class="pro-name">您兑换的礼品为：<em>{$chrtitle$}</em></div>
+           <div class="deduct">扣除：<em>{$score}</em>{$jifenname}　<!--您的积分：<em>{$jifennum$}</em>{$jifenname}-->　{$tishi$}</div>
+           <div class="lp-btn clearfix">
+                <input type="hidden" id="jiangpinid" value="{$jiangpinid$}">
+				<input type="submit" class="ok" value="确定">
+                <input type="button" class="cancel" value="取消" onClick="parent.LoginHide();">
+           </div>
+       </div>
+       </form>
+   </div>
+</body>
+</html>

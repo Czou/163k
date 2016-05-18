@@ -1,0 +1,197 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function check(o){
+	if(o.ChrPwd.value!=""){
+		if(o.ChrPwd1.value==""){
+			alert("请输入确认新密码!");
+			o.ChrPwd1.focus();
+			return false;
+		}
+		if(o.ChrPwd1.value!=o.ChrPwd.value){
+			alert("新密码和确认密码不一致!");
+			o.ChrPwd1.select();
+			return false;
+		}
+	}
+	if(o.typeid[0].checked || o.typeid[1].checked)
+	{
+		if(o.intnum.value=="" || o.intnum.value=="0"){
+			alert("对不起,请输入{$jifenname}数!");
+			o.intnum.focus();
+			return false;
+		}
+		if(!isInt(o.intnum.value)){
+			alert("{$jifenname}只能为数字！");
+			o.intnum.select();
+			return false;
+		}
+		if(o.title.value=="" ){
+			alert("对不起,请输入操作理由!");
+			o.title.focus();
+			return false;
+		}
+	}
+}
+function showsize(){
+	document.form1.Image1.src = document.form1.m_file.value;
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">查看修改会员详情&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至用户列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=EditSave" onsubmit="return check(this);" enctype="multipart/form-data">
+    <tr > 
+      <td width="15%" height="25">会员ID： 
+      </td>
+      <td width="76%" class="category"> {$userid} （<font color=red>{$loginnum}</font>）</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">会员性质： 
+      </td>
+      <td width="76%" class="category"> <select name="styleid"><option value="0" {$selected1$}>个人会员</option><option value="1" {$selected2$}>普通企业会员</option><option value="2" {$selected3$}>高级企业会员</option></select></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25"><font color="#FF0000">*</font>登录名： 
+      </td>
+      <td width="76%" class="category" data-huiyuanleixing="{$huiyuanleixing}"> 昵称：{$chrname}　电子邮件：{$chremail}　手机号码：{$chrtel}　<a href="users.aspx?action=loginuser&ID={$ID}&url={$SiteUrl}member%2fmodify.aspx%3faction%3dpass" target="_blank" class="global_btn_blue">修改登录名</a></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">真实姓名： 
+      </td>
+      <td width="76%" class="category"> <input name="chrtruename" type="text" size="30" value="{$chrtruename}"></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">加密密码： 
+      </td>
+      <td width="76%" class="category"> {$chrpwd}</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25">新密码： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrPwd" type="password" size="30" value=""> <em class="global_tip">(不修改可为空)</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">确认新密码： 
+      </td>
+      <td width="76%" class="category"> <input name="ChrPwd1" type="password" size="30" value=""> <em class="global_tip">(和新密码一致)</em></td>
+    </tr>
+	 
+   
+	<tr > 
+      <td width="15%" height="25">当前头像： 
+      </td>
+      <td width="76%" class="category"> <img src="{$chrpic}" id="Image1"  width=110 height=110><input type="hidden" name="url1" value="{$chrpic}"></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">上传新头像： 
+      </td>
+      <td width="76%" class="category"> <input type="file" name="m_file"  style="width:400px;height:22px;" onchange="setTimeout('showsize()',500)"/> <em class="global_tip">(不修改请不要上传)</em></td>
+    </tr>
+	
+	 <tr > 
+      <td width="15%" height="25">腾讯QQ： 
+      </td>
+      <td width="76%" class="category"> <input name="chrqq" type="text" size="30" value="{$chrqq}"> <em class="global_tip">(会员的真实联系方式)</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">打折卡卡号： 
+      </td>
+      <td width="76%" class="category"> <input name="chrcard" type="text" size="30" value="{$chrcard}"></td>
+    </tr>
+    	 <tr > 
+      <td width="15%" height="25">{$daijinname}： 
+      </td>
+      <td width="76%" class="category">共 {$daijinnum}    <input type="radio" name="dtypeid" value="0">增加： <input type="radio" name="dtypeid" value="1">减少：<input type="text" name="dintnum" value="" size="3"  onKeyUp="if(isNaN(value))execCommand('undo')">   理由：<input type="text" name="dtitle" value="" size="30" maxlength=30> <em class="global_tip">请给予简短理由,限制30汉字内</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">{$jifenname}： 
+      </td>
+      <td width="76%" class="category">共 {$jifennum}    <input type="radio" name="typeid" value="0">增加： <input type="radio" name="typeid" value="1">减少：<input type="text" name="intnum" value="" size="3"  onKeyUp="if(isNaN(value))execCommand('undo')">   理由：<input type="text" name="title" value="" size="30" maxlength=30> <em class="global_tip">请给予简短理由,限制30汉字内</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25">注册信息： 
+      </td>
+      <td width="76%" class="category"> 注册时间:{$regdate}  注册IP:{$regip}</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">最后一次登陆： 
+      </td>
+      <td width="76%" class="category">  登陆时间:{$lastdate}  登陆IP:{$lastip}</td>
+    </tr>
+	 <!--<tr > 
+      <td height="25">发布的信息： 
+      </td>
+      <td  class="category">  {$live}</td>
+    </tr>
+	<tr > 
+      <td height="25">发布的招聘： 
+      </td>
+      <td  class="category">  {$zhaopin}</td>
+    </tr>
+	<tr > 
+      <td height="25">购物订单： 
+      </td>
+      <td  class="category">  {$order}</td>
+    </tr>
+	<tr > 
+      <td height="25">参与的团购： 
+      </td>
+      <td  class="category">  {$baoming}</td>
+    </tr>
+	<tr > 
+      <td height="25">发起的团购： 
+      </td>
+      <td  class="category">  {$tuangou}</td>
+    </tr>
+	<tr > 
+      <td height="25">发布的商品： 
+      </td>
+      <td  class="category">  {$shop}</td>
+    </tr>
+	<tr > 
+      <td height="25">提交的优惠券： 
+      </td>
+      <td  class="category">  {$youhui}</td>
+    </tr><tr > 
+      <td height="25">发布的资讯： 
+      </td>
+      <td  class="category">  {$news}</td>
+    </tr><tr > 
+      <td height="25">提交的网址： 
+      </td>
+      <td  class="category">  {$wangzhi}</td>
+    </tr>-->
+    <tr  > <td></td>
+      <td height="25"  class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-小区照片-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_xq.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/highslide.js"></script>
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="xiaoqu_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">小区照片</span>
+   </div>
+   <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>现代简约建筑设计</p>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="xiaoqu_{$Loupan_loupanid}.html">小区详情</a></li>
+        <li><a href="xiaoquzhu_{$Loupan_loupanid}.html">出租房源</a></li>
+        <li><a href="xiaoqushou_{$Loupan_loupanid}.html">出售房源</a></li>
+        <li><a href="xiaoqufang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li class="current"><a href="xiaoqupic_{$Loupan_loupanid}.html">小区照片</a></li>
+        <li><a href="xiaoquping_{$Loupan_loupanid}.html">小区评价</a></li>
+        <!--<li><a href="{$yezhu}" target="_blank">业主论坛</a></li> -->
+      </ul>
+     </div>
+   </div>
+   <!--小区照片-->
+   <div class="xq_pic clearfix">
+     <ul>
+       <tag:Loop ListType="LISTXIAOQUPIC" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_XIAOQUpic_Tr.html" />
+     </ul>
+   </div>
+   <div class="fc_pageNavigation">{$PageSplit} 　每页显示20条</div>
+ </div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+    $('#fc_home').removeClass('select');
+	$('#fc_xiaoqu').addClass('select');
+});
+</script>
+</body>
+</html>

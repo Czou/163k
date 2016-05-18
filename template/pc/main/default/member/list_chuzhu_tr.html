@@ -1,0 +1,7 @@
+﻿ <tr class="tditem" style="text-align:center;" onmouseover="this.className='table_over';" onmouseout="this.className='tditem';"> 
+	<td><input name="ID" type="checkbox" id="ID" value="{$ID}">{$chrlive}</td>
+	<td id="it_{$ID}"><a href="{$fcurl}{$curl1}_{$ID}.html" target="_blank">{$chrtitle}</a></td>
+	<td>{$typeid}</td>
+	<td>{$iskill}</td><td>{$dtappenddate}</td>
+	<td align="center"><a href='javascript:set_fw(1,{$ID})'>刷新发布</a> | <a href="{$curl2}.aspx?action=edit&ID={$ID}">编辑</a> | <a href="javascript:delfangyuan('manage_chuzhu.aspx?action=del&id={$ID}&key={$key}');">删除</a> | {$cname}</td>
+</tr>

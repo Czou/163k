@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>楼盘点评-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_fangchan.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="http://www.mh163k.com/";</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$fcurl}">{$lanmuname}</a> &gt; <a href="loupan_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a> &gt; 楼盘点评</div>
+	<!-- 主体 -->
+	<div id="content" class="fangchan">
+		<div class="lpHead">
+			<h1><span class="title">{$Loupan_chrloupan}</span><em>{$Loupan_biaoyu}</em></h1>
+			<div class="extraNav clearfix">
+				<ul>
+					<li><a href="loupan_{$Loupan_loupanid}.html">楼盘概览</a></li>
+                    <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+					<li ><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+                    <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+					<li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+					<li class="current"><a href="revert_{$Loupan_loupanid}.html">点评</a></li>
+					<li><a href="list.aspx?action=s&lid={$Loupan_loupanid}"  target="_blank">销售动态</a></li>
+                    <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+					<!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+					<li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+					
+					<li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+				</ul>
+				<div class="right">浏览：{$Loupan_views}</div>
+			</div>
+		</div>
+		<div class="gird_lp_dp clearfix">
+			<div class="col_main"><div class="main_wrap commentpj">
+				<form name="inputStyle" method="post" onSubmit="return checkloupancomment(this);" style="margin:0">
+				<div class="pj radio">
+					<input name="score" type="radio" value="1" checked="checked"/><label>推荐购买</label>　
+					<input name="score" type="radio" value="2" /><label>不推荐购买</label>
+				</div>
+				<div class="starselect">
+					<ul class="clearfix">
+						<li class="title">评分：</li>
+						<li>
+							<h6>楼盘品质</h6>
+							<p><img src="{$Default_tplPath}images/p/star_2.gif" name="t11" onClick="adjust_score('score_1', 1, 1, 1)" style="cursor:pointer" alt="1分" onMouseOver="mouseover('score_1', 1, 1, 1)"  onmouseout="mouseout('score_1', 1)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t12" onClick="adjust_score('score_1', 2, 2, 1)" style="cursor:pointer" alt="2分" onMouseOver="mouseover('score_1', 2, 2, 1)" onMouseOut="mouseout('score_1', 1)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t13"  style="cursor:pointer" onClick="adjust_score('score_1', 3, 3, 1)" alt="3分" onMouseOver="mouseover('score_1', 3, 3, 1)" onMouseOut="mouseout('score_1', 1)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t14"  style="cursor:pointer" onClick="adjust_score('score_1', 4, 4, 1)" alt="4分" onMouseOver="mouseover('score_1', 4, 4, 1)" onMouseOut="mouseout('score_1', 1)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t15"  style="cursor:pointer" onClick="adjust_score('score_1', 5, 5, 1)" alt="5分" onMouseOver="mouseover('score_1', 5, 5, 1)" onMouseOut="mouseout('score_1', 1)"/><input type="hidden" name="score_1" value="5">
+								<input type="hidden" name="score_2" value="5">
+								<input type="hidden" name="score_3" value="5">
+								<input type="hidden" name="score_4" value="5"></p>
+						</li>
+						<li>
+							<h6>性价比</h6>
+							<p><img src="{$Default_tplPath}images/p/star_2.gif" name="t21" onClick="adjust_score('score_2', 1, 1, 2)" style="cursor:pointer" alt="1分" onMouseOver="mouseover('score_2', 1, 1, 2)"  onmouseout="mouseout('score_2', 2)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t22" onClick="adjust_score('score_2', 2, 2, 2)" style="cursor:pointer" alt="2分" onMouseOver="mouseover('score_2', 2, 2, 2)" onMouseOut="mouseout('score_2', 2)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t23"  style="cursor:pointer" onClick="adjust_score('score_2', 3, 3, 2)" alt="3分" onMouseOver="mouseover('score_2', 3, 3, 2)" onMouseOut="mouseout('score_2', 2)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t24"  style="cursor:pointer" onClick="adjust_score('score_2', 4, 4, 2)" alt="4分" onMouseOver="mouseover('score_2', 4, 4, 2)" onMouseOut="mouseout('score_2', 2)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t25"  style="cursor:pointer" onClick="adjust_score('score_2', 5, 5, 2)" alt="5分" onMouseOver="mouseover('score_2', 5, 5, 2)" onMouseOut="mouseout('score_2', 2)"/></p>
+						</li>
+						<li>
+							<h6>周边环境</h6>
+							<p><img src="{$Default_tplPath}images/p/star_2.gif" name="t31" onClick="adjust_score('score_3', 1, 1, 3)" style="cursor:pointer" alt="1分" onMouseOver="mouseover('score_3', 1, 1, 3)"  onmouseout="mouseout('score_3', 3)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t32" onClick="adjust_score('score_3', 2, 2,3)" style="cursor:pointer" alt="2分" onMouseOver="mouseover('score_3', 2, 2, 3)" onMouseOut="mouseout('score_3', 3)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t33"  style="cursor:pointer" onClick="adjust_score('score_3', 3, 3, 3)" alt="3分" onMouseOver="mouseover('score_3', 3, 3, 3)" onMouseOut="mouseout('score_3', 3)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t34"  style="cursor:pointer" onClick="adjust_score('score_3', 4, 4, 3)" alt="4分" onMouseOver="mouseover('score_3', 4, 4, 3)" onMouseOut="mouseout('score_3', 3)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t35"  style="cursor:pointer" onClick="adjust_score('score_3', 5, 5, 3)" alt="5分" onMouseOver="mouseover('score_3', 5, 5, 3)" onMouseOut="mouseout('score_3', 3)"/></p>
+						</li>
+						<li>
+							<h6>小区配套</h6>
+							<p><img src="{$Default_tplPath}images/p/star_2.gif" name="t41" onClick="adjust_score('score_4', 1, 1, 4)" style="cursor:pointer" alt="1分" onMouseOver="mouseover('score_4', 1, 1, 4)"  onmouseout="mouseout('score_4', 4)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t42" onClick="adjust_score('score_4', 2, 2,4)" style="cursor:pointer" alt="2分" onMouseOver="mouseover('score_4', 2, 2, 4)" onMouseOut="mouseout('score_4', 4)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t43"  style="cursor:pointer" onClick="adjust_score('score_4', 3, 3, 4)" alt="3分" onMouseOver="mouseover('score_4', 3, 3, 4)" onMouseOut="mouseout('score_4', 4)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t44"  style="cursor:pointer" onClick="adjust_score('score_4', 4, 4, 4)" alt="4分" onMouseOver="mouseover('score_4', 4, 4, 4)" onMouseOut="mouseout('score_4', 4)"/><img src="{$Default_tplPath}images/p/star_2.gif" name="t45"  style="cursor:pointer" onClick="adjust_score('score_4', 5, 5, 4)" alt="5分" onMouseOver="mouseover('score_4', 5, 5, 4)" onMouseOut="mouseout('score_4', 4)"/></p>
+						</li>
+					</ul>
+				</div>
+				<div class="ts">请在下面输入评论内容</div>
+				<div class="c_login">{$Mh163k_评论登录状态}</div>
+				<div class="sr"><textarea cols="120" rows="8" name="chrmark"></textarea></div>
+				<div class="clearfix comment_login">
+					<span class="left">验证码：<input name="code" class="login_test" style=" width:50px;" type="text" /></span>
+					<span class="left"><img src="../getcode.html" alt=""   id="vadimg" title="看不清楚请刷新!" onClick="this.src='../getcode.html?'+(new Date().getTime());"  style="cursor:pointer" align="absmiddle"/></span>
+				</div><input type="hidden" name="loupanid" value="{$Loupan_loupanid}">
+				<input name="submit" class="send" value=" " type="submit" />　<span id="checkcompany">(注意：仅限300汉字)</span>
+ 				</form>
+			</div></div>
+			<div class="col_sub">
+				<h3>综合评价比例图</h3>
+				<div class="">
+				<table border="0" cellSpacing="0" cellPadding="0" class="box" width="100%">
+
+            <tr>
+              <td width="20%"  height="150" align="center" vAlign="bottom" style="border-bottom: solid 1px #EEE; "><table border="0" cellSpacing="0" cellPadding="0" class="bar">
+                  <tr>
+                    <td>{$Loupan_score1}</td>
+                  </tr>
+                  <tr>
+                    <td width="28" height="114" valign="bottom"><img src="{$Default_tplPath}images/chart01.gif" height="{$Loupan_height1}" width="24" /></td>
+                  </tr>
+
+                </table></td>
+              <td width="20%" align="center" vAlign="bottom" style="border-bottom: solid 1px #EEE;"><table border="0" cellSpacing="0" cellPadding="0" class="bar">
+                  <tr>
+                    <td>{$Loupan_score2}</td>
+                  </tr>
+                  <tr>
+                    <td width="28" height="114" valign="bottom"><img src="{$Default_tplPath}images/chart02.gif" height="{$Loupan_height2}" width="24" /></td>
+                  </tr>
+
+                </table></td>
+              <td style="border-bottom: solid 1px #EEE;" vAlign="bottom" width="20%" align="center"><table border="0" cellSpacing="0" cellPadding="0" class="bar">
+                  <tr>
+                    <td>{$Loupan_score3}</td>
+                  </tr>
+                  <tr>
+                    <td width="28" height="116" valign="bottom"><img src="{$Default_tplPath}images/chart03.gif" height="{$Loupan_height3}" width="24" /></td>
+                  </tr>
+
+                </table></td>
+              
+              <td style="border-bottom: solid 1px #EEE;" vAlign="bottom" width="20%" align="center"><table border="0" cellSpacing="0" cellPadding="0"  class="bar">
+                  <tr>
+                    <td>{$Loupan_score4}</td>
+                  </tr>
+                  <tr>
+                    <td width="28" height="168" valign="bottom"><img src="{$Default_tplPath}images/chart05.gif" height="{$Loupan_height4}" width="24" /></td>
+                  </tr>
+
+                </table>
+                </td>
+            </tr>
+            <tr>
+              <td height="30" align="center">楼盘品质</td>
+              <td align="center">性价比</td>
+              <td align="center">周边环境</td>
+
+              <td align="center">小区配套</td>
+            </tr>
+          </table>
+				</div>
+				<div class="tj">
+					<ul class="clearfix">
+						<li><span><b class="b1">推荐购买：<em>{$Loupan_tuijianmai}</em></b></span></li>
+						<li><span><b class="b2">不推荐购买：<em>{$Loupan_butuijianmai}</em></b></span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="gird_lp_dp2 clearfix" id="showcomment">
+			
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script>
+function adjust_score(field,value,imgnum,ab) {
+    var x = document.forms["inputStyle"];
+    if (field) {
+	    x[field].value = value;
+	    for (i = imgnum-value+1; i <= imgnum; i ++) {
+        		document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_2.gif';
+	    }
+
+	    for (i = imgnum+1; i <= imgnum + (5-value); i++) {
+        		document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_1.gif';
+    	}
+   }
+}
+function mouseover(field,value,imgnum,ab){
+	var x = document.forms["inputStyle"];
+    if (field) {
+	    for (i = imgnum-value+1; i <= imgnum; i ++) {
+        	document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_2.gif';
+	    }
+	    for (i = imgnum+1; i <= imgnum + (5-value); i++) {
+		
+        	document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_1.gif';
+    	}
+   }
+}
+function mouseout(field,ab){
+	var x = document.forms["inputStyle"];
+    if (field) {
+	 	value = parseInt(x[field].value);
+		var imgnum=value;
+	    for (i = imgnum-value+1; i <= imgnum; i ++) {
+        	document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_2.gif';
+	    }
+	    for (i = imgnum+1; i <= imgnum + (5-value); i++) {
+        		document.images["t" +ab+ i].src='{$Default_tplPath}images/p/star_1.gif';
+    	}
+   }
+}
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/radio.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+<script>getdata("../request.aspx?action=showloupancomment&styleid=0&loupanid={$Loupan_loupanid}","showcomment","showcomment");</script>
+</body>
+</html>

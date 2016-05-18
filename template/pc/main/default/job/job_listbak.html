@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全部招聘职位列表-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_jobRencai.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$Default_tplPath}js/select.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top950$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; 全部招聘职位列表</div>
+  <!-- 主体 -->
+  <div id="content">
+    <div class="search_barA">
+      <div class="bd clearfix">
+        <form name="form11" method="post" action="zhiwei.html">
+          <div class="choose"> 行业类别：
+            <input value="{$hangyechrcategory}" class="searchtype" type="button"  name="hangye11"/>
+            <ul class="ch_1">
+              <li><a href="#" onClick="$$('s_hangye').value='0';">不限</a></li>
+              {$searchhangye}
+              <input type="hidden" name="s_hangye" value="{$hangyecategoryid}">
+            </ul>
+          </div>
+          <div class="choose"> 岗位类别：
+            <input value="不限" class="searchtype" type="button"  name="gangwei11"/>
+            <ul class="ch_2">
+              <li><a href="#" onClick="$$('s_gangwei').value='0';">不限</a></li>
+              {$searchgangwei}
+              <input type="hidden" name="s_gangwei" value="0">
+            </ul>
+          </div>
+          <div class="choose">
+            <input name="keyword" type="text" value="请输入关键字" onBlur="if(this.value==''){this.value='请输入关键字';}" onFocus="if(this.value=='请输入关键字'){this.value='';}" class="text_input no2" />
+          </div>
+          <div class="choose">
+            <input type="submit" class="text_submit" value="搜 索" />
+          </div>
+        </form>
+      </div>
+      <div class="hot_key2">{$renmmenzhiwei}</div>
+    </div>
+    <div class="paixu_info clearfix">
+      <div class="left">共有职位：<span class="red_skin">{$total}</span>条<a href="{$SiteUrl}member/myzhiwei.aspx?action=add" class="menu_fabu">发布一条</a></div>
+      <div class="right"> <span class="title">显示排序：</span><span class="time"><a href="zhiwei.html?keyword={$keyword}&colname={$colname}&key=0">更新时间</a>(默认)</span><span class="guanzhu"><a href="zhiwei.html?keyword={$keyword}&colname={$colname}&key=1">关注度</a>(低-高)</span><span class="guanzhu"><a href="zhiwei.html?keyword={$keyword}&colname={$colname}&key=2">关注度</a>(高-低)</span> </div>
+    </div>
+    <div class="page_content">
+      <table width="100%" class="list_tab" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr class="hd">
+            <td width="10">&nbsp;</td>
+            <td width="178">职位名称</td>
+            <td width="220">招聘公司</td>
+            <td width="60">招聘人数</td>
+            <td width="60">学历要求</td>
+            <td width="300">工作地点</td>
+            <td width="60">有效时间</td>
+            <td width="70">更新时间</td>
+            <!--<th width="109" class="guanzhudu">关注度</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          <tag:Loop ListType="listzhiweiqian" RecType="New" PageSize="25" ColorSplit="1" TitleLen="110" RecColumn="5" CusTpl="1" Template="job/list_zhiwei_tr.html" />
+        </tbody>
+      </table>
+      <A href="{$SiteUrl}member/register_2.html"><div class="adv_k">
+        <ul>
+          <li>免费注册会员，体验强大的自助管理系统</li>
+          <li>免费搜索人才库——海量人才库任您搜索</li>
+          <li>免费招聘顾问服务——助您改进招聘策略、为您提供招聘建议</li>
+          <li>免费发布招聘信息——不限数量发布招聘信息</li>
+        </ul>
+      </div></a>
+      <div class="pageNavigation">{$PageSplit}　总计{$total}条 25条/页</div>
+      <div class="blank10"> </div>
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+function oop(o){
+	$('.activeItem').slideUp("slow").removeClass('activeItem');
+	$('#slide_node'+o).slideDown("slow").addClass('activeItem');
+}
+function otp(o){
+	$('#slide_node'+o).slideUp("slow").removeClass('activeItem');
+}
+</script>
+
+</body>
+</html>

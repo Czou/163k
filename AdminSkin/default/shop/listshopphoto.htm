@@ -1,0 +1,9 @@
+<li id="piclist_xc{$num}">
+<a href="{$chrpic}"  class="lightwindow page-options"><img src="{$filepath}" class="imgview" /></a>
+<p class="btn"><a href="javascript:showeditphoto('{$ID}')" class="global_btn_blue">编辑</a> <a href="javascript:del({$ID});" class="global_btn">删除</a></p>
+<p class="p">分类：{$chrcategory}</p>
+<p class="p">描述：{$chrmark}</p>
+<p class="p">{$dtappenddate}</p>
+<a href="#" onclick="return move_PrevNext(this,0,{$num},{$ID},'piclist_xc','{$table_id}',8);" class="move_prev">前移</a>
+<a href="#" onclick="return move_PrevNext(this,1,{$num},{$ID},'piclist_xc','{$table_id}',8);" class="move_next">后移</a>
+</li>

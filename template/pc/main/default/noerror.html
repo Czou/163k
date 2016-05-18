@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>访问出错了--{$SiteName}</title>
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();</script>
+<body bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<div id="content" class="yp2011">
+    	<div style="padding:100px;">
+		对不起，访问出错了，如有疑问请联系网站客服 <br /><br />热线电话：{$sitetel}  客服QQ1：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}" target=_blank>{$siteqq1}</a>  客服QQ2：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}" target=_blank>{$siteqq2}</a>
+        </div>
+	</div>
+	{$bottom$}
+</div>
+<div id="mask" style="display:none"></div>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jQuery.tabs.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#TabAdS02").TabADS2();
+});
+</script>
+</body>
+</html>

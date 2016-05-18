@@ -1,0 +1,32 @@
+@charset "utf-8";
+.list .blank20 { clear:left; background-color:#f5f5f6;}
+.list .shop { background-color:#f9f9f9; position:relative; z-index:1; *zoom:1; padding:10px; font-size:14px;}
+.list .shop .tit { font-size:24px;}
+.list .shop .timer  { position:absolute; right:16px; top:29px; display:block;}
+.list .shop .timer .state_1 { background-color:#8ace3a;}
+.list .shop .timer .state_2 { background-color:#ee7800;}
+.list .shop .timer .state_3 { background-color:#1458b3;}
+.list .shop .timer .state { color:#fff; padding:1px 5px;}
+.list .shop .star { margin-top:3px;}
+
+
+.list { background:url(../images/kuaisonwaimaigrid.gif) repeat-y 0 0;}
+.list .item { position:relative; z-index:1; *zoom:1; width:300px; float:left; overflow:hidden; border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3; margin-top:-1px; height:356px;}
+.list .item img { padding:12px 12px 5px 12px; width:276px; height:276px; display:block; vertical-align:top;}
+.list .item .tit { cursor:pointer; padding-left:12px; font-size:20px; display:block; line-height:30px; height:30px; overflow:hidden;}
+.list .item .price { padding-left:12px; font-size:14px; color:#f60;}
+
+.bgk { margin-top:0;}
+.pageNavigation { border-top:1px solid #f3f3f3; position:relative; *zoom:1; z-index:1; background-color:#fff; margin-top:-1px;}
+.i_star { margin:0; vertical-align:-2px;}
+.i_zeng, .i_jian, .i_first { vertical-align:-1px;}
+
+
+
+.sort { border-bottom:2px solid #eaeaea; margin-bottom:10px; padding-bottom:10px;}
+.sort .inner { float:left; font-size:18px; display:inline;}
+.sort .inner .keyword { color:#d00}
+.sort .search { float:right; border:1px solid #d4d4d4; display:inline; font-size:14px;}
+.sort .search .s_ipt,.sort .search .s_btn { border:0 none; vertical-align:top; display:inline-block; *display:inline; *zoom:1;} 
+.sort .search .s_ipt { color:#aaa; padding:4px 6px; width:280px; outline:0;}
+.sort .search .s_btn { cursor:pointer; background-color:#d4d4d4; height:29px; line-height:29px; width:44px; text-align:center; color:#444; outline:0;}

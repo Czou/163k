@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+
+<HEAD><TITLE>163K网站系统安装向导</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gbk"><LINK media=all href="../template/default/install/style.css" type=text/css rel=stylesheet>
+<script src="../template/default/js/common.js"></script>
+<script src="../template/default/install/setup.js"></script>
+<META content="Comsenz Inc." name=Copyright>
+<META content="MSHTML 6.00.6000.16587" name=GENERATOR></HEAD>
+<BODY>
+<DIV class=container>
+<DIV class=header>
+<H1></H1><SPAN>团购网站系统初始化</SPAN> </DIV>
+<FORM action=step3.aspx method=post onsubmit="return checkform()">
+<DIV class=main style="MARGIN-TOP: -123px">
+ <table cellspacing="0" cellpadding="8" width="100%" border="0">
+                                                <tr>
+                                                    <td width="30%">网站名称:</td>
+                                                    <td style="width: 352px">
+                                                        <input name="sitename" type="text" value="" id="sitename" class="FormBase" onfocus="this.className='FormFocus';" onblur="checksitename()" size="30" style="width:150px;" /><span  style="color:Red;display:none;" id="checkid1"><font color=red>请务必输入网站名称!</font></span>*&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>网站域名:</td>
+                                                    <td >
+                                                        <input name="siteurl" type="text" value="http://" maxlength="20" id="siteurl" class="FormBase" onfocus="this.className='FormFocus';" onblur="checksiteurl()" maxlength="20" size="20" style="width:150px;" /><span  style="color:Red;display:none;" id="checkid2"><font color=red>请务必输入网站域名!</font></span>*&nbsp;
+                                                       </td>
+                                                </tr>
+					        <tr>
+                                                    <td>系统管理员用户名:</td>
+                                                    <td >
+                                                        <input name="chrname" type="text" value="admin" maxlength="20" id="chrname" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkchrname()" maxlength="20" size="20" style="width:150px;" /><span  style="color:Red;display:none;" id="checkid3"><font color=red >请务必输入系统管理员用户名!</font></span>*&nbsp;
+                                                       </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>系统管理员密码:<br />
+                                                        (不得少于6位)</td>
+                                                    <td >
+                                                        <input name="chrpwd" type="password" maxlength="32" id="chrpwd" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkchrpwd()" maxlength="32" onkeyup="return loadinputcontext(this);" size="20" style="width:150px;" /><span id="checkid4" style="color:Red;display:none;"><font color=red >请务必输入系统管理员密码!</font></span>*<br />
+                                                        密码强度:<span id="showmsg"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>确认密码:</td>
+                                                    <td style="width: 352px">
+                                                        <input name="repwd" type="password" maxlength="32" id="repwd" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkrepwd();" maxlength="32" size="20" style="width:150px;" /><font id="checkid5"></font> *
+                                                        
+                                                    </td>
+                                                </tr>
+                                               
+                                                <tr >
+                                                    <td >
+                                                        服务器名或IP地址:</td>
+                                                    <td style=" width: 352px;">
+                                                        <input name="datasource" type="text" value="(local)" id="datasource" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkdatasource();" size="30" style="width:150px;" /><span id="msg1"></span>*</td>
+                                                </tr>
+                                                <tr >
+                                                    <td >
+                                                        数据库名称:</td>
+                                                    <td style=" width: 352px;">
+                                                        <input name="databasename" type="text" value="databasename" id="databasename" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkdatabasename();"  size="30" style="width:150px;" /><span id="msg2"></span>*</td>
+                                                </tr>
+                                                <tr >
+                                                    <td>
+                                                        数据库用户名称:</td>
+                                                    <td style=" width: 352px;">
+                                                        <input name="userid" type="text" value="sqlname" id="userid" class="FormBase" onfocus="this.className='FormFocus';"  size="30" style="width:150px;" onblur="checkuserid();" /><span id="msg3"></span>*</td>
+                                                </tr>
+                                                <tr >
+                                                    <td >
+                                                        数据库用户口令:</td>
+                                                    <td style=" width: 352px;">
+                                                        <input name="password" type="password" id="password" class="FormBase" onfocus="this.className='FormFocus';" onblur="checkpassword();"  size="30" style="width:150px;" /><span id="msg4"></span>*</td>
+                                                </tr>
+                                               
+                                               
+                                            </table>
+                                            
+										
+<DIV class="btnbox marginbot">
+<INPUT id=btnLogin  type=submit value=下一步></FORM></DIV>
+<DIV class=footer>©2008 - 2010 <a href="http://www.163k.com">163K.com</a> </DIV></DIV></DIV></BODY>
+</HTML>

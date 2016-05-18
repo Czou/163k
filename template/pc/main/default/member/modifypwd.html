@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改密码--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+<style>
+.tips{ border:2px solid #d00; width:570px; height:230px; background-color:#f6f6f6;display:none; position: absolute; left:30%; bottom:40%; z-index:999; color:#404040;}
+.tips .tips_zi{float:left;position:relative; top:60px; left:40px; line-height:28px; font-size:14px; font-weight:bold;}
+.tips .tips_smile{float:right; width:100px; height:100px;  background:url(../template/default/member/images/smile.png) no-repeat; position:relative; top:60px; right:40px;}
+.tips .ok{ float:left;  width:80px; height:29px; background:url(../template/default/member/images/ok.jpg) no-repeat; position:relative; top:138px; right:270px; overflow:hidden;}
+.tips .ok a { color:#fff; display:block; background-color:#f50; border:1px solid #d94d07; padding:3px 0; font-size:14px; text-align:center;}
+.tips .ok a:hover { text-decoration:none;}
+.qqmember_no_1,.qqmember_yes_0 { display:none;}
+</style>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改安全信息</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main2">
+			<div class="edit_box">
+				<div id="contentfloat">
+        <div id="content">
+<form name="form1" action="?action=pwdsave" target="tijiao" onSubmit="return checkpwd();" method="post">
+
+<div class="bigtitle">修改安全信息</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		请牢记更改后的新密码，如果忘记密码请通过“忘记密码？”找回！</td>
+	</tr>
+</table>
+<div class="smalltitle">修改资料与密码（打 <span style="color:Red">*</span> 为必填项）</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <!--<tr>
+        <td class="tditem" style="width:20%;"><span style="color:Red">*</span> 您的旧密码：</td>
+        <td class="tdcontent" style="width:80%">
+            <input name="oldpass" type="password" id="oldpass"  class="text"/></td>
+    </tr>-->
+	<tr>
+        <td class="tditem"> 会员ID：</td>
+        <td class="tdcontent">
+            {$userid}　<a href="modify.aspx?action=tou" style="color:#36c;">头像设置</a>
+            </td>
+    </tr>
+	<tr>
+        <td class="tditem"><span style="color:Red">*</span> 昵称：</td>
+        <td class="tdcontent">
+            <input name="chrname" type="text" id="chrname" style="width:400px;" value="{$chrname}"  class="text"/> <span style="color:#999; font-size:12px;">请设置一个昵称（3-15字符），以作为您在本站的登录名之一</span>
+            </td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 邮箱地址：</td>
+        <td class="tdcontent">
+            <input name="chremail" type="text" id="chremail" style="width:400px;" value="{$chremail}"  class="text"/> <span style="color:#999; font-size:12px;">请输入邮箱地址，邮箱地址可以作为您在本站的登录名之一</span>
+            </td>
+    </tr>
+	<tr>
+        <td class="tditem"><span style="color:Red">*</span> 手机号码：</td>
+        <td class="tdcontent">
+            <input name="chrtel" type="text" id="chrtel" style="width:400px;" value="{$chrtel}"  class="text"/> <span style="color:#999; font-size:12px;">请输入手机号，手机号可以作为您在本站的登录名之一</span>
+           </td>
+    </tr>
+	<tr>
+        <td class="tditem">绑定QQ登录：</td>
+        <td class="tdcontent">
+            <a href="qq.aspx?from={$SiteUrl}member%2fmodify.aspx%3faction%3dpass" class="qqmember_no_{$isqqlogin}" target="_blank" style="color:#36c;">绑定QQ登录</a>
+			<a href="qq.aspx?from={$SiteUrl}member%2fmodify.aspx%3faction%3dpass" class="qqmember_yes_{$isqqlogin}" target="_blank" style="color:#36c;">更改QQ登录</a>
+           </td>
+    </tr>
+	<tr>
+        <td class="tditem">绑定微信登录：</td>
+        <td class="tdcontent">
+            <a href="qq.aspx?action=weixin&from={$SiteUrl}member%2fmodify.aspx%3faction%3dpass" class="qqmember_no_{$isweixinlogin}" target="_blank" style="color:#36c;">绑定微信登录</a>
+			<a href="qq.aspx?action=weixin&from={$SiteUrl}member%2fmodify.aspx%3faction%3dpass" class="qqmember_yes_{$isweixinlogin}" target="_blank" style="color:#36c;">更改微信登录</a>
+           </td>
+    </tr>
+	<tr>
+        <td class="tditem">您的新密码：</td>
+        <td class="tdcontent">
+            <input name="userpass" type="password" id="userpass" style="width:400px;"  class="text"/>
+            <span style="color:#999; font-size:12px;">(不修改请留空，6-15个字符，必须包含数字和英文字母，区分大小写。)</span></td>
+    </tr>
+    <tr>
+        <td class="tditem">重复新密码：</td>
+        <td class="tdcontent">
+            <input name="password" type="password" id="password" style="width:400px;" class="text" /></td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent">
+           <input type="submit" class="global_btn_blue_big" name="submit" value=" 提交修改 " id="" />
+		</td>
+    </tr>
+	
+</table>
+</form>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub2">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	
+
+
+    <div id="tips" class="tips" >
+	<div class="tips_zi">您的密码过于简单，为了保障您的帐号安全，<br />
+请将密码修改为6-16个字符<span style="color:#cb0000; font-weight:bolder">（字母+数字的组合）</span></div>
+    <div class="tips_smile"></div>
+    <div class="ok"><a href="javascript:hide('tips');">确 定 </a></div>
+</div>
+   	<script>
+	var out="{$n}";
+	if(out=="0"){
+		//document.getElementById("tips").style.dispaly="";
+		show("tips");
+		//alert("密码太简单，为了保证帐号安全，请将密码修改为6-16位字母、数字或符号组合。");
+		}
+	</script>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link href="{$Default_tplPath}skin/zixun2015.css" rel="stylesheet" />
+{$top$}
+	<!-- 主体 -->
+	<div class="crumb-bar clearfix">
+		<span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$articleurl}">{$lanmuname}</a> <a href="{$articleurl}listnew_{$categoryid}.html">{$chrcategory}</a>{$smallcategorymenu}<span class="cur_tit">{$chrtitle}</span>
+	</div>
+    <div class="advs">{$Mh163k_新闻频道通栏广告}</div>
+	<div class="clearfix" style="margin-top:12px;">
+		<div class="zx-content">
+		 <div class="detail clearfix">
+			<!--<i class="tt display0"></i>
+			<i class="tj"></i>-->
+			<h1>{$chrtitle}</h1>
+			<div class="publish">
+				<ul>
+					<li>{$dtappenddate}</li>
+					
+					<li>来源：{$chrfrom}</li>
+					<li class="browse">{$views}</li>
+					<li class="zan">{$xin2}</li>
+					<li class="reply" id="show_total_revert1">0</li>
+				</ul>
+			</div>
+			
+			
+			<div class="con" id="resizeIMG">
+				{$chrcontent}
+				<div style="text-align:center" class="pageNav2 pageNav4">{$split}</div>
+				
+			</div>
+		 <div class="prev-next">
+			 上一篇：{$lastone}<br>
+			 下一篇：{$nextone}
+		 </div>
+		 <div class="share">
+				<span style="float:left; font-size:12px; line-height:44px;">分享到：</span>{$Mh163k_整站通用_分享代码}
+			</div>
+		 <div class="zan2" onClick="setarticle('2','{$newsid}');">赞(<span id="dingnews">{$xin2}</span>)<i></i></div>
+		 </div>
+		 <!--comments-->
+		 <div class="zx-comments">
+			 <div class="tit clearfix">
+				 <h4>网友留言评论</h4>
+				 <div class="count"><span class="num" id="show_total_revert">2</span>条评论</div>
+			 </div>
+			 <div class="user_comment">
+				<div id="showcomment"></div>
+				<div class="write2014">
+					<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+					<input type="hidden" id="isrep" value="" />
+					<input type="hidden" id="istg" value="" />
+					<input type="hidden" id="parentid" value="" />
+					<form id="myform">
+						<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+						<div class="cmt_control clearfix">
+							<div class="left">
+								<div class="emot po_re">
+									<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+								</div>
+							</div>
+							<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+							<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		  <div class="sm">声明：频道所载文章、图片、数据等内容以及相关文章评论纯属个人观点和网友自行上传，并不代表本站立场。如发现有违法信息或侵权行为，请留言或直接与本站管理员联系，我们将在收到您的信息后24小时内作出删除处理。</div>
+		 </div>
+		</div>
+		<div class="zx-list-rside">
+		  <div class="zx-hotnews">
+				<h4>本月热点资讯</h4>
+				<ul>
+					{$Mh163k_资讯2015_本月热点资讯}
+				</ul>
+			  </div>
+			  <div class="zx-hotnews">
+				<h4>精彩图文</h4>
+				<ul>
+					{$Mh163k_资讯2015_精彩图文}
+				</ul>
+			  </div>
+		  <div class="contribute">
+			<a href="{$SiteUrl}member/myarticle.aspx?action=add" target="_blank"><i class="icon"></i>我要投稿</a>
+		  </div>
+		  {$Mh163k_文章频道_边栏广告}
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}js/live2013.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$newsid}';
+window['STYLEID'] = '8';
+(function($){
+	$('#resizeIMG').resizeIMG(900,1200);
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<div id="a1" style="margin:0 auto;"></div>
+<p style="padding-top:10px;">如果您的电脑无法正常播放视频，请将<a href="http://get.adobe.com/cn/flashplayer/otherversions/" target="_blank" style="color:#888">FlashPlayer</a>更新至官方最新版。</p>
+<script type="text/javascript">
+var ckpath="{$tplPath}/ckplayer/assets/";//风格总路径
+</script>
+<script type="text/javascript" src="{$tplPath}/ckplayer/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript"> 
+	var s1=new swfupload();
+	s1.ckplayer_url="{$tplPath}".replace("..","")+'/ckplayer/ckplayer.swf';//播放器文件名sssss
+	s1.ckplayer_flv='{$filepath}';//视频地址
+	s1.ckplayer_pat='';//传递的参数,只针对flash传送时有用，你可以试着改成2和3，我只放了2和3，没有4以上的注意
+	s1.ckplayer_style=0;//传递的方式,0是普通方式，1是网址传送，2是xml传送，3是flash传送
+	s1.ckplayer_default=0;//读取文本配置，此参数具有非常强大的功能，（比如外站引用视频只需一个参数即可）说来话长，请到网站了解详情
+	s1.ckplayer_xml='';//风格配置xml文件，如果为空的话将使用js文件配置
+	s1.ckplayer_loadimg='{$loadimg}';//初始图片地址
+	s1.ckplayer_pauseflash='{$pauseflash}';//暂停时播放的广告，只支持flash和图片
+	s1.ckplayer_pauseurl='{$pauseurl}';//暂停时播放图片时需要加一个链接
+	s1.ckplayer_loadadv='{$loadadv}';//视频开始前播放的广告，可以是flash,也可是视频格式
+	s1.ckplayer_loadurl='{$loadurl}';//视频开始前广告的链接地址，主要针对视频广告，如果是flash可以不填写
+	s1.ckplayer_loadtime={$loadtime};//视频开始前广告播放的秒数,只针对flash或图片有效
+	s1.ckplayer_endstatus=2;//视频结束后的动作，0停止播放并发送js,1是不发送js且重新循环播放,2停止播放
+	s1.ckplayer_volume=80;//视频默认音量0-100之间
+	s1.ckplayer_play=0;//视频默认播放还是暂停，0是暂停，1是播放
+	s1.ckplayer_http = 0;//播放http视频流时采用何种拖动方法，0是按关键帧，1是按关键时间点
+	s1.ckplayer_load =0;//默认是否采用点击播放按钮后再加载视频，0不是，1是,设置成1时不要旋转前置广告
+	s1.ckplayer_width={$width};//播放器宽度
+	s1.ckplayer_height={$height};//播放器高度
+	s1.ckplayer_bgcolor='#000000';//播放器背景颜色
+	s1.ckplayer_allowFullScreen=true;//是否支持全屏，true支持，false不支持，默认支持
+	s1.swfwrite('a1');//div的id
+</script>

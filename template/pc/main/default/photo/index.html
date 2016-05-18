@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tuwen2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$Default_tplPath}js/common2013.js"></script>
+<style>
+html {overflow-y: scroll;}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header po_re clearfix">
+		<h1 class="po_ab"><a href="{$SiteUrl}photo/">{$lanmuname}</a></h1>
+		<div class="left"><a href="{$SiteUrl}">{$SiteName}</a> &gt; {$lanmuname}</div>
+		<div class="right login">
+			<ul id="login_info"></ul><script>is_login2("{$SiteUrl}","{$Default_tplPath}",'{$Mh163k_QQ登录调用}');</script>
+		</div>
+		<div class="right upload"><a href="{$SiteUrl}member/myphoto.aspx?action=add" target="_blank">分享我的图片</a></div>
+	</div>
+	<div class="content">
+		<div class="filter clearfix">
+			<ul class="tag left" id="choose_id">
+				<li class="t">热门标签：</li>
+				{$photocategory}
+			</ul>
+			<ul class="sort right" id="choose_key">
+				<li class="t">排序方式</li>
+				<li class="{$selected1}"><a href="?colname={$colname}&key=1" id="to_new">最新</a></li>
+				<li class="{$selected2}"><a href="?colname={$colname}&key=2" id="to_tui">推荐</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<input type="hidden" id="i_Colname" value="0" />
+			<input type="hidden" id="i_PageNo" value="1" />
+			<input type="hidden" id="i_PageSize" value="20" />
+			<input type="hidden" id="i_key" value="1" />
+			<ul class="clearfix loadding" id="tuwen_list"></ul>
+			<a href="#more" id="getMore">点击查看更多图集</a>
+		</div>
+	</div>
+	<div class="footer clearfix">
+		<p class="left">© <a href="{$SiteUrl}">{$SiteName}</a> 版权所有　{$sitetongji}</p>
+		<ul class="right">
+			<li><a href="#" onclick='this.style.behavior="url(#default#homepage)"; this.setHomePage("{$SiteUrl}");return false;'>设为首页</a></li><li><a href="javascript:window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">加为收藏</a></li>
+			{$Mh163k_底部导航}<li class="return_top"><a href="#top">返回顶部</a></li>
+		</ul>
+	</div>
+</div>
+<script id="template" type="x-tmpl-mustache">
+<li><a href="picsa_{{categoryid}}.html" target="_blank"><img src="{{filepath}}" onerror="javascript:this.src='{$Default_tplPath}images/nofindtujiimg.gif'" alt="" /><h3><span class="num">{{intnum}}P</span>{{demo}}<span class="date">{{chrname}} 发布于 {{dtappenddate}}</span></h3><div class="hover-mask"></div></a></li>
+</script>
+<script src="{$Default_tplPath}js/mustache.js"></script>
+<script src="{$Default_tplPath}js/jquery.autoresize.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+	var node = $('#tuwen_list');
+	var i_Colname = $('#i_Colname');
+	var i_PageNo = $('#i_PageNo');
+	var i_PageSize = $('#i_PageSize');
+	var i_key = $('#i_key');
+	var to_new = $('#to_new');
+	var to_tui = $('#to_tui');
+	var choose_key = $('#choose_key');
+	var choose_id = $('#choose_id');
+	var choose_id_list = choose_id.find('a');
+	var more = $('#getMore');
+
+	more.bind('click',function(e){
+		i_PageNo.val(parseInt(i_PageNo.val())+1);
+		load_page();
+		e.preventDefault();
+	});
+	/*choose_id_list.bind('click',function(e){
+		var sid = $.url($(this).attr('href')).param('colname');
+		i_Colname.val(sid);
+		i_key.val('1');
+		choose_key.find('li').removeClass('current');
+		to_new.parent().addClass('current');
+		change_key($(this),choose_id);
+		e.preventDefault();
+	});*/
+	to_new.bind('click',function(e){
+		i_key.val('1');
+		change_key($(this),choose_key);
+		e.preventDefault();
+	});
+	to_tui.bind('click',function(e){
+		i_key.val('2');
+		change_key($(this),choose_key);
+		e.preventDefault();
+	});
+	function change_key(obj,obj2){
+		i_PageNo.val('1');
+		obj2.find('li').removeClass('current');
+		obj.parent().addClass('current');
+		node.empty();
+		load_page();
+	}
+	function load_page(){
+		
+		var current_host = window.location;
+		var url_obj = $.url(current_host).param();
+		if(url_obj['colname'] !== '' && url_obj['colname'] !== '0'){
+			i_Colname.val(url_obj['colname']);
+		}
+
+		node.addClass('loadding');
+		more.show();
+		var url = '../request.ashx?action=photopage&Colname='+i_Colname.val()+'&PageNo='+i_PageNo.val()+'&PageSize='+i_PageSize.val()+'&key='+i_key.val()+'&jsoncallback=?';
+	
+		var template = $('#template').html();
+		Mustache.parse(template);
+		$.getJSON(url,function(data){
+			if(!data[0]['msg']){
+				more.hide();
+				node.removeClass('loadding').html('<p class="notfind">暂时没有找到相关图集</p>');
+				return false;
+			}
+			var i = 0,len = data[0]['msg'].length;
+			if(len<parseInt(i_PageSize.val())){
+				
+				more.hide();
+			}
+			for( ;i<len;i++){
+				var rendered = Mustache.render(template,data[0]['msg'][i]);$('#tuwen_list').append(rendered);
+			}
+			node.removeClass('loadding').autoresize();
+		});
+	}
+	load_page();
+	$('#xc_nav_more').showMore2();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/video2011.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="{$Default_tplPath}js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.pngie6');
+</script>
+<![endif]-->
+{$top950$}
+  
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmutitle}</div>
+	<div id="content" class="video2011">
+		<div class="grid_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="left_wrap">
+					{$leftbigone}
+					<div class="top pngie6"></div>
+				</div>
+				<div class="right_wrap" id="TabAdS01">
+					<div class="hd">
+						<ul class="tab-hd clearfix">
+							<li class="li_01"><a href="javascript:;" class="select">推荐视频</a><s></s></li>
+							<li class="li_02"><a href="javascript:;">热门排行</a><s></s></li>
+						</ul>
+						<s class="mask"></s>
+					</div>
+					<div class="bd">
+						<ul class="tab-cont">
+                        	{$tuijianvideo}
+						</ul>
+						<ul class="tab-cont">
+							{$remenvideo}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="sub_box">
+					<div class="upload"><a href="{$SiteUrl}member/myvideo.aspx?action=add#tt11" ><img src="{$Default_tplPath}images/video_ad.jpg" width="238" height="139" alt="" /></a></div>
+					<div class="hd">上传规则</div>
+					<div class="bd rules">
+						<ol>
+							<li>禁止上传影音娱乐类、涉及版权的视频</li>
+							<li>欢迎商家拍摄上传商品、店铺展示视频</li>
+							<li>高级企业会员可提供免费上门拍摄、后期制作、上传服务</li>
+						</ol>
+					</div>
+					<div class="hd">客服中心</div>
+					<div class="bd service">
+						<ul>
+							<li class="tel"><s></s><span>电话：{$sitetel}</span></li>
+							<li class="qq"><s></s><span>客服QQ：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}"  target=_blank>{$siteqq1}</a>　<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}"  target=_blank>{$siteqq2}</a></span></li>
+							<li class="qqGroup"><s></s><span>QQ群：{$siteqqqun}</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="module_01">
+					<div class="hd"><s></s><strong class="yahei">最新视频</strong></div>
+					<div class="bd main_list clearfix">
+						{$newdetails}
+					</div>
+				</div>
+                {$videolistall}
+			</div></div>
+			<div class="col_sub">
+				<div class="module_tab" id="TabAdS02">
+					<div class="hd">
+						<ul class="clearfix tab-hd">
+							<li><a href="javascript:;">日榜</a></li>
+							<li><a href="javascript:;">周榜</a></li>
+							<li><a href="javascript:;">月榜</a></li>
+						</ul>
+						
+					</div>
+					<div class="bd paixu">
+						<ol class="tab-cont" id="changeItem">
+							
+							{$daydetails}
+						</ol>
+						<ol class="tab-cont" id="changeItem2">
+							{$weekdetails}
+						</ol>
+						<ol class="tab-cont" id="changeItem3">
+							{$monthdetails}
+						</ol>
+					</div>
+				</div>
+				{$rightlist}
+			</div>
+		</div>
+	</div>
+	{$bottom950$}
+</div>
+<script type="text/javascript" src="{$Default_tplPath}js/jQuery.tabs.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/jQuery.changeList.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript">
+$('#changeItem').changeList();
+$('#changeItem2').changeList();
+$('#changeItem3').changeList();
+$("#TabAdS01").TabADS();
+$("#TabAdS02").TabADS2();
+$('#mySle').selectbox();
+$(document).modCity();
+$('#fabu').showMore();
+$('#weixin').showMore();
+$.returnTop();
+</script>
+</body>
+</html>

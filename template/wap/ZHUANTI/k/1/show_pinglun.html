@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$name}-{$lanmuname}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+<script>
+window['ipageTitleTxt'] = '用户点评';
+</script>
+{$top$}
+<form method="get" action="{$SiteUrl}member/myorder.aspx" id="shopCartForm">
+<input type="hidden" name="action" value="myshoppay" />
+<input type="hidden" name="shopid" value="{$shopid}" />
+<div class="shop_cart clearfix" id="myShopCart" data-shipmoney1="{$shipmoney1}">
+ <div class="amount"><s id="numAll">0</s></div>
+ <div class="price">&yen;<span id="chrmoneyAll">0</span></div>
+ <div class="other">(配送费<span id="chrmoneyYunfei"></span>元)</div>
+ <div class="meal_btn"><button type="submit" id="myShopCartSubmit" class="disabled" disabled>立即下单</button></div>
+</div>
+</form>
+<div class="p_main">
+ 
+ <div class="shop_info zis{$peisongtype}">
+			 <dl class="clearfix">
+			  <dt><img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" alt="{$name}" /></dt>
+			  <dd>
+			   <h4>{$name}</h4>
+			   <s class="s_{$koubei}"></s>
+			   <div class="clearfix"></div>
+			   <div class="close_door" id="state_node"></div>
+			   <div class="d_time">营业时间：<span class="display1{$startkill}">{$startdate HH:mm}-{$enddate HH:mm} </span><span class="display1{$start2kill}">{$startdate2 HH:mm}-{$enddate2 HH:mm}</span></div>
+			  </dd>
+			 </dl>
+			</div>
+ <div class="price_sends clearfix">
+  <ul>
+   <li>
+     起送价
+     <p><span class="price">{$shipmoney1}</span>元</p>
+   </li>  
+   <li>
+     送达时间
+     <p><span class="time">{$shippingtime}</span>分钟</p>
+   </li>
+   <li>
+     配送费
+     <p><span class="psf">{$shipmoney}</span>元</p>
+   </li>
+  </ul>
+ </div>
+ <div class="p_tabs clearfix" id="filter">
+   <ul>
+    <li class="item current" data-val="">全部</li>
+    <li class="item" data-val="1">好评</li>
+    <li class="item" data-val="2">中评</li>
+	<li class="item" data-val="3">差评</li>
+   </ul>
+ </div>
+ <input type="hidden" id="fscore" value="" />
+ <div class="bd" id="showcomment"></div>
+ <div class="fabu_comment register-form">
+	<div class="hd">发布点评</div>
+	<form id="myform">
+		<div class="write2014">
+			<input type="hidden" id="needLogin" value="1">
+			<input type="hidden" id="needScore" value="1">
+			<input type="hidden" id="isrep" value="" />
+			<input type="hidden" id="istg" value="" />
+			<input type="hidden" id="parentid" value="" />
+			<input type="hidden" id="total_score" value="" />
+			<input type="hidden" id="score_1" value="" />
+			<div id="selScore" class="select_star">
+				<p class="allpj"><span class="sp">　总体评价：</span>
+				<a data-index="1" class="btn" href="#"><span class="btn_1">好评</span></a>
+				<a data-index="2" class="btn" href="#"><span class="btn_2">中评</span></a>
+				<a data-index="3" class="btn" href="#"><span class="btn_3">差评</span></a></p>
+				<span class="sp">　星级：</span>
+				<span id="selStar" class="i_star_0"><a data-index="1" class="s_star" href="#">1星</a><a data-index="2" class="s_star" href="#">2星</a><a data-index="3" class="s_star" href="#">3星</a><a data-index="4" class="s_star" href="#">4星</a><a data-index="5" class="s_star" href="#">5星</a></span>
+			</div>
+			<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+			<div class="cmt_control clearfix">
+				<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+				<div class="left">文明上网 礼貌发帖 仅限300字</div>
+			</div>
+		</div>
+	</form>
+</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script src="{$Default_tplPath}js/wap_kuaisonCommon.js?{$CacheHash}"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '0';
+window['SHOPID'] = '{$shopid}';
+window['ISHTML'] = '1';
+window['STYLEID'] = '3';  //comment styleid
+window['TPLNUM'] = '2';
+window['GOODSTYLEID'] = '1'; //shopping styleid
+function getkill(){
+	var isopen = "{$isopen}",
+		state_node = $('#state_node');
+	if(isopen === '2'){
+		state_node.addClass('state_2').html('暂停营业，{$noopenmark}');
+		return;
+	}
+	var startkill = "{$startkill}",
+	startdate = "{$startdate HH:mm}",
+	enddate = "{$enddate HH:mm}",
+	start2kill = "{$start2kill}",
+	startdate2 = "{$startdate2 HH:mm}",
+	enddate2 = "{$enddate2 HH:mm}";
+	
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	var thestartdate = Date.parse(today + startdate + ':00');
+	var theenddate = Date.parse(today + enddate + ':00');
+	var thestartdate2 = Date.parse(today + startdate2 + ':00');
+	var theenddate2 = Date.parse(today + enddate2 + ':00');
+	
+	if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+		showkill(!0);
+	}else{
+		showkill(!1);
+	}
+	function showkill(allow){
+		if(!!allow){
+			state_node.addClass('state_1').html('营业中');
+			window['ALLOWBUY'] = !0;
+		}else{
+			var shipkill = "{$shipkill}";
+			shipkill === '0'?(state_node.addClass('state_3').html('打烊了，可以预订'),window['ALLOWBUY'] = !0):(state_node.addClass('state_2').html('打烊了，不可下单'),window['ALLOWBUY'] = !1);
+		}
+	}
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+	getkill();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	getShoppingCart();
+	
+},false);
+(function($){
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+		});
+	};
+	$.fn.selScore = function(){
+		var t = $(this),list = t.find('.btn'),total_score = $('#total_score');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.removeClass('cur');
+			$(this).addClass('cur');
+			total_score.val(val);
+		});
+	};
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).siblings('li').removeClass('current');
+			$(this).addClass('current');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+	$('#filter').cmtfilter();
+	$('#selStar').selStar();
+	$('#selScore').selScore();
+})(jQuery);
+</script>
+</body>
+</html>

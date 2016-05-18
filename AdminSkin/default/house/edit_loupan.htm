@@ -1,0 +1,405 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<style type="text/css">
+.tit1 { margin:15px 0 5px;}
+
+#fangxing{   margin:0;padding:0;}
+#fangxing ul{list-style-type:none; margin:0;padding:0;}
+#fangxing ul li{ width:50%; float:left; line-height:22px;}
+.my_prop_img{ width:100%; margin:0; padding:0;}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM,.my_prop_imgitem .del { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; font-size:12px;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .del { top:104px; width:auto; padding:2px 5px;}
+.i_img_alt { width:114px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改楼盘信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至楼盘列表" onClick="window.location.href='loupan.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkaddloupan(this)" enctype="multipart/form-data">
+  <tr >
+          <td height="20" class="category"   colspan=6>楼盘基本资料： </td>
+        </tR>
+        <tr><td height="25"  >所属用户名<font color="#FF0000"></font>：  </td>
+        <td colspan=3 class="category"> <input type="text" name="userid" value="{$userid}" size="20" onblur="if(this.value!=''){getdata('request.aspx?action=checkloupanuserid&userid='+encMe(this.value),'tishi');}else{tishi.innerHTML='（输入用户名后，此用户可以管理此楼盘资料）';}"> <span id="tishi"> <em class="global_tip">（输入用户名后，此用户可以管理此楼盘资料）</em></span>
+        </td>
+        </tr>
+        <tr >
+          <td height="25" >楼盘名称<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><input type="text" name="chrloupan" value="{$chrloupan}" size=70></td>
+        </tr>
+        <tr >
+          <td height="25"  >楼盘位置<font color="#FF0000">*</font>： </td>
+          <td  class="category"  colspan=3 > {$qu_classid} 地址：
+            <input type="hidden" id="city" value="{$city}" />
+		    <input type="text" name="chraddress" id="chraddress"  value="{$chraddress}" size=40>
+            <a href="#" onclick='set_newimage()'><font  color="red"> <em class="global_tip">标注地图位置</em></font></a>
+            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
+            <input type="hidden" id="shop_z" name="shop_z"  value="0">
+			<input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"></td>
+        </tr>
+        <tr >
+          <td height="25">楼盘形象图片(400*298)<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3 ><span id="str3" >{$filepatht$}</span><span id="str4" style="display:none">
+		<input type="file" name="file" size="70">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		<input type="hidden" name="filewidth" value="400">
+		<input type="hidden" name="fileheight" value="298">
+		<input type="hidden" name="smallfilewidth" value="195">
+		<input type="hidden" name="smallfileheight" value="145">
+		</span>
+	  <input type=hidden name="url1" value="{$filepath}">
+		</td></td>
+        </tr>
+        <tr >
+          <td height="25" width="15%" >特色标语<font color="#FF0000">*</font>： </td>
+          <td  class="category"  ><input type="text" name="biaoyu"  value="{$biaoyu}" size=50></td>
+          <td height="25" width="13%" >颜色： </td>
+          <td  class="category"  ><input name="color" type="text" id="cptext" size="10" value="{$color}" style="color:{$color};" > <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+        </tr>
+        <tr >
+          <td height="25" >开发商： </td>
+          <td  class="category" ><input type="text" name="chrsupply"  value="{$chrsupply}" size=30></td>
+		   <td height="25" >开发商网址： </td>
+          <td  class="category" ><input type="text" name="chrsupplyurl" value="{$chrsupplyurl}" size=30></td>
+		  
+        </tr>
+        <tr >
+          <td height="25" >项目介绍： </td>
+          <td  class="category" colspan=3><textarea name="chrmark" style="width:500px;height:90px;" >{$chrmark}</textarea></td>
+        </tr>
+        <tr >
+          <td height="25" >楼盘类型： </td>
+          <td  class="category" colspan=3><ul class="i_list_li clearfix">{$categoryids}</ul></td>
+        </tr>
+        <tr >
+          <td height="25" >楼盘形态与栋数： </td>
+          <td  class="category"><input type="text" name="xingtai"  value="{$xingtai}" size=30></td>
+		            <td height="25" >业主论坛： </td>
+          <td  class="category" ><input type="text" name="yezhu" value="{$yezhu}" size=30></td>
+
+        </tr>
+        <tr >
+          <td height="25" >总占地面积： </td>
+          <td  class="category" ><input type="text" name="zhangdi"  value="{$zhangdi}" size=20></td>
+          <td height="25" >总建筑面积： </td>
+          <td  class="category" ><input type="text" name="jianzhu"  value="{$jianzhu}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >建筑类别： </td>
+          <td  class="category" ><input type="text" name="jianzhuleibie"  value="{$jianzhuleibie}" size=20></td>
+          <td height="25" >装修情况： </td>
+          <td  class="category" ><ul class="i_list_li clearfix">{$zhuangxiu}</ul></td>
+        </tr>
+        <tr >
+          <td height="25" >物业公司： </td>
+          <td  class="category" ><input type="text" name="wuyecompany" value="{$wuyecompany}" size=20></td>
+          <td height="25" >物业管理费： </td>
+          <td  class="category" ><input type="text" name="wuyeguanli"  value="{$wuyeguanli}" size=10>
+            平米/月</td>
+        </tr>
+        <tr >
+          <td height="25" >绿化率： </td>
+          <td  class="category" ><input type="text" name="lvhua"  value="{$lvhua}" size=20></td>
+          <td height="25" >得房率： </td>
+          <td  class="category" ><input type="text" name="defang"  value="{$defang}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >容积率： </td>
+          <td  class="category" ><input type="text" name="rongji" value="{$rongji}" size=20></td>
+          <td height="25" >车位数： </td>
+          <td  class="category" ><input type="text" name="chewei" value="{$chewei}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >开工时间： </td>
+          <td  class="category" ><input type="text" name="kaigongdate" class="Wdate" value="{$kaigongdate}" size=20></td>
+          <td height="25" >竣工时间： </td>
+          <td  class="category" ><input type="text" name="jungongdate"  class="Wdate" value="{$jungongdate}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >预计开盘时间： </td>
+          <td  class="category" ><input type="text" name="kaipandate"  class="Wdate" value="{$kaipandate}" size=20 ></td>
+          <td height="25" >预计交房时间： </td>
+          <td  class="category" ><input type="text" name="jiaofangdate" class="Wdate" value="{$jiaofangdate}" size=20></td>
+        </tr>
+        <tr >
+          <td height="25" >售楼处电话： </td>
+          <td  class="category" ><input type="text" name="shouloutel"  value="{$shouloutel}" size=20></td>
+          <td height="25" >售楼处地址： </td>
+          <td  class="category" ><input type="text" name="shoulouaddress"  value="{$shoulouaddress}" size=35></td>
+        </tr>
+        <tr  >
+          <td height="25" class="category"   colspan=4>楼盘相册</td>
+        </tR>
+        <tr > 
+      <td  height="25">已上传图片：</td>
+      <td  colspan=3  class="category">
+	 <div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;"><input type="button" id="J_selectImage" value="批量上传" />  最佳尺寸：800x650</div>
+	<div id="J_imageView" class="clearfix"><tag:Loop ListType="LISTLOUPANPIC" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="house/Listphoto_tr.htm" /></div>
+	<input type="hidden" id="filewidth" value="800">
+	<input type="hidden" id="fileheight" value="0">
+	<input type="hidden" id="smallfilewidth" value="278">
+	<input type="hidden" id="smallfileheight" value="226">
+	  </td>
+    </tr>
+		<tr  >
+          <td height="25" class="category"   colspan=4>楼盘视频： 支持格式:swf、flv、asf、wmv、avi，pc端强烈推荐您使用flv格式！<span style="color:#f60;">手机端仅能支持mp4格式播放</span>。</td>
+        </tR>
+        <tr > 
+      <td  height="25"><input type="radio" name="typeid" value="0" {$typeid0}>本地上传视频数据</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">
+	  	PC端：(推荐flv格式)
+	  </p>
+	  <p class="bd1">
+	  	<span id="str1" ><a href="{$url12}" class="global_btn_blue">查看视频</a>  <span onclick="hid1()" style="cursor:hand" class="global_btn">重新上传</span></span>
+		<span id="str2"  style="display:none"><iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="upload.aspx?action=video&type=12"></iframe></span>
+	  </p>
+	  <p class="tit1">
+	  	移动端：<span style="color:#d00;">(必须mp4格式)</span>
+	  </p>
+	  <p class="bd1">
+	  <span id="str5"><a href="{$url13}" class="global_btn_blue">查看视频</a>  <span onclick="hid3()" style="cursor:hand" class="global_btn">重新上传</span></span>
+	  <span id="str6" style="display:none;">
+	  	<iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="upload.aspx?action=video&type=13"></iframe>
+	  </span>
+	  </p>
+	  <input type=hidden name="url12"  id="url12"  value="{$url12}">
+	  <input type=hidden name="url13"  id="url13"  value="{$url13}"><!-- wap端视频地址 -->
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="1" {$typeid1}>调用外部视频地址</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">PC端： (推荐flv格式)</p>
+	  <p class="bd1"><input type="text" name="filepath2" style="width:500px;" value="{$filepath2}"></p>
+	  <p class="tit1">移动端： <span style="color:#d00;">(必须mp4格式)</span></p>
+	  <p class="bd1"><input type="text" id="filepath2wap" style="width:500px;" value=""></p>
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="2" {$typeid2}>引用第三方站点</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">
+	  	PC端：支持调用如优酷、土豆等知名视频站点的数据，请输入<span style="color:#f60;">“flash地址”</span><br /><em class="global_tip">例如：http://player.youku.com/player.php/sid/XMTM3ODYyMTExMg==/v.swf</em>
+	  </p>
+	  <p class="bd1">
+	  <input type="text" name="filepath3" style="width:500px;" value="{$filepath3}">
+	  </p>
+	  <p class="tit1">
+	  	移动端：请输入<span style="color:#f60;">“通用代码”</span><br /><em class="global_tip">例如：&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XMTM3ODYyMTExMg==" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</em>
+	  </p>
+	  <p class="bd1">
+	  <input type="text" id="filepath3wap" style="width:500px;" value="">
+	  </p>
+	  </td>
+    </tr>
+        <tr>
+          <td   height="25" class="category"   colspan=4>周边配套、小区配套</td>
+        </tr>
+        <tr>
+          <td  >公交：</td>
+          <td class="category" colspan="3"><input type="text" name="jiaotong"  value="{$jiaotong}" size="48"></td>
+        </tr>
+		<tr>
+          <td  >地铁：</td>
+          <td class="category" colspan="3"><input type="text" name="ditie" value="{$ditie}" size="48"></td>
+        </tr>
+        <tr>
+          <td >学校：</td>
+          <td class="category" colspan="3"><input type="text" name="xuexiao" value="{$xuexiao}" size="48"></td>
+        </tr>
+        <tr>
+          <td >购物：</td>
+          <td class="category" colspan="3"><input type="text" name="gouwu" value="{$gouwu}" size="48"></td>
+        </tr>
+        <tr>
+          <td >医院：</td>
+          <td class="category" colspan="3"><input type="text" name="yiyuan"  value="{$yiyuan}"size="48"></td>
+        </tr>
+        <tr>
+          <td >银行：</td>
+          <td class="category" colspan="3"><input type="text" name="yinghan" value="{$yinghan}" size="48"></td>
+        </tr>
+        <tr>
+          <td >餐饮：</td>
+          <td class="category" colspan="3"><input type="text" name="canyin" value="{$canyin}" size="48"></td>
+        </tr>
+        <tr>
+          <td >其他：</td>
+          <td class="category" colspan="3"><input type="text" name="qita" value="{$qita}" size="48"></td>
+        </tr>
+        <tr>
+          <td >小区配套介绍：</td>
+          <td class="category" colspan="3"><textarea rows="8" name="peitao" cols="78">{$peitao}</textarea></td>
+        </tr>
+        <!--<tr>
+          <td >周边口碑店铺：</span></td>
+          <td class="category" colspan="4"><p style="margin-top: 1px; margin-bottom: 1px">
+              <input type="radio" value="0" {$R10} name="R1">
+              自动调用该区域内口碑值前5位的店铺，如果该区域店铺为0，则随机调用全站口碑店铺</span></p>
+            <p style="margin-top: 1px; margin-bottom: 1px"><font color="#808080"> 指定店铺(该功能计划开发中,将在下次升级中提供)</span></font></td>
+        </tr>-->
+        <tr >
+          <td height="25" class="category"   colspan=4>销售信息： </td>
+        </tR>
+        <tr>
+          <td height="25" >当前均价<font color="#FF0000">*</font>： </td>
+          <td  class="category" colspan=3><input type="text" name="avgprice"  value="{$avgprice}" onKeyUp="value=value.replace(/\D+/g,'')">
+            元/平米 <em class="global_tip">（必须填写数字，<font color=red>如果填0则表示“待定”，如果填1则表示“一房一价”</font>）</em></td>
+        </tr>
+        <tr>
+          <td height="25" >销售形式<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" value="0"  {$xiaoshoustyleid0} name="xiaoshoustyleid">
+            期房
+            <input type="radio" value="1"  name="xiaoshoustyleid"  {$xiaoshoustyleid1}>
+            现房</td>
+          <td height="25" >销售状态<font color="#FF0000">*</font>： </td>
+          <td  class="category"  ><input type="radio" value="0" {$xiashoutypeid0} name="xiashoutypeid">
+            在售
+            <input type="radio" value="1"  name="xiashoutypeid"  {$xiashoutypeid1}>
+            售罄
+            <input type="radio" value="2"  name="xiashoutypeid"  {$xiashoutypeid2}>
+            待售</td>
+        </tr>
+        <tr >
+          <td height="25" class="category"   colspan=4>属性设置： </td>
+        </tR>
+        <td height="25"  >排序<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input name="intorder" value="{$intorder}" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')">
+            <em class="global_tip">数字越大越靠前</em></td>
+          <td height="25"  >浏览次数<font color="#FF0000">*</font>： </td>
+          <td class="category" colspan="5"><input type="text" name="views" value="{$views}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/>
+            <em class="global_tip">(会在该数字基础上累加)</em></td>
+        </tr>
+        <tr >
+          <td height="25" >推荐热销<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="checkbox" name="tuijian" value="1" {$tuijian}>
+            推荐
+            <input type="checkbox" name="rexiao" value="1" {$rexiao}>
+            热销</td>
+          <td height="25"  >状  态<font color="#FF0000">*</font>： </td>
+          <td  class="category" ><input type="radio" name="iskill" value="0" {$iskill0}>
+            待审
+            <input type="radio" name="iskill" value="1" {$iskill1}>
+            通过审核
+            <input type="radio" name="iskill" value="2" {$iskill2}>
+            下线</td>
+        </tr>
+    <tr  > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type="hidden" name="id" id="id" value="{$id}">
+		 <input type="submit" name="Submit" class="global_btn_blue_big" value="继续下一页"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成"><input type="hidden" name="over" value="0">
+        </td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$atplPath}js/jquery.cookie.js"></script>	
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script src="{$atplPath}js/cal/cal_s.js"></script>
+<script src="{$atplPath}js/upLoadImg2015.js"></script>
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+$('#listEmpty')[0]&&$('#listEmpty').html('您还没有上传图片');
+var table_id = 'house_loupan_pic';
+window['state'] = "&loupanid={$id}";
+window['logincookieStr'] = $.cookie('{$adminlogincookieName}');
+if(!!window['logincookieStr']){
+	window['imgURL'] = window['siteUrl']+"kindeditor/upload_json.ashx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val()+"&" + window['logincookieStr'];
+	newPLUploadImg();
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#J_imageView');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<input type="text" value="" onblur="editMark(this,\''+o[i]["id"]+'\')" class="i_img_alt" />'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')" class="del">删除</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\'house_loupan_pic&loupanid={$ID}\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\'house_loupan_pic&loupanid={$ID}\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+function editMark(o,id){
+	var chrmark = jQuery(o).val();
+	var url = '/request.ashx?action=setpicmark&table_id='+table_id+'&id='+id+'&chrmark='+encodeURIComponent(chrmark)+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			//alert('图片注释编辑成功！');
+		}else{
+			alert(data);
+		}
+	}});
+}
+
+
+
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 1980, enddate: y+10 });
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	if($('#url12').val() === ''){
+		hid1();
+	}
+	
+	if(!$('input[name="typeid"][value="0"]').prop('checked')){
+		hid3();
+	}else{
+		if($('#url13').val() === ''){
+			hid3();
+		}
+	}
+	if($('input[name="typeid"][value="1"]').prop('checked')){
+		$('#filepath2wap').val($('#url13').val());
+	}
+	if($('input[name="typeid"][value="2"]').prop('checked')){
+		$('#filepath3wap').val($('#url13').val());
+	}
+})(jQuery);
+
+function hid1(){
+	if(document.getElementById('str1')){document.getElementById('str1').style.display="none"}
+	document.getElementById('str2').style.display="block";
+	
+}
+function hid2(){
+	if(document.getElementById('str3')){document.getElementById('str3').style.display="none"}
+	document.getElementById('str4').style.display="block";
+}
+function hid3(){
+	document.getElementById('str5').style.display="none"
+	document.getElementById('str6').style.display="block";
+}
+</script>
+  </body>
+</html>

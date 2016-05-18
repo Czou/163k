@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<style type="text/css">
+.list { text-align:center;}
+.list li { text-align:left; position:relative; *zoom:1; z-index:2; overflow:hidden; float:left; margin-bottom: 3px;}
+.list a:hover h3 { text-decoration:none; cursor:pointer}
+.list .hover-mask {background:none;background:rgba(255, 255, 255, 0); position:absolute; width:100%; height:100%; top:0; left:0; -webkit-transition:background 0.2s ease-out;-moz-transition:background 0.2s ease-out;-o-transition:background 0.2s ease-out;transition:background 0.2s ease-out;}
+.list li:hover .hover-mask { background:rgba(255, 255, 255, 0.1);}
+.list h3 { position:absolute; width:100%; bottom:0; left:0; _bottom:-1px; padding:0 0 0 10px; background-color:black; color:#fff; height:36px; line-height:36px; overflow:hidden; font-weight:normal; font-size:16px;text-shadow: 0 0 3px black;
+  background: black;
+  background: rgba(0, 0, 0, 0.8);
+  background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.56) 64%, rgba(0, 0, 0, 0.8) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(64%, rgba(0, 0, 0, 0.56)), color-stop(100%, rgba(0, 0, 0, 0.8)));
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.56) 64%, rgba(0, 0, 0, 0.8) 100%);
+  background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.56) 64%, rgba(0, 0, 0, 0.8) 100%);
+  background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.56) 64%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.56) 64%, rgba(0, 0, 0, 0.8) 100%);}
+.list h3 .date { display:none; font-size:12px;}
+.list h3 .num { display:none; margin-left:-15px; text-align:center; color:#fff; font-weight:normal; font-size:30px;}
+.list_show h3 .date { display:block;}
+.list_show h3 .num { display:block;}
+</style>
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+		<div class="filter">
+			<ul class="clearfix">
+				<li><a href="javascript:void(0);" id="show_categories"><span id="s_txt_colname">热门标签</span><em></em></a></li>
+				<li><a href="javascript:void(0);" id="show_district"><span id="s_txt_key">排序方式</span><em></em></a></li>
+			</ul>
+		</div>
+		<div class="float-navbox" id="navbox_categories" style="display:none;">
+			<div class="inner">
+				<a href="{$SiteUrl}photo/index.html" id="s_colname_0">全部图集</a>
+				{$Mh163k_wap_图库首页_分类导航}
+			</div>
+		</div>
+		<div class="float-navbox" id="navbox_district" style="display:none;">
+			<div class="inner">
+				<a href="?colname={$colname}&key=1" class="{$selected1}" id="s_key_1">最新(默认)</a>
+				<a href="?colname={$colname}&key=2" class="{$selected2}" id="s_key_2">推荐</a>
+			</div>
+		</div>
+		<div class="fullbg" id="fullbg1" style="display:none;"><i class="pull"></i></div>
+		<div class="fullbg" id="fullbg2" style="display:none;"><i class="pull"></i></div>
+		<div class="list">
+			<input type="hidden" id="i_Colname" value="{$colname}" />
+			<input type="hidden" id="i_PageNo" value="1" />
+			<input type="hidden" id="i_PageSize" value="20" />
+			<input type="hidden" id="i_key" value="{$key}" />
+			<ul class="clearfix loadding" id="tuwen_list"></ul>
+			<div class="inner_html"><a class="comn-submit gray btn_block" href="#more" id="getMore">点击查看更多图集<span class="jian"></span></a></div>
+		</div>
+	</div>
+{$bottom$}
+<script id="template" type="x-tmpl-mustache">
+<li><a href="picsa_{{categoryid}}.html"><img src="{{filepath}}" onerror="javascript:this.src='{$Default_tplPath}images/nofindtujiimg.gif'" alt="" /><h3><span class="num">{{intnum}}P</span>{{demo}}<span class="date">{{chrname}} 发布于 {{dtappenddate}}</span></h3><div class="hover-mask"></div></a></li>
+</script>
+<script src="{$Default_tplPath}js/mustache.js"></script>
+<script src="{$Default_tplPath}js/jquery.autoresize.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+	IDC.showMore($('#show_categories'),$('#navbox_categories'),$('#fullbg1'));
+	IDC.showMore($('#show_district'),$('#navbox_district'),$('#fullbg2'));
+	$.photoUrl = function(){
+		var colname = '{$colname}';
+		var key = '{$key}';
+		if(colname !== '' && colname !== '0'){
+			$('#s_colname_'+colname).addClass('current');
+			$('#s_txt_colname').html($('#s_colname_'+colname).html());
+		}
+		if(colname===''){
+			$('#s_colname_0').addClass('current');
+		}
+		if(key !== '' && key !== '1'){
+			
+			$('#s_txt_key').html($('#s_key_'+key).html());
+		}
+		
+		
+	}
+	$.photoUrl();
+	
+	var node = $('#tuwen_list');
+	var i_Colname = $('#i_Colname');
+	var i_PageNo = $('#i_PageNo');
+	var i_PageSize = $('#i_PageSize');
+	var i_key = $('#i_key');
+	var more = $('#getMore');
+	
+	more.bind('click',function(e){
+		i_PageNo.val(parseInt(i_PageNo.val())+1);
+		load_page();
+		e.preventDefault();
+	});
+	
+	function load_page(){
+		node.addClass('loadding');
+		more.show();
+		var url = '../request.ashx?action=photopage&Colname='+i_Colname.val()+'&PageNo='+i_PageNo.val()+'&PageSize='+i_PageSize.val()+'&key='+i_key.val()+'&jsoncallback=?';
+	
+		var template = $('#template').html();
+		Mustache.parse(template);
+		$.getJSON(url,function(data){
+			if(!data[0]['msg']){
+				more.hide();
+				node.removeClass('loadding').html('<p class="notfind">暂时没有找到相关图集</p>');
+				return false;
+			}
+			var i = 0,len = data[0]['msg'].length;
+			if(len<parseInt(i_PageSize.val())){
+				
+				more.hide();
+			}
+			for( ;i<len;i++){
+				var rendered = Mustache.render(template,data[0]['msg'][i]);$('#tuwen_list').append(rendered);
+			}
+			node.removeClass('loadding').autoresize();
+		});
+	}
+	load_page();
+});
+</script>
+</body>
+</html>

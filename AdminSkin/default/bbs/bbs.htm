@@ -1,0 +1,86 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">论坛整合地址设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=bbsSave" ID="Form1">
+  <tr >
+	  <td>是否开启与UC、Discuz!会员整合<font color="#FF0000">*</font>：</td>
+	  <td class="category"> <input type="radio" name="bbsopen" value="0" {$bbsopen0$}>开启 <input type="radio" name="bbsopen" value="1" {$bbsopen1$}>不开启</td>
+	</tr>
+<tr >
+	  <td>设置您的论坛地址<font color="#FF0000">*</font>：</td>
+	  <td class="category"> <input type="text" name="bbsurl" value="{$bbsurl$}" size=40><em class="global_tip">(最后一定要以"/"结尾)</em></td>
+	</tr>
+    <tr>
+					<td width="98%" colspan="2">
+					<em class="global_tip">如果开启整合，那么您必须先安装UC/DZ，并做好相关的设置工作，开启后网站必须和UC通信才能进行会员注册和登录</em></td>
+				</tr>
+				<tr>
+					<td width="98%" colspan="2">
+					<em class="global_tip">如果不开启整合，那么网站会员的注册和登录将不受到UC/DZ的任何影响，当然您也不用安装UC/DZ了</em></td>
+				</tr>
+				<tr>
+					<td width="98%" colspan="2">
+					<em class="global_tip">如果现在不想整合，以后再去整合是可以的，以后需要整合的时候将主站会员进行导入操作即可</em></td>
+				</tr>
+				<tr>
+					<td width="98%" colspan="2"><em class="global_tip">若对整合有疑问请联系系统开发方</em></td>
+				</tr>
+				<!--<tr > 
+      <td  width=20%>会员中心帖子调用<font color="#FF0000">*</font>： </td>
+	  <td  class="category"><textarea   name="bbsaspx" style="width:600px;height:60px;"></textarea></td>
+    </tr>-->
+				<tr>
+					<td class="category" colSpan="2">
+					<p style="line-height: 150%; margin-top: 2px; margin-bottom: 0px">
+					<font face="Verdana" style="font-size: 9.5pt">声明</font><font style="font-size: 9.5pt" face="Verdana">：</font></p>
+					<p style="line-height: 150%; margin-top: 2px; margin-bottom: 0px">
+					<font face="Verdana"><font style="font-size: 9.5pt">
+					<div class="global_tip">1、我方(163k.com)为满足用户网站运营需要，在&lt;&lt;163K地方门户系统&gt;&gt;中研发了与其会员通行的接口及相关应用功能</font><span style="font-size: 10.5pt"><br>
+					</span><font style="font-size: 9.5pt">
+					2、我方未对康盛公司的产品做任何改动，用户使用的UC/DZ均是从官方直接下载的原版，其使用中出现的任何问题均</font></font></p>
+					<p style="line-height: 150%; margin-top: 2px; margin-bottom: 0px">
+					<font face="Verdana"><font style="font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp; 
+					与&lt;&lt;163K地方门户系统&gt;&gt;无技术关联，其任何功能的使用均不受我方系统的影响</font><span style="font-size: 10.5pt"><br>
+					</span><font style="font-size: 9.5pt">
+					3、uc、dz非我方开发的产品，我方无义务、无权、无能力为用户提供除了《163K地方门户系统》与uc/dz会员互通以外</font></font></p>
+					<p style="line-height: 150%; margin-top: 2px; margin-bottom: 0px">
+					<font face="Verdana"><span style="font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;
+					</span><font style="font-size: 9.5pt">的任何服务</font><span style="font-size: 9.5pt"><br>
+					</span><font style="font-size: 9.5pt">
+					4、如果在使用中遇到其相关问题请到DZ官方寻求解答：</font><a target="_blank" href="http://www.discuz.net/"><font style="font-size: 9.5pt">http://www.discuz.net/</font></a></font></p>
+					<p style="line-height: 150%; margin-top: 2px; margin-bottom: 0px">
+					<font face="Verdana"><span style="font-size: 9.5pt">5、<a target="_blank" href="http://fuwu.163k.com/thread-848-1-1.html">有关整合的常见问题</div></a></span>
+					</font></td>
+				</tr>
+
+	<tr  > 
+	<td></td>
+      <td height="25" colspan="3"  class="category">
+		<input type="submit" name="Submit" value="确定提交" ID="Submit1" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

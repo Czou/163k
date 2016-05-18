@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$tplPath}skin/_cuxiao.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();
+</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<!-- 主体 -->
+
+	<div id="content">
+		<div class="page_hd">
+			<div class="title"><img src="{$tplPath}images/zhekouka2_03.gif" alt="" /></div>
+			<div class="info clearfix">
+				<div class="k_1"><img src="{$tplPath}images/zhekouka2_12.gif" alt="" /> 注意：您必须持有本站“打折一卡通”才能享有以下优惠、折扣、促销</div>
+				<div class="k_2">鲜活信息:<span class="big_skin">{$total}</span>条</div>
+				<div class="k_3"><a href="{$shopurl}join.aspx"><img src="{$tplPath}images/zhekouka2_07.gif" alt="" /></a> <a href="../cuxiao/card.aspx"><img src="{$tplPath}images/zhekouka2_09.gif" alt="" /></a></div>
+			</div>
+			<div class="category">
+				<div class="box_1">
+					<div class="hd">区域查找</div>
+					<div class="bd">{$quyu}</div>
+				</div>
+				<div class="box_1 top10">
+					<div class="hd">商家分类</div>
+					<div class="bd">{$allfenlei}</div>
+				</div>
+			</div>
+		</div>
+		<div class="page_bd">
+			<div class="hd clearfix">
+				<div class="d_1">打折信息 <a href="../member/mycuxiao.aspx?action=add" class="link">我要发布</a></div>
+				<div class="d_2">发布商家</div>
+				<div class="d_3">截止时间</div>
+			</div>
+			<div class="bd">
+				<tag:Loop ListType="LISTCUXIAOQIAN" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="cuxiao/list_cuxiao_tr.html" />
+				<div class="pagination_module clearfix" style="margin-top:7px;">
+					<span class="right2"><a href="#top" style="border:0; color:#36c;">返回顶部 ↑</a></span>
+					<span class="right2">{$PageSplit}</span>
+					<span class="right2">30 条/页</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$tplPath}js/hover_bg.js"></script>
+</body>
+</html>

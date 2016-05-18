@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrname}的简历-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '{$chrname}的简历';
+</script>
+{$top$}
+<div class="o_main mt_45 mar_b_50">
+ <!--头像-->
+ <div class="user_head">
+ <!--加w_66-->
+  <div class="uhead w_66">
+   <i><img src="{$filepath}" onerror="javascript:this.src='{$Default_tplPath}images/job_rencai_nan_icon.gif';" width="100" /></i>
+   {$chrname}
+  </div>
+  <div class="info">
+   <span>{$jiguan}</span>
+   <span>{$mingzu}族</span>
+   <span>{$chrsex}</span>
+   <span>{$chusheng}年</span>   
+  </div> 
+  <img src="{$Default_tplPath}images/user_headbg.jpg" alt="" />
+ </div>
+<div id="mytabs">
+ <div class="tabs">
+ <ul class="tab-hd">
+  <li class="item current">教育背景</li>
+  <li class="item">工作经历</li>
+  <li class="item">求职意向</li>
+ </ul>
+</div>
+<!--教育背景-->
+<div class="tabItem tab-cont" style="display:block">
+ <div class="inp_Itembox words nborder">
+  <dl class="clearfix">
+   <dt>最高学历</dt>
+   <dd>{$xueli}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>毕业院校</dt>
+   <dd>{$biyeyuanxiao}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>毕业时间</dt>
+   <dd>{$biyeyear}年{$biyemonth}月</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>所属专业</dt>
+   <dd>{$zhuangye}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>外语水平</dt>
+   <dd>{$waiyu}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>电脑水平</dt>
+   <dd>{$diannao}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>其他教育</dt>
+   <dd>{$qita}</dd>
+  </dl>  
+ </div>
+</div>
+<!--工作经历-->
+<div class="tabItem tab-cont">
+<div class="inp_Itembox words nborder">
+ <dl class="clearfix">
+  <dt>工作经验</dt>
+  <dd><p>{$gongzuoyear}年</p>{$gongzuojingli}</dd>
+  
+ </dl>
+</div>
+</div>
+<!--求职意向-->
+<div class="tabItem tab-cont">
+<div class="inp_Itembox words nborder">
+  <dl class="clearfix">
+   <dt>求职类型</dt>
+   <dd>{$qiuzhileixing}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>希望行业</dt>
+   <dd>{$chrcategory}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>希望岗位</dt>
+   <dd>{$smallcategory}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>期望月薪</dt>
+   <dd>{$yuexin}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>希望地点</dt>
+   <dd>{$gongzuodiqu}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>到岗时间</dt>
+   <dd>{$daogang}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>擅长技能</dt>
+   <dd>{$jineng}</dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>自我荐言</dt>
+   <dd>{$jianyan}</dd>
+  </dl> 
+</div>
+</div>
+</div>
+{$contact}
+
+{$bottom$}
+<div class="contact_info clearfix">
+ <div class="invite_interview"><a href="javascript:void(0);" onClick="mianshiyqing({$jobid});">邀请面试</a></div>
+ <div class="email display0"><a href="mailto:3546938@qq.com" target="_blank">3546938@qq.com</a></div>
+ <div class="phone display0"><a href="#12345678910">12345678910</a></div>
+</div>
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script>
+var nowdomain = '{$SiteUrl}';
+function mianshiyqing(val,tt){
+	var heightV = 460;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	//var martop = Math.ceil(($(window).height()-heightV)/2);
+	inner_iframe.css({'position':'absolute','top':'45px'});
+	
+	if(document.getElementById('isLogin').value !== '1'){	
+		window.location.href=nowdomain+"member/login.html?from="+(encodeURIComponent(window.location.href));
+	}
+	else{
+		inner_iframe.show();
+		mask.show();
+		var myiframe = '<iframe src="msyq_'+val+'.html" scrolling="no" frameBorder=0 width=300 height=450></iframe>';
+		inner_iframe[0].innerHTML=myiframe;
+	}
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+IDC2.tabADS($('#mytabs'));
+</script>
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">添加自定义导航&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至导航列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style table_style2">
+
+
+  <form name="form1" method="post" action="?action=addSave">
+    <tr > 
+      <td width="20%" height="25">名称<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="title" type="text" size="30" ></td>
+    </tr>
+          <tr >
+            <td width="15%" height="25">导航类型<font color="#FF0000">*</font>： </td>
+            <td width="76%" class="category">
+			<input type="radio" name="styleid" value="0" checked>主导航　<input type="radio" name="styleid" value="1">导航一　<input type="radio" name="styleid" value="2">导航二　<input type="radio" name="styleid" value="3">导航三　<input type="radio" name="styleid" value="4">导航四　<input type="radio" name="styleid" value="5">导航五　<input type="radio" name="styleid" value="6">导航六　<input type="radio" name="styleid" value="7">导航七　<input type="radio" name="styleid" value="8">导航八　<input type="radio" name="styleid" value="9">导航九　<input type="radio" name="styleid" value="10">导航十　<input type="radio" name="styleid" value="11">导航十一　<input type="radio" name="styleid" value="12">导航十二</td>
+          </tr>
+	 <tr > 
+      <td width="15%" height="25">字体加粗<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" name="isfont" value="0" checked>正常 <input type="radio" name="isfont" value="1" >加粗</td>
+    </tr>
+	
+	 <tr > 
+      <td >颜色： 
+      </td>
+      <td class="category"> <input name="color" type="text" id="cptext" value="" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/> <span class="global_tip">wap版导航中按钮的背景颜色，其他位置为文字颜色</span></td>
+    </tr>
+	 <tr> 
+      <td >图标： 
+      </td>
+      <td class="category"> <span id="str1"><span style="display:inline-block; _display:inline; *zoom:1; width:50px; height:50px; border-radius:50px;background-image:url(); background-color:; background-size:42px auto;"></span>
+	  <p><a href="javscript:void(0);" onclick="hid1()">重新上传</a></p>
+	  </span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type="hidden" name="url1" id="url1" value=""><div class="blank10"></div><span class="global_tip">wap版导航中按钮的白色图标部分，要求：必须png24透明图标，尺寸68X68</span></td>
+    </tr>
+    <tr > 
+      <td  height="25">链接地址<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="chrurl" type="test" size="30" >(以http://开头)</td>
+    </tr>
+	 <tr > 
+      <td  height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input name="intorder" type="text" value="{$intorder}" id="intorder" size="10" onKeyUp="if(isNaN(value))execCommand('undo')"> (数字越小，显示越靠前)</td>
+    </tr>
+    <tr > 
+      <td  height="25">打开方式<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"><input type="radio" name="opentype" value="1" checked>
+              在新窗口打开
+              <input type="radio" name="opentype" value="0" >
+              在原窗口打开</td>
+    </tr>
+<tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input type="radio" name="isopen" value="0" checked>显示 <input type="radio" name="isopen" value="1"  >隐藏</td>
+    </tr>
+   
+    <tr  > <td></td>
+      <td height="25"  class="category"><input type="hidden" name="gotourl" value="{$gotourl}" />
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	if($('#url1').val() == ''){
+		hid1();
+	}
+})(jQuery);
+function hid1(){
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>
+  </body>
+</html>

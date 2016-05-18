@@ -1,0 +1,21 @@
+	<div class="footer_APP">
+		<ul>
+			<li><a href="{$liveurl}fabu.html" class="write"><s class="s"></s>发布</a></li>
+			<li><a href="#" class="fujin"><s class="s"></s>附近</a></li>
+			<li><a href="#" class="buycary"><s class="s"></s>购物车</a></li>
+			<li><a href="#" class="fav"><s class="s"></s>关注</a></li>
+			<li><a href="{$SiteUrl}member/index.html" id="login_ico" class="user_i"><s class="s"></s>我的</a></li>
+		</ul>
+	</div>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js"></script>
+<script src="{$Default_tplPath}js/wap_common.js"></script>
+<script>
+(function($){
+	IDC.isLoginAPP('{$SiteUrl}','{$SiteName}');
+	$('#nav_ico').click(function(e){
+		e.preventDefault();
+		$('#nav_APP').fadeToggle('fast');
+	});
+})(jQuery);
+</script>

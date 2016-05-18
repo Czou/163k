@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$title}分类管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li><a href="category.aspx?key=5" id="s_key_5" class="global_btn_blue">商品分类</a></li>
+						<li><a href="category.aspx?key=8" id="s_key_8" class="global_btn_blue">品牌分类</a></li>
+						<li><a href="category.aspx?key=20" id="s_key_20" class="global_btn_blue">店铺资讯分类</a></li>
+						<li><a href="myshop.aspx?action=picadd" class="global_btn_blue">图片分类</a></li>
+					</ul>
+					<div class="right"><a href="category.aspx?action=Add&key={$key}" class="sys_btn_small_blue">添加{$title}分类</a></div>
+				</div>
+				<div class="sys_module">
+					<div class="bd" id="categoryList">
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+								<td>ID</td>
+								<td>名称</td>
+								<td>排序</td>
+								<td>状态</td>
+								<td>注释</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="ListCategory" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/ListCategory.htm" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+(function($){
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	$('#s_key_'+url_obj['key']).addClass('cur');
+	if(url_obj['key'] === '20'){
+		$('#categoryList').find('.sys_btn_small_green').hide();
+	}
+})(jQuery);
+function showIntorder(action,sid,key){
+	var url = '../request.ashx?action=categorymove&id='+sid+'&key='+key+'&isadmin=0&pn='+action;
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success: function(data){
+		if(data.islogin ==='1'){
+			alert('移动成功！');
+			window.location.reload();
+		}else{
+			alert("对不起，操作失败！");
+		}
+	}});
+}
+function delCategory(sid,key){
+	var url = '../request.ashx?action=categorydel&id='+sid+'&key='+key+'&isadmin=0';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success: function(data){
+		if(data.islogin ==='1'){
+			alert('删除成功！');
+			window.location.reload();
+		}else{
+			alert("对不起，操作失败！");
+		}
+	}});
+}
+function hideCategory(action,sid,key){
+	var url = '../request.ashx?action=categoryisopen&id='+sid+'&key='+key+'&isadmin=0&isopen='+action;
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success: function(data){
+		if(data.islogin ==='1'){
+			alert('操作成功！');
+			window.location.reload();
+		}else{
+			alert("对不起，操作失败！");
+		}
+	}});
+}
+</script>
+</body>
+</html>

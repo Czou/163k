@@ -1,0 +1,24 @@
+  <tr data-id="ditu{$custom_id}">
+    <td align="right" bgcolor="#fafafa" class="td_1"><b>{$custom_name}：</b></td>
+    <td align="left"><div id="allmap{$custom_id}" style="width:600px; height:400px; border:1px solid #ddd;"></div></td>
+  </tr>
+<script type="text/javascript">
+var icity = "{$city}";
+var point_txt{$custom_id}='{$custom_data}';
+
+var map{$custom_id} = new BMap.Map("allmap{$custom_id}");
+
+
+
+
+var point{$custom_id} = new BMap.Point({$custom_data});
+
+var marker{$custom_id} = new BMap.Marker(point{$custom_id});
+map{$custom_id}.centerAndZoom(point{$custom_id}, 15);
+map{$custom_id}.addOverlay(marker{$custom_id});
+
+map{$custom_id}.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map{$custom_id}.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map{$custom_id}.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+</script>
+  

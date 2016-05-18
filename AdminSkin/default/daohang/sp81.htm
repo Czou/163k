@@ -1,0 +1,48 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td><form name="form1" method="post" action="?action=save">&nbsp;将链接中的：<span style="font-size: 10.5pt"><input type="text" name="t1" size="27" value="http://www.163k.com/"></span>批量替换为：<span style="font-size: 10.5pt"><input type="text" name="t2" size="27" value="http://"> <input type="submit" name="submit" value="替换"></form></td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form" method="post" action="?action=editsave">
+          <tr align="center">
+            <td width="60" class="category">排序</td>
+            <td class="category">导航名称</td>
+            <td class="category">链接</td>
+            <td class="category">颜色</td>
+             <td class="category">加粗</td>
+            <td class="category">打开方式</td>
+          </tr>
+          {$slist}
+          <tr >
+            <td height="24" align="center" bgcolor="#FFFFFF" colspan=9><input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">
+            </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function clickcolor(object)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) object.value=aarr;
+}
+</script>
+</body></html>

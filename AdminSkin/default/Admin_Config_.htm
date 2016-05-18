@@ -1,0 +1,222 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function clickcolor()
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) $("sitecolor").value=aarr;
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">维护系统设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=EditSave">
+    <tr > 
+      <td width="15%" height="25" >网站名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="SiteName" type="text" id="SiteName" size="40" value="{$SiteName}"><em class="global_tip">(网站名称对您的网站尤为重要)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >网站域名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="SiteUrl" type="text" id="SiteUrl" size="40" value="{$SiteUrl}"><em class="global_tip">(后面请带"/")</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >网站标语<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="sitebiao" type="text" id="sitebiao" maxlength="40" size="40" value="{$sitebiao}"><em class="global_tip">(例：打造北京地区第一生活门户")</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >首页SEO标题<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrtitle" type="text" id="chrtitle" size="40" value="{$chrtitle}"><em class="global_tip">(首页标题结构：网站名称+网站SEO标题)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >首页SEO关键词<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="KeyWords" type="text" id="KeyWords" size="70" value="{$KeyWords}"><em class="global_tip">(多个用,隔开</em>)</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >网站SEO描述<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="Description" type="text" id="Description" size="70" value="{$Description}"></td>
+    </tr>
+<tr > 
+      <td width="15%" height="25" >城市设置<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category">默认城市 <input name="city" type="text" id="city" size="12" value="{$city}"><em class="global_tip">(如:苏州)</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 地图城市<font color="#FF0000">*</font> <input name="maparea" type="text" id="maparea" size="12" value="{$maparea}"><em class="global_tip">(格式:[ ]市[ ]县/区)</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >百度地图API密钥<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="ggmapkey" type="text" id="ggmapkey" size="40" value="{$ggmapkey}"><em class="global_tip">(请到百度地图官方站免费申请<a href="http://developer.baidu.com/map/index.html" target=_blank>http://developer.baidu.com/map/index.html</a>)</em></td>
+    </tr>
+
+  <tr>
+	  <td>网站头部logo<font color="#FF0000">*</font>：<br>宽*高=268*52</td>
+	  <td class="category">
+	  <span id="str1">
+	  {$filepath1$}
+	  </span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1" value="{$url1}"></td>
+	</tr>
+	 <tr>
+	  <td>网站底部logo<font color="#FF0000">*</font>：<br>宽*高=268*52</td>
+	  <td class="category">
+	  <span id="str3">
+	  {$filepath2$}
+	  </span>
+	  <span id="str4" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=2&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url2" id="url2" value="{$url2}"></td>
+	</tr>
+	 <tr>
+	  <td>首页背景图片<font color="#FF0000">*</font>：<br>不用的话直接删除</td>
+	  <td class="category">
+	  <span id="str5">
+	  {$filepath3$}
+	  </span>
+	  <span id="str6" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=3&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url3" id="url3" value="{$url3}"></td>
+	</tr>
+    <tr > 
+      <td width="15%" height="25" >备案编号<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrip" type="text" id="chrip" size="40" value="{$chrip}"><em class="global_tip">(若没有备案您可以自行备案；您也可以找您的空间服务商代备案；若遇到备案困难可找专业人员付费解决)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >统计代码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="tongji" cols="70"  rows="5">{$tongji}</textarea><em class="global_tip">(推荐您使用Cnzz统计，<a href="http://www.cnzz.com" target=_blank style="color:#ff0000">免费注册</a>)</em></td>
+    </tr>
+	
+	 <tr > 
+      <td width="15%" height="25" >公司名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrcompany" type="text" id="chrcompany" size="40" value="{$chrcompany}"></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >公司地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chraddress" type="text" id="chraddress" size="40" value="{$chraddress}"></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >传真号码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrfax" type="text" id="chrfax" size="40" value="{$chrfax}"></td>
+    </tr>
+	  <tr > 
+      <td width="15%" height="25" >电子邮件<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="SiteEmail" type="text" id="SiteEmail" size="40" value="{$SiteEmail}"></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >客服电话<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrtel" type="text" id="chrtel" size="40" value="{$chrtel}"><em class="global_tip">(供前台所有设计到客服电话的地放调用)</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >客服手机<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrmobile" type="text" id="chrmobile" size="40" value="{$chrmobile}"><em class="global_tip">(供前台所有设计到客服手机的地放调用)</em></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >客服QQ一<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category">QQ:<input name="chrqq1" type="text" id="chrqq1" size="14" value="{$chrqq1}">  QQidkey:<input name="qqkey1" type="text" id="qqkey1" size="30" value="{$qqkey1}"><em class="global_tip">(官方网站获取<a href="http://wp.qq.com/index.html" target=_blank>http://wp.qq.com/index.html</a>)</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >客服QQ二<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category">QQ:<input name="chrqq2" type="text" id="chrqq2" size="14" value="{$chrqq2}">  QQidkey:<input name="qqkey2" type="text" id="qqkey2" size="30" value="{$qqkey2}"><em class="global_tip">(官方网站获取<a href="http://wp.qq.com/index.html" target=_blank>http://wp.qq.com/index.html</a>)</em></td>
+    </tr>
+	
+	 <tr > 
+      <td width="15%" height="25" >QQ交流群<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrqqqun" type="text" id="chrqqqun" size="40" value="{$chrqqqun}"><em class="global_tip">(多个用,隔开)</em></td>
+    </tr>
+
+	
+    <tr > 
+      <td width="15%" height="25" >版权信息<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> 
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="banquan"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '150px',
+					items : [
+						'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+	<textarea id="banquan" name="banquan" 	 >{$banquan}</textarea>
+	  </td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left"><input name="BadWords" type="hidden" id="BadWords" size="20" value="{$BadWords}"><input name="SiteSetting" type="hidden" id="SiteSetting" size="20" value="{$SiteSetting}">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}"><input name="SiteCopyright" type="hidden" id="SiteCopyright" size="10" value="{$SiteCopyright}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+function hid2()
+{
+	$("str3").style.display="none";
+	$("str4").style.display="block";
+}
+function hid3()
+{
+	$("str5").style.display="none";
+	$("str6").style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

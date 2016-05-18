@@ -1,0 +1,7 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td align="left"><a href="{$chrurl}" target=_blank>{$chrshop}</a></td><td>{$chrcategory}</td><td>{$chrname}</td><td>{$koubei}星</td><td>{$intorder}</td>
+	<td>{$dtappenddate}</td><td>{$iskill} {$iszhingding} {$isanli}</td>
+	<td align="center"><a href="javascript:superManage('{$ID}');">超级管理</a> <a href="users.aspx?action=loginuser&shopid={$shopid}&url=/member/myshop.aspx" target="_blank">内容维护</a> <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

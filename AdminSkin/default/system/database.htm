@@ -1,0 +1,41 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">备份数据库,统一存放在网站的bak文件夹里&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=databasesave">
+     <tr > 
+      <td width="24%" height="25">备份的文件名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="chrfile" type="text" id="chrfile" size="30"> <em class="global_tip">(如：{$cname$})</em></td>
+    </tr>
+  
+    <tr > 
+	<td></td>
+      <td height="25"  class="category">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定备份"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+

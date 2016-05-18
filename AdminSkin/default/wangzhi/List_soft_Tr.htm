@@ -1,0 +1,17 @@
+﻿         <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td class="category"><input type="text" name="title_{$ID}"  value="{$title}"  size="20"/></td>
+	<td class="category"><input type="text" name="chrurl_{$ID}" size="40" value="{$chrurl}" /></td>
+	<td class="category" align="left"><input type="text" name="filepath_{$ID}" size="20" value="{$filepath1}" />{$filepath}</td>
+	<td class="category"><input name="color_{$ID}" type="text" id="cptext{$ID}" value="{$color}" style="color:{$color};" /> <img src="{$atplPath}images/colorpicker.png" id="cp{$ID}" style="cursor:pointer"/></td>
+	<td class="category"><input type="text" name="intorder_{$ID}"  size="10" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo')"/>
+	<input name="ID" type="hidden" id="ID" value="{$ID}"></td>
+</tr>
+<script>
+(function($){
+	$("#cp{$ID}").colorpicker({
+		fillcolor:true,
+		target:$("#cptext{$ID}")
+	});
+})(jQuery);
+</script>

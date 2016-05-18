@@ -1,0 +1,38 @@
+﻿        
+         	 
+         	<tr align="center">
+			<td colspan="6">
+			<form name="form" method="get" action="?" target="tijiao"> 
+			<table width="100%" cellpadding="0" cellspacing="0" border="0" class="table_style_c"><tr align="center" onmouseover="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onmouseout="this.style.backgroundColor=c;">
+              <td width="5%" class="">{$mubanid}</td>
+              <td width="22%" align="left">{$chrname}</td>
+              <td width="40%" align="center">
+			  		<input type="hidden" value="save" name="action" />
+					<input type="checkbox" value="1" name="updateAll_{$id}" onclick="SMSupdateAll(this,'{$id}');">全选 
+					<input type="checkbox" name="isemail" value="1" {$isemail_c_1} onclick="SMSupdate(this,'{$id}');">电子邮件 
+              		<input type="checkbox" name="issms" value="1" {$issms_c_1} onclick="SMSupdate(this,'{$id}');">手机短信 
+              		<input type="checkbox" name="isweixin" value="1" {$isweixin_c_1} onclick="SMSupdate(this,'{$id}');">微信公众号 
+					<input type="checkbox" name="isapp" value="1" {$isapp_c_1} onclick="SMSupdate(this,'{$id}');">APP 
+              		<input type="checkbox" name="isweb" value="1" {$isweb_c_1} onclick="SMSupdate(this,'{$id}');">PC网页端即时消息 
+              </td>
+              <td width="10%" align="center">
+              		<input type="checkbox" name="iskill" value="1" {$iskill_c_1} onclick="SMSupdate(this,'{$id}');">是否开启 
+					
+              </td>
+			  <td width="15%" align="center">
+					<input type="checkbox" name="isadmin" value="1" {$isadmin_c_1} {$isdisabled} onclick="SMSupdate(this,'{$id}');">管理员 
+              		<input type="checkbox" name="isuser" value="1" {$isuser_c_1} {$isdisabled} onclick="SMSupdate(this,'{$id}');">用户 <!--
+              		<input type="checkbox" name="isshangjia" value="1" {$isshangjia_c_1} onclick="SMSupdate(this,'{$id}');">商家 -->
+              </td>
+              <td width="8%">
+              	<input type="hidden" name="id" value="{$id}">
+              <input type="submit" style="display:none;" class="global_btn_blue" value="确定">
+              <a href="smsmoban.aspx?action=edit&id={$id}"  class="global_btn">编辑</a>
+              </td>
+              
+          </tr></table>
+		  </form>
+		  </td></tr>
+
+
+

@@ -1,0 +1,126 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<style>
+td{font-size:10.5pt;}
+.tpllist{text-align:center; float:left;width:140px;margin: 10px 10px 0 10px;overflow:hidden;}
+.tpllist img{width:110px;height:120px;border: 0px;}
+.tpllist p{text-align:left; }
+.tpllist .t{color:red;text-align:center; font-weight:bold;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;多模板选择配置</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+    <tr>
+    <td></td>
+    <td>
+	<form name="form" method="post" action="?action=editsave">
+      <table align="center" cellpadding="4" width="100%" cellspacing="1" class="toptable grid" border="1">
+        <tr align="center">
+          <td width="120" class="category">页面名称</td>
+          <td class="category" width=50%>选择</td>
+          <td width="80" class="category">可选数</td>
+          <td width="150"  class="category">当前使用</td>
+        </tr>
+		<tr>
+          <td width="190" align="center"><span style="font-size: 10.5pt">公共头部</span></td>
+          <td><p align="center">
+              <select size="1" name="headmoban"  onchange="document.getElementById('indexmoban').value=this.value">
+                <option value="">请选择您要使用的模板</option>
+                 <option value="1" {$selectheadmoban1}>公共头部模板一</option>
+                  <option value="2" {$selectheadmoban2}>公共头部模板二</option>
+                 <option value="3" {$selectheadmoban3}>公共头部模板三</option>
+                  <option value="4" {$selectheadmoban4}>公共头部模板四</option>
+                 <option value="5" {$selectheadmoban5}>公共头部模板五</option>
+                  <option value="6" {$selectheadmoban6}>公共头部模板六</option>
+           </select>
+          </td>
+          <td align="center"> 6</td>
+          <td width="212" align="center"><span style="font-size: 10.5pt">公共头部_风格{$headmoban}</span></td>
+        </tr>
+		<tr>
+          <td width="190" align="center"><span style="font-size: 10.5pt">网站首页</span></td>
+          <td><p align="center">
+              <select size="1" name="indexmoban" id="indexmoban" style="display:none;">
+                <option value="">请选择您要使用的模板</option>
+                 <option value="1" {$selectindexmoban1}>网站首页模板一</option>
+                  <option value="2" {$selectindexmoban2}>网站首页模板二</option>
+                 <option value="3" {$selectindexmoban3}>网站首页模板三</option>
+                 <option value="4" {$selectindexmoban4}>网站首页模板四</option>
+                 <option value="5" {$selectindexmoban5}>网站首页模板五</option>
+                 <option value="6" {$selectindexmoban6}>网站首页模板六</option>
+            </select>
+          </td>
+          <td align="center"> 6</td>
+          <td width="212" align="center"><span style="font-size: 10.5pt">网站首页_风格{$indexmoban}</span></td>
+        </tr>
+		<tr>
+          <td width="190" align="center"><span style="font-size: 10.5pt">公共尾部</span></td>
+          <td><p align="center">
+              <select size="1" name="footmoban">
+                <option value="">请选择您要使用的模板</option>
+                 <option value="1" {$selectfootmoban1}>公共尾部模板一</option>
+                  <option value="2" {$selectfootmoban2}>公共尾部模板二</option>
+           </select>
+          </td>
+          <td align="center"> 2</td>
+          <td width="212" align="center"><span style="font-size: 10.5pt">公共尾部_风格{$footmoban}</span></td>
+        </tr>
+        
+		<tr>
+          <td width="190" align="center"><span style="font-size: 10.5pt">网站登录页面</span></td>
+          <td><p align="center">
+              <select size="1" name="loginmoban">
+                <option value="">请选择您要使用的模板</option>
+                 <option value="1" {$selectloginmoban1}>登录页面模板一</option>
+                  <option value="2" {$selectloginmoban2}>登录页面模板二</option>
+                 <option value="3" {$selectloginmoban3}>登录页面模板三</option>
+            </select>
+          </td>
+          <td align="center"> 3</td>
+          <td width="212" align="center"><span style="font-size: 10.5pt">登录页面_风格{$loginmoban}</span></td>
+        </tr>
+
+      </table>
+
+      <br>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  
+  
+  
+  
+  <tr>
+    <td></td>
+    <td>
+
+      <table align="center" cellpadding="4" width="100%" cellspacing="1" class="toptable grid" border="1">
+        <tr align="center">
+          <td colspan=4 class="category">选择模版套系  >> <a href="http://fuwu.163k.com/forum.php" target="_blank">如何创建自己的模版?</a></td>
+        </tr>
+        <tr>
+          <td width=100% >{$TplList}</td>
+        </tr>
+        <tr>
+          <td colspan=4 align="center"><input type="submit" class="global_btn_blue_big" name="submit" value="确定模版套系"></td>
+        </tr>
+      </table>
+	  </form>
+      <br>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

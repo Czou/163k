@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改职位--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改职位</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">修改职位</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		请仔细填写,打*的为必填项
+
+		<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=editSave" onSubmit="return checkaddzhiweiform(this)">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    
+	<tr > 
+      <td height="25" class="tditem"  width="14%" >职位名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="35%" class="tdcontent"  > <input name="zhiweiname" type="text" size="20"  class="text" value="{$zhiweiname}">(如：销售经理)</td>
+	   <td height="25" class="tditem" width="14%" >职位性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> {$zhiweixinzhi}</td>
+    </tr>
+    <tr > 
+ 	  <td  height="25" class="tditem">岗位类别<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan="3" > {$categoryid}</td>
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem" >语言能力： 
+      </td>
+      <td  class="tdcontent" > <input name="yuyan" type="text" size="20" class="text" value="{$yuyan}"></td>
+	  <td  height="25" class="tditem">简历语言： 
+      </td>
+      <td  class="tdcontent" > <input name="jianli" type="text" size="20" class="text" value="{$jianli}"></td>
+	  </tr>
+	  <tr>
+	  <td  height="25" class="tditem">招聘人数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="tdcontent"> <input name="renshu" type="text" size="20" class="text" value="{$renshu}">人</td>
+	  <td  height="25" class="tditem">有效时间<font color="#FF0000">*</font>： 
+      </td>
+      <td class="tdcontent"> <input name="youxiaodate" value="{$youxiaodate}" type="text" size="20" class="text Wdate" />
+	  </td>
+	  
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">地址<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="chraddress" type="text" size="20" class="text" value="{$chraddress}"></td>
+      <td  height="25" class="tditem">联系人： 
+      </td>
+      <td  class="tdcontent">  <input name="chrcode" type="text" size="20" class="text" value="{$chrcode}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">E-mail： 
+      </td>
+      <td  class="tdcontent"> <input name="chremail" type="text" size="20" class="text" value="{$chremail}"></td>
+      <td  height="25" class="tditem">电话<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="chrtel" type="text" size="20" class="text" value="{$chrtel}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25" class="tditem">工作地点<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="gongzuodidian" type="text" size="20" class="text" value="{$gongzuodidian}"></td>
+      <td  height="25" class="tditem">区域： 
+      </td>
+      <td  class="tdcontent"> {$areaid}</td>
+    </tr>
+<tr > 
+      <td  height="25" class="tditem">工作经验<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="jingnian" type="text" size="20" class="text"  value="{$jingnian}">(如3-5年)</td>
+      <td  height="25" class="tditem">薪资待遇<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> {$daiyu}</td>
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem">学历要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan=3> {$xueli}</td>
+	  
+    </tr>
+	<tr > 
+      <td  height="25" class="tditem">职位描述<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"  colspan=3> <textarea name="chrmark" class="text"  style="width:500px;height:80px;">{$chrmark}</textarea></td>
+    </tr>
+	<tr>
+        <td align="center" colspan="4"><input type="hidden" name="gotourl" value="{$gotourl}"><input type="hidden" name="id" value="{$id}"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" />　<input type="button" class="global_btn" value=" 返 回 " onClick="javascript:location.href='myzhiwei.aspx';" /></td>
+      </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+</body>
+</html>

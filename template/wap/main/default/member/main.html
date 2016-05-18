@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改基本资料-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '修改资料';
+</script>
+<style>
+.upjibie1,.upjibie2 { display:none;}
+</style>
+{$top$}
+<div class="o_main">
+ <form name="form1" method="post"  target="tijiao" action="?action=listsave">
+ <!--填写信息-->
+<div class="tabItem tab-cont" style="display:block;">
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>头像</dt>
+   <dd><img src="{$chrpic}" id="Image1"  width="60" height="60" /> <a href="modify.aspx?action=tou" style="color:#36c; float:right;">修改</a></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>用户ID</dt>
+   <dd>{$userid}</dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>用户名</dt>
+   <dd>{$chrname}　<a href="modify.aspx?action=pass" style="color:#36c; float:right;">修改</a></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>会员类型</dt>
+   <dd>{$styleidstr} <a href="?action=styleid" class="upjibie{$styleid}" style="color:#36c; float:right;" onClick="return window.confirm('您确定升级成为企业会员吗？');">升级企业会员</a></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>电子邮件</dt>
+   <dd>{$chremail}　<a href="modify.aspx?action=pass" style="color:#36c; float:right;">修改</a></dd>
+  </dl>
+  {$styleuserid}
+ </div>
+</div>
+ <button type="submit" class="save">保 存</button>
+</form>	
+{$bottom$}  
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</body>
+</html>

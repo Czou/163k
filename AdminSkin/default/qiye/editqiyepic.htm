@@ -1,0 +1,100 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起，请输入产品标题！");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起，请选择分类！");
+		o.categoryid.focus();
+		return false;
+	}
+}
+</script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改企业产品&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业产品列表" onClick="javscript:window.history.back(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editsave" >
+    <input type="hidden" name="id" value="{$ID}" />
+     <tr >
+            <td  height="25" width="150px">产品名称<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> <input type="text" name="chrtitle" style="width:300px;" value="{$chrtitle}" /></td>
+          </tr>
+          <tr >
+            <td  height="25">产品类别<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> {$categoryid}</td>
+          </tr>
+          <tr  > 
+          <td >代表图片(1:1)：
+          </td>
+          <td  colspan=5  class="category">
+          <span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+	      <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=bianming&type=1"></iframe>
+	      </span>
+	      <input type=hidden name="url1"  id="url1"  value="{$url1}">  </td>
+        </tr>
+         
+          <tr >
+            <td  height="25">其它<font color="#FF0000"></font>： </td>
+            <td  class="category" colspan="3">  <input type="checkbox" name="tuijian" id="tuijian" value="1" {$tuijian1} />设为推荐产品
+            排序:<input type="text" name="intorder" style="width:100px;" onKeyUp="value=value.replace(/\D+/g,'')" value="{$intorder}"  /> <em class="global_tip">（数字越大越靠前）</em>
+            </td>
+          </tr>
+          <tr >
+          <td height="25" >详细描述： </td>
+          <td  class="category" colspan=3>
+          <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent}</textarea>
+          <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+          </td>
+        </tr>
+    
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"> </td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>
+  </body>
+</html>

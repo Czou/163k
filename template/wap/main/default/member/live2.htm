@@ -1,0 +1,69 @@
+﻿  <dl class="clearfix sel_radio_form" data-name="f_xingzhi">
+   <dt>性质</dt>
+   <dd>
+   <span class="display0"><input type="radio" name="f_xingzhi" value="2" {$f_xingzhi2}>
+   <input type="radio" name="f_xingzhi" value="3" {$f_xingzhi3}>
+   <input type="radio" name="f_xingzhi" value="4" {$f_xingzhi4}>
+   <input type="radio" name="f_xingzhi" value="0" {$f_xingzhi0}>
+   <input type="radio" name="f_xingzhi" value="1" {$f_xingzhi1}></span>
+    <span class="gx_radio current" data-val="2">出租</span>
+    <span class="gx_radio" data-val="3">出售</span>
+	<span class="gx_radio" data-val="4">转让</span>
+	<span class="gx_radio" data-val="0">求租</span>
+	<span class="gx_radio" data-val="1">求购</span>
+   </dd>
+  </dl>
+  
+  <dl class="clearfix">
+   <dt>小区</dt>
+   <dd>
+	<input type="text" placeholder="输入小区名称" name="f_xiaoqu" value="{$f_xiaoqu}" />
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>房型</dt>
+   <dd>
+	{$f_fangxing}
+	<div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+    </div>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>房屋种类</dt>
+   <dd>
+	{$f_zhonglei}
+	<div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+    </div>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>装修程度</dt>
+   <dd>
+	{$f_zhuangxiu}
+	<div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+    </div>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>面积</dt>
+   <dd>
+	<input type="text" name="f_mianji" placeholder="输入面积" value="{$f_mianji}" />
+	<span class="yuan">平米</span>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>价格</dt>
+   <dd>
+	<input type="text" name="f_jiage" placeholder="输入价格，留空则价格面议" value="{$f_jiage}" />
+	<span class="yuan">元</span>
+   </dd>
+  </dl>

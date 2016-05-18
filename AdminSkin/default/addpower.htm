@@ -1,0 +1,76 @@
+﻿<script language="javascript">
+function selectAll(object)
+{
+	 table = document.all.table1;
+	 var chk = table.getElementsByTagName("input");
+	 for(var i=0;i<chk.length;i++)
+	 {
+		chk[i].checked = object.checked;
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">维护组权限&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至组列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+	
+	
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editsave">
+    <tr > 
+      <td width="8%" height="25">组名： 
+      </td>
+      <td  class="category"> {$chrgroup}    &nbsp;&nbsp;<input type="checkbox" name="checkall" onclick="selectAll(this)"><font color=red>全选/反选</font></td>
+    </tr>
+    <tr > 
+      <td  height="25">权限<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category">
+	  <table width="100%" border="0" id="table1"   align="center" cellpadding="0" cellspacing="0" >
+	  {$power}
+	  </Td></tr>
+	  </table>
+	  </td>
+    </tr>
+    <tr  > 
+	<td></td>
+      <td height="25" class="category">
+	  <input type=hidden name="groupid" value="{$groupid}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script>
+function clickall(aa){
+	var obj=eval("document.all.totcount_"+aa);
+	if(obj.value>0){
+		for(var i=0;i<obj.value;i++){
+			var o=eval("document.all.chk"+aa+"_"+i);
+			o.checked=true;
+		}
+	}
+}
+</script>
+

@@ -1,0 +1,12 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$chrlive}</td>
+	<td><a href="{$liveurl}live_{$ID}.html" target=_blank>{$chrtitle}</a></td>
+	<td>{$bigcategory}->{$chrcategory}</td>
+	<td>{$chrtruename}</td>
+	<td>{$chrtel}</td>
+	<td>{$deletename} </td>
+	
+	<td>{$deletedate}</td>
+	<td align="center"><a href="javascript:deltt({$ID});">还原</a> <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

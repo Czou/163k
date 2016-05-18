@@ -1,0 +1,46 @@
+@charset "utf-8";
+.yuyue { text-align:left;}
+.yuyue .pic { float:left; display:inline; margin:0 10px;}
+.yuyue .txt { float:left; line-height:22px; color:#333;}
+.yuyue .form { margin-top:15px;}
+.yuyue .form .line { overflow:hidden; _zoom:1; padding:5px 0;}
+.yuyue .form .sp_01,.yuyue .form .sp_02 { display:block; float:left;}
+.yuyue .form .sp_01 { text-align:right; width:100px; font-size:14px; _display:inline; padding-right:10px; line-height:40px;}
+.yuyue .form .sp_02 {}
+.yuyue .form .sp_02 input { background:url(../images/mt_input.gif) no-repeat 0 0; border:1px solid #c0c0c0; padding:8px 6px; font-size:14px; vertical-align:middle; width:300px;}
+.yuyue .form .sp_02 img { vertical-align:middle;}
+.yuyue .form .sp_02 textarea { width:460px; height:120px; border:1px solid #ccc;}
+.yuyue .form .sp_02 button { cursor:pointer; border:0 none; width:108px; height:34px; background:url(../images/shopyuyue_07.gif) no-repeat 0 0; display:block; font:0pt/1000px Arial; overflow:hidden;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

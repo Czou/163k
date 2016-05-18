@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>本次团购相关商品--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+
+
+<script src="{$Default_tplPath}WdatePicker.js"></script>
+
+
+<script>
+function GetObjID(ObjName) {
+    for (var ObjID = 0; ObjID < window.form.elements.length; ObjID++) if (window.form.elements[ObjID].name == ObjName) {
+        return (ObjID);
+        break;
+    }
+    return ( - 1);
+}
+function AddItem(ObjName, DesName, CatName) {
+    ObjID = GetObjID(ObjName);
+    DesObjID = GetObjID(DesName);
+
+    k = 0;
+
+    i = document.form.friend.options.length;
+    if (i == 0) return;
+    maxselected = 0
+    for (h = 0; h < i; h++) if (document.form.elements[ObjID].options[h].selected) {
+        k = k + 1;
+        maxselected = h + 1;
+    }
+    if (maxselected >= i) maxselected = 0;
+
+    if (CatName != "") CatObjID = GetObjID(CatName);
+    else CatObjID = 0;
+    if (ObjID != -1 && DesObjID != -1 && CatObjID != -1) {
+        jj = document.form.elements[CatObjID].selectedIndex;
+        if (CatName != "") {
+            CatValue = document.form.elements[CatObjID].options[jj].text;
+            CatCode = document.form.elements[CatObjID].options[jj].value;
+        } else CatValue = "";
+        i = document.form.elements[ObjID].options.length;
+        j = document.form.elements[DesObjID].options.length;
+        for (h = 0; h < i; h++) {
+            if (document.form.elements[ObjID].options[h].selected) {
+                Code = document.form.elements[ObjID].options[h].value;
+                Text = document.form.elements[ObjID].options[h].text;
+                j = document.form.elements[DesObjID].options.length;
+                if (Text.indexOf('--') != -1) {
+                    for (k = j - 1; k >= 0; k--) {
+                        document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = 0;
+                }
+                if (Text.substring(0, 1) == '-' && Text.substring(1, 2) != '-') {
+                    for (k = j - 1; k >= 0; k--) {
+                        if (((document.form.elements[DesObjID].options[k].value).substring(0, 2)) == (Code.substring(0, 2))) document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = document.form.elements[DesObjID].options.length;
+                }
+                HasSelected = false;
+                for (k = 0; k < j; k++) {
+                    if (document.form.elements[DesObjID].options[k].value == Code) {
+                        HasSelected = true;
+                        break;
+                    }
+                }
+                if (HasSelected == false) {
+                    if (CatValue != "") {
+                        Location = GetLocation(DesObjID, CatValue);
+                        if (Location == -1) {
+                            document.form.elements[DesObjID].options[j] = new Option("---" + CatValue + "---", CatCode);
+                            document.form.elements[DesObjID].options[j + 1] = new Option(Text, Code);
+                        } //if
+                        else {
+                            InsertItem(DesObjID, Location + 1);
+                            document.form.elements[DesObjID].options[Location + 1] = new Option(Text, Code);
+                        } //else
+                    } else document.form.elements[DesObjID].options[j] = new Option(Text, Code);
+                } //if
+                document.form.elements[ObjID].options[h].selected = false;
+            } //if
+        } //for
+        document.form.elements[ObjID].options[maxselected].selected = true;
+    } //if
+} //end of function
+
+function DeleteItem(ObjName) {
+    ObjID = GetObjID(ObjName);
+    minselected = 0;
+    if (ObjID != -1) {
+        for (i = window.form.elements[ObjID].length - 1; i >= 0; i--) {
+            if (window.form.elements[ObjID].options[i].selected) { // window.alert(i);
+                if (minselected == 0 || i < minselected) minselected = i;
+                window.form.elements[ObjID].options[i] = null;
+            }
+        }
+        i = window.form.elements[ObjID].length;
+
+        if (i > 0) {
+            if (minselected >= i) minselected = i - 1;
+            window.form.elements[ObjID].options[minselected].selected = true;
+        }
+    }
+}
+
+function checkform() {
+    if (!CheckMultiSelect()) return false;
+    ToSubmit();
+}
+function CheckMultiSelect() {
+    ToListID = GetObjID('tolist');
+    i1 = window.form.elements[ToListID].length;
+
+    if (i1 == 0) {
+        window.alert('对不起，请选择！');
+        return false;
+    }
+
+    return true;
+}
+
+function ToSubmit() {
+    SelectTotal('tolist');
+}
+
+function SelectTotal(ObjName) {
+    ObjID = GetObjID(ObjName);
+    if (ObjID != -1) {
+        for (i = 0; i < document.form.elements[ObjID].length; i++) document.form.elements[ObjID].options[i].selected = true;
+    }
+}
+</script>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 本次团购相关商品</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">本次团购相关商品</div>
+            <form name="form" id="form" method="post" action="?action=editshopsave" onsubmit="return checkform();">
+              <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+                <tr>
+                  <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                  <td class="tx_title"><span>重要提示：</span><br />
+                    请从您发布的商品中进行选择！</td>
+                </tr>
+              </table>
+              <span id="_ctl0_ContentPlaceHolder1_lbError" style="color:Red;font-size:Small;"></span>
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+			    <tr>
+				  <td  class="tditem" ><select name="friend" size="4" multiple="multiple" id="friend" ondblclick="JavaScript:AddItem('friend','tolist', '')" style="height:300px;width:300px;border:none;">
+					{$left$}
+				  </select>
+				</td>
+				<td  class="tdcontent"><img src="{$Default_tplPath}images/addto.gif" border="0" style="CURSOR:hand" onclick="JavaScript:AddItem('friend','tolist', '')"> <br>
+				  <img src="{$Default_tplPath}images/deleteto.gif" style="CURSOR:hand" border="0" onclick="JavaScript:DeleteItem('tolist')"> </td>
+				<td  class="tdcontent">
+				  <select name="tolist" id="tolist" style="height:300px;width:300px;" multiple="multiple" size="8" ondblclick="JavaScript:DeleteItem('tolist')">
+				  {$right$}
+				  </select>
+				</td>
+              </table>
+              <div class="submit"> <span id="submit1"></span> <span id="btn">
+                <input type=hidden name=ID value="{$id$}">
+				<input type="hidden" name="gotourl" value="{$gotourl$}" />
+                <input type="submit" name="btnSubmit" value=" 确认无误，提交 "  language="javascript" id="btnSubmit" />
+                </span></div>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

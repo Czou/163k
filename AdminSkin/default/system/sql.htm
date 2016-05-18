@@ -1,0 +1,60 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script type="text/javascript">
+function checkexecute(){
+	if(confirm('您确认执行SQL语句吗？\n一旦SQL执行了删除或者操作命令，将不能再恢复!')){
+		if($("sql").value!=""){
+			return true;
+		}else{
+			alert('请填写SQL语句');
+			return false;
+		}
+	}else{
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">执行SQL语句</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=sql" onsubmit="return checkexecute();">
+     <tr > 
+      <td width="24%" height="25">SQL语句<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="sql" cols="80" rows="6">{$sql}</textarea></td>
+    </tr>
+   <tr><td><font color=red>友情提醒</font></td>
+	<td class="category"><div class="global_tip">1:一次只能执行一条Sql语句,如果你对SQL不熟悉,请尽量不要使用.否则一旦出错,将是致命的.<Br>2:
+建议使用查询语句.如:select count(id) From Table,尽量不要使用delete,update等命令. </div></td>
+	</tR>
+    <tr > 
+	<td></td>
+      <td height="25"  class="category">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="执行SQL"> &nbsp; 
+        <input name="button" type="button" id="button" class="global_btn_big" value="清除SQL" onclick="javascript:$('sql').value='';"></td>
+    </tr>
+	{$ss}
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+

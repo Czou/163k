@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>本次活动部分商品展示-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<style>
+.tablelist td { padding:12px 0;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">本次活动部分商品展示</div>
+						<div class="right"><a href="myactive.aspx?action=my" class="sys_btn_small_blue">返回活动列表</a></div>
+					</div>
+					<div class="bd">
+						<div class="searcher">
+							<input name="KeyWord" type="text" id="KeyWord" value="" class="sys_form_small_ipt" size="30" />&nbsp;<button type="button" onClick="searchshop();" class="sys_btn_small_blue">搜索商品</button>&nbsp;{$categorySelect}&nbsp;{$pinpaiSelect}
+						</div>
+						<form name="form" id="form" method="post" target="tijiao" action="?action=editshopsave" onSubmit="return checkform();">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tablelist">
+						  <tr > 
+							<td width="430"><select name="friend" size="4" multiple="multiple" id="friend" ondblclick="JavaScript:AddItem('friend','tolist', '')" style="height:300px;width:100%; border:1px solid #aaa;">{$left$}</select>
+							</td>
+							<td style="text-align:center;">
+								<button type="button" class="sys_btn_blue" onClick="JavaScript:AddItem('friend','tolist', '')">添加 &gt;&gt;</button><br><br>
+								<button type="button" class="sys_btn_green" onClick="JavaScript:DeleteItem('tolist')">删除 &lt;&lt;</button>
+							</td>
+							<td width="430">
+							  <select name="tolist" id="tolist" style="height:300px;width:100%; border:1px solid #aaa;" multiple="multiple" size="8" ondblclick="JavaScript:DeleteItem('tolist')">{$right$}</select>
+							</td>
+						  </tr>
+						  <tr >
+							<td colspan="3" style="text-align:center;">
+								<input type="hidden" name="id" value="{$id$}" />
+								<button type="submit" class="sys_btn_blue" onClick="JavaScript:AddItem('friend','tolist', '')">确认提交</button>
+							</td>
+						  </tr></table>
+						</form>
+						<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+function GetObjID(ObjName) {
+    for (var ObjID = 0; ObjID < window.form.elements.length; ObjID++) if (window.form.elements[ObjID].name == ObjName) {
+        return (ObjID);
+        break;
+    }
+    return ( - 1);
+}
+function AddItem(ObjName, DesName, CatName) {
+    ObjID = GetObjID(ObjName);
+    DesObjID = GetObjID(DesName);
+
+    k = 0;
+
+    i = document.form.friend.options.length;
+    if (i == 0) return;
+    maxselected = 0
+    for (h = 0; h < i; h++) if (document.form.elements[ObjID].options[h].selected) {
+        k = k + 1;
+        maxselected = h + 1;
+    }
+    if (maxselected >= i) maxselected = 0;
+
+    if (CatName != "") CatObjID = GetObjID(CatName);
+    else CatObjID = 0;
+    if (ObjID != -1 && DesObjID != -1 && CatObjID != -1) {
+        jj = document.form.elements[CatObjID].selectedIndex;
+        if (CatName != "") {
+            CatValue = document.form.elements[CatObjID].options[jj].text;
+            CatCode = document.form.elements[CatObjID].options[jj].value;
+        } else CatValue = "";
+        i = document.form.elements[ObjID].options.length;
+        j = document.form.elements[DesObjID].options.length;
+        for (h = 0; h < i; h++) {
+            if (document.form.elements[ObjID].options[h].selected) {
+                Code = document.form.elements[ObjID].options[h].value;
+                Text = document.form.elements[ObjID].options[h].text;
+                j = document.form.elements[DesObjID].options.length;
+                if (Text.indexOf('--') != -1) {
+                    for (k = j - 1; k >= 0; k--) {
+                        document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = 0;
+                }
+                if (Text.substring(0, 1) == '-' && Text.substring(1, 2) != '-') {
+                    for (k = j - 1; k >= 0; k--) {
+                        if (((document.form.elements[DesObjID].options[k].value).substring(0, 2)) == (Code.substring(0, 2))) document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = document.form.elements[DesObjID].options.length;
+                }
+                HasSelected = false;
+                for (k = 0; k < j; k++) {
+                    if (document.form.elements[DesObjID].options[k].value == Code) {
+                        HasSelected = true;
+                        break;
+                    }
+                }
+                if (HasSelected == false) {
+                    if (CatValue != "") {
+                        Location = GetLocation(DesObjID, CatValue);
+                        if (Location == -1) {
+                            document.form.elements[DesObjID].options[j] = new Option("---" + CatValue + "---", CatCode);
+                            document.form.elements[DesObjID].options[j + 1] = new Option(Text, Code);
+                        } //if
+                        else {
+                            InsertItem(DesObjID, Location + 1);
+                            document.form.elements[DesObjID].options[Location + 1] = new Option(Text, Code);
+                        } //else
+                    } else document.form.elements[DesObjID].options[j] = new Option(Text, Code);
+                } //if
+                document.form.elements[ObjID].options[h].selected = false;
+            } //if
+        } //for
+        document.form.elements[ObjID].options[maxselected].selected = true;
+    } //if
+}
+function DeleteItem(ObjName) {
+    ObjID = GetObjID(ObjName);
+    minselected = 0;
+    if (ObjID != -1) {
+        for (i = window.form.elements[ObjID].length - 1; i >= 0; i--) {
+            if (window.form.elements[ObjID].options[i].selected) { // window.alert(i);
+                if (minselected == 0 || i < minselected) minselected = i;
+                window.form.elements[ObjID].options[i] = null;
+            }
+        }
+        i = window.form.elements[ObjID].length;
+
+        if (i > 0) {
+            if (minselected >= i) minselected = i - 1;
+            window.form.elements[ObjID].options[minselected].selected = true;
+        }
+    }
+}
+function checkform() {
+    if (!CheckMultiSelect()) return false;
+    ToSubmit();
+}
+function CheckMultiSelect() {
+    ToListID = GetObjID('tolist');
+    i1 = window.form.elements[ToListID].length;
+    return true;
+}
+
+function ToSubmit() {
+    SelectTotal('tolist');
+}
+function SelectTotal(ObjName) {
+    ObjID = GetObjID(ObjName);
+    if (ObjID != -1) {
+        for (i = 0; i < document.form.elements[ObjID].length; i++) document.form.elements[ObjID].options[i].selected = true;
+    }
+}
+function searchshop(){	
+	var url = "../request.ashx?action=showshopgood&isadmin=0&bigcategoryid="+$("#bigcategoryid").val()+"&categoryid="+$("#categoryid").val()+"&pinpaibigid="+$("#pinpaibigid").val()+"&pinpaiid="+$("#pinpaiid").val()+"&KeyWord="+encodeURIComponent($("#KeyWord").val());
+	var  Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success: function(data){
+		var sel=document.getElementById("friend");
+		sel.options.length=0;
+		if(data.islogin === '1'){
+			for(var i in data.MSG){
+				sel.options.add(new Option(data.MSG[i],i)); 
+			}
+		}else{
+			alert(data.error);
+		}
+	}});
+}
+function newBuildSel(arrstr,sel){
+	sel.options.length=0;
+	sel.options.add(new Option( "::请选择::",""));
+	for(var i in arrstr){
+		sel.options.add(new Option(arrstr[i],i)); 
+	}
+	sel.options[0].selected=true;
+}
+function showshopcategory(str,val,sel){
+	var docSel= document.getElementById(sel);
+	if (val !== ''){
+		var url="../request.ashx?action=category&id="+str;
+		var  Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		var data;
+		$.ajax({url:url,success: function(data){
+			for(var i in data.MSG){
+				if(data.MSG[i].id === val){
+					data = data.MSG[i].arr;
+					break;
+				}
+			}
+			newBuildSel(data,docSel);
+		}});
+	}else{
+		docSel.options.length=0;
+		docSel.options.add(new Option( "::请选择::",""));
+	}
+}
+(function($){
+	$('#bigcategoryid').change(function(){
+		showshopcategory('5',$(this).val(),'categoryid');
+		searchshop();
+	});
+	$('#pinpaibigid').change(function(){
+		showshopcategory('8',$(this).val(),'pinpaiid');
+		searchshop();
+	});
+	$('#categoryid').change(function(){
+		searchshop();
+	});
+	$('#pinpaiid').change(function(){
+		searchshop();
+	});
+})(jQuery);
+</script>
+</body>
+</html>

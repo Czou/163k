@@ -1,0 +1,9 @@
+﻿ <tr class="tditem" style="text-align:center;" onmouseover="this.className='table_over';" onmouseout="this.className='tditem';"> 
+	<td ><a href="{$goodurl}shop_{$goodid}.html" target="_blank">{$img$}</a></td>
+	<td style="text-align:left;"><a href="{$goodurl}shop_{$goodid}.html" target="_blank">{$chrgood}</a>
+	<span style="color:Blue;"><br />单号：{$chrorder}</span>
+	<br /><span style="color:#999999">提交时间：{$Dtappenddate}</span>
+	</td><td>{$intnum$}</td><td>{$chrmoney$}</td>
+	<td>{$styleid}</td><td>{$iskill}</td>
+	<td align="center"><a href="myorder.aspx?action=look&ID={$ID}" rel="facebox">查看</a> <a href="myorder.aspx?action=pay&ID={$ID}">{$zhifu$}</a> <a href="myorder.aspx?action=edit&ID={$ID}">{$bianji$}</a> <a href="javascript:delorder({$ID});">{$shanchu$}</a></td>
+</tr>

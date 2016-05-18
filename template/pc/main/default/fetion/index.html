@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Fetion API：免费发送手机短信，中国移动飞信-{$SiteName}</title>
+<link href="{$tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<link href="{$tplPath}skin/style.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<style>
+.form {border:solid 1px #C5D7EF;float:left;position:relative;width:356px;}
+ul.send , ul.to , ul.add {margin:20px;border:solid 1px #C5D7EF;}
+.content {padding:20px;background:url({$tplPath}images/feature_sms.gif) no-repeat right center;}
+.content:after , li:after , .guide:after , #adddd:after {content: "\0020";display: block;height: 0;clear: both;}
+.content , li , .guide , #adddd {zoom: 1;}
+
+</style>
+<script>loadss();</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper"> {$top$}
+  <script type="text/javascript" src="{$tplPath}js/login_reg.js"></script>
+  <script type="text/javascript" src="{$tplPath}js/theme.js"></script>
+  <!-- 主体 -->
+  <div id="content" class="content">
+    <div class="form">
+      <div id="Salert" style="display:none;"> <a id="gotoback" name="NO"> </a>
+        <div id="balert"> </div>
+      </div>
+      <form name="fetionapi" method="get" action="/api/" onsubmit="return false;">
+        <ul class="send">
+          <li class="tt"><font class="left">发送方：<font class='small'>[已经开通飞信的手机]</font></font></li>
+          <li><span class="desc">飞信手机</span><a class="help1" title="查看帮助说明"  onclick="help2(hp1);"> </a>
+            <input type="text"  id="me" name="me" maxlength="11" onkeyup="value=value.replace(/[^0-9,]/g,'')" value="" />
+          </li>
+          <li><span class="desc">登陆密码</span><a class="help1" title="查看帮助说明"  onclick="help2(hp2);"> </a>
+            <input type="password" id="pw" name="pw" autocomplete="off" />
+          </li>
+        </ul>
+        <ul class="to">
+          <li class="tt"><font class="left">接收方：<font class='small'>[是飞信好友或者是自己]</font></font>
+            <div id="loading2" style="display:none;"></div>
+          </li>
+          <li><span class="desc">接收手机</span><a class="help1" title="查看帮助说明"  onclick="help2(hp3);"> </a>
+            <input type="text" id="to" name="to" onkeyup="value=value.replace(/[^0-9,]/g,'')" />
+          </li>
+          <li><span class="desc">短信内容</span><a class="help1" title="查看帮助说明"  onclick="help2(hp4);"> </a>
+            <textarea type="text"  id="msg" name="msg" cols=10 rows=5 wrap="virtual" ></textarea>
+          </li>
+        </ul>
+        <input name="bsubmit" value="OK ，发送短信！" id="bsubmit" type="submit" />
+        <ul class="add">
+          <li class="tt"><a id="addtt" class="left" onclick="ToggleAlert('#adddd');" >添加好友：<font style="color:red;">←</font></a>
+            <div id="loading1" style="display:none;"> </div>
+          </li>
+          <li><span>添加一个中国移动用户为您的飞信好友。</span></li>
+          <li id="adddd" class="adddd" style="display:none;" class="addwrap">
+          <div><span class="desc">对方手机：</span><a class="help1" > </a>
+            <input type="text"  id="add" name="add" maxlength="11" onkeyup="value=value.replace(/[^0-9,]/g,'')" />
+          </div>
+          <div><span class="desc">先填<b>发送方→</b></span><a class="help1" > </a>
+            <input type="submit" id="asubmit" name="asubmit" value="添加好友" />
+          </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+</body>
+</html>

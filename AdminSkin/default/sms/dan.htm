@@ -1,0 +1,150 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+td{ font-size:9.5pt}
+.display0 { display:none;}
+
+</style>
+<script>
+function checkform(o){
+
+	if(o.chrcontent.value==""){
+		alert("请输入要发送的短信内容!");
+		o.chrcontent.focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;</td>
+          <td width=150 align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=dansave" target="tijiao"  >
+        	<tr>
+				<td colspan="6" align="center" class="category">目标选择</td>
+			</tr>
+        	<tr>
+          <td  height="25" width="12%">发送目标：<font color="#FF0000">*</font></td>
+          <td  colspan=5 width="88%" class="category">
+          	<input type="radio" name="styleid" value="0" checked/>指定用户id
+          	<input type="radio" name="styleid" value="1" />指定用户昵称
+          	<input type="radio" name="styleid" value="2" />指定手机号
+          	<input type="radio" name="styleid" value="3" />指定邮件
+          	<input type="radio" name="styleid" value="4" />所有会员
+          	<input type="radio" name="styleid" value="5" />在线会员
+          	<input type="radio" name="styleid" value="6" />所有企业会员
+          	<input type="radio" name="styleid" value="7" />所有商家
+          	<input type="radio" name="styleid" value="8" />所有房产经纪人
+          	<input type="radio" name="styleid" value="10" />按通讯录发送(需上传通讯录文本)
+          	
+          	 </td>
+        </tr>
+        	
+        	
+        <tr class="cont styleid0">
+          <td  height="25">用户id：<font color="#FF0000">*</font></td>
+          <td  colspan=5  class="category"><textarea name="userids" id="userids"  style="width:400px;height:80px;"></textarea> <em class="global_tip">多个id用","号隔开</em></td>
+        </tr>
+       	<tr class="cont display0 styleid1">
+          <td  height="25">用户名：<font color="#FF0000">*</font></td>
+          <td  colspan=5  class="category"><textarea name="username" id="username" style="width:400px;height:80px;"></textarea> <em class="global_tip">多个用户用","号隔开</em></td>
+        </tr>
+        <tr class="cont display0 styleid2">
+          <td  height="25">手机号码：<font color="#FF0000">*</font></td>
+          <td colspan=5  class="category"><textarea name="chrmobile" id="chrmobile"  style="width:400px;height:80px;"></textarea> <em class="global_tip">多个号码用","号隔开</em>
+          </td>
+        </tr>
+        <tr class="cont display0  styleid3">
+          <td  height="25">邮件地址：<font color="#FF0000">*</font></td>
+          <td  colspan=5  class="category"><textarea name="EmailS" id="EmailS" style="width:400px;height:80px;"></textarea> <em class="global_tip">多个邮箱用","号隔开</em></td>
+        </tr>
+         
+       <tr class="cont display0 styleid10">
+          <td  height="25">上传文件：<font color="#FF0000">*</font></td>
+          <td colspan=5  class="category">
+		  <p style="padding-bottom:8px;"><input type="radio" name="fileismobiles" value="0" checked/>邮件地址集
+          	<input type="radio" name="fileismobiles" value="1" />手机号码集</p>
+		  <input name="url0" type="hidden" id="url0" > 
+		  <div id="sound_upload" style="border:1px solid #ddd; margin-top:8px; background-color:#fff; padding:10px;">
+							<span id="str1" style="display:none"><a href="javascritp:void(0);" onclick="return WebMessageMusic('{$url0}');" class="global_btn_blue">试听</a>  <span onclick="hid1()" style="cursor:hand" class="global_btn">重新上传</span></span>
+							<span id="str2"><em class="global_tip">上传每行一条txt文本</em><iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="upload.aspx?dir=media&type=0"></iframe></span>
+						</div>
+          </td>
+        </tr>
+		<tr>
+				<td colspan="6" align="center" class="category">模板中标签替换内容<em class="global_tip">(如果模板中有使用标签.请填写内容)</em></td>
+			</tr>
+		<tr>
+          <td  height="25">选择使用模板：</td>
+          <td  colspan=5  class="category">
+          	 <select name='mubanid' id='mubanid'> 
+            	{$selectmuban}
+             </select> <em class="global_tip">请先在模板中编辑好信息内容和通知方式</em>
+          	</td>
+        </tr>
+        	<!--<tr>
+          <td  height="25"></td>
+          <td  colspan=5  class="category">模板内标签内容</td>
+        </tr>-->
+		<tr>
+          <td  height="25">链接地址：<font color="#FF0000">*</font></td>
+          <td  colspan=5  class="category"><input type="text"  name="smsurl" id="smsurl" style="width:400px;"> <em class="global_tip">&#123;$smsurl&#125;</em></td>
+        </tr>
+		 <tr>
+          <td  height="25">替换内容：<font color="#FF0000">*</font></td>
+          <td  colspan=5  class="category"><textarea name="smstitle" id="smstitle" style="width:400px;height:80px;"></textarea> <em class="global_tip">&#123;$smstitle&#125;</em></td>
+        </tr>
+		<tr>
+          <td height="25">&#123;$keyword1&#125;参数：</td>
+          <td class="category"><input type="text"  name="keyword1" id="keyword1" ></td>
+		  <td height="25">&#123;$keyword2&#125;参数：</td>
+          <td class="category"><input type="text"  name="keyword2" id="keyword2" ></td>
+		  <td height="25">&#123;$keyword3&#125;参数：</td>
+          <td class="category"><input type="text"  name="keyword3" id="keyword3" ></td>
+        </tr>
+
+		<tr >
+          <td></td>
+          <td height="25"  class="category"  colspan=5><input type=hidden name=gotourl value="{$gotourl}">
+            <input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">
+            </td>
+        </tr>
+        <tr >
+          <td colspan="6" class="category" style="line-height:30px; padding:12px; font-weight:normal;">温馨提示：<br />
+1、请不要过度使用群发，会造成用户的反感<br />
+2、群发信息非常消耗服务器资源，如若您的服务器资源紧张，可能会导致系统卡顿<br />
+3、群发（邮件、短信、微信）的实际到达时间和效果受到邮件发送服务器、短信商、微信方关于群发的政策限制和速度影响<br />
+4、您需要对群发的内容自行承担一切责任，群发行为与内容与本系统无关</td>
+         
+        </tr>
+        
+		</form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script type="text/javascript" src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+$('input[name="styleid"]').click(function(){
+	$('.cont').hide();
+	$('.styleid'+$(this).attr('value')).show();
+});
+</script>
+</body>
+</html>

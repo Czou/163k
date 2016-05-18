@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购活动在线报名表-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+</head>
+<body>
+<div class="register-form">
+	<form name="form1" id="form1" method="post" action="" onSubmit="return checkbaoming();">
+		<input type="hidden" name="activeid" id="activeid" value="{$activeid}">
+		<p class="box"><span class="form_label">真实姓名：</span><span class="form_control"><input type="text" name="truename" id="truename" value="{$truename}" class="codebox2-input" /></span></p>
+		<!--<p class="box"><span class="form_label">您的性别：</span><span class="form_control"><input name="chrsex" type="radio" value="男" checked="checked" /> 男　　<input type="radio" name="chrsex" value="女" /> 女</span></p>-->
+		<p class="box"><span class="form_label">联系电话：</span><span class="form_control"><input type="text" name="chrtel" id="chrtel" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">联系QQ：</span><span class="form_control"><input type="text" name="chrqq" id="chrqq" value="{$chrqq}" class="codebox2-input" /></span></p>
+		<!--<p class="box po_re"><span class="form_label">您的年龄：</span><span class="form_control form_control_select"><select name="chrage" id="chrage"><option value="">请选择</option><option value="18岁以下">18岁以下</option><option value="18-25岁">18-25岁</option><option value="26-35岁">26-35岁</option><option value="36-50岁">36-50岁</option><option value="51岁以上">51岁以上</option></select></span></p>
+		<p class="box po_re"><span class="form_label">参加人数：</span><span class="form_control"><input type="text" name="num" id="num" class="codebox2-input" /></span><span class="question">人</span></p>
+		<p class="box po_re"><span class="form_label">所在区域：</span><span class="form_control form_control_select">{$quyu}</span></p>-->
+<div class="hdbc" style="display:none;">是否参与砍价<font color="#050c52">:
+  <input type="radio" name="styleid" value="0" checked/>
+我在台下配合团长 
+<input type="radio" name="styleid" value="1" />
+我要上台与JS单挑</font>
+</div>
+		<p class="box"><span class="form_label">简短附言：</span><span class="form_control"><textarea name="chrmark" id="chrmark" class="codebox2-textarea" rows="2" data-max="800"></textarea></span></p>
+		
+		<p style="text-align:center;"><input class="comn-submit" type="submit" value="提交报名" />　<input class="comn-submit gray" onClick="parent.LoginHide();" type="button" value="取消" /></p>
+	</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js"></script>
+<script>
+var errorold = '';
+var chrbaotruename_error=errorold+"对不起,请填写您的真实姓名!";
+var chrbaotruename11_error=errorold+"请正确填写您的真实姓名!";
+var chkbaochrtel_error=errorold+"对不起,请填写您的联系电话!";
+var chkbaoquyu_error=errorold+"对不起,请选择您所在区域!";
+var chkchrage_error=errorold+"对不起,请选择您的年龄段范围!";
+var chknum_error=errorold+"对不起,请填写您参与这次活动的参加人数!";
+var chkchrmark_error=errorold+"对不起,简短附言限定在100字内!";
+function showdididi(aa){
+	if($("#chrdiqu1").val().length==0){
+		alert(chkbaoquyu_error);
+		return false;
+	}
+}
+function checkbaoming(){
+	if($("#truename").val()==""){
+		alert(chrbaotruename_error);
+		return false;
+	}
+	if($("#truename").val().length<2){
+		alert(chrbaotruename11_error);
+		return false;
+	}	
+	if($("#chrtel").val()==""){
+		alert(chkbaochrtel_error);
+		return false;
+	}
+	if($("#chrtel").val().length<7){
+		alert(chkbaochrtel_error);
+		return false;
+	}
+	if($("#chrmark").val().length>100){
+		alert(chkchrmark_error);
+		return false;
+	}
+	var chrsex='',chrage='',num='',chrdiqu1='';
+	/*if($("#chrage").val()==""){
+		alert(chkchrage_error);
+		return false;
+	}
+	
+	if($("#num").val()==""){
+		alert(chknum_error);
+		return false;
+	}
+	if($("#chrdiqu1").val()==""){
+		alert(chkbaoquyu_error);
+		return false;
+	}*/
+	//addbaoming($("#activeid").val(),$("#truename").val(),$("input[name='chrsex']:checked").val(),$("#chrtel").val(),$("#chrqq").val(),$("#chrage").val(),$("#num").val(),$("#chrdiqu1").val(),$("input[name='styleid']:checked").val(),$("#chrmark").val());
+	addbaoming($("#activeid").val(),$("#truename").val(),chrsex,$("#chrtel").val(),$("#chrqq").val(),chrage,num,chrdiqu1,$("input[name='styleid']:checked").val(),$("#chrmark").val());
+	return false;
+}
+function addbaoming(activeid,truename,chrsex,chrtel,chrqq,chrage,num,quyu,styleid,chrmark){
+	var url="request.aspx?action=baoming&activeid="+escape(activeid);
+	url =url+"&truename="+escape(truename)+"&chrsex="+escape(chrsex)+"&chrqq="+escape(chrqq)+"&chrage="+escape(chrage)+"&num="+escape(num);
+	url =url+"&chrtel="+escape(chrtel)+"&quyu="+escape(quyu)+"&styleid="+escape(styleid)+"&chrmark="+escape(chrmark);
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	
+	$.ajax({url: url}).done(function( msg ) {
+		if(msg === '1'){
+			alert('提交报名成功！');
+			parent.LoginHide();
+		}else{
+			alert( msg );
+		}
+	});
+}
+</script>
+</body>
+</html>

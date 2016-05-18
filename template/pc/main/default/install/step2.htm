@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>163K网站系统安装向导-初始配置</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gbk">
+<LINK media=all href="../template/pc/main/default/install/style.css" type=text/css rel=stylesheet>
+<script src="../template/pc/main/default/js/common.js"></script>
+<script src="../template/pc/main/default/install/setup.js"></script>
+<META content="163k.com." name=Copyright>
+<META content="MSHTML 6.00.6000.16587" name=GENERATOR>
+</HEAD>
+<BODY>
+<DIV class=container>
+  <DIV class=header>
+    <H1></H1>
+    <SPAN>163K地方门户网站系统 初始化</SPAN> </DIV>
+  <FORM action=step3.aspx method=post onSubmit="return checkform()">
+  <input type="hidden" name="zhuce" value="" />
+  <input type="hidden" name="weiyi" value="" />
+    <table cellspacing="0" cellpadding="8" width="100%" border="0">
+      <tr >
+        <td > 网站服务器名或IP地址:</td>
+        <td style=" width: 362px;"><input name="datasource" type="text" value="{$datasource}" id="datasource" class="FormBase" onFocus="this.className='FormFocus';" onBlur="checkdatasource();" size="30" style="width:150px;" />
+          <span id="msg1"></span>*</td>
+      </tr>
+      <tr >
+        <td > 网站数据库名称:</td>
+        <td style=" width: 362px;"><input name="databasename" type="text" value="{$databasename}" id="databasename" class="FormBase" onFocus="this.className='FormFocus';" onBlur="checkdatabasename();"  size="30" style="width:150px;" />
+          <span id="msg2"></span>*</td>
+      </tr>
+      <tr >
+        <td> 网站数据库用户名称:</td>
+        <td style=" width: 362px;"><input name="userid" type="text" value="{$userid}" id="userid" class="FormBase" onFocus="this.className='FormFocus';"  size="30" style="width:150px;" onBlur="checkuserid();" />
+          <span id="msg3"></span>*</td>
+      </tr>
+      <tr >
+        <td > 网站数据库用户口令:</td>
+        <td style=" width: 362px;"><input name="password" type="password" value="{$password}" id="password" class="FormBase" onFocus="this.className='FormFocus';" onBlur="checkpassword();"  size="30" style="width:150px;" />
+          <span id="msg4"></span>*</td>
+      </tr>
+      <!--<tr >
+        <td > 授权KEY:</td>
+        <td style=" width: 362px;"><textarea name="zhuce" style="width:400px;height:120px;">{$zhuce}</textarea></td>
+      </tr>
+<tr >
+        <td > 唯一KEY:</td>
+        <td style=" width: 362px;"><textarea name="weiyi" style="width:400px;height:120px;">{$weiyi}</textarea></td>
+      </tr>-->
+      <tr >
+        <td > UCenter网址:</td>
+        <td style=" width: 372px;"><input name="ucurl" type="text" value="{$UC_API}" id="ucurl" class="FormBase" onFocus="this.className='FormFocus';"    style="width:250px;" />(最后面请不要加/)
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 应用IP地址 :</td>
+        <td style=" width: 362px;"><input name="ucip" type="text" value="{$UC_IP}" id="ucip" class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />(如果门户与UC装在不同服务器上，请填写门户的真实IP,若在同一服务器填写127.0.0.1即可)
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 通信密钥:</td>
+        <td style=" width: 362px;"><input name="uckey" type="password" value="{$UC_KEY}" id="uckey" class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td> UCenter 编码:</td>
+        <td style=" width: 362px;"><select name="ucbianma"><option value="gbk" {$bianmagbk}>gbk</option><option value="utf-8" {$bianmautf-8}>utf-8</option></select>
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 应用记录的ID编号:</td>
+        <td style=" width: 362px;"><input name="ucapi"  value="{$UC_APPID}" type="text" id="ucapi" class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 数据库IP地址:</td>
+        <td style=" width: 362px;"><input name="uchost" value="{$UC_DBHOST}" type="text" class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 数据库用户名:</td>
+        <td style=" width: 362px;"><input name="ucuser" type="text" value="{$UC_DBUSER}"  class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 数据库密码:</td>
+        <td style=" width: 362px;"><input name="ucdbpwd" type="password" value="{$UC_DBPW}"    class="FormBase" onFocus="this.className='FormFocus';"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 数据库名:</td>
+        <td style=" width: 362px;"><input name="ucdbname" type="text"   class="FormBase" onFocus="this.className='FormFocus';" value="{$UC_DBNAME}"   size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+      <tr >
+        <td > UCenter 数据库的表前缀</td>
+        <td style=" width: 362px;"><input name="ucqian" type="text"   class="FormBase" onFocus="this.className='FormFocus';"  value="{$UC_DBTABLEPRE}"  size="30" style="width:150px;" />
+          <span ></span>*</td>
+      </tr>
+    </table>
+    <DIV class="btnbox marginbot"><INPUT id=btnLogin  type=submit value=下一步></DIV>
+    
+  </FORM>
+
+<DIV class=footer>&copy;2008 - 2014 <a href="http://www.163k.com">163K.com</a> </DIV>
+</DIV>
+</BODY>
+</HTML>

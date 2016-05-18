@@ -1,0 +1,76 @@
+﻿<!-- 联系方式 游客状态 -->
+<div id="nofufeiok">
+<table width="100%" class="table_2" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="2"><img src="{$tplPath}images/lock.png" align=absmiddle>&nbsp;&nbsp;对不起，本信息的联系方式被发布者设置了“收费”，
+    	<!--(请 <a href="{$SiteUrl}member/login.html?from={$liveurl}live_255.html" class="blue">登录</a> 或 <a href="{$SiteUrl}member/register.html?from={$liveurl}%2Flive_255.html" class="blue">注册</a>)-->
+    	(<a href="javascript:getfufeiok();"  class="blue">付费{$viewfen}{$jifenname}查看</a>)
+    	</td>
+  </tr>
+</table>
+</div>
+<div id="fufeiok" style="display:none;">
+<p class="line"><span class="sp_1">联系人</span><span class="sp_2" id="chrname"></span></p>
+<p class="line" id="n_chrtel"><span class="sp_1">联系电话</span><span class="sp_2 gray"><span class="tel" id="chrtel"></span> (<a href="javascript:showotherlive(0,'{$chrtel}');" class="blue">该号码有<em>0</em>条发帖记录</a>)</span></p>
+<p class="line" id="n_chrmobile"><span class="sp_1">联系手机</span><span class="sp_2 gray"><span class="tel" id="chrmobile"></span> (<span class="shu" id="chrmobilearea">查询中...</span><a href="javascript:showotherlive(1,'{$chrmobile}');" class="blue">该号码有<em>0</em>条发帖记录</a>)</span></p>
+<p class="line" id="n_chrqq"><span class="sp_1">QQ</span><span class="sp_2"><span id="chrqq"></span> <a onclick="return qqbank();" href="" target="_blank"><img src="" alt="点击咨询" id="chrqqImg"></a></span></p>
+<p class="line"><span class="sp_1">发布者IP</span><span class="sp_2"><span id="chrip"></span> <span class="gray" id="chriparea">查询中...</span></span></p>
+<p class="box">小技巧：联系说来自{$SiteName}将会获得更好的效果</p>
+
+<input type="hidden" id="c_chrqq" value="" />
+<script>
+	function showother(val){
+		var tel = '';
+		if(val === '0'){
+			tel = $('#chrtel').html()
+		}else{
+			tel = $('#chrmobile').html()
+		}
+		showotherlive(val,tel);
+	}
+	function qqbank(){
+	 window.open("http://wpa.qq.com/msgrd?v=3&amp;uin="+  document.getElementById("c_chrqq").value+"&amp;site=qq&amp;menu=yes","_blank");
+	 return false;
+	}
+	function showContact(data){
+		if(data.MSG.chrqq === ''){
+			$('#n_chrqq').hide();
+		}else{
+			$('#c_chrqq').val(data.MSG.chrqq);
+		}
+		$('#chrname').html(data.MSG.chrname);
+		$('#chrtel').html(data.MSG.chrtel);
+		$('#chrmobile').html(data.MSG.chrmobile);
+		$('#chrqq').html(data.MSG.chrqq);
+		$('#chrqqImg').attr('src','http://wpa.qq.com/pa?p=2:'+data.MSG.chrqq+':41');
+		$('#chrip').html(data.MSG.chrip);
+		$('#fufeiok').show();
+		$('#nofufeiok').hide();
+		ShowIpAddress(data.MSG.chrmobile,data.MSG.chrip1);
+	}
+	function getfufei(){
+		var url='/request.ashx?action=liveok&id={$detailsid}&fufei=0&timer='+Math.random();
+		$.ajax({'url':url,success:function(data){
+			if(data.islogin==='1'){
+				showContact(data);
+			}
+		}});
+	}
+	function getfufeiok(){
+		if($('#isLogin').val() === '0'){
+			MSGwindowShow('live','1','对不起，请登录后再进入金币支付！','{$SiteUrl}member/login.html?from={$liveurl}live_255.html');
+			return false;
+		}
+		var url='/request.ashx?action=liveok&id={$detailsid}&fufei=1&timer='+Math.random();
+		$.ajax({'url':url,success:function(data){
+			if(data.islogin==='1'){
+				showContact(data);
+			}else{
+				MSGwindowShow('live','0',data.error);
+			}
+		}});
+	}
+	getfufei();
+	
+	</script>
+</div>

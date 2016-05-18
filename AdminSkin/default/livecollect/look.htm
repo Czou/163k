@@ -1,0 +1,66 @@
+﻿
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%" >
+      <tr>
+         <td width="60%">查看采集资源&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" value="返回至采集资源列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+    <tr > 
+      <td height="25" width="12%" >文章标题<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$title}</td>
+    </tr>
+ <tr > 
+      <td height="25" width="12%" >文章分类<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$classid}</td>
+    </tr>
+ <tr > 
+      <td height="25" >作者： 
+      </td>
+      <td  class="category"> {$author}</td>
+    </tr>
+   <tr > 
+      <td height="25" >来源： 
+      </td>
+      <td  class="category"> {$comefrom}</td>
+    </tr>
+    <tr  id="tr1"> 
+      <td >内容： 
+      </td>
+      <td   class="category"> {$content}</td>
+    </tr>
+	<tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$styleid}
+	  </td>
+    </tr>
+    <tr  > <td></td><input type=hidden name="id" value="{$ID}">
+      <td height="25" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="button" name="Submit" value="返回上页" onclick="window.history.back(-1);"> &nbsp; 
+       </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

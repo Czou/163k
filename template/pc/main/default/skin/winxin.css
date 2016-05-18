@@ -1,0 +1,23 @@
+@charset "utf-8";
+body { background-color:#333; font-size:14px;}
+.wrapper { width:990px; margin:0 auto;}
+.w_header { margin-top:50px; color:#fff;}
+.w_header .strong { font-size:16px; font-weight:bold;}
+.w_header .price { font-size:20px; font-weight:bold; color:#ff615f;}
+.left { float:left;}
+.right { float:right; text-align:right;}
+.w_content { margin-top:15px; background-color:#fff; border-top:2px solid #4b5b78;}
+.w_content .hd { padding:10px; font-size:16px;}
+.w_content .bd { padding:0px 120px 30px 20px;}
+.w_content .saomiao { text-align:center; width:210px; display:inline; margin:40px 0 0 160px;}
+.w_content .saomiao .tit { font-size:16px; color:#999; margin-bottom:10px;}
+.w_content .saomiao .erweima {}
+.w_content .saomiao .erweima img { vertical-align:top; padding:30px; border:1px solid #eee;}
+.w_content .impowerBox { font-size:16px; margin-top:10px; color:#fff; padding:15px 0 15px 45px; background:#ff7674 url(../images/icon-red.png) no-repeat 6px 6px;}
+
+
+
+
+
+
+

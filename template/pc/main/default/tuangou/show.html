@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/tghd2014.css" rel="stylesheet" />
+{$top$}
+	<div class="site_crumb clearfix"><span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$tuangouurl}">{$lanmuname}</a> <span class="cur_tit">{$chrtitle}</span></div>
+	<div id="content">
+		<div class="pageHeader clearfix">
+			<div class="title">{$chrtitle}</div>
+			<div class="num"><span id="suc_num">{$intnum}</span>人已报</div>
+		</div>
+		<div class="grid_tghd_2014 clearfix" data-styleid="{$styleid}">
+			<div class="col_main"><div class="main_wrap">
+				<div class="txt_box clearfix">
+					<span class="tz" data-qq="{$chrqq}"><strong>带队队长：</strong><em class="yellow">{$tuanzhang}</em></span>
+					<span class="bm">距报名截止还有<span class="yellow" id="timenum">{$day}</span>天</span>
+				</div>
+				<div class="slide">
+					<img src="{$filepath1}" onerror="this.src='{$Default_tplPath}images/nofind_active_listImg.gif';this.onerror='';" alt="" />
+					<s class="sk sk_{$iskill}" data-iskill="{$iskill}">{$iskillstr}</s>
+				</div>
+				<div class="blank10"></div>
+				<div class="txt_box">
+					<p data-diqu="{$diqu}"><strong>活动地点：</strong>{$chraddress}</p>
+					<p><strong>活动时间：</strong>{$jihe}</p>
+					<p><strong>活动费用：</strong>{$feiyong}</p>
+					<p><strong>活动名额：</strong>{$minge}({$enddate}前报名)</p>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="module_c">
+					<div class="hd">
+						<span class="title yahei">最新报名</span>
+					</div>
+					<div class="bd userBM">
+						<ul class="clearfix">
+							{$baomingNew}
+							<li><img src="{$Default_tplPath}images/qidainin.png" alt=""><span class="username">期待您..</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="shop_btn">
+					<a href="javascript:void(0);" onClick="return showwybaoming({$activeid},'{$youkebaoming}');" class="sys_btn">报名参加</a>　<a href="#myform" onClick="showComment();" class="sys_btn sys_btn_gray">参加讨论</a>
+				</div>
+            </div>
+		</div>
+		<div class="tg_box_s">
+			<div class="hd clearfix">
+				<ul class="tab">
+					<li class="selected"><a href="#" onClick="Show_TabADSMenu(1,0,5);return false;" id="tabadmenu_10">活动介绍</a></li>
+					<li><a href="#" onClick="Show_TabADSMenu(1,1,5);return false;" id="tabadmenu_11">活动赞助商</a></li>
+					<li><a href="#" onClick="Show_TabADSMenu(1,2,5);return false;" id="tabadmenu_12">活动报道</a></li>
+					<li><a href="#" onClick="Show_TabADSMenu(1,3,5);return false;" id="tabadmenu_13">报名网友</a></li>
+					<li><a href="#" onClick="Show_TabADSMenu(1,4,5);return false;" id="tabadmenu_14">网友评论</a></li>
+				</ul>
+			</div>
+			<div class="bd hd_xiangqing" id="tabadcontent_10">
+				<div id="resizeIMG">{$content}</div>
+			</div>
+			<div class="bd" style="display:none;" id="tabadcontent_11">
+				{$chrzanzhu}
+			</div>
+			<div class="bd" style="display:none;" id="tabadcontent_12">
+				{$chrbaodao}
+			</div>
+			<div class="bd userBM" style="display:none;" id="tabadcontent_13">
+				<ul class="clearfix">
+					{$baomingNew}{$baoming}
+				</ul>
+			</div>
+			<div class="bd" id="tabadcontent_14" style="display:none;">
+				<div class="comment">
+					<div class="inner">
+						<div class="hds clearfix"><h6 class="left">全部评论</h6><p class="right"><em id="show_total_revert">0</em>条评论</p></div>
+						<div class="comment_zone" id="showcomment">
+							正在加载数据，请稍等......
+						</div>
+					</div>
+					<div class="write2014">
+						<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+						<input type="hidden" id="isrep" value="" />
+						<input type="hidden" id="istg" value="" />
+						<input type="hidden" id="parentid" value="" />
+						<form id="myform">
+							<input id="chrmarkForm" name="chrmark" type="hidden" />
+							<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+							<div class="cmt_control clearfix">
+								<div class="left">
+									<div class="emot po_re">
+										<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+									</div>
+								</div>
+								<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+								<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="prev_next clearfix" style="margin-top:25px;"><span style="float:left; font-size:12px; line-height:32px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+	</div>
+	{$bottom$}
+</div>
+<div id="mask" style="display:none;"></div>
+<div class="fixed_menu">
+	<ul>
+		<li class="li_1"><a href="javascript:void(0);" onClick="return showwybaoming({$activeid},'{$youkebaoming}');">在线报名</a></li>
+		<li class="li_2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$siteqq1}&amp;site=qq&amp;menu=yes" target="_blank">QQ报名</a></li>
+		<li class="li_3" id="telBaoming"><a href="javascript:void(0);">电话报名</a><div class="po" id="telBaomingInner">请致电：<em>{$sitetel}</em></div></li>
+		<li class="li_5"><a href="#top">返回顶部</a></li>
+	</ul>
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="{$Default_tplPath}js/tghd2014.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$activeid}';
+window['STYLEID'] = '2';
+window['SHOPID'] = '{$shopid}';
+window['YOUKEBAOMING'] = '{$youkebaoming}';
+(function($){
+	getnumOne('{$activeid}');
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	//$.returnTop();
+	$('#resizeIMG').resizeIMG(998,1200);
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	var pageInit = function(){
+		var time="{$tuantime}";
+		var left=parseInt($("#timenum").html());
+		if(left>0 && window['YOUKEBAOMING'] === '1'){
+			setTimeout("showwybaoming({$activeid},'{$youkebaoming}')",parseInt(time)*1000);
+		}
+		var telBaoming = $('#telBaoming');
+		var telBaomingInner = $('#telBaomingInner');
+		telBaoming.hover(function(){
+			telBaomingInner.animate({'right':'100px'},500);
+		},function(){
+			telBaomingInner.animate({'right':'-1000px'},500);
+		});
+	}();
+})(jQuery);
+function showComment(){
+	$('#tabadmenu_14').trigger('click');
+}
+</script>
+</body>
+</html>

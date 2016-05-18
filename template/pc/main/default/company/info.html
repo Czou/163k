@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>同城商家动态-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/merchants2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 同城商家动态</div>
+		<div class="mod_01 clearfix">
+			<form name="inputStyle" id="bmsearch" method="post" action="index.html" style="margin:0" onSubmit="return searchbianming(this);">
+			<p class="i">
+				<select style="display: none;" name="mySle2" id="mySle2">
+					<option selected="selected" value="0">服务机构</option>
+					<option value="1">公司企业</option>
+				</select>
+			</p>
+			<p class="i">
+				<input name="keyword" type="text" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" class="text_input" />
+			</p>
+			<p class="i">
+				<button type="submit" class="text_submit">搜 索</button>
+			</p>
+			</form>
+			<p class="i">
+				<a href="{$bianmingurl}?action=add" target="_blank" class="text_btn">免费加入超级黄页</a>
+			</p>
+		</div>
+		<div class="grid_k01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mod_02">
+					<div class="hd">
+						<ul>
+							<li><a href="{$bianmingname}">服务机构</a></li>
+							<li><a href="{$bianmingurl}qiyelist.html">公司企业</a></li>
+							<li><a href="{$shopname}">商家店铺</a></li>
+							<li class="selected"><a href="{$shopurl}info.aspx" class="sj">商家全动态</a></li>
+							<li><a href="{$SiteUrl}coupon/index.html">优惠券</a></li>
+						</ul>
+					</div>
+					<div class="bd">
+						<div class="quyu">区域：{$quyu}</div>
+						<div class="dongtai">
+							<ul class="clearfix">
+								<tag:Loop ListType="Listshoparticle" RecType="New" PageSize="30" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="company/list_info_tr.html" />
+							</ul>
+							<div class="pageNavigation">{$PageSplit}　每页显示30条</div>
+						</div>
+					</div>
+					
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="list_nav_2013" id="list_nav_2013">
+					<ul>
+					{$allfenlei}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/dropDown.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#mySle2').selectbox();
+	$('#list_nav_2013').listNav();
+	$('#mySle2_container').delegate('li','click',function(){
+		$(this).html() === '服务机构'?($('#bmsearch').attr('action','index.html')):($('#bmsearch').attr('action','qiyelist.html'));
+	});
+});
+function companyinfoUrl(){
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['colname'] !== '' && url_obj['colname'] !== '0'){
+		$('#s_'+url_obj['colname']).addClass('cur');
+	}
+	if(url_obj['classid'] !== '' && url_obj['classid'] !== '0'){
+		$('#s_quyu_'+url_obj['classid']).addClass('cur');
+	}
+	if(!url_obj['classid']){
+		$('#s_quyu_0').addClass('cur');
+	}
+}
+companyinfoUrl();
+</script>
+</body>
+</html>

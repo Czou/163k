@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/yhq2013.css" type="text/css" rel="stylesheet" />
+<script>
+function DrawImage(ImgD,iwidth,iheight){   
+    var image=new Image();   
+    image.src=ImgD.src;   
+    if(image.width>0 && image.height>0){   
+      if(image.width/image.height>= iwidth/iheight){   
+          if(image.width>iwidth){     
+              ImgD.width=iwidth;   
+              ImgD.height=(image.height*iwidth)/image.width;   
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }else{   
+          if(image.height>iheight){     
+              ImgD.height=iheight;   
+              ImgD.width=(image.width*iheight)/image.height;           
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }   
+    }   
+} 
+</script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}coupon/">{$lanmuname}</a> &gt; {$chrtitle}</div>
+	<div class="grid_yhq_01 clearfix">
+		<div class="col_main"><div class="main_wrap">
+			<div class="mod_yhq_01" id="yhq2014">
+				<span class="icon_yiguoqi hide{$guoqi}">已过期</span>
+				<input type="hidden" value="{$guoqi}" id="is_guoqi" />
+				<h2 class="tit_h2">{$chrtitle}</h2>
+				<p class="time">使用有效期：<span class="red_skin">截至{$chrdate}</span>　<a href="preview_{$detailsid}.html" target="_blank" class="global_btn">打印</a> <a href="#" target="_blank" class="global_btn mobile_download">免费短信下载</a></p>
+				<!-- 温馨提示 -->
+				<!--<div class="green_box">{$youxiaoqi}</div>-->
+				<div class="dayin_info"><b>打印说明：</b>点击“打印优惠券”按钮，只有优惠券会被打印，而页面上的文字不会被打印（查看<a href="preview_{$detailsid}.html" target="_blank">打印预览</a>），请放心打印！</div>
+				
+				
+				<div class="pic_main"  id="votecontent"><img src="{$filepath}" alt="" onload="DrawImage(this,760,700)" /></div>
+				<div class="html_editor">{$chrcontent}</div>
+				<div class="company">
+					<p><em>商家名称：</em><a href="{$indexurl}" target="_blank">{$chrshop}</a></p>
+					<p><em>商家地址：</em>{$chraddress}</p>
+					<p><em>商家电话：</em>{$chrtel}</p>
+				</div>
+				<div class="mobile">
+					<div class="hd"><span class="red"><strong>短信优惠券：</strong>下载以下短信使用同样有效</span> (短信下载完全免费，我们会严格保密您的手机号码)</div>
+					<div class="bd">优惠#{$detailsid}：{$chrtitle},有效期至{$chrdate},详询商家,【{$SiteName}】</div>
+				</div>
+				<div class="dayin">
+					<a href="preview_{$detailsid}.html" target="_blank" class="yhq_btn_print">打印</a> <a href="#" target="_blank" class="yhq_btn_download mobile_download">免费短信下载</a>
+				</div>
+				<div class="tebiesm"><b>特别说明：</b>电子优惠券无论彩色黑白、打印复印、放大缩小，只要在有效期内均可在对应的门店、区域享受相应优惠。 <a href="../help/index_34.html">常见问题解答</a></div>
+				<div class="share clearfix">
+					<div class="left">转帖到：</div>
+					<div class="left">{$Mh163k_整站通用_分享代码}</div>
+				</div>
+			</div>
+		</div></div>
+		<div class="col_sub">
+			<div class="more_youhuiquan">
+				<div class="hd">最新推荐优惠券</div>
+				<div class="bd">
+					<ul>
+						{$Mh163k_优惠券详细页_最新推荐优惠券}
+					</ul>
+				</div>
+			</div>
+			<div class="blank10"></div>
+			<div class="banner_ads">{$Mh163k_优惠券详细页_自定义HTML广告}</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div id="inner_downMobile" class="inner_downMobile">
+	<div class="hd">短信优惠券下载</div>
+	<div class="bd">
+		<span class="t">您将收到如下短信：</span>
+		<div class="message">优惠#{$detailsid}：{$chrtitle},有效期至{$chrdate},详询商家,【{$SiteName}】</div>
+		<div class="form">
+		<form onSubmit="return getDownMobile()">
+			<input type="hidden" id="yhq_id" name="yhq_id" value="{$detailsid}" />
+			<p class="p clearfix"><span class="a">请输入手机号码：</span><span class="b"><input type="text" id="yhq_tel" name="yhq_tel" class="yhq_ipt" value="" /></span></p>
+			<p class="p clearfix"><span class="a">&nbsp;</span><span class="b"><button type="submit" class="yhq_btn">免费发送到手机上</button></span></p>
+		</form>
+		</div>
+		<p class="info">{$SiteName}免费短信仅供发送到您自己的手机上。</p>
+		<p class="info">您提供的手机号码仅用于发送您需要的信息，不会透露给第三方。</p>
+	</div>
+	<a href="#" class="close">关闭</a>
+</div>
+<div id="mask" class="mask"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+(function($){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop(); 
+	$.fn.downMobile = function(){
+		var t = $(this);
+		var btns = t.find('.mobile_download');
+		var inner = $('#inner_downMobile');
+		var d_h = $(document).height();
+		var w_h = $(window).height();
+		var mask = $('#mask');
+		var btn_close = inner.find('.close');
+		var msg_txt = $(this).siblings('.message').html();
+		var isGQ = $('#is_guoqi').val();
+		
+		
+		function hide_all(){
+			inner.hide();
+			mask.hide();
+		}
+		mask.css({'height':Math.ceil(d_h)+'px'});
+		mask.bind('click',function(){
+			hide_all();
+		});
+		btn_close.bind('click',function(e){
+			e.preventDefault();
+			hide_all();
+		});
+		btns.bind('click',function(e){
+			var isLogin = $('#isLogin').val();
+			if(isGQ === '1'){alert('对不起，该优惠券已过期！');return false;}
+			if(isLogin === '0'){alert('对不起，您需要登录后才能短信下载优惠券！');location.href = '{$SiteUrl}member/login.html?from='+escape(window.location);return false;}
+			inner.css({'top':Math.ceil((w_h-336)/2) + $(document).scrollTop()}).show();
+			mask.show();
+			e.preventDefault();
+		})
+	}
+	$('#yhq2014').downMobile();
+})(jQuery);
+function getDownMobile(){
+	function GetRandomNum(Min,Max){   
+		var Range = Max - Min;   
+		var Rand = Math.random();   
+		return(Min + Math.round(Rand * Range));   
+	}
+	var yhq_id = $('#yhq_id'),yhq_tel = $('#yhq_tel'),tel_val = $.trim(yhq_tel.val());
+	var mobile_reg = /^(?:13\d|14[57]|15\d|18\d)-?\d{5}(\d{3}|\*{3})$/;
+	if(yhq_id.val() === ''){alert('对不起，该优惠券有误！');return false;}
+	if(tel_val === ''){alert('请输入您的手机号码！');return false;}
+	//call message post
+	if(!mobile_reg.test(tel_val)){alert('请输入正确的手机号码！');return false;}
+	var num = GetRandomNum(1,1000000000);
+	$.ajax({ url: "../request.ashx?action=smscoupon&id="+yhq_id.val()+"&chrcode="+num+"&chrtel="+tel_val, success: function(d){
+		var obj = window.eval('('+d+')');
+		if(obj.islogin === '1'){
+			alert('发送成功，优惠券信息已发送到您手机！');
+			$('#inner_downMobile').hide();
+			$('#mask').hide();
+		}else{
+			alert(obj.error);
+		}
+		
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

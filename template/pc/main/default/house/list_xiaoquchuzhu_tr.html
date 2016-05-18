@@ -1,0 +1,24 @@
+﻿<li>
+ <div class="pic">
+   <a href="chuzhu_{$id}.html"><img src="{$filepath}"  onerror="this.src='{$tplPath}images/morenfangyuan.gif';" alt="" width="146" height="110" /></a>
+ </div>
+ <div class="con">
+   <div class="hy_t">
+     <a href="chuzhu_{$id}.html">{$chrtitle}</a>
+     <span class="cz" style="display:{$daishouzhong}">出租中</span>
+     <span class="yz" style="display:{$yishouchu}">已租</span>
+   </div>
+   <ul>
+    <li>{$shi}室{$ting}厅</li>
+    <li>{$chrsize}</li>
+    <li>{$zhuangxiucategory}</li>
+    <li>楼层{$nowlou}/{$zonglou}&nbsp;&nbsp;（{$cengzhufangshi}）</li>
+   </ul>
+   <dl>
+     <dt class="userName">{$truename}</dt>
+     <dd class="date">{$updatedate}</dd>
+   </dl>
+   <div class="price"><em>{$price}</div>
+   <div class="jing" style="display:{$jingxuan}">精</div>
+ </div>
+</li>

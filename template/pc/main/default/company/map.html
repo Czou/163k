@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>地图标注-请确保放大到最精确地图</title>
+</head>
+<script language="javascript" src="http://api.51ditu.com/js/maps.js"></script>
+<script language="javascript" src="http://api.51ditu.com/js/ezmarker.js"></script>
+<body style="text-align:center; margin:0px;" onresize="document.getElementById('mapDiv').style.width='100%';document.getElementById('mapDiv').style.height='100%';">
+
+<div id="mapDiv" style="position:absolute;width:100%;height:100%">
+</div>
+
+	<script language="javascript">
+		var ezmarker=new LTEZMarker("ezmarker",1,document.getElementById("mapDiv"));	//创建一个ezmarker
+				{$city$}
+//		ezmarker.setPlaceList(true);
+//		ezmarker.setSearch(false);
+		var icon=new LTIcon("{$tplPath}images/mask.gif",[30,30],[15,15]);//创建一个图标
+		ezmarker.setIcon(icon);
+		LTEvent.addListener(ezmarker,"mark",setMap);
+		function setMap(point,zoom)
+		{		
+			window.opener.document.aspnetForm.shop_x.value=point.getLongitude();
+			window.opener.document.aspnetForm.shop_y.value=point.getLatitude();
+			window.opener.document.aspnetForm.shop_z.value=zoom;
+			//window.returnValue =point.getLongitude() +"|"+	point.getLatitude()+"|"+zoom;			
+			window.close();	
+		}	
+	</script>
+</body>
+</html>

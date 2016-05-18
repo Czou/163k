@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>中介-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_zj.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				{$Mh163k_房产2015_房产主导航}
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}zhongjie.html">中介</a> <span class="cur_tit">中介列表</span>
+   </div>
+   <div class="dlanBox">
+			<b class="rc_tp"><b></b></b>
+			<div class="zone">
+				<div class="daohang">
+					<p class="select"><em>区域：</em>{$House_Xuqiuquyu1}</p>
+					<p class="selectBD" id="selectBD">{$House_Xuqiuquyu2}</p>
+				</div>
+				<div class="cz_search clearfix">
+				  <form action="zhongjie.html?tt={$House_tt}&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0={$House_mySle0}" name="inputStyle">
+				  <input type="text" name="keyword" placeholder="经纪人姓名或中介公司门店名关键词" class="inp_txt">
+				  <input type="submit" value="找中介" class="shouse">
+				  </form>
+				</div>
+			</div>
+			<b class="rc_ft"><b></b></b>
+		</div>
+   
+  <div class="clearfix">
+   <div class="house_source"  id="fixed_can">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li id="s_tt_0"><a href="?keyword={$House_keyword}&tt=0&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0={$House_mySle0}">所有经纪人</a></li>
+        <li id="s_tt_1"><a href="?keyword={$House_keyword}&tt=1&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0={$House_mySle0}">认证经纪人</a></li>
+      </ul>
+     </div>
+     <div class="fr clearfix">
+       <ul>
+        <li>
+			 <span class="fl">排序</span>
+			 <div class="selects sort" id="selects_1">
+			 <dl>
+			   <dt class="txt" id="paixu_txt">默认排序</dt>
+			 </dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="?keyword={$House_keyword}&tt={$House_tt}&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0=0" id="paixu_val_0">注册时间排序</a></li>
+					<li><a href="?keyword={$House_keyword}&tt={$House_tt}&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0=1" id="paixu_val_1">级别排序</a></li>
+					<li><a href="?keyword={$House_keyword}&tt={$House_tt}&bigid={$House_bigcategoryid}&smallid={$House_smallcategoryid}&mySle0=2" id="paixu_val_2">房源排序</a></li>
+				</ul>
+			  </div>
+			 <div class="ico"></div>
+			 </div>
+			</li>
+       </ul> 
+     </div>
+   </div>
+   
+   <!--中介列表-->
+   <div class="jjr_fy">
+     <tag:Loop ListType="listjingjirenlist" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_zhongjie_Tr.html" />
+     <div class="fc_pageNavigation">{$PageSplit}　每页显示15条</div>
+     
+   </div>
+  </div>
+  <div class="zj_rside" id="fixed" style="right:0;">
+  <!--房产经纪人加盟-->
+  <div class="jjr_jm">
+    <div class="title">房产经纪人加盟</div>
+     <div class="con">
+      1.免费注册为本站个人或企业会员<br>
+      2.注册为本站个人或企业会员<br> 
+      3.免费注册为本站个人或企业会员 
+      <div class="reg"><a href="{$SiteUrl}member/manage_zj.aspx#tt13" target="_blank">经纪人注册</a></div>
+     </div>
+  </div>
+  <!--推荐经纪人-->
+  <div class="jjr_con">
+   <div class="tabs">
+    <ul>
+     <li class="current">推荐经纪人</li>
+    
+    </ul>
+   </div>
+   <div class="wonde_bottom">
+    <div class="bd">
+    <ul>
+    {$Mh163k_房产2015_内页通用_推荐经纪人}
+    </ul>
+   </div>
+   </div>
+  </div>
+  </div>
+  </div>
+</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js?tc=150230"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$('#fixed').fixed($('#fixed_can'));
+	$('#fixed').css({'right':($(window).width()-1200)/2+'px'});
+	$(window).resize(function() {
+		var w_w = $(window).width();
+		if(w_w < 1200){
+			$('#fixed').css({'right':($(window).width()-1200)+'px'});
+		}else{
+			$('#fixed').css({'right':($(window).width()-1200)/2+'px'});
+		}
+	});
+	$.returnTop();
+	$(".wonde_bottom").slide({mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:4});
+	$('#selects_1').sel_filter();
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	
+	if(!!url_obj['mySle0'] && url_obj['mySle0'] !== ''){
+		$('#paixu_txt').html($('#paixu_val_'+url_obj['mySle0']).html());
+	}
+	if(!url_obj['bigid'] || url_obj['bigid'] === '' || url_obj['bigid'] === '0'){
+		$('#selectBD').hide();
+	}
+	if(!url_obj['tt'] || url_obj['tt'] === '' || url_obj['tt'] === '0'){
+		$('#s_tt_0').addClass('selected');
+	}else{
+		$('#s_tt_1').addClass('selected');
+	}
+});
+</script>	
+</body>
+</html>

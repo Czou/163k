@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店幻灯管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li class="card_normal"><a href="good_shop_active.aspx">快店公告管理</a></li>
+						<li class="card_down">快店幻灯管理</li>
+						
+					</ul>
+					<div class="right">&nbsp;</div>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" action="?action=edithdsave" target="tijiao" method="post">
+								<div class="tr"><span class="sp_a">店铺幻灯片：</span><div class="sp_d" style="width:800px;">最佳尺寸：300x255<br><table width="100%"  cellpadding="1" cellspacing="1" class="table" border="0">{$huangdeng}</table></div></div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">提交修改</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+						</div>
+						<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+var imgList = $('.url_file');
+	imgList.each(function(){
+		var num = $(this).attr('data-num');
+		if($(this).val() === ''){
+			$('#str'+num+'_1').hide();
+			$('#str'+num+'_2').show();
+		}else{
+			$('#str'+num+'_1').show();
+			$('#str'+num+'_2').hide();
+		}
+	});
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	tag.attr({'src':surl});
+	upload_img_action_X('str'+num+'_2','str'+num+'_1');
+}
+</script>
+</body>
+</html>
+
+
+

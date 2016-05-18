@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员激活验证-会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '会员激活验证';
+var ismember = '{$ismember}',tipTXT='',valTXT='';
+if(ismember==='1'){
+	tipTXT = '通过邮箱获得的验证码';
+	tipTXT2 = '邮箱';
+	valTXT = '{$chremail}';
+}else if(ismember==='2'){
+	tipTXT = '通过手机获得的验证码';
+	tipTXT2 = '手机';
+	valTXT = '{$chrtel}';
+}else{}
+function checkform(o){
+	if(o.code.value==""){
+		alert("请输入您"+tipTXT+"!");
+		o.code.focus();
+		return false;
+	}
+}
+</script>
+<style type="text/css">
+.form { margin:25px 0; text-align:center;}
+.daojishi { display:inline-block; margin-left:6px;}
+.edit_mail { border:1px solid #ddd; border-radius:3px; padding:3px 5px; width:150px;}
+.btn_2013 { border:1px solid #bbb; border-radius:3px; background-color:#e9e9e9; padding:3px 8px; margin-left:6px;}
+</style>
+{$top$}
+	<div class="content">
+	<div class="register-form clearfix">
+	<form target="tijiao" method="get" action="checkusers.aspx" onSubmit="return checkform(this)">
+		<input type="hidden" name="userid" value="{$userid}" />
+		<input type="hidden" id="oldtel" value="{$chrtel}" />
+			<p class="box"><span class="form_label"><span id="loginNamechr">验证码</span>：</span><span class="form_control"><input type="text" name="code" id="code" data-max="50" class="codebox2-input" placeholder=""></span></p>
+			<input class="comn-submit reg-submit btn_block" type="submit" value="激活账号">
+			<div class="form">输入您的<span class="tipTXT"></span>：<input type="text" class="t_ipt edit_mail" id="chrtel" value="" /><button onClick="return resendmobile('{$userid}',document.getElementById('oldtel').value,document.getElementById('chrtel').value);" type="button" id="sendvaluess" class="btn_2013" style="display:none;">重发验证码<s class="s"></s></button><span class="daojishi" id="daojishi">60秒</span></div>
+	</form></div>
+	</div>
+{$bottom$}
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script>
+$(function() {
+	$('#code').attr('placeholder',tipTXT);
+	$('.tipTXT').html(tipTXT2);
+	$('#oldtel').val(valTXT);
+	$('#chrtel').val(valTXT);
+});
+var i = 61;
+function send(){
+	i--;
+	if(i==-1){
+		$("#sendvaluess").show();
+		$("#daojishi").hide() ;
+		return;
+	}
+	$("#daojishi").html(i + "秒") ;
+	$("#sendvaluess").hide();
+	setTimeout("send();",1000);
+}
+send();
+function resendmobile(userid,bb,cc){
+	var url="../request.aspx?action=show1&str1={$ismember}&str2="+escape(userid)+"&str3="+escape(bb)+"&str4="+escape(cc);
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert("验证码发送成功，请在上方输入您收到的验证码！");
+			document.getElementById('oldtel').value=cc;
+			i = 61;
+			send();
+			$("#daojishi").show() ;
+			return false;
+		}else{
+			alert(data.error);	
+			return false;
+		}
+	});
+	return false;	
+}
+</script>
+</body>
+</html>

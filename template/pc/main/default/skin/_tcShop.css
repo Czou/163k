@@ -1,0 +1,117 @@
+@charset "utf-8";
+.marTop10 { margin:10px 0 0 0;}
+
+.module_01 .hd,.module_01 .ft,.module_02 .hd,.module_02 .ft,.module_04 .hd,.module_04 .ft { background:url(../images/shop_mdBg.jpg) no-repeat 0 0;}
+.module_01 .title,.module_01 .bd .menu,.searchBar .hd,.searchBar .bd,.module_02 h3.title,.module_02 .bd li span.price,.module_03 .hd,.module_04 .title,.jiaoyiZone li,.comentZone li .text p { background:url(../images/shopBGN.gif) no-repeat 0 0;}
+
+.tcShop_banner { vertical-align:top; height:140px; background:url(../images/tcwg_banner_bg.jpg) no-repeat 0 0;  position:relative;}
+.tcShop_banner .zone { position:absolute; top:24px; right:18px; width:123px; font-size:15px; font-weight:bold; text-align:left; color:#920000;}
+.module_01 { background:url(../images/shop_950.jpg) repeat-y 0 0; position:relative;}
+.module_01 .hd { background-position:0 0; height:39px;}
+.module_01 .hd .f_qh { float:right; _display:inline; margin:15px 15px 0 0;}
+.module_01 .title { text-indent:-999em; overflow:hidden; position:absolute; z-index:999; top:0; left:348px; width:260px; height:34px;}
+.module_01 .pp {background-position:-435px -261px;}
+.module_01 .pp2 {background-position:-21px -261px;}
+.module_01 .pp3 {background-position:-21px -227px;}
+.module_01 .leib {background-position:-435px -227px;}
+.module_01 .ft { background-position:0 -40px; height:22px; overflow:hidden;}
+.module_01 .bd { padding:10px 10px 0 10px;}
+.module_01 .bd a.menu { margin:0 auto; display:block; width:162px; height:30px; text-indent:-999em; overflow:hidden;}
+
+.module_01 .ppZone li { width:155px; float:left; height:105px!important; overflow:hidden;}
+.module_01 .ppZone li a { color:#333; font-size:14px;}
+.module_01 .ppZone li h3 { margin-top:4px; vertical-align:middle; font-weight:bold!important;}
+.module_01 .ppZone li img { display:block; border:1px solid #e2e2e2; margin:0 auto; width:140px; height:68px; vertical-align:top;}
+.module_01 .ppZone a.menu { background-position:-533px -92px;}
+.module_01 .leiZ { padding:0 10px 10px; font-size:14px; text-align:left; line-height:28px;}
+.module_01 .leibZone a.menu { background-position:-533px -62px;}
+
+.pp3Zone { text-align:left; padding:0 20px!important;}
+.pp3Zone li.item { margin-top:15px;}
+.pp3Zone li.item h3 { color:#888; border-bottom:1px dashed #ddd; margin-bottom:3px; padding-bottom:3px; background:url(../images/icon.gif) no-repeat 0 -293px; padding-left:15px;}
+.pp3Zone li.item h3 .red { color:#d00;}
+.pp3Zone li.item h3 a { color:#014ea9; font-size:14px; font-weight:bold;}
+.pp3Zone li.item p { line-height:22px; color:#888;}
+
+.searchBar { border:1px solid #e0e0e0; margin:10px 0 0 0;}
+.searchBar .hd { width:162px; background-position:-530px -24px; height:38px; float:left; text-indent:-999em; overflow:hidden;}
+.searchBar .bd { margin:7px 0 0 0; text-align:left; float:right; width:700px; background-position:-10px 0; height:21px; padding:3px 0 0 5px;}
+.searchBar .bd input { vertical-align:middle;}
+.searchBar .bd input.s_t { height:16px; padding-top:2px; background-color:none; width:427px; border:none!important; border:0!important; color:#aaa;}
+.searchBar .bd input.s_b { width:106px; background:none; border:none; height:22px; cursor:pointer;}
+.searchBar .bd .left { float:left;}
+
+
+
+.grid_02 { margin-top:10px;}
+.grid_02 .col_main { float:left; width:754px;}
+.grid_02 .col_sub { float:right; width:186px;}
+
+.module_02 { background:url(../images/shop_754.jpg) repeat-y 0 0;}
+.module_02 .hd { height:40px; background-position:0 -62px; text-indent:-999em; overflow:hidden; text-align:left;}
+.module_02 h3.title { margin:5px 0 0 19px; text-indent:-999em; overflow:hidden; width:98px; height:35px;}
+.module_02 h3.tuiJ { background-position:-597px -122px;}
+.module_02 h3.hotS { background-position:-597px -192px;}
+.module_02 h3.cuX { background-position:-597px -157px;}
+.module_02 .bd { padding:8px 10px 0;}
+.module_02 .bd li { width:122px; float:left;}
+.module_02 .bd li img { display:block; margin:0 auto; width:100px; height:100px; vertical-align:middle;}
+.module_02 .bd li h3 { text-align:left; height:36px; overflow:hidden; padding:0 10px; margin-top:3px; color:#404040; cursor:pointer;}
+.module_02 .bd li a:hover h3 { text-decoration:none; color:#f50;}
+.module_02 .bd li span.price { display:block; text-align:left; padding-left:20px; background-position:-677px -490px; color:#eb1726; font-size:14px; font-weight:bold; line-height:18px; text-align:left;}
+.module_02 .ft { height:22px; overflow:hidden; background-position:0 -103px;}
+
+.module_03 {}
+.module_03 .hd { background-position:-509px -361px; height:30px;}
+.module_03 .ft { float:right; _display:inline; margin:7px 7px 0 0;}
+.module_03 .ft a { color:#fff;}
+.module_03 .bd { border:1px solid #da0000; border-top:none; background-color:#fdf2cd; padding-bottom:15px;}
+.module_03 .bd li { float:left; width:92px; margin-top:18px;}
+.module_03 .bd li a { color:#404040;}
+.module_03 .bd li a:hover h3 { color:#f50; text-decoration:underline;}
+.module_03 .bd li h3 { padding:0 6px; margin-top:6px; height:36px; overflow:hidden; text-align:left; cursor:pointer;}
+.module_03 .bd li img { display:block; margin:0 auto; width:80px; height:80px; vertical-align:top;}
+.module_03 .bd li span.price { display:block; margin-top:5px; color:#c00;}
+
+.module_04 { background:url(../images/shop_950_02.jpg) repeat-y 0 0; position:relative; }
+.module_04 .hd { background-position:0 -126px; height:25px;}
+.module_04 .title { text-indent:-999em; overflow:hidden; position:absolute; z-index:999; top:0; left:20px; width:173px; height:33px;}
+.module_04 .jiaoyi {background-position:-522px -328px;}
+.module_04 .comment {background-position:-522px -295px;}
+.module_04 .leib {background-position:-435px -227px;}
+.module_04 .bd { padding:20px 10px 0 20px; margin-right:290px;}
+.module_04 .bd a.menu { margin:0 auto; display:block; width:162px; height:30px; text-indent:-999em; overflow:hidden;}
+.module_04 .ft { background-position:0 -152px; height:22px;}
+.jiaoyiZone { text-align:left; height:156px;}
+.jiaoyiZone li { line-height:26px; background-position: -674px -522px; padding-left:25px;}
+.jiaoyiZone .user { color:#447d00;}
+.jiaoyiZone .time { color:#888;}
+.jiaoyiZone .zt { color:#f60;}
+.picList { position:absolute; top:20px; right:20px; width:235px; padding:10px;}
+.picList_01 { background:url(../images/shopBG.jpg) no-repeat 0 -537px; height:155px; padding-top:21px;}
+.picList_02 { background:url(../images/shopBG.jpg) no-repeat 0 0; height:500px; padding-top:27px; overflow:hidden;}
+.picList li { float:left; width:117px; height:171px;}
+.picList li img { width:80px; height:80px; display:block; vertical-align:middle; margin:0 auto;}
+.picList li h3 { margin-top:16px; height:32px; line-height:16px; overflow:hidden;}
+.picList li a h3 { color:#fff;}
+.picList li a:hover h3 { color:#ffd844; text-decoration:none; cursor:pointer;}
+.picList li .price { color:#ffd844;}
+
+.picListG { position:absolute; top:20px; right:20px; width:235px; padding:13px 10px;}
+.picListG li { float:left; width:117px; height:152px; background:url(../images/shopBG_03.gif) no-repeat 50% 0; padding-top:8px;}
+.picListG li img { width:80px; height:80px; display:block; vertical-align:middle; margin:0 auto;}
+.picListG li h3 { margin-top:16px; height:32px; line-height:16px; overflow:hidden;}
+.picListG li a h3 { color:#fff;}
+.picListG li a:hover h3 { color:#ffd844; text-decoration:none; cursor:pointer;}
+.picListG li .price { color:#ffd844;}
+
+.comentZone {height:504px;}
+.comentZone li { margin:5px 0; border:1px solid #ededed; background-color:#f6f6f6; padding:6px;}
+.comentZone li .userPic { float:left; _display:inline; margin-right:10px;}
+.comentZone li .userPic img { display:block; padding:1px; border:1px solid #ddd; width:60px; height:60px; vertical-align:middle;}
+.comentZone li .text { float:left; width:535px;}
+.comentZone li .text h3 { color:#d00; text-align:left; border-bottom:1px dotted #ccc;}
+.comentZone li .text .time { float:right; color:#888;}
+.comentZone li .text p { color:#404040; line-height:20px; height:20px; overflow:hidden; text-align:left; margin-top:5px; padding-left:18px; vertical-align:middle;}
+.comentZone li .text p.wen { background-position:-681px -415px;}
+.comentZone li .text p.da {  margin-top:1px; background-position:-681px -455px; color:#f50;}

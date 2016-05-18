@@ -1,0 +1,11 @@
+﻿<div class="blank10"></div>
+<table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+	<tr class="tabletitle">
+		<td width="580" align="left"><span class="gray_font">信息编号：</span>{$chrlive}　<span class="gray_font">状态：</span>{$iskill} <span style="color:#d00;">{$isindex}</span> <span style="color:#093;">{$istop}</span> <span style="color:#36c;">{$jingjia}</span></td>
+		<td><span class="gray_font">发布时间：</span>{$dtappenddate}</td>
+	</tr>
+	<tr>
+		<td><div class="clearfix"><a href="{$liveurl}live_{$ID}.html" target="_blank" style="float:left; display:inline; margin:0 15px 0 4px;"><img src="{$filepath}" onerror="this.src='{$Default_tplPath}images/fabu_nopic1.gif';this.onerror='';" width="50" style="vertical-align:top" height="50" alt="" /></a><a href="{$liveurl}live_{$ID}.html" target="_blank" style="font-size:16px;font-weight:bold; line-height:50px;">{$chrtitle}</a></div></td>
+		<td align="center"><a href='javascript:set_fw(1,{$ID})' class="global_btn_green">刷新发布</a> <a href="?action=pay&ID={$ID}" class="global_btn_orange">付费推广</a> <a href="?action=jing&ID={$ID}" class="global_btn_blue">参与竟价</a> <a href="?action=edit&ID={$ID}" class="global_btn">编辑</a> <a href="javascript:dellive({$ID});" class="global_btn">删除</a></td>
+	</tr>
+</table>

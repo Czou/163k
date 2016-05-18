@@ -1,0 +1,165 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">系统增强设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=EditSave">
+  <tr > 
+      <td width="15%" height="25" >会员注册验证<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category" style="line-height:20px;"> <input type="radio" name="ismember" value="0"  {$ismember0$}/>不启用 <input type="radio" name="ismember" value="1"  {$ismember1$}/>启用邮件验证
+	   <input type="radio" name="ismember" value="2"  {$ismember2$}/>启用手机验证
+	   <div class="global_tip">
+	   不启用：会员注册不启用验证功能<br />
+	   启用邮件验证：会员注册后系统发送一份激活邮件给用户，用户点击邮件内连接地址激活账号。开启本功能前请检查您的邮件配置是否正确，并能够正常发送邮件<br />
+	   启用手机验证：发送一个五个数字的验证码到用户手机，用户输入完成激活验证。开启本功能前请检查您的手机短信系统配置正常。</div>
+	   </td>
+    </tr>
+    <tr   > 
+      <td width="15%" height="25" style="color:#ff0000">防注册机设置<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category" style="color:#ff0000" title="中文验证码能有效防止注册机注册"> 
+	  
+	  <input name="regtypeid" type="radio" value="0" {$regtypeid0} >数字验证码 <input name="regtypeid" type="radio" value="1" {$regtypeid1} >中文验证码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注册间隔
+	  <input type="text" name="regdate" value="{$regdate}" size=8  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">分钟(两次注册间隔时间,0表示不限制)
+	  </td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >是否开放新用户注册<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="close" value="0"  {$close0$}/>开放 <input type="radio" name="close" value="1"  {$close1$}/>关闭</td>
+    </tr>
+	<input type="hidden" name="qqmust" value="0" />
+	<input type="hidden" name="telmust" value="0" />
+	<!--<tr > 
+      <td width="15%" height="25" >	会员注册“联系QQ”是否必填<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="qqmust" value="0"  {$qqmust0}/>否 <input type="radio" name="qqmust" value="1"  {$qqmust1}/>是</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >	会员注册“手机号码”是否必填<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="telmust" value="0"  {$telmust0}/>否 <input type="radio" name="telmust" value="1"  {$telmust1}/>是</td>
+    </tr>-->
+    <tr > 
+      <td width="15%" height="25" >关闭注册原因<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="closereson" cols=70 rows=5  >{$closereson}</textarea></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >IP限制类型<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="heimingdan" value="0"  {$heimingdan0$}/>黑名单 <input type="radio" name="heimingdan" value="1"  {$heimingdan1$}/>白名单<em class="global_tip">(限制为黑名单则阻止下面设置的IP发布信息，反之则只允许下面设定的IP发信息)</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >IP设置<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="ipcontent" cols=70 rows=5>{$ipcontent}</textarea><div class="global_tip">(您可以添加多个限制IP，每个IP用回车分隔，限制IP的书写方式如202.152.12.1就限制了202.152.12.1这个IP的访问，如202.152.12.*就限制了以202.152.12开头的IP访问，同理*.*.*.*则限制了所有IP的访问。)</div></td>
+    </tr>
+	
+	<tr><td colspan="2">验证问题及答案设置<em class="global_tip">(有效杜绝注册机注册和群发工具)</em></td></tr>
+	<tr > 
+      <td  colspan="2" align="left"><table width="60%">{$ss$}
+	  <tr><td><input type="checkbox" name="ischeck" id="ischeck" value="0"  checked /> <input type="hidden" name='detailsid' id='detailsid' />问题: <input type='text' value="" name="question" id="question"></td><Td>答案: <input type='text' value="" name="answer" id="answer"> <a href="javascript:;" onclick="addquestion();">添加</a></td></tr>
+	  </table> </td>
+    </tr>
+	<input type="hidden" name="register" value="0" />
+	<!--<tr > 
+      <td width="15%" height="25" >是否在用户注册时候启用？<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="register" value="0"  {$register0$}/>不启用 <input type="radio" name="register" value="1"  {$register1$}/>启用</td>
+    </tr>-->
+	<tr > 
+      <td width="15%" height="25" >是否在用户发布信息时候启用？<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="fabu" value="0"  {$fabu0$}/>不启用 <input type="radio" name="fabu" value="1"  {$fabu1$}/>启用</td>
+    </tr>
+	<!--
+	<tr > 
+      <td width="15%" height="25" >信息发布审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str1" value="0"  {$str01$}/>打开 <input type="radio" name="str1" value="1"  {$str11$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >信息回复审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str2" value="0"  {$str02$}/>打开 <input type="radio" name="str2" value="1"  {$str12$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >商品评论审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str3" value="0"  {$str03$}/>打开 <input type="radio" name="str3" value="1"  {$str13$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >商家点评审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str4" value="0"  {$str04$}/>打开 <input type="radio" name="str4" value="1"  {$str14$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >发布简历信息审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str5" value="0"  {$str05$}/>打开 <input type="radio" name="str5" value="1"  {$str15$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >发布招聘信息审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str6" value="0"  {$str06$}/>打开 <input type="radio" name="str6" value="1"  {$str16$}/>隐藏</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >发布留言审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str7" value="0"  {$str07$}/>打开 <input type="radio" name="str7" value="1"  {$str17$}/>隐藏</td>
+    </tr>-->
+    <tr > 
+      <td width="15%" height="25" >非法信息过滤器<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="BadWords" cols=70 rows=5>{$BadWords}</textarea><div class="global_tip">(非法信息过滤器,每行一个，回车换行,此过滤适用于信息的标题、内容、评论、回复,将用*号代替被过滤的字符
+)</div></td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left"><input name="SiteSetting" type="hidden" id="SiteSetting" size="20" value="{$SiteSetting}">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}"><input name="SiteCopyright" type="hidden" id="SiteCopyright" size="10" value="{$SiteCopyright}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

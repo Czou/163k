@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/_daohang.css" rel="stylesheet" type="text/css" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/email.js"></script>
+<script src="{$Default_tplPath}js/clock.js"></script>
+<script>
+var shishang="{$shishang}";
+var shenghuo="{$shenghuo}";
+</script>
+<script src="{$Default_tplPath}js/daohang.js"></script>
+{$top$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+  <div id="content">
+    <div class="contents">
+      <div class="content-r1">
+        <div id="search">
+          <ul id="search-menu" class="clearfix">
+            <li class="active" onClick="tabMenu('search','search-box0',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">网 页</li>
+            <li onClick="tabMenu('search','search-box1',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">MP3</li>
+            <li onClick="tabMenu('search','search-box2',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">视 频</li>
+            <li onClick="tabMenu('search','search-box3',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">图 片</li>
+            <li onClick="tabMenu('search','search-box4',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">知 道</li>
+            <li class="zn" onClick="tabMenu('search','search-box5',this);" onMouseOver="Hover(this)" onMouseOut="mouseOut()">站内搜索</li>
+            <li id="search-more" title="点击查看更多" onClick="showDiv('more','block');">更 多&nbsp;</li>
+          </ul>
+          <div class="search-box">
+            <div class="clearfix">
+              <div id="search-box0">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a></div>
+                <div class="fl img"><a href="http://video.baidu.com" target="_blank" class="bdsearch"></a></div>
+                <form action="http://www.baidu.com/s" method="get" target="_blank">
+                  <div class="input">
+                    <input class="int" type="text"  name="wd" id="keyword1" />
+                  </div>
+                  <input name="tn" type="hidden" id="tn" value="fengganru_pg" />
+                  <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  <input class="button" value="搜　索" type="submit" />
+                </form>
+              </div>
+              <div id="search-box1" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a></div>
+                <div class="fl img"><a href="http://mp3.baidu.com/" class="bdmp3"></a></div>
+                <form action="http://mp3.baidu.com/m" method="get" target="_blank">
+                  <div class="input">
+                    <input type="text" class="int" name="word"  autocomplete="off" id="keyword2"/>
+                    <input name="tn" type="hidden" id="tn" value="fengganru_pg" />
+                    <input name="f" type="hidden" id="f" value="ms" />
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box2" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://video.baidu.com" target="_blank" class="bdsp"></a></div>
+                <form action="http://video.baidu.com/v?rn=20&pn=0&db=0&s=0&fbl=1024" method="get" target="_blank">
+                  <div class="input">
+                    <input type="text" class="int" name="word"  autocomplete="off" id="keyword3"/>
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box3" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://image.baidu.com/i" target="_blank" class="bdtp"></a></div>
+                <form action="http://image.baidu.com/i" method="get" target="_blank">
+                  <div class="input">
+                    <input type="text" class="int" name="word" autocomplete="off"  id="keyword4"/>
+                    <input name="tn" type="hidden" id="tn" value="baiduimage" />
+                    <input name="ct" type="hidden" id="ct" value="201326592" />
+                    <input name="cl" type="hidden" id="cl" value="2" />
+                    <input name="pv" type="hidden" id="pv" value="" />
+                    <input name="lm" type="hidden" id="lm" value="-1" />
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box4" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://zhidao.baidu.com/q?word=&ct=17&pn=0&rn=10" target="_blank" class="bdzd"></a></div>
+                <form action="http://zhidao.baidu.com/q" target="_blank" method="get">
+                  <div class="input">
+                    <input type="text" class="int" name="word"  autocomplete="off" id="keyword5"/>
+                    <input name="ct" type="hidden" id="ct" value="17" />
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                    <input name="tn" type="hidden" id="tn" value="ikaslist" />
+                    <input name="rn" type="hidden" id="rn" value="10" />
+                    <input name="lm" type="hidden" id="lm" value="0" />
+                    <input name="fr" type="hidden" id="fr" value="search" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box5" style="display:none">
+                <div class="input">
+                  <input class="int"  name="sitekeyword" id="sitekeyword" type="text" value="输入关键字搜索" onMouseOver="this.select();this.focus();" onFocus="this.value=='输入关键字搜索'?this.value='':'';" onBlur="this.value==''?this.value='输入关键字搜索':''" onKeyDown="KeyDown()" onkeyup='input()'  />
+                </div>
+                <div class="clear"></div>
+                <div class="localsearch t10">
+                  <ul id="indexhtml">
+                  </ul>
+                </div>
+              </div>
+              <div id="search-box6" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://post.baidu.com/f" target="_blank" class="bdtb"></div>
+                <form action="http://post.baidu.com/f" method="get" target="_blank">
+                  <div class="input">
+                    <input name="word" type="text" class="int" autocomplete="off" onKeyUp="myhint(event,this)" id="keyword6"/>
+                    <input name="tn" type="hidden" id="tn" value="baiduPostSearch" />
+                    <input name="lm" type="hidden" id="lm" value="65536" />
+                    <input name="ct" type="hidden" id="ct" value="352321536" />
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box7" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://bk.baidu.com/" target="_blank" class="bdbk"></a></div>
+                <form action="http://bk.baidu.com/w" method="get" target="_blank">
+                  <div class="input">
+                    <input name="word" type="text" class="int" autocomplete="off" onKeyUp="myhint(event,this)" id="keyword7"/>
+                    <input name="tn" type="hidden" id="tn" value="baiduWikiSearch" />
+                    <input name="ct" type="hidden" id="ct" value="17" />
+                    <input name="lm" type="hidden" id="lm" value="0" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+              <div id="search-box8" style="display:none">
+                <div class="fr keywords"><a href="{$SiteUrl}member/mydaohang.aspx?action=add">网站提交登陆</a>&nbsp;&nbsp;</div>
+                <div class="fl img"><a href="http://www.baidu.com/baidu" target="_blank" class="bdgp"></a></div>
+                <form action="http://www.baidu.com/baidu" method="get" target="_blank">
+                  <div class="input">
+                    <input type="text" class="int" name="word" autocomplete="off" onKeyUp="myhint(event,this)" id="keyword8"/>
+                    <input name="tn" type="hidden" value="fengganru_pg" />
+                    <input name="ie" type="hidden" id="ie" value="utf-8" />
+                  </div>
+                  <input type="submit" class="button" value="搜　索" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="more" onMouseOver="showDiv('more','block');" onMouseOut="showDiv('more','none');">
+          <ul>
+            <li onClick="moreMenu('search-box6');$('keyword6').focus();"><a href="javascript://">贴吧</a></li>
+            <li onClick="moreMenu('search-box7');$('keyword7').focus();"><a href="javascript://">百科</a></li>
+            <li onClick="moreMenu('search-box8');$('keyword8').focus();"><a href="javascript://">股票</a></li>
+            <li onClick="showDiv('more','none')"><a href="http://fav.114la.com/?source=114la" target="_blank">收藏夹</a></li>
+          </ul>
+        </div>
+        <div id="weather">
+          <div class="email_login" >
+           
+          </div>
+        </div>
+        <div id="suggest" name="suggest" style="display:none" ></div>
+      </div>
+      {$Mh163k_网址频道首页顶部广告}
+      <div class="content-r2 clearfix" style="margin-top:10px;">
+        <div id="main">
+          <div id="tool" class="ybox">
+            <h2>
+              <!--<a href="#" class="fr" style="margin-right: 5px; color: rgb(51, 51, 51); font-weight: normal;">����...</a>-->
+              <span>实用工具</span></h2>
+            <ul>
+              {$gongjuqiu}
+            </ul>
+          </div>
+          <div id="board">
+            <ul id="board-menu" class="clearfix">
+              <li onClick="tabMenu('board','board-box0',this)" onMouseOver="Hover(this)" onMouseOut="mouseOut()" id="index" class="active">名站导航</li>
+              <li onClick="tabMenu('board','board-box1',this)" onMouseOver="Hover(this)" onMouseOut="mouseOut()">常用软件</li>
+              <li onClick="tabMenu('board','board-box2',this)" onMouseOver="Hover(this)" onMouseOut="mouseOut()">股票财经</li>
+              <!--<li onClick="tabMenu('board','board-box3',this)" onMouseOver="Hover(this)" onMouseOut="mouseOut()">时尚美容</li>
+              <li onclick="tabMenu('board','board-box5',this)" onmouseover="Hover(this)" onmouseout="mouseOut()">生活健康</li>-->
+              <li onClick="tabMenu('board','board-box6',this)" onMouseOver="Hover(this)" onMouseOut="mouseOut()">浏览记录</li>
+            </ul>
+            <div id="board-box" class="bd">
+              <div id="board-box0">
+                <div id="fmsites">
+                  <ul class="list">
+                    {$mingzhang}
+                  </ul>
+                </div>
+              </div>
+              <div id="board-box1" style="display:none">
+                <div id="softlist">
+                  <dl id="indexsoft">
+                  {$daohangsoft}
+                  </dl>
+                </div>
+              </div>
+              <div id="board-box2" style="display:none"> {$gupiao} </div>
+              <div id="board-box3" style="display:none">
+                <div id="indexmeirong"></div>
+              </div>
+              <div id="board-box4" style="display:none">
+                <div id="indexnews"></div>
+              </div>
+              <div id="board-box5" style="display:none">
+                <div id="index39net"></div>
+              </div>
+              <div id="board-box6" style="display:none">
+                <ul class="records" id="history">
+                </ul>
+                <ul class="delrecord" >
+                  <li><a href="javascript://" onClick="ClearHistory();" title="删除记录" class="del">删除记录</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 酷站导航 -->
+          <div id="coolsite" class="bd" style="margin-top:10px;">
+            <h2 class="title">
+              <div id="hotnews" class="fr"></div>
+              酷站导航</h2>
+            <ul>
+              {$kuzhanlist}
+            </ul>
+          </div>
+          
+        </div>
+      
+        <div id="sidebar" class="bd"> {$leftzhan} </div>
+        
+        <script>
+history_show();
+document.onclick=glog;
+</script>
+      </div>
+    </div>
+  </div>
+  {$Mh163k_网址频道首页底部广告}
+  
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

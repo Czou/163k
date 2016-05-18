@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$name}-{$lanmuname}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+<style type="text/css">
+html{ height:100%;}
+body { position:relative;min-height:100%; height:100%; overflow:hidden;}
+</style>
+<script>
+window['ipageTitleTxt'] = '{$name}';
+</script>
+{$top$}
+<form method="get" action="{$SiteUrl}member/myorder.aspx" id="shopCartForm">
+<input type="hidden" name="action" value="myshoppay" />
+<input type="hidden" name="shopid" value="{$shopid}" />
+<div class="shop_cart clearfix" id="myShopCart" data-shipmoney1="{$shipmoney1}">
+ <div class="amount"><s id="numAll">0</s></div>
+ <div class="price">&yen;<span id="chrmoneyAll">0</span></div>
+ <div class="other">(配送费<span id="chrmoneyYunfei"></span>元)</div>
+ <div class="meal_btn"><button type="submit" id="myShopCartSubmit" class="disabled" disabled>立即下单</button></div>
+</div>
+</form>
+<div class="p_main">
+ <div class="p_tabs clearfix" id="p_tabs">
+   <ul>
+    <li class="item current" data-id="1">货架</li>
+    <li><a href="/k_p{$shopid}.html">点评</a></li>
+    <li class="item" data-id="2">介绍</li>
+   </ul>
+ </div>
+ <div class="job_search">
+ <div class="sbox clearfix">
+	<form action="/k_shop_a0_b0_c0_d0_e{$e}_f{$shopid}_g{$g}_p1.html" method="get" >
+		<input type="text" name="_key" id="keyword" placeholder="请输入关键字" value="{$key}" /><button type="submit">搜索</button>
+	</form>
+ </div> 
+</div>
+ <div id="price_sends">
+	 <div class="tips" id="kdtips"><div class="wrap"><span id="textMarquee" class="inner">{$Mh163k_快送_店铺公告_手机版}</span></div><div class="close"></div></div>
+	 <div class="price_sends clearfix">
+	  <ul>
+	   <li>
+		 起送价
+		 <p><span class="price">{$shipmoney1}</span>元</p>
+	   </li>  
+	   <li>
+		 送达时间
+		 <p><span class="time">{$shippingtime}</span>分钟</p>
+	   </li>
+	   <li>
+		 配送费
+		 <p><span class="psf">{$shipmoney}</span>元</p>
+	   </li>
+	  </ul>
+	 </div>
+ </div>
+ 
+ <div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);">全部分类<em></em></a></li>
+		<!--<li class="item"><a href="javascript:void(0);">全部品牌<em></em></a></li>-->
+		<li class="item"><a href="javascript:void(0);">默认排序<em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+		<ul id="inner1"><li><a href="/k_shop_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_p1.html?_key={$_key}">全部分类</a></li>{$ListCategory5}</ul>
+	</div>
+	<!--<div class="inner" style="display:none;">
+		<ul id="inner2"></ul>
+	</div>-->
+	<div class="inner" style="display:none;">
+		<ul id="inner3">
+			<li><a href="/k_shop_a{$a}_b{$b}_c{$c}_d{$d}_e7_f{$f}_g{$g}_p1.html?_key={$_key}">按上架时间(默认)</a></li>
+			<li><a href="/k_shop_a{$a}_b{$b}_c{$c}_d{$d}_e6_f{$f}_g{$g}_p1.html?_key={$_key}">按商品价格</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+ <div class="pro_list3 clearfix" id="mainPage">
+	 <div class="prolistBL" id="prolist">
+		<div class="innercontent">
+			<div class="goods_list"><ul class="clearfix">{$show_good_div}</ul><a href="/k_shop_a0_b0_c0_d0_e0_f{$shopid}_g{$g}_p1.html" class="more" data-totalcount="{$totalcount}" id="showAllList" style="display:none;">查看更多</a></div>
+			<div style="height:50px;"></div>
+		</div>
+	 </div>
+ </div>
+ <div class="pro_list2" id="aboutPage" style="display:none;">
+ 	<div class="aboutPage" id="aboutPageinner">
+		 <div class="innercontent">
+			<div class="shop_info zis{$peisongtype}">
+			 <dl class="clearfix">
+			  <dt><img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" alt="{$name}" /></dt>
+			  <dd>
+			   <h4>{$name}</h4>
+			   <s class="s_{$koubei}"></s>
+			   <div class="clearfix"></div>
+			   <div class="close_door" id="state_node"></div>
+			   <div class="d_time">营业时间：<span class="display1{$startkill}">{$startdate HH:mm}-{$enddate HH:mm} </span><span class="display1{$start2kill}">{$startdate2 HH:mm}-{$enddate2 HH:mm}</span></div>
+			  </dd>
+			 </dl>
+			</div>
+			<div class="price_sends clearfix">
+			  <ul>
+			   <li>
+				 起送价
+				 <p><span class="price">{$shipmoney1}</span>元</p>
+			   </li>  
+			   <li>
+				 送达时间
+				 <p><span class="time">{$shippingtime}</span>分钟</p>
+			   </li>
+			   <li>
+				 配送费
+				 <p><span class="psf">{$shipmoney}</span>元</p>
+			   </li>
+			  </ul>
+			 </div>
+			<div class="shop_address">
+			  <dl>
+			   <dt id="mapPoint">
+				快店地址
+				<span class="distance item" data-x="{$shop_x}" data-y="{$shop_y}"><span class="juli">未知</span></span> 
+			   </dt>
+			   <dd>{$chraddress}</dd>
+			  </dl>
+			 </div>
+			 <!--电话-->
+			 <div class="shop_tel">
+			  <dl>
+			   <dt>快店电话</dt>
+			   <dd>{$mobile}<a href="tel:{$mobile}" class="tel">{$mobile}</a></span>
+			   </dd>
+			  </dl>
+			 </div>
+			 <div class="shop_support">
+			  <h4>快店支持</h4>
+			   <ul>
+				<li class="display1{$isrogramme}"><span class="r">赠</span> {$rogramme}</li>
+				<li class="display1{$isdiscount}"><span class="g">减</span> 支持立减优惠，每单满{$discount}元减{$discount1}元</li>
+				<li class="display1{$isfirstgive}"><span class="y">1st</span> {$firstgive}</li>
+			   </ul>
+			 </div>
+			
+			<div style="height:50px;"></div>
+		 </div>
+	 </div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_kuaisonCommon.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+window['SHOPID'] = '{$shopid}';
+window['GOODSTYLEID'] = '1';
+window['ISHTML'] = '1';
+window['loadCat'] = 0;
+window['myScroll_main']=null;
+window['myScroll_about']=null;
+document.addEventListener('DOMContentLoaded',function(){
+	parseInt($('#showAllList').attr('data-totalcount')) > 20 &&  $('#showAllList').show();
+	getShoppingCart(showProductList2);
+	$('#prolist').pagelist2();
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	$('#p_tabs').p_tabs();
+	IDC2.textMarquee('#textMarquee');
+	$('#foot_link').hide();
+	lazyImg('#prolist');
+	var kdtips = $('#kdtips');
+	var addheight = false;
+	kdtips.find('.close').click(function(e){
+		e.preventDefault();
+		kdtips.hide();
+		$('#mainPage').css({'top':'243px'});
+		window['myScroll_main'].refresh();
+	});
+	
+	window['myScroll_main'] = new IScroll('#prolist', {
+		click: true,
+		scrollX: false,
+		scrollY: true,
+		scrollbars: false
+	});
+	
+	window['myScroll_main'].on('scrollEnd', function () {  
+		setTimeout(function(){lazyImg('#prolist');},50);
+		var mainPage = $('#mainPage'),mh = mainPage.height(),hasHeight=0;
+		if (this.y < -100 && !addheight) {             
+			addheight = true;
+			if(!!kdtips.is(':visible')){
+				hasHeight = 133;
+			}else{
+				hasHeight = 97;
+			}
+			$('#price_sends').hide();
+			mainPage.css({"-webkit-transform":"translate3d(0,-"+hasHeight+"px,0)",transform:"translate3d(0,-"+hasHeight+"px,0)","-webkit-transition":"-webkit-transform 0.6s",transition:"transform 0.6s",height:(mh+hasHeight)+"px"});
+			setTimeout(function(){
+				window['myScroll_main'].refresh();
+			},620);
+		}
+		if(this.y == 0 && !!addheight){
+			addheight = false;
+			$('#price_sends').show();
+			
+			$('#mainPage').css({"-webkit-transform":"translate3d(0,0,0)",transform:"translate3d(0,0,0)","-webkit-transition":"-webkit-transform 0.6s",transition:"transform 0.6s",height:"auto"});
+			
+			window['myScroll_main'].refresh();
+		}
+		
+	});
+	getkill();
+	if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}
+},false);
+$.fn.p_tabs = function(){
+	var node = $(this),items = node.find('.item');
+	items.click(function(e){
+		e.preventDefault();
+		items.removeClass('current');
+		$(this).addClass('current');
+		if($(this).attr('data-id') === '1'){
+			$('#aboutPage').hide();
+		}else{
+			$('#aboutPage').show();
+			!window['myScroll_about']&&(window['myScroll_about'] = new IScroll('#aboutPageinner', {
+				click: true,
+				scrollX: false,
+				scrollY: true,
+				scrollbars: false
+			}));
+			!!window['myScroll_about']&&(window['myScroll_about'].refresh(),window['myScroll_about'].scrollTo(0,0));
+		}
+	});
+}
+function getkill(){
+	var isopen = "{$isopen}",
+		state_node = $('#state_node');
+	if(isopen === '2'){
+		state_node.addClass('state_2').html('暂停营业，{$noopenmark}');
+		return;
+	}
+	var startkill = "{$startkill}",
+	startdate = "{$startdate HH:mm}",
+	enddate = "{$enddate HH:mm}",
+	start2kill = "{$start2kill}",
+	startdate2 = "{$startdate2 HH:mm}",
+	enddate2 = "{$enddate2 HH:mm}";
+	
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	var thestartdate = Date.parse(today + startdate + ':00');
+	var theenddate = Date.parse(today + enddate + ':00');
+	var thestartdate2 = Date.parse(today + startdate2 + ':00');
+	var theenddate2 = Date.parse(today + enddate2 + ':00');
+	
+	if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+		showkill(!0);
+	}else{
+		showkill(!1);
+	}
+	function showkill(allow){
+		if(!!allow){
+			state_node.addClass('state_1').html('营业中');
+			window['ALLOWBUY'] = !0;
+		}else{
+			var shipkill = "{$shipkill}";
+			shipkill === '0'?(state_node.addClass('state_3').html('打烊了，可以预订'),window['ALLOWBUY'] = !0):(state_node.addClass('state_2').html('打烊了，不可下单'),window['ALLOWBUY'] = !1);
+		}
+	}
+}
+</script>
+</body>
+</html>

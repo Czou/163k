@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$qiyename} - {$aboutname}</title>
+<meta name="keywords" content="{$chrkeyword}">
+<meta name="description" content="{$chrdescription}">
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/global.css" />
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/style.css" />
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header clearfix">
+		<h1 class="logo"><a href="{$qiyeurl}">{$chrlogo}</a></h1>
+		<div class="fav"><a href="javascript:window.external.AddFavorite('{$qiyeurl}','{$qiyename}')" >加入收藏</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$qiyeurl}');">设为首页</a></div>
+	</div>
+	<div class="content">
+		<div class="nav">
+			<ul class="clearfix">
+				<li  class="current"><a href="{$qiyeurl}">{$text1}</a></li>
+				<li ><a href="{$TargetUrl}about_{$qiyeid}.html">{$text2}</a></li>
+				<li ><a href="{$TargetUrl}ld_{$qiyeid}.html">{$text3}</a></li>
+				<li ><a href="{$TargetUrl}news_{$qiyeid}.html">{$text4}</a></li>
+				<li ><a href="{$TargetUrl}pic_{$qiyeid}.html">{$text5}</a></li>
+				<li ><a href="{$TargetUrl}anli_{$qiyeid}.html">{$text6}</a></li>
+				<li ><a href="{$TargetUrl}job_{$qiyeid}.html">{$text7}</a></li>
+				<li ><a href="{$TargetUrl}liuyan_{$qiyeid}.html">{$text8}</a></li>
+				<li ><a href="{$TargetUrl}lianxi_{$qiyeid}.html">{$text9}</a></li>                              
+			</ul>
+		</div>
+		<div class="banner2">
+			<img src="{$tplPath}images/about_banner.jpg" alt="" />
+		</div>
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mainbox_01">
+					<h1>{$aboutname}</h1>
+					<div class="mainbox_body">
+						<div class="about clearfix" id=livearticle>
+							{$aboutcontent}
+						</div>
+						<script type="text/javascript" >
+					function ResizeImages()
+					{
+					   var myimg,oldwidth,oldheight;
+					   var maxwidth=630;
+					   var maxheight=700
+					   var imgs = document.getElementById('livearticle').getElementsByTagName('img');   
+					   
+					   for(i=0;i<imgs.length;i++){
+						 myimg = imgs[i];
+					
+						 if(myimg.width > myimg.height)
+						 {
+							 if(myimg.width > maxwidth)
+							 {
+								oldwidth = myimg.width;
+								myimg.height = myimg.height * (maxwidth/oldwidth);
+								myimg.width = maxwidth;
+							 }
+						 }else{
+							 if(myimg.height > maxheight)
+							 {
+								oldheight = myimg.height;
+								myimg.width = myimg.width * (maxheight/oldheight);
+								myimg.height = maxheight;
+							 }
+						 }
+					   }
+					}
+					ResizeImages();
+					</script>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="subNav">
+					<ul>
+						<li class="{$aboutcurrent1}" style="display:{$bottom1style}"><a href="{$TargetUrl1}">{$bottom1}<em></em></a><s></s></li>
+						<li class="{$aboutcurrent2}" style="display:{$bottom2style}"><a href="{$TargetUrl2}">{$bottom2}<em></em></a><s></s></li>
+						<li class="{$aboutcurrent3}" style="display:{$bottom3style}"><a href="{$TargetUrl3}">{$bottom3}<em></em></a><s></s></li>
+						<li class="{$aboutcurrent4}" style="display:{$bottom4style}"><a href="{$TargetUrl4}">{$bottom4}<em></em></a><s></s></li>
+						<li class="{$aboutcurrent5}" style="display:{$bottom5style}"><a href="{$TargetUrl5}">{$bottom5}<em></em></a><s></s></li>
+						<li class="{$aboutcurrent6}" style="display:{$bottom6style}"><a href="{$TargetUrl6}">{$bottom6}<em></em></a><s></s></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+    	<p>{$bottomlink}</p>
+		{$chrbottom}
+	</div>
+
+</div>
+</body>
+</html>

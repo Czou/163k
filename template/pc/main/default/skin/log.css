@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.loginPop,.loginPop .close,.loginPop .bd .l_4 button,.loginPop .reg .icon { background:url(../images/login.gif) no-repeat 0 0;}
+
+.loginPop { height:262px; overflow:hidden; width:400px;}
+.loginPop .hd { height:31px;}
+.loginPop .h3 { float:left; _display:inline; margin:8px 0 0 10px;}
+.loginPop .close { float:right; display:block; _display:inline; margin:8px 10px 0 0; width:15px; height:15px; overflow:hidden; background-position:0 -262px; font:0pt/1000px Arial;}
+.loginPop .bd { padding:20px 30px;}
+.loginPop .bd li { padding:4px 0;}
+.loginPop .bd .s_t { line-height:14px; padding:4px 4px; border:1px solid #b2c9e3; width:180px;}
+.loginPop .bd .sp_01,.loginPop .bd .sp_02,.loginPop .bd .sp_03 { display:block; float:left; color:#404040;}
+.loginPop .bd .sp_01 { width:50px; line-height:27px;}
+.loginPop .bd .sp_02 { width:200px;}
+.loginPop .bd .sp_03 { width:80px; line-height:27px;}
+.loginPop .bd .l_3 { padding-left:45px;}
+.loginPop .bd .cb { vertical-align:middle; margin-right:5px;}
+.loginPop .bd .l_3 .t { color:#892608;}
+.loginPop .bd .l_4 { padding-left:49px;}
+.loginPop .bd .l_4 button { font:0pt/1000px Arial; border:0 none; overflow:hidden; width:77px; height:25px; background-position:-27px -262px; cursor:pointer;}
+.loginPop .reg { position:relative; zoom:1; margin:15px 0 0; border-top:1px solid #ddd; padding:15px 0 0 23px;}
+.loginPop .reg .icon { display:block; position:absolute; margin:4px 0 0 -18px; background-position:-15px -262px; width:12px; height:11px; overflow:hidden;}
+.loginPop .reg .st { display:block; position:relative;}
+
+
+
+
+
+

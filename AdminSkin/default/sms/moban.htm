@@ -1,0 +1,118 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+#sys_tips { text-align:center; background-color:#fff; padding:15px;}
+#sys_tips p { text-align:left; font-size:14px; color:#404040; margin:10px 0; padding-left:15px;}
+#sys_tips h3 { font-size:20px; color:#36c; font-weight:bold;}
+
+.table_style_p { background-color:#EEF7FD; border-left:1px solid #C9DBEF; border-top:1px solid #C9DBEF;}
+.table_style_p .th td,.table_style_c td { padding:8px 6px; border-right:1px solid #C9DBEF; border-bottom:1px solid #C9DBEF; font-size:14px;}
+</style>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+function SMSupdate(o,id){
+	var key = $(o).attr('name');
+	var value = $(o).prop('checked')?'1':'';
+	var url = "smsmoban.aspx?action=save&id=" + id + "&" + key + "=" + value +'&timer='+Math.random()*10000000;
+	$.ajax({
+		url:url,
+		success:function(data){
+			if(data!=='1'){
+				alert('对不起，提交异常！');
+			}
+		}
+	});
+}
+function SMSupdateAll(o,sid){
+	var url = 'smsmoban.aspx',
+		txt = '',
+		val = '0',
+		checkbox_list = $(o.form).find('input[type="checkbox"]');
+	
+	checkbox_list.prop('checked',o.checked);
+	val = o.checked?'1':'0';
+	checkbox_list.each(function(){
+		txt += $(this).attr('name') + '='+val+'&';
+	});
+	url += "?action=save&id="+ sid + '&' + txt +'&timer='+Math.random()*10000000;
+	$.ajax({
+		url:url,
+		success:function(data){
+			if(data!=='1'){
+				alert('对不起，提交异常！');
+			}
+		}
+	});
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;</td>
+          <td align="right"><a href="smsmoban.aspx?action=add"  class="global_btn_blue">添加</a> <a href="/request.ashx?action=allsqldaojson&tablename=smsmuban"  class="global_btn_blue">导出数据</a></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table align="center" cellpadding="0" width="100%" cellspacing="0" class="table_style_p" data-class="table_style" border="0">
+       
+          <tr align="center" class="th">
+              <td width="5%" class="category">编号</td>
+              <td width="22%" class="category">信息通知项目名称</td>
+              <td width="40%" class="category">通知方式<span style="font-weight:normal;">(勾选多选框自动保存)</span></td>
+              <td width="10%" class="category">开启状态</td>
+			  <td width="15%" class="category">推送对象</td>
+              <td width="8%" class="category">操作</td>
+          </tr>
+          {$slist}
+          <!--tr >
+            <td height="24" align="center" bgcolor="#FFFFFF" colspan=9><input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">
+              </td>
+          </tr-->
+		  
+         <tr class="th" id="sys_tips">
+            <td height="24" align="center" bgcolor="#FFFFFF" colspan=9>
+			<div style="line-height:26px;">
+	<h3>【163K万能消息提醒推送系统】是目前国内唯一将多平台、多渠道的信息提醒/推送/群发/管理集成于一体的一个系统</h3>
+<p>1、电子邮件通知：网站正确配置邮箱系统；用户必须正确填写了会员资料中的邮箱地址，即可收到邮件通知</p>
+<p>2、手机短信通知：网站购买短信通道并充值；用户在相关订单信息、或个人资料中正确填写了手机号即可收到手机短信通知</p>
+<p>3、微信公众号通知：网站需开通微信公众号并成功与网站进行了整合对接；按照说明在微信公众号添加消息模板[<a href="http://fuwu.163k.com/thread-45409-1-1.html" target="_blank" style="color:#36c;">教程链接</a>]；<br />　 用户成功关注了网站官方公众号，并用微信绑定了网站会员或是微信登陆状态即可收到来自官方微信公众号的微信通知</p>
+<p>4、APP客户端通知：网站需开通APP客户端高级版；用户在APP客户端登陆状态，即可收到APP弹出的消息通知</p>
+<p>5、网页端(PC端)即时通知：实时聊天对话模式技术构架，用户登录网站（PC端）即会立即弹出页面浮动通知提示，或语音提示（毫秒级延误！）。</p>
+<p>6、网站管理员仅支持在PC端登陆后台的状态下接收通知，网站前端有任何“事件”发生，网站后台会立即弹出页面浮动通知提示，或语音提示（毫秒级延误！）</p>
+<p>7、管理员：对该内容拥有后台管理权限的管理员； 用户：与该消息内容相关的发布者、买家</p>
+<p>8、所有消息只提醒一次，不会重复提醒通知</p>
+<p>9、因为每条推送项目都有针对性，建议维持系统默认对推送方式、推送对象的设置，自行勾选减少项目无碍，若自行勾选增加项目可能会导致混乱</p>
+<p>10、商家手机短信的通知需要在商家短信通知服务中开启并正确设置</p>
+<p>11、因微信对消息推送有严格的规范要求跟数量要求，故本系统无法实现所有的项目都实现微信推送</p>
+<p>12、微信公众号通知、短信通知、邮件通知会受到其各自的服务商的政策限制、速度限制，可能存在信息延迟（一般10分钟内）到达用户端的情况，此情况与本系统无关，特此说明</p>
+<button class="global_btn_blue_big close" type="button">关闭</button>
+</div>
+              </td>
+          </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script>
+function clickcolor(object)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) object.value=aarr;
+}
+$('#sys_tips').find('.close').click(function(){
+	$('#sys_tips').hide();								 
+});
+</script>
+</body></html>

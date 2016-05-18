@@ -1,0 +1,136 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delAll(o,str,astr)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的短信信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+	}
+}	
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "fasongchaxun.aspx?action=del&ID=" + id
+        }
+}
+function Alldel()
+{
+    if ( confirm("该操作将不可逆！\n您确定要一键清空吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "fasongchaxun.aspx?action=del&typeid=0&ID="
+        }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<span class="blank">发送查询统计</span></td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按手机号码查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+				发送平台：<select name='Colname' id='Colname'><option value=''>:所有:</option>
+			<option value='1' {$Colname1}>:: 广州联迅 ::</option>
+			<option value='2' {$Colname2}>:: 广州志晴 ::</option>
+			<option value='3' {$Colname3}>:: 亿美软通 ::</option>
+			<option value='4' {$Colname4}>:: 博好网络 ::</option>
+			<option value='5' {$Colname5}>:: 淘维科技 ::</option>
+      	</select>
+      发送状态：	<select name='iskill' id='iskill'><option value=''>:所有:</option>
+			<option value='0' {$iskill0}>:: 失败 ::</option>
+			<option value='1' {$iskill1}>:: 成功 ::</option>
+      	</select>
+      发送项目：	<select name='styleid' id='styleid'><option value=''>:所有:</option>
+			<option value='1' {$styleid1}>::团购消费券::</option>
+<option value='2' {$styleid1}>::店铺预约::</option>
+<option value='3' {$styleid1}>::投递简历::</option>
+<option value='4' {$styleid1}>::新订单::</option>
+<option value='5' {$styleid1}>::店铺评论::</option>
+<option value='6' {$styleid1}>::接受报名::</option>
+<option value='7' {$styleid1}>::订单消费::</option>
+<option value='8' {$styleid1}>::注册手机验证::</option>
+<option value='9' {$styleid1}>::团购合作::</option>
+<option value='10' {$styleid1}>::团购代金券::</option>
+<option value='11' {$styleid1}>::群(单)发::</option>
+<option value='12' {$styleid1}>::优惠券发送::</option>
+      	</select>
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+        
+    <td><a href="javascript:Alldel();" class="global_btn">一键清空全部</a></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" >手机号码</td>
+     		<td class="category" >发送内容</td>
+      		<td class="category" >发送时间</td>
+			<td class="category" >发送平台</td>
+			<td class="category" >发送项目</td>
+       		<td class="category" >状态</td>
+			<td width="80" class="category">操作</td>
+          	<td width="53"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+         </tr>
+		  <tag:Loop ListType="listsms" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="sms/list_fashong_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+		  <a href="javascript:delAll(this,1,'删除');">删除选中</a>
+		  <input type="hidden" name="styleid" id="styleid" value="1">
+		  </td></tr>
+		  <tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+		{$PageSplit}
+	  </td>
+    </tr>
+		  </form>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

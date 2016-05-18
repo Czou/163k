@@ -1,0 +1,126 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">登陆整合&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=EditSave">
+	 <tr > 
+      <td height="25" width="15%" >是否启用QQ登录<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="qqiskill" value="0"  {$qqiskill0}/>否 <input type="radio" name="qqiskill" value="1"  {$qqiskill1}/>是
+	  <em class="global_tip">(QQ接口官方：<a href="http://connect.opensns.qq.com/" target="_blank">http://connect.opensns.qq.com/</a>)</em>
+	  </td>
+    </tr>
+    <tr > 
+      <td height="25" style="font-weight:normal;" >APPID<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="qqusername" id="qqusername"  type="text"  value="{$qqusername}" size=50></td>
+    </tr>
+      <tr > 
+      <td height="25" style="font-weight:normal;" >APPKEY<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="qquserpwd" id="qquserpwd"  type="text"  value="{$qquserpwd}" size=50></td>
+    </tr>
+    	 <tr><td colspan="2" height="5"></td></tr>
+		 <tr > 
+      <td height="25" >是否启用微信登录<font color="#FF0000">*</font>：
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="isweixinlogin" value="0"  {$weixinloginid_c_0}/>不启用 <!--<input type="radio" name="isweixinlogin" value="1"  {$weixinloginid_c_1}/>使用<span style="color:#d00; font-weight:bold;">开放平台</span>网页应用(不支持移动端登录)--> <input type="radio" name="isweixinlogin" value="2"  {$weixinloginid_c_2}/>使用<span style="color:#d00; font-weight:bold;">公众平台</span>开发参数
+
+	  <em class="global_tip">(<!--<a href="https://open.weixin.qq.com/" target="_blank" style="color:#36c; text-decoration:underline;">开放平台申请地址</a> --><a href="https://mp.weixin.qq.com/" style="color:#36c; text-decoration:underline;" target="_blank">公众平台申请地址</a>，申请时需要的回调验证地址{$SiteUrl}api/weixinapi.ashx)</em>
+	  </td>
+    </tr>
+    <tr > 
+      <td height="25" style="font-weight:normal;" >微信平台登录应用appid<font color="#FF0000">*</font>
+      </td>
+      <td width="76%"  class="category"> <input name="weixinappid" id="weixinappid"  type="text"  value="{$weixinappid}" size=50> 在微信公众平台-开发者中心获取</td>
+    </tr>
+          <tr > 
+      <td height="25"  style="font-weight:normal;">应用密钥AppSecret<font color="#FF0000">*</font>：
+      </td>
+      <td width="76%"  class="category"> <input name="weixinappsecret" id="weixinappsecret"  type="text"  value="{$weixinappsecret}" size=50> 在微信公众平台-开发者中心获取</td>
+    </tr>
+      <!--<tr > 
+      <td height="25"  style="font-weight:normal;">weixinApiToken<font color="#FF0000">*</font>：
+      </td>
+      <td width="76%"  class="category"> <input name="weixinapitoken" id="weixinapitoken"  type="text"  value="{$weixinapitoken}" size=50> 任意32位以内字符,保持和开放平台内填写一致</td>
+    </tr>
+	-->
+
+	<!--<tr > 
+      <td height="25"  style="font-weight:normal;">weixinAESKey<font color="#FF0000">*</font>：
+      </td>
+      <td width="76%"  class="category"> <input name="weixinaeskey" id="weixinaeskey"  type="text"  value="{$weixinaeskey}" size=50> EncodingAESKey(消息加解密密钥)申请时保持一致</td>
+    </tr>-->
+	<tr><td colspan="2" height="5"></td></tr>
+    	 <tr > 
+      <td height="25">是否启用微博、微信<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="weiboiskill" value="0"  {$weiboiskill0}/>否 <input type="radio" name="weiboiskill" value="1"  {$weiboiskill1}/>是
+
+	  </td>
+    </tr>
+      <tr > 
+      <td height="25" style="font-weight:normal;" >微博完整地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="weibourl" id="weibourl"  type="text"  value="{$weibourl}" size=150></td>
+    </tr>
+	<tr><td colspan="2" height="5"></td></tr>
+      <tr > 
+      <td height="25" >网站官方微信公众号<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="weixinuser" id="weixinuser"  type="text"  value="{$weixinuser}" size=50></td>
+    </tr>
+      <tr > 
+      <td height="25"  style="font-weight:normal;">网站官方微信公众号二维码图片<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"><input type="text" value="{$weixinimg}"  size=70  id="url1"  name="url1" onfocus="this.style.imeMode='disabled'">
+      	<br>
+      	 <iframe name="ifm_upload" frameborder=0 height=50 width="100%" scrolling=no src="Upload.aspx?action=adv&type=1"> </iframe></td>
+    </tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

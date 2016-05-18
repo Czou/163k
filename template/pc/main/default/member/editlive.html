@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改信息--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script>
+function checkform(o){
+	if(o.title.value==""){
+		alert("对不起,请输入网址标题!");
+		o.title.focus();
+		return false;
+	}
+	if(o.classid.value==""){
+		alert("对不起,请选择所属类别!");
+		o.classid.focus();
+		return false;
+	}
+	if(o.url.value==""){
+		alert("对不起,请输入网址!");
+		o.url.focus();
+		return false;
+	}
+}
+</script>
+<script src="{$Default_tplPath}js/CJL.0.1.min.js"></script>
+<script src="{$Default_tplPath}js/ImagePreview.js"></script>
+<script>
+var youke="{$liveyouke}";
+var imgsrc="{$Default_tplPath}images/fabu_nopic.gif";
+var loadingsrc="{$Default_tplPath}images/upload_120x120.gif";
+</script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<Style>
+.my_prop_img{ font-size:12px; width:100%; margin:0; padding:0}
+.my_prop_imgitem{float:left; display:inline;margin-right:15px;margin-top:10px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .imgview { width:80px; height:80px;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:0 0; text-align:center; text-decoration:none;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:100px; width:auto; padding:0px 5px;}
+.my_prop_imgitem .global_btn,.my_prop_imgitem .global_btn_blue { margin-top:8px;}
+</style>
+{$top$}
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改信息</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main2">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">修改信息</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  以下内容，打 * 为必填项 <br />
+                </td>
+              </tr>
+            </table>
+            
+            <form name="form1" method="post" action="?action=editSave" onSubmit="return checkaddlive(this)" enctype="multipart/form-data">
+              <table border="0" cellpadding="1" cellspacing="1" class="table"  width="100%">
+                <tr >
+                  <td class="tditem" height="25">信息标题<font color="#FF0000">*</font>： </td>
+                  <td   class="tdcontent"  colspan="3"><input name="chrtitle" id="chrtitle" type="text" size="50" value="{$chrtitle}" class="text"></td>
+                </tr>
+				<tr >
+                  <td class="tditem" height="25">是否极速发布： </td>
+                  <td   class="tdcontent"  colspan="3"><input type="radio" name="fastfabu" {$fastfabu1} value="1"  />是　<input type="radio" name="fastfabu" {$fastfabu0} value="0" />否</td>
+                </tr>
+                {$livemoney}
+                <tr >
+                  <td class="tditem"  height="25" width=13%>选择地区<font color="#FF0000">*</font>： </td>
+                  <td class="tdcontent" width=40%> {$areaid} <select name="quyuid" id="qu_classid"><option value="" selected>选择地段</option></select></td>
+                  <td class="tditem" height="25">有效时间<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent"> <input type="text" name="youxiaodate" value="{$youxiaodate}" class="text Wdate" /></td>
+                </tr>
+                {$ss}
+				<tr >
+                  <td  class="tditem" height="25">内容描述<font color="#FF0000">*</font>： </td>
+                  <td class="tdcontent" colspan="3">
+				   <textarea cols="80" id="chrmark" name="chrmark" rows="10">{$chrmark}</textarea>
+             
+	<script>
+		window['logincookieStr'] = $.cookie('{$logincookieName}');
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrmark"]', {
+				uploadJson : '/kindeditor/upload_json.ashx?table_id=live&filewidth=900&' + window["logincookieStr"],
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+				 </td>
+                </tr>
+                <tr >
+                  <td  class="tditem" height="25">上传图片： </td>
+                  <td class="tdcontent" colspan="3">
+<div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;">
+		<input type="button" id="J_selectImage" value="批量上传" class="global_btn_blue_big" />
+		<div id="J_imageView" class="clearfix"></div>
+		<input name="filewidth" type="hidden" value="200" />
+		<input name="fileheight" type="hidden" value="150" />	
+		<input type=hidden name="url0"  id="url0" value="{$url0}">
+	</div>
+	  <div id="xiangce" class="clearfix">
+	  	<tag:Loop ListType="LISTLIVEFILE" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="live/Listphoto_tr.htm" />
+		</div>
+<script>
+var table_id = 'live_file';
+window["ueuploadcfg"]={"filewidth":"900","smallfilewidth1":"200","smallfileheight1":"150","id":"{$ID}"};
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id+'&'+jQuery.param(window["ueuploadcfg"]) + "&" + window["logincookieStr"],
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					showMyImage(urlList);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["smallurl"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return set_FM(this,\''+o[i]["url"]+'\');" class="set_FM">设为封面</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&liveid={$ID}\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&liveid={$ID}\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+function editMark(o,id){
+	var chrmark = jQuery(o).val();
+	var url = '/request.ashx?action=setpicmark&iskill=1&table_id='+table_id+'&id='+id+'&chrmark='+encodeURIComponent(chrmark)+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			//alert('图片注释编辑成功！');
+		}else{
+			alert(data);
+		}
+	}});
+}
+</script>
+				 
+				  </td>
+                </tr>
+                <tr >
+                  <td  class="tditem" height="25">联系人<font color="#FF0000">*</font>： </td>
+                  <td class="tdcontent" ><input type="text" name="chrname" id="chrname" value="{$chrname}" class="text"></td>
+                  <td class="tditem"  height="25">联系电话： </td>
+                  <td class="tdcontent" ><input type="text" name="chrtel" id="chrtel" value="{$chrtel}" class="text"></td>
+                </tr>
+                <tr >
+                  <td  class="tditem" height="25">联系手机： </td>
+                  <td class="tdcontent" ><input type="text" name="chrmobile" id="chrmobile" value="{$chrmobile}" class="text"></td>
+                  <td  class="tditem" height="25">联系QQ： </td>
+                  <td class="tdcontent" ><input type="text" name="chrqq" id="chrqq" value="{$chrqq}" class="text"></td>
+                </tr>
+				
+				 
+              </table>
+			 <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">{$custom_form}
+				 <tr >
+                  <td  class="tditem" height="25">&nbsp; </td>
+                  <td class="tdcontent" ><input type="hidden" name="gotourl" value="{$gotourl}">
+                <input type="hidden" name="id" id="id" value="{$ID}">
+                <input type="submit" name="Submit" class="global_btn_blue_big" value=" 确认无误，提交 " id="Submit" /></td>
+                  
+                </tr>
+			 </table>
+              
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub2">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/jquery.colorpicker.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	$('#areaid').change(function(){
+		showloupancategory($(this).val());
+	});
+	showloupancategory($('#areaid').val(),'{$quyuid}');
+});
+function set_newimage(mapdomid){
+	if(!mapdomid || typeof 'undefined' === mapdomid){
+		mapdomid='maparea';
+	}
+	var city="";
+	try{
+		city= document.getElementById('city').value;
+	}
+	catch(err)
+	{}
+	
+	var shop_x='';
+	if(document.getElementById('shop_x')){
+		shop_x = document.getElementById('shop_x').value;
+	}
+	var shop_y='';
+	if(document.getElementById('shop_y')){
+		shop_y = document.getElementById('shop_y').value;
+	}
+	var shop_z='';
+	if(document.getElementById('shop_z')){
+		shop_z = document.getElementById('shop_z').value;
+	}
+	var chraddress = '';
+	if(document.getElementById('chraddress')){
+		chraddress = document.getElementById('chraddress').value;
+	}
+	var sysset = '';
+	if(document.getElementById('sysset')){
+		sysset=document.getElementById('sysset').value;
+	}
+	var ggmap = 0;
+	if(document.getElementById('ggmap')){
+		ggmap=document.getElementById('ggmap').value;
+	}
+ 	var url='../ezmarker/index.aspx?mapdomid='+mapdomid+'&city='+encodeURIComponent(city)+'&chraddress='+encodeURIComponent(chraddress)+'&x='+shop_x+'&y='+shop_y+'&z='+shop_z+'&ggmap='+ggmap+'&sysset='+sysset;
+	window.open(url,'newindow','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=yes');
+}
+</script>
+
+<script>
+//设为封面
+function set_FM(o,imgURL){
+	$('#url0').val(imgURL);
+	$('#xiangce').find('.set_FM').html('设为封面');
+	$(o).html('已设封面');
+	return false;	
+}
+//图片排序
+function delfile(o,sid){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = '/request.ashx?action=delpic&id='+sid+'&liveid={$ID}&table_id='+table_id;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid ;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

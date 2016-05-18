@@ -1,0 +1,131 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$Default_tplPath}skin/tieba.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.right { float:right;}
+.display21,.display30,.display231,.display330 { display:none;}
+.replay_tips .list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px; color:#666;}
+.replay_tips .list2 { text-align:center; padding:12px 0;}
+.replay_tips .sp_a,.replay_tips .sp_b { float:left;}
+.replay_tips .sp_a { width:100px; text-align:right;}
+.replay_tips .sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.replay_tips .name { font-weight:bold; color:#36c;}
+.replay_tips .t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px; width:80px;}
+.replay_tips .t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+.piclist .feed_highlight { display:none;}
+.piclist img { vertical-align:top; margin:6px 6px 0 0; width:130px; height:90px;} 
+.n_img { margin-top:6px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">贴吧管理</td>
+          <td width="40%" align="right"><a href="admin_tieba.aspx?action=revert" class="global_btn_blue">管理全部回复</a></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="" style="padding:10px; background-color:#fff;"> <!--startprint-->
+    <form onSubmit="return checkSearch(this);">按状态：<select id="f_iskill"><option value="0">待审优先</option><option value="-1">全部</option><option value="1">正常</option></select>　按版块及主题：{$categorySelect}　按关键字搜索：<select id="sel_d" class="s_select"><option value="0">帖子标题</option><option value="1">发帖人昵称</option></select> <input class="s_ipt" type="text" id="keyword" value="" /> <button type="submit" class="global_btn">搜索</button>　<input type="checkbox" class="s_checkbox" id="sel_h" />精华帖　<input type="checkbox" id="sel_i" class="s_checkbox" />有图</form>
+   <form name="form" method="post" action="?" id="form">
+   <div id="pagingList">
+	<Paging:{
+	"table_id":"250",	
+	"pagesize":20,		
+	"strlen":220,	
+	"titlelen":60,
+	"tplpath":"tieba",	
+	"tplname":"paging_tieba_admin_index_list.html",	
+	"isjson":0 	
+	}
+	/>
+	<!--
+	{
+	"table_id":"分页编号"数字参数引号可省略,	
+	"pagesize":每页条数,		
+	"strlen":如果截取内容:字数,	
+	"titlelen":标题字数,
+	"tplpath":"模板地址:注意新分页全部调用data下模板以实现页面和ajax可以使用同模板同参数",	
+	"tplname":"模板完整名称",	
+	"isjson":0 	1时返回json对象
+	}-->
+	</div>
+<div style="margin-top:10px;"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)"> 全选 <a href="javascript:void(0);" onclick="$.managerTBall('1')" class="global_btn_blue">通过审核</a> <a href="javascript:void(0);" onclick="$.managerTBall('0')" class="global_btn_blue">取消审核</a> <a href="javascript:void(0);" onclick="$.managerTBall();" class="global_btn">删除</a></div>
+<div class="pageNavigation" id="pageNavigation">
+	{$PageSplit}
+</div>
+</form>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<div class="media_box" id="media_box">
+	<div class="p_tools">
+		<a class="p_putup" href="#">收起</a><span class="line">|</span><a class="tb_icon_ypic" href="" target="_blank">查看大图</a><span class="line">|</span><a class="tb_icon_turnleft" href="#">向左转</a><span class="line">|</span><a class="tb_icon_turnright" href="#">向右转</a>
+	</div>
+	<div class="media_bigpic_wrap"><img class="j_large_pic" cur="0" src="about:blank" /></div>
+	<div class="bigpic_display_pre bigpic_turn"></div>
+	<div class="bigpic_display_next bigpic_turn"></div>
+</div>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script src="{$Default_tplPath}js/commonPaging.js"></script>
+<script src="{$Default_tplPath}js/tieba.js?{$CacheHash}"></script>
+<script>
+window['islazyImg'] = true; //是否开启了延迟加载图片
+var nowdomain ="{$SiteUrl}";
+window['Default_tplPath'] = '{$Default_tplPath}';
+var keyvalues = {"table_id":"250",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_tieba_admin_index_list.html",
+	"strlen":"220",	
+	"titleLen":"60",
+	"isjson":"0",
+	"p":"1",
+	"_key":"",
+	"a":"",//板块
+	"b":"",//小类
+	"e":"",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"g":"",//只查看某用户贴(userid)
+	"h":"",//只看精华
+	"i":""//有图
+};
+(function($){
+	setTimeout(function(){lazyImg('#pagingList .n_img',false);},50);
+	$(window).bind("scroll",function(){
+		lazyImg('#pagingList .n_img',false);
+	});
+	$('.n_img').myAlbum();
+	$('#bigcategoryid').change(function(){categoryData_set("1","bigcategoryid",0,"categoryid",'');});
+	$('#f_iskill').change(function(){
+		getPagingGlobal({'f':$(this).val(),'p':'1'});
+	});
+	$('#bigcategoryid').change(function(){
+		getPagingGlobal({'a':$(this).val(),'b':'0','p':'1'});
+	});
+	$('#categoryid').change(function(){
+		getPagingGlobal({'a':$('#bigcategoryid').val(),'b':$(this).val(),'p':'1'});
+	});
+	$('#sel_h').click(function(){
+		var val = $(this).prop('checked')?'1':'0';
+		getPagingGlobal({'h':val,'p':'1'});
+	});
+	$('#sel_i').click(function(){
+		var val = $(this).prop('checked')?'1':'0';
+		getPagingGlobal({'i':val,'p':'1'});
+	});
+})(jQuery);
+function checkSearch(){
+	getPagingGlobal({'p':'1','_key':$('#keyword').val(),'d':$('#sel_d').val()});
+	return false;
+}
+</script>

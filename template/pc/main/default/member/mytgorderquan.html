@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦券管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$Default_tplPath}js/common.js"></script>
+
+
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+
+
+
+<style>
+#showtgid select{ width:180px;}
+</style>
+
+
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 省啦券管理</div> 
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">省啦券管理</div>
+            <!--<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>系统公告：消费券兑换请登陆 <a href="http://d.0938.cn/"  target="_blank">http://d.0938.cn（电脑，手机，平板均可登陆操作兑换）</a><br>
+                  </span>&nbsp;* 营业员凭分配用户名和密码登陆，可自行修改密码<br>
+                  &nbsp;* 商家凭管理平台用户名和密码登陆，密码修改请到管理平台操作</td>
+              </tr>
+            </table>-->
+            <span ><form name="search" method="GET" action="/plug_in/userxfq.aspx"  target="_blank">
+            <div class="ptag">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                
+                <td style="width:100px" class="{$style0$}">{$url0$}</td>
+                  <td class="card_line"></td>
+                  <td style="width:100px" class="{$style1$}">{$url1$}</td>
+                  <td class="card_line"></td>
+				          <td style="width:100px" class="{$style2$}">{$url2$}</td>
+                <td class="card_line"></td>
+                  
+                
+                <input type="hidden" name="action" value="dao" >
+                <input type="hidden" name="tgid" value="0" id="tgid" >
+                <td></td>
+                  </tr>
+                
+              </table>
+            </div>
+            <div style=" margin-top:10px;margin-bottom:10px;PADDING-bottom:10px;BORDER: #D8D8D8 1px solid;">
+              <div style="margin-top:10px; ">&nbsp;&nbsp;财务报表导出：<span id="showtgid" ></span></div>
+              <div style="margin-top:10px;">&nbsp;&nbsp;选择兑换日期：
+                <input type="text" name="ondate" id="ondate" class="Wdate"  size="15" value="" />
+                &nbsp;&nbsp;到&nbsp;&nbsp;
+                <input type="text" name="offdate" id="offdate"  size="15" class="Wdate"  value="" />
+                时间内已消费xsl报表(分隔符Tab)&nbsp;
+                <input type="submit" name="submit"  value="导出" />
+              </div>
+            </div></form>
+            </span>
+            
+            <table id="ProOrderList" width="100%">
+              <tr>
+                <td><table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+                    <tr class="tabletitle">
+                      <td width="74"><b>订单号</b></td>
+                      <td width="183"><b>省啦项目标题</b></td>
+                      <td width="118"><b>状态</b></td>
+                      <td width="75"><b>操作</b></td>
+                    </tr>
+                    <tag:Loop ListType="LISTMYQUAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_mytgorderquan_Tr.htm" />
+                  </table>
+                  <div class="manu clearfix" style="text-align:center;"> {$PageSplit} </div></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col_sub"> 
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 --> 
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 --> 
+  {$bottom$} </div>
+ <script type='text/javascript' src=/plug_in/userxfq.aspx?action=xfqzt></script>
+  
+  
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+</body>
+</html>

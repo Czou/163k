@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}--会员登陆</title>
+<link href="{$Default_tplPath}skin/site_login.css" type="text/css" rel="stylesheet" />
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/common.js"></SCRIPT>
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/member.js"></SCRIPT>
+<script type="text/javascript" src="{$Default_tplPath}js/java.js"></script>
+<script>var nowdomain="{$SiteUrl}";</script>
+{$top$}
+
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 会员登录</div>
+	<div id="content" class="site_reg">
+		<div class="reg_ndoe login_ndoe">
+			<div class="hd">
+				<ul class="clearfix">
+					<li class="select"><a href="login.html">登录</a></li>
+					<li><a href="register.html?from={$from}">注册</a></li>
+				</ul>
+			</div>
+			<div class="bd">
+				<form id="formRegStep1Main" name="formRegStep1Main" method="post" onSubmit="return checkinput(this);">
+				<ul class="form_node">
+					<li><span class="a">登录名：</span><span class="b"><input type="text" class="ipt" id="logname" name="logname" onBlur="if(this.value==''){this.value='昵称/邮箱地址/手机号码';this.style.color='#aaa'}" onFocus="if(this.value=='昵称/邮箱地址/手机号码'){this.value='';this.style.color='#666'}" value="昵称/邮箱地址/手机号码" style="color: #aaa;" /></span></li>
+					<li><span class="a">密码：</span><span class="b posi"><input type="password" class="ipt" name="originalLogpasswd" id="originalLogpasswd" /></span><span class="c" id="pwd_tip">&nbsp;</span></li>
+					<li class="ai"><span class="a">&nbsp;</span><span class="b"><input type="checkbox" id="remember_password" name="remember_password" value="true" />自动登录</span></li>
+
+					<li><span class="a">&nbsp;</span><span class="d"><button type="submit" name="dologin" onClick="return checkinput();" class="submit2">立即登录</button></span><span class="e"><a href="../find.aspx">忘记密码</a></span></li>
+					<li style="display:{$qqnone}"><span class="a">&nbsp;</span><span class="c">您也可以用合作网站账号登录地方门户网：<p><a href="{$SiteUrl}member/qq.aspx?from={$from}"><img src="{$Default_tplPath}images/qqLogin.gif" alt="" /></a>　<a href="{$SiteUrl}member/qq.aspx?action=weixin&from={$from}" class="display{$isweixinlogin}"><img src="{$Default_tplPath}images/weixinlogin.gif" align="absmiddle"/></a></p></span>
+					</li>
+				</ul>
+				</form>
+				<div class="float_bg"></div>
+				<span class="rc rc-tp-l"></span><span class="rc rc-tp-r"></span><span class="rc rc-bt-l"></span><span class="rc rc-bt-r"></span>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	
+});
+</script>
+</body>
+</html>

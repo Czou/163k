@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<style>
+/*分页2*/
+a{
+	color:#36c;
+	text-decoration:none;
+}
+a:hover{
+	color:#d00;
+}
+.pageNavigation { text-align:center; padding:25px 0;}
+.pageNavigation a,.pageNavigation span { background-color:#fff; display:inline-block; *display:inline; *zoom:1; vertical-align:middle; margin:0 0 0 -5px; padding:8px 13px; border:1px solid #ccc; color:#585858; font-size:14px; font-weight:bold;}.pageNavigation a:hover { color:#d00;}
+.pageNavigation .cur,.pageNavigation .current { background-color:#f60; color:#fff; cursor:default;}.pageNavigation .cur:hover { color:#fff; text-decoration:none;}
+.pageNavigation .next,.pageNavigation .prev { background:#fff url(../images/sp2013.gif) no-repeat 0 0;}
+.pageNavigation .next { background-position:-795px -92px; padding-right:20px;}
+.pageNavigation .prev { background-position:-843px -122px; padding-left:20px;}
+.pageNavigation .kill { color:#ddd; border:1px solid #eee;}
+.pageNavigation .kill:hover { color:#ddd; text-decoration:none; cursor:default;}
+.pageNavigation .cur:hover,.pageNavigation .current:hover { color:#fff; text-decoration:none;}
+
+.otherLive { font-size:14px;}
+.otherLive .hd { background-color:#f78115; font-size:14px; color:#fff; padding:8px 10px; border-radius:5px 5px 0 0; font-weight:bold;}
+.otherLive .hd strong { font-weight:bold;}
+.otherLive .bd { padding:15px; background-color:#fff; border-radius:0 0 5px 5px;}
+.otherLive .bd li { position:relative; z-index:1; *zoom:1; padding:8px 40px 8px 8px; border-bottom:1px solid #f1f1f1;}
+.otherLive .bd li .date { display:block; position:absolute; right:8px; top:10px; color:#aaa; font-size:12px;}
+
+
+
+.hideotherlive {cursor:pointer; width:20px; height:20px; position:absolute; top:6px; right:0; display:block; margin:3px 10px 0 0; text-indent:-9999px; overflow:hidden; background:url({$Default_tplPath}images/pc_icons_11.png) no-repeat -188px -1527px;}
+
+</style>
+<div class="otherLive">
+	<div class="hd clearfix" data-num="{$num}">该号码出现过的信息</div>
+	<div class="bd">
+		<ul>
+			<tag:Loop ListType="listotherlive" RecType="New" PageSize="10" ColorSplit="1" TitleLen="100" RecColumn="5" CusTpl="1" Template="list_otherlive.html" />
+		</ul>
+		<div class="pageNavigation">{$PageSplit}</div>
+	</div>
+</div>
+<span class="hideotherlive" onclick="parent.hideotherlive();">关闭</span>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦订单-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<style type="text/css">
+body { background-color:#eee;}
+.order_details_title { border-bottom:1px solid #ddd; padding:10px 0; text-align:center; font-weight:bold; font-size:20px;}
+.a_nmq_module { padding:10px; color:#999; font-size:14px;}
+.a_nmq_module #titlestr { color:#333; font-size:18px;}
+.a_nmq_list { padding:10px; text-align:center; font-size:18px; color:#060; font-weight:bold; background-color:#f9f9f9; border-bottom:1px solid #eee; border-top:1px solid #eee;}
+.a_submit { padding:15px; text-align:center;}
+.notes { padding:10px; border-bottom:1px solid #eee; border-top:1px solid #eee; color:#999; font-size:12px;}
+.notes .notessm { padding:5px 10px; color:#333; font-size:14px;}
+.a_refund_list { padding:10px; color:#999; font-size:14px;}
+.a_refund_list .a_refund_money { font-weight:bold; color:#f60; font-size:18px;}
+.tkfs { padding:0 10px 10px; color:#999; font-size:14px;}
+.tkfs .a_refund_content { color:#333; font-size:16px;}
+</style>
+<script>
+window['ipageTitleTxt'] = '省啦订单';
+</script>
+{$top$}
+	<div class="content">
+		<div class="order_head po_re">全部订单<a href="javascript:history.go(-1);" class="po_ab return">返回</a></div>
+		<div class="order_list">
+			<ul id="tgorderList">
+				 <tag:Loop ListType="LISTMYTGORDER" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_tgorder_Tr.htm" />
+			</ul>
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+<div id="inner_iframe" style="display:none"></div>
+<div class="sq_tuankuan" id="sq_tuankuan" style="display:none">
+   
+ <div class="order_details_title clearfix">
+            <strong>申请退款</strong>
+        </div>
+
+            <div class="a_nmq_module">
+                省啦项目：<span id="titlestr"></span></div>
+                <div class="a_nmq_list">消费券：<span id="chrcodestr"></span>
+                     </div>
+            
+            <div class="a_refund_list">退款金额：
+
+                    <span class="a_refund_money" id="intmoneystr"></span>
+               </div>
+                <div class="tkfs">
+                    退款方式：
+
+                    <div class="a_refund_content a_refund_way">
+                        <label><span id="iskill19" style="display:none; font-weight:bolder"><input type="radio" name="iskill" id="iskill" checked="checked" onClick="javascript:show_val('iskills','19');" value=""> 退至{$daijinname}账户余额<span style="color:#999; margin-left:8px; font-size:12px;">（2个工作日内完成，无手续费） 账户余额可在下次购买商品时直接冲抵现金</span>
+                      </span>
+                        </label><br>
+                        <label>
+                          <span id="iskill9" style="display:none;"><input type="radio" name="iskill" id="iskill"  onclick="javascript:show_val('iskills','9');"  value=""> 原路退回<span style="color:#999; margin-left:8px; font-size:12px;">（2-5个工作日内完成，无手续费） 钱款将退回您的原支付账户</span></span>
+                          <span id="noiskill" style="display:none; font-weight:bolder; position:relative; bottom:8px;"> 对不起，本省啦项目不支持退款或已超过退款有效期！ </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="notes">
+                退款说明：
+                	<div class="notessm">
+                    <span>1.申请退款期限：消费券有效期截止后，七日内申请有效，过期作废。<br />
+                    2.购买省啦时使用了"{$daijinname}",退款只能退为{$daijinname}。<br />
+                    3.消费券有效期内，全额在线支付的消费券，可以申请原路返回，退回至您的付款账号。<br />
+                    4.消费券超过有效期，且省啦项目支持退款的消费券，退款只退为{$daijinname}。<br />
+                    5.不支持退款的省啦项目，无法申请退款。</span>
+                    </div>
+                </div>
+			
+            <div class="a_submit">
+            <input type="hidden" name="iskills" id="iskills" value="19" />
+            <input type="hidden" name="chrcodes" id="chrcodes" value="" />
+                <a href="javascript:tgtuikuan_select();hide('sq_tuankuan');hide('mask');" class="comn-submit">申请退款</a>　<a href="javascript:hide('sq_tuankuan');hide('mask');" class="comn-submit gray">取消</a> 
+            </div>
+    </div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script>
+/*var list = $('#tgorderList').find('.showall');
+list.click(function(e){
+	e.preventDefault();
+	showorder($(this).attr('href'));
+});*/
+$(function() {
+	$('.header .back').attr({'href':'index.html','onclick':''});
+});
+function showorder(val){
+	var heightV = 500;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var martop = Math.ceil(($(window).height()-heightV)/2 + $(document).scrollTop());
+	inner_iframe.css({'top':martop+'px'});
+	
+	mask.show();
+	inner_iframe.show();
+	var myiframe = '<iframe src="'+val+'" scrolling="auto" frameBorder="0" width="100%" height="'+heightV+'px"></iframe>';
+	inner_iframe[0].innerHTML=myiframe;	
+}
+$('#mask').click(function(){LoginHide()});
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#sq_tuankuan').hide();
+	$('#mask').hide();
+}
+//重发短信
+function sendquan(aa){
+	var url="../request.aspx?action=sendquan&orderid="+aa ;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	$.ajax({
+		url: url,
+		success: function(msg){
+			if(msg=="1"){
+				alert("恭喜您,短信发送成功!");
+			}else{
+				alert(msg);	
+			}
+		}
+	});
+	return false;
+}
+//退款
+var daijinname = "{$daijinname}";
+function tgtuikuan_get(chrcode,iskill,title,intmoney){
+	if(iskill== 9 || iskill== 19 || iskill== -1 ){
+		
+		var mask = $('#mask');
+		mask.css({'height':$(document).height()+'px'});
+		var inner_iframe = $('#sq_tuankuan');
+		//var heightV = inner_iframe.height();
+		//var martop = Math.ceil(($(window).height()-heightV)/2 + $(document).scrollTop());
+		inner_iframe.css({'position':'absolute','top':'45px'});
+		
+		mask.show();
+		inner_iframe.show();
+		show("sq_tuankuan");
+		show("titlestr",title);
+		echo("intmoneystr",intmoney);
+		echo("chrcodestr",chrcode);
+		if(iskill==9){
+			show("iskill19");hide("noiskill");show("iskill9");
+		}else if(iskill==19){
+			hide("iskill9");hide("noiskill");show("iskill19");
+		}else if(iskill== -1){
+			hide("iskill9");hide("iskill19");show("noiskill");
+		}
+		show_val("chrcodes",chrcode);
+	}else{
+		tgtuikuan(chrcode,iskill);
+	}
+}
+function echo(obj,html){
+	$("#" + obj).innerHTML=html;
+	document.getElementById(obj).innerHTML=html;
+}
+function show(_showobj ,_showt){
+	document.getElementById(_showobj).style.dispaly="";
+	$("#" + _showobj).show();
+	if( _showt != "" && _showt != null ){
+		document.getElementById(_showobj).innerHTML=_showt;$("#" + _showobj).innerHTML=_showt;
+	}
+}
+function show_val(_showobj ,_showt){
+	$("#" + _showobj).value=_showt;
+	document.getElementById(_showobj).value=_showt;
+}
+function hide(_showobj){
+	if( _showobj != "" && _showobj != null ){
+		document.getElementById(_showobj).style.dispaly="none";
+		$("#" + _showobj).hide();
+	}
+}
+function tgtuikuan_select(){
+	var iskill = document.getElementById("iskills").value;
+	var chrcode = document.getElementById("chrcodes").value;
+	tgtuikuan(chrcode,iskill);
+}
+	
+function tgtuikuan(chrcode,xiaokill){ 
+	var url="mytgorder.aspx?action=tuikuan&chrcode=" + chrcode + "&xiaokill=" + xiaokill;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	$.ajax({
+		url: url,
+		success: function(msg){
+			if(msg == "ok"){
+				if(xiaokill=="9"){
+					document.getElementById("cid" + chrcode).innerHTML="<a href='javascript:void(0);' onclick=\"tgtuikuan('" + chrcode + "',0,'');\"><font color='red'>退款中!,取消退款申请？</font></a>";
+					alert("退款申请成功." + "\n" + "你的退款将在5个工作日内将你的退款返回到你的付款账户");
+				}else if(xiaokill=="0"){
+					document.getElementById("cid" + chrcode).innerHTML="正常!";
+			
+				}else if(xiaokill=="19"){
+					document.getElementById("cid" + chrcode).innerHTML="<a href='javascript:void(0);' onclick=\"tgtuikuan('" + chrcode + "',0,'');\"><font color='red'>退款中!,取消退款申请？</font></a>";
+					alert("退款申请成功." + "\n" + "由于你使用了[" + daijinname + "]账户抵扣购买，" + "\n" + "你的退款将在2个工作日内将你的退款返回到你的[" + daijinname + "]账户," + "\n" + "你可以使用[" + daijinname + "]账户中的余额继续购买。");
+			
+				}
+				return false;
+			}else{
+				alert(msg);
+				return false;
+			}
+		}
+	});
+}
+function changemystate(val,id){
+	if(confirm("您确认要更改状态吗？")){
+		var url="../request.aspx?action=changemytgorder&iskill="+val+"&id="+encodeURIComponent(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.ajax({
+			url: url,
+			success: function(msg){
+				window.location.href="mytgorder.aspx";
+			}
+		});
+	}
+}
+</script>
+</body>
+</html>

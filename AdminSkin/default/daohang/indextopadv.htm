@@ -1,0 +1,90 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>首页环绕广告</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form12" method="post" action="?action=save">
+		 <tr > 
+		  <td width="15%" height="25" >广告说明<font color="#FF0000">*</font>： 
+		  </td>
+		  <td width="76%"  class="category"> 本广告是以18个文字广告环绕一个中间图片广告组成，本广告默认只在首页模板五、六中展现
+		  </td>
+		</tr>
+		<tr > 
+		  <td width="15%" height="25" >是否启用<font color="#FF0000">*</font>： 
+		  </td>
+		  <td width="76%"  class="category"> <input type="radio" name="indextopadv" value="0" {$indextopadv0} />关闭 <input type="radio" name="indextopadv" value="1" {$indextopadv1}/>开通   （如果关闭，将在首页不显示本广告）</td>
+		</tr>
+		 
+		<tr  > 
+		   <td height="25"  align="right">
+		  </td>
+		  <td class="category" align="left">
+			<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+		</tr>
+	  </form>
+      </table>
+	  <div style="font-size:14px; background:#ffffff;"> <br><br> <br><br>
+	  <div style="width:98%;margin:0 auto; ">
+	<p style="font-size:14px;">直接点击内容即可进行编辑</p> <br>
+	<table align="center" cellpadding="4" width="100%" cellspacing="1" class="toptable grid" border="1" style="font-size:14px;">
+		<tr>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID1}">{$title1}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID2}">{$title2}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID3}">{$title3}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID4}">{$title4}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID5}">{$title5}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID6}">{$title6}</a></td>
+		</tr>
+		<tr>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID7}">{$title7}</a></td>
+			<td colspan="4" rowspan="3" class="category">
+			<p align="center"><a href="indextopadv.aspx?action=edit&id={$ID19}"><img src="{$title19}" width="607" height="64"></a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID15}">{$title15}</a></td>
+		</tr>
+		<tr>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID8}">{$title8}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID16}">{$title16}</a></td>
+		</tr>
+		<tr>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID9}">{$title9}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID17}">{$title17}</a></td>
+		</tr>
+		<tr>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID10}">{$title10}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID11}">{$title11}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID12}">{$title12}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID13}">{$title13}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID14}">{$title14}</a></td>
+			<td class="category"><a href="indextopadv.aspx?action=edit&id={$ID18}">{$title18}</a></td>
+		</tr>
+	</table><br><br> <br><br>
+	  </div> </div>
+	  {$edit}
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function clickcolor(object)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) object.value=aarr;
+}
+</script>
+</body></html>

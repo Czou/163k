@@ -1,0 +1,65 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function edit(o,num)
+{
+	if(o.value==""){
+		alert("对不起，请输入广告位个数！");
+		o.value=num;
+		o.focus();
+	}
+	if(parseInt(o.value)>10)
+	{
+		alert("对不起，广告位个数最多十个！");
+		o.value=num;
+		o.select();
+	}
+}
+
+function delAll(o)
+{
+	if ( confirm("确认要更新广告位数吗？"))
+        {
+            document.getElementById("form").submit()
+        }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;网站广告管理<!--(可以更新广告位个数，但不能超过10)--></td>
+	  <td align="right"><a href="?action=sheng" class="global_btn_blue">更新全部广告</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="?action=update" ID="form">
+				<tr  align=center>
+				<td width="29" class="category">ID</td>
+				<td class="category">名称</td>
+				<td width="160"class="category">排序</td>				
+				<td width="100"class="category">广告位数</td><!--<td width="160"class="category">更新</td>-->
+				<td width="160"class="category">操作</td>
+				<tag:Loop ListType="ListPBankuai" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="adv/ListPBankuai.htm" />
+				<!--<tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+				<strong><a href="javascript:delAll(this,'1');"><font color=red>批量更新广告位数？</font></a></strong></td></tr>-->
+				</form>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

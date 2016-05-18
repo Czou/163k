@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-小区点评-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_xq.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="xiaoqu_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">小区点评</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>现代简约建筑设计</p>
+  </div>
+  <div class="house_source mar_b20">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="xiaoqu_{$Loupan_loupanid}.html">小区详情</a></li>
+        <li><a href="xiaoquzhu_{$Loupan_loupanid}.html">出租房源</a></li>
+        <li><a href="xiaoqushou_{$Loupan_loupanid}.html">出售房源</a></li>
+        <li ><a href="xiaoqufang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li ><a href="xiaoqupic_{$Loupan_loupanid}.html">小区照片</a></li>
+        <li class="current"><a href="xiaoquping_{$Loupan_loupanid}.html">小区评价</a></li>
+	       <!-- <li><a href="{$yezhu}" target="_blank">业主论坛</a></li> -->
+      </ul>
+     </div>
+   </div>
+   <!--小区评价-->
+   <div class="user_comment">
+	<div class="bd comment">
+		<div id="showcomment"></div>
+	</div>
+  </div>
+</div>
+<!--回复内容-->
+<div class="write2014">
+    <input type="hidden" id="isrep" value="" />
+    <input type="hidden" id="istg" value="" />
+    <input type="hidden" id="parentid" value="" />
+    <form id="myform">
+		<input id="chrmarkForm" name="chrmark" type="hidden" />
+        <div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+        <div class="cmt_control clearfix">
+            <div class="left">
+                <div class="emot po_re">
+                    <a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+                </div>
+            </div>
+            <div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+            <div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+        </div>
+    </form>
+</div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$Loupan_loupanid}';
+window['STYLEID'] = '6';
+$(function() {
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+        $('#fc_home').removeClass('select');
+	$('#fc_xiaoqu').addClass('select');
+});
+</script>  
+</body>
+</html>

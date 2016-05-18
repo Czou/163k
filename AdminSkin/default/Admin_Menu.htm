@@ -1,0 +1,58 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="{$atplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<link href="{$atplPath}skin/admin2012_left.css" type="text/css" rel="stylesheet" />
+<!--[if IE 6]>
+<script src="{$atplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+<style type="text/css">
+body{
+	scrollbar-face-color: #376ea6;
+	scrollbar-highlight-color: #376ea6;
+	scrollbar-shadow-color: #4376ab;
+	scrollbar-3dlight-color: #376ea6;
+	scrollbar-arrow-color:  #FFFFFF;
+	scrollbar-track-color: #95bce5;
+	scrollbar-darkshadow-color: #316394;
+}
+</style>
+</head>
+
+<body>
+<div class="sub_nav" id="subNav">
+	<div class="btn"><a href="javascript:;" class="open_all">全部展开</a><a href="javascript:;" class="close_all">全部收缩</a></div>
+	<ul class="menu">
+	{$menu}
+		
+	</ul>
+	<span class="rc-tp-l"></span><span class="rc-tp-r"></span><span class="rc-bt-l"></span><span class="rc-bt-r"></span>
+</div>
+<script type="text/javascript" src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.fn.subNav = function(){
+		var self = $(this),list = self.find('.item'),list_p = list.find('.p'),openall = self.find('.open_all'),closeall = self.find('.close_all');
+		openall.click(function(event){
+			list.addClass('open');
+			event.preventDefault();
+		});
+		closeall.click(function(event){
+			list.removeClass('open');
+			event.preventDefault();
+		});
+		list_p.click(function(event){
+			$(this).parent().toggleClass('open');
+			event.preventDefault();
+		});
+	}
+	$('#subNav').subNav();
+});
+</script>
+</body>
+</html>

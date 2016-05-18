@@ -1,0 +1,228 @@
+﻿
+<link href="{$atplPath}css/tool.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$atplPath}js/tool.js"></script>
+
+
+<!--主体-->
+<div id="box">
+
+<div class="frame">
+<h6><a href="#">网站收录查询</a></h6>
+<div class="Content_1">
+<div id="form1" name="form1" class="form_1" >
+        <img src="{$atplPath}Images/tool/ico_Earth.gif" />
+        <input type="text" class="input_2" size="102" name="site_url" id="site_url" url="true" onkeydown="if(event.keyCode==13)startRequest()" value="{$SiteUrltt}" />
+        <input type="button" class="btn_1" value="查询" onclick="startRequest()" name="ajaxview" id="ajaxview" />
+        <div class="clear"></div>
+        <p>
+        <input name="check_Google" type="checkbox" id="check_Google" value="1" checked="checked" />
+        Google收录查询  
+        <input name="check_Baidu" type="checkbox" id="check_Baidu" value="1" checked="checked" />
+        Baidu收录查询
+        <input name="check_SOSO" type="checkbox" id="check_SOSO" value="1" checked="checked" />
+        SOSO收录查询
+        <input name="check_Yahoo" type="checkbox" id="check_Yahoo" value="1" checked="checked" />
+        Yahoo收录查询
+        <input name="check_Yodao" type="checkbox" id="check_Yodao" value="1" checked="checked" />
+        Yodao收录查询
+        <input name="check_SoGou" type="checkbox" id="check_SoGou" value="1" checked="checked" />
+        SoGou收录查询
+        </p>
+        </div>
+</div>
+</div>
+<div id = "results"></div>
+
+<div class="frame l">
+<h6><a href="?action=pr" >网站Pr查询</a></h6>
+<div class="Content_1">
+<form action="?action=pr" method="post" class="form_1" >
+<input name="domain" type="text" class="input_2" size="17" url="true"  value="{$SiteUrltt}" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame c">
+<h6><a href="?action=alexa" >Alexa排名查询</a></h6>
+<div class="Content_1">
+<form action="?action=alexa" method="post" class="form_1" >
+<input name="url" type="text" class="input_2" size="17" url="true"  value="{$SiteUrltt}" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame r">
+<h6><a href="?action=baidu" >百度收录查询</a></h6>
+<div class="Content_1">
+<form action="?action=baidu" method="post" name="f" class="form_1" >
+<input name="wd" type="text" class="input_2" id="wd" size="17" url="true"  value="{$SiteUrltt}" />
+<select name="long" style="display:none;">
+          <option selected=selected value=1>查询昨日收录情况</option>
+          <option value=7>查询最近1星期收录情况 </option>
+          <option value=30>查询最近1月收录情况</option>
+          <option value=360>查询最近1年收录情况</option>
+          <option value=0>查询总的（所有日期）收录情况</option>
+        </select>        
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+
+
+
+<div class="frame l">
+<h6><a href="?action=whois">域名whois</a></h6>
+<div class="Content_1">
+<form action="?action=whois" method="post" class="form_1" >
+<input name="domain" type="text" class="input_2" id="domain" size="17" url="true"  value="{$SiteUrltt}" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame c">
+<h6><a href="?action=zicha" >违法信息自查</a></h6>
+<div class="Content_1">
+<form action="?action=zicha" method="post" class="form_1">
+<input name="strdomain" type="text" class="input_2" id="strdomain" size="7" url="true"  value="{$SiteUrltt}" />
+        <select name="st" class="input_1">
+          <option value="baidu">百度</option>
+        </select>
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame r">
+<h6><a href="?action=google">Google收录查询</a></h6>
+<div class="Content_1">
+<form action="?action=google" method="post" class="form_1" name="f" >
+<input name="q" type="text" class="input_2" id="q" size="17" url="true"  value="{$SiteUrltt}" />
+<select name="t" style="display:none;">
+          <option selected=selected value=d>查询昨日收录情况</option>
+          <option value=w>查询最近1星期收录情况 </option>
+          <option value=m>查询最近1月收录情况</option>
+          <option value=all>查询总的（所有日期）收录情况</option>
+        </select>    
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+
+
+
+<div class="frame l">
+<h6>MSN聊天</h6>
+<div class="Content_1">
+<form method="post" class="form_1"  name="msnliao">
+<input name="qqhm" type="text" class="input_1" id="qqhm" size="25" />
+<input name="按钮" onclick="gomsnSite();" type="button" class="btn_2" value="开始会话" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame c">
+<h6><a href="?action=baidutop" >百度关键词排名</a></h6>
+<div class="Content_1">
+<form action="?action=baidutop" method="post" class="form_1"  id="form2" name="form2" onsubmit="return checkbaidutop(this);">
+<input name="site_url" type="text" id="site_url" class="input_2" size="8" url="true"   value="{$SiteUrltt}" />
+<input name="site_key" type="text" id="site_key"  class="input_1" size="5" value="关键词" onclick="if(this.value=='关键词'){this.value='';}" /> 
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame r">
+<h6><a href="?action=ip" >IP查询</a></h6>
+<div class="Content_1">
+<form action="?action=ip" method="post" name="ipform"  class="form_1" id="IpStr" onsubmit="return checkIP();">
+<input name="IpStr" type="text" class="input_1"  id="IpStr" size="25"   value="{$SiteUrltt}" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="frame l">
+<h6><a href="?action=mobi">手机归属地</a></h6>
+<div class="Content_1">
+<form action="?action=mobi" method="post" class="form_1"  action="mobileform" onsubmit="return checkMobile();">
+<input name="mobile" type="text" class="input_1" id="mobile" size="25" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame c">
+<h6><a href="?action=sfz" >身份证</a></h6>
+<div class="Content_1">
+<form action="?action=sfz" method="post" class="form_1"  name="sfzform" onsubmit="return checkID();" >
+<input name="sfz" type="text" class="input_1" id="sfz" size="25" />
+<input name="提交" type="submit" class="btn_2" value="开始查询" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+<div class="frame r">
+<h6>QQ强制聊天</h6>
+<div class="Content_1">
+<form method="post" class="form_1"  name="qqh">
+<input name="qqhm" type="text" class="input_1" id="qqhm" size="25" />
+<input name="按钮" onclick="goFtpSite();" type="button" class="btn_2" value="开始会话" />
+<div class="clear"></div>
+</form>
+</div>
+</div>
+
+
+
+<div class="clear"></div>
+
+
+
+<div class="frame">
+<h6>在线服务</h6>
+<div class="Content_1 service"><a title="万年历" href="tool.aspx">万年历</a> <a href="tool.aspx?action=ji">计算器</a> <a title="今天到期域名" href="tool.aspx?action=jin">今天到期域名</a><a title="昨天到期域名" href="tool.aspx?action=jin&tt=2">昨天到期域名</a> <a title="前天到期域名" href="tool.aspx?action=jin&tt=3">前天到期域名</a> <a title="明天拟删除域名" href="tool.aspx?action=jin&tt=4">明天拟删除域名</a> <a title="后天拟删除域名" href="tool.aspx?action=jin&tt=5">后天拟删除域名</a> </div>
+</div>
+
+
+
+
+
+
+</div>
+<!--主体结束-->
+
+
+
+

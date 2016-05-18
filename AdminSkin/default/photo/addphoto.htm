@@ -1,0 +1,141 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkaddphtoo(o){
+	if(o.photocategoryid.value==""){
+		alert("对不起,请选择图集分类! ");
+		o.photocategoryid.focus();
+		return false;
+	}
+	if(o.classid.value==""){
+		alert("对不起,请选择图集! ");
+		o.classid.focus();
+		return false;
+	}
+}
+</script>
+<style type="text/css">
+#J_imageView li { position:relative; *zoom:1; z-index:1; list-style:none; float:left; width:120px; height:151px; overflow:hidden; margin:8px; display:inline; vertical-align:top; padding:0; text-align:left;}
+#J_imageView img { vertical-align:top; display:block;}
+#J_imageView .i_img_alt { position:absolute; left:0; bottom:0; width:112px; border:1px solid #ccc; margin:5px 0 0 0; display:block;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">上传图片&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至图片列表" onClick="javscript:window.location.href='photo.aspx';;"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" ID="Form1" onsubmit="return checkaddphtoo(this);" enctype="multipart/form-data">
+    <tr > 
+      <td  height="25" width=15%>图集分类<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> {$classid}</td>
+    </tr>
+	 <tr > 
+      <td  height="25" >上传方式： 
+      </td>
+      <td class="category">  <input type="radio" name="typeid" value="2"  onclick="setclick2('2','styleid')" checked="checked" />从电脑上传（批量） <input type="radio" name="typeid" value="1"  onclick="setclick2('1','styleid')" />从网上导入<input type="hidden" name="styleid" id="styleid" value="2" /></td>
+    </tr>
+	<tr  > 
+      <td  height="25" >选择图片：<br />
+      </td> 
+      <td class="category" style="padding-left:4px;"> 
+	  <div id="upload_way_2">
+				<input type="button" id="J_selectImage" value="批量上传" />
+				<div id="J_imageView"></div>
+				<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+				<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+				<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+				<script>
+					var i_urlmark2 = {};
+					KindEditor.ready(function(K) {
+						var editor = K.editor({
+							uploadJson : '/kindeditor/upload_json.ashx',
+							afterBlur: function(){this.sync();},
+							fileManagerJson : '/kindeditor/file_manager_json.ashx',
+			
+							allowFileManager : true,width : '100%',height : '500px'
+						});
+						K('#J_selectImage').click(function() {
+							editor.loadPlugin('multiimage', function() {
+								editor.plugin.multiImageDialog({
+									clickFn : function(urlList) {
+										var div = document.getElementById('J_imageView'),i=0,i_html='';
+										div.innerHTML = '';
+										$("urlhidden").value="";
+										$("urlmark").value="";
+										i_urlmark2 = {};
+										K.each(urlList, function(i, data) {
+											
+											i_html += "<li><img src=\"" + data.url + "\" width=\"120\" height=\"120\" /><input type=\"text\" value=\"\" onblur=\"up_blur(this,"+i+",'urlmark',i_urlmark2)\" class=\"i_img_alt\" /></li>"
+											if( $("urlhidden").value=="" )
+											{
+												$("urlhidden").value=data.url;
+											}
+											else
+											{
+												$("urlhidden").value=$("urlhidden").value+","+data.url;
+											}
+											i++;
+										});
+										div.innerHTML = "<ul>"+i_html+"</ul>"
+										editor.hideDialog();
+									}
+								});
+							});
+						});
+					});
+				</script>
+			</div>
+			<div id="upload_way_0" style="display:none;">
+				<input type="file" name="file" style="width:320px;" /> 描述：<input type="text"  style="width:200px;" name="chrmark" /> 
+			</div>
+			<div id="upload_way_1" style="display:none;">
+				<p><img src="{$atplPath}images/add.jpg" style="cursor:pointer"  onclick="addphotorownews(1);"> </p>
+				<table width="100%"  border="0" cellpadding="2" cellspacing="1" id="SignFrame">
+				<tR id="SignItem1" valign="top" >
+				<td>
+				
+					<input type="text" name="url_1" style="width:320px;" onBlur="up_blur(this,0,'urlhidden',i_url)" value='' /> 描述：<input type="text"  style="width:200px;" onBlur="up_blur(this,0,'urlmark',i_urlmark)" />
+				</td></tR>
+				</table>
+			</div>
+			
+			
+		
+		<script>
+		var i_url= {};
+		var i_urlmark= {};
+		</script>
+	   <input type="hidden" name="urlhidden" id="urlhidden" value="" />
+	   <input type="hidden" name="urlmark" id="urlmark" value="" />
+	   <input type="hidden" name="total" id="total" value="1" />
+	  <input type="hidden" name="count" id="count" value="1" />
+	  </td>
+    </tr>
+	
+    <tr > <td></td>
+      <td height="25" class="category"><input type="hidden" name="gotourl" value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

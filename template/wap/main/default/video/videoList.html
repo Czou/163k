@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$lanmuname}--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+{$top$}
+	<div id="slide" class="clearfix" style="display:none;">
+		<div id="content">
+			{$Mh163k_wap_视频首页幻灯广告}
+		</div>
+		<ul id="indicator"><li class="active">1</li><li>2</li><li>3</li><li>4</li></ul>
+	</div>
+	<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+	<div class="star_nav" id="star_nav">
+		<ul class="clearfix" data-scrollable="x" style="width:600px;">
+			<li id="s_id_0"><s></s><a href="list.html">全部视频</a></li>
+			{$videolistcategory}
+		</ul>
+		<div class="more"><span></span></div>
+	</div>
+	<div class="job_search">
+		<div class="sbox clearfix">
+		<form action="list.html" method="get" >
+		<input type="text" name="keyword" id="keyword" placeholder="请输入关键字" value="{$keyword}" /><button type="submit">搜索</button>
+		</form>
+		</div> 
+	</div>
+	<div class="videoList" id="videoList" style="border-top:1px solid #f1f1f1;">
+		<!--<div class="hd">相关视频</div>-->
+		<div class="bd">
+			<ul class="clearfix">
+				<tag:Loop ListType="Listvideoqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="video/list_videolist.html" />
+			</ul>
+			<div class="pageNavigation">
+				{$PageSplit}
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		var txt = '';
+		$('#content').find('.cell').each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#indicator').html(txt);
+		var w_w = $(window).width();
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+		setTimeout(function(){$('#slide').show();},20);
+	}
+	setTimeout(function(){
+		$('#star_nav').find('.select')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.select').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['id'] === '' || !url_obj['id']){
+		$('#s_id_0').addClass('select');
+	}
+},false);
+var w_win = document.body.clientWidth;
+var li_win = (w_win-2)/2;
+var li_hei = li_win/8*5;
+$("#videoList").find(".img").css({"width":li_win+"px","height":li_hei+"px"});
+</script>
+</body>
+</html>

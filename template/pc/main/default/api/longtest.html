@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>测试推送信息接收js-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/winxin.css" type="text/css" rel="stylesheet" />
+<body onbeforeunload ="RunOnunload();">
+<div class="wrapper">
+	<div class="w_header clearfix">
+
+		<div class="right">
+			<p>应付金额：<span class="price">{$paymoney}</span>元</p>
+			<!--<a href="#{$orderid}" data-orderaction="{$orderaction}" style="color:#1e69fe;">订单详情</a>-->
+		</div>
+	</div>
+	<div class="w_content">
+		<div class="hd">测试推送信息接收js userid={$userid}</div>
+		<div class="bd clearfix">
+			<div class="left saomiao">
+				<div  id="message_show">等待信息</div>
+			</div>
+			<div class="right"><img src="{$Default_tplPath}images/phone-bg.png" alt="" /></div>
+		</div>
+	</div>
+</div>
+</body>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+var nowdomain="{$SiteUrl}";
+var message_pid="-1";
+var message_isstop = false;//页面是否丢失服务权
+var message_isforced = false;//是否被强制拉回服务权页面,被丢失时又强制拉回权时,完全停止弱探测
+function loadWEBmessage(){
+	var url = nowdomain+'api/request.ashx?action=user&pid=' +message_pid + '&jsoncallback=?';
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1')
+		{
+	    WebMessageShow(data);
+		}
+		 if(data[0].islogin === '1' || data[0].islogin === '0')
+		 {
+		 	
+		      if( message_pid != '-1' &&  message_pid != data[0].pid)
+		      {
+		  		$('#message_show').html('活动页面丢失,被重新找回连接权');
+		    	}
+  		     message_pid=data[0].pid;
+         	window.setTimeout(function(){loadWEBmessage()},5000);//高速探测:间隔时间短100-200毫秒,弱探测:间隔1-2分钟以上
+		 }
+		 else
+		 {
+				$('#message_show').html('信息获取被另一页面取代，本页面抓取信息进入弱探测');
+				
+				message_isstop = true;
+				if(message_isforced)
+				{
+					message_isforced=false;
+					
+				}else
+					{
+						if( message_pid === '-1' )message_pid='0';
+			    	window.setTimeout(function(){loadWEBmessage()},1*60000);////被取代后每2分钟尝试一次连接,检测活动页面是否丢失
+          }
+		}
+				
+				
+				
+	}).error(function(err){
+		//失败2分钟后尝试一次
+			window.setTimeout(function(){loadWEBmessage()},2*60000);
+	});
+	/* 
+	data[0].islogin:0无信息,1:有信息MSG,2:停止高速探测,改为弱探测区别是间隔时间.
+	*/
+}
+loadWEBmessage();
+function newloadWEBmessage()
+{
+	//当页面发生任何刷新或鼠标动作或任意操作时,表示前活动页面已经不是焦点页面,当前页面重新初始参数强行抓回信息获取权
+	//问题:如何防止本页面并行执行loadWEBmessage(),自动执行一次,强制执行一次.
+	if(message_isstop)
+	  {
+	  	message_isforced =true;
+    	message_pid="-1";
+	    loadWEBmessage();
+    }
+}
+	
+	//当前页面关闭时执行,将程序里当前链接关闭,无需返回任何数据
+function RunOnunload()
+{
+     var url = nowdomain+'api/request.ashx?action=close&pid=' +message_pid + '&jsoncallback=?';
+	   $.getJSON(url,function(data){});
+}
+function WebMessageShow(data)
+{
+		for(var i=0;i<data[0].MSG.length;i++){
+			$('#message_show').append('有信息:' + data[0].MSG[i].title);
+		}
+		//页面信息处理------------
+			
+		//页面信息处理结束
+	
+}
+function MessageShownone(id)
+{
+		//页面信息处理------------
+			$('#message_show_' + id).style.display("none");
+		//页面信息处理结束
+	
+}
+</script>
+</body>
+</html>
+

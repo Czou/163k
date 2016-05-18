@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrname}-{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<link href="{$Default_tplPath}skin/mt_h.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tp_style.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+function DrawImage(ImgD,iwidth,iheight){   
+    var image=new Image();   
+    image.src=ImgD.src;   
+    if(image.width>0 && image.height>0){   
+      if(image.width/image.height>= iwidth/iheight){   
+          if(image.width>iwidth){     
+              ImgD.width=iwidth;   
+              ImgD.height=(image.height*iwidth)/image.width;   
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }else{   
+          if(image.height>iheight){     
+              ImgD.height=iheight;   
+              ImgD.width=(image.width*iheight)/image.height;           
+          }else{   
+              ImgD.width=image.width;     
+              ImgD.height=image.height;   
+          }   
+      }   
+    }   
+} 
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}vote/">{$lanmuname}</a> &gt; <a href="vote_{$voteid}.html">{$chrtitle}</a> &gt; {$chrname}</div>
+	<div class="content tp">
+		<div class="grid_tp2 clearfix">
+			<div class="col_main"><div class="main_wrap"><img src="{$chrimage}" alt="" width="400" height="300" /></div></div>
+			<div class="col_sub">
+				<div class="tp_f_box">
+					<div class="th clearfix"><span class="s1">姓名：<span class="name">{$chrname}</span></span><span class="s2">编号：{$chrnumber}</span></div>
+					<div class="p clearfix"><span class="p1">年龄：<em>{$chrage}</em></span><span class="p1">身高：<em>{$shenggao}</em></span><span class="p1">体重：<em>{$tizhong}</em></span><span class="p1">来自：<em>{$laizhi}</em></span></div>
+					<div class="s">兴趣爱好：<em>{$aihao}</em></div>
+					<div class="a clearfix"><span class="a1">当前网络票数：<span class="orange" id="vote{$detailsid}">{$intnum}</span></span><span class="a1">人气：<span class="blue" id="views">{$views}</span></span><span class="a1">评论：<span class="green">{$revertnum}</span></span></div>
+					<div class="n clearfix">
+						<span class="n1"><a href="javascript:;" onClick="showvotedetails('{$voteid}','{$detailsid}');" class="tou">投我一票</a></span><span class="n1"><a href="#revert" class="ping">发表评论</a></span><span class="n1 txt"><a href="vote_{$voteid}.html">其他选手</a>　<a href="../member/myvote.aspx?action=add&id={$voteid}">我要报名</a></span>
+					</div>
+					<div class="share">
+							<div class="left" style="line-height:40px; margin-left:10px; display:inline;">转帖到：</div>
+							<div class="left">{$Mh163k_整站通用_分享代码}</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="tp_z_box">
+			<div class="hd"><h3 class="h3">参赛文选<span class="sp"></span></h3></div>
+			<div class="bd" id="votecontent">{$chrcontent}</div>
+		</div>
+        <script type="text/javascript" >
+		function ResizeImages()
+		{
+		   var myimg,oldwidth,oldheight;
+		   var maxwidth=920;
+		   var maxheight=700
+		   var imgs = document.getElementById('votecontent').getElementsByTagName('img');   
+		   
+		   for(i=0;i<imgs.length;i++){
+			 myimg = imgs[i];
+		
+			 if(myimg.width > myimg.height)
+			 {
+				 if(myimg.width > maxwidth)
+				 {
+					oldwidth = myimg.width;
+					myimg.height = myimg.height * (maxwidth/oldwidth);
+					myimg.width = maxwidth;
+					
+				 }
+			 }else{
+				 if(myimg.height > maxheight)
+				 {
+					oldheight = myimg.height;
+					myimg.width = myimg.width * (maxheight/oldheight);
+					myimg.height = maxheight;
+					
+				 }
+			 }
+		   }
+		}
+		ResizeImages();
+		</script>
+		<div class="tp_z_box">
+			<div class="hd"><h3 class="h3">风采展示<span class="sp"></span></h3></div>
+			<div class="bd">{$chrpics}</div>
+		</div>
+		<div class="tp_z_box tp_z_box_po"><a name="revert"></a>
+			<div class="hd clearfix"><p class="right"><em id="show_total_revert">0</em>条评论</p><h3 class="h3">网友评论<span class="sp"></span></h3></div>
+			<div class="bd">
+				<div class="cont_comment" id="showcomment" >正在加载数据，请稍等......</div>
+				<div class="cont_comment">
+					<div class="write2014">
+						<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+						<input type="hidden" id="isrep" value="" />
+						<input type="hidden" id="istg" value="" />
+						<input type="hidden" id="parentid" value="" />
+						<form id="myform">
+							<input id="chrmarkForm" name="chrmark" type="hidden" />
+							<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+							<div class="cmt_control clearfix">
+								<div class="left">
+									<div class="emot po_re">
+										<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+									</div>
+								</div>
+								<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+								<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div><div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$detailsid}';
+window['STYLEID'] = '10';
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	var url = nowdomain+'request.ashx?action=chrnum&key=xuanshou&id='+window['ACTIVEID']+'&jsoncallback=?';
+	$.getJSON(url,function(data){
+		var val1='',val2='';
+		if(data[0].islogin === '1'){
+			
+			for(var i in data[0].MSG[0]){
+				
+				val1 = data[0].MSG[0][i][0].intnum;
+				val2 = data[0].MSG[0][i][0].views;
+			}
+			
+			$('#vote'+window['ACTIVEID']).html(val1);
+			$('#views').html(val2);
+		}
+	});
+});
+</script>
+</body>
+</html>

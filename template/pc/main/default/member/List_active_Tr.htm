@@ -1,0 +1,8 @@
+﻿ <tr class="tditem" style="text-align:center;" onmouseover="this.className='table_over';" onmouseout="this.className='tditem';"> 
+	<td >{$activenum}</td>
+	<td style="text-align:left;">{$chrtitle}
+	<td><span style="color:#999999">{$Dtappenddate}</span></td>
+	<td>{$intnum}人已报<a href="myactive.aspx?id={$ID}&action=bao"><font color=red>查看</font></a></td><td>{$enddate}</td>
+	<td>{$iskill}</td>
+	<td align="center"><a href="myactive.aspx?action=editshop&ID={$ID}">相关商品</a> <a href="{$tuangouurl}huodong_{$activeid}.html" target=_blank>查看详情</a> <a href="myactive.aspx?action=editmy&ID={$ID}">{$bianji$}</a> <a href="javascript:delactive({$ID});">{$shanchu$}</a></td>
+</tr>

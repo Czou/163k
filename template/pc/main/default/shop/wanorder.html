@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>团购商品订单</title>
+<style type="text/css">
+<!--
+body {
+	padding: 0px;
+	margin-top: 1px;
+	margin-left: 1px;
+	font-family:"宋体";
+}
+#center {
+	width: 930px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border: 1px solid #bacce2;
+}
+.title {
+	background-image: url({$tplPath}images/tgxqbg.jpg);
+	background-repeat: repeat-x;
+	height: 51px;
+	font-size: 14px;
+	color: #101a5f;
+}
+.title a {
+	color: #1f0dd3;
+	text-decoration: underline;
+}
+.content {
+	padding-left: 70px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #e2eaf3;
+}
+.content_1 {
+	float: left;
+	width: 600px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.content_1 .hj {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.content_1 strong {
+	color: #0e1446;
+}
+.content_1 b {
+	color: #c83406;
+}
+.content_2 {
+	line-height: 24px;
+	float: right;
+	width: 170px;
+	padding-right: 15px;
+	font-size: 14px;
+	color: #a7a7aa;
+	margin-top: 20px;
+}
+.content_2 span {
+	color: #e91116;
+}
+.clear {
+	clear: both;
+}
+a:hover {
+	color: #FF0000;
+}
+.content_11 {	float: left;
+	width: 580px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.cont {
+	padding-left: 70px;
+	margin-bottom: 10px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #e2eaf3;
+}
+.cont_1 {
+	float: left;
+	width: 600px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.nr {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nr em {
+	font-style: normal;
+	color: #FF0000;
+}
+.nr b {
+	color: #c83406;
+}
+.input0 {
+	border: 1px solid #b9cde3;
+	height: 24px;
+	vertical-align: middle;
+	width: 150px;
+}
+textarea {
+	border: 1px solid #b9cde3;
+	height: 58px;
+	width: 396px;
+	vertical-align: middle;
+}
+.cont_2 {
+	line-height: 24px;
+	float: right;
+	width: 80px;
+	padding-right: 80px;
+	font-size: 14px;
+	color: #a7a7aa;
+	margin-top: 20px;
+}
+.cont_2 span {
+	color: #FFFFFF;
+	background-color: #ae2020;
+	padding: 2px;
+	width: 80px;
+	float: left;
+	margin-top: 2px;
+	margin-bottom: 1px;
+}
+-->
+</style>
+</head>
+<script>
+function goto(url){
+	parent.LoginHide();
+	parent.window.location.href=url;
+}
+</script>
+<SCRIPT language=javascript src="{$tplPath}js/common.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/addorder.js"></SCRIPT>
+<body>
+<div id="center">
+  <div class="title">
+    <div style="float:left;margin-left:20px;margin-top:10px;"><img src="{$tplPath}images/bz.jpg" width="33" height="34" align="absmiddle" />确认订单信息</div>
+    <div style="float:right;margin-right:20px;margin-top:20px;"><font color="#bc5864">有问题吗？</font><a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}"  target=_blank ><img src="{$tplPath}images/qq_onlineaa.gif" align="absmiddle" border=0/>{$siteqq1}</a><a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}" target=_blank ><img src="{$tplPath}images/qq_onlineaa.gif" align="absmiddle" border=0/>{$siteqq2}</a></div>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+  <div class="cont_1">
+      <div class="nr"><font color="#800000"><b>您的订单已经提交成功！</b></font><font color="#0033CC">订单编号是：<b><font color="#0033CC">{$chrorder}</font></b>&nbsp;&nbsp;<font style="font-size:12px">(修改或取消订单请到会员中心) </font></font></div>
+      <div class="nr" style="color:#000000;" ><span>接下来：</span> </div>
+      <div class="nr" style="color:#0033CC;">1、	立即联系客服交谈余下交易细节： <a href="{$siteqqkey1}" target="_blank"><img src="{$tplPath}images/qq_online.gif" align="absmiddle" border=0/>{$siteqq1}</a> <a href="{$siteqqkey2}" target="_blank"><img src="{$tplPath}images/qq_online.gif" align="absmiddle" border=0/>{$siteqq2}</a> 电话：{$sitetel} </div>
+      <div class="nr" style="color:#0033CC;">2、	等待客服主动联系您确认余下交易细节 </div>
+      <div class="nr" style="color:#0033CC;font-weight:bold;">3、	<a href="javascript:goto('{$SiteUrl}member/myorder.aspx');" ><font style="color:#0033CC;font-weight:bold;text-decoration: none;">直接在线付款</font></a> </div>
+    </div>
+    <div class="content_2"><span>1、选择交易方式</span><br />
+      <span>2、填写订单</span><br />
+      <span>3、联系与确认交易细节</span><br />
+      4、看货与交易<br />
+      5、售后服务</div>
+    <div class="clear"></div>
+  </div>
+  
+    
+  
+  <div style="float:right;margin-right:10px;"><img src="{$tplPath}images/close.gif" onclick="parent.LoginHide();" style="cursor:hand"/></div>
+  
+</body>
+</html>

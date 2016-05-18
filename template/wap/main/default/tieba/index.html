@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tieba-mb.css" rel="stylesheet" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-scroll5.css" />
+<style type="text/css">
+.foot_link { margin-top:0!important;}
+#pageNavigation { display:none;}
+#wrapper { top:169px}
+</style>
+<script>
+window['Bigcategory'] = '{$a}';
+</script>
+{$top$}
+
+<div class="p_main">
+<div class="posts">
+ <div id="hideHead">
+	 <div class="card_num">
+	  帖子：<span class="a">{$allnum}</span>   今日：<span class="b">{$Todaynum}</span>  昨日：<span class="c">{$Yesterdaynum}</span>
+	 </div>
+	 <div onClick="return showQD(this);" id="qiandao" class="sign_btn"><a href="javascript:void(0);">签到</a></div>
+	 <div class="blank10"></div>
+ </div>
+ <div class="filter2 tbindex_filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="bigCatTxt">全部版块</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="smallCatTxt">全部帖子</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="smallHuifuTxt">默认排序</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+		<ul><li id="s_a_0"><a href="/tieba_a0_b0_c0_d0_e0_f0_g0_h0_i0_p1.html" data-bazhu="0" onClick="return showCatA({'a':'0','b':'0'},'s_a_',this)">全部版块</a></li>{$Category_div}</ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul id="inner2">
+			<li id="s_h_0" class="cur"><a href="javascript:void(0);" data-catid="0" onClick="return showCatB({'h':'0'},'#smallCatTxt','s_h_',this);">全部帖子</a></li>
+            <li id="s_h_1"><a href="javascript:void(0);" data-catid="1" onClick="return showCatB({'h':'1'},'#smallCatTxt','s_h_',this);">只看精华</a></li>
+		</ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul>
+			<li id="s_e_0" class="cur"><a href="javascript:void(0);" data-catid="0" onClick="return showCatB({'e':'0'},'#smallHuifuTxt','s_e_',this);">最后回复</a></li>
+			<li id="s_e_1"><a href="javascript:void(0);" data-catid="1" onClick="return showCatB({'e':'1'},'#smallHuifuTxt','s_e_',this);">最新发贴</a></li>
+			<li id="s_e_3"><a href="javascript:void(0);" data-catid="3" onClick="return showCatB({'e':'3'},'#smallHuifuTxt','s_e_',this);">最多回复</a></li>
+			<li id="s_e_4"><a href="javascript:void(0);" data-catid="4" onClick="return showCatB({'e':'4'},'#smallHuifuTxt','s_e_',this);">最多浏览</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<input id="pagenum" type="hidden" value="1" />
+<div id="wrapper">
+	<div id="scroller">
+		<div id="pullDown" style="display:none;"><span class="loader" style="display:none;">loadding</span></div>
+		
+		<div class="post_list">
+			<ul id="pagingList"></ul>
+			<div id="pullUp" style="display:none;"><span class="loader">loadding</span></div>
+			<div class="pageNavigation" id="pageNavigation"></div>
+		</div>
+		<!--<div style="height:100px; background-color:#eee;"></div>-->
+	</div>
+	
+	<div id="reload" style="display:none;"><s class="s"></s><span class="txt">下拉可以刷新</span><br>最后更新：<span class="time">未知</span></div>
+	<span class="loader" id="pageLoader">loadding</span>
+</div>
+
+ 
+</div>
+
+{$bottom$}
+<div class="post_btn"><button type="button" id="seniorSend">发帖子</button></div>
+<!--推荐帖子-->
+<div class="reco_post" id="footLogin0" style="display:none;">
+ <ul>
+  <li><a href="{$SiteUrl}member/register.html?from={$tiebaurl}" class="reg">注册</a></li>
+  <li><a href="{$SiteUrl}member/login.html?from={$tiebaurl}" class="login">登录</a></li>
+ </ul>
+</div>
+<!--<div class="reco_post" style="display:none;" id="footLogin1"><div id="userInfo" class="foot_user_info"></div></div>-->
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll-probe.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_tieba.js?{$CacheHash}"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/getTiebaPage.js"></script>
+<script>
+window['isIscroll5'] = true; //列表是否启用iscroll5
+window['isIscroll5_hideHead']= true;
+window['islazyImg'] = true; //是否开启了延迟加载图片
+var nowdomain ="{$SiteUrl}";
+var keyvalues = {"table_id":"25",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_wap_tieba_index_list.html",
+	"strlen":"60",	
+	"titleLen":"30",
+	"isjson":"0",
+	"p":"{$PageNo}",
+	"_key":"{$_key}",
+	"a":"{$a}",//板块
+	"b":"{$b}",//小类
+	"e":"{$e}",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"g":"{$g}",//只查看某用户贴(userid)
+	"h":"{$h}",//只看精华
+	"i":"{$i}"//有图
+};
+function showCatA(obj,ids,node){
+	getPagingGlobal(obj,node,ids,'2');
+	$('#bigCatTxt').html($(node).html());
+	$('#fullbg').trigger('click');
+	window['Bigcategory'] = obj.a;
+	getUserState();
+	return false;
+}
+function showCatB(obj,sid,ids,node){
+	getPagingGlobal(obj,node,ids,'2');
+	$(sid).html($(node).html());
+	$('#fullbg').trigger('click');
+	return false;
+}
+document.addEventListener('DOMContentLoaded',function(){
+	$('.header .back').attr({'href':nowdomain,'onclick':''});
+	if('{$a}' !== '0'){
+		$('#s_a_{$a}').addClass('cur');
+		$('#bigCatTxt').html($('#s_a_{$a} a').html())
+	}else{
+		$('#s_a_0').addClass('cur');
+	}
+	getPagingGlobal();
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	$('#seniorSend').click(function(e){
+		e.preventDefault();
+		isfabukill()&&(window.location.href = '{$tiebaurl}addedit.aspx?bigcategoryid='+keyvalues['a']+'&categoryid='+keyvalues['b']);
+		
+	});
+	function isfabukill(){
+		if($('#isfabukill').val() === '0'){
+			MSGwindowShow('tieba','1','请登录后再发表新帖！',nowdomain+'member/login.html?from='+encodeURIComponent('{$tiebaurl}addedit.aspx?bigcategoryid='+keyvalues['a']+'&categoryid='+keyvalues['b']),'');
+			return false;
+		}
+		return true;
+	}
+	$('#pagingList').on('click','.n_img a',function(e){
+		e.preventDefault();
+		
+		window.location.href = $(this).parent().parent().parent().find('.link').attr('href');
+	});
+},false);
+window.onload = function(){
+	loaded_page();
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>职位管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li class="{$style3$}">{$url3$}</li>
+						<li class="{$style1$}">{$url1$}</li>
+						<li class="{$style0$}">{$url0$}</li>
+						<li class="{$style2$}">{$url2$}</li>
+					</ul>
+					<div class="right"><a href="myzhiwei.aspx?action=add" class="sys_btn_small_blue">发布职位</a></div>
+				</div>
+				<div class="sys_module">
+					<!--<div class="hd clearfix">
+						<div class="left title">职位管理</div>
+						<div class="right"><a href="myzhiwei.aspx?action=add" class="sys_btn_small_blue">发布职位</a></div>
+					</div>-->
+					<div class="bd">
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8"> 
+								<td>职位编号</td>
+								<td>职位名称</td>
+								<td>招聘人数</td>
+								<td>状态</td>
+								<td>发布时间</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="LISTZHIWEIMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/list_zhiwei_tr.html" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<DIV id=floatwin>
+	<DIV id=fw_title>
+	<div class="left"></div><div class="right" onClick="javascript:$('#floatwin').hide('fast');"><img src="{$Default_tplPath}images/closezhi.gif" /></div>
+	</DIV>
+	<DIV id=fw_body></DIV>
+	<iframe id='fw_hiddenifr' name='fw_hiddenifr' width='98%' height='260px' style="display:none" frameborder=0 marginwidth=0 marginheight=0 scrolling='No' src=''></iframe>
+	<div id=fw_button><input id="fw_submit" type=button value='确定' onClick="javascript:submit_fw()"><input id="fw_close" type=button value='取消' onClick="javascript:$('#floatwin').hide('fast');" ></div>
+	<div id=fw_load><img src="{$Default_tplPath}images/loader.gif" align="absmiddle"/> 正在操作中，请稍等...</div>
+</DIV>
+<script type="text/javascript" src="{$Default_tplPath}js/zhiqian.js"></script>
+<script>
+(function($){
+	if('{$isuseradd}' === '0'){
+		MSGwindowShow('shangjia','1','请先完善您的企业基本资料，再发布招聘信息!','{$SiteUrl}member/modify.aspx','');
+	}
+})(jQuery);
+function delmyzhiwei(id){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		location.href = "myzhiwei.aspx?action=del&ID=" + id;
+	}
+}
+var fw_ac,fw_id;
+function submit_fw() {
+	$("#fw_button").hide();	$("#fw_load").show();
+
+	$.ajax({ url: "../request.aspx", data: "action=addflushtime&tt="+fw_id, type: "GET", cache: false, dataType:"text",
+		success: function(data){ 
+			$("#floatwin").css({width:'300px',height:'200px'});
+			if (data=='1') {
+				data="&nbsp;&nbsp;恭喜您，本条信息刷新发布成功！";
+				$("#im_"+fw_id).html("<span class='green'>刷新成功</span>");
+			}
+			else{
+				$("#im_"+fw_id).html("<span class='green'>出错啦</span>");
+			}
+			$("#fw_hiddenifr").hide();$("#fw_body").html(data);
+			$("#fw_submit").hide();
+			$("#fw_close").val("关闭");
+			$("#fw_button").show();	$("#fw_load").hide();
+		} ,
+		error: function() {
+			$("#fw_body").html("程序出错，操作未能完成！");
+			$("#fw_submit").hide();
+			$("#fw_close").val("关闭");
+			$("#fw_button").show();	$("#fw_load").hide();
+		}
+	});
+}
+function set_fw(ac,id) {
+	fw_ac=ac;fw_id=id;
+	$("#fw_submit").show();$("#fw_hiddenifr").hide();
+	$("#fw_close").val("取消");
+	$("#floatwin").css({width:'500px',height:'200px'});
+	if (ac==1){
+		$("#fw_title div.left").html("刷新信息");
+		var val="<p>&nbsp;&nbsp;为了避免同一条职位重复发布，您可以使用“刷新发布”功能<Br>&nbsp;&nbsp;刷新发布后，您的该条信息将视同最新发布的信息<br>&nbsp;&nbsp;每刷新一次职位，需要扣除{$flushfen}{$jifenname}</p>";
+		$("#fw_body").html(val);
+		$("#floatwin").runfloatwin();
+	}
+}
+</script>
+</body>
+</html>

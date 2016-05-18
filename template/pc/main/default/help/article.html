@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$title}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/help2012.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="article.html">{$lanmuname}</a> &gt; {$title}</div>
+	<div id="content" class="help2012">
+		<div class="site_xinxi_head">
+			<ul class="clearfix">
+				{$details}
+			</ul>
+		</div>
+		<div class="help_body">
+			<h2>{$title}</h2>
+			<div class="bd">
+				<script>var IsOpenWap='{$IsOpenWap}',IsWap_Force_Url='{$IsWap_Force_Url}';</script>
+				{$content}
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至商品二级分类列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="CategoryC.aspx?action=AddSave" ID="Form1">
+    <tr> 
+      <td width="20%" height="25">商品一级分类<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category">   
+		{$List}
+	</td>
+    </tr>
+    <tr> 
+      <td width="20%" height="25">商品二级分类名称<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="Chrcategory" type="text" size="30" ID="Text1"></td>
+    </tr>
+	  <tr > 
+      <td  height="25">颜色： 
+      </td>
+      <td class="category"> <input name="color" type="text" id="cptext" value="" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+    </tr>
+	<tr > 
+      <td  height="25">是否热门分类<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="isindex" type="radio" value="1" checked ID="Radio1">是 <input name="isindex"  type="radio" value="0" ID="Radio2">否</td>
+    </tr>
+    <tr> 
+      <td width="20%" height="25">是否显示<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="rdoIsopen" type="radio" value="0" checked ID="Radio1">显示 <input name="rdoIsopen" type="radio" value="1" ID="Radio2">隐藏</td>
+    </tr>
+	<tr> 
+      <td width="20%" height="25">显示在首页导航<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="ifshow" type="radio" value="0" checked ID="ifshow">显示 <input name="ifshow" type="radio" value="1" ID="ifshow">不显示</td>
+    </tr>
+	 <tr> 
+      <td width="20%" height="25">SEO标题： 
+      </td>
+      <td class="category"> <input name="ctitle" type="text" size="50" ID="Text1">(针对搜索引擎设置的标题)</td>
+    </tr>
+	 <tr> 
+      <td width="20%" height="25">SEO关键词： 
+      </td>
+      <td class="category"> <input name="ckeyword" type="text" size="50" ID="Text1">(用,隔开，针对搜索引擎设置的关键词
+)</td>
+    </tr>
+	 <tr> 
+      <td width="20%" height="25">SEO描述： 
+      </td>
+      <td class="category"> <input name="cdescription" type="text" size="70" ID="Text1">(针对搜索引擎设置的网页描述
+)</td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" class="category" >
+		<input type="submit" name="Submit" value="确定提交" ID="Submit1" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+  </table>
+  <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+})(jQuery);
+</script>
+  </body>
+</html>

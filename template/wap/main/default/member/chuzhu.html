@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$cname}房源管理-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '{$cname}房源';
+</script>
+<style type="text/css">
+body { margin-bottom:50px;}
+
+</style>
+
+{$top$}
+<div class="nav_job_bottom">
+ <ul>
+  <li>
+	<a href="{$SiteUrl}member/manage_chushou.aspx?action=add" class=""><span class="i_chushou"></span>发布出售</a>
+  </li>
+  <li class="current">
+	<a href="{$SiteUrl}member/manage_chuzhu.aspx?action=add" class=""><span class="i_chuzhu"></span>发布出租</a>
+  </li>
+ </ul>
+</div>
+
+	<div class="content">
+		<div class="select_03">
+			<ul>
+				<li id="s_key_1"><a href="manage_chuzhu.aspx?key=1">出售房源</a></li>
+				<li id="s_key_0"><a href="manage_chuzhu.aspx?key=0">出租房源</a></li>
+			</ul>
+		</div>
+		<div class="user_order_list">
+			<tag:Loop ListType="LISTCHUZHU" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/list_chuzhu_tr.html" />
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+		
+	</div>
+{$bottom$}
+<div id="inner_iframe" style="display:none;padding:10px 10px 0;">
+	<p>刷新发布后，您的该条信息将视同最新发布的信息。<br>每刷新一次信息，需要扣除<span style="color:#f30;">{$flushfen}</span>{$jifenname}。</p>
+	<div class="inner_html" style="text-align:center;"><a href="javascript:javascript:submit_fw();" class="comn-submit">确定</a> <a href="javascript:javascript:LoginHide();" class="comn-submit gray">取消</a></div>
+</div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+(function($){
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['key'] === '0'){
+		$('#s_key_0').addClass('current');
+	}else{
+		$('#s_key_1').addClass('current');
+	}
+})(jQuery);
+function delfangyuan(url){
+    if ( confirm("该操作将不可逆！\n您确定要删除此房源吗？")){
+      	var url="../member/"+url;
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.ajax({url: url}).done(function(msg){
+			if(msg.length!=1){
+				$('body').append(msg);	
+			}else{
+				alert("删除成功！");
+				window.location.href="manage_chuzhu.aspx?key="+msg;
+			}
+		});
+    }
+}
+var fw_id="";
+function set_fw(ac,val){
+	fw_id = val;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var heightV = inner_iframe.height();
+	var martop = Math.ceil(($(window).height()-heightV)/2 + $(document).scrollTop());
+	inner_iframe.css({'top':martop+'px'});
+	mask.show();
+	inner_iframe.show();
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+function submit_fw() {
+	$("#fw_button").hide();	$("#fw_load").show();
+	$.ajax({
+		url:"../request.aspx?action=flushtime&tt="+escape(fw_id),
+		success:function(data){
+			if (data=='1'){
+				alert('恭喜您，本条信息刷新发布成功！');
+				LoginHide();
+			}else{
+				alert(data);
+			}
+		},
+		error: function() {
+			alert('对不起，操作未能完成！');
+		}
+	});
+}
+</script>
+</body>
+</html>

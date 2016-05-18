@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_index.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+		<!--焦点-->
+		<div class="index_focus">
+		  <div class="layout_house">
+			<h3>从感兴趣的楼盘(小区)开始</h3>
+			<p>{$city}当前均价：<span class="price">{$House_Avgprice}</span>元，涨跌幅：<span class="zd">{$House_Avgdiefu}%</span></p>
+			<!--search-->
+			<div class="search_box">
+			  <div class="tabs clearfix" id="search_sel">
+			   <ul>
+				<li class="current"><a href="loupan.html" data-val="0">新楼盘<i class="arr"></i></a></li>
+				<li><a href="chushou.html" data-val="1">二手房<i class="arr"></i></a></li>
+				<li><a href="chuzhu.html" data-val="2">出租房<i class="arr"></i></a></li>
+				<li><a href="xiaoqu.html" data-val="3">小区<i class="arr"></i></a></li>
+				<li><a href="zhongjie.html" data-val="4">中介<i class="arr"></i></a></li>
+			   </ul>
+			  </div>
+			  <!--search-->
+			  <div class="s_cond clearfix">
+			  <form action="search.aspx" target="_blank">
+			  <input type="hidden" name="mySle" id="mySle2" value="0"/>
+			  <input type="text" name="keyword" placeholder='请输入城区、小区名或地址开始找房……' value="" class="inp_txt" />
+			  <input type="submit" value="搜索" class="so" />
+			  </form>
+			  <dl class="skws clearfix">
+				<dt>从区域开始：</dt>
+				<dd><a href="chushou.html" target="_blank">全部区域</a></dd>
+				{$Mh163k_房产2015_首页_二手房区域}
+			   </dl>
+			  </div>
+			 <div class="sbg"></div>
+			</div>
+			<!--分类-->
+			  <div class="type_info clearfix">
+			   <ul>
+				<li class="cz"><a href="{$SiteUrl}member/manage_chuzhu.aspx?action=add#tt3" class="link">发布出租</a></li>
+				<li class="cs"><a href="{$SiteUrl}member/manage_chushou.aspx?action=add#tt3" class="link">发布出售</a></li>
+				<li class="qz"><a href="qiugou.aspx" class="link">发布求租</a></li>
+				<li class="qg"><a href="qiugou.aspx" class="link">发布求购</a></li>
+				<li class="jm"><a href="{$SiteUrl}member/manage_zj.aspx#tt3" class="link">中介加盟</a></li>
+				<li class="fy"><a href="{$SiteUrl}member/manage_chuzhu.aspx#tt3" class="link">管理房源</a></li>
+			   </ul>
+			  </div>
+		  </div>
+		  <div class="f_bg">
+		   <ul>
+			<li style="background:url({$Default_tplPath}images/index_focus_1.jpg) no-repeat center 0;display:block;"></li>
+		   </ul>
+		  </div>
+		</div>
+		<div class="w-1200">
+		<div class="layout_house clearfix">
+		  <!--热销楼盘-->
+		  <div class="hot_lp">
+		   <div class="title clearfix">
+			<h3>新盘推荐</h3>
+			<div class="qy">{$Mh163k_房产2015_首页_楼盘区域}</div>
+		   </div>
+		   <!--list-->
+		   <ul style="display:none;" id="loupandata">
+			 {$Mh163k_房产2015_首页_新盘推荐}
+			</ul>
+		   <div class="lp_list" id="slide">
+			<div class="bd">
+				<ul class="clearfix" id="loupaninner"></ul>
+			</div>
+			<ul class="dot"><li class="on">1</li><li>2</li></ul>
+			<a href="#" class="btn prev" style="display:none;">上翻</a><a href="#" class="btn next" style="display:none;">下翻</a>
+		   </div>
+		  </div>
+		  <!--楼市资讯-->
+		  <div class="lpzx">
+		   <div class="title clearfix">
+			<h3>{$House_Category1}</h3>
+			<span class="more"><a href="list_1.html" target="_blank">更多></a></span>
+		   </div>
+		   <div class="list">
+			<h4>{$Mh163k_房产2015_首页_楼市资讯_头条}</h4>
+			<ul>
+			 {$Mh163k_房产2015_首页_楼市资讯}
+			</ul>
+		   </div>
+		  </div>
+		  <div class="">{$Mh163k_房产首页_自定义html广告}</div>
+		  <div class="index_leftbox">
+		  <!--出租-->
+		  <div class="index_chuzu" id="tab01">
+		   <div class="title clearfix">
+			<h3>出租</h3>
+			<div class="tabs">
+			 <ul class="tab-hd">
+			  <li class="selected">最新出租<i></i></li>
+			  <li>紧急出租<i></i></li>
+			  <li>推荐房源<i></i></li>
+			 </ul>
+			</div>
+			</div>
+			<div class="bd">
+				<div class="list tab-cont">
+				 <ul>
+				   {$Mh163k_房产2015_首页_最新出租}
+				 </ul>
+				</div>
+				<div class="list tab-cont" style="display:none;">
+				 <ul>
+				   {$Mh163k_房产2015_首页_紧急出租}
+				 </ul>
+				</div>
+				<div class="list tab-cont" style="display:none;">
+				 <ul>
+				   {$Mh163k_房产2015_首页_推荐出租}
+				 </ul>
+				</div>
+				<div class="more"><a href="chuzhu.html" target="_blank">查看更多房源</a></div>
+			</div>
+			
+		  </div>
+		  <!--出售-->
+		  <div class="index_chuzu chushou" id="tab02">
+		   <div class="title clearfix">
+			<h3>出售</h3>
+			<div class="tabs">
+			 <ul class="tab-hd">
+			  <li class="selected">最新出售<i></i></li>
+			  <li>紧急出售<i></i></li>
+			  <li>推荐房源<i></i></li>
+			 </ul>
+			</div>
+			</div>
+			<div class="bd">
+				<div class="list tab-cont">
+				 <ul>
+				   {$Mh163k_房产2015_首页_最新出售}
+				 </ul>
+				</div>
+				<div class="list tab-cont" style="display:none;">
+				 <ul>
+				   {$Mh163k_房产2015_首页_紧急出售}
+				 </ul>
+				</div>
+				<div class="list tab-cont" style="display:none;">
+				 <ul>
+				   {$Mh163k_房产2015_首页_推荐出售}
+				 </ul>
+				</div>
+				<div class="more"><a href="chushou.html" target="_blank">查看更多房源</a></div>
+			</div>
+			
+		  </div>
+		  </div>
+		  <!--推荐经纪人-->
+		  <div class="tj_ren">
+		   <div class="title clearfix">
+			<h3>推荐经纪人</h3>
+		   </div>
+		   <div class="list wonde_bottom">
+			<div class="bd">
+			
+			 {$Mh163k_房产2015_首页_推荐经纪人}
+			
+			</div>
+			<div class="more"><a href="zhongjie.html" target="_blank">查看更多经纪人</a></div>
+		   </div>
+		  </div>
+		  </div>
+		  <div class="" style="margin-top:20px;">{$Mh163k_房产首页_自定义html广告2}</div>
+		  <div class="index_leftbox">
+		  <!--最新求购信息-->
+		  <div class="new_info">
+		   <div class="title">
+			 <h3>最新求购信息</h3>
+			 <div class="tabs clearfix">
+			  <ul>
+			   <li></li>
+			   <li class="current"></li>
+			   <li></li>
+			  </ul> 
+			 </div>
+		   </div>
+		   <div class="list clearfix">
+			<div class="pic"><img src="{$Default_tplPath}images/new_qg_pic.jpg" alt="" /></div>
+			<ul class="clearfix">{$House_IndexQiugou}</ul>
+		   </div>
+		  </div>
+		  <!--最新求租信息-->
+		  <div class="new_info">
+		   <div class="title">
+			 <h3>最新求租信息</h3>
+			 <div class="tabs clearfix">
+			  <ul>
+			   <li></li>
+			   <li class="current"></li>
+			   <li></li>
+			  </ul> 
+			 </div>
+		   </div>
+		   <div class="list clearfix">
+			<div class="pic"><img src="{$Default_tplPath}images/new_qz_pic.jpg" alt="" /></div>
+			<ul class="clearfix">{$House_IndexQiuzhu}</ul>
+		   </div>
+		  </div>
+		  </div>
+		  <!--楼市观点-->
+		  <div class="lpzx ls_news">
+		   <div class="title clearfix">
+			<h3>{$House_Category2}</h3>
+			<span class="more"><a href="list_2.html" target="_blank">更多&gt;</a></span>
+		   </div>
+		   <div class="list">
+			
+			<ul>
+			 {$Mh163k_房产2015_首页_楼市观点}
+			</ul>
+		   </div>
+		  </div>
+		  <!--中介品牌推荐-->
+		  <div class="zjpp">
+		   <dl class="clearfix">
+			<dt>中介品牌推荐</dt>
+			 <ul class="clearfix">{$House_ZhongjiePinpai}</ul>
+		   </dl>
+		  </div>
+		<!--右侧菜单-->
+		<div class="index_rmenu">
+		  <ul>
+			<li class="home"><a href="{$fcurl}">房产首页</a></li>
+			<li><a href="{$fcurl}loupan.html" target="_blank">新房</a></li>
+			<li><a href="{$fcurl}chushou.html" target="_blank">二手房</a></li>
+			<li><a href="{$fcurl}chuzhu.html" target="_blank">出租房</a></li>
+			<li><a href="{$fcurl}xiaoqu.html" target="_blank">小区</a></li>
+			<li><a href="{$fcurl}zhongjie.html" target="_blank">中介</a></li>
+			<li><a href="{$SiteUrl}member/manage_chushou.aspx?action=add" target="_blank">发布</a></li>
+			<li><a href="{$SiteUrl}member/manage_chuzhu.aspx" target="_blank">管理</a></li>
+			<li class="top" id="iGo2Top"></li>
+		  </ul>
+		</div>
+	
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script type="text/javascript">
+(function($) {
+	$('#mySle').selectbox();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$('#iGo2Top').returnTop2014();
+	$('#search_sel').search_sel();
+	$('#tab01').TabADS();
+	$('#tab02').TabADS();
+	$('#loupaninner').loupan();
+	$('#tab01').managePic();
+	$('#tab02').managePic();
+	$(".wonde_bottom").slide({mainCell:".bd",autoPage:true,effect:"topLoop",autoPlay:true,vis:7});
+})(jQuery);
+</script>
+</body>
+</html>

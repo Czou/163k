@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>同城商家动态</title>
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<link rel="stylesheet" href="{$tplPath}skin/global.css" />
+<link rel="stylesheet" href="{$tplPath}skin/head.css" />
+<link rel="stylesheet" href="{$tplPath}skin/footer2.css" />
+<link rel="stylesheet" href="{$tplPath}skin/shoplist.css" />
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();</script>
+<body bgcolor="#e6e6e6">
+<div class="wrapper">
+  {$top$}
+	<!-- 主体 -->
+  <div id="content">
+    <div class="page_hd fix">
+      <h3 class="h3"><i class="icon"></i><span class="title">同城商家动态</span></h3>
+      <div class="right"> <a href="{$shopurl}join.aspx"><img src="{$tplPath}images/sp5/zhekouka2_07.gif" alt="" /></a> <a href="../cuxiao/card.aspx"><img src="{$tplPath}images/sp5/zhekouka2_09.gif" alt="" /></a> </div>
+    </div>
+    <div class="page_bd">
+      <div class="hd fix">
+        <div class="d_1">标题 <a href="../member/notice.aspx?action=add#tt9" class="link">我要发布</a></div>
+        <div class="d_2">发布商家</div>
+        <div class="d_3">发布时间</div>
+      </div>
+	  
+      <div class="bd">
+	  
+	  <tag:Loop ListType="Listshoparticle" RecType="New" PageSize="30" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="cuxiao/list_notice_tr.html" />
+	  
+        <div class="pagination_module fix" style="margin-top:7px;"> <span class="right2"><a href="#top" style="border:0; color:#36c;">返回顶部 ↑</a></span> <span class="right2">{$PageSplit}</span> <span class="right2">30 条/页</span> </div>
+      </div>
+    </div>
+  </div>
+  {$bottom$}
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-地图-{$SiteName}</title>
+<meta name="keywords" content="{$seokeyword}" />
+<meta name="description" content="{$seodescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/huangye-mb.css" />
+{$top$}
+{$Mh163k_wap_口碑商家_独立头部_层1}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a></div>
+		<div class="huangye_header clearfix">
+			<div class="img show{$showlogo}" style="margin:8px 10px 0 0"><img src="{$filepath}" width="98" height="42" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="" /></div>
+			<h1>{$chrshop}</h1>
+			<p><img src="{$Default_tplPath}/images/koubei/{$chrimage}" style="vertical-align:middle" alt="{$chrlevel}" /> <span style="color:#090">{$koubei}</span></p>
+		</div>
+		<div class="lp_nav">
+			<a href="{$indexurl}" class="comn-submit btn_block">店铺首页</a>
+			<a href="{$TargetUrl}content_{$shopid}.html" class="comn-submit gray btn_block">店铺介绍<span class="jian"></span></a>
+			<a href="{$TargetUrl}notice_{$shopid}.html" class="comn-submit gray btn_block">店铺动态<span class="jian"></span></a>
+			<a href="{$TargetUrl}pic_{$shopid}.html" class="comn-submit gray btn_block">店铺展示<span class="jian"></span></a>
+			<a href="{$TargetUrl}comment_{$shopid}.html" class="comn-submit gray btn_block">网友点评<span class="jian"></span></a>
+		</div>
+		
+		<div class="huangye_content">
+			<div class="hd">店铺地址</div>
+			<iframe src="{$SiteUrl}ezmarker/map.aspx?action=shop&id={$shopid}"  width="100%" height="460" scrolling="no" frameborder="0" ></iframe>
+			<div class="bd">
+				<p><span class="b">店铺地址：</span><span class="c">{$chraddress}</span></p>
+				<p><span class="b">交通路线：</span><span class="c">{$chrjiaotong}</span></p>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),300,480);
+})(jQuery);
+</script>
+</body>
+</html>

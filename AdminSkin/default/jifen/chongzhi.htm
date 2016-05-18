@@ -1,0 +1,110 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+	setCookie("delurl",window.location.href);
+    if ( confirm("该操作将不可逆！\n您确定要删除此条充值记录吗？"))
+   {
+      location.href = "?action=delpay&tt=0&ID=" + id
+   }
+}
+function deltt(id)
+{
+	setCookie("delurl",window.location.href);
+    if ( confirm("该操作将不可逆！\n您确定要此充值成功吗，如果充值成功，系统会给用户加上相应的{$jifenname}数？"))
+   {
+      location.href = "?action=delpay&tt=1&ID=" + id
+   }
+}
+function deltt3()
+{
+	setCookie("delurl",window.location.href);
+    if ( confirm("该操作将不可逆！\n您确定要删除一个月以上的充值记录？"))
+   {
+      location.href = "?action=delpay&tt=2"
+   }
+}
+</script>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>用户{$jifenname}充值明细</td>
+          <td align="right">&nbsp;<a  target="_blank"  href="../request.ashx?action=Jifen_Chongzhi_Xls&styleid={$styleid$}&KeyWord={$KeyWord}&colname={$colname$}&payid={$payid$}&ondate={$ondate}&offdate={$offdate}" class="global_btn_blue"> 导出当前搜索到EXCEL表</a>&nbsp;&nbsp;&nbsp;<a href="javascript:deltt3();" class="global_btn">删除6个月以上记录</a></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <form name="form2" method="post" action="?action=list">
+          <tr>
+            <td height="25">选择查询类型:<select name='styleid' id='styleid'><option value=''>:: 请选择 ::</option>
+            		<option value='0' {styleid0}>:: {$jifenname} ::</option>
+            		<option value='1' {styleid1}>:: {$daijinname} ::</option>
+            </select>&nbsp; &nbsp;按状态查找：<select name='colname' id='colname'>
+            		<option value='0' {colname0}>:: 失败 ::</option>
+            		<option value='1' {colname1}>:: 成功 ::</option>
+					</select>&nbsp; &nbsp;支付方式：<select name='payid' id='payid'>
+              <option value='' {payid}>:: 全部 ::</option>
+			  <option value="1" {payid1}>支付宝</option>
+	<option value="2" {payid2}>网银在线</option>
+	<option value="3" {payid3}>财付通</option>
+	<option value="6" {payid6}>微信公众平台</option>
+	<option value="7" {payid7}>微信开放平台</option>
+	<option value="9" {payid9}>现金</option>
+             </select>&nbsp; &nbsp;按用户查找：
+              <input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord$}"  ><br />
+              选择查询日期范围
+              <input type="text" name="ondate" size="21" value="{$ondate$}" class="Wdate"  />
+              &nbsp;至&nbsp;
+              <input type="text" name="offdate" size="21"  value="{$offdate$}" class="Wdate"  />
+              
+			 
+           <input type="submit" name="Submit3" class="global_btn" value="Go"> </td>
+          </tr>
+        </form>
+      </table>
+      <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form" method="post" action="?action=del">
+          <tr align="center">
+            <td width="25" class="category">ID</td>
+            <td  class="category">充值订单号</td>
+            <td class="category" >用户名</td>
+            <td  class="category">充值金额</td>
+            <td  class="category">({$jifenname}/{$daijinname})数</td>
+            <td  class="category">充值时间</td>
+           <td  class="category">支付平台</td>
+             <td  class="category">支付时间</td>
+           <td  class="category">状态</td>
+           <td  class="category">操作</td>
+            
+          </tr>
+          <tag:Loop ListType="Listpaydetails" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="jifen/List_chongzhi_Tr.htm" />
+        </form>
+        <tr >
+          <td height="24" align="right" bgcolor="#FFFFFF" colspan=10> {$PageSplit} </td>
+        </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+</body></html>

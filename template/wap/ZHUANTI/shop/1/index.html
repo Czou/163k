@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$title}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeyword}" />
+<meta name="description" content="{$cdescription}" />
+<link href="{$tplPath}skin/v2013.css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();sitedomainurl="{$goodurl}";siteurl="{$SiteUrl}";</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<!-- 主体 -->
+	<div id="content" class="v2013">
+		<div class="product_banner"><span class="tel">{$sitetel}</span></div>
+		<div class="clearfix grid_03 qianggou_page">
+			<div class="col_main"><div class="main_wrap">
+				{$tuangoulist}
+				<div class="box_g">
+					<div class="hd">品牌分类</div>
+					<div class="bd cat_fenlei">
+						<ul>
+							<li class="bor clearfix"><span class="left">大类：</span><span class="right">{$pinpai1}</span></li>
+							<li class="leib_small clearfix" id="view_all" style="display:{$none}"><span class="left">小类：</span><span class="right">{$pinpai2}</span><a href="javascript:;" id="view_all_btn"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="filter clearfix">
+					<div class="left">
+						<span class="l">排序：</span><a href="?colname={$colname}&keyword1={$keyword1}&key=0" {$selected1}>上架时间</a><a href="?colname={$colname}&keyword1={$keyword1}&key=1" {$selected2}>人气</a><a href="?colname={$colname}&keyword1={$keyword1}&key=2" {$selected3}>推荐</a></a><a href="?colname={$colname}&keyword1={$keyword1}&key=3" {$selected4}>促销</a>
+					</div>
+					<div class="right">
+						<span class="page">{$iPageNo}/{$intPageCount}</span>
+						{$pagelist}
+					</div>
+				</div>
+				
+				<div class="searchBarS clearfix">
+					<div class="hd">商品搜索</div>
+					<div class="bd">
+					<form name="inputStyle" method="post" action="{$SiteUrl}search.aspx" style="margin:0" onsubmit="if(this.keyword.value=='想找什么商品 输入关键词查找下吧'){this.keyword.value='';}">
+						<div class="left"><input type="hidden" name="c" value="6"  /><input type="text" class="s_t" onBlur="if(this.value==''){this.value='想找什么商品 输入关键词查找下吧';this.style.color='#aaa'}" onFocus="if(this.value=='想找什么商品 输入关键词查找下吧'){this.value='';this.style.color='#333'}" value="想找什么商品 输入关键词查找下吧" name="keyword"/></div>
+						<div class="left">{$searchclassid}</div><div class="left"><input type="submit" class="s_b" value=" " /></div>
+					</div>
+				</div>
+				<div class="qg_list">
+			<ul class="clearfix">
+				<tag:Loop ListType="listshopqian" RecType="New" PageSize="24" ColorSplit="1" TitleLen="22" RecColumn="5" CusTpl="1" Template="shop/shopone.html" />
+			</ul>
+			<div class="pageNav_2013">
+			<span style="display:{$pagenone}">
+						{$PageSplit}
+						</span>
+					</div>
+		</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="cat_xl" id="cat_xl">
+					<ul>
+						{$shopfenlei}
+					</ul>
+				</div>
+				<div class="blank10"></div>
+				<div class="box_g koubei">
+					<div class="hd clearfix"><span class="left red">火爆口碑商家排行 <span class="top10">TOP10</span></span></div>
+					<div class="bd">
+						<ul>
+							
+							{$shopkoubei}
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div><div id="mask" style="display:none"></div>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/selectbox.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#key').selectbox();
+	$('#cat_xl').find('.parent').bind('click',function(e){
+		e.preventDefault();
+		$(this).parent().toggleClass('open');
+	});
+	$('#view_all_btn').bind('click',function(e){
+		e.preventDefault();
+		$(this).parent().toggleClass('open');
+	})
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;采集资源列表</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" >  <tbody>
+  <tbody>
+  <form action="Admin_Inflow.aspx" method="post">
+    <tr>
+      <td colspan="10"   align="center">文章标题：
+    <input name="keyword" type="text" id="keyword"  value="{$keyword}" size="20">
+文章类别：<input type="radio" name="colname" value="0" {$colname0}>新闻资讯 <input type="radio" name="colname" value="1" {$colname1}>招聘资讯 <input type="radio" name="colname" value="2" {$colname2}>房产资讯
+	 选择状态：<input type="radio" name="CollectZT" value="1" {$CollectZT1}>已入库 <input type="radio" name="CollectZT" value="0" {$CollectZT2}>未入库<input type="radio" name="CollectZT" value="" {$CollectZT3}> 所有  <input type="submit" name="Submit3" class="global_btn" value="查 询">
+	 </td>
+    </tr>
+  </form>
+  </tbody>
+   </table>
+<form name="forms" id="forms" action="Admin_Inflow.aspx" method="post">
+<table align="center" cellpadding="2" cellspacing="0" class="toptable grid table_style" border="0">
+    <tr>
+      <td  align="center" class=category>ID</td>
+      <td align="center" class=category>文章标题</td>
+      <td  align="center" class=category>文章类别</td>
+      <td  align="center" class=category>状态</td>
+      <td  align="center" class=category>采集站点</td>
+      <td align="center" class=category>采集时间</td>
+      <td   align="center" class=category>操作</td>
+<td  align="center" class=category><input type="checkbox" name="chkall"  id="chkall" value="checkbox" onClick="CheckAll(document.forms.chkall.checked,'0');">全选</td>
+    </tr>
+
+   
+	<tag:Loop ListType="Listcollectarticle" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="collect/List_article_Tr.htm" />
+    <tr>
+      <td nowrap colspan="8" align="right" >
+	<input type="button" name="Submit" class="global_btn" value="清空全部已入库文章记录" onClick="document.forms.action.value='yi';{if(confirm('您确定要清空全部已入库文章记录？')){document.forms.submit();return true;}return false;}">
+<input type="button" name="Submit" class="global_btn" value="清空全部未入库文章记录" onClick="document.forms.action.value='wei';{if(confirm('您确定要清空全部未入库文章记录吗？')){document.forms.submit();return true;}return false;}">
+	
+
+      <input type="button" name="button" class="global_btn" value="全选/反选" onClick="CheckAll(document.forms.chkall.checked,'1');">
+      <input type="button" name="Submit" class="global_btn" value="全部入库" onClick="document.forms.action.value='AllInflow';{if(confirm('全部入库你所采集的资源吗？')){document.forms.submit();return true;}return false;}">
+      <input type="button" name="Submit" class="global_btn" value="入库选中" onClick="document.forms.action.value='IDInflow';{if(confirm('确定入库您所选择的资源吗？')){document.forms.submit();return true;}return false;}">
+      <input type="button" name="Submit" class="global_btn" value="删除选中"  onClick="document.forms.action.value='Del';{if(confirm('确定删除您所选择的资源吗？')){document.forms.submit();return true;}return false;}"><input name="action" type="hidden" id="action" value="">
+      </td>
+     
+    </tr>
+	</form>
+	 <tr align="right">
+    <td nowrap colspan="8"  bgcolor="#FFFFFF">{$PageSplit}</td>
+	</tr>
+  </tbody>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function CheckAll(v,str)
+	{
+		if(str=="1"){
+		if(v) { v=false;}
+		else{v=true;}
+		}
+		
+		var i;
+		for (i=0;i<document.forms.elements.length;i++)
+		{
+			var e = document.forms.elements[i];
+		        e.checked = v;
+		}
+}
+</script>

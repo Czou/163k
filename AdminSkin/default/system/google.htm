@@ -1,0 +1,90 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">XML地图生成操作</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=googlesave" >
+     <tr > 
+      <td width="14%" height="25">更新频率<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <select name="changefreq" id="changefreq">
+        <option value="always">频繁的更新</option>
+        <option value="hourly">每小时更新</option>
+        <option value="daily" selected>每日更新</option>
+        <option value="weekly">每周更新</option>
+        <option value="monthly">每月更新</option>
+        <option value="yearly">每年更新</option>
+        <option value="never">从不更新</option>
+      </select></td>
+    </tr>
+	 <tr > 
+      <td height="25">调用条数<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="prioritynum" type="text" value="100" size="6" /> <em class="global_tip">文章、信息、店铺、团购活动、商品各调用此条数</em></td>
+    </tr>
+	 <tr > 
+      <td height="25">优 先 权<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="big" type="text" id="big" value="0.5" size="6" /> <em class="global_tip">0-1.0之间,推荐使用默认值</em></td>
+    </tr>
+	   <tr > 
+	<td></td>
+      <td height="25"  class="category">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="开始生成sitemap"> &nbsp; 
+        <input name="button" type="reset" id="reset" class="global_btn_big" value="取消生成" ></td>
+    </tr>
+   <tr><td valign=top><font color=red>了解Google地图</font></td>
+	<td class="category" style="font-size:12px;">更新频率：
+      <blockquote>
+        <p><font size="-1">页面可能发生更改的频率。此值为搜索引擎提供一般性信息，可能与搜索引擎抓取页面的频率不完全相关。有效值为：</font></p>
+        <ul>
+          <li><font size="-1">always   </font></li>
+          <li><font size="-1">hourly   </font></li>
+          <li><font size="-1">daily   </font></li>
+          <li><font size="-1">weekly   </font></li>
+          <li><font size="-1">monthly   </font></li>
+          <li><font size="-1">yearly </font></li>
+          <li><font size="-1">never </font></li>
+        </ul>
+        <p><font size="-1">值“always”应当用于描述每次访问时都会改变的文档。而值“never”应当用于描述已存档网址。</font></p>
+        <p><font size="-1">请注意此标记的值被视为<strong>提示</strong>而不是命令。尽管搜索引擎抓取工具在做决定时考虑此信息，但是它们对标记为“hourly”页面的抓取频率可能低于每小时一次，而对标记为“yearly”页面的抓取频率可能高于每年一次。抓取工具也可能定期抓取标记为“never”的页面，以便它们能够处理对这些页面的意外更改。</font></p>
+    </blockquote>
+      <hr size="1" noshade="noshade" />
+      <p>注意度：</p>
+    <blockquote>
+      <p><font size="-1">此网址的优先级与您网站上其他网址的优先级相关。有效值范围从 0.0 到   1.0。此值不会影响您的网页与其他网站上网页的比较结果，只是告诉搜索引擎您认为您的那个网页最重要，从而它们对您页面的抓取可以按照您最喜欢的方式进行排序。</font></p>
+      <p><font size="-1">一个网页的默认优先级为 0.5。</font></p>
+      <p><font size="-1">请注意，您为页面指定的优先级<em>不影响</em>您的网址在搜索引擎的结果页的排名。搜索引擎在同一网站的不同网址之间进行选择时使用此信息，因此，您可以使用此标记来增加相对重要的网址在搜索索引中显示的可能性。</font></p>
+      <p><font size="-1">而且，请注意为您网站中的所有网址都指定高优先级对您没什么好处。由于优先级是相互关联的，只用于在您自己网站的网页之间进行选择；您网页的优先级不会与其他网站的页面优先级进行比较。</font></p>
+	  </blockquote>
+	  <hr size="1" noshade="noshade" />
+      <p class="STYLE1">生成位置：</p>
+      <blockquote>
+        <p>sitemap.xml将会自动生成到您网站的根目录下，这需要FSO组件的支持才能顺利完成，如果您的服务器不能支持FSO请进行相关设置。</p>
+      </blockquote>  </td>
+	</tR>
+ 
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+

@@ -1,0 +1,122 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function check(o){
+   if(o.chrname.value==""){
+	alert("对不起,请输入邮箱地址!");
+	o.chrname.focus();
+	return false;
+   }
+   if(o.chrpwd.value==""){
+	alert("对不起,请输入邮箱密码!");
+	o.chrpwd.focus();
+	return false;
+   }
+   if(o.smtp.value==""){
+	alert("对不起,请输入SMTP服务器!");
+	o.smtp.focus();
+	return false;
+   }
+   if(o.chrtitle.value==""){
+	alert("对不起,请输入邮件标题!");
+	o.chrtitle.focus();
+	return false;
+   }
+}
+</script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">群发邮件系统&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"> </td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=Save" onsubmit="return check(this);">
+    
+	<tr > 
+      <td width="15%" height="25">选择群发对象 <font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" value="" name="styleid"  onclick="$('ttuser').style.display='none';"> 全部会员 
+					<input type="radio" value="0"  name="styleid"  onclick="$('ttuser').style.display='none';">全部个人会员<input type="radio" value="1"  name="styleid"  onclick="$('ttuser').style.display='none';">全部普通企业会员<input type="radio" value="2" checked name="styleid" onclick="$('ttuser').style.display='none';">全部高级企业会员 <input type="radio" value="3"  name="styleid" onclick="$('ttuser').style.display='';">自定义会员
+					<br><span id="ttuser" style="display:none"><textarea rows="6" name="sendusers" cols="100" title="输入您要群发的用户名，一行一个"></textarea></span>
+					</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">群发排除会员： 
+      </td>
+      <td width="76%" class="category"> <textarea rows="6" name="other" cols="100" title="排除当前选择的用户组中的会员，将不发送给这些会员，一行一个用户名"></textarea></td>
+    </tr>
+	
+    <tr > 
+      <td width="15%" height="25">选择邮箱数据源<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" value="0" checked name="from">会员注册资料中的填写的邮箱地址&nbsp; 
+		<input type="radio" value="1"  name="from">会员QQ邮箱,自动以会员注册时填写的qq号码生成：号码@qq.com</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" colspan=3>发送邮箱设置
+    </tr>
+    <tr > 
+      <td width="15%" height="25">邮箱地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrname" type="text" size="30" value=""></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">邮箱密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrpwd" type="password" size="30" value=""></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">SMTP服务器<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="smtp" type="text" size="30" value=""></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">邮件标题<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrtitle" type="text" size="30" value=""></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">邮件内容<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">
+      </textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+    <tr  > <td></td>
+      <td height="25"  class="category">
+		
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

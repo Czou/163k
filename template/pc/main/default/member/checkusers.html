@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员激活验证-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<script>
+var ismember = '{$ismember}',tipTXT='',valTXT='';
+if(ismember==='1'){
+	tipTXT = '邮箱';
+	valTXT = '{$chremail}';
+}else if(ismember==='2'){
+	tipTXT = '手机';
+	valTXT = '{$chrtel}';
+}else{
+	tipTXT = '手机或邮箱';
+	valTXT = '{$chrtel}';
+}
+function checkform(o){
+	if(o.code.value==""){
+		alert("请输入您的通过"+tipTXT+"获得的验证码!");
+		o.code.focus();
+		return false;
+	}
+}
+</script>
+<body>
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 会员激活验证</div>
+	<form target="tijiao" method="get" action="checkusers.aspx" onSubmit="return checkform(this)">
+	<input type="hidden" name="userid" value="{$userid}" />
+	<input type="hidden" id="oldtel" value="{$chrtel}" />
+	<div id="content" class="v2013">
+		<div class="yanzheng clearfix">
+			<div class="left"><s class="mobile{$ismember}"></s></div>
+			<div class="right" style="width:600px;">
+				<p class="txt">请输入您的通过<span class="tipTXT"></span>获得的验证码</p>
+				<div class="form">请输入验证码：<input type="text" class="t_ipt" name="code" id="code" value="" /><button type="submit" class="btn_2013">激活账号<s class="s"></s></button></div>
+				<p class="txt2">如果您的<span class="tipTXT"></span>填写有误，60秒后可重新修改。</p>
+				<div class="form">输入您的<span class="tipTXT"></span>：<input type="text" class="t_ipt" id="chrtel" value="" /><button onClick="return resendmobile('{$userid}',document.getElementById('oldtel').value,document.getElementById('chrtel').value);" type="button" id="sendvaluess" class="btn_2013" style="display:none;">重发验证码<s class="s"></s></button><span class="daojishi" id="daojishi">60秒</span></div>
+			</div>
+		</div>		
+	</div>
+	</form>
+	{$bottom$}
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('.tipTXT').html(tipTXT);
+	$('#oldtel').val(valTXT);
+	$('#chrtel').val(valTXT);
+});
+var i = 61;
+function send(){
+	i--;
+	if(i==-1){
+		$("#sendvaluess").show();
+		$("#daojishi").hide() ;
+		return;
+	}
+	$("#daojishi").html(i + "秒") ;
+	$("#sendvaluess").hide();
+	setTimeout("send();",1000);
+}
+send();
+function resendmobile(userid,bb,cc){
+	var url="../request.aspx?action=show1&str1={$ismember}&str2="+escape(userid)+"&str3="+escape(bb)+"&str4="+escape(cc);
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert("验证码发送成功，请在上方输入您收到的验证码！");
+			document.getElementById('oldtel').value=cc;
+			i = 61;
+			send();
+			$("#daojishi").show() ;
+			return false;
+		}else{
+			alert(data.error);	
+			return false;
+		}
+	});
+	return false;	
+}
+</script>
+</body>
+</html>

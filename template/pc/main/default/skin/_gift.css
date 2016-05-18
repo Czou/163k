@@ -1,0 +1,68 @@
+@charset "utf-8";
+html,body{font-family:Arial,"宋体";text-align:center;font-size:12px;color:#333;}
+
+img,select,input,textarea{vertical-align:middle;}
+img{ border:0;}
+button{cursor:pointer;}
+ul,ol{list-style:none;}
+.fl,.fal a,.fal a span{float:left;}
+.cc{ clear:both; overflow:hidden; height:100%;}
+.fr,.far a,.far a span{float:right;}
+.tll{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.fb{font-weight: 700;}
+.fi{font-style: italic;}
+.f14{ font-size:14px;}
+li,.ellipsis{ white-space:nowrap;-o-text-overflow:ellipsis;text-overflow:ellipsis;}
+/* wrap */
+.wrap{ width:960px; margin:0 auto; background:#fff;}
+/* header */
+.header{margin-top:20px; padding-bottom:5px; }
+
+
+
+/* recommended */
+.default-center-ad{ padding:8px 0 0 20px; width:940px; text-align:center}
+
+/* commodities */
+.commodities .cc{ margin:auto 10px;}
+.commodities img{ padding:0 5px; background:#fff;width:120px;height:130px;}
+.commodities .one-commodities,.commodities .on{
+	width:140px;
+	border:1px solid #E9E9C7;
+_ margin-left:14px; 	background:#fff url(../images/bg_Y.jpg) 0 -88px repeat-x;
+	margin-top: 9px;
+	margin-right: -5px;
+	margin-bottom: auto;
+	margin-left: 12px;
+}
+.commodities .on{ border-color:#FE8585; background:#FFF url(../images/bg_Y.jpg) 0 -120px repeat-x; }
+.commodities .one-commodities .new,.commodities .on .new{ margin:8px 5px auto 5px; height:15px;}
+.commodities .one-commodities .end-sell,.commodities .on .end-sell{ background:url(end-sell.gif) right top no-repeat;}
+.commodities .commodities-title{line-height:40px; text-indent:8px; width:140px; overflow:hidden; background:#fff;}
+.commodities .commodities-title a:hover{ text-decoration:none;}
+.commodities .price{line-height:21px;width:71px;background:#f3c6c6;color:#941a1a;margin:8px 0px;}
+.commodities .price a{color:#941a1a; text-decoration:none}
+.commodities .price a:hover{ text-decoration:underline}
+.commodities .price span{color:red;}
+.commodities .one-commodities .discount,.commodities .on .discount{ background:#E9E9C7;padding:12px 0;color:#666;}
+.commodities .on .discount{ background:#FE8585; color:#fff;}
+.discount li{ text-indent:22px; }
+.history{padding:10px 0 0 5px;}
+
+.pc{ width:910px; padding:10px 0; line-height:20px;}
+.pc ul{ padding:0 15px;}
+.pc li{ float:left; width:175px;}
+.pc a{ color:#0299FF;}
+.pc .cc{ border-bottom:1px dotted #ccc; margin-top:10px; padding:5px 0;}
+
+/* page */
+.pages{
+	padding-top: 15px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+}
+.pages a{ border:1px solid #ADADB7; padding:3px 5px; margin-left:1px; font-family:verdana; font-size:10px;}
+.pages a:hover,.pages .click{ border:1px solid #ADADB7; background:#6EA3E5 url(../images/bg_Y0.jpg) 0 -155px repeat-x; color:#fff; text-decoration:none;}

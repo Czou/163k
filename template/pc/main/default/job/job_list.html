@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>职位列表-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/jobs2013.css" type="text/css" rel="stylesheet" />
+<script>
+var nowdomain = '{$SiteUrl}';var zpurl = '{$zpurl}';
+</script>
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; 职位列表</div>
+		<div class="mod_01">
+			<div class="hd clearfix"><h3 class="left">职位搜索</h3><p class="more right"><a href="{$SiteUrl}member/myzhiwei.aspx?action=add" target="_blank" class="btn_1">发布招聘</a><a href="{$SiteUrl}member/myjianli.aspx" target="_blank" class="btn_2">登记简历</a></p></div>
+			<div class="bd">
+				<div class="clearfix">
+					<form name="form11" method="get" action="zhiwei.html">
+					<input type="hidden" name="key" value="0" />
+					<input type="hidden" name="s_hangye" value="{$s_hangye}" id="s_hangye" />
+					<input type="hidden" name="s_gangwei" value="{$s_gangwei}" id="s_gangwei" />
+					<p class="t">行业类别：</p>
+					<div id="form_1" class="i">
+						<span class="btns">{$s_hangyechrcategory}</span>
+						<ul class="inner_s"><li><a href="zhiwei.html?tt=0" class="link cur" data-id="0">不限制行业类别</a></li>{$Mh163k_招聘求职_行业分类}</ul>
+					</div>
+					
+					<p class="t">岗位类别：</p>
+					<div id="form_2" class="i">
+						<span class="btns">{$s_gangweichrcategory}</span>
+						<ul class="inner_s"></ul>
+					</div>
+					
+					<p class="i">
+						<input name="keyword" type="text" value="{$keyword}" class="text_input" />
+					</p>
+					<p class="i">
+						<button type="submit" class="text_submit">搜 索</button>
+					</p>
+					</form>
+				</div>
+				<p class="hot_keys">热门职位：{$renmmenzhiwei}</p>
+			</div>
+		</div>
+		<div class="mod_02">
+			<div class="hd">全部职位</div>
+			<div class="sortbar clearfix">
+				<ul class="left" id="reset_href0">
+					<li><a id="key0" href="{$zpurl}zhiwei.html?key=0">更新时间(默认)</a></li>
+					<li><a id="key1" href="{$zpurl}zhiwei.html?key=1">关注度<span class="top"></span></a></li>
+					<!--<li><a href="#">自定义<span class="bottom"></span></a></li>-->
+				</ul>
+				
+				<p class="right">共有职位 <em>{$total}</em> 条　</p>
+			</div>
+			<div class="bd grid_k1 clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<div class="jobs_list" id="hover_bg">
+						<tag:Loop ListType="listzhiweiqian" RecType="New" PageSize="25" ColorSplit="1" TitleLen="110" RecColumn="5" CusTpl="1" Template="job/list_zhiwei_tr.html" />
+						
+						<div class="pageNavigation">
+							{$PageSplit}
+						</div>
+					</div>
+				</div></div>
+				<div class="col_sub">
+					<div class="filter">
+						<div class="t">在结果中筛选</div>
+						<ul id="reset_href">
+							<li><span class="d">区域</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_didian=" id="s_didian">全部</a></li>
+									{$Mh163k_招聘区域列表}
+								</ul>
+							</li>
+							<li><span class="d">月薪范围</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=" id="s_daiyu">全部</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=1" id="s_daiyu1">面议</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=23" id="s_daiyu23">1000元以下</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=24" id="s_daiyu24">1000-1500元</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=25" id="s_daiyu25">1500-2000元</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=26" id="s_daiyu26">2000-3000元</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=27" id="s_daiyu27">3000-5000元</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=28" id="s_daiyu28">5000-8000元</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_daiyu=29" id="s_daiyu29">8000元以上</a></li>
+								</ul>
+							</li>
+							<li><span class="d">发布时间</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_date=" id="s_date">全部</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=1" id="s_date1">当天</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=3" id="s_date3">3天内</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=7" id="s_date7">1周内</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=14" id="s_date14">2周内</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=30" id="s_date30">1个月内</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_date=60" id="s_date60">2个月内</a></li>
+								</ul>
+							</li>
+							<li><span class="d">学历要求</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=" id="s_xueli">全部</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=42" id="s_xueli42">初中</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=31" id="s_xueli31">高中/中专</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=32" id="s_xueli32">大专及同等学历</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=33" id="s_xueli33">本科/学士及同等学历</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xueli=34" id="s_xueli34">硕士及以上学历</a></li>
+								</ul>
+							</li>
+							<li><span class="d">公司性质</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=" id="s_qiyexingzhi">全部</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=6" id="s_qiyexingzhi6">外商独资．外企办事处</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=7" id="s_qiyexingzhi7">中外合营(合资．合作)</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=8" id="s_qiyexingzhi8">股份制企业</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=9" id="s_qiyexingzhi9">国内上市公司</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=10" id="s_qiyexingzhi10">私营．民营企业</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=11" id="s_qiyexingzhi11">国有企业</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=12" id="s_qiyexingzhi12">政府机关/非营利机构</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_qiyexingzhi=13" id="s_qiyexingzhi13">事业单位</a></li>
+								</ul>
+							</li>
+							<li><span class="d">工作性质</span>
+								<ul>
+									<li><a href="{$zpurl}zhiwei.html?s_xinzhi=" id="s_xinzhi">全部 </a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xinzhi=14" id="s_xinzhi14">全职</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xinzhi=15" id="s_xinzhi15">兼职</a></li>
+									<li><a href="{$zpurl}zhiwei.html?s_xinzhi=16" id="s_xinzhi16">实习</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="banner_ads">{$Mh163k_求职招聘_职位列表页_自定义HTML广告}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div class="mask" id="mask"></div>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/jobs2013.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#form_1').showSelect('s_hangye',!1);
+	$('#form_2').showSelect('s_gangwei',!0);
+	var s_gangwei = $('#s_gangwei');
+	if(s_gangwei.val() !== '' && s_gangwei.val() !== '0'){
+		$('#form_2').getGangwei(s_gangwei.val());
+	}
+	$('#reset_href0').jobUrl();
+	$('#reset_href').jobUrl();
+	$('#hover_bg').find('.item').hover(function(){
+		$(this).addClass('hover');
+	},function(){
+		$(this).removeClass('hover');
+	});
+});
+</script>
+</body>
+</html>

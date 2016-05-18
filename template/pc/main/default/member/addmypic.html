@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>上传店铺展示图--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+<script>
+function checkform(o){
+	if(o.categoryid.value==""){
+		alert("对不起，请选择分类！");
+		o.categoryid.focus();
+		return false;
+	}
+}
+</script>
+<style>
+#listcategory { list-style-type:none; width:100%; margin:0; padding:0}
+#listcategory ul{ margin:0; padding:0; background:none;}
+#listcategory ul li{width:142px;float:left; background:none;clear:none;
+	font-size:12px;
+	}
+#listpicall { list-style-type:none; width:100%; margin:0; padding:0}
+#listpicall ul{ margin:0; padding:0}
+#listpicall ul li{ margin-left:5px;float:left}
+</style>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 上传店铺展示图</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">上传店铺展示图</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  以下内容，打 * 为必填项，若不填写描述，则默认显示“未添加描述”  <br />
+                </td>
+              </tr>
+            </table>
+            <br />
+            <form name="form1" method="post" action="?action=picaddSave" onsubmit="return checkform(this)" enctype="multipart/form-data">
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr  >
+				<td  class="tditem" height="25"  >新建分类：</td>
+                  <td class="tdcontent" style="padding-left:4px;"><input name="chrcategory" type="text" class="text" size="20"  value="">
+              <input type="button"  value="建立分类"  style="color:#FF0000" onclick="addcategory();" />
+                  </td>
+                </tr>
+				 <tr  >
+				<td  class="tditem" height="25"  >已经建立的分类：</td>
+                  <td class="tdcontent" style="padding-left:4px;"><div id="editcategory" style="color:blue;display:none">修改分类<font color="#FF0000">*</font>：
+                <input name="editchrcategory" type="text" size="20"  class="text" value="">
+                <input name="editcategoryid" type="hidden" size="20"  value="">
+                <input type="button"  value="修改分类"  style="color:#FF0000" onclick="editcategory();"/>
+              </div>
+              <div id="listcategory">
+                <ul id="listcategoryshow">
+                  loading……
+                </ul>
+              </div>
+                  </td>
+                </tr>
+				<tr >
+            <td  height="25" class="tditem"><font color="#FF0000">*</font>上传到的分类： </td>
+            <td  class="tdcontent" > {$categoryid}</td>
+          </tr>
+				<tr>
+                  <td  class="tditem" height="25"  width=14%>选择图片：<br />
+                    <a href="#" onclick="javascript:addmypicrow(1);">添加图片</a>&nbsp;&nbsp;&nbsp; </td>
+                  <td class="tdcontent" style="padding-left:4px;"><table width="100%"  border="0" cellpadding="2" cellspacing="1" id="SignFrame">
+                      <tR id="SignItem1" valign="top" >
+                        <td><input type="file" name="file" style="width:320px;"  class="text" onchange="setupload('1',this.value);"/> 描述(13个字内)：<input type="text" name="chrmark" size="30" class="text" title="若不填，则前台显示“未添加描述” " maxlength=20>
+                          <a href="javascript:DeleteSignRow('SignItem1');">删除</a> </td>
+                      </tR>
+                    </table>
+                    <input type="hidden" name="total" value="1" />
+                    <input type="hidden" name="count" value="1" />
+                  </td>
+                </tr>
+              </table>
+              <div class="submit">
+                <input type="hidden" name="gotourl" value="{$gotourl}">
+                <input type="submit" name="Submit" value=" 确认无误，提交 " id="Submit" />
+                <input type="button" value=" 返 回 " onclick="javascript:location.href='myshop.aspx?action=pic';" />
+              </div>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>
+<script>
+loadcategoryid();
+</script>

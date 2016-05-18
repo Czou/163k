@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>参与竞价--会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '参与竞价';
+</script>
+{$top$}
+	<div class="content">
+		<div class="order_head po_re">参与竞价<a href="javascript:history.go(-1);" class="po_ab return">返回</a></div>
+		<div class="inner_html">{$chrname}，您好！目前账上有<span style="color:#f30;" id="user_jifennum">{$jifennum}</span>{$jifenname}，<a href="modify.aspx?action=consume" class="blue">我要充值</a>。<br />您要竞价的是“<a href="{$liveurl}live_{$ID}.html" class="blue">{$chrtitle}</a>” 。</div>
+		<div class="inner_html tips">
+			<div class="hd">小提示</div>
+			<div class="bd">已参与竞价推广的信息，如果违反版规，会被删除处理! </div>
+		</div>
+		<div class="live_content">
+			<div class="hd">当前竞价实况</div>
+			<div class="bd">{$toplist}</div>
+		</div>
+		<div class="order_inner" style="border-top:1px solid #ccc; padding-bottom:15px;">
+			<form name="zhifutt" id="zhifutt" action="?action=jingjiasave" method="post">
+			<div class="display_true_{$isnew} mydays">选择天数：<input  size="5" type="text" name="day" class="text" value="1" onKeyUp="addtotal();" />天 出价：<input  size="5" type="text" name="money" id="money" class="text" value="{$lowerfen}" onKeyUp="addtotal();" onBlur="checklower(this,'{$lowerfen}');";/>{$jifenname}/天</div>
+			<!-- 追加 --><div class="display_false_{$isnew} mydays">剩余{$day}天 追加：<input type="hidden" id="newday" name="newday" value="{$day}" /><input type="text" name="newmoney" id="newmoney" class="text" value="1" onKeyUp="addtotal();" onBlur="checklower2(this,'1');";/>{$jifenname}/天</div>
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_color" id="c_color" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">标题加红</span></p>
+				<p class="p"><em>定价：</em><span id="span_bigtop">{$colorfen}</span>{$jifenname}/次</p>
+				<p class="p number"><em>时间：</em>一次支付终生有效</p>
+				<p class="p"><em>小计：</em><span id="td_color">{$colorfen}</span>{$jifenname}</p>
+			</div>
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_font" id="c_font" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">标题加粗</span></p>
+				<p class="p"><em>定价：</em><span id="span_fonttop">{$fontfen}</span>{$jifenname}/次</p>
+				<p class="p number"><em>时间：</em>一次支付终生有效</p>
+				<p class="p"><em>小计：</em><span id="td_font">{$fontfen}</span>{$jifenname}</p>
+			</div>
+			<p id="money_pay_show" style="padding-bottom:15px; text-align:center;">所需{$jifenname}总数：<span id="span_total" style="color:#ff0000;font-weight:bold;">0</span>{$jifenname}</p>
+			<input type="hidden" name="id" value="{$ID}" />
+			<input type="hidden" name="lower" value="{$lowerfen}" />
+			<a href="#" id="mysubmit" class="comn-submit btn_block">确认推广</a>
+			</form>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	var myform = $('#zhifutt');
+	var mysubmit = $('#mysubmit');
+	mysubmit.click(function(e){
+		e.preventDefault();
+		myform.submit();
+	});
+})(jQuery);
+
+function checklower(aa,bb){
+	aa.value = aa.value.replace(/[\D-]+/g,'')
+	if(parseInt(aa.value)<parseInt(bb)){
+		alert("对不起，您的竟价金额不能少于"+bb+"");
+		aa.value=bb;
+	}
+}
+function checklower2(aa,bb){
+	aa.value = aa.value.replace(/[\D-]+/g,'')
+	if(parseInt(aa.value)<parseInt(bb)){
+		alert("对不起，您的竟价金额不能少于"+bb+"");
+		aa.value=bb;
+	}
+}
+function addtotal(){
+	var is_zhuijia = '{$isnew}';
+	var total=0;
+	var user_jifennum = document.getElementById('user_jifennum').innerHTML;
+	
+	if(is_zhuijia !== '0'){
+		var tt1= parseFloat(document.zhifutt.day.value);
+		var tt2= parseFloat(document.zhifutt.money.value);
+	}else{
+		var tt1= parseFloat(document.zhifutt.newday.value);
+		var tt2= parseFloat(document.zhifutt.newmoney.value);
+	}
+	
+	
+	
+	
+	total = total + tt1*tt2
+	if(document.zhifutt.c_color.checked){
+		var tt1= parseFloat(document.all.span_bigtop.innerText)
+		total = total + tt1
+	}
+	if(document.zhifutt.c_font.checked){
+		var tt1= parseFloat(document.all.span_fonttop.innerText)
+		total = total + tt1
+	}
+	
+	
+	document.all.span_total.innerHTML = total;
+	if(parseInt(user_jifennum)<parseInt(total)){
+		alert('对不起，您的账户金币不足，请调整竞价参数！');
+	}
+}
+</script>
+</body>
+</html>

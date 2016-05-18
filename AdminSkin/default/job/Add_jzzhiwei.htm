@@ -1,0 +1,82 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加兼职人才信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至兼职人才列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" onsubmit="return checkaddrencaiform(this)" enctype="multipart/form-data">
+  <tr><td colspan=6>是否设置管理用户？不设置则只有管理员在后台能管理该份简历，设置会员:<input type="text" style="width:159px;" name="userid" value="" onblur="checkusers(this.value,this,'')" ></td></tr>
+   <tr > 
+      <td height="25" width="11%" >姓名<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <input type="text" name="zhiweiname" style="width:159px;" value=""></td>
+	  <td height="25"  >年龄： 
+      </td>
+      <td  class="category" > <input type="text" name="zhiweiage" value="" style="width:159px;" size=8 onKeyUp="if(isNaN(value))execCommand('undo')">岁</td>
+	  <td height="25"  >性别： 
+      </td>
+      <td  class="category" > <input type="radio" name="zhiweisex" value="男" checked>男  <input type="radio" name="zhiweisex" value="女" >女</td>
+    </tr>
+	
+   <tr > 
+   <td height="25"  >联系手机： 
+      </td>
+      <td  class="category" > <input type="text" name="chrtel" style="width:159px;" value="" ></td>
+      <td height="25" width="10%" >学历： 
+      </td>
+      <td  class="category" >{$xueli}</td>
+	  <td height="25"  >是否在校学生： 
+      </td>
+      <td  class="category" > <input type="radio" name="zhiweixuesheng" value="0" checked>是  <input type="radio" name="zhiweixuesheng" value="1" >否</td>
+	 
+    </tr>
+   <tr > 
+      <td height="25" width="10%" >想兼职： 
+      </td>
+      <td  class="category" colspan=5 ><input type="text" name="zhiweimark" value="" size=30 style="width:159px;" maxlength=30> <em class="global_tip">填写您想兼职的内容，比如：礼仪模特，不要超过15个汉字</em></td>
+	 
+    </tr>
+	 <tr > 
+      <td  height="25">简要说明： 
+      </td>
+      <td  class="category" colspan=5> <textarea name="zhiweicontent" style="width:80%;height:120px;"></textarea> <div class="global_tip">(不超过300汉字)</div></td>
+     
+    </tr>
+	 
+	 <td height="25" width="10%" >排序： 
+      </td>
+      <td  class="category"  colspan=5><input name="intorder" value="{$intorder}" style="width:159px;" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">数字越大越靠前</em></td>
+	  </tr>
+	  <tr > 
+      <td  height="25">状态： 
+      </td>
+      <td  class="category" colspan=5> <input type="radio" name="iskill" value="0" >等待审核 <input type="radio" name="iskill" value="1" checked>通过审核</td>
+     
+    </tr>
+    <tr  > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

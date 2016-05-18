@@ -1,0 +1,87 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+    {
+	  setCookie("delurl",window.location.href);
+      location.href = "houseconfig.aspx?action=deljb&ID=" + id
+   }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+	}
+}
+function deljubao(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要清空所有数据吗？"))
+    {
+		setCookie("delurl",window.location.href);
+    	location.href = "houseconfig.aspx?action=deljb&styleid=1";
+   }
+}
+</script>
+<style>
+body{ font-family:"宋体";}
+</style>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>共有举报：{$num1}条 ，今日：{$num2}条  </td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td  align="left">按举报房源查找：
+		<input type="text" name="keyword" value="{$keyword}">按状态查找：<input type="radio" name="colname" value="" {$colname}>全部 <input type="radio" name="colname" value="0" {$colname0}>未查看 <input type="radio" name="colname" value="1" {$colname1}>已查看
+		 <input type="submit" name="Submit3" class="global_btn" value="查找"></td>
+<td align=right><strong><a href="javascript:deljubao(this);" class="global_btn">清空全部报错？</a></strong> 
+</td></tr>
+</form>
+</table>
+	
+      <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        <form name="form" id="form" method="post" action="?action=deljb">
+          <tr align="center">
+		   <td width="25" class="category">ID</td>
+				<td class="category">举报房源</td><td class="category">举报内容</td><td class="category">房源性质</td>
+				<td class="category">举报者IP</td><td class="category">举报时间</td><td class="category">状态</td>
+				<td align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				</td>
+          </tr>
+         <tag:Loop ListType="LISTJUBAOFANG" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="house/List_dianpuerror_Tr.htm" />
+		 <tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+				<strong><a href="javascript:delAll(this,'2','置为已查看');"><font color=blue>置为已查看？</font></a></strong>  <strong><a href="javascript:delAll(this,3,'删除');">删除选中？</a></strong><input type="hidden" name="styleid" id="styleid" value="1"></td></tr>	
+        </form>
+       <tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>
+

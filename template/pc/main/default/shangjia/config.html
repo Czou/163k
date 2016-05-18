@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>其他内容维护-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<script src="/kindeditor/kindeditor.js"></script>
+<script src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+function myforms(o){
+	return true;
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">其他内容维护</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">以下部分功能仅签约店铺才能生效使用</div>
+						</div>
+						<div class="forms">
+							<form name="form1" action="?action=save" target="tijiao" onSubmit="return myforms(this)" method="post" enctype="multipart/form-data">
+								<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,2)',200);">一般内容</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,2)',200);">店铺幻灯片</a></li>
+									</ul>
+									<div class="tab_cont" id="tabadcontent_10" style="padding:0;">
+										<p class="tr"><span class="sp_a">店铺风格模板：</span><span class="sp_b">{$moban}</span><span class="sp_c">&nbsp;</span></p>
+										<p class="tr"><span class="sp_a">通栏图片：</span><span class="sp_b">
+										<span id="str0_1" style="display:none;"><a href="{$url0}" rel="facebox"><img src="{$url0}" class="img_block" id="for_url_0" width="400" height="67" alt="" /></a><a href="#" onClick="return upload_img_action_X('str0_1','str0_2')" class="sys_btn_small_blue">重新上传</a></span><span id="str0_2" style="display:none">
+										<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+										<input type="hidden" value="{$url0}" name="url0" id="url0" /></span><input type="hidden" value="1200" name="filewidth" /><input type="hidden" value="200" name="fileheight" />
+										 </span><span class="sp_c">最佳尺寸：1200x200  仅限jpg/gif/png</span></p>		 
+										<p class="tr"><span class="sp_a">寄语内容：</span><span class="sp_b"><textarea name="zhangguicontent" maxlength="200" id="zhangguicontent" class="sys_form_ipt" style="height:100px;">{$zhangguicontent$}</textarea></span><span class="sp_c">建议不要超过100汉字</span></p>
+										<p class="tr">
+											<span class="sp_a">自定义html：</span>
+											<span class="sp_d" style="width:800px;">
+												<input type="radio" name="isbian" value="1" {$isbian1}> 开启　<input type="radio" name="isbian" value="0" {$isbian0}> 关闭　　　提醒：该服务仅对"签约店铺"生效<br>
+												<textarea cols="100" id="biancontent" name="biancontent" rows="10">{$biancontent}</textarea>
+											</span>
+										</p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_11" style="padding:0; display:none;">
+										<div class="tr"><span class="sp_a">店铺幻灯片：</span><div class="sp_d" style="width:800px;">最佳尺寸：680x510<br><table width="100%"  cellpadding="1" cellspacing="1" class="table" border="0">{$huangdeng}</table></div>
+										</div>
+									</div>
+									
+								</div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">提交修改</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('a[rel*=facebox]').facebox();
+	if($('#url0').val() === ''){
+		upload_img_action_X('str0_1','str0_2');
+	}else{
+		 upload_img_action_X('str0_2','str0_1');
+	}
+	var imgList = $('.url_file');
+	imgList.each(function(){
+		var num = $(this).attr('data-num');
+		if($(this).val() === ''){
+			$('#str'+num+'_1').hide();
+			$('#str'+num+'_2').show();
+		}else{
+			$('#str'+num+'_1').show();
+			$('#str'+num+'_2').hide();
+		}
+	})
+});
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="biancontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '300px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	tag.attr({'src':surl});
+	upload_img_action_X('str'+num+'_2','str'+num+'_1');
+}
+</script>
+</body>
+</html>

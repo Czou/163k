@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>付费推广--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<style>
+.mode{ width:100%; margin-bottom:6px; font-family:"arial",宋体}
+.mode a {color:#F54100 ;}
+.mode h3{ font-size:13px;line-height:28px;font-weight:bold; background: #FFF8E9;padding-left:10px; border-bottom: 1px solid #FAD6C8;text-align:left; }
+#openmsg { font-size:12px;font-weight : normal ;}
+.forange,.forange a{color:#F54100!important;}
+.fgreen,.fgreen a{color:#008000}
+.unline,.unline a{text-decoration:underline;}
+.uright{ float:left;text-align:left;margin-left:6px; font-size:14px;}
+.trdis { font-size:14px;color:#999; text-align:right;}
+</style>
+{$top$}
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+}) 
+function showvalue(aa,bb,cc,dd){
+	dd.value = dd.value.replace(/[\D-]+/g,'')
+	eval("document.all."+aa).innerHTML= bb*cc;
+}
+function addtotal(){
+	var total=0;
+	if(document.zhifutt.c_index.checked){
+		var tt1= parseFloat(document.all.span_index.innerHTML)
+		var tt2= parseFloat(document.zhifutt.index.value)
+		total = total + tt1*tt2
+	}
+	if(document.zhifutt.c_bigtop.checked){
+		var tt1= parseFloat(document.all.span_bigtop.innerText)
+		var tt2= parseFloat(document.zhifutt.bigtop.value)
+		total = total + tt1*tt2
+	}
+	if(document.zhifutt.c_color.checked){
+		var tt1= parseFloat(document.all.span_colorfen.innerText)
+		total = total + tt1
+	}
+	if(document.zhifutt.c_font.checked){
+		var tt1= parseFloat(document.all.span_fontfen.innerText)
+		total = total + tt1
+	}
+	document.all.span_total.innerHTML = total;
+}
+</script>
+
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 付费推广</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main2">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">信息付费推广</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  注：已进行付费推广的信息，如果违反版规，会被删除处理! <br />
+                </td>
+              </tr>
+            </table>
+            
+            <div class="mode" id="beginner" style="width:750px; float:left; font-size:14px;">
+              <div class="left" id="beginner_msg" style="line-height:24px;"> {$chrname}，您好！目前账上有<strong class="fgreen">{$jifennum}</strong>{$jifenname}，<a href="modify.aspx?action=consume" class="unline">返回充值</a>。 <br />
+                您要推广的信息是“<a href="{$liveurl}live_{$ID}.html" class="unline fgreen">{$chrtitle}</a>” <a href="?" class="unline">返回重新选择信息</a> </div>
+            </div>
+			<div style="clear:both; float:none;"></div>
+            <div>
+              <form name="zhifutt" action="?action=paysave" method="post" target="tijiao">
+                <table border="0" cellpadding="1" cellspacing="1" class="table" width="98%">
+                  <tr>
+                    <td width=10%  class="tdcontent"  style="text-align:center" >选择</td>
+                    <td  align=left width=30% class="tdcontent"  style="text-align:center" >服务</td>
+                    <td  align=left width=20% class="tdcontent"  style="text-align:center" >定价</td>
+                    <td  width=20% class="tdcontent"  style="text-align:center" >购买量</td>
+                    <td     width=20% class="tdcontent"  style="text-align:center" >总价</td>
+                  </tr>
+                  <tr style="font-weight:bold;height:23px; color:#FF0000;">
+                    <td colspan=6 class="tdcontent">首页推广</td>
+                  </tr>
+                  <tr>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_index" value="1" onclick="addtotal();"></td>
+                    <td class="tdcontent" style="text-align:center">首页头版</td>
+                    <td class="tdcontent" style="text-align:center"><span id="span_index">{$weizhijia}</span>{$jifenname}/天</td>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="text" NAME="index" value=0 class="text" onKeyUp="showvalue('td_index','{$weizhijia}',this.value,this);addtotal();" size=5>
+                      天</td>
+                    <td class="tdcontent" style="text-align:center"><span id="td_index">0</span>{$jifenname}</td>
+                  </tr>
+                  <tr>
+                    <td colspan=6 class="tditem">从{$nextdate}开始展示</td>
+                  </tr>
+                  <tr style="font-weight:bold;height:23px; color:#FF0000;">
+                    <td colspan=6 class="tdcontent">列表页推广</td>
+                  </tr>
+                  <tr>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox" NAME="c_bigtop"  onclick="addtotal()" checked value="1"/></td>
+                    <td class="tdcontent" style="text-align:center">大类置顶</td>
+                    <td class="tdcontent" style="text-align:center"><span id="span_bigtop">{$daleijia}</span>{$jifenname}/天</td>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="text" NAME="bigtop" value=1 onKeyUp="showvalue('td_bigtop','{$daleijia}',this.value,this);addtotal()"  class="text" size=5>
+                      天</td>
+                    <td class="tdcontent" style="text-align:center"><span id="td_bigtop">{$daleijia}</span>{$jifenname}</td>
+                  </tr>
+                  <tr style="font-weight:bold;height:23px; color:#FF0000;">
+                    <td colspan=6 class="tdcontent">附加服务</td>
+                  </tr>
+                  <tr>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_color" checked value="1"/></td>
+                    <td class="tdcontent" style="text-align:center">标题加红</td>
+                    <td class="tdcontent" style="text-align:center"><span id="span_colorfen">{$colorfen}</span>{$jifenname}/次</td>
+                    <td class="tdcontent" style="text-align:center">一次支付终生有效</td>
+                    <td class="tdcontent" style="text-align:center"><span id="td_color">{$colorfen}</span>{$jifenname}</td>
+                  </tr>
+                  <tr>
+                    <td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_font" checked value="1"/></td>
+                    <td class="tdcontent" style="text-align:center">标题加粗</td>
+                    <td class="tdcontent" style="text-align:center"><span id="span_fontfen">{$fontfen}</span>{$jifenname}/次</td>
+                    <td class="tdcontent" style="text-align:center">一次支付终生有效</td>
+                    <td class="tdcontent" style="text-align:center"><span id="td_font">{$fontfen}</span>{$jifenname}</td>
+                  </tr>
+                  <tr>
+                    <td COLSPAN="6" style="text-align:right;line-height:40px;padding-right:20px;background:#FFffff"><span id="money_pay_show">所需{$jifenname}总数：<span id="span_total" style="color:#ff0000;font-weight:bold;">{$total}</span> {$jifenname}</span><br />
+                      <input type="hidden" name="id" value="{$ID}" />
+                      <input type="image" src="{$Default_tplPath}images/queren.gif" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub2">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+ <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

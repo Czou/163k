@@ -1,0 +1,62 @@
+@charset "utf-8";
+.page_title .ft,.page_cont .ft .menu li a,.job_tips b { background-image:url(../images/icon2.gif); background-repeat:no-repeat;}
+.page_cont .hd { background-image:url(../images/repeatX2.png); background-repeat:repeat-x;}
+.page_cont .hd .select li,.page_cont .hd .select li.selected,.page_cont .bd .bd_zone h3 { background-image:url(../images/jianli_ng.png); background-repeat:no-repeat;}
+.page_title { position:relative; text-align:left;}
+.page_title .title { font-size:14px; color:#039; font-weight:bold;}
+.page_title .ft { position:absolute; top:0; right:0px; color:#134305; background-position:0 -31px; padding-left:17px;}
+.company { font-weight:bold; margin:4px 0;}
+.page_cont { margin-top:10px; position:relative;}
+.page_cont .hd { background-position:0 -46px; height:34px;}
+.page_cont .hd .select { float:left; display:inline; margin-left:8px;}
+.page_cont .hd .select li { float:left; width:100px; background-position:0 -39px; height:26px; font-size:14px; padding-top:8px;}
+.page_cont .hd .select li.selected { background-position:-100px -39px; font-weight:bold;}
+.page_cont .hd .select li a { color:#333;}
+.page_cont .ft { position:absolute; top:-4px; right:0px;}
+.page_cont .ft .menu div { float:left; display:inline; margin-right:10px;}
+.page_cont .ft .menu ul { float:left; margin-top:4px;}
+.page_cont .ft .menu li { float:left; width:70px; height:23px; display:inline; margin-right:6px; text-align:left;}
+.page_cont .ft .menu li a { display:block; width:40px; padding-left:30px; height:20px; padding-top:3px; border:1px solid #bbdded; color:#277cb4;}
+.page_cont .ft .menu li a:hover { color:#f60;}
+.page_cont .ft .menu li a.print { background-position:6px -309px;}
+.page_cont .ft .menu li a.fav { background-position:6px -280px;}
+.page_cont .ft .menu li a.send { background-position:6px -251px;}
+.page_cont .bd { position:relative; text-align:left;}
+.page_cont .bd .bd_zone { width:767px; float:left;}
+.page_cont .bd .bd_zone h3 { height:22px; padding-top:6px; background-position:0 -73px; background-repeat:repeat-x; font-weight:bold; text-indent:.5em; color:#333;}
+.page_cont .bd_zone_cont { color:#333; line-height:20px; padding:10px;}
+.page_cont .bd_zone_cont a { text-decoration:underline;}
+.job_info { margin:10px;}
+.job_info td { color:#333; line-height:25px;}
+.job_tips { background-color:#f7fbd9; border:1px solid #faedb7; padding:10px;}
+.job_tips b { background-position:0 -222px; padding-left:21px;  display:block; color:#333; line-height:20px; margin-bottom:5px;}
+*+html .job_tips b { padding-top:3px;}
+.right_module { margin-top:10px; text-align:left; float:right; width:173px; background:url(../images/jianli_06.gif) repeat-y 0 0;}
+.right_module_c { background:url(../images/jianli_03.gif) no-repeat 0 0;}
+.right_module .right_module_hd { padding:11px 0 0 13px; font-weight:bold; color:#333;}
+.right_module .right_module_ft { height:4px; background:url(../images/jianli_08.gif) no-repeat 0 0; overflow:hidden; font-size:0;}
+.right_module .right_module_bd { padding:10px 5px 5px 15px;}
+.right_module .right_module_bd li { padding-left:8px; line-height:20px; height:20px; overflow:hidden;}
+.right_module .right_module_bd li.current { background:url(../images/jiao.gif) no-repeat 0 7px;}
+.right_module .right_module_bd li.current a { color:#f30; font-weight:bold;}
+.cont { padding:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

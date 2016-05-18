@@ -1,0 +1,92 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+td{ font-size:9.5pt}
+#sys_tips { text-align:center; background-color:#fff; padding:15px;}
+#sys_tips p { text-align:left; font-size:14px; color:#404040; margin:10px 0; padding-left:15px; line-height:25px;}
+#sys_tips h3 { font-size:20px; margin:0; color:#36c; font-weight:bold;}
+
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;短信平台管理</td>
+          <td  align="right"><a href="fasongchaxun.aspx" class="global_btn_blue">发送查询统计</a>&nbsp;<a href="jieshouchaxun.aspx" class="global_btn_blue">接收查询统计</a></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+    <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+           <tr align="center">
+            <td width="60" class="category">排序</td>
+             <td class="category">短信平台名称</td>
+             <td class="category">用户名/序列号/AppKey</td>
+          <td class="category">平台密码/key/AppSecret</td>
+		  <td class="category">短信平台报备签名</td>
+           <td class="category">剩余条数</td>
+          <td class="category">设置发送网关</td>
+          <td class="category" width="400">平台联系方式</td>
+          <td class="category">操作</td>
+         </tr>
+		{$list}
+	
+      </table>
+	  <!--<div style="background:#ffffff; line-height:20px; font-weight:bold; font-size:13px; padding-top:10px;">
+	  
+     
+	 </div>-->
+	  <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<div id="sys_tips" style="position:fixed; _position:absolute; top:50%; left:50%; width:960px; height:500px; margin:-270px 0 0 -480px; background-color:#fff; border:2px solid #36c; border-radius:10px; padding:20px;">
+<h3>短信平台使用简要说明</h3>
+<p>一、关于阿里大鱼<br>
+1、“阿里大鱼”这是我们最新接入本系统的云通信服务平台，隶属阿里巴巴旗下！稳定、靠谱、0门槛，我们推荐您使用！<br>
+2、开通步骤：前往阿里大鱼网站注册开通账号-前往“开发者控制中心”-创建应用“阿里大鱼”；在“管理中心”添加短信签名、将我们提供的大鱼专用短信模板逐个添加到大鱼的短信模板中,然后再将阿里大鱼的短信模板ID逐个对应配置到门户系统的信息通知项目中<br>
+3、阿里大鱼的应用创建完成后，将AppKey AppSecret 两项数据内容填写到本页面的配置项中进行保存<br>
+4、由于阿里大鱼的限制要求，在本页面中无法获取剩余条数跟记录，请直接在阿里大鱼管理中心查询<br>
+5、阿里大鱼群发限制，单次最多支持200个手机号码<br>
+6、阿里大鱼官网：<a href="http://www.alidayu.com" target="_blank">http://www.alidayu.com</a> 附件：<a href="http://fuwu.163k.com/thread-45786-1-1.html" target="_blank"><font color="#0000FF">[下载大鱼专用短信模板]</font></a></p>
+<p>
+二、其他短信平台<br>
+1、除阿里大鱼外，其他短信系统均是将用户名跟密码填写到本系统进行保存，个别可能需要自行提交短信模板<br>
+2、开通账号：选择您要使用的平台，联系平台商为您开通账号和充值，然后填入账号<br>
+3、希奥上行接口地址：<a href="http://www.163k.cc/api/smsupload.ashx" target="_blank">http://www.163k.cc/api/smsupload.ashx</a></p>
+<p>
+三、免责声明<br>
+遵守国家的有关法规和行政规章制度。不发送任何非法的、骚扰性、中伤他人的、辱骂性的、恐吓性的、伤害性的、挑衅的、庸俗的、淫秽等内容的信息。不发送任何教唆他人构成犯罪的信息。不发送涉及国家安全、国家机密的信息。 
+如有违反上列规定造成的一切后果由信息发送方完全负责，与本系统开发商无任何关联<br>
+</p>
+
+		<button class="global_btn_blue_big close" type="button">关闭</button>
+</div>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+function getMessageNum(){
+	var listid = "{$listid}";
+	if(listid==='') return;
+	var txt = 'smspeizhi.aspx?action=getcount&id='+listid;
+	$.ajax({url:txt,success:function(data){
+		if(data.islogin === '1'){
+			for(var i in data.MSG){
+				$('.getnum_'+i).html(data.MSG[i]);
+			}
+		}
+	}});
+}
+getMessageNum();
+$('#sys_tips').find('.close').click(function(){
+	$('#sys_tips').hide();								 
+});
+</script>
+</body></html>

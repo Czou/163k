@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+.col_main { width:100%; float:left;}
+.col_sub,.col_extra { float:left;}
+.grid_notice_01 { margin-top:10px;}
+.grid_notice_01 .main_wrap { margin:0 254px 0 0;}
+.grid_notice_01 .col_sub { width:244px; margin-left:-244px;}
+
+.list0622 { border:1px solid #eeeeee; border-top:2px solid #ff9900; text-align:left;}
+.list0622 .hd { height25:px; line-height:25px; font-size:14px; font-weight:bold; padding-left:8px; border-bottom:1px solid #eaeaea; background:url(../images/sp5/list0622.gif) repeat-x 0 0;}
+.list0622 .bd {}
+.list0622 .bd li { padding-left:28px; line-height:30px; height:30px; overflow:hidden; position:relative; *zoom:1; font-size:14px; background:url(../images/sp5/list0622.gif) no-repeat -6px -40px;}
+.list0622 .bd .in { display:block; position:absolute; top:0; right:8px; font-size:12px; color:#999;}
+.list0622 .bd .in em { color:#404040;}
+.list0622 .bd li.even { background-color:#f1f9fb;}
+
+.location { margin-top:10px; color:#666; padding-left:23px; background:url(../images/sp5/icon.gif) no-repeat 3px -219px;}
+
+/* 分页 */
+.pagination_module { margin:15px 0 10px 10px;}
+.pagination_module .left { display:block; float:left;}
+.pagination_module .right { display:block; float:right;}
+
+.pagination_module .right2 { margin-top:8px; display:inline; float:right; margin-right:5px; line-height:24px;}
+.pagination_module  a { display:block; float:left; border:1px solid #d7d7d7; background:#f7f7f7; color:#333; padding:4px 6px;line-height:14px; margin-right:3px;}
+.pagination_module  a.current { border:1px solid #f25602; background:#ffd6bf; font-weight:bold;}
+.pagination_module  span.kill { display:block; float:left; padding:4px 6px; line-height:14px; margin-right:3px;}
+.pagination_module  span.invalid{ border:1px solid #eee; background:#fff; color:#ddd;}
+.pagination_module .jump_box { display:block; float:right; margin-top:-4px; color:#666;}
+.pagination_module .jump_box input.jump_input { line-height:18px; border:1px solid #a7a6aa; height:18px; margin-top:5px; width:30px; margin-left:2px;}
+.pagination_module .jump_box input.jump_menu { background:url(../images/sp5/hd_320.png) no-repeat -240px -291px; width:20px; height:20px; border:0; margin-left:2px; cursor:pointer;}
+
+.date_box table {}
+.date_box table td { background:#ededed; height:28px; text-align:center;}
+.date_box table td.today { font-weight:bold; background:#f50; color:#000;} 
+
+
+
+
+
+
+
+
+
+
+
+
+

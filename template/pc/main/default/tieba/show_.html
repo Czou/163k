@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/v2013.css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$articleurl}">{$lanmuname}</a> &gt; <a href="{$articleurl}listnew_{$categoryid}.html">{$chrcategory}</a>{$smallcategorymenu} &gt; {$chrtitle}</div>
+	<!-- 主体 -->
+	<div class="v2013">
+		<div class="advs">{$Mh163k_新闻频道通栏广告}</div>
+		<div class="grid_02 mar10 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_content">
+					<h2>{$chrtitle}</h2>
+					<div class="news_info">{$dtappenddate}　浏览：{$views}　来源：<em>{$chrfrom}</em>　<a href="#comment_list" class="red">我要评论</a>　<span id="news_font">字号：<a href="javascript:void(0);" id="sma_font" class="small current" >T</a> / <a href="javascript:void(0);" class="big" id="big_font">T</a></span></div>
+					<div class="news_aricle" id="news_aricle" style="table-layout: fixed;word-wrap: break-word;  text-align:justify; text-justify:inter-ideograph ;overflow: hidden; ">
+						<table width="100%" cellpadding="0"  cellspacing="0" border="0">
+					<tr><td style="WORD-BREAK: break-all;" id="livearticle">
+						[id]
+      ,[categoryid]
+      ,[title]
+      ,[intorder]
+      ,[hits]
+      ,[chrcontent]
+      ,[dtappenddate]
+      ,[color]
+      ,[istop]
+      ,[isindex]
+      ,[iszhiding]
+      ,[isjinghua]
+      ,[userid]
+      ,[picid]
+      ,[chrip]
+      ,[isrevert]
+      ,[revertnum]
+      ,[num1]
+      ,[num2]
+      ,[iskill]
+      ,[repdate]
+      ,[score]
+      ,[score1]
+      ,[score2]
+      ,[score3]
+      ,[score4]
+      ,[score5]
+      ,[typeid]
+      ,[chrname]
+      ,[chrqq]
+      ,[styleid]
+      ,[chrtruename]
+      ,[djid]
+      ,[tiebanum]
+      ,[tiebarepnum]
+      ,[uiskill]
+      ,[tiebajinghuanum]
+      ,[Chrcategory]
+      ,[bigcategoryid]
+      ,[bigChrcategory]
+      ,[chrlevel]
+      ,[intnum]
+      ,[chrimage]
+						
+						
+						{$chrcontent}</td></tr>
+					</table>
+					<script type="text/javascript" >
+					function ResizeImages()
+					{
+					   var myimg,oldwidth,oldheight;
+					   var maxwidth=580;
+					   var maxheight=700
+					   var imgs = document.getElementById('livearticle').getElementsByTagName('img');   
+					   
+					   for(i=0;i<imgs.length;i++){
+						 myimg = imgs[i];
+					
+						 if(myimg.width > myimg.height)
+						 {
+							 if(myimg.width > maxwidth)
+							 {
+								oldwidth = myimg.width;
+								myimg.height = myimg.height * (maxwidth/oldwidth);
+								myimg.width = maxwidth;
+							 }
+						 }else{
+							 if(myimg.height > maxheight)
+							 {
+								oldheight = myimg.height;
+								myimg.width = myimg.width * (maxheight/oldheight);
+								myimg.height = maxheight;
+							 }
+						 }
+					   }
+					}
+					ResizeImages();
+					</script>
+					</div>
+					<div class="prev_next clearfix">
+						<div class="left">
+							<p>上一篇：{$lastone}</p>
+							<p>下一篇：{$nextone}</p>
+							
+						</div>
+						<div class="right">
+							<div class="ding">
+								<p id="cainews">{$xin1}</p>
+								<a href="javascript:void(0)" onClick="setarticle(1,{$newsid});"" >踩</a>
+							</div>
+							<div class="ding">
+								<p id="dingnews">{$xin2}</p>
+								<a href="javascript:void(0)" onClick="setarticle(2,{$newsid});"" >顶</a>
+							</div>
+							
+						</div>
+					</div>
+					<div class="prev_next clearfix">
+						<div class="left"><span style="float:left; font-size:12px; line-height:44px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+						<div class="right"><div class="toBBS"><a href="{$SiteUrl}service\" target="_blank">反馈建议</a></div></div>
+					</div>
+				</div>
+				<div class="user_comment">
+					<div class="hd clearfix"><p class="right"><em id="show_total_revert">0</em>条评论</p>网友留言评论</div>
+					<div class="bd comment">
+						<div id="showcomment">
+
+					<ul id="hover_bg"><Paging:{
+						"table_id":"251",	
+						"pagesize":50,		
+						"strlen":220,	
+						"titlelen":100,
+						"tplpath":"tieba",	
+						"tplname":"paging_tieba_revert_show_list.html",	
+						"isjson":0 	
+						}/></ul>
+					<div class="pageNavigation" style="border:1px solid #e6e6e6; border-top:0 none;">
+						{$PageSplit}
+					</div>
+
+							
+							
+							</div>
+						
+						<div class="write2014">
+							<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+							<input type="hidden" id="isrep" value="" />
+							<input type="hidden" id="istg" value="" />
+							<input type="hidden" id="parentid" value="" />
+							<form id="myform">
+								<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+								<div class="cmt_control clearfix">
+									<div class="left">
+										<div class="emot po_re">
+											<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+										</div>
+									</div>
+									<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+									<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+								</div>
+							</form>
+						</div>
+						<p class="shengming">声明：频道所载文章、图片、数据等内容以及相关文章评论纯属个人观点和网友自行上传，并不代表本站立场。如发现有违法信息或侵权行为，请留言或直接与本站管理员联系，我们将在收到您的信息后24小时内作出删除处理。</p>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				{$Mh163k_文章频道_边栏广告}
+				<div class="mo_1 video_1">
+					<h3>推荐视频</h3>
+					<div class="bd">
+						<ul class="img clearfix">
+							{$tuijianvideo1}						
+						</ul>
+						<ul class="txt">
+							{$tuijianvideo2}
+						</ul>
+					</div>
+				</div>
+				<div class="mo_1 paihang">
+					<h3>本月热点资讯</h3>
+					<div class="bd">
+						<ul>
+							{$Mh163k_资讯频道_本月热点资讯}
+						</ul>
+					</div>
+				</div>
+				<div class="mo_1 tuji">
+					<h3>热门图集</h3>
+					<div class="bd">
+						<ul>
+							{$top8photonews}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+		var keyvalues = {"table_id":"251",	
+						"pagesize":50,		
+						"strlen":220,	
+						"titlelen":100,
+						"tplpath":"tieba",	
+						"tplname":"paging_tieba_revert_show_list.html",	
+	"p":"{$iPageNo}",
+	"_key":"{$_key}",
+	"g":"{$g}",//只查看某用户回复(userid)
+	"i":"{$i}"//标题id
+	};
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$newsid}';
+window['STYLEID'] = '8';
+$(document).ready(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	//getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$('#big_font').click(function(){
+		$('.news_aricle').css({'font-size':'16px'});
+		$(this).addClass("current");
+		$('#sma_font').removeClass("current");
+	});
+	$('#sma_font').click(function(){
+		$('.news_aricle').css({'font-size':'14px'});
+		$(this).addClass("current");
+		$('#big_font').removeClass("current");
+	});
+});
+</script>
+</body>
+</html>

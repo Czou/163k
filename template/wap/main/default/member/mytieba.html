@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的帖子-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '我的帖子';
+</script>
+<style type="text/css">
+#pagingList .display21,#pagingList .display30,#pagingList .display231,#pagingList .display330 { display:none;}
+.displaysuper { display:none;}
+.showSuper .displaysuper { display:inline;}
+.feed_highlight { display:none;}
+.piclist img { margin-right:8px; vertical-align:top; width:100px;}
+</style>
+{$top$}
+<div class="wrapper">
+<div class="p_tabs clearfix" id="p_tabs">
+   <ul>
+    <li id="s_c_0" class="cur"><a href="javascript:void(0);" data-catid="0" onClick="return showCatF({'p':'1','c':'0'},'s_c_',this)">我的帖子</a></li>
+	<li id="s_c_1" class="display{$ismanager}"><a href="javascript:void(0);" data-catid="1" onClick="return showCatF({'p':'1','c':'1'},'s_c_',this)">审核帖子</a></li>
+	
+	<li><a href="admin_tieba.aspx?action=revert">我的回帖</a></li>
+	
+   </ul>
+</div>
+	<div id="order_list" class="user_order_list">    
+	 <form name="form" method="post" action="?" id="form">
+	<ul id="pagingList"></ul>
+	<!--<div style="margin:10px 0 0 10px;"><input type="checkbox" id="chkall" onClick="CheckAll(this.form);" /> 全选　<a href="javascript:void(0);" onClick="$.managerTBall('1')" class="global_btn_blue displaysuper">通过审核</a> <a href="javascript:void(0);" onClick="$.managerTBall('0')" class="global_btn_blue displaysuper">取消审核</a> <a href="javascript:void(0);" onClick="$.managerTBall();" class="global_btn">删除</a></div>-->
+	<div class="pageNavigation" id="pageNavigation"></div>
+	</form>
+	</div>
+		
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_tieba.js?{$CacheHash}"></script>
+<script>
+window['islazyImg'] = true; //是否开启了延迟加载图片并且没有iscroll5
+var nowdomain ="{$SiteUrl}";
+var keyvalues = {"table_id":"251",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_wap_tieba_admin_index_list.html",
+	"smallpicnum":1,
+	"strlen":"100",	
+	"titleLen":"20",
+	"isjson":"0",
+	"p":"1",
+	"_key":"",
+	"a":"",//板块
+	"b":"",//小类
+	"c":"0",//0我发布的，1版主待审核的
+	"d":"0",
+	"e":"",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"f":"",
+	"g":"",//只查看某用户贴(userid)
+	"h":"",//只看精华
+	"i":""//有图
+};
+
+
+
+function showCatF(obj,ids,node){
+	getPagingGlobal(obj,node,ids);
+	if(obj.c === '1'){
+		$('#pagingList').parent().addClass('showSuper');
+	}else{
+		$('#pagingList').parent().removeClass('showSuper');
+	}
+	return false;
+}
+
+function CheckAll(form){
+    for (var i=0;i<form.elements.length;i++){
+        var e = form.elements[i];
+        if (e.type=="checkbox" && e.id != 'chkall') e.checked = form.chkall.checked;
+    }
+}
+$(function(){
+	getPagingGlobal();//初始化页面
+	$(window).bind("scroll",function(){
+		lazyImg('#pagingList .n_img',false);
+	});
+	$('#order_list').find('.item2').each(function(){
+		var imgdata = $(this).find('.n_img');
+		if(imgdata.find('img').length > 0){
+			console.info(imgdata.find('img').eq(0).attr('data-src'));
+			$('#img_'+$(this).attr('data-id')).attr('src',imgdata.find('img').eq(0).attr('data-src'));
+		}
+	});
+});
+</script>
+</body>
+</html>

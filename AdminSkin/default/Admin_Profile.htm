@@ -1,0 +1,77 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language=javascript>
+	function CheckForm(){
+		op=document.form1.oldpwd.value;
+		np=document.form1.pwd.value;
+		np2=document.form1.conpwd.value;
+		if (op.trim()=="") {
+			alert("请输入旧密码!");
+			document.form1.oldpwd.focus();
+			return false;
+		}else if(np.trim()==""){
+			alert("请输入新密码!");
+			document.form1.pwd.focus();
+			return false;
+		}else if(np2.trim()==""){
+			alert("请输入确认码!");
+			document.form1.conpwd.focus();
+			return false;
+		}else if(np.trim()!=np2.trim()){
+			alert("确认码与新密码不一致!");
+			document.form1.conpwd.value="";
+			document.form1.conpwd.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td width="60%"  class="ttbh">&nbsp;维护个人信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" >&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+<table align="center"  width="100%" cellpadding="2" cellspacing="0" class="toptable grid table_style" border="0">
+  <form name="form1" method="post" action="?action=EditSave" onsubmit="return CheckForm();">
+    <tr > 
+      <td height="25" >旧密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="oldpwd" type="password" id="oldpwd" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >新密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="pwd" type="password" id="pwd" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >确认新密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="conpwd" type="password" id="conpwd" size="30"></td>
+    </tr>
+    <tr > 
+      <td height="25" >
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

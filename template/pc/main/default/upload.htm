@@ -1,0 +1,35 @@
+﻿<html>
+<head>
+	<title>上传文件</title>
+	<style>
+		body
+		{
+			margin-top:0px;
+			margin-left:0px;
+			font-size:9pt;
+		}
+	</style>
+	<script language="javascript">
+		//上传完后使用脚本通知前端进度条
+		parent.pb.UploadComplete();
+		parent.ClearTimer();
+		/*if(parent.parent.document.getElementById("urlhidden")!=null){
+			parent.parent.document.getElementById("urlhidden").value = '{$id}';
+			if(typeof window.parent.parent.uploadsuccess !== 'undefined'){
+				window.parent.parent.uploadsuccess('{$num}','{$url}');
+			}
+			
+		}*/
+		
+		if(parent.document.getElementById("Form1")!=null){
+			parent.document.getElementById("Form1").reset();
+		}
+		if(typeof window.parent.parent.uploadsuccess !== 'undefined'){
+				window.parent.parent.uploadsuccess('{$id}','{$url}','{$num}');
+		}
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

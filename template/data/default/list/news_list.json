@@ -1,0 +1,1 @@
+{"newsid":"{$newsid}","filepath":"{$filepath}","chrtitle":"{$chrtitle}","chrcontent":"{$chrcontent}","dtappenddate":"{$dtappenddate MM-dd HH:mm}","hits":"{$hits}"}

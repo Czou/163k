@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-房型图-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_xq.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/highslide.js"></script>
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="xiaoqu_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a><span class="cur_tit">房型图</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>现代简约建筑设计</p>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="xiaoqu_{$Loupan_loupanid}.html">小区详情</a></li>
+        <li><a href="xiaoquzhu_{$Loupan_loupanid}.html">出租房源</a></li>
+        <li><a href="xiaoqushou_{$Loupan_loupanid}.html">出售房源</a></li>
+        <li class="current"><a href="xiaoqufang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li><a href="xiaoqupic_{$Loupan_loupanid}.html">小区照片</a></li>
+        <li><a href="xiaoquping_{$Loupan_loupanid}.html">小区评价</a></li>
+        <!--<li><a href="{$yezhu}" target="_blank">业主论坛</a></li> -->
+      </ul>
+     </div>
+   </div>
+   <!--房型图-->
+   <div class="fangxing">
+     <div class="fx_tabs clearfix">
+       <ul>
+         <li><a href="xiaoqufang_{$Loupan_loupanid}.html" class="current">全部({$Loupan_total})</a></li>
+         <li><a href="xiaoqufang_{$Loupan_loupanid}.html?Colname=2">二室({$Loupan_total1})</a></li>
+         <li><a href="xiaoqufang_{$Loupan_loupanid}.html?Colname=3">三室({$Loupan_total2})</a></li>
+       </ul>
+     </div>
+     <div class="fx_list clearfix">
+       <ul>
+         <tag:Loop ListType="LISTXIAOQUFANG" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_XIAOQUfang_Tr.html" />
+       </ul>
+     </div>
+     <div class="fc_pageNavigation">{$PageSplit} 　每页显示16条</div>
+   </div>
+  </div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fc_home').removeClass('select');
+	$('#fc_xiaoqu').addClass('select');
+	
+	var Colname = getQueryString("Colname"); 
+	$(".fx_tabs li").removeClass("current");
+	if(Colname){
+		   $(".fx_tabs li").eq(Colname-1).addClass("current");	
+		}
+	else{
+		$(".fx_tabs li").eq(0).addClass("current");
+		}
+});
+
+function getQueryString(value) {
+	var reg = new RegExp("(^|&)" + value + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+</script> 
+
+</body>
+</html>

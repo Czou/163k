@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我发起的活动-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li class="{$style8$}">{$url8$}</li>
+						<li class="{$style0$}">{$url0$}</li>
+						<li class="{$style1$}">{$url1$}</li>
+						<li class="{$style2$}">{$url2$}</li>
+						<li class="{$style3$}">{$url3$}</li>
+						<li class="{$style4$}">{$url4$}</li>
+						<li class="{$style5$}">{$url5$}</li>
+					</ul>
+					<div class="right"><a href="myactive.aspx?action=myadd" class="sys_btn_small_blue">我要发起活动</a></div>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">审核通过前可以修改、删除活动<br>审核通过后修改内容、更改活动状态需要重新审核，删除请联系网站客服。</div>
+						</div>
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+								<td>活动编号</td>
+								<td>活动名称</td>
+								<td>发布时间</td>
+								<td>报名情况</td>
+								<td>结束时间</td>
+								<td>活动状态</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="listmyactive" RecType="New" PageSize="10" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_active_Tr.htm" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+function delactive(id){
+    if ( confirm("该操作将不可逆！\n您确定要删除此条活动吗？")){
+      	var url="../request.aspx?action=delactive&str1="+encodeURIComponent(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		$.ajax({url:url,success: function(data){
+			if(data!=1){
+				alert(data);	
+			}else{
+				alert("删除活动成功！");
+				window.location.href="myactive.aspx?action=my";
+			}
+		}});	
+    }
+}
+</script>
+</body>
+</html>

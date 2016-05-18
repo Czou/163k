@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$smallcategory}-{$bigcategory}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+{$top$}
+<div class="nav_job_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="fabu.html">
+     <span class="sm"></span>
+     发信息
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/mylive.aspx">
+     <span class="manage"></span>
+     管理
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+
+<div class="o_main mar_b_50">
+ <div class="cinfo_menu clearfix">
+  <ul>
+   {$Mh163k_wap_分类信息_大类导航}
+  </ul>
+ </div>
+ 
+<div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="str_a_node">{$allcategory}</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_b_node">{$strarea}</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_c_node">时间不限</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+		<ul>
+			<li class="all"><a href="default.html" id="s_colname_" class="t">类别不限</a></li>
+			{$leftsmallcategory}
+		</ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul>{$areaidlist}</ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul id="youxiaourl">{$youxiaourl}</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<div class="job_search">
+ <div class="sbox clearfix">
+	<form name="searchlive" id="searchlive" action="default.html" method="get" >
+	<input type="text" name="keyword" id="keyword" placeholder="请输入关键字" value="{$keyword}" /><button type="submit">搜索</button>
+	<input type="hidden" name="lie" id="lie" value="" />
+	<input type="hidden" name="pic" id="pic" value="" />
+	<input type="hidden" name="colname" id="colname" value="" />
+	<input type="hidden" name="key" id="key" value="" />
+	<input type="hidden" name="areaid" id="areaid" value="" />
+	<input type="hidden" name="keyword3" id="keyword3" value="" />
+	<input type="hidden" name="keyword2" id="keyword2" value="" />
+	<input type="hidden" name="youxiao" id="youxiao" value="" />
+	<input type="hidden" name="keyword1" id="keyword1" value="" />
+	</form>
+ </div> 
+</div>
+<!--列表-->
+ <div class="info_list">
+  <ul class="list_live bgy">
+		{$toplist}
+	</ul>
+	<ul class="list_live">
+		<tag:Loop ListType="listliveqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="40" RecColumn="5" CusTpl="1" Template="live/list_live{$formid}.html" />
+	</ul>
+	<div class="pageNav2">
+		{$PageSplit}
+	</div>
+ </div>
+ 
+{$bottom$}
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+(function($){
+	$.companyUrl = function(){
+		var current_host = window.location;
+		var url_obj = $.url(current_host).param();
+		if(url_obj['key'] !== '' && url_obj['key'] !== '0'){
+			$('#s_'+url_obj['key']).addClass('current');
+		}
+		if(!url_obj['colname'] ){
+			$('#s_colname_').addClass('current');
+		}else{
+			$('#s_colname_'+url_obj['colname']).addClass('current');
+		}
+		if(!!url_obj['youxiao'] && url_obj['youxiao'] !== ''){
+			$('#str_c_node').html($('#youxiaourl').find('.selected').html());
+		}
+		for(var i in url_obj){
+			$('#'+i).val(url_obj[i]);
+		}
+	}
+	$.companyUrl();
+})(jQuery);
+document.addEventListener('DOMContentLoaded',function(){
+	/*$('#search_ico').show();
+	$('#login_ico').hide();*/
+	window['myScroll_parent'] = null;
+	window['myScroll_inner'] = null;
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+},false);
+/*var searchHtml = '<div class="searchbar2">'+
+	'<form name="searchlive" id="searchlive" action="default.html" method="get" >'+
+				'<input type="hidden" name="lie" id="lie" value="" />'+
+				'<input type="hidden" name="pic" id="pic" value="" />'+
+				'<input type="hidden" name="colname" id="colname" value="" />'+
+				'<input type="hidden" name="key" id="key" value="" />'+
+				'<input type="hidden" name="areaid" id="areaid" value="" />'+
+				'<input type="hidden" name="keyword3" id="keyword3" value="" />'+
+				'<input type="hidden" name="keyword2" id="keyword2" value="" />'+
+				'<input type="hidden" name="youxiao" id="youxiao" value="" />'+
+				'<input type="hidden" name="keyword1" id="keyword1" value="" />'+
+				'<input type="text" name="keyword" id="keyword" class="s_ipt" value="{$keyword}" />'+
+				'<input type="submit" id="" class="s_btn po_ab" value="搜索" />'+
+			'</form>'+
+	'</div>';
+function newPageSearch(){
+	var myform = $('#myform');
+	if($('#meSleKey').val() !== ''){$('#mySle').val('1');myform.attr({'action':'?'});}
+	$('#mySle').change(function(){
+		var val = $(this).val();
+		if(val === '1'){
+			myform.attr({'action':'?'});
+		}else{
+			myform.attr({'action':'../k_good_a0_b0_c0_d0_e0_f0_g0_p1.html'});
+		}
+	}); 
+}*/
+</script>
+</body>
+</html>

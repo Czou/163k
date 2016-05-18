@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布成功--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_fabu.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$liveurl}">{$lanmuname}</a> &gt; 发布成功</div>
+	<div id="content">
+		<div class="thd clearfix"><b>发布步骤：</b><span>1.选择分类</span><span>2.填写内容</span><span class="current">3.发布完成</span></div>
+		<div class="fbd clearfix" style="padding:40px 0;">
+			<div class="pic"><img src="{$Default_tplPath}images/fabu3_03.png" alt="" /></div>
+			<div class="text">
+				<p><b>发布成功!</b>　<a href="fabu.html">再发布一条</a>　<a href="{$SiteUrl}member/mylive.aspx">管理我的信息</a></p>
+				<p><b>提示：</b>您刚发布的信息可能需要审核才能显示，不要着急，只要稍等一会会<br />　　　<span style="display:{$showdis}">每成功发布一条信息<b class="red_skin">+{$jifennum}</b>{$jifenname}</span><br />　　　如果您希望信息被更多人浏览到，可以购买信息推广服务</p>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

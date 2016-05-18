@@ -1,0 +1,120 @@
+﻿<script>
+function clickcolor(tt)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) tt.value=aarr;
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改信息大类&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至信息大类列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style">
+
+
+  <form name="form1" method="post" action="?action=EditSave">
+    <tr > 
+      <td width="15%" height="25">信息大类名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrcategory" type="text" size="30" value="{$chrcategory}"></td>
+    </tr>
+	<tr > 
+      <td  height="25">颜色： 
+      </td>
+      <td class="category"> <input name="color" type="text" id="cptext" value="{$color}" style="color:{$color};" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/> <span class="global_tip display0 displaykey{$key}">wap版商家分类导航中按钮的背景颜色</span></td>
+    </tr>
+	 <tr> 
+      <td  height="25">图标： 
+      </td>
+      <td class="category"> <span id="str1"><span style="display:inline-block; _display:inline; *zoom:1; width:50px; height:50px; border-radius:50px;background-image:url({$url0}); background-color:{$color}; background-size:42px auto;"></span>
+	  <p><a href="javscript:void(0);" onclick="hid1()">重新上传</a></p>
+	  </span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=0&action=index"></iframe>
+	  </span>
+	  <input type="hidden" name="url0" id="url0" value="{$url0}"><div class="blank10"></div><span class="global_tip display0 displaykey{$key}">wap版分类导航中按钮的白色图标部分，要求：必须png24透明图标，尺寸68X68</span></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25">选择要使用的模板类型<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> {$typeid}</td>
+    </tr>
+	  <tr > 
+      <td width="15%" height="25">SEO标题： 
+      </td>
+      <td width="76%" class="category"> <input type="text"  name="title"  size="40"  value="{$title}"/> <em class="global_tip">(ie标题结构：大类名称-seo标题-网站名称)</em></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">栏目介绍： 
+      </td>
+      <td width="76%" class="category"> <textarea name="chrmark" style="width:500px;height:60px;">{$chrmark}</textarea></td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">是否在首页显示<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" name="isindex" value="1" {$isindex1}>显示 <input type="radio" name="isindex" value="0" {$isindex0}>不显示</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">是否在栏目页显示<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" name="islive" value="1" {$islive1}>显示 <input type="radio" name="islive" value="0" {$islive0}>不显示</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input type="radio" name="iskill" value="0" {$iskill0}>显示 <input type="radio" name="iskill" value="1" {$iskill1}>隐藏</td>
+    </tr>
+	
+	<tr > 
+      <td width="15%" height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="intorder" type="text" id="intorder" size="10" onKeyUp="if(isNaN(value))execCommand('undo')" value="{$intorder}"> <em class="global_tip">(前台从小到大排序)</em></td>
+    </tr>
+   
+    <tr  > <td></td>
+      <td height="25"  class="category"><input type="hidden" name="gotourl" value="{$gotourl}" />
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	if($('#url0').val() == ''){
+		hid1();
+	}
+})(jQuery);
+function hid1(){
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>

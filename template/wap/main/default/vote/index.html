@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>投票-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+{$top$}
+<div class="nav_bm_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <!--投票活动-->
+ <div class="list_live">
+  <ul>
+   <tag:Loop ListType="LISTHUODONG" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="vote/List_active_Tr.htm" />
+  </ul>
+  <div class="pageNav pageNav2">{$PageSplit}</div>
+ </div>
+{$bottom$}
+</body>
+</html>

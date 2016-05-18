@@ -1,0 +1,16 @@
+<span class="arrow"></span>
+<div class="list">
+	<ul>
+		{$gouwuche_small_list}
+	</ul>
+</div>
+<p class="coupon" style="display:none;">选择抵用券：<select name="" disabled><option value="0">暂无可用抵用券</option></select></p>
+<div class="other" id="other" style="display:none">
+	<span class="chrmoneyAll">商品总价：<em class="em">&yen;{$chrmoneyAll}</em></span>
+	<span class="chrmoneyyouhui">优惠额：<span class="display1{$discount1}" title="配送费不累计">(满{$discount}减{$discount1})</span><em class="em">&yen;{$chrmoneyyouhui}</em></span>
+	<span class="chrmoneyYunfei">配送费：<em class="em">&yen;{$chrmoneyYunfei}</em></span>
+	<span class="daijinnum display1{$daijinnum}">账户余额抵扣：<em class="em">&yen;{$daijinnumdikou}</em></span>
+</div>
+<div class="total po_re clearfix" id="ShoppingCartNumAll" data-numAll="{$numAll}">
+	<a href="{$SiteUrl}member/myorder.aspx?action=myshoppay&shopid={$shopid}" class="btn" id="submitGo">下单</a>总计：<em>&yen;<span id="chrmoneyAll">{$chrmoneyAll}</span></em>
+</div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑全景视频-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function myforms(o){
+	if(document.getElementById('url0').value == ''){
+		alert('视频地址不能为空！');
+		return false;
+	}
+	return true;
+}
+</script>
+<style>
+.player { width:480px; height:400px; overflow:hidden; background-color:#222;}
+.player embed { vertical-align:top;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">编辑全景视频</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">签约商家才能使用全景视频<br>
+全景视频需要使用第三方专业软件和设备进行制作，全景视频文件最终生成的为.html格式或者文件夹路径模式。请填写您的全景文件的路径或网址。<br>
+推荐全景制作平台与工具：<a href="http://www.720yun.com/" target="_blank">www.720yun.com/</a>　<a href="http://www.360vr.cn/" target="_blank">www.360vr.cn/</a></div>
+						</div>
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=zhangguifilesave" onSubmit="return myforms(this)" >
+								<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,2)',200);">远程直接调用</a></li>
+										<!--<li class="display{$IsFabuKill}"><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,2)',200);">本地上传</a></li>-->
+									</ul>
+									<div class="tab_cont" id="tabadcontent_10">
+										<p class="tr" style="border-bottom:0 none;"><span class="sp_a">调用地址：</span><span class="sp_b"><input type="text" value="{$url0}" name="url0" id="url0" class="sys_form_ipt" /></span><span class="sp_c">　请填全景制作软件生成的网址，如:<a href="http://www.360vr.cn/vr/xingtan/pano/" target="_blank">http://www.360vr.cn/vr/xingtan/pano/</a></span></p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_11" style="display:none;">
+										<p class="tr" style="border-bottom:0 none;"><span class="sp_a">视频地址：</span><span class="sp_d"><span id="str3" style="display:none;"><span id="for_url_1">{$url0}</span> <a href="#" onClick="return upload_img_action_X('str3','str4')" class="sys_btn_small_blue">重新上传</a></span><span id="str4" style="display:none"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=10&type=0&table_id=shop_video&reqfile=upload_X4.aspx"></iframe></span></span><span class="sp_c">仅限swf文件　大小限制：{$IsSaveKill}M</span></p>
+									</div>
+								</div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button>　<a href="../cq{$shopid}.html" target="_blank" class="sys_btn_white">点击预览</a></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+(function($){
+	
+	if($('#url0').val() === ''){
+		$('#str4').show();
+	}else{
+		$('#str3').show();
+	}
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿<div class="list_diantai" id="diantai{$num}">
+  <div class="item clearfix">
+    <div class="pic"><img src="{$filepath}" alt=""  width="34" height="34"/></div>
+    <div class="info">
+      <p>{$chrtitle}</p>
+      <p class="gry">{$chrmark}</p>
+    </div>
+    <div class="menu"><img src="{$tplPath}images/diantai_13.gif" alt="" /> <a href="javascript:setdiantai({$num});">在线收听</a></div>
+    <div class="text"><a href="{$website}" target="_blank">电台主页</a>　<a href="{$bbsurl}" target="_blank">网友交流</a></div>
+  </div>
+  <div class="player" id="diantai_{$num}" style="display:none">
+    
+	<object align="middle" classid="CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95" class="OBJECT" id="MediaPlaye{$num}" width="1150" height="50">
+          <param name="ShowStatusBar" value="-1" />
+          <param name="Filename" value="{$chrurl}" />
+	  <param NAME="AutoStart" VALUE="-1">
+          <embed src="{$chrurl}" width="900" height="50" type="application/x-oleobject" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=5,1,52,701" flename="mp"></embed>
+        </object>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+@charset "utf-8";
+.paixu_info .menu_jiaru,.paixu_info .menu_fabu  { background-image:url(../images/jianli_ng.png); background-repeat:no-repeat;}
+.paixu_info .img_bg,.paixu_info .title,.paixu_info .time,.paixu_info .guanzhu,.list_tab tbody td.name a.have_pic { background-image:url(../images/icon2.gif); background-repeat:no-repeat;}
+#content { position:relative;}
+.search_barA { background:url(../images/job_rencai_bg.png) no-repeat 0 0; width:950px; height:93px; overflow:hidden; }
+.search_barA .bd { text-align:left; padding-left:90px; margin-top:13px; font-size:14px; line-height:30px;}
+.choose { float:left; display:inline; margin-right:7px;}
+.choose ul { position:absolute; z-index:9999; top:40px; border:2px solid #0099FF; background:#fff; width:173px; display:none; FILTER: alpha(opacity=90); moz-opacity: 0.9; opacity: 0.9; font-size:12px;}
+.choose ul.ch_1 { left:167px;}
+.choose ul.ch_2 { left:428px;}
+.choose li{ line-height:20px; text-indent:.5em;}
+.choose li.pad { text-indent:1.5em;}
+.choose li a { display:block; height:20px; color:#333; text-decoration:none; text-align:left;}
+.choose li.pad a { color:#666;}
+.choose li a:hover{ background:#7b9dd0; color:#fff;}
+.search_barA .searchtype { vertical-align:middle; height:27px; border-left:1px solid #80888f; border-top:1px solid #80888f; border-bottom:1px solid #b8d4e7; border-right:1px solid #b8d4e7; background:url(../images/search_input.gif) no-repeat 160px 10px; width:177px; padding:0 0 0 3px; color:#666; text-align:left; line-height:27px;}
+.search_barA .text_input { vertical-align:middle; height:20px; border-left:1px solid #80888f; border-top:1px solid #80888f; border-bottom:1px solid #b8d4e7; border-right:1px solid #b8d4e7; width:177px; padding:5px 0 0 3px; color:#666; text-align:left;}
+.search_barA .no2 { background:none; width:252px; margin-top:3px!important; margin-top:-1px;}
+*+html .search_barA .no2 { margin-top:1px!important;}
+.search_barA .text_submit { background:url(../images/jianli_ng.png) no-repeat -370px 0; width:65px; height:28px; border:0; color:#fff; font-size:14px; font-weight:bold; text-align:left; padding-top:0px!important; padding:4px 0 0 19px; cursor:pointer; margin-top:2px!important; margin-top:0;}
+*+html .search_barA .text_submit { padding-top:4px!important; margin-top:0px!important;}
+/*.hot_key { padding-left:90px; background:url(../images/tuijianrencai.gif) no-repeat 0 0; text-align:left; margin:12px 0 0 90px; padding-top:2px; height:18px; overflow:hidden;}*/
+.hot_key2 { padding-left:90px; background:url(../images/remenzhiwei.gif) no-repeat 0 0; text-align:left; margin:12px 0 0 90px; padding-top:2px; height:18px; overflow:hidden;}
+.hot_key a,.hot_key2 a { margin-right:10px;}
+.paixu_info { margin-top:10px; color:#666;}
+.paixu_info .left { float:left;}
+.paixu_info .right { float:right;}
+.paixu_info .red_skin { font-weight:bold; color:#f30;}
+.paixu_info .menu_jiaru { background-position:-445px 2px; line-height:23px; padding:6px 9px; margin:0 5px; color:#36c; text-decoration:none;}
+.paixu_info .menu_fabu { background-position:-445px -26px; line-height:23px; padding:6px 9px 6px 21px; margin:0 5px; color:#36c; text-decoration:none;}
+*+html .paixu_info .menu_jiaru { background-position:-445px 0px!important;}
+.paixu_info .menu_jiaru:hover,.paixu_info .menu_fabu:hover { color:#f60; text-decoration:none;}
+.paixu_info .img_bg { background-position:0px -141px; padding-left:16px; margin-left:10px;}
+.paixu_info .title { background-position:0px -116px; padding-left:16px;}
+.paixu_info .time { background-position:0px -163px; padding:3px 0; padding-left:20px;}
+.paixu_info .guanzhu { background-position:0px -87px; padding:3px 0; padding-left:20px; margin-left:12px;}
+.paixu_info a { color:#333; text-decoration:underline;}.paixu_info a:hover { color:#666;}
+.page_content { margin-top:10px;}
+.list_tab {}
+.list_tab thead th { color:#666; text-align:center; line-height:25px; border-top:2px solid #d8e8ef; border-bottom:1px solid #d8e8ef;}
+.list_tab thead th.name { background:url(../images/icon2.gif) no-repeat 0px -190px; padding-left:0px;}
+.list_tab thead th.guanzhudu { background:url(../images/icon2.gif) no-repeat 35px -57px; padding-left:18px;}
+.list_tab tbody td { text-align:center; line-height:40px; color:#333;}
+.list_tab tbody td.name { font-size:14px; font-weight:bold; text-align:left;}
+.list_tab tbody td.name a { color:#0048a1; text-decoration:underline;}
+.list_tab tbody td.name a:hover { color:#f60; text-decoration:none;}
+.list_tab tbody td.yuexin,.list_tab tbody td.diqu,.list_tab tbody td.time { color:#0066cc;}
+.list_tab tbody td .red_skin { font-weight:bold; color:#f30;}
+.list_tab tbody tr.bg_b { background:#f0efef;}
+.list_tab tbody td .tips { background:url(../images/job_rencai_022.gif) no-repeat 0 0; height:37px; width:920px; margin:0 auto 5px auto; padding:5px 10px 0px 10px; text-align:left; color:#666; overflow:hidden;}
+.list_tab tbody td .tips a { text-decoration:underline;}
+.list_tab tbody td .tips b { font-weight:normal; color:#f00;}
+.list_tab tbody td .green_skin { color:#507e00; text-decoration:underline;}.list_tab tbody td .green_skin:hover { color:#7cac29;}
+.adv_k { background:url(../images/jobList_03.gif) no-repeat 0 0; width:750px; height:67px; margin-top:10px; padding:18px 0 0 200px;}
+.adv_k li { float:left; width:350px; text-align:left; padding-left:21px; margin-bottom:12px; height:18px; line-height:18px;}

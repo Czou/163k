@@ -1,0 +1,25 @@
+﻿
+分页参数:request_paging.ashx?table_id=255&tplpath=tieba&tplname=tieba_qiandao_list_json.html&p=1&PageSize=31&isjson=1&startdate=查询的年月日&g=当前用户userid
+后台分页参数:request_paging.ashx?table_id=255&tplpath=tieba&tplname=tieba_qiandao_list_json_admin.html&PageSize=31&isjson=1&startdate=查询的年月日&g=用户userid
+参数说明:startdate:空为本月,输入任何日期,将查询该日期在内的当月全部签到信息.
+g:userid:后台可忽略,前台调用必须提交.
+
+
+超级json模板:前台只输出dtappenddate
+{"dtappenddate":"{$dtappenddate {\"Y\":yyyy,\"M\":MM,\"D\":dd}}"}
+{"userid":"{$userid}","dtappenddate":"{$dtappenddate {\"Y\":yyyy,\"M\":MM,\"D\":dd}}","chrname":"{$chrname}"}
+
+解析结果
+{"islogin":"1","p":"1","PageCount":"1","RecCount":"2",
+"MSG":
+[
+{"userid":"6239","dtappenddate":{"Y":2015,"M":7,"D":19},"chrname":"影城"},
+{"userid":"6239","dtappenddate":{"Y":2015,"M":7,"D":18},"chrname":"影城"}
+],"
+
+提示:支持当解析结果值为合法json对象时,将输出对象
+如 
+模板:{"dtappenddate":"{$dtappenddate {\"Y\":yyyy,\"M\":MM,\"D\":dd}}"}
+结果为{"dtappenddate":{"Y":2015,"M":7,"D":19}}
+模板:"dtappenddate":"{$dtappenddate [yyyy,MM,dd]}"
+结果为{"dtappenddate":[2015,7,19]}

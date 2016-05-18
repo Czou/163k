@@ -1,0 +1,224 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+.tit1 { margin:15px 0 5px;}
+</style>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写视频名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起,请选择视频分类!");
+		o.categoryid.focus();
+		return false;
+	}
+	if(o.p1[1].checked){
+		if(o.shopid.value==""){
+			alert("请选择发行商家!");
+			o.shopid.focus();
+			return false;
+		}
+	}
+	else{
+		if(o.zidingyi.value==""){
+			alert("对不起,请输入自定义发行商家!");	
+			o.zidingyi.focus();
+			return false;
+		}	
+	}
+	if(o.typeid[1].checked){
+		o.url13.value = document.getElementById('filepath2wap').value;
+	}
+	if(o.typeid[2].checked){
+		o.url13.value = document.getElementById('filepath3wap').value;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改视频&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至视频列表" onClick="javscript:window.history.back(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this);" >
+    {$daishen$}
+    <tr > 
+      <td  height="25">视频标题<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="text" name="chrtitle"  value="{$chrtitle}" class="myinput" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+      <td  height="25">视频分类<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category">{$categoryid}</td>
+    </tr>
+	
+<tr > 
+      <td  height="25">关联商家<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"><input type="radio" value="0"  name="p1" {$p10}>自定义商家名称:<input name="zidingyi" type="text" size="30"  VALUE="{$zidingyi}"><br><br><input type="radio" value="1"  name="p1" {$p11}>从站内店铺选择:{$shopid}</td>
+    </tr>
+	
+	<tr > 
+      <td  height="25">视频简介：</td>
+      <td  colspan=3  class="category"><textarea name="chrmark" style="width:500px;height:50px;"/>{$chrmark}</textarEa></td>
+    </tr>
+	<tr > 
+      <td  height="25">视频封面图片：</td>
+      <td  colspan=3  class="category"><span id="str1" >{$chrimage$}</span><span id="str2" style="display:none">(最佳尺寸：223*152)<iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=video&type=11"></iframe></span><input type=hidden name="url11" id="url11" value="{$chrimage}"><input type="hidden" value="223" name="filewidth" /><input type="hidden" value="152" name="fileheight" /></td>
+    </tr>
+	
+	<!--<tr > 
+      <td  height="25">视频源：</td>
+      <td  colspan=3  class="category">支持格式:mp4、swf、flv、asf、wmv、avi，强烈推荐您使用mp4格式！<span style="color:#f60;">手机端仅能支持mp4格式播放</span>。</td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="0" {$typeid0}>本地上传视频数据</td>
+      <td  colspan=3  class="category"><span id="str3" >{$filepath$}</span><span id="str4" style="display:none"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=video&type=12"></iframe></span><input type=hidden name="url12"  id="url12" value="{$url12}"></td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="1" {$typeid1}> 调用外部视频地址</td>
+      <td  colspan=3  class="category">视频文件地址：<input type="text" name="filepath2" style="width:500px;" value="{$filepath2}"></td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="2" {$typeid2}>引用第三方站点</td>
+      <td  colspan=3  class="category">支持调用如优酷、土豆等知名视频站点的数据，请输入“通用代码”<br />例如：&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XODA2NDg0OTg0" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;<br>
+	  <p><input type="text" name="filepath3" style="width:500px;" value="{$filepath3}"></p>
+	  </td>
+    </tr>-->
+	<tr  >
+          <td height="25" class="category"   colspan=4>视频： 支持格式:swf、flv、asf、wmv、avi，pc端强烈推荐您使用flv格式！<span style="color:#f60;">手机端仅能支持mp4格式播放</span>。</td>
+        </tR>
+        <tr > 
+      <td  height="25"><input type="radio" name="typeid" value="0" {$typeid0}>本地上传视频数据</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">
+	  	PC端：(推荐flv格式)
+	  </p>
+	  <p class="bd1">
+	  	<span id="str3" ><a href="{$url12}" class="global_btn_blue">查看视频</a>  <span onclick="hid2()" style="cursor:hand" class="global_btn">重新上传</span></span>
+		<span id="str4"  style="display:none"><iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="upload.aspx?action=video&type=12"></iframe></span>
+	  </p>
+	  <p class="tit1">
+	  	移动端：<span style="color:#d00;">(必须mp4格式，由于IOS系统仅支持该格式)</span>
+	  </p>
+	  <p class="bd1">
+	  <span id="str5"><a href="{$url13}" class="global_btn_blue">查看视频</a>  <span onclick="hid3()" style="cursor:hand" class="global_btn">重新上传</span></span>
+	  <span id="str6" style="display:none;">
+	  	<iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="upload.aspx?action=video&type=13"></iframe>
+	  </span>
+	  </p>
+	  <input type=hidden name="url12"  id="url12"  value="{$url12}">
+	  <input type=hidden name="url13"  id="url13"  value="{$url13}"><!-- wap端视频地址 -->
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="1" {$typeid1}>调用外部视频地址</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">PC端： (推荐flv格式)</p>
+	  <p class="bd1"><input type="text" name="filepath2" style="width:500px;" value="{$filepath2}"></p>
+	  <p class="tit1">移动端： <span style="color:#d00;">(必须mp4格式，由于IOS系统仅支持该格式)</span></p>
+	  <p class="bd1"><input type="text" id="filepath2wap" style="width:500px;" value=""></p>
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25"><input type="radio" name="typeid" value="2" {$typeid2}>引用第三方站点</td>
+      <td  colspan=3  class="category">
+	  <p class="tit1">
+	  	PC端：支持调用如优酷、土豆等知名视频站点的数据，请输入<span style="color:#f60;">“flash地址”</span><br /><em class="global_tip">例如：http://player.youku.com/player.php/sid/XMTM3ODYyMTExMg==/v.swf</em>
+	  </p>
+	  <p class="bd1">
+	  <input type="text" name="filepath3" style="width:500px;" value="{$filepath3}">
+	  </p>
+	  <p class="tit1">
+	  	移动端：请输入<span style="color:#f60;">“通用代码”</span><br /><em class="global_tip">例如：&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XMTM3ODYyMTExMg==" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</em>
+	  </p>
+	  <p class="bd1">
+	  <input type="text" id="filepath3wap" style="width:500px;" value="">
+	  </p>
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25">属性设置：</td>
+      <td  colspan=3  class="category"><input type="checkbox" name="toutiao" value="1" {$toutiao1}>头条(如果设置本视频为头条，将替代您先前设置的其他视频) <input type="checkbox" name="tuijian" value="1" {$tuijian1}>推荐 <input type="checkbox" name="remen" value="1" {$remen1}>热门 </td>
+    </tr>
+	<tr > 
+      <td  height="25">播放次数<font color="#FF0000">*</font>：</td>
+      <td   class="category" colspan=3><input type="text" name="views" class="myinput"  value="{$views}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/> 您可以自定义设置播放次数，前台将根据本次数累计统计</td>
+	 
+    </tr>
+	<tr > 
+      <td  height="25">投票设置<font color="#FF0000">*</font>：</td>
+      <td   class="category" colspan=3>鲜花数<input type="text" name="xianhua" class="myinput"  value="{$xianhua}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/> 鸡蛋数<input type="text" name="jidan" class="myinput"  value="{$jidan}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/>  前台将根据本数字累计统计</td>
+	 
+    </tr>
+	<tr > 
+      <td  height="25">排序<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="intorder" class="myinput"  value="{$intorder}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/></td>
+	  <td  height="25">状态<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="iskill" type="radio" value="0" {$iskill0} />待审
+                <input name="iskill" type="radio" value="1"  {$iskill1}/>正常 <input name="iskill" type="radio" value="2" {$iskill2} />挂起</td>
+    </tr>
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+(function($){
+	
+	if($('#url12').val() === ''){
+		hid2();
+	}
+	
+	if(!$('input[name="typeid"][value="0"]').prop('checked')){
+		hid3();
+	}else{
+		if($('#url13').val() === ''){
+			hid3();
+		}
+	}
+	if($('input[name="typeid"][value="1"]').prop('checked')){
+		$('#filepath2wap').val($('#url13').val());
+	}
+	if($('input[name="typeid"][value="2"]').prop('checked')){
+		$('#filepath3wap').val($('#url13').val());
+	}
+})(jQuery);
+
+
+function hid1(){
+	document.getElementById('str1').style.display="none";
+	document.getElementById('str2').style.display="block";
+	
+}
+function hid2(){
+	if(document.getElementById('str3')){document.getElementById('str3').style.display="none"}
+	document.getElementById('str4').style.display="block";
+}
+function hid3(){
+	document.getElementById('str5').style.display="none"
+	document.getElementById('str6').style.display="block";
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="my_prop_imgitem" id="setfile{$intorder}" name="setfile{$intorder}">
+  <div id="pre_8_{$intorder}" name="pre_8_{$intorder}" style="border:1px solid #cccccc; margin-bottom:5px;"><img src="{$filepath}" width="120"  height="120" id="imgview_apf_id_8_{$intorder}" name="imgview_apf_id_8_{$intorder}" style="vertical-align:middle;"/></div>
+  <a href="javascript:" onclick="delfile(this,'{$picid}','5')">删除</a>
+  <a href="#" onclick="return set_FM(this,'{$chrpic}','{$picid}');" class="set_FM" data-istop="{$istop}">设为封面</a>
+	<a href="#" onclick="return move_PrevNext(this,0,{$intorder},{$picid},'setfile','shop_pic','2');" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,{$intorder},{$picid},'setfile','shop_pic','2');" class="move_next">后移</a>
+</div>

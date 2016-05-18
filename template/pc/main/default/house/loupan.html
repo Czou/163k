@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>新楼盘-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_lou.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				<li><a href="{$fcurl}" class="">房产首页</a></li>
+				<li><a href="{$fcurl}loupan.html">新楼盘</a></li>
+				<li><a href="{$fcurl}chushou.html">二手房</a></li>
+				<li><a href="{$fcurl}chuzhu.html">出租房</a></li>
+				<li><a href="{$fcurl}xiaoqu.html">小区</a></li>
+				<li><a href="{$fcurl}zhongjie.html">中介</a></li>
+				<li><a href="{$fcurl}xuqiu.html">求租求购</a></li>
+				<li><a href="{$tiebaurl}">贴吧</a></li>
+				<li class="returnHome"><a href="{$SiteUrl}index.html">返回门户首页</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}loupan.html">新楼盘</a> <span class="cur_tit">全部楼盘</span>
+   </div>
+  <!--楼盘列表-->
+  <div class="dlanBox">
+			<div class="zone">
+			<form action="">
+				<div class="daohang">
+					<p><em>区域：</em>{$Loupan_quyu}</p>
+					<p><em>均价：</em>{$House_Searchprice}</p>
+					<p><em>类型：</em>{$loupan_Searchlei}</p>
+				</div>
+				<div class="cz_search clearfix">
+				  <input type="text" name="keyword" placeholder="请输入关键字" class="inp_txt">
+				  <input type="submit" value="找楼盘" class="shouse"><a href="{$SiteUrl}map/xingfang.aspx" target="_blank" class="cmap_Mode">切换到地图找房模式</a>
+				</div>
+				</form>
+			</div>
+		</div>
+  
+  <!--楼盘列表-->
+  <div class="clearfix">
+  <div class="lp_list">
+    <div class="select_title clearfix">
+    <ul>
+      <li>
+        <span class="fl">筛选条件</span>
+         <div class="selects sort" id="selects_1">
+			 <dl><dt id="tt1_txt">状态不限</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt1}0" id="tt1_val_0">状态不限</a></li>
+					<li><a href="{$House_Seurltt1}1" id="tt1_val_1">预售期房</a></li>
+					<li><a href="{$House_Seurltt1}2" id="tt1_val_2">现房销售</a></li>
+					
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+	  <li>
+        <span class="fl">价格排序</span>
+         <div class="selects sort" id="selects_2">
+			 <dl><dt id="tt2_txt">默认排序</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt2}0" id="tt2_val_0">默认排序</a></li>
+					<li><a href="{$House_Seurltt2}1" id="tt2_val_1">由高到低</a></li>
+					<li><a href="{$House_Seurltt2}2" id="tt2_val_2">由低到高</a></li>
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+    </ul>
+   </div>
+   <!--列表-->
+   <div class="list">
+    <ul>
+      <tag:Loop ListType="LISTLOUPANLIST" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_loupan_Tr.html" />
+    </ul>
+  </div>
+  <div class="fc_pageNavigation">{$PageSplit}　每页显示15条</div>
+  </div>
+  <div class="lp_rside">
+    <div class="gz_lp">
+      <div class="title"><span>最受关注的楼盘</span></div>
+       <ul>
+        {$Mh163k_房产2015_楼盘首页_最受关注的楼盘}
+       </ul>
+    </div>
+    <!--楼盘均价排行-->
+    <div class="top_lp">
+      <div class="title"><span>楼盘均价排行</span></div>
+      <dl class="clearfix">
+       {$Mh163k_房产2015_楼盘首页_楼盘均价排行}
+      </dl>
+    </div>
+    <!--最近浏览过的楼盘-->
+    <div class="ly_lp">
+     <div class="title"><span>最近浏览过的楼盘</span></div>
+     <dl>
+      {$Loupan_IndexCookie}
+     </dl>
+	 
+    </div>
+    <!--北京市房价行情-->
+    <div class="fjhq">
+     <div class="title"><span>{$city}房价行情</span></div>
+     <div class="con">
+      <a href="zhoushi.aspx" target="_blank"><img src="{$SiteUrl}image.aspx?action=price1&w=290&h=245&typeid=1&id=&year=2015&month=5&num=6" /></a>
+     </div>
+    </div>
+  </div>
+  </div>
+</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#selects_1').sel_filter();
+	$('#selects_2').sel_filter();
+	
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(!!url_obj['tt1'] && url_obj['tt1'] !== ''){
+		$('#tt1_txt').html($('#tt1_val_'+url_obj['tt1']).html());
+	}
+	if(!!url_obj['tt2'] && url_obj['tt2'] !== ''){
+		$('#tt2_txt').html($('#tt2_val_'+url_obj['tt2']).html());
+	}
+});
+</script>
+</body>
+</html>

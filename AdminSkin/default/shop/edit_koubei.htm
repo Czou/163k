@@ -1,0 +1,61 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/javascript.js"></script>
+<script>
+function checkform(o){
+	
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">口碑值设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=Save" onsubmit="return checkform(this)">
+  <tR><Td colspan="2" style="line-height:22px;"><div class="global_tip">商家口碑值由两种方式组成，1、手动自由编辑  2、根据点评自动增减<br>
+  1、手动编辑商家口碑值：手动编辑商家资料，在商家资料的最后一页中进行编辑<br>
+  2、自动增减商家口碑值设置：<br>
+  说明：<font color=red>仅注册会员发表的点评且在通过审核后上述设置方生效！24小时内同一注册会员对同一商家若发表多次点评，系统仅对其第一次点评计分。</div></font>
+</td></tr>
+
+<tR><Td width=16%>店铺获得好评：</td><td class="category"><input type="radio" name="haotypeid" value="0" {$haotypeid0}> 增加  <input type="radio" name="haotypeid" value="1"  {$haotypeid1}> 减少  <input type="text" name="haonum" value="{$haonum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">
+</td></tr>
+<tR><Td>店铺获得中评：</td><td class="category"><input type="radio" name="zhongtypeid" value="0" {$zhongtypeid0}> 增加  <input type="radio" name="zhongtypeid" value="1"  {$zhongtypeid1}> 减少  <input type="text" name="zhongnum" value="{$zhongnum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">
+</td></tr>
+<tR><Td>店铺获得差评：</td><td class="category"><input type="radio" name="chatypeid" value="0" {$chatypeid0}> 增加  <input type="radio" name="chatypeid" value="1" {$chatypeid1}> 减少  <input type="text" name="chanum" value="{$chanum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">
+</td></tr>
+<tR><Td>每成功交易一笔订单<br>
+(当订单状态为"交易成功")
+</td><td class="category"><input type="radio" name="ordertypeid" value="0" {$ordertypeid0}> 增加  <input type="radio" name="ordertypeid" value="1" {$ordertypeid1}> 减少  <input type="text" name="ordernum" value="{$ordernum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">
+</td></tr>
+
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type="submit" name="Submit" class="global_btn_blue_big" value="提交保存">
+        </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

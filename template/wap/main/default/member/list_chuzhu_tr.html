@@ -1,0 +1,11 @@
+﻿<div class="item2 item_chuzhu">
+	<a href="{$fcurl}{$curl1}_{$ID}.html" class="link">
+	<div class="pic"><img src="{$filepath}" onerror="this.src='{$tplPath}images/morenfangyuan.gif';" alt="" /></div>
+	<div class="cont">
+		<p class="tit" style="color:{$color};">{$chrtitle}</p>
+		<p>{$dtappenddate} {$typeid} {$iskill}</p>
+		
+	</div>
+	</a>
+	<div class="btn"><a href="javascript:void(0);" onclick="set_fw(1,{$ID});" class="btn_flush">刷新</a><a href="{$curl2}.aspx?action=edit&ID={$ID}" class="btn_edit">编辑</a><a href="javascript:void(0);" onclick="delfangyuan('manage_chuzhu.aspx?action=del&id={$ID}&key={$key}');" class="btn_del">删除</a></div>
+</div>

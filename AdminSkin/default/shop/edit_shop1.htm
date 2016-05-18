@@ -1,0 +1,87 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">二、店铺介绍：&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+    
+   <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li  ><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li class="selected"><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=e1save" >
+
+    <tr   >  <td width=10%>店铺介绍：</td>
+      <td    class="category"><textarea cols="100" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent}
+      </textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script> </td>
+    </tr>
+	<tr   > 
+	 <td>是否启用店铺首页自定义HTML区域：</td>
+      <td    class="category"><input type="radio"  name="isbian" id="isbian" value="1" {$isbian1}>是
+	  <input type="radio"  name="isbian" id="isbian" value="0" {$isbian0}>否
+	  </td>
+    </tr>
+	 <tr   > 
+	 <td>自定义HTML内容：</td>
+      <td    class="category"><textarea cols="100" id="biancontent" name="biancontent" rows="10">{$biancontent}
+      </textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="biancontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script> </td>
+    </tr>
+	
+ 
+    <tr > 
+      <td height="25" colspan=2 style="text-align:center" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="hidden" name="over" value="0">
+		<input type="button"  onclick="window.location.href='?action=edit&id={$ID}';" name="button1" class="global_btn_big" value="上一页"> &nbsp;  <input type="submit" name="Submit" class="global_btn_big" value="保存并下一页"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_blue_big" value="直接确定完成">
+        </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

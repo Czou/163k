@@ -1,0 +1,175 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script language="javascript">
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+	}
+}
+function delAll2(o,astr){
+	var val = $('input[name="ID"]:checked'),sid_arr=[],sid='';
+	val.each(function(){
+		sid_arr.push($(this).attr('value'));
+	});
+	sid = sid_arr.join(',');
+	delgood(sid);
+	return false;
+}
+
+function delgood(id){
+    if( confirm("该操作将不可逆！\n您确定要删除此条商品吗(删除商品此商品的订单将会连同删除)？")){
+      	var url="../request.ashx?action=gooddel&id="+escape(id)+"&isadmin=1";
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		$.ajax({url:url,success: function(data){
+			if(data.islogin==='1'){
+				MSGwindowShow('shangjia','1','删除成功！',window.location.href,'');
+			}else{
+				MSGwindowShow('shangjia','0',data.error,'','');
+			}
+		}});
+    }
+}
+
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>目前共有商品{$total$}件，上架：<a href="?quanbu=0" class="orange_font">{$num1$}</a>　下架：<a href="?quanbu=1" class="orange_font">{$num2$}</a>　待审：<a href="?quanbu=4" class="orange_font">{$num22$}</a>　推荐：<a href="?quanbu=2" class="orange_font">{$num3$}</a>　促销：<a href="?quanbu=3" class="orange_font">{$num4$}</a></td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		<select name='key' id='key'> <option value=''>::商品名称::</option><option value='1' {$key_s_1}>::品牌名称::</option><option value='2' {$key_s_2}>::店铺名称::</option><option value='3' {$key_s_3}>::快店名称::</option></select> 
+		关键字：
+		<input name="KeyWord" type="text" id="KeyWord" value="{$keyword}" style="width:200px;">
+		按分类查找:{$categoryid$}
+		
+<!--按品牌查找:{$pinpaiid$}-->
+		按状态查找：<select name='quanbu' id='quanbu'> <option value=''>::全部::</option><option value='4' {$quanbu_s_4}>::待审::</option><option value='0' {$quanbu_s_0}>::上架::</option><option value='1' {$quanbu_s_1}>::下架::</option><option value='2' {$quanbu_s_2}>::推荐::</option><option value='3' {$quanbu_s_3}>::促销::</option></select>  
+
+		
+		<!--展示位置:<select name='Colname' id='Colname'> <option value=''>::全部::</option><option value='1' {$Colname_s_1}>::店铺中展示::</option><option value='2' {$Colname_s_2}>::快店中展示::</option><option value='3' {$Colname_s_3}>::团购中展示::</option></select>  -->
+
+		<input type="submit" name="Submit3" class="global_btn" value="Go"><div class="blank10"></div></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td class="category">ID</td>
+				<td class="category">商品名称</td>
+				<td class="category">平台</td>
+				<!--<td class="category">录入用户</td>-->
+				<td class="category">录入时间</td>
+				<td class="category">属性</td>
+				<td class="category">状态</td>
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listgood" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="good/List_good_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','上架');"><font color=red>上架？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','下架');"><font color=blue>下架？</font></a></strong>  <strong><a href="javascript:delAll2(this,'删除(删除商品将会删除此商品相关的订单)');">删除选中？</a></strong>
+
+<strong><a href="javascript:delAll(this,'4','推荐');"><font color=red>推荐？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'5','取消推荐');"><font color=blue>取消推荐？</font></a></strong>  
+<strong><a href="javascript:delAll(this,'6','促销');"><font color=red>促销？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'7','取消促销');"><font color=blue>取消促销？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'8','热卖');"><font color=red>热卖？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'9','取消热卖');"><font color=blue>取消热卖？</font></a></strong>
+</td></td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+$('#bigcategoryid').bind('change',function(){
+	showquyu($(this).val());
+});
+function showquyu(str,nowcc){
+	if (str.length > 0){
+		var url="../request.aspx?action=quyu&id="+str;
+		var  Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		$.ajax({url:url,success: function(data){
+			var sel=document.getElementById("categoryid");
+			var val="::请选择::";
+			sel.options.length=0;
+			var arrstr = [];
+			arrstr = data.split(",");
+			sel.options.add(new Option( val,""));
+			if(data.length>0){
+				for(var i=0;i<arrstr.length-1;i++){
+					//分割字符串
+					var subarrstr=[];
+					subarrstr=arrstr[i].split("|");
+					//生成下级菜单
+					sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+					if(nowcc==subarrstr[0]){
+						sel.options[i+1].selected=true;
+					}
+				}
+			}
+		}});		
+	} 
+}
+function superManage(sid){
+	var f_id = 'super_tips';
+	var aHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd clearfix"><a href="#" class="close">关闭</a>超级管理</div><div class="bd">';
+	aHTML += '<iframe src="about:blank" id="'+f_id+'_iframe" scrolling="no" frameBorder="0" width="100%" height="380"></iframe>';
+	aHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(aHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var url = "good.aspx?action=edit&ID="+sid;
+	$('#'+f_id+'_iframe').attr('src',url);
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+}
+</script>
+</body></html>

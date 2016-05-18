@@ -1,0 +1,87 @@
+@charset "utf-8";
+.sub_nav .rc-tp-l,.sub_nav .rc-tp-r,.sub_nav .rc-bt-l,.sub_nav .rc-bt-r,.sub_nav .btn a,.sub_nav .menu .item .p,.sub_nav .menu .cur .p,.sub_nav .menu .cur li,.sub_nav .menu .open li { background:url(../images/admin_sp.gif) no-repeat 0 0;}
+
+body { background-color:#002859; padding:5px 5px 5px 4px;}
+
+.sub_nav { position:relative; z-index:2; *zoom:1; background-color:#fff;}
+.sub_nav .rc-tp-l,.sub_nav .rc-tp-r,.sub_nav .rc-bt-l,.sub_nav .rc-bt-r { display:block; position:absolute; width:3px; height:3px; overflow:hidden;}
+.sub_nav .rc-tp-l { background-position:-244px -21px; top:0; left:0;}
+.sub_nav .rc-tp-r { background-position:-248px -21px; top:0; right:0;}
+.sub_nav .rc-bt-l { background-position:-244px -25px; bottom:0; left:0;}
+.sub_nav .rc-bt-r { background-position:-248px -25px; bottom:0; right:0;}
+.sub_nav .btn { padding:4px 0 5px;}
+.sub_nav .btn a { display:inline-block; height:20px; width:67px; color:#fff; background-position:-244px 0; line-height:20px; margin:2px;}
+.sub_nav .menu { text-align:left; padding:0 7px 0 8px;}
+.sub_nav .menu .item ,.sub_nav .menu .cur { margin-bottom:5px; text-align:left;}
+.sub_nav .menu .item .p,.sub_nav .menu .cur .p { position:relative; z-index:2; *zoom:1; display:block; height:30px; background-position:0 -60px; padding-left:32px; font:bold 12px/30px simsun;}
+.sub_nav .menu .item .p { color:#515151;}
+.sub_nav .menu .cur .p { background-position:0 -30px; color:#fff;}
+.sub_nav .menu .p .s { top:7px; left:9px; display:block; position:absolute; width:16px; height:16px; overflow:hidden; background:url(../images/admin_icon.png) no-repeat 0 0;}
+.sub_nav .menu .p .s_1 { background-position:0 0;}
+.sub_nav .menu .p .s_2 { background-position:-16px 0;}
+.sub_nav .menu .p .s_3 { background-position:-32px 0;}
+.sub_nav .menu .p .s_4 { background-position:-48px 0;}
+.sub_nav .menu .p .s_5 { background-position:-64px 0;}
+.sub_nav .menu .p .s_6 { background-position:-80px 0;}
+.sub_nav .menu .p .s_7 { background-position:-96px 0;}
+.sub_nav .menu .p .s_8 { background-position:-112px 0;}
+.sub_nav .menu .p .s_9 { background-position:-128px 0;}
+.sub_nav .menu .p .s_10 { background-position:-144px 0;}
+.sub_nav .menu .p .s_11 { background-position:-160px 0;}
+.sub_nav .menu .p .s_12 { background-position:-176px 0;}
+.sub_nav .menu .p .s_13 { background-position:-192px 0;}
+.sub_nav .menu .p .s_14 { background-position:-208px 0;}
+.sub_nav .menu .p .s_15 { background-position:-224px 0;}
+.sub_nav .menu .p .s_16 { background-position:-240px 0;}
+.sub_nav .menu .p .s_17 { background-position:-256px 0;}
+.sub_nav .menu .p .s_18 { background-position:-272px 0;}
+.sub_nav .menu .p .s_19 { background-position:-288px 0;}
+.sub_nav .menu .p .s_20 { background-position:-304px 0;}
+.sub_nav .menu .p .s_21 { background-position:-320px 0;}
+.sub_nav .menu .p .s_22 { background-position:-336px 0;}
+.sub_nav .menu .p .s_23 { background-position:-352px 0;}
+.sub_nav .menu .p .s_24 { background-position:-368px 0;}
+.sub_nav .menu .p .s_25 { background-position:-384px 0;}
+.sub_nav .menu .p .s_26 { background-position:-400px 0;}
+.sub_nav .menu .p .s_27 { background-position:-416px 0;}
+.sub_nav .menu .p .s_28 { background-position:-432px 0;}
+
+
+.sub_nav .menu { border-bottom:1px solid #fff;}
+.sub_nav .menu .item ul { display:none;}
+.sub_nav .menu .cur ul { display:block; background-color:#376ea6;}
+.sub_nav .menu .cur ul a { color:#fff;}
+.sub_nav .menu .cur li { background-position:-312px -16px; padding-left:20px; line-height:28px; height:28px; overflow:hidden; border-top:1px solid #316394; border-bottom:1px solid #4376ab;}
+.sub_nav .menu .open .p { background-position:-140px -60px;}
+.sub_nav .menu .open ul { display:block; background-color:#e8e8e8;}
+.sub_nav .menu .open ul a { color:#555;}
+.sub_nav .menu .open li { background-position:-312px -40px; padding-left:20px; line-height:28px; height:28px; overflow:hidden; border-top:1px solid #fff; border-bottom:1px solid #d4d4d4;}
+
+body{
+	scrollbar-face-color: #D7E0EB;
+	scrollbar-highlight-color: #E9EDF3;
+	scrollbar-shadow-color: #B4C7E4;
+	scrollbar-3dlight-color: #F3F7F8;
+	scrollbar-arrow-color:  #fff;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #DEE3E7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

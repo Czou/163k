@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtruename}-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+{$top$}
+
+<div class="o_main">
+ <div class="job_tabs">
+  <ul>
+   <li><a href="javascript:void(0);" onClick="return window.history.go(-1);">职位信息</a></li>
+   <li class="current">公司信息</li>
+  </ul>
+ </div>  
+<!--找人才-->
+<div class="job_list">
+ <ul>
+  <li>
+   <h3>{$chrtruename}</h3>
+   <dl class="clearfix" id="mapPoint">
+    <dt class="address">{$chraddress}</dt>
+    <dd class="distance item" data-x="{$shop_x}" data-y="{$shop_y}">距你<span class="juli">未知</span>km</dd>
+   </dl>
+  </li>
+ </ul>
+</div>
+<div class="job_condit">
+ <dl>
+  <dt>规模</dt>
+  <dd>{$guimo}</dd>
+ </dl>
+ <dl>
+  <dt>性质</dt>
+  <dd>{$xingzhi}</dd>
+ </dl>
+ <dl>
+  <dt>行业</dt>
+  <dd>{$hangye}</dd>
+ </dl>                                                         
+</div>
+<div class="job_desc">
+ <div class="title"><span>公司介绍</span></div>
+ <div class="con">
+  <div class="bd" id="resizeIMG">{$chrcontent}</div>
+ </div>
+ <div class="more" id="moreresizeIMG">查看更多</div>
+</div>
+<div class="job_list mt_10">
+<div class="title"><span>公司其它职位</span></div>
+ <ul id="companyJobList">
+ {$Mh163k_wap_招聘_公司职位}
+ </ul>
+</div>
+<div class="p_contact mt_10">
+  <div class="title"><span>联系方式</span></div>
+  <p class="no_qx">对不起,招聘的联系方式仅限会员查看,请 <a href="{$SiteUrl}member/login.html" class="blue">登录</a> 或 <a href="{$SiteUrl}member/register.html" class="blue">注册</a></p>
+<div class="tips"><i></i>收费、不需任何条件、必须QQ联系的信息均有咋骗嫌疑，请保持警惕！</div>
+</div>
+
+
+{$bottom$}
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),$(window).width()-30,480);
+	if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}
+	console.info($('#resizeIMG').html().length);
+	if($('#resizeIMG').html().length > 1000){
+		$('#resizeIMG').css({'height':'120px','overflow':'hidden'});
+		$('#moreresizeIMG').click(function(){
+			$(this).hide();
+			$('#resizeIMG').css({'height':'auto','overflow':'visible'});
+		});
+	}
+	$('#companyJobList').find('.price').each(function(){
+		if($(this).html() === '0'){
+			$(this).html('面议');
+		}
+	});
+},false);
+</script>
+</body>
+</html>
+

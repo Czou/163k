@@ -1,0 +1,137 @@
+@charset "utf-8";
+.helpGuest .m_1,.helpGuest .m_2,.helpGuest .m_3,.helpGuest .m_4,.module_01 .rc-tl,.module_01 .rc-tr,.module_01 .rc-bl,.module_01 .rc-br,.module_01 .hd,.module_01 .hasicon .new,.module_01 .focusNews li,.module_01 .botList,.module_01 .rencaibox1 .sex .man,.module_01 .rencaibox1 .sex .woman,.mod_select .hd,.mod_select .hd li,.mod_select .selectbox,.mod_select .searchbar,.module_big .bd .three_list li,.module_big .bd .menu_list .item,.module_big .bd .menu_list .item s,.module_01 .ft2 .link  { background:url(../images/jobs2011Bg2.png) no-repeat 0 0;}
+
+a { color:#0041d9;}
+a:hover { color:#f30; text-decoration:underline;}
+.col_main { width:100%; float:left;}
+.col_sub,.col_extra { float:left;}
+.yahei { font-family:"Microsoft YaHei","微软雅黑","Microsoft JhengHei","华文细黑","STHeiti","MingLiu";}
+
+.grid_job_01 {}
+.grid_job_01 .col_sub { margin-left:-100%; width:400px;}
+.grid_job_01 .col_extra { margin-left:-310px; width:310px;}
+.grid_job_01 .main_wrap { margin:0 320px 0 410px;}
+.grid_job_02 {}
+.grid_job_02 .col_sub { margin-left:-310px; width:310px;}
+.grid_job_02 .main_wrap { margin:0 320px 0 0;}
+.grid_job_03 {}
+.grid_job_03 .col_sub { margin-left:-100%; width:310px;}
+.grid_job_03 .col_extra { margin-left:-310px; width:310px;}
+.grid_job_03 .main_wrap { margin:0 320px 0 320px;}
+
+.helpGuest { border:1px solid #f8d4ad; background-color:#fcf6ed; padding:10px 9px 10px 10px; text-align:left;}
+.helpGuest .personal { float:left; width:179px; display:inline; margin-right:10px; border-right:1px solid #e8e8e8; padding-right:10px;}
+.helpGuest .enterprise { float:left; width:179px;}
+.helpGuest .m_1,.helpGuest .m_2,.helpGuest .m_3,.helpGuest .m_4 { display:block; width:179px; height:39px; font:0pt/1000px Arial; overflow:hidden;}
+.helpGuest .m_1 { background-position:0 -177px;}
+.helpGuest .m_2 { background-position:0 -216px; margin-top:10px;}
+.helpGuest .m_3 { background-position:0 -255px;}
+.helpGuest .m_4 { background-position:0 -294px; margin-top:10px;}
+.helpGuest strong { margin:9px 0 4px; font-size:15px; display:block;}
+.helpGuest p { color:#9a9a9a;}
+
+.module_01 { position:relative; *zoom:1; border:1px solid #d3d3d3;}
+.module_01 .hd { background-repeat:repeat-x; height:29px; text-align:left; font:bold 14px/29px Arial; padding-left:10px;}
+.module_01 .hasicon { padding:0; position:relative; *zoom:1;}
+.module_01 .hasicon s { display:block; position:absolute;}
+.module_01 .hasicon .new { top:8px; left:10px; width:16px; height:11px; background-position:-36px -83px;}
+.module_01 .hasicon strong { display:block; margin-left:30px; position:relative;}
+.module_01 .ft { position:absolute; right:10px; top:6px; font-family:simsun;}
+.module_01 .ft a { color:#555;}
+.module_01 .ft a:hover { color:#f30;}
+.module_01 .ft2 { position:absolute; right:6px; top:4px; font-family:simsun;}
+.module_01 .ft2 .link { text-align:center; display:block; width:101px; height:20px; background-position:0 -107px; color:#fff; line-height:20px;}
+.module_01 .rc-tl,.module_01 .rc-tr,.module_01 .rc-bl,.module_01 .rc-br { position:absolute; display:block; width:3px; height:3px; font-size:0;}
+.module_01 .rc-tl { background-position:-4px -85px; top:-1px; left:-1px;}
+.module_01 .rc-tr { background-position:-2px -85px; top:-1px; right:-1px;}
+.module_01 .rc-bl { background-position:-4px -83px; bottom:-1px; left:-1px;}
+.module_01 .rc-br { background-position:-2px -83px; bottom:-1px; right:-1px;}
+.module_01 .focusNews { padding:5px 8px 4px 8px;}
+.module_01 .focusNews h3 { font-size:16px; margin:2px 0 4px; height:24px; line-height:24px; overflow:hidden;}
+.module_01 .focusNews h3 a { color:#f00;}
+.module_01 .focusNews li { text-align:left; padding-left:18px; line-height:24px; height:24px; overflow:hidden; background-position:-230px -344px; font-size:14px;}
+.module_01 .focusNews li em { font-size:11px; padding-left:12px; color:#999;}
+.module_01 .botList { padding:9px 10px 10px; background-position:-208px -89px; text-align:left;}
+.module_01 .botList li { line-height:24px; height:24px; overflow:hidden; padding-left:29px;}
+.module_01 .botList li a { color:#555;}
+.module_01 .botList li a:hover { color:#f30;}
+.module_01 .botList li em { font-size:11px; color:#999; padding-left:13px;}
+.module_01 .rencaibox1 { text-align:left; padding:9px 10px 10px;}
+.module_01 .rencaibox1 .left { float:left; display:inline; margin-right:10px; width:299px;}
+.module_01 .rencaibox1 .right { float:left; width:299px;}
+.module_01 .rencaibox1 .sex .man,.module_01 .rencaibox1 .sex .woman { margin:0 auto; display:block; width:14px; height:14px; font-size:0;}
+.module_01 .rencaibox1 .sex .man { background-position:-7px -83px;}
+.module_01 .rencaibox1 .sex .woman { background-position:-22px -83px;}
+.module_01 .rencaibox1 .sex { width:35px; text-align:center;}
+.module_01 .rencaibox1 .name { width:72px;}
+.module_01 .rencaibox1 .age { width:40px;}
+.module_01 .rencaibox1 .edu { width:60px;}
+.module_01 .rencaibox1 .ptn { width:92px;}
+.module_01 .rencaibox1 td { line-height:26px; height:26px; overflow:hidden;}
+.module_01 .rencaibox1 .odd td { background-color:#f3f3f3;}
+.module_01 .imgrencai { padding:9px 0 8px 8px;}
+.module_01 .imgrencai .item { float:left; width:97px; height:131px; overflow:hidden;}
+.module_01 .imgrencai .item img { display:block; margin:0 auto; vertical-align:top; width:80px; height:100px; margin-bottom:3px;}
+.module_01 .imgrencai .item .title { display:block; height:18px; overflow:hidden; line-height:18px; cursor:pointer;}
+
+.mod_select {}
+.mod_select .hd { height:26px; background-position:0 -53px; padding:4px 0 0 4px;}
+.mod_select .hd li { text-align:center; background-position:-69px -333px; width:69px; height:26px; line-height:26px; float:left; display:inline; margin-left:2px;}
+.mod_select .hd li a { color:#b35353;}
+.mod_select .hd .selected { background-position:0 -333px;}
+.mod_select .hd .selected a { color:#c40808; font-weight:bold; font-size:14px;}
+.mod_select .bd { border:1px solid #ff6c00; border-top:0 none; padding:10px 0 10px 10px; text-align:left; *zoom:1;}
+.mod_select .selector { height:29px; overflow:hidden;}
+.mod_select .searchbar { height:26px; width:198px; background-position:0 -151px; text-align:left;}
+.mod_select .searchbar .s_input { background:transparent; border:0 none; padding:4px 0 0 4px; margin:0px 0 0 1px; width:132px; height:20px; line-height:20px; vertical-align:top; color:#aaa;}
+.mod_select .searchbar .s_button { width:59px; height:22px; margin:2px 0 0 0; overflow:hidden; background:transparent; border:0 none; vertical-align:top; font:0pt/1000px Arial;}
+
+/* select */
+.mod_select .selectbox-wrapper { position:absolute; background-color:#fff4dc; border:1px solid #f8cfa5; border-top:0; text-align:left; width:196px; margin:-3px 0 0 0px; z-index:9999;}
+.mod_select .selectbox-wrapper ul li.selected { background-color:#ead49c;}
+.mod_select .selectbox-wrapper ul li.current { background-color:#f95202; color:#fff;}
+.mod_select .selectbox-wrapper ul li { padding:1px 3px; line-height:20px; cursor:pointer; width:190px;}
+.mod_select .selectbox { vertical-align:top; display:block; width:198px; background-position:0 -127px; padding:2px 0 0 6px; line-height:22px; height:24px; cursor: pointer; border:0 none; color:#666666; text-align:left;}
+
+.zdyHTML { background:#f6f6f6; border:1px solid #e6e6e6;}
+
+
+.module_big { text-align:left;}
+.module_big .hd { position:relative; height:38px; background:url(../images/jobs2011Bg1.png) no-repeat 0 0;}
+.module_big .hd_02 { background-position:0 -38px;}
+.module_big .hd_03 { background-position:0 -76px;}
+.module_big .hd_04 { background-position:0 -114px;}
+.module_big .hd .more { position:absolute; top:12px; right:17px;}
+.module_big .hd .goNav { position:absolute; top:12px; right:80px;}
+.module_big .hd .more a { color:#fff; font-family:simsun;}
+.module_big .hd .title { display:block; overflow:hidden; text-indent:-9999px;}
+.module_big .bd .three_list { padding:5px;}
+.module_big .bd .three_list li { float:left; width:250px; padding:0 50px 0 12px; background-position:-235px -345px; display:inline; line-height:22px; height:22px; overflow:hidden; position:relative;}
+.module_big .bd .three_list .title { color:#555;}.module_big .bd .three_list .title:hover { color:#f30;}
+.module_big .bd .three_list .position { padding-left:10px; color:#36c;}
+.module_big .bd .pic_list { padding:10px 0 4px; text-align:center;}
+.module_big .bd .pic_list .item { float:left; width:158px; margin:5px 0;}
+.module_big .bd .pic_list .img { border:1px solid #ddd; width:153px; margin:0 auto;}
+.module_big .bd .pic_list .img img { vertical-align:top;}
+.module_big .bd .pic_list .txt { background-color:#f2f2f2; width:153px; margin:0 auto; border:1px solid #ddd; border-top:0 none; padding:2px 0;}
+.module_big .bd .pic_list .txt a { color:#555;}
+.module_big .bd .menu_list { padding:5px 0 4px 8px; text-align:center;}
+.module_big .bd .menu_list .item { float:left; padding:0 12px; height:24px; line-height:24px; background-position:0 -29px; position:relative; display:inline; margin:5px 5px 0 0;}
+.module_big .bd .menu_list .item s { display:block; width:2px; height:24px; font-size:0; position:absolute; right:0; top:0; background-position:0 -83px;}
+.module_big .bd .menu_list .item a { color:#444; white-space:nowrap;}
+.module_big .bd .menu_list .item a:hover { color:#f30; text-decoration:none;}
+
+
+.font_z { padding-left:8px; color:#f60;} 
+.time { display:block; position:absolute; top:0; right:17px;}
+
+
+
+
+
+
+
+
+
+
+

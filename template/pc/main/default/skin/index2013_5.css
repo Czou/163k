@@ -1,0 +1,116 @@
+@charset "utf-8";
+.mod_1 .hd,.friendLink .hd,.mod_2 .hd,.mod_4 .hd,.mod_4 .hd h3,.estate .picList .text .menu,.fangchan .shou,.fangchan .zu,#fangchan .s,.wrapper .content .tchd .po_ab,.mod_6 .more a,.tuangou2 .info .btn,.mod_7 .hd,.hotShop .video .s { background:url(../images/index2013_5_sp.gif) no-repeat 0 0;}
+
+.mod_1 { border:1px solid #e5e5e5;}
+.mod_1 .hd { background-position:0 -455px; background-repeat:repeat-x;}
+.mod_1 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:4px 0 5px 8px;}
+.mod_2 { border:1px solid #ddd; border-top:0 none;}
+.mod_2 .hd { background-position:0 -554px; background-repeat:repeat-x;}
+.mod_2 .hd li { border-right:1px solid #ddd; padding:2px 16px 0; float:left; font-size:14px; line-height:34px; height:34px; font-weight:bold;}
+.mod_2 .hd .selected { background-color:#fff; border-top:2px solid #cc0001; padding-top:0;}
+.mod_2 .hd .selected a { color:#333;}.mod_2 .hd .selected a:hover { color:#333;}
+.mod_3 { border:1px solid #cfcfcf; border-top:2px solid #cc0001;}
+.mod_3 .hd { border-bottom:1px solid #cfcfcf; background-color:#f8f8f8;}
+.mod_3 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:4px 0 4px 8px;}
+.mod_4 { border:1px solid #e5e5e5;}
+.mod_4 .hd { background-position:0 -591px; background-repeat:repeat-x;}
+.mod_4 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:7px 0 0 32px; color:#d00; background-position:-7px -96px;}
+.mod_4 .hd em { font-size:16px;}
+.mod_5 { border:1px solid #d2e1f1; background-position:0 -518px;}
+.mod_5 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:5px 0 0 8px;}
+.mod_6 { border:2px solid #cc0001;}
+.mod_6 .hd { background-color:#cc0001;}
+.mod_6 .hd h3 { color:#fff; font-size:16px; font-weight:bold; padding:8px 0 10px 8px;}
+.mod_6 .more a { color:#fff; display:block; padding-right:15px; background-position:30px -399px;}.mod_6 .more a:hover { color:#fff;}
+.mod_7 { width:390px; margin-right:15px;}
+.mod_7 .hd { background-position:0 -487px; height:32px; background-repeat:repeat-x;}
+.mod_7 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:6px 0 0 8px}
+.wrapper .content .mod_7  .announcement { padding:10px 2px;}
+.mod_7 .announcement { font-size:14px;}
+.mod_7 .announcement li { line-height:25px; height:25px; background-position:-492px -230px; padding:0 90px 0 15px; position:relative; z-index:1; *zoom:1;}
+.mod_7 .announcement a { color:#36c;}.mod_7 .announcement a:hover { color:#d00;}
+.mod_7 .announcement .gray { position:absolute; width:80px; text-align:right; right:0; top:0; color:#999;}.mod_7 .announcement .gray:hover { color:#d00;}
+.mod_7 .announcement em { font-size:14px; margin:0 4px 0 0;}
+
+.mod_1 .more,.mod_3 .more,.mod_5 .more { display:inline; margin:6px 6px 0 0;}
+.mod_1 .bd,.mod_2 .bd,.mod_3 .bd,.mod_5 .bd { padding:10px;}
+.mod_2 .more { display:inline; margin:10px 8px 0 0;}
+.mod_4 .more { display:inline; margin:0 1px 0 0;}
+.mod_4 .more2,.mod_7 .more { display:inline; margin:8px 8px 0 0;}
+.mod_6 .more { display:inline; margin:12px 8px 0 0;}
+
+.slide{ position:relative; z-index:1; zoom:1; height:179px; overflow:hidden;}
+.slide .dot{ position:absolute; z-index:5; bottom:7px; right:2px;}
+.slide .dot li{ display:inline; float:left; font-size:14px; line-height:20px; padding:2px 8px; margin-right:5px; cursor:pointer; background-color:#949491; color:#fff; text-align:center;}
+.slide .dot .on { background-color:#c00;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:440px; height:179px;}
+
+.focus { padding:3px 15px 0;}
+.focus .topic h3 { font-size:18px; text-align:center; height:28px; line-height:28px; overflow:hidden;}
+.focus .topic .more { color:#d00;}
+.focus .topic .info { color:#777; margin:5px 0 10px; line-height:22px; height:44px; overflow:hidden;} 
+.focus .list { border-top:1px dotted #ddd; padding:9px 0 0;}
+.focus .list li { line-height:25px; height:25px; overflow:hidden; font-size:14px;}
+.focus .list em { margin-left:9px; font-size:12px; color:#999;}
+.focus .list .cat { color:#777; margin-right:3px;}.focus .list .cat:hover { color:#d00;}
+.focus .list .line { border-top:1px dotted #ddd; padding-top:4px; margin-top:6px;}
+
+.friendLink { border:1px solid #ddd;}
+.friendLink .hd { color:#333; font-size:14px; font-weight:bold; padding:3px 0 3px 8px; background-position:0 -520px; background-repeat:repeat-x;}
+.wrapper .content .announcement { padding:9px 10px 8px;}
+
+.wrapper .hotShop .item { width:149px;}
+.hotShop .bd { padding:0 0 5px 3px;}
+.hotShop .menu { left:auto; right:180px;}
+.hotShop .hd { height:45px;}
+.hotShop .video { width:1165px; overflow:hidden; padding:20px 0 8px; border-top:1px solid #ddd; margin:2px 16px 0 14px;}
+.hotShop .video .inner { width:1185px;}
+.hotShop .video li { width:128px; margin-right:20px; float:left;}
+.hotShop .video img { vertical-align:top;}
+.hotShop .video .tit { display:block; margin-top:6px; height:18px; overflow:hidden; text-align:center; cursor:pointer;}
+.hotShop .video .s { top:54px; right:5px; display:block; width:21px; height:21px; overflow:hidden; background-position:-229px -28px;}
+
+.wrapper .content .estate .bd { padding:3px 10px 8px;}
+.estate .picList li { overflow:hidden; *zoom:1; vertical-align:top; padding:3px 4px 7px; border-bottom:1px dotted #ccc; color:#333;}
+.estate .picList .pic { float:left; width:96px; padding:3px 0 0 5px;}
+.estate .picList .pic img { display:block; vertical-align:top; padding:1px; border:1px solid #ddd;}
+.estate .picList .text { float:left; width:107px; text-align:left;}
+.estate .picList .text h3 { font-size:14px; font-weight:bold; padding:1px 0;}
+.estate .picList .text p { line-height:22px; height:22px; overflow:hidden;}
+.estate .picList .text p em { color:#999;}
+.estate .picList .text .menu { background-position:-128px -28px; height:21px; width:100px; display:block; line-height:21px; color:#fff; text-align:center; margin-top:3px;}
+
+.wrapper .content .fangchan { padding:5px 0 10px 8px;}
+.fangchan_ajax ul { height:131px;}
+.fangchan .item { float:left; width:194px; padding:6px 0 6px 30px; border-bottom:1px dotted #e0e0e0;}
+.fangchan .item .title { display:block; height:22px; line-height:22px; font-size:14px; overflow:hidden; color:#4e4e4e;}
+.fangchan .item .price_line { display:block; height:18px; overflow:hidden; color:#0041d9;}
+.fangchan .item a:hover .title,.fangchan .item a:hover .price_line { text-decoration:underline; color:#c00; cursor:pointer;}
+.fangchan .shou { background-position:-475px -346px;}
+.fangchan .zu { background-position:-475px -281px;}
+.fangchan .pic { padding:4px 0 5px;}
+.fangchan .pic li { float:left; width:100px; display:inline; margin:10px 8px 0 10px; text-align:center;}
+.fangchan .pic img { vertical-align:top; margin:0 auto;}
+.fangchan .pic .title { display:block; margin-top:4px; height:20px; line-height:20px; overflow:hidden;}
+.fangchan .pic .price { color:#f30; font-weight:bold;} 
+.fangchan .pic a:hover .title,.fangchan .pic a:hover .price { text-decoration:underline; color:#d00;}
+#fangchan .s { display:block; top:-3px; left:75px; width:16px; height:16px; overflow:hidden; text-indent:-999em; background-position:-251px -28px;}
+
+.tuangou2 { padding:15px 5px 15px 10px; text-align:left;}
+.tuangou2 .buy { font-size:14px; margin-top:-5px;}
+.tuangou2 .buy .people { font:bold 24px/28px tahoma; color:#c00;}
+.tuangou2 .title { margin:0 8px 0 0; font:bold 16px/24px "微软雅黑"; height:24px; overflow:hidden;}
+.tuangou2 .title a { color:#333;}.tuangou2 .title a:hover { color:#c00;}
+.tuangou2 .img { float:left; margin-top:16px;}
+.tuangou2 .img img { vertical-align:top; width:285px; height:190px; display:block;}
+.tuangou2 .img .s { display:block; width:57px; height:61px; position:absolute; top:-4px; right:-3px; background:url(../images/tuan2013_xindan.png) no-repeat 0 0; overflow:hidden; font:0pt/1000px Arial;}
+.tuangou2 .info { float:right; width:125px; margin-top:16px;}
+.tuangou2 .info li { line-height:24px;}
+.tuangou2 .info .em { font:bold 14px/24px Arial;}
+.tuangou2 .info .btn { margin-top:9px; vertical-align:top; display:block; width:127px; height:39px; overflow:hidden; font:0pt/1000px Arial; background-position:0 -28px;}
+.tuangou2 .info .red { color:#d00;}
+
+.wrapper .content .tchd .po_ab { background-position:0 -68px; height:331px;}
+.wp { width:1200px; overflow:hidden;}
+.wp_inner { width:1215px;}

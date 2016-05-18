@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeyword}" />
+<meta name="description" content="{$cdescription}" />
+<link href="{$Default_tplPath}skin/v2013.css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<!-- 主体 -->
+	<div id="content" class="v2013">
+		<div class="product_banner"><span class="tel">{$sitetel}</span></div>
+		<div class="clearfix grid_03 qianggou_page">
+			<div class="col_main"><div class="main_wrap">
+				<div class="box_g">
+				<div class="hd clearfix"><span class="left red">正在团购</span><span class="right"><a href="{$tgurl}" target="_blank">更多</a></span></div>
+					<div class="bd mt2">
+						<div class="wqtg clearfix" style="height:200px;">
+							  <ul class="all clearfix">{$Mh163k_同城网购_团购}</ul>
+						</div>
+					</div>
+				</div>
+				<div class="blank10"></div>
+				<div class="box_g">
+					<div class="hd">品牌分类</div>
+					<div class="bd cat_fenlei">
+						<ul>
+							<li class="bor clearfix"><span class="left">大类：</span><span class="right">{$pinpai1}</span></li>
+							<li class="leib_small clearfix" id="view_all" style="display:{$none}"><span class="left">小类：</span><span class="right">{$pinpai2}</span><a href="javascript:;" id="view_all_btn"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="filter clearfix">
+					<div class="left">
+						<span class="l">排序：</span><a href="?colname={$colname}&keyword1={$keyword1}&key=0" {$selected1}>上架时间</a><a href="?colname={$colname}&keyword1={$keyword1}&key=1" {$selected2}>人气</a><a href="?colname={$colname}&keyword1={$keyword1}&key=2" {$selected3}>推荐</a></a><a href="?colname={$colname}&keyword1={$keyword1}&key=3" {$selected4}>促销</a>
+					</div>
+					<div class="right">
+						<span class="page">{$iPageNo}/{$intPageCount}</span>
+						{$pagelist}
+					</div>
+				</div>
+				
+				<div class="searchBarS clearfix">
+					<div class="hd">商品搜索</div>
+					<div class="bd">
+					<form name="inputStyle" method="post" action="{$SiteUrl}search.aspx" style="margin:0" onSubmit="if(this.keyword.value=='想找什么商品 输入关键词查找下吧'){this.keyword.value='';}">
+						<div class="left"><input type="hidden" name="c" value="6"  /><input type="text" class="s_t" onBlur="if(this.value==''){this.value='想找什么商品 输入关键词查找下吧';this.style.color='#aaa'}" onFocus="if(this.value=='想找什么商品 输入关键词查找下吧'){this.value='';this.style.color='#333'}" value="想找什么商品 输入关键词查找下吧" name="keyword"/></div>
+						<div class="left">{$searchclassid}</div><div class="left"><input type="submit" class="s_b" value=" " /></div></form>
+					</div>
+				</div>
+				<div class="qg_list">
+					<ul class="clearfix">
+						<tag:Loop ListType="listshopqian" RecType="New" PageSize="24" ColorSplit="1" TitleLen="22" RecColumn="5" CusTpl="1" Template="shop/shopone.html" />
+					</ul>
+					<div class="pageNav_2013">
+						<span style="display:{$pagenone}">
+						{$PageSplit}
+						</span>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="cat_xl" id="cat_xl">
+					<ul>
+						{$shopfenlei}
+					</ul>
+				</div>
+				<div class="blank10"></div>
+				<div class="box_g koubei">
+					<div class="hd clearfix"><span class="left red">火爆口碑商家排行 <span class="top10">TOP10</span></span></div>
+					<div class="bd">
+						<ul>
+							
+							{$shopkoubei}
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#key').selectbox();
+	$('#cat_xl').find('.parent').bind('click',function(e){
+		e.preventDefault();
+		$(this).parent().toggleClass('open');
+	});
+	$('#view_all_btn').bind('click',function(e){
+		e.preventDefault();
+		$(this).parent().toggleClass('open');
+	});
+});
+</script>
+</body>
+</html>

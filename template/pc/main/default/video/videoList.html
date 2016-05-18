@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$lanmuname}--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/video2015.css" type="text/css" rel="stylesheet" />
+{$top$}
+		<div class="crumb-bar clearfix">
+			<span>当前位置：</span><a href="#">首页</a> <a href="{$SiteUrl}">视频逛逛</a> <a href="{$videourl}">{$lanmuname}</a> <span class="cur_tit">{$chrcategory}</span>
+		</div>
+		<div class="zx-gg mb-16">{$Mh163k_视频通用通栏广告}</div>
+		<div class="clearfix">
+			<div class="sp_col_sub">
+				<div id="fixed" style="width:173px;">
+				<div class="sp-lside">
+					<div class="sp-side-menu">
+						<div class="title"><a href="#" target="_blank">视频分类</a></div>
+						<ul class="clearfix">
+							{$videolistcategory}
+						</ul>
+					</div>
+					<div class="upload"><a href="{$SiteUrl}member/myvideo.aspx?action=add#tt11" target="_blank"><i></i>上传视频</a></div>
+				</div>
+				</div>
+			</div>
+			
+			<!--<div class="sp-list-rside">
+				
+				<div class="videostop">{$listcategorylist}</div>
+				
+				<div class="reco-video">
+					<div class="sp-title clearfix">
+						<h4>推荐视频</h4>
+						<span class="sp-more"><a href="#" target="_blank">更多</a></span>
+					</div>
+					<ul>
+						{$Mh163k_视频_推荐视频}
+					</ul>
+				</div>
+			</div>-->
+			<div class="sp-list-con" id="fixed_can">
+				<div class="tabs">
+					<ul class="clearfix">
+						<li class="{$quancss1}"><a href="list.html?keyword={$keyword}&t=0&id={$colname}&o={$keyword2}">全部视频</a></li><li class="{$quancss2}"><a href="list.html?keyword={$keyword}&t=1&id={$colname}&o={$keyword2}">评论最高</a></li><li class="{$quancss3}"><a href="list.html?keyword={$keyword}&t=2&id={$colname}&o={$keyword2}">播放最多</a></li>
+					</ul>
+				</div>
+				<div class="sp-video-list">
+				<ul class="clearfix">
+					<tag:Loop ListType="Listvideoqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="video/list_videolist.html" />
+				</ul>
+				<div class="pageNavigation">{$PageSplit}</div>
+			</div>
+			</div>
+	   </div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fixed').fixed($('#fixed_can'));
+});
+</script>
+</body>
+</html>

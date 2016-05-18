@@ -1,0 +1,58 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改栏目设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至栏目列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+
+
+  <form name="form1" method="post" action="?action=EditSave">
+    <tr > 
+      <td width="15%" height="25">栏目名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrname" type="text" size="70" value="{$chrname}"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25">标题(title)<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrtitle" type="text" size="70" value="{$chrtitle}"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >栏目关键词(keywords)<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="chrkeyword" cols="70"  rows="5">{$chrkeyword}</textarea>(多个关键词用,隔开)</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >栏目介绍description<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="chrcontent" cols="70"  rows="5">{$chrcontent}</textarea>(建议不要超过100个汉字)</td>
+    </tr>
+   
+    <tr  > <td></td>
+      <td height="25"  class="category">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

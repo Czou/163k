@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>提交相册--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script>var siteUrl = '{$SiteUrl}'; </script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+<style type="text/css">
+.my_prop_img{ width:100%; margin:0; padding:0;}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; font-size:12px;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:100px; width:auto; padding:2px 5px;}
+.i_img_alt { width:114px;}
+</style>
+<script>
+function checkform(o){
+	if(o.chrcategory.value==""){
+		alert("对不起,请输入相册名称!");
+		o.chrcategory.focus();
+		return false;
+	}
+	if(o.parentid.value==""){
+		alert("对不起,请选择相册类别!");
+		o.parentid.focus();
+		return false;
+	}
+	if(o.demo.value==""){
+		alert("对不起,请输入相册描述!");
+		o.demo.focus();
+		return false;
+	}
+	if(o.file.value==""){
+		alert("对不起,请上传相册封面!");
+		o.file.focus();
+		return false;
+	}
+}
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 提交相册</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">提交相册</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		以下内容，打 * 为必填项
+
+		<br />
+		</td>
+	</tr>
+</table>
+<br />
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 相册名称：</td>
+        <td class="tdcontent" style="width:85%;" ><input name="chrcategory" type="text" class="text" size="40">
+            </td>
+			
+    </tr>
+	<tr>
+	 <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 相册分类：</td>
+        <td class="tdcontent" style="width:30%"  >{$parentid}
+            </td>
+        
+    </tr>
+	<tr>
+        <td class="tditem"><span style="color:Red">*</span> 相册描述：</td>
+        <td class="tdcontent" colspan=3><textarea name="demo" class="text"  style="width:400px; height:50px;"></textarea><input name="intorder" type="hidden"  value="{$intorder}" >
+            </td>
+    </tr>
+	 <!--<tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 相册封面：</td>
+        <td class="tdcontent" style="width:85%;" ><input name="file" type="file" class="text" size="40"> <input type="hidden" name="filewidth" value="600" /><input type="hidden" name="fileheight" value="400" /><span></span>
+            </td>
+			
+    </tr>-->
+	<tr>
+        <td class="tditem" style="width:15%;">上传图片：</td>
+        <td class="tdcontent" style="width:85%;" >
+<div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;">
+		<input type="button" id="J_selectImage" class="global_btn_blue_big" value="批量上传" />
+		<div id="J_imageView" class="clearfix"></div>
+		<input type="hidden" name="urlhidden" id="urlhidden" value="" />
+		<input type="hidden" name="urlmark" id="urlmark" value="" />
+		<input type="hidden" name="pictempid" id="pictempid" value="0" />
+		<input type="hidden" name="pictempclassid" id="pictempclassid" value="0" />
+		<input name="filewidth" type="hidden" value="600" />
+      	<input name="fileheight" type="hidden" value="400" />
+		<input type="hidden" id="smallfilewidth" value="100" />
+		<input type="hidden" id="smallfileheight" value="75" />
+		<input name="url0" id="url0" type="hidden" value="" />
+	</div>
+	  <div id="xiangce" class="clearfix"></div>
+<script>
+var table_id = 'photo';
+var pictempid=0;
+var pictempclassid=0;
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id,
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					var i=0;
+					jQuery("#urlhidden").val();
+					jQuery("#urlmark").val();
+					K.each(urlList, function(i, data) {
+						if( jQuery("#urlhidden").val()=="" ){
+							jQuery("#urlhidden").val(data.id);
+						}else{
+							jQuery("#urlhidden").val(jQuery("#urlhidden").val()+","+data.id);
+						}
+						i++;
+					});
+					saveMyImage();
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+
+function saveMyImage(){
+	var parentid = jQuery('#parentid').val();
+	var urlhidden = jQuery('#urlhidden').val();
+	var urlmark = jQuery('#urlmark').val();
+	var pictempidU = jQuery('#pictempid');
+	var pictempclassidU = jQuery('#pictempclassid');
+	var smallfilewidth = jQuery('#smallfilewidth').val();
+	var smallfileheight = jQuery('#smallfileheight').val();
+	var url = '/request.ashx?action=picBatchUpload&table_id='+table_id+'&classid='+pictempclassid+'&id=' + pictempid + '&isadmin=0&urlhidden='+urlhidden+'&urlmark='+urlmark+'&smallfilewidth='+smallfilewidth+'&smallfileheight='+smallfileheight+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			if(pictempidU.val()=="0"){
+				pictempidU.val(data.pictempid);
+				pictempid = data.pictempid;
+			}
+			if(pictempclassidU.val()=="0"){
+				pictempclassidU.val(data.pictempclassid);
+				pictempclassid = data.pictempclassid;
+			}
+			showMyImage(data['MSG']);
+		}else{
+			alert(data);
+		}
+	}});
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			'<input type="text" value="" onblur="editMark(this,\''+o[i]["id"]+'\')" class="i_img_alt" />'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return set_FM(this,\''+o[i]["filepath"]+'\',\''+o[i]["id"]+'\');" class="set_FM">设为封面</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&classid='+pictempclassid+'\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&classid='+pictempclassid+'\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+function set_FM(o,imgURL,imgid){
+	var url = siteUrl+'request.ashx?action=phototop&table_id='+table_id+'&istop=1&id='+imgid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$('#url0').val(imgURL);
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			$('#xiangce').find('.set_FM').html('设为封面');
+			$(o).html('已设封面');
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+function editMark(o,id){
+	var chrmark = jQuery(o).val();
+	var url = '/request.ashx?action=setpicmark&iskill=1&table_id='+table_id+'&id='+id+'&chrmark='+encodeURIComponent(chrmark)+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			//alert('图片注释编辑成功！');
+		}else{
+			alert(data);
+		}
+	}});
+}
+</script>	
+		</td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type="hidden" name="gotourl" value="{$gotourl}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" />  <input type="button" class="global_btn_big" value=" 返 回 " onClick="javascript:location.href='myce.aspx';" /></td>
+			
+    </tr>
+</table>
+<div class="submit">
+    </div>
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+function delfile(o,sid){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = '/request.ashx?action=delpic&id='+sid+'&liveid='+pictempid+'&table_id='+table_id;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid ;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

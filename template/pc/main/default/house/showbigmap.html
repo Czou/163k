@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="{$tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+#float {  width:818px; margin:0 auto;}
+</style>
+</head>
+<div id="float">
+	<div style="position:absolute;top:8px;right:8px;width:28px;height:28px;cursor:pointer;"><a href="javascript:parent.LoginHide();" ><img src="{$tplPath}images/icon_close_28.gif" /></a></div>
+	<div style="margin-top:8px;"><iframe src="ezmarker/map.aspx?action={$id1}&id={$id2}"  width="800" height="500" scrolling="no" frameborder="0" ></iframe></div>
+	<div>
+	<table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
+	<tr><td align="left" height="23px"><div style="height:17px; overflow:hidden;">&nbsp;&nbsp;&nbsp;<script>
+	var tt="{$id1}";
+	if(tt=="loupan"){
+		document.write("楼盘名称");
+	}
+	else if(tt=="xiaoqu"){
+		document.write("小区名称");
+	}
+	else if(tt=="zhu"){
+		document.write("出租");
+	}
+	else if(tt=="shou"){
+		document.write("出售");
+	}
+	else if(tt=="tuangou"){
+		document.write("团购");
+	}
+	else if(tt=="bm"){
+		document.write("超级黄页");
+	}
+	</script>：<b>
+	{$chrname}
+	</b></div></td><td width="520" align="right">{$SiteName}提醒：地图标注位置仅供参考，具体情况以实际道路标示信息为准&nbsp;&nbsp;&nbsp;</td></tr>
+	<tr><td colspan="2" align="left" height="23px">&nbsp;&nbsp;&nbsp;地址：{$chraddress}</td></tr>
+	</table>
+	</div>
+</div>
+</body>
+</html>

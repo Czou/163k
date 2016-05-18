@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>域名绑定服务-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">域名绑定服务</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">如果您是非签约店铺，则无绑定域名的权限</div>
+						</div>
+						<div class="forms">
+							<form name="form1" action="?action=save" target="tijiao" method="post" enctype="multipart/form-data">
+								<p class="tr"><span class="sp_a">服务器状态：</span><span class="sp_b">{$yumingkillstate}</span><span class="sp_c"></span></p>
+								<div id="yumingkill" style="display:none;">
+								<p class="tr"><span class="sp_a">域名状态：</span><span class="sp_b">{$iskill_str}</span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">是否启用：</span><span class="sp_b"><input name="yumingkill" type="radio" value="0" {$yumingkill_c_0}> 不启用(暂停)　<input name="yumingkill" type="radio" value="1" {$yumingkill_c_1} {$disabled1} > 使用二级域名　<input name="yumingkill" type="radio" value="2" {$yumingkill_c_2} {$disabled2} > 使用顶级域名</span><span class="sp_c">请设置一个域名前缀</span></p>
+								<p class="tr"><span class="sp_a">二级域名：</span><span class="sp_b"><input type="text" name="yumingname" id="yumingname" class="sys_form_ipt sys_form_ipt_narrow" value="{$yumingname}" onBlur="checkyuming(this.value,'yumingshow',{$ID},0)" size="20" /> .{$SiteYuming}</span><span class="sp_c">请设置一个域名前缀</span></p>
+								<p class="tr"><span class="sp_a">顶级域名：</span><span class="sp_b"><input type="text" name="hostyuming" id="hostyuming" class="sys_form_ipt sys_form_ipt_narrow" value="{$hostyuming}" onBlur="checkyuming(this.value,'yumingshow1',{$ID},6)" size="20" /></span><span class="sp_c">需要工信部备案</span></p>
+								<p class="tr" style="display:none;"><span class="sp_a">域名指向：</span><span class="sp_b"><input name="yumingpath" type="radio" value="0" {$yumingpath_c_0} /> 店铺　<input name="yumingpath" type="radio" value="1" {$yumingpath_c_1} />快店</span><span class="sp_c"></span></p>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+								</div>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+var SiteYumingKill = '{$SiteYumingKill}';
+if(SiteYumingKill === '1'){
+	$('#yumingkill').show();
+}
+
+</script>
+</body>
+</html>

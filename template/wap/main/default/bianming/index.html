@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+{$top$}
+<div class="nav_bm_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <div class="cinfo_menu clearfix">
+  <ul>
+   {$Mh163k_wap_黄页频道_大类导航}
+  </ul>
+ </div>
+<div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+        <li class="item"><a href="javascript:void(0);"><span id="show_categories">{$allcategory}</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="show_district">{$strarea}</span><em></em></a></li>
+	</ul>
+
+    <div class="inner" style="display:none;">
+		<ul>
+			<li class="all"><a href="{$bianmingurl}" id="s_colname_" class="t">类别不限</a></li>
+			{$114categoryid}
+		</ul>
+	</div>
+    <div class="inner" style="display:none;">{$areaidlist}</div>
+    <div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+    <div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<div class="job_search">
+ <div class="sbox clearfix">
+	<form  method="get" action="index.html">
+	<input type="text" name="keyword" id="keyword" placeholder="请输入关键字" value="{$keyword}" /><button type="submit">搜索</button>
+	<input type="hidden" name="mySle2" id="mySle2" value="0" />
+	</form>
+ </div> 
+</div>
+<div class="new_active n_mb">
+ <div class="info_list">
+  <ul>
+       <tag:Loop ListType="listbianmingqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="bianming/list_index_tr.html" />
+  </ul>
+  <div class="pageNav2">{$PageSplit}</div>
+ </div>
+</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script>
+/*var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="index.html" method="get">'+
+		'<input type="hidden" name="mySle2" value="0" /><input type="text" name="keyword" id="keyword" class="s_ipt" value="" placeholder="输入关键字" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	$('#windowIframe .back').show();
+	$('#myform').submit(function(){
+		if($('#keyword').val() === ''){
+			MSGwindowShow('index','0','请输入搜索关键字','','')
+		}
+	});
+}*/
+(function($){
+	/*$('#login_ico').hide();
+	$('#search_ico').show();*/
+	var s_a_txt = '';
+	var url_obj = {'colname':'{$colname}'};
+	if(url_obj['colname'] !== '' && url_obj['colname'] !== '0'){
+		$('#s_'+url_obj['colname']).addClass('selected').parent().parent().parent().addClass('cur');
+		s_a_txt = $("#s_colname_"+url_obj['colname']+" a").html();
+		$('#show_categories').html(s_a_txt);
+	}
+	setTimeout(function(){showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});},50);
+	
+	
+	$('.allCat').each(function(){
+		$(this).attr('href','{$bianmingurl}index_c'+$(this).attr('data-id')+'_d{$areaid}_p1.html');
+	});
+	
+})(jQuery);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$title}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/live.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top950$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$liveurl}">{$lanmuname}</a> &gt; {$chrtitle}</div>
+  <!-- 主体 -->
+  <div id="content">
+    <div class="lineAdv_box">
+			<ul class="clearfix">
+				{$livetopadv}
+			</ul>
+		</div>
+		<div class="navLive">
+			<ul class="clearfix">
+				{$livecategory1}
+				<li class="more" id="nav_more"><a href="javascript:void(0);" class="nav_more">更多</a><div class="po" style="display:none;" id="nav_po">
+						{$livecategory2}
+					</div>
+					
+				</li>
+			</ul>
+		</div>
+		<div class="top6">
+			<div class="hd">top6推荐</div>
+			<div class="bd">
+				<ul class="clearfix">
+					{$top6list}
+				</ul>
+			</div>
+			<div class="ft"><a href="{$jingjiaurl}">参与竞价</a></div>
+		</div>
+		<div class="grid_live_03 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="properties">
+					<div class="hd clearfix"><div class="fr">共找到 <b>{$total}</b> 条</div><h3>{$bigcategory}<s class="s"></s></h3></div>
+					<div class="bd">
+						<ul>	
+							{$saixuan}
+							<li>
+								<span class="sp_01"><img src="{$Default_tplPath}images/select09.gif" alt="" /> 发表时间：</span>
+								<span class="sp_02">{$youxiaourl}</span></li>
+							<li>
+								<span class="sp_01"><img src="{$Default_tplPath}images/select09.gif" alt="" /> 区域查找：</span>
+								<span class="sp_02">{$quyu}</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				
+				
+				<div class="tuwen_select">
+					<a href="{$url1}" class="btn btn1">切换到图文模式</a><a href="{$url2}" class="btn btn2">切换到文字模式</a>　<input type="checkbox" class="chkb" id="chkb" {$url3checked} onClick="window.location.href='{$url3}';" /><label for="chkb">只看有图</label>
+				</div>
+				<div class="tuwen_select">
+					已选条件：<ul>{$from_all_select}</ul>
+				</div>
+				<tag:Loop ListType="listliveqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="150" RecColumn="5" CusTpl="1" Template="live/list_live1.html" />
+				
+				<div class="pageNavigation">
+					{$PageSplit}　每页显示20条
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="menu_fabu"><a href="fabu.html" class="link">发布信息</a></div>
+				<div class="cate">
+					<div class="hd"><div class="bor">
+						分类列表
+					</div></div>
+					<ul>
+						{$leftsmallcategory}
+					</ul>
+				</div>
+				<!-- 北京跳蚤市场 -->
+				<div class="searchz_box">
+					<div class="hd">{$city}{$bigcategory}</div>
+					<div class="bd" style="padding:8px;">
+						{$bigchrmark}
+					</div>
+				</div>
+				<!-- 跳蚤市场详细搜索 -->
+				<div class="searchz_box">
+					<div class="hd">我要搜索</div>
+					<div class="bd">
+						<form name="searchlive" method="get"  style="margin:0" action="search.aspx" >
+						<ul>
+							<li>选类别：{$leibiekey}</li>
+							<li>选区域：{$areaid}</li>
+							<li>选时间：{$youxiao}</li>
+							<li>关键字：<input type="text" class="search_text"  name="keyword"  /></li>
+							<li style="text-align:right;"><input type="submit" class="search_menu" value="搜索" /></li>
+						</ul>
+						</form>
+					</div>
+				</div>
+				<!-- 客服 -->
+				<div class="service_box">
+						<ul>
+							<li><img src="{$Default_tplPath}images/qq_online.gif" alt="" /> 客服1号：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}" target=_blank>{$siteqq1}</a></li>
+							<li><img src="{$Default_tplPath}images/qq_online.gif" alt="" /> 客服2号：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}" target=_blank>{$siteqq2}</a></li>
+							<li style="padding-left:12px;">热线电话：{$sitetel}</li>
+						</ul>
+				</div>
+				<!-- 警察 -->
+				<div class="jincha"><img src="{$Default_tplPath}images/p/live_new_70.png" alt="" /></div>
+				<!-- 贴心服务 -->
+				<div class="searchz_box">
+					<div class="hd">贴心服务</div>
+					<div class="bd tiexin" style="padding:8px;">
+						<ul>
+							{$tiexin}
+						</ul>
+					</div>
+				</div>
+				<div class="zd_html">
+					 {$liveadv}
+				</div>
+			</div>
+		</div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom950$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$("#nav_more").hover(function(){
+		$("#nav_po").fadeIn();
+	},function(){
+		$("#nav_po").hide();
+	});
+});
+</script>
+</body>
+</html>

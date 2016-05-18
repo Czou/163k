@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>礼品订单详情-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '礼品订单详情';
+</script>
+<style type="text/css">
+.card_con2 h4 { color:#333; font-size:18px; font-weight:bold; padding:10px; border-bottom:1px solid #ddd;}
+.card_con li{border:none;}
+.comn-submit { display:block; padding:8px 10px; margin:0 auto; background-color:#f93; color:#fff; text-align:center; font-size:16px;}
+.card_con2 { background-color:#fff;}
+.card_con2 dl { position:relative; z-index:1; padding:5px 0;}
+.card_con2 dt { position:absolute; width:70px; left:10px; color:#aaa; text-align:right;}
+.card_con2 dd { padding-left:90px; color:#333;}
+.content7 { text-align:center; padding:10px;}
+.img { padding:15px 0; text-align:center;}
+.img img { width:150px; height:150px; vertical-align:top;}
+</style>
+{$top$}
+<!--<h3 class="dTitle"></h3>-->
+<div class="img"><img src="{$filepath$}" /></div>
+<div class="card_con2">
+<h4>{$chrtitle$}</h4>
+<dl>
+    <dt>订单编号</dt>
+    <dd class="dh">{$chrorder$}</dd>
+</dl>
+<dl>
+    <dt>兑换价格</dt>
+    <dd>{$score$}</dd>
+</dl>
+<dl>
+    <dt>申请时间</dt>
+    <dd>{$dtappenddate$}</dd>
+</dl>
+<dl>
+    <dt>联系人</dt>
+    <dd>{$contactname$}</dd>
+</dl>
+<dl>
+    <dt>联系方式</dt>
+    <dd>{$contacttel$}</dd>
+</dl>
+<dl>
+    <dt>联系地址</dt>
+    <dd>{$contactaddress$}</dd>
+</dl>
+<dl>
+    <dt>简短附言</dt>
+    <dd style="height:30px; overflow:hidden;">{$chrmark$}</dd>
+</dl> 
+<div class="content7"><a href="javascript:void(0);" onClick="return window.history.go(-1);" class="comn-submit">返回</a></div>
+</div>
+{$bottom$}
+</body>
+</head>

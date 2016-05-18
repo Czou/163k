@@ -1,0 +1,344 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="90%">频道域名设置&nbsp;&nbsp;&nbsp; <font color="#FF0000">如果不符合二级域名的使用环境条件 千万不要开启</font></td>
+          <td width="10%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+  <form name="form1" method="post" action="?action=AddSave">
+  
+  <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <tr>
+    <td rowspan="4" width="160px">生活信息：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="livekill" value="0"  {$livekill0}/>不启用频道域名  <input type="radio" name="livekill" value="1" {$livekill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="livename" id="livename" maxlength="20" value="{$livename}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow1"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="livelogo" value="0"  {$livelogo0}/>不启用独立LOGO  <input type="radio" name="livelogo" value="1" {$livelogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str1_0">
+	  {$filepath1$}
+	  </span>
+	  <span id="str1_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1" value="{$url1}">
+   </td>
+  </tr>
+  
+  
+  <tr>
+    <td rowspan="4" width="160px">房产频道：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="fckill" value="0"  {$fckill0}/>不启用频道域名  <input type="radio" name="fckill" value="1" {$fckill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="fcname" id="fcname" maxlength="20" value="{$fcname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow2"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="fclogo" value="0"  {$fclogo0}/>不启用独立LOGO  <input type="radio" name="fclogo" value="1" {$fclogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str2_0">
+	  {$filepath2$}
+	  </span>
+	  <span id="str2_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=2&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url2" id="url2" value="{$url2}">
+   </td>
+  </tr>
+  
+  <tr>
+    <td rowspan="4" width="160px">招聘求职：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="zpkill" value="0"  {$zpkill0}/>不启用频道域名  <input type="radio" name="zpkill" value="1" {$zpkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="zpname" id="zpname" maxlength="20" value="{$zpname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow3"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="zplogo" value="0"  {$zplogo0}/>不启用独立LOGO  <input type="radio" name="zplogo" value="1" {$zplogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str3_0">
+	  {$filepath3$}
+	  </span>
+	  <span id="str3_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=3&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url3" id="url3" value="{$url3}">
+   </td>
+  </tr>
+  
+  
+    <tr>
+    <td rowspan="4" width="160px">同城网购：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="goodkill" value="0"  {$goodkill0}/>不启用频道域名  <input type="radio" name="goodkill" value="1" {$goodkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="goodname" id="goodname" maxlength="20" value="{$goodname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow4"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="goodlogo" value="0"  {$goodlogo0}/>不启用独立LOGO  <input type="radio" name="goodlogo" value="1" {$goodlogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str4_0">
+	  {$filepath4$}
+	  </span>
+	  <span id="str4_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=4&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url4" id="url4" value="{$url4}">
+   </td>
+  </tr>	
+  
+  <tr>
+    <td rowspan="4" width="160px">团购活动（线上）：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="tuangoukill" value="0"  {$tuangoukill0}/>不启用频道域名  <input type="radio" name="tuangoukill" value="1" {$tuangoukill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="tuangouname" id="tuangouname" maxlength="20" value="{$tuangouname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow5"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="tuangoulogo" value="0"  {$tuangoulogo0}/>不启用独立LOGO  <input type="radio" name="tuangoulogo" value="1" {$tuangoulogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str5_0">
+	  {$filepath5$}
+	  </span>
+	  <span id="str5_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=5&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url5" id="url5" value="{$url5}">
+   </td>
+  </tr>	
+  
+  
+  <tr>
+    <td rowspan="4" width="160px">团购活动（线下）：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="tgkill" value="0"  {$tgkill0}/>不启用频道域名  <input type="radio" name="tgkill" value="1" {$tgkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="tgname" id="tgname" maxlength="20" value="{$tgname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow6"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="tglogo" value="0"  {$tglogo0}/>不启用独立LOGO  <input type="radio" name="tglogo" value="1" {$tglogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str6_0">
+	  {$filepath6$}
+	  </span>
+	  <span id="str6_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=6&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url6" id="url6" value="{$url6}">
+   </td>
+  </tr>	
+  
+  <tr>
+    <td rowspan="4" width="160px">口碑商家：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="shopkill" value="0"  {$shopkill0}/>不启用频道域名  <input type="radio" name="shopkill" value="1" {$shopkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="shopname" id="shopname" maxlength="20" value="{$shopname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow7"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="shoplogo" value="0"  {$shoplogo0}/>不启用独立LOGO  <input type="radio" name="shoplogo" value="1" {$shoplogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str7_0">
+	  {$filepath7$}
+	  </span>
+	  <span id="str7_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=7&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url7" id="url7" value="{$url7}">
+   </td>
+  </tr>	
+  
+  
+    <tr>
+    <td rowspan="4" width="160px">本地资讯：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="articlekill" value="0"  {$articlekill0}/>不启用频道域名  <input type="radio" name="articlekill" value="1" {$articlekill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="articlename" id="articlename" maxlength="20" value="{$articlename}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow8"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="articlelogo" value="0"  {$articlelogo0}/>不启用独立LOGO  <input type="radio" name="articlelogo" value="1" {$articlelogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str8_0">
+	  {$filepath8$}
+	  </span>
+	  <span id="str8_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=8&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url8" id="url8" value="{$url8}">
+   </td>
+  </tr>	
+  
+  
+  <tr>
+    <td rowspan="4" width="160px">黄页频道：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="bianmingkill" value="0"  {$bianmingkill0}/>不启用频道域名  <input type="radio" name="bianmingkill" value="1" {$bianmingkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="bianmingname" id="bianmingname" maxlength="20" value="{$bianmingname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow8"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="bianminglogo" value="0"  {$bianminglogo0}/>不启用独立LOGO  <input type="radio" name="bianminglogo" value="1" {$bianminglogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str9_0">
+	  {$filepath9$}
+	  </span>
+	  <span id="str9_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=9&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url9" id="url9" value="{$url9}">
+   </td>
+  </tr>	
+  
+  
+  <tr>
+    <td rowspan="4" width="160px">视频频道：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="videokill" value="0"  {$videokill0}/>不启用频道域名  <input type="radio" name="videokill" value="1" {$videokill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="videoname" id="videoname" maxlength="20" value="{$videoname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow8"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="videologo" value="0"  {$videologo0}/>不启用独立LOGO  <input type="radio" name="videologo" value="1" {$videologo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str10_0">
+	  {$filepath10$}
+	  </span>
+	  <span id="str10_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=10&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url10" id="url10" value="{$url10}">
+   </td>
+  </tr>	
+  
+  
+  <tr>
+    <td rowspan="4" width="160px">网址导航：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="daohangkill" value="0"  {$daohangkill0}/>不启用频道域名  <input type="radio" name="daohangkill" value="1" {$daohangkill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="daohangname" id="daohangname" maxlength="20" value="{$daohangname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow8"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="daohanglogo" value="0"  {$daohanglogo0}/>不启用独立LOGO  <input type="radio" name="daohanglogo" value="1" {$daohanglogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str11_0">
+	  {$filepath11$}
+	  </span>
+	  <span id="str11_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=11&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url11" id="url11" value="{$url11}">
+   </td>
+  </tr>	
+  
+  
+    <tr>
+    <td rowspan="4" width="160px">贴吧：<br /><em class="global_tip">频道Logo宽*高=268*52</em></td>
+    <td class="category"><input type="radio" name="tiebaiskill" value="0"  {$tiebaiskill0}/>不启用频道域名  <input type="radio" name="tiebaiskill" value="1" {$tiebaiskill1} />启用频道域名&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category"><input type="text" name="tiebaname" id="tiebaname" maxlength="20" value="{$tiebaname}" style="width:100px;"  >.{$SiteYuming}<span id="yumingshow8"> <em class="global_tip">(请设置一个域名前缀)</em></span>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="category">
+    <input type="radio" name="tiebalogo" value="0"  {$tiebalogo0}/>不启用独立LOGO  <input type="radio" name="tiebalogo" value="1" {$tiebalogo1} />启用独立LOGO
+     </td>
+  </tr>
+  <tr>
+    <td class="category">
+     <span id="str12_0">
+	  {$filepath12$}
+	  </span>
+	  <span id="str12_1" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=12&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url12" id="url12" value="{$url12}">
+   </td>
+  </tr>	
+  
+  
+  
+  <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+</table>
+  </form>
+ 
+ 
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+	function hiddden(val){
+		$("str"+val+"_0").style.display="none";
+		$("str"+val+"_1").style.display="block";
+	}
+	</script>
+  </body>
+</html>
+

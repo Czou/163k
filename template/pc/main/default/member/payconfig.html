@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>支付接口--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 支付接口</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+  <div class="col_main">
+  <div class="edit_box">
+  <div id="contentfloat">
+  <div id="content">
+  <form name="form1" action="?action=save"  method="post" enctype="multipart/form-data">
+    <div class="bigtitle">支付接口</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+      <tr>
+        <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+        <td class="tx_title"><span>支付接口：</span><br />
+          本接口主要用于商家商品的网上订单的支付款的接收，只有"签约商家"才可以使用独立接口，否则均自动默认为网站方的支付接口，即网站代为商家收钱网上支付，若使用商家独立支付接口，网上支付将直接支付到商家账户</td>
+      </tr>
+    </table>
+    <div class="smalltitle">修改高级设置（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%" style="font-size:9pt;">
+    <tr><td class="tdcontent"  colspan="2">提醒： 如果您不是“签约商家”那么下面的设置是不会生效的，自动将自动默认使用网站方的支付接口</td>
+	 </tr>
+		<tr><td class="tditem" style="width:20%;">是否使用“独立支付接口”：</td>
+		<td class="tdcontent" >
+		<input type="radio"  name="shoppay" value="0" {$shoppay0} {$disabled1}/>否
+              <input type="radio"  name="shoppay" value="1" {$shoppay1} {$disabled2}/>是
+              <input type="radio"  name="shoppay" value="2" {$shoppay2} {$disabled3}/>禁止使用
+		</td>
+	 </tr>
+       <tr> 
+			  <td class="tditem">支付宝接口：
+			  </td>
+			  <td  class="tdcontent">如果启用您的支付宝，请确保信息都填写正确，否则会支付失败。<a href="https://b.alipay.com/order/hot.htm " target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  class="tditem">支付宝帐号<font color="#FF0000">*</font>：
+                  </td>
+                  <td  class="tdcontent"> <input type="text" size="40" name="companyid1" class="text" value="{$companyid1}" /></td>
+                </tr>
+			 <tr > 
+              <td  class="tditem">交易安全校验码<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td  class="tdcontent"> <input type="text" size="40" name="chrpwd1" class="text" value="{$chrpwd1}" /></td>
+            </tr>
+            <tr > 
+              <td  class="tditem">合作者身份ID：<br />只针对支付宝有效
+              </td>
+              <td  class="tdcontent"> <input type="text" size="40" name="shengfenID1" class="text" value="{$shengfenID1}" /></td>
+            </tr>
+            <tr > 
+              <td  class="tditem">是否启用：
+              </td>
+              <td   class="tdcontent"> <input type="radio"  name="isopen1" value="0" {$isopen10} />启用
+              <input type="radio"  name="isopen1" value="1" {$isopen11} />不启用</td>
+            </tr>
+            
+            
+            <tr> 
+			  <td class="tditem">网银接口：
+			  </td>
+			  <td  class="tdcontent">如果启用您的网银，请确保信息都填写正确，否则会支付失败。<a href="http://www.chinabank.com.cn/" target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  class="tditem">商户编号<font color="#FF0000">*</font>：
+                  </td>
+                  <td   class="tdcontent"> <input type="text" size="40" class="text" name="companyid2" value="{$companyid2}" /></td>
+                </tr>
+			 <tr > 
+              <td  class="tditem">MD5密钥<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td   class="tdcontent"> <input type="text" size="40" class="text" name="chrpwd2" value="{$chrpwd2}" /></td>
+            </tr>
+            <tr > 
+              <td  class="tditem">是否启用：
+              </td>
+              <td   class="tdcontent"> <input type="radio"  name="isopen2" value="0" {$isopen20} />启用
+              <input type="radio"  name="isopen2" value="1" {$isopen21} />不启用</td>
+            </tr>
+             <tr> 
+			  <td class="tditem">财付通接口：
+			  </td>
+			  <td class="tdcontent">如果启用您的财付通，请确保信息都填写正确，否则会支付失败。<a href="http://mch.tenpay.com/market/index.shtml" target="_blank">申请签约地址</a>
+              
+              </td>
+			</tr>
+			 <tr > 
+                  <td  class="tditem">商户编号<font color="#FF0000">*</font>：
+                  </td>
+                  <td class="tdcontent"> <input type="text" size="40" class="text" name="companyid3" value="{$companyid3}" /></td>
+                </tr>
+			 <tr > 
+              <td  class="tditem">MD5密钥<font color="#FF0000">*</font>：<br /> 
+              </td>
+              <td class="tdcontent"> <input type="text" size="40" class="text" name="chrpwd3" value="{$chrpwd3}" /></td>
+            </tr>
+            <tr > 
+              <td  class="tditem">是否启用：
+              </td>
+              <td  class="tdcontent"> <input type="radio"  name="isopen3" value="0" {$isopen30} />启用
+              <input type="radio"  name="isopen3" value="1" {$isopen31} />不启用</td>
+            </tr>
+			<tr > 
+              <td  class="tditem">&nbsp;</td>
+              <td  class="tdcontent"><input type="submit" class="global_btn_blue_big" name="submit" value=" 提交修改 " id="" /></td>
+            </tr>
+    </table>
+    </form>
+    </div>
+　
+    </div>
+    </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+    </div>
+  
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+	<script>
+function hid3()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+function hid4()
+{
+	document.getElementById("str5").style.display="none";
+	document.getElementById("str6").style.display="block";
+}
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+function hid22()
+{
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+}
+function hid(tt)
+{
+	document.getElementById("pict"+tt).style.display="none";
+	document.getElementById("pict1"+tt).style.display="block";
+}
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

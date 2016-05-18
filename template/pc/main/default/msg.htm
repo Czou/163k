@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>出错啦-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<style>
+#showwrong { font-size:14px;}
+#showwrong a{ color:#000080; text-decoration:underline; font-size:14px;}
+#showwrong a:hover{ color:#000080}
+</style>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 出错啦</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+		   <table width="100%" height="100%">
+		  <tr><td valign="middle" style="padding-top:50px;">
+		  <table border="0" width="550" align="center" id="table1">
+	<tr>
+		<td width="55">
+		<img border="0" src="{$Default_tplPath}images/MinIcons_001.png" width="48" height="48"></td>
+		<td> <div id="showwrong" style="text-align:center;">{$Msg}</div>
+		</td>
+	</tr>
+</table> </td></tr></table>
+		  
+           
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

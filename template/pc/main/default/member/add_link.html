@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布友好店铺--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}WdatePicker.js"></script>
+
+
+
+<script>
+function checkform(o){
+	if(o.shopid.value==""){
+		alert("对不起,请选择友好店铺!");
+		o.shopid.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("对不起,请输入排序!");
+		o.intorder.focus();
+		return false;
+	}
+	
+}
+</script>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 发布友好店铺</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">添加友好店铺</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  请仔细填写,打*的为必填项 <br />
+                </td>
+              </tr>
+            </table>
+            <br />
+            <form name="form1" method="post" action="?action=addSave" onsubmit="return checkform(this)" >
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr>
+                  <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 友好店铺：</td>
+                  <td class="tdcontent" style="width:85%;" >{$shopid}
+                   
+                    <span></span> </td>
+                </tr>
+                <tr>
+                  <td class="tditem"> 排序：</td>
+                  <td class="tdcontent" colspan=3> <input name="intorder" type="text" value="{$intorder}" size="5" class="text" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false" > (排序越小，越排在前面)</td>
+                </tr>
+              </table>
+              <div class="submit">
+                <input type="hidden" name="gotourl" value="{$gotourl}">
+                <input type="submit" name="Submit" value=" 确认无误，提交 " id="Submit" />
+                <input type="button" value=" 返 回 " onclick="javascript:location.href='link.aspx';" />
+              </div>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

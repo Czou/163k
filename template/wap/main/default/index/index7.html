@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}—{$WapChrTitle}-{$WapSitebiao}-{$ctitle$}</title>
+<meta name="keywords" content="{$WapKeyWords}" />
+<meta name="description" content="{$WapDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/index2016-mb.css" />
+
+<script>
+window['ipageTitleTxt'] = '{$SiteName}';
+</script>
+{$top$}
+<div class="nav_index_bottom">
+ <ul>
+  <li class="current">
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$liveurl}fabu.html">
+     <span class="sm"></span>
+     发信息
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+	<div class="content wrapper">
+		<div id="slide" class="clearfix" style="display:none;">
+			<div id="content">
+				{$Mh163k_wap_首页_幻灯广告}
+			</div>
+			<ul id="indicator"></ul>
+		</div>
+		<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+		<ul id="nav_APP_data" style="display:none;">
+		{$Mh163k_APP_头部主导航菜单}
+		</ul>
+		<div class="viewport">
+			<div id="nav_Node" class="nav_APP showNavApp">
+				<div id="scroller" class="clearfix"></div>
+			</div>
+			<div id="indicator2"><div id="dotty"></div></div>
+		</div>
+		<div class="zdy_html2015">{$Mh163k_wap_首页_自定义html_1}</div>
+		<div class="module module_1">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_1"></s>资讯</span>
+				<a class="more" href="{$articleurl}">更多</a>
+			</div>
+			<div class="bd pic_1_list">
+				<ul>
+					{$Mh163k_wap_资讯}
+				</ul>
+			</div>
+		</div>
+		<div class="module module_1">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_2"></s>贴吧</span>
+				<a class="more" href="{$tiebaurl}">更多</a>
+			</div>
+			<div class="bd pic_1_list">
+				<ul>
+					{$Mh163k_wap_首页_今日新帖}
+				</ul>
+			</div>
+		</div>
+		<div class="module module_2">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_3"></s>省啦精选</span>
+				<a class="more" href="{$tgurl}">更多</a>
+			</div>
+			<div class="bd pic_2_list">
+				<ul class="clearfix" id="index_tg_list">
+					{$Mh163k_wap_首页_今日团购}
+				</ul>
+			</div>
+		</div>
+		<div class="module module_2">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_4"></s>最近活动</span>
+				<a class="more" href="{$tuangouurl}">更多</a>
+			</div>
+			<div class="bd pic_3_list">
+				<ul>
+					{$Mh163k_wap_首页_活动}
+				</ul>
+			</div>
+		</div>
+		<div class="module module_2">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_5"></s>星级商家</span>
+				<a class="more" href="{$shopurl}">更多</a>
+			</div>
+			<div class="bd pic_4_list">
+				<ul class="clearfix">
+					{$Mh163k_wap_首页_商家}
+				</ul>
+				<div class="bannerSJ clearfix">
+					<div class="left">
+						<b><a href="{$shopurl}">星级商家</a></b>诚信商家,品质保证<s class="s"></s>
+					</div>
+					<div class="right">
+						<b><a href="{$shopurl}join.aspx">商家入驻</a></b>生意红火更兴隆<s class="s"></s>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="module module_3">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_6"></s>供求</span>
+				<a class="more" href="{$liveurl}">更多</a>
+				<a href="{$liveurl}fabu.html" class="btn"><s class="s "></s>发布</a>
+			</div>
+			<div class="bd text_btn">
+				{$Mh163k_wap_首页_信息频道分类列表}
+			</div>
+		</div>
+		<div class="module module_3">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_7"></s>房产</span>
+				<a class="more" href="{$fcurl}">更多</a>
+				<a href="{$SiteUrl}member/manage_chuzhu.aspx" class="btn"><s class="s "></s>发布</a>
+			</div>
+			<div class="bd text_btn">
+				<a href="{$fcurl}loupan.html">新房</a>
+				<a href="{$fcurl}chushou.html">二手房</a>
+				<a href="{$fcurl}chuzhu.html">出租房</a>
+				<a href="{$fcurl}zhongjie.html">找中介</a>
+			</div>
+		</div>
+		<div class="module module_3">
+			<div class="hd clearfix">
+				<span class="tit"><s class="s s_8"></s>招聘</span>
+				<a class="more" href="{$zpurl}">更多</a>
+				<a href="{$SiteUrl}member/myjianli.aspx" class="btn"><s class="s"></s>写简历</a>
+				<a href="{$zpurl}rencai.html?key=0" class="btn s_search"><s class="s "></s>找人才</a>
+			</div>
+			<div class="bd text_btn" style="padding-bottom:30px;">
+				{$Mh163k_wap_首页_招聘职位分类}
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script>
+var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="{$SiteUrl}search.aspx" method="get">'+
+		'<select name="c" class="s_sel">'+
+						'<option selected="selected" value="1">生活信息</option>'+
+						'<option value="2">店铺商家</option>'+
+						'<option value="3">新闻资讯</option>'+
+						'<option value="4">省啦项目</option>'+
+						'<option value="5">招聘信息</option>'+
+						'<option value="6">快店商品</option>'+
+					'</select>'+
+		'<input type="text" name="keyword" id="keyword" class="s_ipt" value="" placeholder="输入关键字" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	$('#windowIframe .back').show();
+	$('#myform').submit(function(){
+		if($('#keyword').val() === ''){
+			MSGwindowShow('index','0','请输入搜索关键字','','')
+		}
+	});
+	
+}
+(function($){
+	$('.header .back').hide();
+	$('#nav_ico').hide();
+	$('#search_ico').show();
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		var txt = '';
+		$('#content').find('.cell').each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#indicator').html(txt);
+		var w_w = $(window).width();
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+		setTimeout(function(){$('#slide').show();},20);
+	}
+	IDC2.closeGG('top_gg');
+	IDC2.tabADS($('#tab_01'));
+	IDC2.tabADS($('#tab_02'));
+})(jQuery);
+var myScroll;
+function loaded() {
+	var nav_APP_data = $('#nav_APP_data');
+	nav_APP_data.find('li').eq(0).remove();
+	nav_APP_data.find('li').slice(5,10).clone().insertAfter(nav_APP_data.find('li').eq(9));
+	var w_w = $(window).width();
+	var len = Math.ceil(nav_APP_data.find('li').length/10);
+	var txt = '';
+	var scroller = $('#scroller');
+	for(var i=0; i<len;i++){
+		var el = document.createElement('div');
+		el.className = 'slide';
+		var ul = document.createElement('ul');
+		ul.className = 'clearfix';
+		txt = nav_APP_data.find('li').slice(0,10).detach();
+		$(ul).append(txt);
+		el.appendChild(ul);
+		scroller[0].appendChild(el);
+	}
+	scroller.css({'width':w_w*len+'px'}); 
+	scroller.find('.slide').css('width',w_w+'px'); 
+	$('#indicator2').css({'width':(11*(len-1)+6)+'px'});
+	setTimeout(function(){
+		myScroll = new IScroll('#nav_Node', {
+			scrollX: true,
+			scrollY: false,
+			momentum: false,
+			click:true,
+			snap: true,
+			snapSpeed: 400,
+			keyBindings: true,
+			eventPassthrough:true,
+			indicators: {
+				el: document.getElementById('indicator2'),
+				resize: false
+			}
+		});
+	},200);
+}
+document.addEventListener('DOMContentLoaded',function(){
+	loaded();
+	var tg_list = $('#index_tg_list').find('li');
+	var w = parseInt(tg_list.eq(0).width() - 2);
+	tg_list.find('img').css({'height':w+'px'});
+},false);
+</script>
+</body>
+</html>

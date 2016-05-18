@@ -1,0 +1,69 @@
+@charset "utf-8";
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea {margin:0;padding:0;}
+body,button, input, select, textarea {font:12px/1.5 arial,simsun,sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;}
+address, cite, dfn, em, var {font-style:normal;}
+code, kbd, pre, samp {font-family:courier new,courier,monospace;}
+small {font-size:12px;}
+ul, ol {list-style:none;}
+a { text-decoration:none; color:#36c;}
+a:hover {text-decoration:underline; color:#f50;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+legend {color:#000;}
+fieldset, img {border:0;}
+button, input, select, textarea {font-size:100%;}
+body {text-align:center;}
+
+.fix:after { display:block; content:'\20'; height:0; clear:both;}
+.fix { *zoom:1;}
+.blank10 { height:10px; overflow:hidden;}
+.bigFont { font-size:14px!important;}
+
+
+
+.clearfix:after { 
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden; 
+}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;} 
+.clearfix {display: block;}
+.clear { clear:both; visibility:hidden; height:0; overflow:hidden;}
+.blank10 { height:10px; overflow:hidden; clear:both;}
+
+.floatBar { position:fixed; bottom:105px!important;height:31px; right:10px;}
+.floatBar {
+ _position:absolute;
+ _top:expression(eval(document.compatMode &&
+        document.compatMode=='CSS1Compat') ?
+        documentElement.scrollTop
+        +(documentElement.clientHeight-this.clientHeight) - 100
+        : document.body.scrollTop
+        +(document.body.clientHeight-this.clientHeight) - 100);
+}
+.floatBotBar { position:fixed; bottom:0!important; right:0;}
+.floatBotBar {
+ _position:absolute;
+ _top:expression(eval(document.compatMode &&
+        document.compatMode=='CSS1Compat') ?
+        documentElement.scrollTop
+        +(documentElement.clientHeight-this.clientHeight) - 2
+        : document.body.scrollTop
+        +(document.body.clientHeight-this.clientHeight) - 2);
+}
+.fBBSkin { border-top:2px solid #fe433a; background-color:#fde4bf; height:25px!important; width:100%; padding-top:5px;}
+.fBBSkin img { vertical-align:middle;}
+.fBBSkin .wappBot { width:960px; margin:0 auto;}
+.fBBSkin .hd { float:left; font-size:14px; font-weight:bold; color:#0c2c53;}
+.fBBSkin .bd { float:left; font-size:14px; font-weight:bold; color:#f30; _display:inline; margin-left:30px;}
+.fBBSkin .bd span.xz { font-size:12px; color:#666; font-weight:normal;}
+.fBBSkin .bd a { color:#f30; text-decoration:underline;}
+.fBBSkin .bd a:hover { text-decoration:none;}
+.fBBSkin .ft { float:right;}
+.fBBSkin .ft a { font-size:14px; text-decoration:underline; font-weight:bold;}
+#mask{ position:absolute; top:0; left:0; width:expression(body.clientWidth); height:expression(body.clientHeight);  filter:ALPHA(opacity=70); z-index:998; background-image: url(../images/black.png);}
+.user_name{ color:#ff0000}

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$add2title}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_kbShop.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$Default_tplPath}js/swfobject.js"></script>
+{$top950$}{$Mh163k_口碑商家_独立头部}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a> &gt; {$add2title}</div>
+	<!-- 主体 -->
+	<div id="content" class="{$moban}">
+		<div class="banner">
+			<div class="swf" id="topflashcontent"></div>
+			<div class="positionS">
+				<div class="shopName clearfix">
+					<div class="pic show{$showlogo}" id="shop_logo"><img src="{$filepath}" alt="" width="140" height="60">&nbsp;</div><div class="text show{$showname}">{$chrshop}</div>
+				</div>
+			</div>
+			<div class="navC" style="clear:both;" >
+				<ul class="clearfix">
+				<li class="first"><a href="{$indexurl}" >店铺首页</a></li>
+				<li ><a href="{$TargetUrl}content_{$shopid}.html">店铺介绍</a></li>
+				<li><a href="{$TargetUrl}notice_{$shopid}.html">店铺动态</a></li>
+				<li><a href="{$TargetUrl}pic_{$shopid}.html">店铺展示</a></li>
+				<li><a href="{$TargetUrl}shop_{$shopid}.html">商品展厅</a></li>
+				<li><a href="{$TargetUrl}cuxiao_{$shopid}.html">团购与打折</a></li>
+				<li><a href="{$TargetUrl}comment_{$shopid}.html">网友点评</a></li>
+				{$sslist}
+				<li><a href="{$TargetUrl}contact_{$shopid}.html">联系方式</a></li>
+				<li><a href="{$TargetUrl}yuyue_{$shopid}.html" style="font-weight:bold; color:#f50;">在线预约</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var tonglang="{$tonglang}";
+			if(tonglang.indexOf(".swf")!=-1){
+				var so = new SWFObject(tonglang, "sotester", "950", "148", "9", "#ffffff");
+				so.addParam("wmode", "opaque");
+				so.write("topflashcontent");
+			}
+			else{
+				document.getElementById("topflashcontent").innerHTML="<img src='"+tonglang+"' onerror=\"javascript:this.src='{$Default_tplPath}images/transparent_1px.gif'\" />";
+			}
+			$('#shop_logo').find('img').bind('error',function(e){
+				$(this).attr({'src':'{$Default_tplPath}images/wscbp.gif'});
+			});
+		</script>
+		<div class="aboutBox" >{$chrcontent}
+
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

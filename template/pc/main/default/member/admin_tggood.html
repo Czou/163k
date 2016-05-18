@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的团购商品管理管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我的团购商品管理管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">我的团购商品管理</div>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		编辑修改后前台将暂停显示，待网站方审核通过后恢复显示
+		<br />
+		</td>
+	</tr>
+</table>
+<span ><div class="ptag"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="width:100px" class="{$style0$}">{$url0$}</td><td class="card_line"></td><td style="width:100px" class="{$style1$}">{$url1$}</td><td class="card_line"></td><td style="width:100px" class="{$style2$}">{$url2$}</td>
+<td class="card_line"></td><td style="width:100px" class="{$style3$}">{$url3$}</td>
+<td>&nbsp;<img src="{$Default_tplPath}member/images/icon_arrow.gif" alt="" />点击左侧书签进行切换</td></tr></table></div><br /></span><table id="ProOrderList" width="100%">
+	<tr>
+		<td>          
+        <table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+            <tr class="tabletitle"> 
+			    <td><b>团购项目标题</b></td>
+                <td><b>类型</b></td>
+                <td><b>发布时间</b></td>
+                <td><b>结束时间</b></td><td><b>状态</b></td><td ><b>订单数</b></td>
+                <td><b>操作</b></td>
+            </tr> 
+     		<tag:Loop ListType="LISTTGMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_tggood_Tr.htm" />
+        </table>
+    <div class="manu clearfix" style="text-align:center;">
+			{$PageSplit}
+		</div></td>
+	</tr>
+</table>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

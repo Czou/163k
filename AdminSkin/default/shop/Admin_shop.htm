@@ -1,0 +1,115 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？此操作将会删除此商家下所有的商品和商家点评!"))
+        {
+	    setCookie("delurl",window.location.href);
+            location.href = "shop.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+	}
+}
+</script>
+<script src="{$atplPath}js/ajax.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>目前有商家{$total}家，正常：<a href="?quanbu=1" class="orange_font">{$num2$}</a>　等待审核：<a href="?quanbu=0" class="orange_font">{$num1$}</a>　未通过：<a href="?quanbu=2" class="orange_font">{$num3$}</a>　吊销：<a href="?quanbu=3" class="orange_font">{$num4$}</a>　签约商家：<a href="?quanbu=4" class="orange_font">{$num5$}</a></td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按商家名称查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" style="width:200px;"> 按类别查找:{category}
+		按状态查找： <input type="radio" name="quanbu" value="0" {quanbu1}/>等待审核<input type="radio" name="quanbu" value="1" {quanbu2}/>正常<input type="radio" name="quanbu" value="2" {quanbu3}/>未通过<input type="radio" name="quanbu" value="3" {quanbu4}/> 吊销
+		<input type="submit" name="Submit3" class="global_btn" value="Go"><div class="blank10"></div></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" target="tijiao" action="?action=del">
+				<tr  align="center">
+				<td width="25" class="category">ID</td>
+				<td class="category">商家名称</td><td class="category">商家分类</td><td class="category">所属用户昵称</td><td class="category">星级</td><td class="category">排序</td>
+				<td class="category">提交时间</td>
+				<td class="category">状态</td>
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listshop" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="shop/List_shop_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+                <strong><a href="javascript:delAll(this,'5','设为案例');"><font color=red>设置为案例？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'6','取消案例');"><font color=blue>取消案例？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'3','置顶');"><font color=red>设置为置顶？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'4','取消置顶');"><font color=blue>取消置顶？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'1','正常通过');"><font color=red>正常通过？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','未通过');"><font color=blue>未通过？</font></a></strong>  <strong><a href="javascript:delAll(this,30,'删除(此操作将会删除此商家下所有的商品和商家点评)');">删除选中？</a></strong></td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+function superManage(sid){
+	var f_id = 'super_tips';
+	var aHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd clearfix"><a href="#" class="close">关闭</a>超级管理</div><div class="bd">';
+	aHTML += '<iframe src="about:blank" id="'+f_id+'_iframe" scrolling="no" frameBorder="0" width="100%" height="450"></iframe>';
+	aHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(aHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var url = "shop.aspx?action=edit&ID="+sid;
+	$('#'+f_id+'_iframe').attr('src',url);
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+}
+</script>
+</body></html>

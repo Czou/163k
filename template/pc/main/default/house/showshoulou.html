@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$House_chrtitle}-二手房-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_cz.css" type="text/css" rel="stylesheet" />
+<SCRIPT language=javascript src="{$Default_tplPath}js/highslide.js"></SCRIPT>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="{$SiteUrl}";var tplPath = '{$Default_tplPath}';</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/mustache.js"></script>
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				{$Mh163k_房产2015_房产主导航}
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}chushou.html">二手房</a> <span class="cur_tit">房源描述</span>
+   </div>
+ <!--内容-->
+ <div class="clearfix">
+ <div class="content_fc">
+   <div class="info clearfix">
+    <h1><i class="shou">售</i>{$House_chrtitle}</h1>
+    <div class="tuijian" style="display:{$House_jingxuan}"></div>
+    <div class="con1">
+     价格：<span class="priceWrap"><span class="price">{$House_price}</span>　<span class="num">房源编号：{$House_chrlive}</span>
+	 <span class="cs" style="display:{$House_typeidcss1}">出售中</span>
+	 <span class="ys" style="display:{$House_typeidcss2}">已售</span>
+	 <span class="right">人气：{$House_views}</span>
+    </div>
+    <!--中介信息-->
+	
+	
+	
+    <div class="zj_info">
+     {$House_Zhongjie}
+    </div>
+    <!---->
+    <div class="fang_info">
+     <dl class="clearfix">
+      <dt>小区：</dt>
+      <dd><a href="{$House_chrurl}">{$House_chrloupan}</a></dd>
+      <dt>区域：</dt>
+      <dd>{$House_chrcategory}-{$House_smallcategory}</dd>
+      <dt>类型：</dt>
+      <dd>{$House_leixing}</dd>
+	  <dt>房型：</dt>
+      <dd>{$House_shi}室{$House_ting}厅{$House_wei}卫</dd>
+	  <dt>面积：</dt>
+      <dd>{$House_chrsize}</dd>
+	  <dt>装修：</dt>
+      <dd>{$House_zhuangxiucategory}</dd>
+	  <dt>楼层：</dt>
+      <dd>{$House_nowlou}/{$House_zonglou}</dd>
+	  <dt>朝向：</dt>
+      <dd>{$House_chaoxiang}</dd>
+	  <dt>房龄：</dt>
+      <dd>{$House_fangling}年</dd>
+	  <dt>单价：</dt>
+      <dd><font color="#ff3300">{$House_danjia}/平米</dd>
+     </dl>
+     <div class="ts clearfix">
+      <span class="tit">本房特色：</span>
+       <ul>
+        {$House_teshelist}
+       </ul> 
+     </div>
+     <div class="phone"><i></i>{$House_chrtel}<span>（来电请说明信息来自{$SiteName}）</span></div>
+     <div class="jubo">如发现房源虚假，请马上举报：<span class="hand_1"></span><a href="#" onClick="return jubaofangyuan('本房已售或不存在','{$House_ID}',1);">本房已售或不存在</a><span class="hand_2"></span><a href="#" onClick="return jubaofangyuan('价格不真实','{$House_ID}',1);" target="_blank">价格不真实</a></div>
+    </div>
+   </div>
+   <!--房源详情-->
+   <div class="fang_detail" id="fixed_can">
+    <div class="tabs clearfix" id="fixed">
+      <ul>
+		<li><a href="#main_01" data-scrolld="main_01" class="current">房源描述</a></li>
+		<li><a href="#main_02" data-scrolld="main_02">图片展示</a></li>
+		<li><a href="#main_03" data-scrolld="main_03">地理位置</a></li>
+      </ul>
+    </div>
+    <!--房源描述-->
+    <div class="ms_con" id="main_01">
+      {$House_chrmark}
+    </div>
+    <!--图片展示-->
+    <div class="fang_pic" id="main_02">
+      <div class="title"><span>图片展示</span></div>
+	<div class="gallery po_re" id="dialog_pro">
+		<div class="big_photo_inner" id="superAlbum">
+			<img src="{$Default_tplPath}images/houseGalleryDefault.png" id="dialog_img" class="viewimg" />
+			<a id="preArrow" title="上一张" class="contextDiv" href="javascript:void(0)" style="display:none;"><span id="preArrow_A"></span></a>
+			<a id="nextArrow" title="下一张" class="contextDiv" href="javascript:void(0)"><span id="nextArrow_A"></span></a>
+		</div>
+		<div class="imgListNode po_re">
+			<ul class="imgList clearfix" id="dialog_imgList">{$House_filepath}</ul>
+			<ul id="dialog_data" style="display:none;">{$House_filepath}</ul>
+		</div>
+		<a href="javascript:void(0);" class="btn_prev btn_disabled" id="dialog_img_prev">上一个</a><a href="javascript:void(0);" class="btn_next" id="dialog_img_next">下一个</a>
+	</div>
+	  
+	  
+    </div>
+    <!--地图-->
+    <div class="fang_map clearfix" id="main_03">
+      <div class="title"><span>{$House_chrloupan}周边地图</span></div>
+	  <div class="map"><div id="allmap" style="width:607px; height:412px;"></div></div>
+      <div class="zb_info">
+        <div class="tabs clearfix">
+          <ul id="mapSel">
+            <li class="current" data-val="0"><i class="i_1"></i>交通</li>
+            <li data-val="1"><i class="i_2"></i>商业</li>
+            <li data-val="2"><i class="i_3"></i>教育</li>
+            <li data-val="3"><i class="i_4"></i>医疗</li>
+          </ul>
+        </div>
+        <!--交通-->
+        <div class="con">
+         <ul id="r-result"></ul>
+         <a href="{$SiteUrl}map/chuzhufang.aspx" class="zb_lou">进入地图找房查看周边楼盘</a>
+         </div>
+      </div>
+      <!--地址-->
+      <div class="address">地址：{$House_chraddress}</div>
+    </div>
+   </div> 
+ </div>
+ <div class="cz_right2">
+   <!--周边其他小区出租房-->
+   <div class="xg_arc">
+   <div class="title">周边其他小区二手房</div>
+   <ul>
+    {$House_Zhoubian}
+   </ul>
+  </div>
+  <div class="xg_arc">
+   <div class="title">该小区其他二手房</div>
+   <ul>
+    {$House_Xiaoqu}
+   </ul>
+  </div>
+  <div class="xg_arc pad_b14">
+   <div class="title">{$House_struename}其他二手房</div>
+   <ul>
+    {$House_Self}
+   </ul>
+   
+  </div>
+ </div>
+ </div>
+</div>
+	{$bottom$}
+</div>
+<div id="mask" style="display:none"></div>
+<script type="text/template" id="tp">
+<li data-x="{{point.lng}}" data-y="{{point.lat}}">
+             <dl>
+              <dt class="s_title">{{title}}</dt>
+              <dd classs="s_distance">{{distance}}</dd>
+             </dl>
+             <p class="s_address">{{address}}</p>
+</li>
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/fc2015_map.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fixed').fixed($('#fixed_can'));
+	$('#fixed').doMaodian();
+	$('[data-scrolld]').scrolld({speed: 500,callback: function(){}});
+	$('#dialog_pro').houseGallery();
+	$('#fc_home').removeClass('select');
+	$('#fc_chushou').addClass('select');
+});
+var obj_xyz = {'x':{$House_shop_x},'y':{$House_shop_y}};
+var icity = '{$city}';
+var zb_style = 0;
+var zb_style_arr = [{'key':'公交','img':'gongjiao.gif'},{'key':'超市','img':'chaoshi.gif'},{'key':'学校','img':'xuexiao.gif'},{'key':'医院','img':'yiyuan.gif'}];
+var map = new BMap.Map("allmap",{enableMapClick:false}),mPoint;
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({anchor: BMAP_ANCHOR_TOP_RIGHT}));
+if(!obj_xyz.x||!obj_xyz.y||obj_xyz.x==='0'||obj_xyz.y==='0'){
+	map.centerAndZoom(icity , 13);
+}else{
+	mPoint = new BMap.Point(obj_xyz.x,obj_xyz.y);  
+	map.centerAndZoom(mPoint, 16);
+	var icon = new BMap.Icon('{$Default_tplPath}images/markerred.gif', new BMap.Size(20, 20),{anchor: new BMap.Size(10, 10)});
+	var mkr = new BMap.Marker(mPoint,{icon:icon});
+	map.addOverlay(mkr);
+	var myLabel = new BMap.Label("{$House_chrloupan}",{offset:new BMap.Size(14,-9),position:mPoint});
+	myLabel.setStyle({fontSize:"12px",border:"1px solid #36c"});
+	map.addOverlay(myLabel);                             //把label添加到地图上
+	//检索初始化
+	var local = new BMap.LocalSearch(map, options);
+	local.searchNearby(zb_style_arr[0].key,mPoint,500);
+	$('#mapSel li').click(function(e){
+		e.preventDefault();
+		$(this).siblings('li').removeClass('current');
+		$(this).addClass('current');
+		zb_style = parseInt($(this).attr('data-val'));
+		local.searchNearby(zb_style_arr[zb_style].key,mPoint,500);
+	});
+}
+</script>
+</body>
+</html>

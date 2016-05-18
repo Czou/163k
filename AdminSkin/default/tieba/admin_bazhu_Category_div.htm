@@ -1,0 +1,17 @@
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+	<tbody>
+	<tr>
+		<td align="center" width="200"><a href="{$tiebaurl}tieba_a{$categoryid}_b0_c0_d0_e0_f0_g0_h0_i0_p1.html">{$chrcategory}</a></td>
+		<td align="center">帖子主题分类：{$admin_bazhu_Category_C_list}</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color:#ffffff; padding:10px; color:#1A438E;"><ul class="userlist clearfix">{$admin_bazhu_Category_user_list}</ul></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="background-color:#ffffff; padding:10px; color:#1A438E;"><form name="form1" method="post" action="?action=addbazhusave" target="tijiao">
+			<input type="hidden" name="categoryid" value="{$categoryid}" />
+			添加吧主:	<input type="text" name="chrname" value="昵称" />
+			<input type="submit" name="submit" class="global_btn_blue" value="添加">
+</form></td>
+	</tr>
+</tbody></table><div class="blank10"></div>

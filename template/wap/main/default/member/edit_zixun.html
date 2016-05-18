@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑资讯--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '编辑资讯';
+</script>
+{$top$}
+<div class="o_main">	
+<form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)">
+	<input type="hidden" name="id" value="{$ID}" />
+	<div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>标题</dt>
+   <dd><input type="text" name="title" value="{$title}" id="title" placeholder="输入标题，仅限40字" /></dd>
+  </dl>
+  <div style="display:none;">{$categoryid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>分类</dt>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>来源</dt>
+   <dd><input type="text" name="chrcome" value="{$chrcome}" placeholder="输入资讯来源" /><input name="intorder" type="hidden" id="orders" size="10" value="{$intorder}" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>编辑</dt>
+   <dd><input type="text" name="users" value="{$users}" id="users" placeholder="输入资讯编辑" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>照片</dt>
+   <dd>每次上传一张，可上传多次</dd>
+  </dl>
+  <div class="my_prop_img">
+		<!--<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=1&table_id=news&type=0"></iframe>-->
+		<div id="xiangce" class="my_prop_imgitem_node clearfix">
+			<div class="upimgFileBtnNode"><div id="pageLoaderNode"><span id="pageLoader">loadding</span></div><img src="{$Default_tplPath}images/upimg.png" id="upimgFileBtn" class="upimgFileBtn imgview" alt="" /></div>
+		</div>
+		
+		
+		<input type="hidden" id="urlhidden" value="" />
+		<div style="display:none;" id="html_urlhidden"></div>
+	</div>
+ </div>
+ <div class="inp_Itembox">
+  <textarea name="Chrcontent" id="Chrcontent" style="display:none;"></textarea>
+  <textarea class="txt" id="txtReplay" placeholder="内容(必填)">{$content}</textarea>
+  
+ </div>
+ <input type="hidden" id="onestatenum" name="onestatenum" value="" />
+ <button type="submit" class="save">保 存</button>
+</form>
+{$bottom$}
+<form enctype="multipart/form-data" method="post" id="fileForm">
+	<input id="table_id" name="table_id" type="hidden" value="news" />
+	<input id="id" name="id" type="hidden" value="{$ID}" />
+	<input id="dir" name="dir" type="hidden" value="news" />
+	<input id="state" name="state" type="hidden" value="" />
+	<input id="filewidth" name="filewidth" type="hidden" value="900" />
+	<input id="fileheight" name="fileheight" type="hidden" value="0" />	
+	<input id="smallfilewidth" name="smallfilewidth" type="hidden" value="200" />
+	<input id="smallfileheight" name="smallfileheight" type="hidden" value="150" />
+	<input type="file" style="display:none;" id="imgFile" name="imgFile" />
+</form>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/wap_upimgOne.js"></script>
+<script>
+$(document).ready(function(){
+	setStatenum('#onestatenum');
+	upLoad_init();
+	resetChrcontent();
+	$('#categoryid1').append($('#qu_catgoryid').detach());
+	$('#categoryid2').append($('#qu_classid').detach());
+});
+function checkform(o){
+	var imgtxt = $('#urlhidden').val();
+	var txtReplay = $('#txtReplay');
+	if(txtReplay.val() === ''){
+		MSGwindowShow('shangjia','0','请输入文章内容！','','');
+		return false;
+	}
+	if(imgtxt !== ''){
+		imgtxt = '<div class="mobile_content_img">'+imgtxt+'</div>';
+	}
+	$('#Chrcontent').val(imgtxt + txtReplay.val());
+	if(o.title.value==""){
+		MSGwindowShow('shangjia','0',"请输入标题!",'','');
+		return false;
+	}
+	if(o.qu_catgoryid.value==""){
+		MSGwindowShow('shangjia','0',"请选择分类!",'','');
+		return false;
+	}
+	if(o.users.value==""){
+		MSGwindowShow('shangjia','0',"请输入编辑!",'','');
+		return false;
+	}
+	setStatenum('#onestatenum');
+}
+function showquyu(str){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		$.ajax({url:url}).done(function(msg){
+			if(document.getElementById("qu_classid1")){
+				BuildSel(msg ,document.getElementById("qu_classid"))
+			}else if(document.getElementById("qu_classid")){
+				BuildSel(msg ,document.getElementById("qu_classid"))
+			}
+		}).error(function(e){alert(e);});
+	} 
+} 
+function BuildSel(str,sel){
+	sel.options.length=0;
+	var arrstr = new Array();
+	arrstr = str.split(",");
+	sel.options.add(new Option( "::请选择::","")); 
+	if(str.length>0){
+		for(var i=0;i<arrstr.length-1;i++){
+			var subarrstr=new Array
+			subarrstr=arrstr[i].split("|")
+			sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+		}
+		sel.options[0].selected=true;
+	}
+}
+</script> 
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<div class="item" id="item_{$NID}">
+	<p class="line clearfix"><span class="left"><span style="font-size:16px; font-weight:bold;">{$chrorder}</span></span><span class="right" style="color:#aaa;"><span style="color:#ff9b42;" class="order_iskill" data-iskill="{$iskill}">{$iskill_str}<span class="display0 payid{$payid}">，{$payid_str}</span></span><span class="display{$skill} payid{$payid}_1"> | <span style="color:#27a500;" data-skill="{$skill}">{$skill_str}</span></span></span></p>
+	
+	
+	<p class="line2" style="text-align:center;">
+		<span class="payid{$payid}_1 piskill{$iskill}"><span class="display1{$skill}"><span class="gray_font">派 送 人：</span>{$schrname}　<span class="gray_font">电话：</span>{$schrtel}</span></span>
+	</p>
+	<p class="line2" style="text-align:center;"><span class="payid{$payid}_1 piskill{$iskill}"><a href="#" onclick="return tgQuick(this,'{$ID}')" class="global_btn_blue event_lift">更改订单状态</a> <a href="#" onclick="return tgQuick2(this,'{$ID}')" class="global_btn_blue event_lift">更改派送状态</a></span> <a href="javascript:void(0);" onclick="iChangekill('{$ID}');" class="global_btn display0 newdisplay{$iskill}">取消订单</a> <a href="javascript:void(0);" onclick="return tuikuan(this,'{$ID}');" class="global_btn_orange display0 tuikuandisplay{$iskill} i_payid{$payid}">确认退款</a> <a href="javascript:void(0);" onclick="delMyOrder(this,'{$ID}');" class="global_btn display0">删除订单</a></p>
+	
+	
+	
+	<p class="line2 iskilldisplay{$iskill} paydisplay{$payid}" style="text-align:center;"><select class="peisonuser"></select> <a href="javascript:void(0);" class="global_btn" onclick="setpeisonuser(this,'{$ID}');">确定</a></p>
+	
+	<p class="line3 display{$skill}" style="text-align:center;"><span class="gray_font">派送人：</span>{$schrname}　<span class="gray_font">电话：</span>{$schrtel}</p>
+	<p class="line2" style="text-align:center; display:none;"><span id="time_{$ID}"></span></p>
+	
+	<div class="order_product">
+		
+		<div class="table">
+			{$order_small_list}
+			<!--模板member/order_small_list.html-->
+		</div>
+	</div>
+	<div class="order_detial">
+		
+		
+		<p class="total">
+			<span class="inline-block"><span class="gray_font">合计金额：</span>&yen;<span>{$moneytotal}</span></span>
+			<!--<span class="inline-block">　抵用优惠：无</span>-->
+			<span class="inline-block"><span class="gray_font">　满减优惠：</span>-&yen;{$moneyyouhui}<span class="display0{$chryouhui}">({$chryouhui})</span></span>
+			<span class="inline-block"><span class="gray_font">　配送费用：</span>&yen;{$peisongmoney}</span>
+			<span class="inline-block display10">合计金额：&yen;{$chrmoneyShopAll}</span>
+			<span class="inline-block display10">　{$daijinname}抵：-&yen;{$daijinnumdikou}</span>
+			<span class="inline-block"><span class="gray_font">　支付金额：</span><em class="em2">&yen;<span>{$paymoney}</span></em></span>
+		</p>
+		
+		<p class="guest"><span class="gray_font">下单时间：</span><span class="time_left blue_font" data-id="{$ID}" data-iskill="{$iskill}" data-state="{$skill}" data-payid="{$payid}">{$dtappenddate MM\/dd\/yyyy HH:mm:ss}</span></p>
+		<p class="pay" data-payid="{$payid}"><span class="gray_font">支付方式：</span>{$payid_str}<span class="payid{$payid} piskill_false_{$iskill}">　<span class="gray_font">支付时间：</span><span class="time_left_{$ID}" data-id="{$ID}" data-state="{$iskill}">{$paydate MM\/dd\/yyyy HH:mm:ss}</span>　<span class="gray_font">支付平台单号：</span>{$payorder}</span></p>
+		
+		
+		
+		
+		<div class="address"><span class="gray_font">配送信息：</span><span class="inneraddress">{$chraddress}</span></div>
+		<p class="guest"><span class="gray_font">顾客留言：</span>{$remark}</p>
+		<p class="guest"><span class="gray_font">会员名称：</span>{$chrname}</p>
+	</div>
+	<a href="#" class="view_order_detial po_re" title="展开/收起"><s class="s po_ab"></s></a>
+</div>

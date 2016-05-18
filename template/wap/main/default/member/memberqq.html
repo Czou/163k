@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$loginstyleidstr}登录-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<style type="text/css">
+.register-form-hd { margin-top:15px!important;}
+</style>
+<script>
+window['ipageTitleTxt'] = '{$loginstyleidstr}登录';
+</script>
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; {$loginstyleidstr}登录</div>
+		<div class="register-form-hd">直接用{$loginstyleidstr}账户登录,显示{$loginstyleidstr}用户名</div>
+		<div class="inner_html"><a href="{$from}" class="comn-submit reg-submit btn_block">直接登录</a></div>
+		<div class="register-form-hd">与会员账号绑定</div>
+		<div class="register-form">
+			<form method="post" target="tijiao" action="?action=qqlogin&state={$state}" onSubmit="return checkqqlogin();">
+			<p>输入您已注册的账号和密码,与您的{$loginstyleidstr}绑定</p>
+			<p class="box"><span class="form_label">会员账号：</span><span class="form_control"><input type="text" name="chrname" id="chrname" class="codebox2-input" placeholder="输入您的用户名" /></span></p>
+			<p class="box"><span class="form_label">密码：</span><span class="form_control"><input type="password" name="chrpwd" id="chrpwd" class="codebox2-input" placeholder="输入您的密码" /></span></p>
+			
+			<input class="comn-submit btn_block" type="submit" value="确认绑定" />
+			</form>
+		</div>
+		
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+function checkqqlogin(){
+	var chrname = $("#chrname");
+	var chrpwd  = $("#chrpwd");
+	if(chrname.val() == ''){
+		alert("对不起,请输入您的用户名!");
+		return false;
+	}
+	if(chrpwd.val() == '') {
+		alert("对不起,请输入您的密码!");
+		return false;
+	}
+   //QqLogin(logname.val(),originalPW.val(),"agan");
+   return true;
+}
+</script>
+</body>
+</html>

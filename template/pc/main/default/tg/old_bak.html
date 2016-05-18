@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全部团购-限时线上团购-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tuan2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/tg2013.js"></script>
+<!--[if IE 6]>
+<script src="{$Default_tplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+{$top$}
+	<div id="content" class="w-1200">
+		<div class="tuan_nav">
+			<ul class="clearfix">
+				<li ><a href="{$tgurl}">今日团购</a></li>
+				<li class="current"><a href="{$tgurl}more.html">更多团购</a></li>
+				<li><a href="{$tgurl}miaosha.aspx" target="_blank">限量秒杀</a><s class="s_new"></s></li>
+				<li><a href="{$tgurl}liucheng.html">团购流程</a></li>
+				<li><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="{$SiteUrl}service/" target="_blank">团购反馈</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		{$Mh163k_团购频道通栏自定义html广告}
+		<div class="mt_fliter">
+			<div class="lb"><span class="t">类别：</span><a href="more.html?key={$key}" class="current{$Colname}">全部</a>{$category}</div>
+			<div class="lb"><span class="t">区域：</span><a href="more.html?colname={$Colname}" class="{$Colname_all}">全部</a>{$quyu}</div>
+			<div class="bd clearfix">
+				<div class="left" id="paixu_list">
+					<a href="?colname={$Colname}&key={$key}&keyword2={$keyword2}&keyword3={$keyword3}&styleid={$styleid}&keyword=" id="paixu_default">默认排序</a><a href="#" class="p" id="paixu_jiage">价格<s class="s"></s></a><a href="#" class="p" id="paixu_xiaoliang">销量<s class="s jiang"></s></a><a href="#" class="p" id="paixu_zhekou">折扣<s class="s jiang"></s></a>
+					
+				</div>
+				<div class="left s_price">
+					<span class="left">价格：</span>
+					<div class="left sel_price" id="sel_price">
+						<p class="selected"><span id="sel_price_txt">全部</span><s class="s"></s></p>
+						<ul class="po" style="display:none;">
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=&keyword3=">全部</a></li>
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=0&keyword3=50">50元以下</a></li>
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=50&keyword3=100">50-100元</a></li>
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=100&keyword3=200">100-200元</a></li>
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=200&keyword3=300">200-300元</a></li>
+							<li><a href="?colname={$Colname}&key={$key}&keyword={$keyword}&styleid={$styleid}&keyword2=300&keyword3=" class="last">300元以上</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="left s_search">
+					<form action="?" method="get">
+						<input type="text" name="keyword1" value="{$keyword1}" class="s_ipt" value="" />
+						<button type="submit" class="s_btn">搜索</button>
+					</form>
+				</div>
+				<div class="left s_search">
+					<input id="s_mianyuyue" type="checkbox" onclick="showmianyuyue(this);" />免预约　<input id="s_daijinquan" onclick="showdaijin(this);" type="checkbox" />代金券
+				</div>
+				<div class="left"><a href="{$tgurl}" class="last">新单</a></div>
+				<div class="right next_prev">
+					{$pages1}
+					{$pages2}
+				</div>
+				<div class="right">
+					{$city}团购 共<em>{$total}</em>个团购 <em>{$currentpage}</em>/{$totalpage}页
+				</div>
+			</div>
+		</div>
+		<div class="mt_list">
+			<ul class="clearfix">
+				<tag:Loop ListType="listtgqian" RecType="New" PageSize="24" ColorSplit="1" TitleLen="26" RecColumn="0" CusTpl="1" Template="tg/list_old.html" />
+			</ul>
+			<div class="mt_pageNav_2013" style="display:{$pagestyle}">
+				{$PageSplit}
+			</div>
+		</div>
+		{$Mh163k_团购频道_页脚}
+	</div>
+	
+	
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+$('#mySle').selectbox();
+$(document).modCity();
+$('#fabu').showMore();
+$('#weixin').showMore();
+$.returnTop();
+$.fn.showDropDown = function(){
+	var t = $(this),
+		btn = t.find('.selected'),
+		po = t.find('.po');
+	t.hover(function(){
+		po.show();
+	},function(){
+		po.hide();
+	});
+}
+$('#sel_price').showDropDown();
+var colname = '{$Colname}';
+var key = '{$key}';
+var keyword = '{$keyword}';
+var keyword1 = '{$keyword1}';
+var keyword2 = '{$keyword2}';
+var keyword3 = '{$keyword3}';
+var styleid = '{$styleid}';
+function paixu_list(){
+	var url = '?colname={$Colname}&key={$key}&keyword2={$keyword2}&keyword3={$keyword3}&styleid={$styleid}&keyword=';
+	var jiage = '0';
+	var xiaoliang = '2';
+	var zhekou = '5';
+	switch(keyword){
+		case '0':
+		  jiage = '1';
+		  $('#paixu_jiage').addClass('current').find('.s').removeClass('jiang');
+		  break;
+		case '1':
+		  jiage = '0';
+		  $('#paixu_jiage').addClass('current').find('.s').addClass('jiang');
+		  break;
+		case '2':
+		  xiaoliang = '3';
+		  $('#paixu_xiaoliang').addClass('current').find('.s').addClass('jiang');
+		  break;
+		case '3':
+		  xiaoliang = '2';
+		  $('#paixu_xiaoliang').addClass('current').find('.s').removeClass('jiang');
+		  break;
+		case '5':
+		  zhekou = '6';
+		  $('#paixu_zhekou').addClass('current').find('.s').addClass('jiang');
+		  break;
+		case '6':
+		  zhekou = '5';
+		  $('#paixu_zhekou').addClass('current').find('.s').removeClass('jiang');
+		  break;
+		default:
+		  $('#paixu_default').addClass('current');
+	}
+	$('#paixu_jiage').attr('href',url+jiage);
+	$('#paixu_xiaoliang').attr('href',url+xiaoliang);
+	$('#paixu_zhekou').attr('href',url+zhekou);
+	
+	
+}
+paixu_list();
+function showdaijin(o){
+	if(styleid === ''){styleid = '3';}else{styleid = '';}
+	var url = "?colname={$Colname}&key={$key}&keyword2={$keyword2}&keyword3={$keyword3}&keyword={$keyword}&styleid="+styleid;
+	window.location.href= url;
+}
+function showmianyuyue(o){
+	
+	if(keyword === ''){keyword = '7';}else{keyword = '';}
+	var url = "?colname={$Colname}&key={$key}&keyword2={$keyword2}&keyword3={$keyword3}&styleid={$styleid}&keyword="+keyword;
+	window.location.href= url;
+}
+if(keyword === '7'){
+	$('#s_mianyuyue').prop("checked", true);
+}
+if(styleid === '3'){
+	$('#s_daijinquan').prop("checked", true);
+}
+if(keyword2 !== ''){
+	var sel_price_txt = '';
+	switch(keyword2){
+		case '0':
+		  sel_price_txt = '50元以下';
+		  break;
+		case '50':
+		  sel_price_txt = '50-100元';
+		  break;
+		case '100':
+		  sel_price_txt = '100-200元';
+		  break;
+		case '200':
+		  sel_price_txt = '200-300元';
+		  break;
+		case '300':
+		  sel_price_txt = '300元以上';
+		  break;
+		default:
+		  sel_price_txt = '全部';
+	}
+	$('#sel_price_txt').html(sel_price_txt);
+}
+</script>
+</body>
+</html>

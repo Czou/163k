@@ -1,0 +1,85 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆(删除活动将会删除此活动的相关报名信息和点评信息)！\n您确定要删除吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "active.aspx?action=del&ID=" + id
+    }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+    {
+	   setCookie("delurl",window.location.href);
+	   document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+   }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;共有团购活动{$total$}条,<a href="?quanbu=0"><font color="#0000FF"><u>等待审核</u></a>：</font>{$num1$}条&nbsp;
+<a href="?quanbu=1"><font color="#FF0000"><u>审核通过</u></a>：</font>{$num2$}条&nbsp;&nbsp;&nbsp;&nbsp; <a href="?quanbu=2">正在召集</a>：{$num3$}条  <a href="?quanbu=3"><u>
+<font color="#FF0000">即将组团</font></u></a>：{$num4$} 条<a href="?quanbu=4"><font color="#000080">&nbsp; <u>活动流产</u></font></a>：{$num5$}条&nbsp;<a href="?quanbu=5"><font color="#000080">&nbsp; <u>活动结束</u></font></a>：{$num6$}条&nbsp;</td>
+	  <td align="right">&nbsp;<a href="active.aspx?action=add" class="global_btn_blue">发布活动</a>&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按活动名称查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="10">按分类查找:{category}
+		按状态查找： {quanbu}
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				
+				<td class="category">活动编号</td><td class="category">活动名称</td><td class="category">活动分类</td>
+				<td class="category">发布时间</td>
+				<td class="category">排序</td><td class="category">性质</td><td class="category">状态</td>
+				<td class="category">报名情况</td>
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listactive" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="active/List_active_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','审核通过');"><font color=red>审核通过？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','正在召集');"><font color=blue>正在召集？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'3','即将组团');"><font color=blue>即将组团？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'4','活动流产');"><font color=blue>活动流产？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'5','活动结束');"><font color=blue>活动结束？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,6,'删除(删除活动将会删除此活动的相关报名信息和点评信息)');">删除选中？</a></strong></td></td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

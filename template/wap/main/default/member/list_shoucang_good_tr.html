@@ -1,0 +1,7 @@
+<li class="item" data-isgoodshop="{$isgoodshop}" data-goodid="{$goodid}" data-shopid="{$shopid}" data-chrshop="{$chrshop}" data-name="{$name}"><a href="../c{$shopid}_g{$goodid}.html" target="_blank"><img src="{$filepath}" alt="" /><h4>{$chrtitle}</h4></a>
+	<p style="font-size:12px; color:#999;">{$chrshop}</p>
+	<div class="btn">
+		<span class="left" style="color:#d00; margin-right:15px;">&yen;{$chrmoney}</span>
+		<span class="right"><a href="javascript:void(0);" onclick="delFav({'productid':'{$id}','shopid':''});" class="d">取消收藏</a></span>
+	</div>
+</li>

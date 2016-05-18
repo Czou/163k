@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<link href="skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="skin/admin2013.css" type="text/css" rel="stylesheet" />
+<style>
+html {overflow-x: hidden; overflow-y: hidden;}
+</style>
+</head>
+<body>
+
+	<iframe id="header" name="header" src="header2013.html" width="100%" height="110" frameborder="no" border="0" marginwidth="0" marginheight="0" style=" vertical-align:top; margin:0; padding:0; border:0 none;" scrolling="auto" onLoad="loaded()"></iframe>
+	<iframe id="content" name="content" src="content2013.html" width="100%" height="100%" frameborder="no" border="0" marginwidth="0" marginheight="0" style=" vertical-align:top; margin:0; padding:0; border:0 none;border-style: none" scrolling="auto"></iframe>
+<script src="js/jquery.js"></script>
+<script>
+function loaded(){
+	var navBar = $(window.frames["header"].document).find('body');
+	var head_height = navBar.height()||110;
+	var addPageSize = function(){
+		$("#header").attr({'height':head_height});
+		var p_height = $(window).height();
+		var c_height = p_height-head_height;
+		$("#content").attr({'height':c_height});
+	};
+	addPageSize();
+	$(window).resize(function(){
+		addPageSize();
+	});
+}
+</script>
+
+
+</body>
+</html>

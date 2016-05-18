@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>活动报名表-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">活动报名表</div>
+						<div class="right"><a href="myactive.aspx?action=bao" class="sys_btn_small_blue">查看全部报名</a></div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">报名统计</div>
+							<div class="t_bd">活动报名表：<span style="color:#f60; font-size:16px;">{$total$}</span>　未处理：<span style="font-size:16px;"><a href="myactive.aspx?id={$ID}&action=bao&isopen=0" class="orange_font">{$num1$}</a></span>　已接受：<span style="font-size:16px;"><a href="myactive.aspx?id={$ID}&action=bao&isopen=1"  class="orange_font">{$num2$}</a></span>　无效报名：<span style="font-size:16px;"><a href="myactive.aspx?id={$ID}&action=bao&isopen=2" class="orange_font">{$num3$}</a></span></div>
+						</div>
+						<div class="searcher">
+							<form name="form2" method="post" action="?action=bao&id={$ID}" ID="Form1">
+								<input type="Text" size="12" name="KeyWord" value="{$KeyWord}" class="sys_form_small_ipt">　报名时间：<input name="startdate" value="{$startdate}" type="text" size="20" class="Wdate sys_form_small_ipt" />&nbsp;到&nbsp;<input name="enddate" value="{$enddate}" type="text" size="20" class="Wdate sys_form_small_ipt" />　状态：<select id="isopen" name="isopen"><option value="">----请选择---</option><option value="0" {$isopen_s_0}>未处理</option><option value="1" {$isopen_s_1}>已接受</option><option value="2" {$isopen_s_2}>无效报名</option></select>&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>
+							</form>
+						</div>
+						<form name="form" method="post" action="?action=myiskill" ID="form">
+						<input type="hidden" name="iskill" id="iskill" value="1" />
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+								<td><input name="chkall" type="checkbox" id="chkall" onClick="CheckAll(this.form)"></td>
+								<td>编号</td>
+								<td>报名号</td>
+								<td>用户名</td>
+								<td>真实姓名</td>
+								<td>所报活动</td>
+								<td>联系电话</td>
+								<td>报名时间</td>
+								<td>状态</td>
+								<td>操作</td>
+							</tr>
+<tag:Loop ListType="LISTbaoming" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/Listbaoming.htm" />
+<tr><td align="right" colspan="11"><a href="javascript:delAll(this,'1','接受报名');" class="sys_btn_small_green">接受报名</a> <a href="javascript:delAll(this,'2','无效报名');" class="sys_btn_small_blue">无效报名</a></td></tr>
+						</table>
+						</form>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script type="text/javascript" src="{$Default_tplPath}js/cal/cal.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	$('a[rel*=facebox]').facebox();
+})(jQuery);
+function del(id){
+	if(confirm("该操作将不可逆！\n您确定要删除吗？")){
+		location.href = "baoming.aspx?action=del&key={$key}&ID=" + id;
+	}
+}
+function delAll(o,str,astr){
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？")){
+		document.getElementById("iskill").value=str;
+		document.getElementById("form").submit();
+	}
+}
+</script>
+</body>
+</html>

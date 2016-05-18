@@ -1,0 +1,91 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "zhiwei.aspx?action=del&ID=" + id
+     }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;目前共有职位{$total$}条,<a href="?colname=0"><font color="#0000FF"><u>待审核</u>：</font></a>{$num1$}&nbsp;
+<a href="?colname=1"><font color="#FF0000"><u>审核</u></a>：</font>{$num2$}&nbsp;  <a href="?colname=2"><font color="#0000FF"><u>失败</u></a>：</font>{$num22$}  <a href="?colname=3"><font color="#0000FF"><u>过期</u></a>：</font>{$num32$}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	  <td align="right">&nbsp;<a href="zhiwei.aspx?action=add" class="global_btn_blue">请点击这里添加职位</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按职位/电话：
+		<input name="KeyWord" type="text"  value="{$keyword}" size="10">按企业名称：
+		<input name="keyword1" type="text"  value="{$keyword1}" size="10">按分类:{$category}
+		按状态查找： <input type="radio" name="colname" value="" {$colname}/> 全部 <input type="radio" name="colname" value="0" {$colname0}/> 待审<input type="radio" name="colname" value="1" {$colname1}/> 审核<input type="radio" name="colname" value="2" {$colname2}/> 失败<input type="radio" name="colname" value="3" {$colname3}/> 过期
+		其它属性：<input type="checkbox" value="1" name="key" {$key1}>首页热点  <input type="checkbox" value="1" name="agan" {$agan1}>推荐  <input type="checkbox" value="1" name="Chrcategory" {$Chrcategory1}>紧急
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td class="category">职位编号</td><td class="category">职位名称</td><td class="category">发布企业</td><td class="category">排序</td>
+				<td class="category">发布时间</td>
+				<td class="category">状态</td><td class="category">属性</td>
+				
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listzhiwei" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="job/List_zhiwei_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','通过审核');"><font color=red>通过审核？</font></a></strong>
+				<strong><a href="javascript:delAll(this,3,'删除');">删除选中？</a></strong>
+<strong><a href="javascript:delAll(this,'4','推荐');"><font color=red>推荐？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'5','取消推荐');"><font color=blue>取消推荐？</font></a></strong>  
+				<strong><a href="javascript:delAll(this,'6','首页热点');"><font color=red>首页热点？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'7','取消首页热点');"><font color=blue>取消首页热点？</font></a></strong> 
+                <strong><a href="javascript:delAll(this,'8','紧急');"><font color=red>紧急？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'9','取消紧急');"><font color=blue>取消紧急？</font></a></strong> 
+  				<strong><a href="javascript:delAll(this,'11','批量刷新');"><font color=blue>批量刷新？</font></a></strong> 
+              
+</td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

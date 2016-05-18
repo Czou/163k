@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>付费推广--会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '付费推广';
+</script>
+{$top$}
+	<div class="content">
+		<div class="order_head po_re">付费推广<a href="javascript:history.go(-1);" class="po_ab return">返回</a></div>
+		<div class="inner_html">{$chrname}，您好！目前账上有<span style="color:#f30;">{$jifennum}</span>{$jifenname}，<a href="modify.aspx?action=consume" class="blue">我要充值</a>。<br />您要推广的是“<a href="{$liveurl}live_{$ID}.html" class="blue">{$chrtitle}</a>” 。</div>
+		<div class="inner_html tips">
+			<div class="hd">小提示</div>
+			<div class="bd">已进行付费推广的信息，如果违反版规，会被删除处理! </div>
+		</div>
+		<div class="order_inner" style="border-top:1px solid #ccc; padding-bottom:15px;">
+			<form name="zhifutt" id="zhifutt" action="?action=paysave" method="post" target="tijiao" >
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_index" id="c_index" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">首页头版</span></p>
+				<p class="p"><em>定价：</em><span id="span_index">{$weizhijia}</span>{$jifenname}/天</p>
+				<p class="p number" id="tgNumControl"><em>时间：</em><a href="#" class="reduction">减</a><input type="text" name="index" class="ipt intnum" maxlength="5" value="1" onKeyUp="showvalue('td_index','{$weizhijia}',this.value,this);addtotal();" /><a href="#" class="jia">加</a></p>
+				<p class="p"><em>小计：</em><span id="td_index">{$weizhijia}</span>{$jifenname}</p>
+			</div>
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_bigtop" id="c_bigtop" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">列表页推广</span></p>
+				<p class="p"><em>定价：</em><span id="span_bigtop">{$daleijia}</span>{$jifenname}/天</p>
+				<p class="p number" id="tgNumControl2"><em>时间：</em><a href="#" class="reduction">减</a><input type="text" name="bigtop" class="ipt intnum" maxlength="5" value="1" onKeyUp="showvalue('td_bigtop','{$daleijia}',this.value,this);addtotal()" /><a href="#" class="jia">加</a></p>
+				<p class="p"><em>小计：</em><span id="td_bigtop">{$daleijia}</span>{$jifenname}</p>
+			</div>
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_color" id="c_color" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">标题加红</span></p>
+				<p class="p"><em>定价：</em><span id="span_colorfen">{$colorfen}</span>{$jifenname}/次</p>
+				<p class="p number"><em>时间：</em>一次支付终生有效</p>
+				<p class="p"><em>小计：</em><span id="td_color">{$colorfen}</span>{$jifenname}</p>
+			</div>
+			<div class="table">
+				<p class="p"><em>控制：</em><INPUT TYPE="checkbox"  onclick="addtotal()" NAME="c_font" id="c_font" value="1"> 是否开启</p>
+				<p class="p"><em>服务：</em><span class="blue">标题加粗</span></p>
+				<p class="p"><em>定价：</em><span id="span_fontfen">{$fontfen}</span>{$jifenname}/次</p>
+				<p class="p number"><em>时间：</em>一次支付终生有效</p>
+				<p class="p"><em>小计：</em><span id="td_font">{$fontfen}</span>{$jifenname}</p>
+			</div>
+			<p id="money_pay_show" style="padding-bottom:15px; text-align:center;">所需{$jifenname}总数：<span id="span_total" style="color:#ff0000;font-weight:bold;">0</span>{$jifenname}</p>
+			<input type="hidden" name="id" value="{$ID}" />
+			<a href="#" id="mysubmit" class="comn-submit btn_block">确认推广</a>
+			</form>
+		</div>
+	</div>
+{$bottom$}
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script>
+(function($){
+	var myform = $('#zhifutt');
+	var mysubmit = $('#mysubmit');
+	mysubmit.click(function(e){
+		e.preventDefault();
+		myform.submit();
+	});
+	$.fn.tgNumControl = function(){
+		var t = $(this),
+			jia = t.find('.jia'),
+			jian = t.find('.reduction'),
+			ipt = t.find('.intnum');
+		jia.click(function(e){
+			e.preventDefault();
+			ipt.val(parseInt(ipt.val())+1);
+			parseInt(ipt.val())>1?(jian.addClass('jian_ok')):(jian.removeClass('jian_ok'));
+			ipt.trigger('keyup');
+		});
+		jian.click(function(e){
+			e.preventDefault();
+			ipt.val(parseInt(ipt.val())>1?parseInt(ipt.val())-1:1);
+			parseInt(ipt.val())>1?(jian.addClass('jian_ok')):(jian.removeClass('jian_ok'));
+			ipt.trigger('keyup');
+		});
+	};
+	$('#tgNumControl').tgNumControl();
+	$('#tgNumControl2').tgNumControl();
+})(jQuery);
+
+function showvalue(aa,bb,cc,dd){
+	dd.value = dd.value.replace(/[\D-]+/g,'')
+	eval("document.all."+aa).innerHTML= bb*cc;
+}
+function addtotal(){
+	var total=0;
+	if(document.zhifutt.c_index.checked){
+		var tt1= parseFloat(document.all.span_index.innerHTML)
+		var tt2= parseFloat(document.zhifutt.index.value)
+		total = total + tt1*tt2
+	}
+	if(document.zhifutt.c_bigtop.checked){
+		var tt1= parseFloat(document.all.span_bigtop.innerText)
+		var tt2= parseFloat(document.zhifutt.bigtop.value)
+		total = total + tt1*tt2
+	}
+	if(document.zhifutt.c_color.checked){
+		var tt1= parseFloat(document.all.span_colorfen.innerText)
+		total = total + tt1
+	}
+	if(document.zhifutt.c_font.checked){
+		var tt1= parseFloat(document.all.span_fontfen.innerText)
+		total = total + tt1
+	}
+	document.all.span_total.innerHTML = total;
+}
+</script>
+</body>
+</html>

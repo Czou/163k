@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$zhiweiname}-{$chrtruename}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script>var weburl="{$SiteUrl}";var SiteUrl="{$SiteUrl}";</script>
+{$top$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; {$zhiweiname}</div>
+  <!-- 主体 -->
+  <div id="content" class="v2013">
+		<div class="zp_2013 clearfix">
+			<div class="left">
+				<ul class="sub_nav_zhaopin">
+					<li><a href="{$companyurl}" class="t">公司简介</a></li><li><a href="{$companyurl}" class="t">公司职位<em>({$count$})</em></a>
+						<ul class="c">
+							{$zhiweiright}
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+			<div class="right">
+				<div class="zw">
+					<div class="clearfix">
+						<div class="f_left"><h2>{$zhiweiname}</h2></div>
+						<div class="f_right"><a href="javascript:showtoujianli('{$zhiweiid}');" class="btn_1">申请职位</a><a href="javascript:window.external.AddFavorite(window.location.href,document.title);" class="btn_2">收藏职位</a></div>
+						<div class="f_right">该职位编号：<em>{$chrzhiwei}</em>   浏览：<em class="green">{$hits}</em></div>
+					</div>
+					<div class="zw_info">
+						     <!--[if IE 6]>
+<script src="{$Default_tplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+
+						<s class="s_zhaopinzhong png_ie6 show_true_{$isyouxiao}">招聘中</s>
+						<s class="s_yiguoqi png_ie6 show_false_{$isyouxiao}">已过期</s>
+						<div class="fenxiang clearfix"><span style="float:left; font-size:12px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+						<p>公司名称：<a href="{$companyurl}">{$chrtruename}</a></p>
+						<p>公司规模：{$guimo}</p>
+						<p>公司性质：{$xingzhi}</p>
+						<p>职位类别：{$hangye}</p>
+						<p>工作地点：{$gongzuodidian}</p>
+						<ul class="clearfix">
+							
+							<li>工作经验：{$jingnian}</li>
+							<li>简历语言：{$jianli}</li>
+							
+							<li>学历要求：{$xueli}</li>
+							
+							<li>语言能力：{$yuyan}</li>
+							<li>职位性质：{$zhiweixinzhi}</li>
+							
+							<li>招聘人数：{$renshu}人</li>
+							<li>职位月薪：{$yuexin}</li>
+							<li>更新日期：{$updatetime}</li>
+						</ul>
+						
+					</div>
+					
+				</div>
+				<div class="mo_3">
+					<div class="hd">职位描述</div>
+					<div class="bd">
+						<p>{$chrmark}</p>
+					</div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">联系方式</div>
+					<div class="bd">
+						<p class="no_qx">对不起,招聘的联系方式仅限登陆会员查看,请 <a href="{$SiteUrl}member/login.html">登陆</a> 或 <a href="{$SiteUrl}member/register.html">注册</a></p>
+						<a href="javascript:showtoujianli('{$zhiweiid}');" class="btn_sq_02">申请职位</a>
+						<div class="zp_tips">
+							<h4>求职提示：</h4>
+							<div class="bd">
+								<p>{$jobhelp}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

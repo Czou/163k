@@ -1,0 +1,62 @@
+@charset "utf-8";
+body { background:#f8f8f8 url(../images/wrapper_950_bg.png) repeat-y center top;}
+.topBar .bor,.topBar .weibo,.topBar .weixin,.topBar .fabu .btn,.nav li,.city .city_inner,.city .city_inner .po .close,.nav,.nav .select,.searcher { background:url(../images/index2013_2_sp.gif) no-repeat 0 0;}
+
+.header { background-color:#fff;}
+.topBar { border:1px solid #ebebeb; border-top:0 none; padding:5px 5px 0; height:22px;}
+.topBar li { float:left; padding:0 9px}
+.topBar .first { padding-left:0;}
+.topBar .last { padding-right:0;}
+.topBar .noPadding { padding-right:0; color:#999;}
+.topBar .bor { background-position:-499px 3px;}
+.topBar .weibo,.topBar .weixin,.topBar .fabu .btn { display:block; padding-left:20px;}
+.topBar .weibo { background-position:-484px -50px;}
+.topBar .weixin { background-position:-484px -24px;}
+.topBar .fabu .btn { padding:0 12px 0 0; background-position:-442px -74px;}
+.topBar .po { display:none; border:1px solid #ebebeb; border-top:0 none; background-color:#fff; position:absolute; width:64px; left:2px; top:22px; text-align:center; line-height:25px; padding-bottom:4px;}
+.topBar .fabu { position:relative; z-index:4; *zoom:1; height:22px; padding-right:0;}
+.topBar .fabu .show { display:block;}
+.header .inner { padding:18px 0 9px;}
+.login_success { color:#aaa;}
+.username { color:#f30;}
+
+.logo { width:268px; overflow:hidden;} 
+.city { width:185px;}
+.city .site_slogan { color:#aaa; margin-top:9px;}
+.city .city_inner { position:relative; z-index:3; *zoom:1; margin-top:5px; display:block; padding-right:15px; background-position:-442px -74px;}
+.city .city_inner .po { display:none; box-shadow: 2px 2px 2px #aaa; text-align:center; position:absolute; left:0; top:24px; border:1px solid #ebebeb; background-color:#fff; padding:8px; width:130px;}
+.city .city_inner .po ul { margin-top:5px;}
+.city .city_inner .po li { float:left; width:60px; padding:5px 0;}
+.city .city_inner .po em { color:#C00; font-weight:bold; font-size:14px;}
+.city .city_inner .po .close { position:absolute; top:5px; right:5px; width:8px; display:block; height:8px; background-position:-492px -170px; overflow:hidden; text-indent:-999em;}
+.topadv { width:300px;}
+.topadv img { vertical-align:top;}
+
+.nav { height:45px; background-position:0 -261px; background-repeat:repeat-x; padding-left:10px;}  
+.nav li { float:left; font-size:14px; font-weight:bold; color:#fff; background-position:-412px -95px;}
+.nav .last { background:none;} 
+.nav a { color:#fff; display:block; width:88px; height:31px; padding-top:14px; text-align:center;}
+.nav a:hover { color:#fff;}
+.nav .site_tel { float:right; background-color:#528e01; margin-top:5px; height:31px; padding:9px 12px 0;}
+.nav .select { color:#4e8d00; background-position:0 -70px;}
+.nav .select:hover { color:#4e8d00;}
+.nav .s_1,.nav .s_2 { display:block; top:5px; background-color:#fff; overflow:hidden; width:1px; height:1px;}
+.nav .s_1 { left:0;}
+.nav .s_2 { right:0;}
+.sub_nav .inner { padding:0;}
+
+.searcher { width:365px; height:30px; margin-top:4px;}
+.searcher .select { float:left;}
+.searcher .txt { float:left;}
+.searcher .btn { float:left;}
+.searcher .s_txt { background-color:transparent; border:0 none; width:234px; height:14px; line-height:14px; padding:8px 4px; vertical-align:middle;}
+.searcher .s_btn { vertical-align:middle; width:44px; height:30px; overflow:hidden; font:0pt/1000px Arial; cursor:pointer; border:0 none; background-color:transparent;}
+.searcher .hot_key { line-height:26px; clear:left; word-spacing:normal; white-space:nowrap; color:#999; width:365px; height:26px; overflow:hidden;}
+.searcher .hot_key a { margin:0 3px;}
+
+/* search select */
+.selectbox-wrapper { position:absolute; background-color:#fff; border:1px solid #bbb; text-align:left; z-index:99; width:75px; margin-top:-2px; border-top:0 none;}
+.selectbox-wrapper ul li.selected { background-color:#f1f1f1;}
+.selectbox-wrapper ul li.current { background-color:#f1f1f1; color:#555;}
+.selectbox-wrapper ul li { display:block; margin:0; padding:3px 0 3px 6px; line-height:20px; cursor:default; width:69px; color:#666;}
+.selectbox { margin-top:1px; display:block; width:79px; padding-right:15px; text-align:center; height:30px; line-height:30px; color:#666; background:transparent; vertical-align:middle; border:0 none; cursor:pointer;}

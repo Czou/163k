@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>极速发布-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/classified2013.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.blue { color:#36c;}.blue:hover { color:#d00;}
+.selectbox-wrapper { position:absolute; background-color:#fff; border:1px solid #bbb; text-align:left; z-index:99; width:75px; margin-top:-2px; border-top:0 none;}
+.selectbox-wrapper ul li.selected { background-color:#f1f1f1;}
+.selectbox-wrapper ul li.current { background-color:#f1f1f1; color:#555;}
+.selectbox-wrapper ul li { display:block; margin:0; padding:3px 0 3px 6px; line-height:20px; cursor:default; width:69px; color:#666;}
+.selectbox { margin-top:1px; display:block; width:79px; padding-right:15px; text-align:center; height:30px; line-height:30px; color:#666; background:transparent; vertical-align:middle; border:0 none; cursor:pointer;}
+.my_prop_img{ font-size:12px; width:100%; margin:0; padding:0}
+.my_prop_imgitem{ float:left; display:none;margin-right:15px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .imgview { width:90px; height:90px;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:0 0; text-align:center; text-decoration:none;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:74px; width:auto; padding:0px 5px;}
+.my_prop_imgitem .global_btn_blue,.my_prop_imgitem .global_btn { margin-top:8px; text-decoration:none;}
+</style>
+<script>
+var siteUrl = '{$SiteUrl}';
+var isFabuKill="{$IsFabuKill}";
+if(isFabuKill === '0'){
+	window.parent.MSGwindowShow('shopping','1','对不起，您需要登录后才能发布信息！',siteUrl+'member/login.html?from={$liveurl}','');
+}
+function checkaddlivefast(o){
+	if($("#url0").val()==""){
+		var fmIMG = jQuery('.my_prop_imgitem').eq(0).find('img');
+		if(fmIMG.length > 0){
+			$("#url0").val(fmIMG.attr('src'))
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div class="po_jisu_iframe">
+	<form method="post" id="myform" action="fabu.html?action=fastsave" onSubmit="return checkaddlivefast(this);">
+	<ul>
+		<li>
+			<p class="t">类别：</p>
+			<p class="i">
+				{$bigcategory}<!--name="" 做小类的name-->
+			</p>
+			<p class="i">
+				<select name="categoryid" id="categoryid"><option value="" selected>::请选择::</option></select>
+			</p>
+		</li>
+		<li>
+			<p class="t">区域：</p>
+			<p class="i">
+				{$areaid}
+			</p>
+			<p class="i">
+				 <select name="quyuid" id="qu_classid"><option value="" selected>::请选择::</option></select>
+			</p>
+		</li>
+		<li>
+			<p class="t">标题：</p>
+			<p class="i">
+				<input name="chrtitle" type="text" value="" class="text_input" />
+			</p>
+		</li>
+		<li>
+			<p class="t">内容：</p>
+			<p class="i">
+				<textarea name="chrmark" class="text_area"></textarea>
+			</p>
+		</li>
+		<li>
+			<p class="t">图片：</p>
+			<div class="i">
+				<input type="hidden" name="url0" id="url0" value="" />
+				<div class="my_prop_img" id="xiangce">
+				<div class="my_prop_imgitem" id="setfile1" name="setfile1" style="display: inline;">
+  <div id="pre_8_1" name="pre_8_1" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_1" name="imgview_apf_id_8_1" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_1" name="div_apf_id_8_1" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_1_1" name="show_id_1_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=1&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_1_2" name="show_id_1_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onClick="delfilevalue2('0','1','live_file')">删除</a></span> </div>
+	<a href="#" onClick="return move_PrevNext(this,0,1,0,'setfile','live_file',8);" class="move_prev" style="display: none;">前移</a>
+	<a href="#" onClick="return move_PrevNext(this,1,1,0,'setfile','live_file',8);" class="move_next" style="left: 0px;">后移</a>
+	
+<a href="#" onClick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url1" id="url1" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_1_2").style.display="";document.getElementById("show_id_1_1").style.display="none";}</script><div class="my_prop_imgitem" id="setfile2" name="setfile2">
+  <div id="pre_8_2" name="pre_8_2" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_2" name="imgview_apf_id_8_2" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_2" name="div_apf_id_8_2" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_2_1" name="show_id_2_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=2&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_2_2" name="show_id_2_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onClick="delfilevalue2('0','2','live_file')">删除</a></span> </div>
+	<a href="#" onClick="return move_PrevNext(this,0,2,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onClick="return move_PrevNext(this,1,2,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onClick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url2" id="url2" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_2_2").style.display="";document.getElementById("show_id_2_1").style.display="none";}</script><div class="my_prop_imgitem" id="setfile3" name="setfile3">
+  <div id="pre_8_3" name="pre_8_3" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_3" name="imgview_apf_id_8_3" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_3" name="div_apf_id_8_3" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_3_1" name="show_id_3_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=3&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_3_2" name="show_id_3_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onClick="delfilevalue2('0','3','live_file')">删除</a></span> </div>
+	<a href="#" onClick="return move_PrevNext(this,0,3,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onClick="return move_PrevNext(this,1,3,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onClick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url3" id="url3" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_3_2").style.display="";document.getElementById("show_id_3_1").style.display="none";}</script><div class="my_prop_imgitem" id="setfile4" name="setfile4">
+  <div id="pre_8_4" name="pre_8_4" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_4" name="imgview_apf_id_8_4" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_4" name="div_apf_id_8_4" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_4_1" name="show_id_4_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=4&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_4_2" name="show_id_4_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onClick="delfilevalue2('0','4','live_file')">删除</a></span> </div>
+	<a href="#" onClick="return move_PrevNext(this,0,4,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onClick="return move_PrevNext(this,1,4,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onClick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url4" id="url4" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_4_2").style.display="";document.getElementById("show_id_4_1").style.display="none";}</script><!--<div class="my_prop_imgitem" id="setfile5" name="setfile5">
+  <div id="pre_8_5" name="pre_8_5" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_5" name="imgview_apf_id_8_5" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_5" name="div_apf_id_8_5" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_5_1" name="show_id_5_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=5&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_5_2" name="show_id_5_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onclick="delfilevalue2('0','5','live_file')">删除</a></span> </div>
+	<a href="#" onclick="return move_PrevNext(this,0,5,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,5,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onclick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url5" id="url5" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_5_2").style.display="";document.getElementById("show_id_5_1").style.display="none";}</script><div class="my_prop_imgitem" id="setfile6" name="setfile6">
+  <div id="pre_8_6" name="pre_8_6" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_6" name="imgview_apf_id_8_6" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_6" name="div_apf_id_8_6" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_6_1" name="show_id_6_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=6&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_6_2" name="show_id_6_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onclick="delfilevalue2('0','6','live_file')">删除</a></span> </div>
+	<a href="#" onclick="return move_PrevNext(this,0,6,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,6,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onclick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url6" id="url6" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_6_2").style.display="";document.getElementById("show_id_6_1").style.display="none";}</script><div class="my_prop_imgitem" id="setfile7" name="setfile7">
+  <div id="pre_8_7" name="pre_8_7" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_7" name="imgview_apf_id_8_7" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_7" name="div_apf_id_8_7" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_7_1" name="show_id_7_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=7&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_7_2" name="show_id_7_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onclick="delfilevalue2('0','7','live_file')">删除</a></span> </div>
+	<a href="#" onclick="return move_PrevNext(this,0,7,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,7,0,'setfile','live_file',8);" class="move_next" style="left: 41px;">后移</a>
+	
+<a href="#" onclick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url7" id="url7" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_7_2").style.display="";document.getElementById("show_id_7_1").style.display="none";}</script>
+<div class="my_prop_imgitem" id="setfile8" name="setfile8">
+  <div id="pre_8_8" name="pre_8_8" style="border:1px solid #cccccc; "><img src="../template/pc/main/default/images/fabu_nopic.gif" class="imgview" id="imgview_apf_id_8_8" name="imgview_apf_id_8_8" style="vertical-align:top;" /></div>
+  <div id="div_apf_id_8_8" name="div_apf_id_8_8" style="text-align:center; margin-top:6px; line-height:20px;">
+  <span id="show_id_8_1" name="show_id_8_1">
+	
+	
+	<iframe name="ifm_upload" frameborder="0" width="82" height="32" style="vertical-align:top;" scrolling="no" src="/kindeditor/upload.aspx?c_name=8&amp;table_id=live_file&amp;action=house"></iframe>
+	
+    </span><span id="show_id_8_2" name="show_id_8_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onclick="delfilevalue2('0','8','live_file')">删除</a></span> </div>
+	<a href="#" onclick="return move_PrevNext(this,0,8,0,'setfile','live_file',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,8,0,'setfile','live_file',8);" class="move_next" style="left: 41px; display: none;">后移</a>
+	
+<a href="#" onclick="return set_FM(this);" class="set_FM">设为封面</a></div>
+<input type="hidden" name="url8" id="url8" value="">
+<script>var gg="";if(gg!=""){document.getElementById("show_id_8_2").style.display="";document.getElementById("show_id_8_1").style.display="none";}</script>--> </div>
+			</div>
+		</li>
+		<li>
+			<p class="t">手机：</p>
+			<p class="i">
+				<input name="chrmobile" type="text" value="" class="text_input" style="width:171px;" />
+			</p>
+			<p class="t">QQ：</p>
+			<p class="i">
+				<input name="chrqq" type="text" value="" class="text_input" style="width:171px;" />
+			</p>
+		</li>
+		{$registerwenti}
+		<li>
+			<p class="t">&nbsp;</p>
+			<p class="i">
+				<button type="button" id="cmt_btn" class="text_submit">发 布</button>
+			</p>
+			{$registercode}
+		</li>
+		<li>
+			<p class="t">&nbsp;</p>
+			<p class="i tips">
+				提示：如果希望您发布更详细的信息和获得更好的效果，<a href="fabu.html" target="_blank" class="blue">请到这里发布</a>
+			</p>
+		</li>
+	</ul>
+	</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/live2013.js"></script>
+<script>
+$(function() {
+	$('#myform').fastfabu();
+});
+$('#setfile1').css({'display':'inline'});
+function iSetValue(parentid){
+	var newVal = parseInt(parentid);
+	if(newVal<4){
+		newVal = newVal+1;
+		if(document.getElementById('setfile'+newVal)){
+			document.getElementById('setfile'+newVal).style.display='inline';
+		}
+	}
+}
+//设为封面
+function init_FM(){
+	var list = $('#xiangce').find('.my_prop_imgitem');
+	var txt = '<a href="#" onclick="return set_FM(this);" class="set_FM">设为封面</a>';
+	list.append(txt);
+}
+init_FM();
+function set_FM(o){
+	var str = $(o).parent().attr('id').split("");
+	var str_id = 'url'+str[str.length-1];
+	var for_val = $('#'+str_id).val();
+	if(!!for_val || for_val !== ''){
+		$('#url0').val($('#'+str_id).val());
+		$('.set_FM').html('设为封面');
+		$(o).html('已设封面');
+	}else{
+		alert('请先上传该张图片！');
+	}
+	return false;	
+}
+//图片排序
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var ht = jQuery('#imgview_apf_id_'+total+'_'+sortval),
+		ht_src = ht.attr('src'),
+		ht2,ht2_src;
+	var it = jQuery('#url'+sortval),
+		it_val = it.val(),
+		it2,it2_val;
+		
+	if(it_val==''){alert('请先上传图片再进行排序！');return false;}
+	
+	if(index === 0){
+		ht2 = jQuery('#imgview_apf_id_'+total+'_'+parseInt(sortval-1));
+		it2 = jQuery('#url'+parseInt(sortval-1));
+	}else{
+		ht2 = jQuery('#imgview_apf_id_'+total+'_'+parseInt(sortval+1));
+		it2 = jQuery('#url'+parseInt(sortval+1));
+	}
+	ht2_src = ht2.attr('src');
+	it2_val = it2.val();
+	if(it2_val==''){alert('请先上传下一张图片！');return false;}
+	ht.attr('src',ht2_src);
+	ht2.attr('src',ht_src);
+	it.attr('value',it2_val);
+	it2.attr('value',it_val);
+	reset_moveBtn();
+	return false;
+}
+</script>
+</body>
+</html>

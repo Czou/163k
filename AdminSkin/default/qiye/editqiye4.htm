@@ -1,0 +1,147 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+#listcategory { list-style-type:none; width:100%; margin:0; padding:0}
+#listcategory ul{ margin:0; padding:0}
+#listcategory ul li{ margin-left:5px;float:left}
+#listpicall { list-style-type:none; width:100%; margin:0; padding:0}
+#listpicall ul{ margin:0; padding:0}
+#listpicall ul li{ margin-left:5px;float:left}
+</style>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起，请输入案例名称！");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起，请选择分类！");
+		o.categoryid.focus();
+		return false;
+	}
+	if(o.chrmark.value.length>200){
+		alert("对不起，案例简述不能多于200字！");
+		o.chrmark.focus();
+		return false;
+	}
+}
+</script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">客户案例&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业列表" onClick="javscript:window.location.href='qiye.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li><a href='qiye.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='qiye.aspx?action=e1&ID={$ID}'>关于我们</a></li><li><a href='qiye.aspx?action=e2&ID={$ID}'>新闻中心</a></li><li><a href='qiye.aspx?action=e3&ID={$ID}'>产品展示</a></li><li class="selected"><a href='qiye.aspx?action=e4&ID={$ID}'>客户案例</a></li><li><a href='qiye.aspx?action=e5&ID={$ID}'>招贤纳士</a></li><li><a href='qiye.aspx?action=e6&ID={$ID}'>友情链接</a></li><li><a href='qiye.aspx?action=e7&ID={$ID}'>其他</a></li>
+</ul>
+</div>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="formt1" method="post"  >
+          <tr >
+            <td height="25" width="120px" >新建分类<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"><input name="chrcategory" type="text" size="20"  value="">
+            排序:<input type="text" name="paixu" style="width:100px;" onKeyUp="value=value.replace(/\D+/g,'')" value="1" /><em class="global_tip">（字越大越靠前）</em>
+              <input type="button" class="global_btn_blue"  value="建立分类" onclick="addqiyecategory('{$ID}',2);"/>
+            </td>
+          </tr>
+          <Tr>
+            <td height="25"  >已经建立的分类： </td>
+            <td  class="category" colspan=3><div id="editcategory" style="color:blue;display:none">修改分类<font color="#FF0000">*</font>：
+                <input name="editchrcategory" type="text" size="20"  value="">
+                排序:<input type="text" name="editpaixu" style="width:100px;" onKeyUp="value=value.replace(/\D+/g,'')" value=""  /><em class="global_tip">（数字越大越靠前）</em>
+                <input name="editcategoryid" type="hidden" size="20"  value="">
+                <input type="button"  value="修改分类"  style="color:#FF0000" onclick="editqiyecategory(2);"/>
+              </div>
+              <div id="listcategory">
+                <ul id="listcategoryshow">
+                  loading……
+                </ul>
+              </div></td>
+          </tR><input type=hidden name=ID value="{$ID}">
+          </form>
+          <form name="form1" method="post" action="?action=e4Save" onsubmit="return checkform(this);"  enctype="multipart/form-data">
+          <tR>
+            <td colspan="4" class="category" >添加成功案例</td>
+          </tR>
+          <tr >
+            <td  height="25">案例名称<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> <input type="text" name="chrtitle" style="width:300px;" /></td>
+          </tr>
+          <tr >
+            <td  height="25">案例类别<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> {$categoryid}</td>
+          </tr>
+          <tr  > 
+          <td >代表图片(1:1)：
+          </td>
+          <td  colspan=5  class="category">
+          <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=qiye&type=1"></iframe>
+          <input type=hidden name="url1" value=""  id="url1" > </td>
+        </tr>
+        <tr >
+            <td  height="25">案例简述<font color="#FF0000"></font>： <br />(200汉字以内)</td>
+            <td  class="category" colspan="3"> 
+            <textarea cols="80" id="chrmark" name="chrmark" rows="5" maxlength=200></textarea>
+            </td>
+          </tr>
+          <tr >
+            <td  height="25">排序<font color="#FF0000"></font>： </td>
+            <td  class="category" colspan="3"> 
+            <input type="text" name="intorder" style="width:100px;" onKeyUp="value=value.replace(/\D+/g,'')" value="{$intorder}"  /><em class="global_tip">（数字越大越靠前）</em>
+            </td>
+          </tr>
+          <tr >
+          <td height="25" >详细描述： </td>
+          <td  class="category" colspan=3>
+          <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10"></textarea>
+         <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+          </td>
+        </tr>
+          <tr >
+            <td></td>
+            <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type="hidden" name="id" value="{$ID}"><input type="button" name="button1" class="global_btn_big" value="下一页" onclick="window.location.href='qiye.aspx?action=e5&id={$ID}';"><input type="hidden" name="over" value="0"> &nbsp;  
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="添加案例">
+             </td>
+          </tr>
+         
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+loadqiyecategoryid('{$ID}',2);
+</script>
+
+</body></html>

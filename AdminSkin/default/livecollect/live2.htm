@@ -1,0 +1,180 @@
+﻿<tr >
+  <td align="right">性质：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_xingzhiType" {$f_xingzhiType0} onClick="f_xingzhishow1.style.display='none';f_xingzhishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_xingzhiType" {$f_xingzhiType1}  onClick="f_xingzhishow1.style.display='';f_xingzhishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_xingzhiType" {$f_xingzhiType2} onClick="f_xingzhishow1.style.display='none';f_xingzhishow2.style.display=''">
+    自定义性质</td>
+</tr>
+<tr   id="f_xingzhishow1" style="display:{$f_xingzhishow1}">
+  <td align="right" ><font color=blue>性质开始标记：</font>
+    <p>　</p>
+    <font color=blue>性质结束标记：</font></td>
+  <td alang="left"><textarea name="f_xingzhisString" cols="70" rows="3">{$f_xingzhisString}</textarea>
+    <br>
+    <textarea name="f_xingzhioString" cols="70" rows="3">{$f_xingzhioString}</textarea></td>
+</tr>
+<tr  id="f_xingzhishow2" style="display:{$f_xingzhishow2}">
+  <td align="right" ><font color=blue>请指定性质：</font></td>
+  <td align=left><input type="radio" name="f_xingzhi" value="0" {$f_xingzhi0}>
+    求租
+    <input type="radio" name="f_xingzhi" value="1" {$f_xingzhi1}>
+    求购
+    <input type="radio" name="f_xingzhi" value="2" {$f_xingzhi2}>
+    出租
+    <input type="radio" name="f_xingzhi" value="3" {$f_xingzhi3}>
+    出售</td>
+</tr>
+<tr >
+  <td align="right">小区名称设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_xiaoquType" {$f_xiaoquType0} onClick="f_xiaoqushow1.style.display='none';f_xiaoqushow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_xiaoquType" {$f_xiaoquType1}  onClick="f_xiaoqushow1.style.display='';f_xiaoqushow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_xiaoquType" {$f_xiaoquType2} onClick="f_xiaoqushow1.style.display='none';f_xiaoqushow2.style.display=''">
+    自定义小区名称</td>
+</tr>
+<tr   id="f_xiaoqushow1" style="display:{$f_xiaoqushow1}">
+  <td align="right" ><font color=blue>小区名称开始标记：</font>
+    <p>　</p>
+    <font color=blue>小区名称结束标记：</font></td>
+  <td alang="left"><textarea name="f_xiaoqusString" cols="70" rows="3">{$f_xiaoqusString}</textarea>
+    <br>
+    <textarea name="f_xiaoquoString" cols="70" rows="3">{$f_xiaoquoString}</textarea></td>
+</tr>
+<tr  id="f_xiaoqushow2" style="display:{$f_xiaoqushow2}">
+  <td align="right" ><font color=blue>请指定小区名称：</font></td>
+  <td align=left><input type="text" name="f_xiaoqu" value="{$f_xiaoqu}"></td>
+</tr>
+<tr >
+  <td align="right">房型设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_fangxingType" {$f_fangxingType0} onClick="f_fangxingshow1.style.display='none';f_fangxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_fangxingType" {$f_fangxingType1}  onClick="f_fangxingshow1.style.display='';f_fangxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_fangxingType" {$f_fangxingType2} onClick="f_fangxingshow1.style.display='none';f_fangxingshow2.style.display=''">
+    自定义房型</td>
+</tr>
+<tr   id="f_fangxingshow1" style="display:{$f_fangxingshow1}">
+  <td align="right" ><font color=blue>房型开始标记：</font>
+    <p>　</p>
+    <font color=blue>房型结束标记：</font></td>
+  <td alang="left"><textarea name="f_fangxingsString" cols="70" rows="3">{$f_fangxingsString}</textarea>
+    <br>
+    <textarea name="f_fangxingoString" cols="70" rows="3">{$f_fangxingoString}</textarea></td>
+</tr>
+<tr  id="f_fangxingshow2" style="display:{$f_fangxingshow2}">
+  <td align="right" ><font color=blue>请指定房型：</font></td>
+  <td align=left>{$f_fangxing} </td>
+</tr>
+<tr >
+  <td align="right">房屋种类设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_zhongleiType" {$f_zhongleiType0} onClick="f_zhongleishow1.style.display='none';f_zhongleishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_zhongleiType" {$f_zhongleiType1}  onClick="f_zhongleishow1.style.display='';f_zhongleishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_zhongleiType" {$f_zhongleiType2} onClick="f_zhongleishow1.style.display='none';f_zhongleishow2.style.display=''">
+    自定义房屋种类</td>
+</tr>
+<tr   id="f_zhongleishow1" style="display:{$f_zhongleishow1}">
+  <td align="right" ><font color=blue>房屋种类开始标记：</font>
+    <p>　</p>
+    <font color=blue>房屋种类结束标记：</font></td>
+  <td alang="left"><textarea name="f_zhongleisString" cols="70" rows="3">{$f_zhongleisString}</textarea>
+    <br>
+    <textarea name="f_zhongleioString" cols="70" rows="3">{$f_zhongleioString}</textarea></td>
+</tr>
+<tr  id="f_zhongleishow2" style="display:{$f_zhongleishow2}">
+  <td align="right" ><font color=blue>请指定房屋种类：</font></td>
+  <td align=left>{$f_zhonglei} </td>
+</tr>
+<tr >
+  <td align="right">装修程度设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_zhuangxiuType" {$f_zhuangxiuType0} onClick="f_zhuangxiushow1.style.display='none';f_zhuangxiushow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_zhuangxiuType" {$f_zhuangxiuType1}  onClick="f_zhuangxiushow1.style.display='';f_zhuangxiushow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_zhuangxiuType" {$f_zhuangxiuType2} onClick="f_zhuangxiushow1.style.display='none';f_zhuangxiushow2.style.display=''">
+    自定义装修程度</td>
+</tr>
+<tr   id="f_zhuangxiushow1" style="display:{$f_zhuangxiushow1}">
+  <td align="right" ><font color=blue>装修程度开始标记：</font>
+    <p>　</p>
+    <font color=blue>装修程度结束标记：</font></td>
+  <td alang="left"><textarea name="f_zhuangxiusString" cols="70" rows="3">{$f_zhuangxiusString}</textarea>
+    <br>
+    <textarea name="f_zhuangxiuoString" cols="70" rows="3">{$f_zhuangxiuoString}</textarea></td>
+</tr>
+<tr  id="f_zhuangxiushow2" style="display:{$f_zhuangxiushow2}">
+  <td align="right" ><font color=blue>请指定装修程度：</font></td>
+  <td align=left>{$f_zhuangxiu} </td>
+</tr>
+<tr >
+  <td align="right">价格设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_jiageType" {$f_jiageType0} onClick="f_jiageshow1.style.display='none';f_jiageshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_jiageType" {$f_jiageType1}  onClick="f_jiageshow1.style.display='';f_jiageshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_jiageType" {$f_jiageType2} onClick="f_jiageshow1.style.display='none';f_jiageshow2.style.display=''">
+    自定义价格</td>
+</tr>
+<tr   id="f_jiageshow1" style="display:{$f_jiageshow1}">
+  <td align="right" ><font color=blue>价格开始标记：</font>
+    <p>　</p>
+    <font color=blue>价格结束标记：</font></td>
+  <td alang="left"><textarea name="f_jiagesString" cols="70" rows="3">{$f_jiagesString}</textarea>
+    <br>
+    <textarea name="f_jiageoString" cols="70" rows="3">{$f_jiageoString}</textarea></td>
+</tr>
+<tr  id="f_jiageshow2" style="display:{$f_jiageshow2}">
+  <td align="right" ><font color=blue>请指定价格：</font></td>
+  <td align=left><input type="text" name="f_jiage" value="{$f_jiage}">
+  </td>
+</tr>
+<tr >
+  <td align="right">面积设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_mianjiType" {$f_mianjiType0} onClick="f_mianjishow1.style.display='none';f_mianjishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_mianjiType" {$f_mianjiType1}  onClick="f_mianjishow1.style.display='';f_mianjishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_mianjiType" {$f_mianjiType2} onClick="f_mianjishow1.style.display='none';f_mianjishow2.style.display=''">
+    自定义面积</td>
+</tr>
+<tr   id="f_mianjishow1" style="display:{$f_mianjishow1}">
+  <td align="right" ><font color=blue>面积开始标记：</font>
+    <p>　</p>
+    <font color=blue>面积结束标记：</font></td>
+  <td alang="left"><textarea name="f_mianjisString" cols="70" rows="3">{$f_mianjisString}</textarea>
+    <br>
+    <textarea name="f_mianjioString" cols="70" rows="3">{$f_mianjioString}</textarea></td>
+</tr>
+<tr  id="f_mianjishow2" style="display:{$f_mianjishow2}">
+  <td align="right" ><font color=blue>请指定面积：</font></td>
+  <td align=left><input type="text" name="f_mianji" value="{$f_mianji}">
+  </td>
+</tr>
+<tr >
+  <td align="right">属性设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="f_shuxingType" {$f_shuxingType0} onClick="f_shuxingshow1.style.display='none';f_shuxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="f_shuxingType" {$f_shuxingType1}  onClick="f_shuxingshow1.style.display='';f_shuxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="f_shuxingType" {$f_shuxingType2} onClick="f_shuxingshow1.style.display='none';f_shuxingshow2.style.display=''">
+    自定义属性</td>
+</tr>
+<tr   id="f_shuxingshow1" style="display:{$f_shuxingshow1}">
+  <td align="right" ><font color=blue>属性开始标记：</font>
+    <p>　</p>
+    <font color=blue>属性结束标记：</font></td>
+  <td alang="left"><textarea name="f_shuxingsString" cols="70" rows="3">{$f_shuxingsString}</textarea>
+    <br>
+    <textarea name="f_shuxingoString" cols="70" rows="3">{$f_shuxingoString}</textarea></td>
+</tr>
+<tr  id="f_shuxingshow2" style="display:{$f_shuxingshow2}">
+  <td align="right" ><font color=blue>请指定属性：</font></td>
+  <td align=left><input type="radio" name="f_shuxing" value="0" {$f_shuxing0}>
+    个人
+    <input type="radio" name="f_shuxing" value="1"  {$f_shuxing1}>
+    中介 </td>
+</tr>

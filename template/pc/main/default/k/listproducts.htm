@@ -1,0 +1,11 @@
+﻿<li class="item" data-isopen="{$isopen}" data-shipkill="{$shipkill}" data-startkill="{$startkill}" data-start2kill="{$start2kill}" data-startdate="{$startdate HH:mm}" data-enddate="{$enddate HH:mm}" data-startdate2="{$startdate2 HH:mm}" data-enddate2="{$enddate2 HH:mm}"><a href="{$chrurl}" target="_blank" class="link">
+	<s class="s is_top display1{$istop}"></s>
+	<img src="{$images}" onerror="this.src='{$Default_tplPath}images/kuaison_nofind.gif';this.onerror='';" class="viewImg" alt="" />
+	<span class="tit">{$name}</span>
+	<span class="timer clearfix"><em class="state"></em><span class="inner"><span class="display1{$startkill}">{$startdate HH:mm}-{$enddate HH:mm}　</span><span class="display1{$start2kill}">{$startdate2 HH:mm}-{$enddate2 HH:mm}</span></span></span>
+	<span class="address">{$areabigstr}{$areastr}{$chraddress}</span>
+	<span class="cat cat_1">{$classstr}</span>
+	<span class="icon"><s class="i_zeng display1{$isrogramme}"></s><s class="i_jian display1{$isdiscount}"></s><s class="i_first display1{$isfirstgive}"></s></span>
+	
+	</a>
+</li>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/job-mb.css" />
+<script>
+window.location.href='{$zpurl}zhiwei.html';
+</script>
+</head>
+<body>
+<!--{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+		<div class="job_nav">
+			<div class="cell"><a href="{$zpurl}zhiwei.html"><img src="{$Default_tplPath}images/j_icon.gif" alt="" />找工作</a></div>
+			<div class="cell"><a href="{$zpurl}rencai.html?key=0"><img src="{$Default_tplPath}images/c_icon.gif" alt="" />找人才</a></div>
+			<div class="cell"><a href="{$zpurl}list_38.html"><img src="{$Default_tplPath}images/r_icon.gif" alt="" />就业动态</a></div>
+			<div class="cell"><a href="{$SiteUrl}member/myjianli.aspx"><img src="{$Default_tplPath}images/p_icon.gif" alt="" />我的简历</a></div> 
+		</div>
+		<div class="mod_job_01">
+			<div class="hd">热门招聘</div>
+			<div class="bd">
+				<ul class="list_job" id="remen">
+					{$Mh163k_wap_招聘求职_热门职位}
+				</ul>
+				<div class="inner_html"><a href="{$zpurl}zhiwei.html?key=3" class="comn-submit gray btn_block">查看更多热门职位<span class="jian"></span></a></div>
+			</div>
+		</div>
+		<div class="mod_job_01 jinji">
+			<div class="hd">紧急招聘</div>
+			<div class="bd">
+				<ul class="list_job" id="jinji">
+					{$Mh163k_wap_招聘求职_紧急招聘}
+				</ul>
+				<div class="inner_html"><a href="{$zpurl}zhiwei.html?key=4" class="comn-submit gray btn_block">查看更多紧急职位<span class="jian"></span></a></div>
+			</div>
+		</div>
+		<div class="mod_job_01 tuijian">
+			<div class="hd">推荐职位</div>
+			<div class="bd">
+				<ul class="list_job" id="tuijian">
+					{$Mh163k_wap_招聘求职_推荐职位}
+				</ul>
+				<div class="inner_html"><a href="{$zpurl}zhiwei.html?key=6" class="comn-submit gray btn_block">查看更多推荐职位<span class="jian"></span></a></div>
+			</div>
+		</div>
+		<div class="mod_job_01 zuixin">
+			<div class="hd">最新职位</div>
+			<div class="bd">
+				<ul class="list_job" id="zuixin">
+					{$Mh163k_wap_招聘求职_最新职位}
+				</ul>
+				<div class="inner_html"><a href="{$zpurl}zhiwei.html?key=0" class="comn-submit gray btn_block">查看更多最新职位<span class="jian"></span></a></div>
+			</div>
+		</div>
+		<div class="mod_job_01 tuijian">
+			<div class="hd">推荐人才</div>
+			<div class="bd">
+				<ul class="list_normal">
+					{$Mh163k_wap_招聘求职_推荐人才}
+				</ul>
+				<div class="inner_html"><a href="{$zpurl}rencai.html?key=0" class="comn-submit gray btn_block">查看更多人才<span class="jian"></span></a></div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	var daiyu_obj = {'0':'面议','23':'1000元以下','24':'1000-1500元','25':'1500-2000元','26':'2000-3000元','27':'3000-5000元','28':'5000-8000元','29':'8000元以上'};
+	var xueli_obj = {'0':'不限制','42':'初中','31':'高中/中专','32':'大专','33':'本科','34':'硕士'};
+	$.fn.showTxt = function(){
+		var t = $(this),list = t.find('.item');
+		list.each(function(){
+			$(this).find('.xueli').html(xueli_obj[$(this).attr('data-xueli')]);
+			$(this).find('.treatment').html(daiyu_obj[$(this).attr('data-daiyu')]);
+		});
+	}
+	$('#remen').showTxt();
+	$('#jinji').showTxt();
+	$('#tuijian').showTxt();
+	$('#zuixin').showTxt();
+})(jQuery);
+</script>-->
+</body>
+</html>

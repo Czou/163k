@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员邮件激活验证-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/reg-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; 会员邮件激活验证</div>
+		<div class="fabu reg">
+			<form name="formt" id="formt" onsubmit="return resendemail('{$chrname}',document.getElementById('oldemail').innerHTML,document.getElementById('chremail').value);">
+				<p class="txt">激活邮件已发至您的邮箱：</p>
+				<p class="txt green"><span id="oldemail" name="oldemail">{$chremail}</span></p>
+				<p class="txt blue">点击邮件里的激活地址即可完成验证</p>
+				<p><span class="label">修改邮箱：</span><span class="wd-arrow"><input type="text" name="chremail" id="chremail" value="{$chremail}" class="codebox-input" /></span></p>
+				
+				
+				<input class="comn-submit btn_block" type="submit" value="重新发送" />
+			</form>
+		</div>
+	</div>
+{$bottom$}
+<script>
+function resendemail(aa,bb,cc){
+	var url="../request.aspx?action=show1&str1=1&str2="+encodeURIComponent(aa)+"&str3="+encodeURIComponent(bb)+"&str4="+encodeURIComponent(cc);
+	$.ajax({
+	  url: url,
+	  cache: false,
+	  success: function(data){
+		if(data=="0"){
+			alert("系统已经发送了一封激活验证邮件到您的邮箱："+cc);
+			document.getElementById('oldemail').innerHTML=cc;
+			return false;
+		}else{
+			alert(xmlhttp.responseText);	
+			return false;
+		}
+	  }
+	});
+	return false;
+}
+</script>
+</body>
+</html>

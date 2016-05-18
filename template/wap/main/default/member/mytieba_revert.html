@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>回帖管理-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '回帖管理';
+</script>
+<style type="text/css">
+#pagingList .display21,#pagingList .display30,#pagingList .display231,#pagingList .display330 { display:none;}
+.displaysuper,.displaysuper2 { display:none;}
+.showSuper .displaysuper { display:inline;}
+.showSuper .displaysuper2 { display:block;}
+.feed_highlight { display:none;}
+.piclist img { margin-right:8px; vertical-align:top; width:100px;}
+.replaycontent1 img { width:100px; vertical-align:top;}
+</style>
+{$top$}
+<div class="wrapper">
+<div class="p_tabs clearfix" id="p_tabs">
+   <ul>
+	<li id="s_c_0" class="cur"><a href="javascript:void(0);" data-catid="0" onClick="return showCatF({'p':'1','c':'0'},'s_c_',this)">我的回帖</a></li>
+	<li id="s_c_1" class="display{$ismanager}"><a href="javascript:void(0);" data-catid="1" onClick="return showCatF({'p':'1','c':'1'},'s_c_',this)">审核回帖</a></li>
+	<li><a href="admin_tieba.aspx">我的帖子</a></li>
+   </ul>
+</div>
+	<div id="order_list" class="user_order_list">    
+	 <form name="form" method="post" action="?" id="form">
+	<ul id="pagingList"></ul>
+	<div style="margin:10px 0 0 10px;" class="display{$ismanager}"><input type="checkbox" id="chkall" onClick="CheckAll(this.form);" /> 全选　<a href="javascript:iskillAllRevert('1');" class="global_btn_blue">审批通过</a> <a href="javascript:delAllRevert('0');" class="global_btn">清空选中</a> <a href="javascript:delAllRevert('2');" class="global_btn">删除选中</a><!-- <a href="javascript:delAllRevert('1');" class="global_btn">删除包括后续回复</a>--></div>
+	<div class="pageNavigation" id="pageNavigation"></div>
+	</form>
+	</div>
+		
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_tieba.js?{$CacheHash}"></script>
+<script>
+var nowdomain ="{$SiteUrl}";
+window['STYLEID'] = '0';//回评操作时的是否可回复
+var keyvalues = {"table_id":"254",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_wap_tieba_admin_revert_list.html",
+	"strlen":"220",	
+	"titleLen":"100",
+	"isjson":"0",
+	"p":"1",
+	"_key":"",
+	"c":"0",
+	"d":"0",
+	"i":"{$ID}"
+};
+
+
+
+function showCatF(obj,ids,node){
+	getPagingGlobal(obj,node,ids);
+	if(obj.c === '1'){
+		$('#pagingList').parent().addClass('showSuper');
+	}
+	return false;
+}
+
+function CheckAll(form){
+    for (var i=0;i<form.elements.length;i++){
+        var e = form.elements[i];
+        if (e.type=="checkbox" && e.id != 'chkall') e.checked = form.chkall.checked;
+    }
+}
+$(function(){
+	getPagingGlobal();
+	if('{$ismanager}' === '1'){
+		$('#form').addClass('showSuper');
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/head2014.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/common2013.js?{$CacheHash}"></script>
+<style type="text/css">
+.nav a { padding:7px 14px;}
+.nav .select { background-color:#f40; color:#fff;}
+.nav .select:hover { text-decoration:none; color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="header">
+		<div class="topBar"><div class="w-1200 clearfix">
+			<ul class="left"><li class="first"><a href="{$SiteUrl}request.ashx?action=saveurl">保存快捷方式到桌面</a></li><li class="bor display{$IsOpenWap}"><a href="{$WapHelpUrl}" class="mobile">手机版</a></li><li class="bor"><a href="#" onClick="window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">加入收藏</a></li><li class="bor"><a href="{$SiteUrl}help" target="_blank">新手上路</a></li>{$Mh163k_微博微信数据调用}</ul>
+			<ul class="right" id="login_info"><script>jQuery(document).ready(function(){is_login2("{$SiteUrl}","{$Default_tplPath}",'{$Mh163k_QQ登录调用}','{$isweixinlogin}','{$Tempid}');});</script><li class="fabu bor" id="fabu"><a href="javascript:void(0);" class="btn">快速发布</a>
+				<div class="po">
+					{$Mh163k_快速发布列表}
+				</div>
+			</li></ul>
+		</div></div>
+		<div class="inner w-1200 clearfix">
+			<div class="left"><h1 class="logo"><a href="{$SiteUrl}" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></h1></div>
+			<div class="left searcher">
+				<form id="searchform1" name="searchform1" method="post" target="_blank" action="{$SiteUrl}search.aspx">
+				<p class="select">
+					<select style="display: none;" name="c" id="mySle">
+						<option selected="selected" value="1">生活信息</option>
+						<option value="2">店铺商家</option>
+						<option value="3">新闻资讯</option>
+						<option value="4">团购活动</option>
+						<option value="5">招聘信息</option>
+						<option value="6">商品信息</option>
+						<option value="7">视频逛街</option>
+					</select>
+				</p>
+				<p class="txt"><input type="text" class="s_txt" name="keyword" maxlength="30" x-webkit-speech x-webkit-grammar="bUIltin:search" onBlur="if(this.value==''){this.value='请输入搜索关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入搜索关键字'){this.value='';this.style.color='#333'}" value="请输入搜索关键字" style="color: #aaa;" /></p>
+				<p class="btn"><button type="submit" class="s_btn">搜索</button></p>
+				</form>
+				<p class="hot_key">{$site_remen}</p>
+			</div>
+			<div class="right">{$Mh163k_index7_头部右上广告位}</div>
+		</div>
+	</div>
+	<div class="content w-1200">
+		<div class="nav po_re" id="channel_nav">
+			<ul class="clearfix">
+				{$Mh163k_头部主导航菜单}
+				<li class="site_tel last">网站服务热线：{$sitetel}</li>
+			</ul>
+		</div>
+		<div class="sub_nav_7"><div class="inner">
+			<ul class="clearfix">
+				<li class="p_1"><p class="p">资讯</p><ul class="ul">
+					{$Mh163k_index7_内页子导航_资讯}
+				</ul></li>
+				<li class="p_2"><p class="p">房产</p><ul class="ul">
+					{$Mh163k_index7_内页子导航_房产}
+				</ul></li>
+				<li class="p_3"><p class="p">分类</p><ul class="ul">
+					{$Mh163k_index7_内页子导航_分类}
+				</ul></li>
+				<li class="p_4"><p class="p">工作</p><ul class="ul">
+					{$Mh163k_index7_内页子导航_工作}
+				</ul></li>
+				<li class="p_5"><p class="p">生活</p><ul class="ul">
+					{$Mh163k_index7_内页子导航_生活}
+				</ul></li>
+			</ul>
+		</div></div>

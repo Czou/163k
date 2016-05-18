@@ -1,0 +1,435 @@
+﻿<style>
+.main7body{
+	width:434px;
+	clear:both;
+	padding:0 0 0 18px;
+	color:#333333;
+	text-align:left;
+	height:120px;
+	display:table;
+}
+.main7body div{
+	width:86px;
+	line-height:18px;
+	float:left;
+}
+.main7body div.d3{
+	padding-left:6px;
+	width:100px;
+}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;域名注册查询</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td bgcolor="#FFFFFF">
+<script>
+function   checkForm(type)   
+  {  
+  
+ if(type==0)
+  { //alert(type)
+   document.form1.中国.disabled=true;
+   document.form1.网络.disabled=true;
+   document.form1.公司.disabled=true;
+   document.form1.com.disabled=false;
+   document.form1.net.disabled=false;
+   document.form1.cn.disabled=false;
+   document.form1.mobi.disabled=false; 
+   document.form1.me.disabled=false; 
+   document.form1.tel.disabled=false; 
+   document.form1.org.disabled=false
+   document.form1.comcn.disabled=false;
+   document.form1.netcn.disabled=false;
+   document.form1.asia1.disabled=false;
+   
+   document.form1.net.checked=true;
+   document.form1.org.checked=true;
+   document.form1.me.checked=true; 
+   document.form1.tel.checked=true; 
+   document.form1.com.checked=true;
+   document.form1.comcn.checked=true;
+   document.form1.cn.checked=true;
+   document.form1.mobi.checked=true;
+   document.form1.中国.checked=false;
+   document.form1.公司.checked=false;
+   document.form1.网络.checked=false;
+     
+  }
+  else
+  { 
+   document.form1.com.disabled=false;
+   document.form1.net.disabled=false;
+   document.form1.cn.disabled=true;
+   document.form1.mobi.disabled=true;
+   document.form1.me.disabled=true;
+   document.form1.tel.disabled=true;
+   document.form1.org.disabled=true;
+   document.form1.comcn.disabled=true;
+   document.form1.netcn.disabled=true;
+   document.form1.orgcn.disabled=true;
+   document.form1.name.disabled=true;
+   document.form1.tv.disabled=false;
+   document.form1.中国.disabled=false;
+   document.form1.公司.disabled=false;
+   document.form1.网络.disabled=false;
+   document.form1.asia1.disabled=true;
+   
+   document.form1.中国.checked=true;
+   document.form1.公司.checked=true;
+   document.form1.网络.checked=true;
+   document.form1.com.checked=true;
+   document.form1.net.checked=true;
+   document.form1.cn.checked=false;
+   document.form1.mobi.checked=false; 
+   document.form1.me.checked=false; 
+   document.form1.tel.checked=false; 
+   document.form1.org.checked=false
+   document.form1.comcn.checked=false;
+   document.form1.netcn.checked=false;
+   
+  }
+  }
+  
+ function Trim(info)
+{
+	return info.replace(/(^\s*)|(\s*$)/g, "");
+}
+//判断输入的是否为中文域名的函数
+function IsChDomain(argString)
+	{
+		var flag=false;
+		var compStr="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-1234567890";
+		var length1=argString.length;
+		for(var chrIndex=0;chrIndex<length1;chrIndex++)
+			{
+				var temp=argString.charCodeAt(chrIndex)
+				if(temp>=10000) 
+					flag=true;
+				else
+				{
+					var temp1=compStr.indexOf(argString.charAt(chrIndex));
+					if(temp1==-1)
+					{
+						flag=false;
+						break;							
+					}
+				}
+			}
+		return flag;
+	}
+//判断输入的是不是合法的英文域名的函数
+function IsEnDomain(argValue) 
+	{
+		var flag1=false;
+		var compStr="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-.1234567890";
+		var length2=argValue.length;
+		for (var iIndex=0;iIndex<length2;iIndex++)
+			{
+				var temp1=compStr.indexOf(argValue.charAt(iIndex));
+				if(temp1==-1) 
+					{
+						flag1=false;
+						break;							
+					}
+				else
+					{
+						flag1=true;
+					}
+			}
+			//alert(flag1)
+		return flag1;
+	}
+	function isEnDomain0(argValue) 
+{
+	var flag1=false;
+	var compStr="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	var length2=argValue.length;
+	for (var iIndex=0;iIndex<length2;iIndex++)
+	{
+		var temp1=compStr.indexOf(argValue.charAt(iIndex));
+		if(temp1==-1) 
+		{
+			flag1=false;
+			break;							
+		}
+		else
+		{
+			flag1=true;
+		}
+	}
+	return flag1;
+}
+
+  function CheckEmail(item)
+{
+	var etext=document.form1.domain1.value;
+	document.form1.domain1.value = etext;
+	
+	var elen=document.form1.domain1.value.length;
+	var i;
+	var aa;
+
+	//增加minghui.com sinous.com cbs.com cdn.com 提示，以后问题解决了还要去掉	
+	var domainStr;
+	var domainStrV;
+	var keywz;
+	if (elen>60)
+	{
+		alert("请不要输入超过60个字符！");
+		return false;		
+	}
+	if(Trim(etext) =="")
+	{
+    	alert("请输入要查询的域名！");
+		return false;
+	}
+	if(IsChDomain(etext))
+		{
+		if(document.form1.queryType[0].checked==true)
+		{
+		 alert('请输入英文或数字');
+		// document.form1.domain1.focus();
+		 return false;
+		}
+			
+		}
+		if(IsEnDomain(etext))
+		{
+		if(document.form1.queryType[1].checked==true)
+		{
+		 alert('请输入中文');
+		// document.form1.domain1.focus();
+		 return false;
+		}
+			
+		}
+	for (i=0;i<=elen-1;i++)
+	{
+		aa=etext.charAt(i)
+		if ((aa==' '))
+		{
+			alert("域名不能有空格！");
+			return false;
+		}
+		if(etext.indexOf('.') >0)
+	    {   
+	        var domain1= etext.substring(0,etext.indexOf('.'));
+	        domain1 = domain1.toLowerCase();
+	        if(domain1 == 'www')
+	            etext = etext.substring(etext.indexOf('.')+1,etext.length);
+	          
+	        var tld = etext.substring(etext.indexOf('.'),etext.length);
+	        tld = tld.toLowerCase();
+	        tld =tld.replace(/\./g,"");
+	        
+	        eval("document.form1."+tld+".checked = true;");
+	        etext = etext.substring(0,etext.indexOf('.'));
+	    }
+	    
+	    document.form1.domain.value =etext;
+	}
+	if (document.form1.com.checked==true) 
+	{
+		domainStr=document.form1.domain.value;
+		domainStrV=document.form1.domain.value.length-1;
+		if (domainStr.indexOf("cbs")>0 || domainStr.indexOf("CBS")>0)
+		{	
+			keywz=domainStrV-2;		  
+		}
+		if (domainStr.indexOf("cdn")>0 || domainStr.indexOf("CDN")>0)
+		{	
+			keywz=domainStrV-2;		  
+		}
+		if (domainStr.indexOf("zlbf")>0 || domainStr.indexOf("ZLBF")>0)
+		{	
+			keywz=domainStrV-2;		  
+		}
+		if (domainStr.indexOf("sinous")>0 || domainStr.indexOf("SINOUS")>0)
+		{	
+			keywz=domainStrV-5;		  
+		}
+		if (domainStr.indexOf("minghui")>0 || domainStr.indexOf("MINGHUI")>0)
+		{	
+			keywz=domainStrV-6;		  
+		}
+		//alert(keywz);
+		if (domainStr.indexOf("cbs",-domainStrV)==keywz || domainStr.indexOf("minghui",-domainStrV)==keywz || domainStr.indexOf("sinous",-domainStrV)==keywz || domainStr.indexOf("cdn",-domainStrV)==keywz || domainStr.indexOf("zlbf",-domainStrV)==keywz || domainStr.indexOf("CBS",-domainStrV)==keywz || domainStr.indexOf("MINGHUI",-domainStrV)==keywz || domainStr.indexOf("SINOUS",-domainStrV)==keywz || domainStr.indexOf("CDN",-domainStrV)==keywz || domainStr.indexOf("ZLBF",-domainStrV)==keywz) 	  
+		{
+			if (confirm("以minghui, sinous,cbs,cdn,zlbf\n\n结尾的.com域名目前解析有问题，\n\n可能无法访问，您确定继续注册吗？")==true)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+			   
+
+	
+	//--------------------------
+	if(document.form1.queryType[0].checked==true)
+  { 
+   if(document.form1.com.checked==false && document.form1.me.checked==false && document.form1.net.checked==false && document.form1.cn.checked==false && document.form1.mobi.checked==false && document.form1.org.checked==false && document.form1.comcn.checked==false && document.form1.netcn.checked==false && document.form1.orgcn.checked==false && document.form1.name.checked==false && document.form1.tel.checked==false &&   document.form1.tv.checked==false && document.form1.asia1.checked==false )
+   {
+    alert('请选择后缀');
+   document.form1.com.focus();
+   return false;
+   }
+   
+  }
+   if(document.form1.queryType[1].checked==true)
+   { 
+  if(document.form1.中国.checked==false&&document.form1.公司.checked==false   && document.form1.tv.checked==false && document.form1.com.checked==false && document.form1.net.checked==false && document.form1.网络.checked==false )
+      {
+   alert('请选择后缀');
+   document.form1.com.focus();
+   return false;
+  
+     }
+  
+  }
+  
+	//------------------------		 
+	
+	
+	if(document.form1.asia1.checked==true ){    //|| document.form1.asia2.checked==true
+		document.form1.asia.value="yes";
+	}
+	
+	return true;
+}
+
+function Info_Check()
+{
+	var domain1 =document.form1.domain1.value.replace(/['　'|' ']*/ig,'');   //addby lianqz 20090330 过滤掉空格
+
+	domain1 == Trim(domain1);
+	if(IsChDomain(domain1))
+		SetCheckBox1(true);
+	else if (IsEnDomain(domain1))
+		SetCheckBox2(false);
+	document.form1.domain1.value = domain1;
+}
+function SetCheckBox1(flag)
+{
+	if(document.form1.queryType[0].checked==true)
+	{
+	 alert('请输入英文或数字');
+	 //document.form1.domain1.focus();
+	 return false;
+	}
+}
+function SetCheckBox2(flag)
+{
+	if(document.form1.queryType[1].checked==true)
+	{
+	 alert('请输入中文');
+	// document.form1.domain1.focus();
+	  return false;
+	}
+	
+}
+</script>
+<!--start-->
+<form name="form1" method="post"  action="tool.aspx?action=yuming" onsubmit="return CheckEmail(this.domain);" >
+                                                <input type="hidden" name="url" id="url1" value="" />
+                                                <div class="main2body" >
+                                                    <table border="0" cellspacing="0" cellpadding="0" >
+                                                        <tr>
+                                                            <td height="24" colspan="2">
+                                                                <input name="queryType" type="radio" value="0" checked onclick="checkForm('0')" />
+                                                                英文域名
+                                                                <input name="queryType" type="radio" value="1" onclick="checkForm('1')" />
+                                                                中文域名</td>
+                                                            <td width="140">
+                                                                </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="80" class="font">
+                                                                <input type='hidden' name='sign' value='2' />
+                                                                <img src="{$atplPath}images/domain_www.gif" alt="www." align="left" /></td>
+                                                            <td width="200">
+                                                                &nbsp;
+                                                                <input name="domain1" class="whois_box" onblur="Info_Check()" size="24" maxlength="63" />
+                                                                <input type='hidden' name="domain" /></td>
+                                                            <td>
+                                                                <input name="image24" type="image" src="{$atplPath}images/domain_button_search.gif"   style="border:0" alt="查询" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="main7body">
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="com" checked onclick='Info_Check()' />.com</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="cn" checked onclick='Info_Check()' />.cn</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="mobi" checked onclick='Info_Check()' />.mobi</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="tel" checked onclick='Info_Check()' />.tel</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="asia1" checked onclick='Info_Check()' />.asia</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="net" checked onclick='Info_Check()' />.net</div>
+                                                    <div>
+
+                                                        <input type="checkbox" value="yes" name="org" checked onclick='Info_Check()' />.org</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="name" onclick='Info_Check()' />.name</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="me" checked onclick='Info_Check()' />.me</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="tv" onclick='Info_Check()' />.tv</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="comcn" checked onclick='Info_Check()' />.com.cn</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="netcn" onclick='Info_Check()' />.net.cn</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="orgcn" onclick='Info_Check()' />.org.cn</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="orguk" onclick='Info_Check()' />.gov.cn</div>
+                                                   
+                                                    <div style="height:23px;"></div>
+                                                   
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="公司" disabled onclick='Info_Check()' />.公司</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="网络" disabled onclick='Info_Check()' />.网络</div>
+                                                    <div>
+                                                        <input type="checkbox" value="yes" name="中国" disabled onclick='Info_Check()' />.中国(.cn)</div>
+                                                    <!--<div>
+                                                        <input type="checkbox" value="yes" name="asia2" onclick='Info_Check()' />.asia(政府)</div>-->
+                                                </div>
+                                                <input type="hidden" name="asia" value="" />
+												<table>
+												<Tr >
+	
+      <td height="25" colspan=2 class="category"  style="left:22px;">
+		{$list}</td>
+    </tr></table>
+                                            </form>
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

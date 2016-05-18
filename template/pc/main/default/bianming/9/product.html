@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$chrtitle} - 产品中心  - {$qiyename}</title>
+<meta name="keywords" content="{$chrkeyword}">
+<meta name="description" content="{$chrdescription}">
+<link type="text/css" rel="stylesheet" href="{$tplPath}bianming/9/skin/global.css" />
+<link type="text/css" rel="stylesheet" href="{$tplPath}bianming/9/skin/style.css" />
+<script src="{$tplPath}js/common.js"></script>
+</head>
+
+<body>
+<div class="wrapper"><div class="wrapper2">
+	<div class="header fix">
+		<h1 class="logo"><a href="{$qiyeurl}">{$chrlogo}</a></h1>
+		<div class="fav"><a href="javascript:window.external.AddFavorite('{$qiyeurl}','{$qiyename}')" >加入收藏</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$qiyeurl}');">设为首页</a></div>
+	</div>
+	<div class="content">
+		<div class="nav">
+			<ul class="clearfix">
+				<li><a href="{$qiyeurl}">{$text1}</a></li>
+				<li ><a href="about_{$qiyeid}.html">{$text2}</a></li>
+				<li ><a href="ld_{$qiyeid}.html">{$text3}</a></li>
+				<li><a href="news_{$qiyeid}.html">{$text4}</a></li>
+				<li  class="current"><a href="pic_{$qiyeid}.html">{$text5}</a></li>
+				<li><a href="anli_{$qiyeid}.html">{$text6}</a></li>
+				<li><a href="job_{$qiyeid}.html">{$text7}</a></li>
+				<li><a href="liuyan_{$qiyeid}.html">{$text8}</a></li>
+				<li><a href="lianxi_{$qiyeid}.html">{$text9}</a></li>                           
+			</ul>
+		</div>
+		<div class="white_wrap">
+		<div class="banner2">
+			<img src="{$tplPath}bianming/9/images/product_banner.jpg" alt="" />
+		</div>
+		<div class="grid_04 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="product_main">
+					<h1>{$aboutname}</h1>
+					<div class="bd">
+						<ul class="clearfix">
+                        	<tag:Loop ListType="LISTQIYEPIC" RecType="New" PageSize="12" ColorSplit="1" TitleLen="12" RecColumn="5" CusTpl="1" Template="bianming/1/list_product_tr.html" />
+						</ul>
+						<!-- 分页 -->
+						<div class="pagination_module clearfix" style="margin-top:4px;">
+							<span class="right2">{$PageSplit}</span>	
+							<span class="right2"><b>总计：</b>{$total}个 12个/页</span>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="news_nav">
+					<div class="searchBar">
+						<div class="hd">产品搜索</div>
+						<div class="bd"><form method="get" ><input class="txt" type="text" name="keyword" id="keyword" /><button type="submit" class="btn">搜索</button></form></div>
+					</div>
+					<ul>
+						{$listnewscategory}
+					</ul>
+				</div>
+			</div>
+		</div></div>
+	</div>
+	<div class="footer">
+    	<p>{$bottomlink}</p>
+		{$chrbottom}
+	</div>
+
+</div></div>
+</body>
+</html>

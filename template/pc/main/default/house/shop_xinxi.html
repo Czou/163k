@@ -1,0 +1,27 @@
+﻿
+				
+
+
+
+
+    <div class="title">经纪人信息</div>
+    <div class="user_pic"><img src="{$House_Zhongjiefilepath}" onerror="this.src='{$tplPath}images/morenjingjiren.gif';" width="130" height="160" alt="" /></div>
+    <div class="user_name"><a href="{$jingjirenurl}">{$House_ZhongjieTruename}</a></div>
+    <ul>
+      <li>
+        <p>级别：<span class="jb" data-src="{$tplPath}/images/house/{$House_ZhongjieImage}">{$House_ZhongjieLevel}</span></p>
+		<p>出售：<span class="c_0">{$House_ZhongjieSale}</span>出租：<span class="c_1">{$House_ZhongjieZhu}</span></p>
+		<p>认证：<span class="yrz yrz_true_{$House_iskill}">已认证</span><span class="yrz yrz_false_{$House_iskill}">未认证</span></p>
+      </li>
+      <li>
+       <p>服务区域：<span class="c33">{$House_ZhongjieCategory}-{$House_ZhongjieSmallcategory}</span></p>
+       <p>所属公司：<span class="c33">{$House_ZhongjieChrcompany}</span></p>
+      </li>
+      <li>
+       <p>加盟时间：<span class="c33">{$House_ZhongjieDtappenddate}</span></p>
+       <p>上次登录：<span class="c33">{$House_ZhongjieLastLogin}</span></p>
+       <p>访问量统计：<span class="c33">{$House_ZhongjieViews}</span></p>
+      </li>  
+    </ul>
+    <div class="phone">{$House_ZhongjieChrtel}</div>
+    <div class="qq"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$House_ZhongjieChrqq}&amp;site=qq&amp;menu=yes" style="color:#fff;" target="_blank">{$House_ZhongjieChrqq}</a></div>

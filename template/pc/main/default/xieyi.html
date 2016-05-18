@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>注册协议-{$SiteName}</title>
+<link href="{$tplPath}skin/site_reg.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div id="content" style="text-align:justify;" >
+	<div style="text-align:center;height:50px;line-height:50px;border-bottom: #E5E5E5 1px solid;"><span style="font-size:16px;font-weight:bold;color:#333; font-family:'微软雅黑'">《{$SiteName}在线会员服务条款》</span></div>
+		<div style="margin-top:15px; font-size:14px;">{$xieyi}</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js?{$CacheHash}"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

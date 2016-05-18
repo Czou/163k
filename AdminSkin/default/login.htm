@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}-后台登陆</title>
+<link href="{$atplPath}skin/base.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+:focus { outline:0;}
+body { background-color:#212121;}
+.content { background:#f3f3f3;}
+.header,.header .subLogo,.login .username,.login .password,.login .authcode,.login .btn .l_btn,.header .logo a { background:url({$atplPath}images/adminLogin2014.png) no-repeat 0 0;}
+.header { height:69px; overflow:hidden; background-repeat:repeat-x;}
+.header .logo { float:left; display:inline; margin:0 0 0 20px;}
+.header .logo a { display:block; width:226px; height:69px; overflow:hidden; text-indent:-999em; background-position:0 -277px;}
+.header .subLogo { float:right; display:inline; margin:19px 20px 0 0; width:134px; height:32px; background-position:0 -70px; overflow:hidden; text-indent:-999em;}
+
+.login { padding:100px 0; text-align:center;}
+.login .username,.login .password,.login .authcode { height:49px; width:350px; margin:20px auto; text-align:left; padding:17px 0 0 77px;}
+.login .username { background-position:0 -103px;}
+.login .password { background-position:0 -169px;}
+.login .authcode { background-position:0 -347px; position:relative; *zoom:1; z-index:2; vertical-align:top;}
+.login .authcode .img { display:block; position:absolute; top:20px; right:15px;}
+.login .authcode .img img{ vertical-align:top;}
+.login .btn { width:225px; height:42px; margin:0 auto;}
+.login .btn .l_btn { display:block; background-position:-1px -236px; border:0 none; width:225px; height:41px; cursor:pointer; overflow:hidden; text-indent:-999em;}
+.login .l_ipt { background-color:#fff; border:0 none; width:340px; vertical-align:middle; font-size:18px; color:#aaa;}
+
+.footer { text-align:center; padding:25px 0; line-height:30px; color:#666;}
+.footer .sq { color:#aaa;}
+</style>
+<script>
+function ChkLogin()
+{
+ if(LoginForm.ChrName.value.length < 1 || LoginForm.ChrName.value.length > 16){
+	alert("您的用户名长度应在1-16字之间！");
+	LoginForm.ChrName.focus();
+	return false;
+ }
+
+ if(LoginForm.ChrPwd.value.length < 2 || LoginForm.ChrPwd.value.length > 32){
+	alert("您的密码长度应在2-32字之间！");
+	LoginForm.ChrPwd.focus();
+    return false;
+ }
+  if(LoginForm.Confirm.value.length < 2 || LoginForm.Confirm.value.length > 32){
+	 alert("请输入验证码！");
+	 LoginForm.Confirm.focus();
+	 return false;
+ }
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header clearfix">
+		<div class="logo"><a href="http://www.163k.com" target="_blank">{$SiteName}</a></div>
+		<div class="subLogo"><span>网站管理系统</span></div>
+	</div>
+	<div class="content login">
+		<form METHOD="POST" ACTION="index.aspx?action=login" name="LoginForm" onSubmit="return ChkLogin()">
+			<p class="username"><input class="l_ipt" name="ChrName" id="ChrName" maxlength="20" type="text" onBlur="if(this.value==''){this.value='请输入用户名';this.style.color='#aaa'}" onFocus="if(this.value=='请输入用户名'){this.value='';this.style.color='#666'}" value="请输入用户名" /></p>
+			<p class="password"><input class="l_ipt" name="ChrPwd" id="ChrPwd" type="password" onBlur="if(this.value==''){this.value='请输入账户密码';this.style.color='#aaa'}" onFocus="if(this.value=='请输入账户密码'){this.value='';this.style.color='#666'}" value="请输入账户密码" /></p>
+			<p class="authcode"><input class="l_ipt" name="Confirm" id="Confirm" maxlength="10" type="text" onBlur="if(this.value==''){this.value='请输入验证码';this.style.color='#aaa'}" onFocus="if(this.value=='请输入验证码'){this.value='';this.style.color='#666'}" value="请输入验证码" /><span class="img"><img src="GetCode.aspx" onClick="src='GetCode.aspx?s='+Math.random();" style="cursor:pointer;" alt="看不清？点击换一张" /></span></p>
+			<p class="btn"><button type="submit" class="l_btn">登录</button></p>
+		</form>
+	</div>
+	<div class="footer">
+		<p>Powered by {$SiteYuming} &copy; 2003-2015 中国·北京 | 为互联网事业的发展提供源动力！</p>
+		<p class="sq">授权给：<a href="{$SiteUrl}" target="_blank">{$SiteName}</a>系统 使用</p>
+	</div>
+</div>
+</body>
+</html>

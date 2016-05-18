@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>评论管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li><a href="?a=1" id="tab_cmt_1">店铺评论</a></li>
+						<li><a href="?a=3" id="tab_cmt_3">快店评论</a></li>
+						<li><a href="?a=2" id="tab_cmt_2">活动评论</a></li>
+						<li><a href="?a=13" id="tab_cmt_13">团购评论</a></li>
+					</ul>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">当系统管理员设置相应频道评论需要审核，则审核通过后，前台才会罗列。</div>
+						</div>
+						<div class="searcher">
+							<form name="form2" method="get" action="" ID="Form1">
+		<select  name="b">
+		<option value="">全部状态</option>
+		<option value="0" {$b_s_0}>未审核</option>
+		<option value="1" {$b_s_1}>审核通过</option>
+		</select>
+		内容id：<input type="text" name="c" value="{$c}" class="sys_form_small_ipt" style="width:60px;" >
+	关键字：<input type="text" name="_key" value="{$key}" class="sys_form_small_ipt" style="width:120px;" >
+	关键字类型：<select  name="e">
+		<option value="0">会员名</option><option value="1"  {$e_s_1}>内容(商品)标题名</option><option value="2"  {$e_s_2}>店铺名(店铺点评)</option>
+		</select> <select  name="f">
+		<option value="0">发布时间</option><option value="1"  {$f_s_1}>审核时间</option>
+		</select>&nbsp;<input name="startdate"  type="text" size="25" class="Wdate sys_form_small_ipt"  style="width:60px;" value="{$startdate}" >&nbsp;到：<input name="enddate"  type="text" size="25" class="Wdate sys_form_small_ipt"  style="width:60px;" value="{$enddate}">&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>
+</form>
+						</div>
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8"> 
+								<td>点评人</td>
+								<td>评论内容</td>
+								<td>星级评分</td>
+								<td>总体评价</td>
+								<td>IP</td>
+								<td>状态</td>
+								<td>评论时间</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="LISTREVERTQIAN" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/ListRevert.htm" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+window['$a'] = '{$a}';
+window['$id'] = '';
+window['$shopid'] = '';
+$('#tab_cmt_'+window['$a']).addClass('cur');
+function show_replay(sid,shopid){
+	window['$id'] = sid;
+	window['$shopid'] = shopid;
+	var f_id = 'replay_tips';
+	var replayHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd clearfix"><a href="#" class="close">关闭</a>查看回复</div><div class="bd" id="'+f_id+'_bd">';
+	replayHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(replayHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+	$('#'+f_id+'_bd').empty();
+	//载入回复内容
+	var url= '../request.ashx?action=getrevertrep&id='+window['$id']+'&styleid='+window['$a']+'&isadmin=0&tplid=1';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success:function(data){
+		$('#'+f_id+'_bd').append(data.MSG);
+		d_h = f_node.height(),top_val = (w_h-d_h)/2+s_h;
+		f_node.css({'top':top_val+'px'});
+		if(window['$a'] === '0' || window['$a'] === '1'){
+			$('#write_replay')[0]&&$('#write_replay').show();
+			$('#write_btn_1')[0]&&$('#write_btn_1').hide();	
+		}
+	}});
+}
+function post_replay(){
+	var txt2 = $('#replay_tips_textarea').val();
+	var txt1 = $('#replay_tips_input').val();
+	if(txt1 === ''){alert('评论内容不能为空！');return false;}
+	//if(txt2 === ''){alert('回复内容不能为空！');return false;}
+	var url= '../request.ashx?action=saverevert_rep&id='+window['$id']+'&styleid='+window['$a']+'&isadmin=0&Chrmark='+encodeURIComponent(txt1)+'&replaycontent='+encodeURIComponent(txt2)+'&shopid='+window['$shopid'];
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			alert('提交回复成功！');
+			window.location.reload();
+		}else{
+			alert(data.error);
+		}
+	}});
+	return false;
+}
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+</body>
+</html>

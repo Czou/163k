@@ -1,0 +1,94 @@
+﻿<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "users.aspx?action=del&key={$key}&ID=" + id
+   }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆,并且只能删除此会员信息！\n您确定要删除所有选中的用户吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        document.getElementById("form").submit();
+   }
+}
+function newdelAll(tt)
+{
+	if ( confirm("该操作将不可逆，此操作针对当前列表页，包括所有分页数据！\n您确定要继续操作吗？"))
+    {
+	    setCookie("delurl",window.location.href);
+        location.href = "users.aspx?action=del&styleid="+tt;
+    }
+}
+function isopen(id)
+{
+   setCookie("delurl",window.location.href);
+   location.href = "users.aspx?action=del&styleid=1&ID=" + id
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<a href="users.aspx?action=add" class="font">请点击这里添加前台会员信息</a>&nbsp;,共有{$cname2}{$num1$}人</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tR><td align=right colspan=3><a href="?action=in&key={$key}"><font color=red>批量导入会员</font></a>   <a href="?action=out&key={$key}"><font color=blue>导出全部{$cname2}数据</font></a></td></tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<form name="form2" method="post" action="?key={$key}">
+<tr> 
+	<td height="25">
+		按用户名查询：
+		<input name="KeyWord" type="text" id="KeyWord" value="{$keyword}" size="10">注册日期 从:<input name="startdate" value="{$startdate}" type="text" size="20" class="Wdate" readonly="true"  style="background-color:#FFFFFF;"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"   >到:<input name="enddate" value="{$enddate}" type="text" size="20" class="Wdate" readonly="true"  style="background-color:#FFFFFF;"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"    ><br>
+		按{$cname1}查询：<input name="colname" type="text" id="colname" value="{$colname}" size="10">
+		按IP查询：<input name="keyword3" type="text" id="keyword3" value="{$keyword3}" size="10">
+		<input type="submit" name="Submit3" value="Go">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:newdelAll(2);"><b><font color=red>批量删除当前列表所有会员</font></b></a> <a href="javascript:newdelAll(3);"><b><font color=blue>批量锁定当前列表所有会员</font></b></a>  <a href="javascript:newdelAll(4);"><b>批量解锁当前列表所有会员</b></a></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="4" width="100%" cellspacing="1" class="toptable grid" border="1">
+				<form name="form" id="form" method="post" action="?action=del&key={$key}">
+				<tr  align=center>
+				<td  class="category">会员ID</td>
+				<td class="category">用户名</td><td class="category">{$cname1}</td><td class="category">联系QQ</td>
+				<td class="category">{$jifenname}</td>
+				<td class="category">注册日期</td><td class="category">注册IP</td>
+				<td class="category">最后登陆时间</td><td class="category">最后登陆IP</td>
+				<td class="category">状态</td>
+				<td width="80" align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				<strong><a href="javascript:delAll(this);">删？</a></strong></td>
+				</tr>
+				<tag:Loop ListType="ListallUsers" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="users/List_Users_Tr.htm" />
+				</form>
+		<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=19>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

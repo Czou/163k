@@ -1,0 +1,76 @@
+﻿<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "help.aspx?key={$key$}&action=del&ID=" + id
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+        {
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;{cname}管理</td>
+	  <td align="right">&nbsp;<a href="help.aspx?action=add&key={$key$}" class="global_btn_blue">添加{cname}</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">按照帮助分类显示：{$categoryid}
+		按标题查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="20">
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0" >
+				<form name="form" id="form" method="post" action="?key={$key$}&action=del">
+				<tr  align="center">
+				<td width="25" class="category">ID</td>
+				<td class="category">标题</td><td class="category">分类</td><td class="category">排序</td>
+				<td class="category">发布时间</td>
+				<td class="category">状态</td>
+				
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listhelp" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="article/List_helpbang_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16><strong><a href="javascript:delAll(this,'1','{cname3}');"><font color=red>{cname1}？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'2','{cname4}');"><font color=blue>{cname2}？</font></a></strong>  <strong><a href="javascript:delAll(this,3,'删除');">删除选中？</a></strong></td></td></tr>				<input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

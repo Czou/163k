@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>限量秒杀-省啦-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tuan2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tg_miaosha2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/tg2013.js"></script>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/common2013.js?{$CacheHash}"></script>
+<!--[if IE 6]>
+<script src="{$Default_tplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+<div class="wrapper">
+	<div class="tgms_header"><div class=" w-1200 clearfix">
+		<div class="left"><h1 class="logo"><a href="{$SiteUrl}" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></h1></div>
+		<div class="right"><a href="javascript:window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">加入收藏</a>　|　<a href="{$SiteUrl}">返回首页</a></div>
+	</div></div>
+	<div class="tgms_banner"></div>
+	<div id="content" class="w-1200">
+		<div class="tuan_nav">
+			<ul class="clearfix">
+				<li><a href="{$tgurl}">今日省啦</a></li>
+				<li><a href="{$tgurl}more.html">更多省啦</a></li>
+				<li class="current"><a href="{$tgurl}miaosha.aspx" target="_blank">限量秒杀</a><s class="s_new"></s></li>
+				<li><a href="{$tgurl}liucheng.html">省啦流程</a></li>
+				<li><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="{$SiteUrl}service/" target="_blank">省啦反馈</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		<div class="mt_list">
+			<ul class="clearfix">
+				{$163kcc_团购频道_秒杀列表}
+			</ul>
+		</div>
+<script language="javascript">
+	  var secArr = [];
+	  function getInitTime(){
+		  var cur_time = Date.parse($('#system_date').val());
+		  var start_time;
+		  $('.time_left').each(function(){
+			 var jobj = $(this);
+			 var sec = {};
+			 var limit_num = jobj.find('.limit_num');
+			 var sold_ok = jobj.find('.sold_ok');
+			 start_time = Date.parse(jobj.find('.start_time').val());
+			 
+			 var SysSecond = parseInt(start_time - cur_time )/1000;
+			 var theid = parseInt((jobj.attr('id')).replace(/sec_left_/,''));
+			 sec['sec']= SysSecond;
+			 sec['sid'] = theid;
+			 sec['sold']= parseInt(sold_ok.text());
+			 sec['limit']= parseInt(limit_num.text());
+			 secArr.push(sec);
+		  });
+	  }
+	  getInitTime();
+	  function SetRemainTime(){
+			for(var i=0;i<secArr.length;i++){
+				setRemainTimeSite(secArr[i]);
+			}
+	   }
+	  function setRemainTimeSite(secObj){
+		  if(secObj.sold < secObj.limit){
+			  if (secObj.sec > 0) {
+				  var second = Math.floor(secObj.sec % 60).toString();
+				  var minite = Math.floor((secObj.sec / 60) % 60).toString();
+				  var hour = Math.floor((secObj.sec / 3600) % 24).toString();
+				  var day = Math.floor((secObj.sec / 3600) / 24).toString();
+				  $("#time_show_"+secObj.sid).prev().attr('href','javascript:void(0)').text('即将开始').removeClass().addClass('wait');
+				  $("#sec_left_"+secObj.sid).find('.countdown').show().html("距离秒杀开始："+day+"天"+hour+"时"+minite+"分"+second+"秒");
+				  secObj.sec--;
+			  }else{
+				$("#time_show_"+secObj.sid).prev().removeClass().addClass('buy');
+				
+				$("#sec_left_"+secObj.sid).find('.countdown').hide();
+			  }
+		  }else{
+			  $('#time_show_'+secObj.sid).addClass('num2').html('亲，下次早点来哦！').prev().attr('href','javascript:void(0)').text('卖光了').removeClass().addClass('soldOut');
+		  }
+	 }
+	 window.setInterval(SetRemainTime,1000);  
+</script>
+	</div>
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$.fn.showDropDown = function(){
+		var t = $(this),
+			btn = t.find('.selected'),
+			po = t.find('.po');
+		t.hover(function(){
+			po.show();
+		},function(){
+			po.hide();
+		});
+	}
+	$('#sel_price').showDropDown();
+</script>
+</body>
+</html>

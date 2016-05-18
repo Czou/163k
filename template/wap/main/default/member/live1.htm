@@ -1,0 +1,21 @@
+<dl class="clearfix">
+   <dt>成色</dt>
+   <dd>{$xinjiu}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+<dl class="clearfix">
+   <dt>价格</dt>
+   <dd><input type="text" placeholder="输入价格，0表示价格面议" value="{$jiage}" name="jiage" /><div class="menu">元</div></dd>
+  </dl>
+<dl class="clearfix sel_radio_form" data-name="gongxu">
+   <dt>供需</dt>
+   <dd>
+   <span class="display0"><input type="radio" name="gongxu" value="1"  {$gongxu1} /><input type="radio" name="gongxu" value="0" {$gongxu0} /></span>
+    <span class="gx_radio current" data-val="1">转让</span>
+    <span class="gx_radio" data-val="0">求购</span>
+   </dd>
+  </dl>

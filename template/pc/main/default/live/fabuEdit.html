@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>填写信息--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_fabu.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<Style>
+.my_prop_img{ font-size:12px; width:100%; margin:0; padding:0}
+.my_prop_imgitem{ float:left; display:inline;margin-right:15px;margin-top:10px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .imgview { width:100px; height:100px;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:0 0; text-align:center; text-decoration:none;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:80px; width:auto; padding:0px 5px;}
+.my_prop_imgitem .global_btn_blue,.my_prop_imgitem .global_btn { margin-top:8px; text-decoration:none;}
+input{ border:1px solid #cccccc;}
+
+.global_btn,.global_btn_blue,.global_btn_blue_big { background:#e1e1e1 url('{$Default_tplPath}images/admin2014_repeatX.gif') repeat-x 0 0;}
+
+.global_btn,.global_btn_blue,.global_btn_blue_big,.global_btn_big { border-radius:3px; padding:0 12px; border:1px solid #ccc; background-position:0 -32px; height:19px; line-height:18px; font-size:12px; font-weight:bold; color:#404040; border:1px solid #9d9d9d; cursor:pointer; text-decoration:none; display:inline-block; *display:inline; *zoom:1; vertical-align:middle;filter:chroma(color=#000000); font-family:simsun;}
+input.global_btn,input.global_btn_blue { line-height:14px; padding:1px 12px 2px;}
+.global_btn:hover { color:#404040; border:1px solid #888;}
+.global_btn_blue { background-position:0 0; color:#fff; border:1px solid #2263bc;}
+.global_btn_blue:hover { color:#fff; border:1px solid #1b57aa;}
+.global_btn_blue_big { height:38px; font-size:14px; padding:0 20px; color:#fff; border:1px solid #2263bc; background-position:0 -64px;}
+.global_btn_big { height:38px; font-size:14px; padding:0 20px; border:1px solid #ccc; background:#f3f3f3;}
+
+.global_btn_blue:visited,.global_btn_blue_big:visited { color:#fff;}.global_btn:visited,.global_btn_big:visited { color:#404040;}
+</style>
+<script src="{$Default_tplPath}js/CJL.0.1.min.js"></script>
+<script src="{$Default_tplPath}js/ImagePreview.js"></script>
+<script src="{$Default_tplPath}js/jquery.colorpicker.js"></script>
+<script>
+var WebSiteUrl="{$SiteUrl}";
+var imgsrc="{$Default_tplPath}images/fabu_nopic.gif";
+var loadingsrc="{$Default_tplPath}images/upload_120x120.gif";
+var youke="{$liveyouke}";
+var siteUrl = '{$SiteUrl}';
+</script>
+{$top$}
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+<script>
+var isFabuKill="{$IsFabuKill}";
+if(isFabuKill === '0'){
+	MSGwindowShow('shopping','1','对不起，您需要登录后才能发布信息！',siteUrl+'member/login.html?from={$liveurl}','');
+}
+</script>
+
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$liveurl}">{$lanmuname}</a> &gt; 填写信息</div>
+	<!-- 主体 -->
+	<form name="form1" method="post" action="?action=save" ID="Form1" onSubmit="return checkaddlive(this);"  enctype="multipart/form-data" style="margin:0">
+	<div id="content">
+		<div class="thd clearfix"><b>发布步骤：</b><span>1.选择分类</span><span class="current">2.填写内容</span><span>3.发布完成</span></div>
+		<div class="fbd"><input type="hidden" name="categoryid" id="categoryid" value="{$categoryid}">
+			<div class="edit_box">
+				<ul>
+					<li><span class="span_1">&nbsp;</span><span class="span_2" style="font-size:12px;">您的ip地址是：<span class="red_skin">{$userip}</span>，请真实填写信息内容</span></li>
+					<li><span class="span_1"><font color="#FF0000">*</font>已选类别：</span><span class="span_2"><b>{$bigcategory} » {$chrcategory}</b> » <a href="fabu.html">返回重选类别</a></span></li>
+					<li><span class="span_1"><font color="#FF0000">*</font>选择地区：</span><span class="span_2">{$areaid} <select name="quyuid" id="qu_classid"><option value="" selected>选择地段</option></select></span></li>
+					
+					<li><span class="span_1"><font color="#FF0000">*</font>信息标题：</span><span class="span_2" style="font-size:12px; color:#888;"><input type="text" class="textInt" size="70" name="chrtitle" id="chrtitle" onpropertychange="MaxLength(this, 40,'font1')" oninput="MaxLength(this,40,'font1')" /> 不要超过40个文字，还可以输入<font color="#FF0000" id="font1">40</font>个字</span></li>
+					<li><span class="span_1"><font color="#FF0000">*</font>信息内容：</span><span class="span_2" style="font-size:12px; color:#888;width:900px;"> <textarea cols="80" id="chrmark" name="chrmark" rows="10"></textarea>
+             
+	<script>
+		window['logincookieStr'] = $.cookie('{$logincookieName}');
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrmark"]', {
+				resizeType : 1,
+				allowPreviewEmoticons : false,
+				uploadJson : '/kindeditor/upload_json.ashx?table_id=live&filewidth=900&' + window["logincookieStr"],
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+				allowFileManager : false,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+					<p>最多输入1000个文字</p></span></li>
+					<table border="0" cellpadding="0" cellspacing="0" class="table zdybg" width="100%">{$custom_form}</table>
+					{$ss}
+					<li><span class="span_1"><font color="#FF0000">*</font>有效期：</span><span class="span_2"><input type="text" name="youxiaodate" value="" class="textInt Wdate" /></span></li>
+					
+					<li><span class="span_1">上传图片：</span><span class="span_2" style="font-size:12px; color:#888;width:1000px;"><div>
+		<input type="button" id="J_selectImage" value="批量上传" class="global_btn_blue_big" />
+		<div id="J_imageView" class="clearfix"></div>
+		<input name="state" id="state" type="hidden" value="" />
+		<input name="filewidth" type="hidden" value="200" />
+		<input name="fileheight" type="hidden" value="150" />
+		<input type=hidden name="url0"  id="url0" value="">
+	</div>
+	  <div id="xiangce" class="clearfix"></div>
+<script>
+var table_id = 'live_file';
+var mathState = Math.round(Math.random()*1E16);
+$('#state').val(mathState);
+window["ueuploadcfg"]={"filewidth":"900","smallfilewidth1":"200","smallfileheight1":"150","id":"0","state":mathState};
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id+'&'+jQuery.param(window["ueuploadcfg"]) + "&" + window["logincookieStr"],
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		if($('#isLogin').val() !=='1'){alert('对不起，请登录后再上传图片！'); return false;}
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					showMyImage(urlList);
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["smallurl"]+'" width="100"  height="100" style="vertical-align:middle;"/></div>'+
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return set_FM(this,\''+o[i]["url"]+'\');" class="set_FM">设为封面</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&state='+mathState+'\',8);" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\''+table_id+'&state='+mathState+'\',8);" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+</script>
+					
+					</span>
+					</li>
+					<li><span class="span_1"><font color="#FF0000">*</font>联系人：</span><span class="span_2"><input type="text" class="textInt" size="30" name="chrname" id="chrname" value="{$chrtruename}"/></span></li>
+					<li><span class="span_1"><font color="#FF0000">*</font>联系手机：</span><span class="span_2"><input type="text" class="textInt" size="30" name="chrmobile"  id="chrmobile"/></span></li>
+					<li><span class="span_1">联系电话：</span><span class="span_2"><input type="text" class="textInt" size="30" name="chrtel" id="chrtel" value="{$chrtel}"/></span></li>
+					<li><span class="span_1">联系QQ：</span><span class="span_2"><input type="text" class="textInt" size="30" name="chrqq" id="chrqq" value="{$chrqq}"/></span></li>
+					
+					
+					{$livemoney}
+					{$registerwenti}
+					{$registercode}
+					<li class="last"><span class="span_1">&nbsp;</span><span class="span_2"><button type="submit" class="fabu_btn">发 布</button></span></li>
+				</ul>
+			</div>		
+		</div>
+	</div><input type="hidden" name="count" value="1"  id="count"/>
+	<!-- 主体 结束 -->
+	</form>
+	{$bottom$}
+</div><div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+showloginagan("../","0");
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$("#vadimg").attr("src","../image.aspx?action=fabu&"+(new Date().getTime()));
+	$('#areaid').change(function(){
+		showloupancategory($(this).val());
+	});
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+function set_newimage(mapdomid){
+	if(!mapdomid || typeof 'undefined' === mapdomid){
+		mapdomid='maparea';
+	}
+	var city="";
+	try{
+		city= document.getElementById('city').value;
+	}
+	catch(err)
+	{}
+	
+	var shop_x='';
+	if(document.getElementById('shop_x')){
+		shop_x = document.getElementById('shop_x').value;
+	}
+	var shop_y='';
+	if(document.getElementById('shop_y')){
+		shop_y = document.getElementById('shop_y').value;
+	}
+	var shop_z='';
+	if(document.getElementById('shop_z')){
+		shop_z = document.getElementById('shop_z').value;
+	}
+	var chraddress = '';
+	if(document.getElementById('chraddress')){
+		chraddress = document.getElementById('chraddress').value;
+	}
+	var sysset = '';
+	if(document.getElementById('sysset')){
+		sysset=document.getElementById('sysset').value;
+	}
+	var ggmap = 0;
+	if(document.getElementById('ggmap')){
+		ggmap=document.getElementById('ggmap').value;
+	}
+ 	//var url='../ezmarker/index.aspx?mapdomid='+mapdomid+'&city='+encodeURIComponent(city)+'&chraddress='+encodeURIComponent(chraddress)+'&x='+shop_x+'&y='+shop_y+'&z='+shop_z+'&ggmap='+ggmap+'&sysset='+sysset;
+	
+	var url='../ezmarker/index.aspx?city='+escape(chraddress)+'&x='+shop_x+'&y='+shop_y+'&ggmap='+ggmap;
+	var wrap_node = document.createElement('div');
+	wrap_node.setAttribute('class','map_iframe');
+	wrap_node.id='map_iframe';
+	wrap_node.style.display='none';
+	
+	
+	var myiframe = '<iframe src="'+url+'" scrolling="no" frameBorder="0" width="700" height="500"></iframe>';
+	if(document.getElementById('map_iframe')){
+		document.getElementById('map_iframe').style.display='block';
+		return false;
+	}
+	wrap_node.innerHTML=myiframe;	
+	document.getElementsByTagName('body')[0].appendChild(wrap_node);
+	document.getElementById('map_iframe').style.display='block';
+	return false;
+	
+	//window.open(url,'newindow','height=600,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=yes');
+}
+</script>
+<script>
+//设为封面
+function set_FM(o,imgURL){
+	$('#url0').val(imgURL);
+	$('#xiangce').find('.set_FM').html('设为封面');
+	$(o).html('已设封面');
+	return false;	
+}
+//图片排序
+function delfile(o,sid){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = '/request.ashx?action=delpic&id='+sid+'&state='+mathState+'&table_id='+table_id;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,total){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid ;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

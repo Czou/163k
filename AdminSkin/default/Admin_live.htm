@@ -1,0 +1,95 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">分类信息垃圾信息过滤系统(跟关键词过滤的区别，直接阻止发布)&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=liveSave">
+    <tr > 
+      <td width="15%" height="25" >垃圾信息状态： 
+      </td>
+      <td width="76%"  class="category" style="line-height:22px;"> <input id="guolvkill0" type="radio" name="guolvkill" value="0" {$guolvkill0} />信息为等待审核 <em class="global_tip">（信息发布后是等待审核状态）</em><input id="guolvkill1" type="radio" name="guolvkill" value="1" {$guolvkill1}/>直接阻止信息不让发布 <em class="global_tip">（发布的时候提示并且不会发布成功）</em>
+	  <br />如果有以下条件符合的时候，将执行此步操作</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >区域保护开启： 
+      </td>
+      <td width="76%"  class="category" style="line-height:22px;"> <input id="guolvquyu" type="checkbox" name="guolvquyu" value="1" {$guolvquyu} />开启 <em class="global_tip">(如果开启的话，将根据发布者的IP归属地和网站配置中的地区来匹配是不是本地的，如果不是的话，将执行垃圾信息状态来处理)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >定时时间设置： 
+      </td>
+      <td width="76%"  class="category" style="line-height:22px;"> {$ss}<br> <em class="global_tip">(根据发布信息的时间和定时时间匹配，如果满足此时间段的话，将执行垃圾信息状态来处理)</em></td>
+    </tr><tr > 
+      <td width="15%" height="25" >电话号码： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="guolvchrtel" cols="70"  rows="5">{$guolvchrtel}</textarea>多个用,隔开</td>
+    </tr>
+	  <tr > 
+      <td width="15%" height="25" >手机号码： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="guolvchrmobile" cols="70"  rows="5">{$guolvchrmobile}</textarea>多个用,隔开</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >QQ号码： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="guolvchrqq" cols="70"  rows="5">{$guolvchrqq}</textarea>多个用,隔开</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >标题关键词： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="guolvchrtitle" cols="70"  rows="5">{$guolvchrtitle}</textarea>多个用,隔开</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >内容关键词： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="guolvchrmark" cols="70"  rows="5">{$guolvchrmark}</textarea>多个用,隔开</td>
+    </tr>
+	
+   
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">
+       </td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,30 @@
+﻿<tr  > 
+      <td class="tditem">启用自定义内容：
+
+      </td>
+      <td  colspan=5  class="tdcontent"><input type="radio" value="0" {$r11$} name="R4" onclick="setqiyong(0,'');">不启用<input type="radio" value="1"  name="R4" {$r12$} onclick=setqiyong(1,$$("aabbcc").value);>启用
+	  
+	  <span id="qiyong1" style="display:none"><br /><br />
+	  <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10"></textarea>
+	  </span><input type=hidden name=aabbcc value="{$chrcontent}">
+	   </td>
+    </tr>
+<script>
+var peisong=$$("aabbcc").value;
+if (peisong!="" && peisong!="")
+{
+	document.all.R4[1].checked=true;
+	$$("qiyong1").style.display="";	
+	$$("Chrcontent").value=peisong;
+	$.getScript('/kindeditor-min.js', function() {
+
+						KindEditor.basePath = '/';
+
+						var editor = KindEditor.create('textarea[name="Chrcontent"]');
+
+					});
+
+	
+	
+} 
+</script>

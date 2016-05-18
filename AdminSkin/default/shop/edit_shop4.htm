@@ -1,0 +1,155 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<script>
+function checkform(o){	
+	
+		if(o.qianyue[1].checked){
+			if(o.qianyuedate.value==""){
+				alert("对不起，请选择签约有效截止时间！");
+				o.qianyuedate.focus();
+				return false;
+			}
+		}
+	
+		if(o.typeid[0].checked || o.typeid[1].checked)
+		{
+			if(o.intnum.value=="" || o.intnum.value=="0"){
+				alert("对不起,请输入要操作的口碑值!");
+				o.intnum.focus();
+				return false;
+			}
+			if(!isInt(o.intnum.value)){
+				alert("口碑值只能为数字！");
+				o.intnum.select();
+				return false;
+			}
+			if(o.title.value=="" ){
+				alert("对不起,请输入操作理由!");
+				o.title.focus();
+				return false;
+			}
+		}
+	
+	
+}
+function deletearticle(ID)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除友好店铺吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		location.href = "shop.aspx?action=dellink&ID=" + ID;
+	}
+}
+</script>
+<style>
+#listarticleall{margin:0}
+#listarticleall ul{margin:0; list-style-type:none}
+#listarticleall ul li{ line-height:22px; height:22px;}
+</style>
+<!--<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">八、其他信息：&nbsp;&nbsp;&nbsp; </td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至店铺列表" onClick="javscript:window.location.href='shop.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li  ><a href='shop.aspx?action=edit&ID={$ID}'>基本资料</a></li><li ><a href='shop.aspx?action=e1&ID={$ID}'>店铺介绍</a></li><li><a href='shop.aspx?action=e3&ID={$ID}'>店铺动态</a></li><li><a href='shop.aspx?action=e2&ID={$ID}'>店铺展示</a></li><li><a href='shop.aspx?action=e6&ID={$ID}'>自定义栏</a></li><li><a href='shop.aspx?action=e5&ID={$ID}'>掌柜寄语</a></li><li><a href='shop.aspx?action=e7&ID={$ID}'>短信通知</a></li><!--<li><a href='shop.aspx?action=e8&ID={$ID}'>支付接口</a></li>--><li class="selected"><a href='shop.aspx?action=e4&ID={$ID}'>其他信息</a></li>
+</ul>
+</div>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=e4save"  onsubmit="return checkform(this);">
+  <tr><td colspan=2 class="category">认证信息：</td></tr>
+   <tr><td width=20%>是否通过营业执照认证<font color="#FF0000">*</font>：</td><td colspan=3>{$rengzheng}<input type="radio" name="renzheng" value='0'{$renzheng0}>否 <input type="radio" name="renzheng" value='1' {$renzheng1}>是</td></tr>
+   <tr><td>是否已经和该店铺签约<font color="#FF0000">*</font>：</td><td>{$qianyue}<input type="radio" name="qianyue" value="0" {$qianyue0} >否 <input type="radio" name="qianyue" value='1' {$qianyue1}>是</td>
+   </tr><tr>
+   <td>签约有效截止时间：</td><td><input type="text" name="qianyuedate" size=15 value="{$qianyuedate}" class="Wdate" /></td></tr>
+  <tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="iskill" type="radio"  value="0" {$iskill1$}> 等待审核 <input name="iskill" type="radio"  value="1" {$iskill2$} > 正常
+	   <input name="iskill" type="radio"  value="2" {$iskill3$}> 未通过 <input name="iskill" type="radio"  value="3" {$iskill4$}> 吊销</td>
+    </tr> 
+	  
+	
+	  <tr><td colspan=2 class="category">店铺信誉：</td></tr>
+ 
+ <tr   > 
+      <td >口碑设置： 
+      </td>
+      <td    class="category">
+	  当前口碑值：{$koubei}   默认初始值为：100 <br />   
+	  <input type="radio" value="0" name="typeid">增加
+					<input type="radio" value="1"  name="typeid">减少：<input type="text" name="intnum" size="6"   onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">理由：<input type="text" name="title" size="29"><em class="global_tip">限制40汉字内</em><br>喜欢的人：<input name="num1" size="8" value="{$num1$}"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> &nbsp; 不喜欢的人：<input name="num2" size="8" value="{$num2$}"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">
+					投诉：<input name="num3" size="8" value="{$num3$}"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">&nbsp; <em class="global_tip">仅可输入数字 </em></td>
+    </tr>
+	<tr   > 
+      <td >口碑记录： 
+      </td>
+      <td    class="category">{$details$} </td>
+    </tr>
+	
+	<tr><td colspan=2 class="category">友好店铺：</td></tr>
+	<tr   > 
+      <td >当前已设友好店铺： 
+      </td>
+      <td    class="category"><div id="listarticleall">
+                <ul id="listarticleallshow">
+                   <tag:Loop ListType="Listshoplink" RecType="New" PageSize="200" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="shop/Listshoplink.htm" />
+                </ul>
+              </div> </td>
+    </tr>
+	<tr   > 
+      <td >添加新的友好店铺：<br><img src="{$atplPath}images/add.jpg" style="cursor:pointer"  onclick="addSignRowdianpu(1);"> 
+      </td>
+      <td    class="category"><table width="100%"  border="0" cellpadding="0" cellspacing="0" id="SignFrame">
+                <tR id="SignItem1" valign="top" ><td> {$shopid} 排序：<input type="text" name='intorder' size=8 onKeyUp="if(isNaN(value))execCommand('undo')"><em class="global_tip">(仅可输入数字)</em>
+				</td>
+                </tr>
+              </table>
+              <input type="hidden" name="count" id="count" value='1'>
+              <input type="hidden" name="img" id="img" value="{$atplPath}images/del.jpg" />
+				</td>
+    </tr>
+	
+	
+    <tr > 
+      <td height="25" colspan=4 style="text-align:center" class="category">
+	  <input type="hidden" name="hiddenshopid" id="hiddenshopid" value="{$shopid}"><input type="hidden" name="styleid" id="styleid" value="1"><input type="hidden" name="gotourl" value="{$gotourl}">
+	  <input type=hidden name=ID value="{$ID}"><input type="button"  onclick="window.location.href='?action=e3&id={$ID}';" name="button1" class="global_btn_big" value="上一页"> &nbsp;  <input type="submit" name="submit" class="global_btn_blue_big"  value="保存并完成"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+  </body>
+</html>

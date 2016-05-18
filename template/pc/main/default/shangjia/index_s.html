@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="sys_module">
+			<div class="hd clearfix">
+				<s class="left s_index_user"></s>
+				<div class="left title">欢迎 {$loginname} 登录[{$SiteName}]商家服务平台</div>
+				<div class="right">注册时间：{$regdate}　您现在是第{$loginnum}次登录</div>
+			</div>
+			<div class="bd default_page">
+				<p class="nostart" id="notshop" style="display:none;">您还没有开通网上商家店铺　<a href="{$shopurl}join.aspx" target="_blank" class="sys_btn_small_green">现在去开通</a></p>
+				<div class="case" id="okshop" style="display:none;">
+					<p>您的店铺：<a href="{$myshopurl}" target="_blank" class="em">{$chrshop}</a></p>
+					<p>商品：<em class="em">{$mygoodnum}</em>　　人气：<em class="em">{$hits}</em></p>
+					<p></p>
+					<a href="{$SiteUrl}member/myshop.aspx" class="sys_btn_blue">管理我的店铺</a>　<a href="{$myshopurl}" target="_blank" class="sys_btn_white">查看我的店铺</a>
+				</div>
+				<div class="line_1px"></div>
+				<p class="nostart" id="notgoodshop" style="display:none;">您还没有开通同城快店　<a href="my_good_shop.aspx" id="addGoodShop_btn" class="sys_btn_small_green">现在去开通</a></p>
+				<div class="case" id="okgoodshop" style="display:none;">
+					<p>您的快店：<a href="{$mygoodshopurl}" target="_blank" class="em">{$goodshopname}</a>　<span class="shop_state_1" data-state="{$isopen}">[营业中]</span></p>
+					<a href="{$SiteUrl}member/my_good_shop.aspx" class="sys_btn_blue">管理我的快店</a>　<a href="{$mygoodshopurl}" target="_blank" class="sys_btn_white">查看我的店铺</a>
+				</div>
+				<div class="line_1px"></div>
+				<div class="case" id="okshop2" style="display:none;">
+					<p>省啦订单：<b>{$myTgorder0}</b>待付款　<b>{$myTgorder2}</b>已付款　<a href="tgOrderManage.aspx" class="blue_font">[查看]</a>　　　　　<span id="okgoodshop2" style="display:none;">快店订单：<b>{$myorder0}</b>待付款　<b>{$myTgorder2}</b>已付款　<a href="manage_order.aspx" class="blue_font">[查看]</a></span></p>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+(function($){
+	var shopiskill = "{$myshopiskill}";
+	var goodshopiskill ="{$mygoodshopiskill}";
+	if(shopiskill === '-1'){
+		$('#notshop').show();
+		$('#addGoodShop_btn').bind('click',function(e){
+			e.preventDefault();
+			MSGwindowShow('goodshop','0','您需要先拥有店铺才能开通快店！','','');
+		});
+	}else if(shopiskill === '0'){
+		$('#notshop').html('您申请开通的网上商家店铺<span style="color:#d00;">正在审核中</span>，请耐心等待，谢谢！').show();
+	}else if(shopiskill === '1'){
+		$('#okshop').show();
+		$('#okshop2').show();
+	}else{
+		$('#notshop').html('您申请开通的网上商家店铺<span style="color:#d00;">没有通过审核</span>，谢谢！').show();
+	}
+	if(goodshopiskill === '-1'){
+		$('#notgoodshop').show();
+	}else if(goodshopiskill === '0'){
+		$('#notgoodshop').html('您申请开通的同城快店<span style="color:#d00;">正在审核中</span>，请耐心等待，谢谢！').show();
+	}else{
+		$('#okgoodshop').show();
+		$('#okgoodshop2').show();
+	}
+})(jQuery);
+</script>
+<!--{$myshopiskill}:-1没有店铺,0:未审核,1:正常<br>
+				{$mygoodshopiskill} -1:没有快店,0:未审核,1:正常<br>
+				
+					{$chrshop}:店铺名称<br>
+					
+					{$goodshopname}:快店名称<br>
+					{$isopen}  0:打样,1:营业中,2:可预订
+					
+				//快店非正常以下不解析
+				{$mygoodshopurl}快店网页地址
+				{$isopen}1是0否正常营业
+				{$myorderAll}:所有快店订单<br>
+				{$myorder0}:未付款订单<br>
+				{$myorder1}已经付款待处理<br><br>
+				{$myorder2}无需配送已经发货<br>
+				{$myorder22}配送已经发货<br>
+				{$myorder3}成功订单<br>
+				{$myorder4}交易失败订单数<br>
+				
+				//店铺非正常以下不解析
+				{$myshopurl}:店铺网页地址
+				{$hits}店铺人气
+				
+				{$myTgorderAll}:所有团购订单<br>
+				{$myTgorder0}:未付款订单<br>
+				{$myTgorder1}付款失败<br><br>
+				{$myTgorder2}已经付款等待处理<br>
+				{$myTgorder22}需要配送已经发货<br>
+				{$myTgorder3}发货中<br>
+				{$myTgorder4}已经发货<br>
+				{$myTgorder5}完成
+-->
+</body>
+</html>

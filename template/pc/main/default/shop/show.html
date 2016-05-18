@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrgood}-{$chrcategory}-{$smallcategory}-{$daohangweizhi}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/starShop.css" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper">
+	<div class="header clearfix" id="header">
+		<div class="w-1200">
+			<div class="logo"><a href="{$SiteUrl}"><img src="{$topurl}" alt="163k地方门户网站系统" /></a></div>
+			<div class="subLogo"><a href="{$shopurl}"><img src="{$Default_tplPath}images/starShopLogo.gif" alt="星级店铺" /></a></div>
+			<div class="login_info">
+				<span id="login_info" class="login_info_inner"><script>setTimeout(function(){is_login("{$SiteUrl}")},100);</script></span>
+				<a href="{$SiteUrl}member/myorder.aspx" class="sys_btn btn_null">我的订单</a>
+				<a href="{$SiteUrl}" class="return_home">门户首页</a>
+			</div>
+		</div>
+	</div>
+	<div class="content {$moban}">
+		<div class="w-1200 po_re">
+			<div class="grid_starHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$chrshop}</span><span class="i_star i_star_4">5星</span><span class="i_qianyue" style="display:{$qianyue}">签约商家</span><span class="i_renzheng" style="display:{$renzheng}">认证商家</span></p>
+					<p class="p">地址：{$chraddress} <a href="#" onClick="return showMap('{$shopid}');" class="blue_font">[查看地图]</a></p>
+					<p class="p">交通路线：{$chrjiaotong}</p>
+					<p class="p">营业时间：{$chrdate}</p>
+					<div class="contact">
+						<span class="tel"><s class="s"></s>{$chrtel}</span>
+						<span class="weixin"><s class="s"></s>待完善</span>
+						<span class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=qq&menu=yes" target="_blank"><s class="s"></s>{$chrqq}</a></span>
+					</div>
+					<p class="p tese">本店特色：{$shoptese}　　　人均消费：<span class="red">{$consumption}</span>元</p>
+					<p class="p">会员折扣：{$zhe} <a href="{$SiteUrl}member/register.html" class="orange_font">[申请会员]</a></p>
+				</div></div>
+				<div class="col_sub">
+					<div class="slide" id="slide">
+						<a class="next" href="#" onClick="return false;"><i class="i"></i></a>
+						<ul class="hd dot" id="tabs"></ul>
+						<a class="prev" href="#" onClick="return false;"><i class="i"></i></a>
+						<div class="bd">
+							<ul class="picList fix" id="output"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mobile_href po_ab"><img onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" src="" width="88" height="88" alt="" />手机访问</div>
+			<div class="ico_kuaison po_ab"><a href="#"><img src="{$Default_tplPath}images/ico_kuaison.gif" width="190" height="70" alt="" /></a></div>
+		</div>
+		<div class="star_nav">
+			<ul class="w-1200 clearfix">
+				<li><a href="{$shopurl}company_{$shopid}.html">首页</a></li>
+				<li><a href="{$shopurl}content_{$shopid}.html">商家介绍</a></li>
+				<li><a href="{$shopurl}notice_{$shopid}.html">商家动态</a></li>
+				<li><a href="{$shopurl}pic_{$shopid}.html">商家相册</a></li>
+				<li><a href="{$shopurl}pic_{$shopid}.html">全景视频</a></li>
+				<li class="cur"><a href="{$shopurl}shop_{$shopid}.html">商品大全</a></li>
+				<li><a href="{$shopurl}cuxiao_{$shopid}.html">团购活动</a></li>
+				{$sslist}
+				<li><a href="{$shopurl}comment_{$shopid}.html">网友点评</a></li>
+			</ul>
+		</div>
+		<div class="bgk">
+			<div class="w-1200 product_detail">
+				<div class="breadcrumb"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">星级店铺</a> &gt; <a href="{$indexurl}">{$chrshop}</a> &gt; <a href="{$shopurl}shop_{$shopid}.html">商品大全</a> &gt; 商品详情</div>
+				<div class="grid_product_detail clearfix">
+					<div class="col_main"><div class="main_wrap">
+						<div class="info">
+							<span class="num">{$views}</span>
+							<div class="title"><span class="inner">{$chrgood}</span><s class="s_1" style="display:{$tuijian}">推荐</s><s class="s_2" style="display:{$cuxiao}">促销</s><s class="s_3" style="display:none">精品</s><s class="s_4" style="display:{$remai}">热门</s></div>
+							<ul class="other clearfix">
+								<li>编号：{$goodnum}</li>
+								<li>品牌：{$chrpinpai}</li>
+								<li>型号：{$xinghao}</li>
+								<li>商家：{$chrshop}</li>
+							</ul>
+							<div class="price">&yen; {$price2}</div>
+							<div class="old_price">原价：&yen;{$price1}</div>
+							<div class="btn"><a href="#" class="fav">收藏</a><a href="#" class="taobao">去淘宝购买</a><!--<a href="#" class="consulting">欢迎咨询</a><a href="#" class="kuaison">快买快送</a><a href="#" class="tuangou">参加团购</a>--></div>
+							<div class="contact"><span class="sp">在线咨询：</span><a href="http://wpa.qq.com/msgrd?v=3&uin={$shopqq1}&site=0&menu=yes"><img src="http://wpa.qq.com/pa?p=2:{$shopqq1}:41" alt="点击咨询" /></a> <a href="http://wpa.qq.com/msgrd?v=3&uin={$shopqq1}&site=0&menu=yes" class="sp blue_font">{$shopqq1}</a><span class="sp">　　或致电：<em class="tel">待完善</em></span></div>
+							<div class="clearfix"><div class="bdsharebuttonbox" style="float:left;"><span class="txt">分享到：</span><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script></div>
+							<div class="update">更新：待完善</div>
+						</div>
+					</div></div>
+					<div class="col_sub">
+						<div class="img"><img src="{$filepath1}" onerror="this.onerror='';this.src='images/kuaison_nofind_product2.gif'"></div>
+					</div>
+				</div>
+				<div class="module_04">
+					<div class="hd">商品详情</div>
+					<div class="bd product_info" id="resizeIMG">
+						{$chrcontent}
+					</div>
+				</div>
+				<div class="module_04">
+					<div class="hd">推荐商品</div>
+					<div class="bd tui_product">
+						<ul class="clearfix">
+							{$tongleigoods}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer noMar">
+		{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script>
+var nowdomain = "{$SiteUrl}";
+(function($){
+	var Lanterninfo=[{$huangdengpian}];
+	var txt = '',
+		txtImg = '';
+	if(Lanterninfo.length > 0){
+		for(var i=0;i<Lanterninfo.length;i++){
+			txtImg+='<li><a href="'+Lanterninfo[i][2]+'"><img src="'+Lanterninfo[i][0]+'" alt="'+Lanterninfo[i][1]+'" /></a></li>';
+			if(i === 0){
+				txt += '<li class="on">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		}
+		$('#output').html(txtImg);
+		$('#tabs').html(txt);
+		setTimeout(function(){$("#slide").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,scroll:1,autoPlay:true});},20);
+		showSlide($('#slide'));
+	}
+	function showSlide(node){
+		var prev = node.find('.prev'),next = node.find('.next');
+		node.hover(function(){
+			prev.toggleClass('show');
+			next.toggleClass('show');
+		});
+	}
+	$('#resizeIMG').resizeIMG(998,1200);
+})(jQuery);
+</script>
+</body>
+</html>

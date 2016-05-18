@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2011.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<div id="content" class="fangchan2011">
+		<div class="f_nav">
+			<ul class="clearfix">
+				<li class="t2 frist"><a href="index.aspx" class="select">首页</a></li>
+				<li class="t2"><a href="loupan.html">新房</a></li>
+				<li class="t3"><a href="chushou.html" >二手房</a></li>
+				<li class="t2"><a href="chuzhu.html">租房</a></li>
+				<li class="t3"><a href="xiaoqu.html">查小区</a></li>
+				<li class="t3"><a href="zhongjie.html">找中介</a></li>
+			</ul>
+		</div>
+		<div class="navBot">
+			<s></s><p>这儿有<em>{$House_loupannum}</em>个新楼盘，<em>{$House_chushounum}</em>套二手房正在出售，<em>{$House_chuzhunum}</em>套房正在出租。</p>
+			<!--<span class="goBBS"><s></s><a href="{$bbsurl}">进入论坛社区</a></span> -->
+			<span class="rc_tl"></span><span class="rc_tr"></span><span class="rc_bl"></span><span class="rc_br"></span>
+		</div>
+		<div class="blank10"></div>
+		<div class="grid_fc_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mainSearch">
+					<p class="t1">从感兴趣的楼盘(小区)开始：</p>
+					<div class="searchBar clearfix">
+                    	<form action="search.aspx" target="_blank">
+						<label><input type="text" class="s_input" name="keyword"/></label>
+						<div class="selector"><select style="display: none;" name="mySle" id="mySle2">
+                        <option selected="selected" value="0">新楼盘</option>
+                        <option value="1">二手房</option>
+                        <option value="2">出租房</option>
+                        <option value="3">小区</option>
+                        <option value="4">经纪人</option>
+                        </select></div>
+						<label><button type="submit" class="s_button">快帮我找一下</button></label>
+                        </form>
+						<span class="mapZF"><s title="地图"></s><a href="{$SiteUrl}map/xingfang.aspx">地图找房</a></span>
+					</div>
+					<p class="t2">从区域开始：</p>
+					<p class="quyu">{$House_quyu}</p>
+					<p class="menu"><a href="{$SiteUrl}member/manage_chuzhu.aspx?action=add#tt3" class="link">发布出租<s></s></a><a href="{$SiteUrl}member/manage_chushou.aspx?action=add#tt3" class="link">发布出售<s></s></a><a href="qiugou.aspx" class="link">发布求租<s></s></a><a href="qiugou.aspx" class="link">发布求购<s></s></a><a href="{$SiteUrl}member/manage_zj.aspx#tt3" class="link blue">开通经纪人<s></s></a><a href="{$SiteUrl}member/manage_chuzhu.aspx#tt3" class="link blue">管理房源<s></s></a></p>
+					<p class="huizong">{$city}当前均价：<em>{$House_Avgprice}</em>元，涨跌幅：<em>{$House_Avgdiefu}%</em>　<a href="zhoushi.aspx" target="_blank">走势图</a></p>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="module_01">
+					<div class="hd focusHD">{$House_Category1}</div>
+					<div class="bd focusNews">
+         				<h3 class="yahei">{$House_Listtop1}</h3>
+						<ul>
+                        	{$House_List1}
+						</ul>
+					</div>
+					<div class="more"><a href="list_1.html">更多>></a></div>
+				</div>
+			</div>
+		</div>
+		<div class="blank5"></div>
+		<div class="">{$Mh163k_房产首页_自定义html广告}</div>
+		<div class="blank10"></div>
+		<div class="module_02" id="TabAdS04">
+			<div class="hd redText">
+				<ul class="tab-hd clearfix">
+					<li class="select"><a href="loupan.html">热销楼盘</a><s class="hot" title="热"></s></li>
+					{$House_loupanquyu}
+				</ul>
+				<div class="more"><a href="loupan.html">更多>></a></div>
+			</div>
+			<div class="bd picList">
+           	 {$House_IndexRexiao}
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="grid_fc_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="module_02" id="TabAdS02">
+					<div class="hd">
+						<ul class="tab-hd clearfix">
+							<li class="select"><a href="javascript:void(0)">最新出租</a></li>
+							<li><a href="javascript:void(0)">紧急出租</a></li>
+							<li><a href="javascript:void(0)">推荐房源</a></li>
+						</ul>
+						<div class="more"><a href="chuzhu.html">更多>></a></div>
+					</div>
+					<div class="bd textList">
+						<ul class="tab-cont clearfix">
+							{$House_Indexchuzhu}
+                            
+						</ul>
+						<ul class="tab-cont clearfix">
+							{$House_Indexjizhu}
+						</ul>
+						<ul class="tab-cont clearfix">
+							{$House_Indexchuzhujingxuan}
+						</ul>
+					</div>
+				</div>
+				<div class="blank10"></div>
+				<div class="module_02" id="TabAdS03">
+					<div class="hd">
+						<ul class="tab-hd clearfix">
+							<li class="select"><a href="javascript:void(0)">最新出售</a></li>
+							<li><a href="javascript:void(0)">紧急出售</a></li>
+							<li><a href="javascript:void(0)">推荐房源</a></li>
+						</ul>
+						<div class="more"><a href="chushou.html">更多>></a></div>
+					</div>
+					<div class="bd textList">
+						<ul class="tab-cont clearfix">
+							{$House_Indexchushou}
+						</ul>
+						<ul class="tab-cont clearfix">
+							{$House_Indexjishou}
+						</ul>
+						<ul class="tab-cont clearfix">
+							{$House_Indexjingxuan}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="module_02" id="TabAdS01">
+					<div class="hd">
+						<ul class="tab-hd clearfix">
+							<li class="select"><a href="javascript:void(0);">推荐经纪人</a></li>
+							<li><a href="javascript:void(0);">最新经纪人</a></li>
+						</ul>
+					</div>
+					<div class="bd jjrList">
+						<div id="slide2" class="tab-cont">
+						<ul class="inner">
+							{$House_TuijianZhongjie}
+						</ul>
+						</div>
+						<div id="slide3" class="tab-cont">
+						<ul class="inner">
+							{$House_IndexZhongjie}
+						</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blank10"></div>
+		<div class="grid_fc_03 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="module_01">
+					<div class="hd">{$House_Category2}</div>
+					<div class="bd numList">
+						<ul>
+                 			{$House_List2}   	
+						</ul>
+					</div>
+					<div class="more"><a href="list_2.html">更多>></a></div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="module_01">
+					<div class="hd">最新求购信息</div>
+					<div class="bd numList">
+						<ul>
+						{$House_IndexQiugou}	
+						</ul>
+					</div>
+					<div class="more"><a href="xuqiu.html?tt=1">更多>></a></div>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="module_01">
+					<div class="hd">最新求租信息</div>
+					<div class="bd numList">
+						<ul>
+							{$House_IndexQiuzhu}
+						</ul>
+					</div>
+					<div class="more"><a href="xuqiu.html?tt=2">更多>></a></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="blank10"></div>
+		<div class="module_03">
+			<div class="hd"><span class="title">中介品牌推荐</span></div>
+			<div class="bd">
+				<ul class="clearfix">
+                {$House_ZhongjiePinpai}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$Default_tplPath}js/jQuery.tabs.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js?{$CacheHash}"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#TabAdS01').TabADS2();
+	$('#TabAdS02').TabADS2();
+	$('#TabAdS03').TabADS2();
+	$('#TabAdS04').TabADS2();
+	$('#mySle2').selectbox();
+	$("#slide2").slide({mainCell:".inner",effect:"topLoop",vis:5,scroll:1,autoPlay:true});
+	$("#slide3").slide({mainCell:".inner",effect:"topLoop",vis:5,scroll:1,autoPlay:true});
+});
+</script>
+</body>
+</html>

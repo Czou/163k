@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购活动在线报名表-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+</head>
+<body>
+<div class="register-form">
+	<form name="form1" method="post" action="?" style="margin:0" onsubmit="return checkjiarutg(this);">
+		<input type="hidden" name="loupanid" value="{$loupanid}">
+		<p class="box"><span class="form_label">购房时间：</span><span class="form_control"><input type="text" name="shijian" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">购房预算：</span><span class="form_control"><input type="text" name="yusuan" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">户型面积：</span><span class="form_control"><input type="text" name="huxing" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">付款方式：</span><span class="form_control"><input type="text" name="fukuan" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">您的姓名：</span><span class="form_control"><input type="text" name="chrname" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">联系方式：</span><span class="form_control"><input type="text" name="chrtel" class="codebox2-input" /></span></p>
+		
+		
+		<p style="text-align:center;"><input class="comn-submit" type="submit" value="提交" />　<input class="comn-submit gray" onClick="parent.LoginHide();" type="button" value="取消" /></p>
+	</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js"></script>
+<script>
+function checkjiarutg(o){
+	if(o.shijian.value==""){
+		alert("请输入您打算购房的时间!");
+		o.shijian.focus();
+		return false;
+	}
+	if(o.yusuan.value==""){
+		alert("请输入您的购房预算!");
+		o.yusuan.focus();
+		return false;
+	}
+	if(o.huxing.value==""){
+		alert("请输入购买户型与面积!");
+		o.huxing.focus();
+		return false;
+	}
+	if(o.chrname.value==""){
+		alert("请输入您的姓名!");
+		o.chrname.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("请输入您的联系方式!");
+		o.chrtel.focus();
+		return false;
+	}
+	var url="request.aspx?action=tgsave&id="+o.loupanid.value+"&shijian="+encodeURIComponent(o.shijian.value)+"&yusuan="+encodeURIComponent(o.yusuan.value);
+	url +="&huxing="+encodeURIComponent(o.huxing.value)+"&chrname="+encodeURIComponent(o.chrname.value)+"&chrtel="+encodeURIComponent(o.chrtel.value)+"&fukuan="+encodeURIComponent(o.fukuan.value);
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url: url}).done(function( msg ) {
+		if(msg=="1"){
+			alert("您已免费登记成功，我们会马上审核！");
+			parent.LoginHide();
+		}
+		else{
+			alert(msg);	
+		}
+	});
+	return false;
+}
+</script>
+</body>
+</html>

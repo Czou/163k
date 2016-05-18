@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<title>{$smallcategorytitle}{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/zixun2015.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<!-- 主体 -->
+        <div class="crumb-bar clearfix">
+            <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$articleurl}">{$lanmuname}</a> <a href="{$articleurl}listnew_{$categoryid}.html">{$chrcategory}</a><span class="cur_tit">{$smallcategorymenu}</span>
+        </div>
+        <div class="advs">{$Mh163k_新闻频道通栏广告}</div>
+		<div class="clearfix" style="margin-top:12px;">
+			<div class="zx_col_sub">
+				<div id="fixed" style="width:143px;">
+				<div class="zx-side-menu" id="list_nav_2013">
+				 <div class="title"><a href="{$articleurl}list_0_s0_p1.html">全部</a></div>
+					<ul>
+						{$allfenlei}<!--fenlei.html-->
+					</ul>
+				</div>
+				<div class="contribute" style="margin-top:12px;">
+					<a href="{$SiteUrl}member/myarticle.aspx?action=add" target="_blank"><i class="icon"></i>我要投稿</a>
+				  </div>
+				</div>
+			</div>
+			
+			<div class="zx-list-rside">
+			  <div class="zx-hotnews">
+				<h4>本月热点资讯</h4>
+				<ul>
+					{$Mh163k_资讯2015_本月热点资讯}
+				</ul>
+			  </div>
+			  <div class="zx-hotnews">
+				<h4>精彩图文</h4>
+				<ul>
+					{$Mh163k_资讯2015_精彩图文}
+				</ul>
+			  </div>
+			</div>
+			<div class="zx-listcon zx-listcon2" id="fixed_can">
+				<div class="zx-mcon">
+					<div class="list">
+						<ul>
+							<tag:Loop ListType="listarticleqian" RecType="New" PageSize="15" ColorSplit="1" TitleLen="12" RecColumn="5" CusTpl="1" Template="article/listarticle.htm" />
+							
+						</ul>
+					</div>
+					<div class="pageNav_2013" ><span style="display:{$PageStyle}">
+						{$PageSplit}
+						</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/dropDown2013.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fixed').fixed($('#fixed_can'));
+	$('#list_nav_2013').find('.cur').parent().parent().find('.rights').removeClass().addClass('xias').parent().addClass('open');
+});
+</script>
+</body>
+</html>

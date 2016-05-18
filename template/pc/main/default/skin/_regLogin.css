@@ -1,0 +1,31 @@
+@charset "utf-8";
+.reg_login_box .hd span.right .close_reg,.login_box .info,.name_input,.pwd_input { background-image:url(../images/abuis_icon.gif); background-repeat:no-repeat;}
+.login_box h3,.reg_box h3,.reg_box li .reg_input  { background-image:url(../images/bg_repeatX.png); background-repeat:repeat-x;}
+.reg_login_box {/* position:absolute; top:64px; right:0; z-index:1000;*/ padding:10px; background:#fff url(../images/abuis_bg.gif) repeat-x 0 0; border:2px solid #5d9ebf; width:670px; zoom:1;}
+.reg_login_box .hd {}
+.reg_login_box .hd span.left { display:block; width:177px; height:45px; float:left; text-indent:-999em; overflow:hidden; background:url(../images/abuis_06.gif) no-repeat 0 0;}
+.reg_login_box .hd span.right { display:block; float:right;}
+.reg_login_box .hd span.right .close_reg { display:block; width:13px; height:13px; background-position:0 -55px; text-indent:-999em; overflow:hidden;}
+.col_main { float:right; width:440px;}
+.col_sub { float:left; width:220px;}
+.login_box { border:2px solid #fed3b4; margin-top:15px; text-align:left;}
+.login_box h3 { height:35px; line-height:35px; background-position:0 -196px; text-align:left; text-indent:.5em; font-size:14px; font-weight:bold; color:#ff3300;}
+.login_box .info { background-position:0 -165px; padding-left:16px; margin-top:6px; margin-left:10px;}
+.login_box .login_box_bd { padding:0 0 10px 15px;}
+.login_box .login_box_bd li { height:26px; line-height:24px;}
+.login_box .login_box_bd li.test { height:12px; line-height:20px; height:20px; margin-top:8px; font-weight:bold;}
+.name_input { height:24px; line-height:24px; width:155px; border:1px solid #ddd; background-position:5px 5px; padding-left:25px;}
+.pwd_input { height:24px; line-height:24px; width:155px; border:1px solid #ddd; background-position:5px -24px; padding-left:25px;}
+.login_box .login_box_bd li.menu { height:25px; margin-top:10px;}
+.login_box .login_box_bd li.menu a { text-decoration:underline;}
+.login_submit { height:25px; width:92px; border:0; background:url(../images/abuis_32.gif) no-repeat 0 0; cursor:pointer;}
+.reg_box { border:2px solid #bed8e7; margin-top:15px; text-align:left;}
+.reg_box h3 { background-position:0 -231px; height:38px; text-indent:.5em; font-size:14px; font-weight:bold; color:#0055aa; line-height:34px; text-align:left;}
+.reg_box li { height:28px; margin-top:5px; color:#c00; line-height:22px;}
+.reg_box li .reg_input { height:22px; background-position:0 -270px; border:1px solid #efd4c0; width:240px; line-height:22px;}
+.reg_box li span { display:block; float:left; width:80px; text-align:right; padding-top:3px; color:#7b7777;}
+.reg_box .info { margin:10px 20px;}
+.reg_box .info b { color:#e6a158;}
+.reg_box li.menu { height:45px!important;}
+.reg_box .reg_submit { background:url(../images/abuis_35.gif) no-repeat 0 0; width:92px; height:25px; border:0; cursor:pointer; margin:5px 0 0 18px;}
+.display { display:block!important;}

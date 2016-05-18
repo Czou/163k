@@ -1,0 +1,95 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkform(o){
+	if(o.title.value==""){
+		alert("请输入文章标题!");
+		o.title.focus();
+		return false;
+	}
+}
+</script> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%" >
+      <tr>
+         <td width="60%">修改采集资源&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至采集资源列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+    <tr > 
+      <td height="25" width="12%" >文章标题<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="title" type="text" size="70"  value="{$title}"></td>
+    </tr>
+ <tr > 
+      <td height="25" width="12%" >文章分类<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input type="radio" name="stypeid" value="0"  {$stypeid0}/>&nbsp;新闻资讯 {$classid1}<br /><br />
+					<input type="radio" name="stypeid" value="1"  {$stypeid1}/>&nbsp;招聘资讯 {$classid2}<br /><br />
+					<input type="radio" name="stypeid" value="2"  {$stypeid2}/>&nbsp;房产资讯 {$classid3}<br /><br /></td>
+    </tr>
+ <tr > 
+      <td height="25" >作者： 
+      </td>
+      <td  class="category"> <input name="author" type="text" size="30" value="{$author}" ></td>
+    </tr>
+	<tr > 
+      <td height="25" >关键字： 
+      </td>
+      <td  class="category"> <input name="keyword" type="text" size="30" value="{$keyword}" ></td>
+    </tr>
+   <tr > 
+      <td height="25" >来源： 
+      </td>
+      <td  class="category"> <input name="comefrom" type="text" size="30" value="{$comefrom}" ></td>
+    </tr>
+    <tr  id="tr1"> 
+      <td >内容： 
+      </td>
+      <td   class="category"> <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$content}
+      </textarea>
+	   <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	<tr > 
+      <td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="collectzt" type="radio"  value="0" {$styleid1}> 未入库 <input name="collectzt" type="radio"  value="1"  {$styleid2}> 已入库
+	  </td>
+    </tr>
+    <tr  > <td></td>
+      <td height="25" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"><input type=hidden name="id" value="{$ID}"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

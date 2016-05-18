@@ -1,0 +1,9 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$NID}</td>
+	
+	<td>{$Chrcategory}</td><td>{$Parentid}</td>
+	<td>{$Intorder}</td>
+	<td>{$Isopen}</td>
+	<td align="center"><a href="CategoryRegionC.aspx?action=IsopenM&Isopen={$IsopenS}&ID={$ID}&key={$key}{$strappend}">{$IsopenM}</a> <a href="CategoryRegionC.aspx?action=edit&ID={$ID}&key={$key}">编辑</a> <a href="javascript:del({$ID});">删除</a>  </td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

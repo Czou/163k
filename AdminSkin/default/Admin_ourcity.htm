@@ -1,0 +1,74 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">家乡介绍设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=EditSave">
+          <tr>
+            <td>形象图片<font color="#FF0000">*</font>：<br>
+              宽*高=68*68</td>
+            <td class="category"><span id="str1"> {$filepath} </span> <span id="str2" style="display:none">
+              <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+              </span>
+              <input type=hidden name="url1" id="url1" value="{$url1}"></td>
+          </tr>
+          <tr >
+            <td width="15%" height="25" >简介<font color="#FF0000">*</font>： </td>
+            <td width="76%"  class="category"><textarea name="citychrmark" cols="70"  rows="4">{$citychrmark}</textarea></td>
+          </tr>
+          <tr >
+            <td width="15%" height="25" >详细介绍<font color="#FF0000">*</font>： </td>
+            <td width="76%"  class="category"><textarea cols="80" id="citychrcontent" name="citychrcontent" rows="10">{$citychrcontent}
+      </textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="citychrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+				afterBlur: function(){this.sync();},
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+
+</td>
+          </tr>
+          <tr  >
+            <td height="25"  align="right"></td>
+            <td class="category" align="left"><input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+
+</script>
+</body></html>

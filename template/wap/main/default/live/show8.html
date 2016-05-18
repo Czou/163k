@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$SiteName}</title>
+<meta name="keywords" content="{$chrcategory},{$bigcategory},{$SiteName}" />
+<meta name="description" content="{$chrtitle}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+{$top$}
+{$contact}		
+<div class="o_main mar_b_50">
+  <div id="slide" class="clearfix" style="display:none">
+		<div id="content">
+			{$chrpics}
+		</div>
+		<ul id="indicator"></ul>
+		<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+	</div>
+  <!--商家-->
+  <div class="b_info clearfix">
+  <span class="icon_yiguoqi" style="display:{$guoqi}">已过期</span>
+   <h3>{$chrtitle}</h3>
+   <span class="date">{$dtappenddate}</span>
+   <span class="u_name">{$chrtruename}</span>
+   <span class="type s_gr{$shuxing}">{$shuxingstr}</span>
+   <span class="count">{$views}</span>
+  </div>
+  <!--栏目-->
+  <!--是否过期 引 exp-->
+  <div class="info_entry">
+   <div class="fast_{$fastfabu}">{$showsaixuan}{$custom_div_all}</div>
+	<div class="fast_false_{$fastfabu}">
+		<p><em>区域：</em><span class="blue">{$chrquyu} {$chrdiduan}</span></p>
+		<p><em>属性：</em><span>{$shuxingstr}</span></p>
+	</div>
+   <i class="exp"></i>
+  </div>
+  <!--信息详情-->
+  <div class="info_detail">
+   <div class="title">信息详情</div>
+   <div class="con"><div class="bd" id="resizeIMG">{$chrmark}</div></div>
+   <div class="show_more" id="moreresizeIMG">展开更多</div>
+  </div>
+  <!--分享到朋友圈-->
+  <div class="share_fd" id="share_fd">
+  <div class="title">分享到</div>
+   <div style="padding-left:10px;">{$Mh163k_wap_整站通用_分享代码}</div>
+   <div class="tips"><i></i>让您提前汇款或者不见面交易的都是骗子</div>
+  </div>
+  <!--评论-->
+  <div class="user_reviews" style="padding:10px;">
+   <div class="title">网友评论<span class="ComentNum" id="show_total_revert">0</span></div>
+  	 <div class="bd">
+		<div id="showcomment">正在加载数据，请稍等......</div>
+		<div class="">
+		<p>我来说两句</p>
+		<form id="myform">
+			<div class="write2014">
+				<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+				<input type="hidden" id="isrep" value="" />
+				<input type="hidden" id="istg" value="" />
+				<input type="hidden" id="parentid" value="" />
+				<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+				<div class="cmt_control clearfix">
+					<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+					<div class="left">文明上网 礼貌发帖 仅限300字</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
+  </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#slide').find('img').eq(0).attr('src');
+if(typeof filepath1 !== 'undefined'){shareImg = nowdomain + filepath1.replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','{$chrtruename}发布，{$views}人浏览',shareImg,'{$liveurl}live_{$detailsid}.html');
+	});
+}
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$detailsid}';
+window['STYLEID'] = '5';
+
+function ShowIpAddress(val1,val2){
+	$.ajax({url:"../request.aspx?action=showip&aa="+encodeURIComponent(val1)+"&bb="+encodeURIComponent(val2),
+		success:function(tt){
+			var astr = tt.split("@");
+			if(astr.length==2){
+				if($("#chriparea")[0]) $("#chriparea").html(astr[0]);
+				if($("#chrmobilearea")[0]) $("#chrmobilearea").html(astr[1]);
+			}
+		}
+	});
+}
+(function($){
+	var c_chrtel = $('#c_chrtel');
+	var c_chrmobile = $('#c_chrmobile');
+	if(c_chrtel.val() === ''){
+		$('#n_chrtel').hide();
+	}
+	if(c_chrmobile.val() === ''){
+		$('#n_chrmobile1').hide();
+		$('#n_chrmobile2').hide();
+	}
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		$('#content').find('.cell').each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		var hei_arr = [];
+		
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+
+		$('#indicator').html(txt);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:$(window).width(),intervalTime:5000,lazyIMG:!!0});},20);
+	}
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-20,480);
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	if($('#resizeIMG').html().length > 1000){
+		$('#resizeIMG').css({'height':'300px','overflow':'hidden'});
+		$('#moreresizeIMG').click(function(){
+			$(this).hide();
+			$('#resizeIMG').css({'height':'auto','overflow':'visible'});
+		});
+	}
+})(jQuery);
+</script>
+</body>
+</html>

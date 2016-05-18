@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/tuwen2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$Default_tplPath}js/common2013.js"></script>
+</head>
+<body>
+<div class="wrapper">
+	<div class="header po_re clearfix">
+		<h1 class="po_ab"><a href="{$SiteUrl}photo/">{$lanmuname}</a></h1>
+		<div class="left"><a href="{$SiteUrl}">{$SiteName}</a> &gt; <a href="{$SiteUrl}photo/">{$lanmuname}</a> &gt; {$chrcategory}</div>
+		<div class="right login">
+			<ul class="clearfix" id="login_info"></ul><script>is_login2("{$SiteUrl}","{$Default_tplPath}",'{$Mh163k_QQ登录调用}');</script>
+		</div>
+		<div class="right upload"><a href="{$SiteUrl}member/myphoto.aspx?action=add" target="_blank">分享我的图片</a></div>
+	</div>
+	<div class="content">
+		<div class="top">
+			<div class="headline">
+				<h1>{$chrcategory}</h1>
+				<span class="date">{$dtappenddate}</span>
+			</div>
+			<div class="thumb" id="photoGallery_thumb">
+				<ul></ul>
+				<div class="fold" title="展开/收起页码"></div>
+				<div class="thumb-img-wrap thumb-img-wrap-first">
+                    <div class="thumb-img-cont"><img width="100" height="75" alt="" src="" /></div><s><i></i></s>
+                </div>
+			</div>
+			<div class="actions clearfix">
+				<div class="left bor"><a href="#" class="vieworigin">原图</a></div>
+				<div class="left bor"><a href="#showcomment" class="comment">评论 (<em>{$revert}</em>)</a></div>
+				<div class="left"><div class="share">
+							<div class="left tit">分享到：</div>
+							<div class="left" style="width:158px;">{$Mh163k_整站通用_分享代码}</div>
+						</div></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="photoarea cursor-left" id="photoGallery">
+				<ul style="display:none" class="data">
+					{$allpics}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_01">
+			<div class="hd">
+				<ul class="clearfix">
+					<li class="selected"><a href="#" id="tabadmenu_10" onMouseOver="setTimeout('Show_TabADSMenu(1,0,2)',200);">最新图文</a></li>
+					<li><a href="#" id="tabadmenu_11" onMouseOver="setTimeout('Show_TabADSMenu(1,1,2)',200);">热门图片</a></li>
+				</ul>
+			</div>
+			<div class="bd" id="aotusize">
+				<ul class="clearfix" id="tabadcontent_10" style="">
+					{$Mh163k_电子相册_最新相册}
+				</ul>
+				<ul class="clearfix" id="tabadcontent_11" style="display:none;">
+					{$Mh163k_电子相册_推荐相册}
+				</ul>
+			</div>
+		</div>
+		<div class="comment">
+					<div class="inner">
+						<div class="hd clearfix"><h6 class="left">全部评论</h6><p class="right"><em id="show_total_revert">{$revert}</em>条评论</p></div>
+						<div id="showcomment" class="picsa_cmt">正在加载数据，请稍等.....</div>
+					</div>
+					<div class="write2014">
+						<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+						<input type="hidden" id="isrep" value="" />
+						<input type="hidden" id="istg" value="" />
+						<input type="hidden" id="parentid" value="" />
+						<form id="myform">
+							<input id="chrmarkForm" name="chrmark" type="hidden" />
+							<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+							<div class="cmt_control clearfix">
+								<div class="left">
+									<div class="emot po_re">
+										<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+									</div>
+								</div>
+								<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+								<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+							</div>
+						</form>
+					</div>
+				</div>
+	</div>	
+	<div class="footer clearfix">
+		<p class="left">© <a href="{$SiteUrl}">{$SiteName}</a> 版权所有 <a href="http://www.miibeian.gov.cn/" target="_blank">{$siteip}</a>　{$sitetongji}</p>
+		<ul class="right">
+			<li><a href="#" onclick='this.style.behavior="url(#default#homepage)"; this.setHomePage("{$SiteUrl}");return false;'>设为首页</a></li><li><a href="javascript:window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">加为收藏</a></li>
+			{$Mh163k_底部导航}<li class="return_top"><a href="#top">返回顶部</a></li>
+		</ul>
+	</div>
+</div>
+<div class="end_bg" id="end_bg"></div>
+<div class="end" id="end">
+	<div class="tips">
+		<span class="tips_info">您已经浏览完所有图片</span>
+		<span class="tips_menu"><a href="#" class="replay" id="replay"><s class="s"></s>再看一遍</a><a href="{$nextone}" class="next_tj">播放下一图集</a></span>
+	</div>
+	<div class="new_tj">
+		<div class="hd">大家都在看</div>
+		<ul class="clearfix">
+			{$Mh163k_电子相册_大家都在看}
+		</ul>
+	</div>
+	<a href="#" class="close" id="close">关闭</a>
+</div>
+<script src="{$Default_tplPath}js/photo_gallery2013.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$categoryid}';
+window['STYLEID'] = '12';
+$(function() {
+	getIEVersion() && $('body').addClass('ie'+getIEVersion());
+	$('#photoGallery').photoGallery();
+	$.fn.aotusize = function(){
+		var $this = $(this);
+		function l(){
+			var w = $(window).width(),l_w = parseInt((w-20)/8,10);
+			l_w = l_w>160?l_w:160;
+			$this.find('li').css('width',l_w+'px');
+		}
+		l();
+		$(window).resize(function(){l()});
+	}
+	$('#aotusize').aotusize();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+});
+</script>
+
+</body>
+</html>

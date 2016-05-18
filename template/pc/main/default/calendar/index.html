@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}js/calendar/cal_index.css" />
+
+{$top$}
+	<div class="breadcrumb" style="text-align:left">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<div class="cal_container_wrapper"><div class="cal_container" id="cal_container" onselectstart="return false"></div></div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/json2.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/calendar/cal_main.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/calendar/calendarObj.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/calendar/workTime.js"></script>
+<script>
+
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	window.tplPath = "{$Default_tplPath}";
+	$("#cal_container").init_cal(new Date(),'cal_container');
+});
+</script>
+</body>
+</html>

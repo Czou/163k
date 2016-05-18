@@ -1,0 +1,1 @@
+var topshow=true;var Tx = 90;var Nx = 90;document.getElementById("hiddenLayer").innerHTML='<a href="http://#" target=_blank title="文字滚动广告文字滚动广告1"><img src="UploadFile/index/2009/6-20/20096202122138007.jpg" border=0 width="950" height="90"></a>';

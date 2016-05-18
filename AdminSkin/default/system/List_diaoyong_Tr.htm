@@ -1,0 +1,8 @@
+﻿        <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+    	  <td >{$NID}</td>
+    	  <td>{$title}</td><td>{$type}</td>
+     	  <td>{$chrmark}</td>
+      	  <td>{$dtappenddate}</td>
+		  <Td> <a href="?action=add&ID={$detailsid}&type={$typeen}&key={$key}">预览/编辑</a> <a href="javascript:del({$detailsid});">删除</a></Td>
+		  <td ><input name="ID" type="checkbox" id="ID" value="{$detailsid}"></td>
+       </tr>

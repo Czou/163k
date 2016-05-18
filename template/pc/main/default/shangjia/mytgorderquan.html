@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦券管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<style type="text/css">
+.color0 { color:#36c;}
+.color1 { color:#093;}
+.color9 { color:#f60;}
+.color10 { color:#999;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd">省啦券管理</div>
+					<div class="bd">
+						<div class="searcher">
+							<form name="search" method="GET" action="../request.ashx" target="_blank">
+								<input type="hidden" name="action" value="tgrecord" />
+								<input type="hidden" name="xls" value="1" id="xls" />
+								<p style="font-weight:bold; color:#333; margin-bottom:5px;">财务报表导出：</p>
+								选择兑换日期：<input type="text" name="startdate" class="Wdate sys_form_small_ipt" />&nbsp;到&nbsp;<input type="text" name="enddate" class="Wdate sys_form_small_ipt" />&nbsp;时间内已消费xsl报表(分隔符Tab)&nbsp;<button type="submit" class="sys_btn_small_green">导出</button>
+							</form>
+						</div>
+						<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+							<ul class="clearfix">
+								<li><a href="?action=ss" id="s_id_">全部</a></li>
+								<li><a href="?action=ss&xiaokill=1" id="s_id_1">已经消费</a></li>
+								<li><a href="?action=ss&xiaokill=0" id="s_id_0">未消费</a></li>
+								<li><a href="?action=ss&xiaokill=9" id="s_id_9">退款中</a></li>
+								<li><a href="?action=ss&xiaokill=10" id="s_id_10">已经退款</a></li>
+							</ul>
+						</div>
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+								<td>省啦券号</td>
+								<td>订单号</td>
+								<td>消费状态</td>
+								<td>消费时间</td>
+								<td>操作</td>
+							</tr>
+<tag:Loop ListType="LISTMYQUAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_mytgorderquan_Tr.htm" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script src="{$Default_tplPath}js/facebox.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$(function() {
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['xiaokill'] === '' || !url_obj['xiaokill']){
+		$('#s_id_').addClass('cur');
+	}else{
+		$('#s_id_'+url_obj['xiaokill']).addClass('cur');
+	}
+	
+	$('a[rel*=facebox]').facebox();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+<!--<script src="/plug_in/userxfq.aspx?action=xfqzt"></script>-->
+</body>
+</html>

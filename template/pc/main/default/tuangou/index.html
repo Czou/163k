@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$tplPath}skin/tghd.css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+<base href="{$tuangouurl}">
+</head>
+<script>loadss();sitedomainurl="{$tuangouurl}";</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<div id="content">
+		<div class="tgBanner">
+			<a href="javascript:showwytg1('');" class="link_01" title="我要发起团购">我要发起团购</a>
+			<a href="{$shopurl}join.aspx" class="link_02" title="商家加盟合作">商家加盟合作</a>
+		</div>
+		<div class="adv">{$tuangouindex}</div>
+		
+		{$moretg}
+		<div class="tghdBox">
+			<div class="hd"><h3 class="h3_02">线下火热团购活动</h3></div>
+			<div class="bd">
+				<div class="select">
+					<ul class="clearfix">
+						<li class="selected"><a href="#" id="tabadmenu_30" onMouseOver="setTimeout('Show_TabADSMenu(3,0,9)',200);">最新活动</a></li>
+						{$indextuangoucategory}
+						                   
+					</ul>
+				</div>
+				<div class="tglist1">
+					<ul class="clearfix" id="tabadcontent_30">
+						{$indextop3tuangou}
+					</ul>
+					{$indextuangou}
+				</div>
+				<div class="tglist2">
+					<ul class="clearfix">
+						{$tongleigoods}
+					</ul>
+				</div>
+			</div>
+			<div class="ft"><a href="list.html">更多</a></div>
+		</div>
+		<div class="tghdBox">
+			<div class="hd"><h3 class="h3_03">店铺 | 品牌 | 打折</h3></div>
+			<div class="bd leibZone">
+				<div class="grid_01 clearfix">
+						<div class="col_main"><div class="main_wrap">
+							<div class="hotShop">
+					<div class="hd">热门店铺排行</div>
+					<div class="bd">
+						<div id="up">
+						<div id="up1">
+						<ul class="fix">
+							{$indexkoubei}
+						</ul>
+						</div>
+						<div id="up2"></div>
+						</div>
+					</div>
+					<div class="menu">{$indexkoubeicategoryid}</div>
+					<div class="more"><a href="{$shopurl}join.aspx" target="_blank" class="ruzhu">商家入驻</a><a href="{$shopurl}" target="_blank" class="shangjia">更多商家</a></div>
+				</div>
+						</div></div>
+						<div class="col_sub">
+							<div class="news_list">
+								<div class="hd clearfix"><a href="{$SiteUrl}cuxiao/" target="_blank" class="more">更多</a>打折促销快报</div>
+								<div class="bd">
+									<ul>
+									{$indexshopcuxiao}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ppZone">
+					<div id="top">
+					<div id="top1">
+					<ul class="clearfix">
+					{$renmenpinpai}
+					</ul>
+					</div>
+					<div id="top2"></div>
+					</div>
+				</div>
+			</div>
+			<div class="ft"><a href="{$shopurl}">更多</a></div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$tplPath}js/effect_common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/ppRoll.js"></script>
+<script type="text/javascript">
+var top = new ppRoll({speed:50,demo:"top",demo1:"top1",demo2:"top2",objStr:"top",width:"950px",height:"226px",direction:"top"});
+</script>
+</body>
+</html>

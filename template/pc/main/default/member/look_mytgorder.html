@@ -1,0 +1,124 @@
+﻿<script language=javascript>
+function doPrint() { 
+
+document.body.innerHTML=document.getElementById('dayin').innerHTML;
+window.print();
+}
+</script>
+
+<style>
+*html{ padding:0px; margin:0px;}
+a{text-decoration: NONE}
+.line{border-bottom:1px dashed #999;}
+.tuan_dingdan{width:700px; height: auto; margin:0px auto; border:2px solid #CCC;}
+.tuan_dingdan .top_tuan_dingdan{margin:0px auto;width:690px; height:68px; }
+.tuan_dingdan .top_tuan_dingdan .top_tuan_dingdan_left{ float:left; margin-top:10px; margin-left:27px; width:145px; height:42px; }
+.tuan_dingdan .top_tuan_dingdan .top_tuan_dingdan_right a{ float:right; margin-right:25px; margin-top:30px; font-family:"微软雅黑"; font-size:12px; color:#FF6500; }
+.tuan_dingdan .top_tuan_dingdan .top_tuan_dingdan_right a:hover{ color:#F00}
+.tuan_dingdan .center_tuan_dingdan{margin:0px auto; width:560px; height: auto; margin-top:30px; border:1px solid #000;}
+.tuan_dingdan .center_tuan_dingdan .content1{ width:540px;margin:0px auto;   font-family:"微软雅黑"; font-size:14px; color: #000000; padding-top:20px; padding-bottom:20px; margin-left:20px;}
+.tuan_dingdan .center_tuan_dingdan .content2{width:540px; font:"微软雅黑" ; font-size:14px; color: #000000;padding-top:20px; padding-bottom:20px; margin-left:20px;}
+.tuan_dingdan .center_tuan_dingdan .content2 li{list-style-type:none;}
+.tuan_dingdan .center_tuan_dingdan .content2 span{ font:"微软雅黑" ; font-size:18px; color: #000000; line-height:30px}
+.tuan_dingdan .center_tuan_dingdan .content3{width:540px; font:"宋体" ; font-size:14px; color: #000000;padding-top:20px; padding-bottom:20px; margin-left:20px;}
+.tuan_dingdan .center_tuan_dingdan .content4{width:540px; font-family:"宋体" ; font-size:14px;color: #000000;padding-top:20px; padding-bottom:20px; margin-left:20px;}
+.tuan_dingdan .center_tuan_dingdan .content5{width:540px; font-family:"宋体" ; font-size:14px;color: #000000;padding-top:20px; padding-bottom:20px; margin-left:20px;}
+.tuan_dingdan .center_tuan_dingdan .content6{font:"微软雅黑" ; font-size:14px; color:#656565;padding-top:20px; padding-bottom:20px;margin-left:20px; line-height:25px;}
+.tuan_dingdan .foot_tuan_dingdan{  width:560px; height:74px; margin:0px auto;}
+.tuan_dingdan .foot_tuan_dingdan .foot_tuan_dingdan_print a{ float:left; margin-left:120px; margin-top:20px;width:118px; height:38px; background:url(../template/pc/default/js/facebox/dayin.gif) no-repeat;}
+.tuan_dingdan .foot_tuan_dingdan .foot_tuan_dingdan_download{ float:right; margin-right:120px;margin-top:20px;width:118px; height:38px; background:url(../template/pc/default/js/facebox/download.gif) no-repeat;}
+</style>
+<script type="text/javascript" src="/AdminSkin/default/js/jquery.js"></script>
+<script type="text/javascript" >
+//var str = $("#num").html();  
+//var str = str.replace(/(\d{4})/g,'$1 ').replace(/\s*$/,'');
+//document.getElementById("num").innerHTML=(str);
+</script>
+
+<div class="tuan_dingdan" id="dayin">
+	
+    <div class="line"></div>
+    <div class="center_tuan_dingdan">
+    	<div class="content_tuan_dingdan">
+        	<div class="content1">省啦项目：<A href="{$tgurl}tg_{$tgid$}.html" target=_blank>{$chrtitle$}</A> </div>
+<div class="line"></div>
+            <div class="content2"><strong> 省啦消费券：</strong><br /><ul id="num" ><strong>{$tgone$} </strong></ul></div>
+
+
+		  <div class="line"></div>
+            <div class="content3">
+            <table width="540" height="136" border="0">
+  <tr height="34">
+    <td width="80">订单编号：</td>
+    <td width="215">{$chrorder$}</td>
+    <td width="102" style=" word-spacing:22px;">类 型：</td>
+    <td width="125">{$styleid$}</td>
+  </tr>
+  <tr height="34">
+    <td style=" word-spacing:22px;">数 量：</td>
+    <td>{$intnum$}</td>
+    <td style=" word-spacing:22px;">状 态：</td>
+    <td>{$iskill$}</td>
+    <!--<td>总额(元)：</td>
+    <td>{$intmoney$}</td> -->
+  </tr>
+  <tr height="34">
+    <td >省啦时间：</td>
+    <td>{$dtappenddate$}</td>
+    <td>有效期至：</td>
+    <td>{$youxiao$}</td>
+  </tr>
+  <tr height="34">
+    <td>手机号码：</td>
+    <td>{$chrtel$}</td>
+    
+  </tr>
+</table>
+
+        </div>
+            <div class="line"></div>
+            <div class="content4">
+  <table width="540" height="49" border="0">
+  <tr height="34">
+    <td width="132">现金支付（元）：</td>
+    <td width="135">{$intmoney$}</td>
+    <td width="148" style=" word-spacing:22px;">{$daijinname}抵扣（元）：</td>
+    <td width="107">{$daijinnum$}</td>
+  </tr>
+  <tr height="34">
+    <td width="132"></td>
+    <td width="135"></td>
+    <td width="148" style=" word-spacing:22px; color:#cb0000; font-weight:bold">总额（元）：</td>
+    <td width="107" style="color:#cb0000; font-weight:bold">{$moneytotal$}</td>
+  </tr>
+  </table>
+            </div>
+            <div class="line"></div>
+            <div class="content5">
+             <table width="540" height="49" border="0">
+  <tr height="24">
+    <td width="80" style=" word-spacing:22px;">商 家：</td>
+    <td width="215">{$chrshop$}</td>
+    <td width="102" style=" word-spacing:22px;">电 话：</td>
+    <td width="125">{$shopchrtel$}</td>
+  </tr>
+  <tr height="24">
+    <td style=" word-spacing:22px;">地 址：</td>
+    <td>{$shopchraddress$}</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+            </div>
+             <div class="line"></div>
+            <div class="content6">提示：消费券是您到店消费的唯一消费凭证，请妥善保管，每个消费券只能消费一次。
+如有泄露，本站概不负责。</div>
+        </div>
+    </div>
+    
+    <div class="foot_tuan_dingdan">
+    	<div class="foot_tuan_dingdan_print"><a onClick="doPrint()" style="margin:20px auto 0; float:none; display:block;"></a></div>
+        
+    </div>
+</div>
+

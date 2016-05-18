@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>回帖管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+{$top$}
+<style type="text/css">
+#pagingList .display21,#pagingList .display30,#pagingList .display231,#pagingList .display330 { display:none;}
+.displaysuper { display:none;}
+.showSuper .displaysuper { display:inline-block;}
+
+.replay_tips .list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px; color:#666;}
+.replay_tips .list2 { text-align:center; padding:12px 0;}
+.replay_tips .sp_a,.replay_tips .sp_b { float:left;}
+.replay_tips .sp_a { width:100px; text-align:right;}
+.replay_tips .sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.replay_tips .name { font-weight:bold; color:#36c;}
+.replay_tips .t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px; width:80px;}
+.replay_tips .t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+.s_checkbox { vertical-align:middle; outline:none;}
+.s_select { padding:3px 4px; border:1px solid #ddd; outline:none;}
+.s_keyword { border:1px solid #ddd; padding:3px 5px; outline:none;}
+input.s_global_btn { height:26px; vertical-align:2px; outline:none;}
+#listEmpty { width:1010px;}
+.manage_replay { margin-top:10px; font-size:14px; color:#f50;}
+.manage_replay .time { color:#999; font-size:12px;}
+.replaycontent1 img { vertical-align:top; width:130px!important; height:auto!important; width:130px; height:auto;}
+.dialogImg { position:absolute; left:0; top:0; border:1px solid #ddd; background-color:#fff;}
+.dialogImg img { vertical-align:top; padding:5px;}
+.dialogImg .close {  display: block; position:absolute; right:-22px; top:-22px; width:52px; height:52px; background:url('{$Default_tplPath}images/close.png') no-repeat 0 0; overflow:hidden; text-indent:-999em;}
+</style>
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 回帖管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+				<div class="bigtitle">回帖管理</div>
+				<div class="blank10"></div>
+				<div class="ptag">
+					<table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody>
+						<tr>
+							<td style="width:160px" class="card_normal cur"><a href="javascript:void(0);" onClick="return showCatF({'p':'1','c':'0'},this)">我发布的回帖</a></td>
+							<td class="card_line"></td>
+							<td style="width:160px" class="card_normal display{$ismanager}"><a href="javascript:void(0);" onClick="return showCatF({'p':'1','c':'1'},this)" id="ismanager_c_1">需要您审核的回帖</a></td>
+							<td align="right"><form onSubmit="return checkSearch(this);"><select id="sel_d" class="s_select display{$ismanager}"><option value="1">回帖内容</option><option value="0">回帖人昵称</option></select> <input type="text" class="s_keyword" id="keyword" /> <input type="submit" class="global_btn s_global_btn" value="搜索" /></form></td>
+						</tr>
+					</tbody></table>
+				</div>
+				<div class="list">
+					<form name="form" method="post" action="?" id="form">
+					<ul id="pagingList"></ul>
+					<div style="margin-top:10px;" class="display{$ismanager}"><input type="checkbox" id="chkall" onClick="CheckAll(this.form);" /> 全选　<a href="javascript:void(0);" onClick="return iskillAllRevert('1');" class="global_btn_blue">审批通过</a> <a href="javascript:void(0);" onClick="return delAllRevert('0');" class="global_btn">清空选中</a> <a href="javascript:void(0);" onClick="return delAllRevert('2');" class="global_btn">删除选中</a> <a href="javascript:void(0);" onClick="return delAllRevert('1');" class="global_btn">删除包括后续回复</a></div>
+					<div class="pageNavigation" id="pageNavigation"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				{$usermenu}
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/commonPaging.js"></script>
+<script src="{$Default_tplPath}js/tieba.js?{$CacheHash}"></script>
+<script>
+window['STYLEID'] = '1';//回评操作时的是否可回复
+var nowdomain ="{$SiteUrl}";
+var categoryJson=[];//分类json.MSG缓存,页面最多N个sel
+var keyvalues = {"table_id":"254",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_tieba_admin_revert_list.html",
+	"strlen":"220",	
+	"titleLen":"100",
+	"isjson":"0",
+	"p":"1",
+	"_key":"",
+	"c":"{$ismanager}",
+	"d":"0",
+	"i":"{$ID}"
+};
+function checkSearch(){
+	getPagingGlobal({'p':'1','_key':$('#keyword').val(),'d':$('#sel_d').val()});
+	return false;
+}
+function showCatF(obj,node){
+	getPagingGlobal(obj,node);
+	if(obj.c === '1'){
+		$('#pagingList').parent().addClass('showSuper');
+	}
+	return false;
+}
+function CheckAll(form){
+    for (var i=0;i<form.elements.length;i++){
+        var e = form.elements[i];
+        if (e.type=="checkbox" && e.id != 'chkall') e.checked = form.chkall.checked;
+    }
+}
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	
+	if('{$ismanager}' === '1'){
+		$('#ismanager_c_1').trigger('click');
+	}else{
+		getPagingGlobal();//初始化页面	
+	}
+});
+$('#pagingList').dialogImg('img');
+</script>
+</body>
+</html>

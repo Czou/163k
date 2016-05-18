@@ -1,0 +1,18 @@
+﻿<tr><td  colspan="2">
+	 第{$num}个：
+	 </td></tr>
+	 <tr><td >
+	 标题</td><td><input type="text" name="title{$num}" size="50"  value="{$title}"  class="text" />
+	 </td></tr>
+	  <tr><td >
+	 连接</td><td><input type="text" name="chrurl{$num}" size="50"  value="{$chrurl}"  class="text" /><input type="hidden" name="styleid{$num}" value="0"  />
+	 </td></tr>
+	  <tr><td  valign="top">
+	 图片</td><td>
+	 <span id="pict{$num}">
+	 {$filepath}
+	 </span>
+	 <span  id="pict1{$num}" style="display:none">
+	 <input type="file" name="file"  class="text"  size=50>
+	 </span><input type=hidden name="urladv{$num}" value="{$filepathurl}">
+	 </td></tr>

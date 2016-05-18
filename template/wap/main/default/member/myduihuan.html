@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>兑换礼品-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '兑换礼品';
+</script>
+{$top$}
+<div class="o_main">
+<div class="myFav_tabs">
+ <ul>
+  <li class="{$style0$}">{$url0$}</li>
+  <li class="{$style1$}">{$url1$}</li>
+ </ul>
+</div>
+<div class="user_order_list">
+   <tag:Loop ListType="listmyduihuan" RecType="New" PageSize="5" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_duihuan_Tr.htm" />
+ <div class="pageNav2 pageNav3">
+	{$PageSplit}
+ </div>
+</div>
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+{$bottom$}
+<script>
+function delduihuan(id){
+    if ( confirm("该操作将不可逆！\n您确定要取消此礼品兑换订单吗？")){
+      	var url="../request.aspx?action=delduihuan&str1="+encodeURIComponent(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.ajax({url: url}).done(function(data) {
+			if(data!=1){
+				alert(data);	
+			}else{
+				alert("礼品兑换订单取消成功！");
+				window.location.reload();
+			}
+		});
+    }
+}
+function showwybaoming(val){
+	var heightV = 390;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var martop = Math.ceil(($(window).height()-heightV)/2 + $(document).scrollTop());
+	inner_iframe.css({'top':martop+'px'});
+	
+	mask.show();
+	inner_iframe.show();
+	var myiframe = '<iframe src="myduihuan.aspx?action=look&ID='+val+'" scrolling="no" frameBorder="0" width="100%" height="'+heightV+'"></iframe>';
+	inner_iframe[0].innerHTML=myiframe;
+	mask.click(function(){LoginHide();});
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+</script>
+</body>
+</html>

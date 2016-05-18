@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$tplPath}skin/_shop.css" type="text/css" rel="stylesheet" />
+<link href="{$tplPath}skin/history.css" rel="stylesheet" type="text/css" />
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/clock.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<!-- 主体 -->
+	<div id="content">
+	<div id="wrap">
+ <div class="container" id="main">
+    <div class="tbox">
+      <div class="c_pic">
+		<div class="date_inner">
+			<span class="year">{$year}</span>
+			<span class="month">{$month1}</span>
+			<span class="day">{$days}</span>
+			<span class="weekday">{$weeks}</span>
+			<span class="other"><script type="text/javascript">showhistory({$year},{$month2},{$days});</script></span>
+		</div>
+	  </div>
+      <div class="cbox" id="catalog">
+        <h3>目录</h3>
+        <ul>
+        {$catalog}
+        </ul>
+      </div>
+      <div class="cbox" id="calendar">
+        <h3>日历</h3>
+        <div class="prompt">
+          <div class="pr"></div>
+          <div class="pm"><span class="ipic"></span>{$tips}<span class="arrow"></span></div>
+          <div class="pl"></div>
+        </div>
+        <div id="month">
+          {$month}
+          <div class="bot">
+            {$prev_next}
+          </div>
+        </div>
+        <div id="day">
+         {$day}
+        </div>
+      </div>
+    </div>
+
+   {$econtent}
+  </div>
+
+</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</div>
+</body>
+</html>

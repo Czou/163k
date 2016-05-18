@@ -1,0 +1,75 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;采集管理</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center">   <a href="Admin_Collect.aspx">采集管理首页</a> | <a href="Admin_Collect.aspx?Action=Add">采集添加</a> | <a href="Admin_Inflow.aspx">采集入库</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table align="center" cellpadding="4" cellspacing="1" class="toptable grid" border=1>
+  <form name="form" action="Admin_Collect.aspx?Action=AddSever" method="post">
+    <tbody>
+      <tr>
+        <td colspan=2 background="{$atplPath}Images/r_0.gif">采集测试效果</td>
+      </tr>
+      <tr>
+        <td width="21%" height=31 align="right" >文章标题：</td>
+        <td height=31 align="left" class="category">{$chrtitle}</td>
+      </tr>
+	 <tr>
+        <td height=32 align="right" >文章缩略图：</td>
+        <td height=7 align="left" class="category">{$pic}</td>
+      </tr>
+      <tr>
+        <td height=32 align="right" >文章作者：</td>
+        <td height=7 align="left" class="category">{$name}</td>
+      </tr>
+      <tr>
+        <td height=32 align="right" >文章来源：</td>
+        <td height=32 align="left" class="category">{$tupian}</td>
+      </tr>
+	<tr>
+        <td height=32 align="right" >文章关键字：</td>
+        <td height=32 align="left" class="category">{$keyword}</td>
+      </tr>
+      <tr>
+        <td height=32 align="right" >文章内容：</td>
+        <td height=7 align="left" class="category">{$content}</td>
+      </tr>
+	  
+      <tr>
+        <td height=32 colspan="2" align="center" ><input name="button"  type="button" id="button" onClick="window.location.href='javascript:history.go(-1)'" value="上一步">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="Submit" type="submit" id="Submit" value="完 成"></td>
+      </tr>
+    </tbody>
+  </form>
+</table>
+
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+</body></html>

@@ -1,0 +1,159 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delaa(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+  document.getElementById("form").action="xuanshou.aspx?action=delaa"
+	if ( confirm("该操作将不可逆！\n您确定要未通过所有选中的选手信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+function delAll(o,str,astr)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	if ( confirm("该操作将不可逆！\n您确定要"+astr+"所有选中的选手信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+	}
+}	
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "xuanshou.aspx?action=del&ID=" + id
+        }
+}
+function examAll(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	document.getElementById("form").action="xuanshou.aspx?action=exam"
+	if ( confirm("该操作将不可逆！\n您确定要审批所有选中的选手信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<span class="blank">参赛选手管理：</span>共有选手<span class="STYLE11">{$total$}</span><span class="blank">,</span><A href="?colname=1"><span class="redzhong STYLE11">正常参赛</span></a><span class="blank">：{$num2$}</span> <A href="?colname=0"><span class="redzhong STYLE11">待审</span></a><span class="blank">：{$num1$}</span>  </td>
+	  <td align="right">&nbsp;<a href="xuanshou.aspx?action=add" class="global_btn_blue">添加选手信息</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按用户名或姓名查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+		按活动查询：{$voteid} 
+		按状态查询：<input type="radio" name="Colname" value="" {$Colname}>全部 <input type="radio" name="Colname" value="1" {$Colname1}>正常  <input type="radio" name="Colname" value="0" {$Colname0}>待审 
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" >会员名</td>
+     		<td class="category" >选手编号</td>
+      		<td class="category" >选手姓名</td>
+  		<td class="category" >参赛活动</td>
+   		<td class="category" >加入时间</td>
+  		<td class="category" >票数</td>
+   		<td class="category" >状态</td>
+ 		<td width="80" class="category">操作</td>
+          	<td width="53"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+          </tr>
+		  <tag:Loop ListType="LISTxuanshou" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="vote/list_index_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=18>
+		  <a href="javascript:examAll(this);;">正常参赛(审核通过)</a> <a href="javascript:delAll(this,1,'删除');">删除选中</a>&nbsp; <a href="javascript:delAll(this,2,'暂停投票');">暂停投票</a>&nbsp; <a href="javascript:delAll(this,3,'正常投票');">正常投票</a>
+		  <input type="hidden" name="styleid" id="styleid" value="1">
+		  </td></tr>
+		  </form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+		{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

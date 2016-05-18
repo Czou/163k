@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布信息--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_fabu.css" type="text/css" rel="stylesheet" />
+
+{$top$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$liveurl}">{$lanmuname}</a> &gt; 发布信息</div>
+  <!-- 主体 -->
+  <div id="content">
+    <div class="thd clearfix"  ><b>发布步骤：</b><span class="current">1.选择分类</span><span>2.填写内容</span><span>3.发布完成</span></div>
+    <div class="fbd">
+      <div class="tips"> 1、只允许发布<b class="red_skin">{$city}</b>本地相关信息<br />
+        2、请不要肆意发布垃圾信息、虚假信息、重复信息<br />
+        3、所有信息发布必须严格遵守中华人民共和国所有法律法规及本地、本行业相关规定，严禁发布带有任何违法或违规色彩的信息<br />
+        4、信息发布者必须自行对信息的有效性、真实性承担一切责任 
+		<div class="po">
+			<p>专业频道发布入口</p>
+			<a href="{$SiteUrl}member/myzhiwei.aspx?action=add" target="_blank" class="link">招聘信息</a>
+			<a href="{$SiteUrl}member/manage_chuzhu.aspx?action=add" target="_blank" class="link link_green">出租房/二手房</a>
+		</div>
+	</div>
+      <div class="info">
+        <ul class="clearfix">
+          {$details}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var isFabuKill="{$IsFabuKill}";
+if(isFabuKill === '0'){
+	MSGwindowShow('shopping','1','对不起，您需要登录后才能发布信息！',siteUrl+'member/login.html?from='+encodeURIComponent('{$liveurl}fabu.html'),'');
+}
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

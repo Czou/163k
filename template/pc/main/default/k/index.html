@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonIndex.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<style type="text/css">
+#listEmpty { width:1196px;}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_快送_头部}
+	<div class="content">
+		<div class="index_banner_wrapper"><div class="index_banner">
+			<p class="line"></p>
+			<div class="w-1200 po_re">
+				<a href="javascript:void(0);" class="mobile_view">手机访问</a>
+				<a href="/member/myorder.aspx?action=myshoppay" class="buy_car">购物车</a>
+				<a href="/member/my_good_shop.aspx" class="ruzhu"><img src="{$Default_tplPath}images/kuaison_ruzhu_ico.png" alt="" /></a>
+			</div>
+		</div></div>
+		<div class="index_banner_bottom">
+			<div class="steps clearfix">
+				<span class="sp_1">1.查找身边便利店、餐厅</span><span class="sp_2">2. 网上或手机下单，商家快速配送</span><span class="sp_3">3. 最快20分钟送达，货到付款！</span>
+			</div>
+		</div>
+		<div class="w-1198">
+			<div class="filter" id="filter">
+				<div class="line line1">
+					<span class="sp">分类</span>{$classbiglist}
+					<div class="small display{$f}">
+					{$classlist}
+					</div>
+				</div>
+				<div class="line line2">
+					<span class="sp">位置</span>{$areabiglist}
+					<div class="small display{$a}">
+					{$arealist}
+					</div>
+				</div>
+			</div>
+			<div class="sort clearfix">
+				<div class="inner">
+					<ul>
+						<li id="sort_c0"><a href="../kd_a{$a}_b{$b}_c0_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter" onClick="return getPagingGlobal({'c':'0','p':'1'},this);">附近的快店</a></li>
+						
+						<li id="sort_c2" class="p"><a href="../kd_a{$a}_b{$b}_c2_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter" onClick="return getPagingGlobal({'c':'2','p':'1'},this);">推荐的快店<s class="s jiang"></s></a></li>
+					</ul>
+				</div>
+				<div class="business" id="business">
+					<ul>
+						<li id="business_d{$d}"><a href="../kd_a{$a}_b{$b}_c{$c}_d1_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter" onClick="return showCatDE({'d':'1','p':'1'},this);">营业中</a></li>
+						<li id="business_e{$e}"><a href="../kd_a{$a}_b{$b}_c{$c}_d{$d}_e1_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter" onClick="return showCatDE({'e':'1','p':'1'},this);">免配送费</a></li>
+					</ul>
+				</div>
+				<div class="search">
+					<form action="../k_good_a0_b0_c0_d0_e0_f0_g0_p1.html" target="_blank" method="get" id="myform">
+						<p class="left">
+							<select style="display: none;" id="mySle">
+								<option selected="selected" value="2">商品</option>
+								<option value="1">快店</option>
+							</select>
+						</p>
+						<p class="left">
+							<input class="s_ipt" id="meSleKey" type="text" name="_key" data-value="{$key}" onFocus="if(this.value=='输入您要找的美食、商品关键词'){this.value='';this.style.color='#333'}" value="输入您要找的美食、商品关键词" style="color:#aaa;" /><button type="submit" class="s_btn">搜索</button>
+						</p>
+					</form>
+				</div>
+			</div>
+			<div class="list" id="goodshopList">
+				<ul class="clearfix"  id="pagingList">
+						<Paging:{
+	"table_id":24,	
+	"pagesize":20,		
+	"strlen":100,	
+	"titlelen":80,
+	"tplpath":"k",	
+	"tplname":"paging_k_index_list.html",	
+	"isjson":0 	
+	}
+	/>
+	<script>
+	var keyvalues = {"table_id":24,
+	"pagesize":20,
+	"tplpath":"k",
+	"tplname":"paging_k_index_list.html", //原k/listproducts.htm复制得来
+	"strlen":100,	
+	"titleLen":80,
+	"isjson":0,
+	"p":"{$PageNo}",
+	"_key":"{$_key}",
+	"a":"{$a}",////kd_a(区大)_b(区小)_c排序(1新2推荐3排序)_d(1营业中,2可预订)_e(1免费配送)_f店类大_g店类小_h0_i0_p().html?_key={$_key}
+	"b":"{$b}",//
+	"c":"{$c}",
+	"d":"{$d}",
+	"e":"{$e}",//
+	"g":"{$g}",//
+	"h":"{$h}",//
+	"i":"{$i}",//
+	"x":"",//用户坐标x
+	"y":""//用户坐标y
+};</script>
+</ul>
+<div class="sys_more pageNavigation" id="pageNavigation">{$PageSplit}</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+	{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js?1045"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script>
+var nowdomain ="{$SiteUrl}";
+window['Default_tplPath'] = '{$Default_tplPath}';
+(function($){
+	$('#mySle').selectbox();
+	$('#mySle').change(function(){
+		var myform = $('#myform');
+		var val = $(this).val();
+		if(val === '1'){
+			myform.attr({'action':'?','target':'_self'});
+		}else{
+			myform.attr({'action':'../k_good_a0_b0_c0_d0_e0_f0_g0_p1.html','target':'_blank'});
+		}
+		$('#meSleKey').val('').focus();
+	});
+	getkill();
+	$.fn.showMore = function(c_name){
+		var t = $(this);
+		t.hover(function(){
+			t.toggleClass(c_name);
+		});
+	}
+	//$('#business').showMore('open');
+	$.returnTop();
+	$('#sort_c{$c}').addClass('cur');
+	if($('#business_d1')[0]){
+		$('#business_d1').addClass('cur').find('a').attr({'href':'../kd_a{$a}_b{$b}_c{$c}_d0_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter','onClick':'return showCatDE({\'d\':\'0\',\'p\':\'1\'},this);'});
+	}
+	if($('#business_e1')[0]){
+		$('#business_e1').addClass('cur').find('a').attr({'href':'../kd_a{$a}_b{$b}_c{$c}_d{$d}_e0_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}#filter','onClick':'return showCatDE({\'e\':\'0\',\'p\':\'1\'},this);'});
+	}
+	if($('#listEmpty')[0]){
+		$('#listEmpty').html('抱歉，没有找到符合条件的店家');
+	}
+})(jQuery);
+function showCatDE(obj,node){
+	getPagingGlobal(obj);
+	if(typeof obj.d !== 'undefined'){
+		obj.d === '0'?($(node).attr({'onClick':'return showCatDE({\'d\':\'1\'},this)'}),$(node).parent().removeClass('cur')):($(node).attr({'onClick':'return showCatDE({\'d\':\'0\'},this)'}),$(node).parent().addClass('cur'));
+	}else{
+		obj.e === '0'?($(node).attr({'onClick':'return showCatDE({\'e\':\'1\'},this)'}),$(node).parent().removeClass('cur')):($(node).attr({'onClick':'return showCatDE({\'e\':\'0\'},this)'}),$(node).parent().addClass('cur'));
+	}
+	return false;
+}
+function getPagingGlobal(obj,node){
+	keyvalues["p"]='1';
+	keyvalues = $.extend({},keyvalues,obj);
+	get_data_paging(callback);
+	function callback(data){
+		if(data[0].islogin !== '1'){MSGwindowShow('revert','0',data[0].error,'','');return;}
+		$('#pagingList').html(data[0].MSG);
+		$('#pageNavigation').html(data[0].PageSplit);
+		getkill();
+	}
+	if(typeof node !== 'undefined'){
+		$(node).parent().siblings('.cur').removeClass('cur');
+		$(node).parent().addClass('cur');
+	}
+	return false;
+}
+function getkill(){
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	
+	$('#goodshopList').find('.item').each(function(){
+		var state_node = $(this).find('.state'),
+			isopen = $(this).attr('data-isopen'),
+			shipkill = $(this).attr('data-shipkill'),
+			startkill = $(this).attr('data-startkill'),
+			start2kill = $(this).attr('data-start2kill'),
+			startdate = $(this).attr('data-startdate'),
+			enddate = $(this).attr('data-enddate'),
+			startdate2 = $(this).attr('data-startdate2'),
+			enddate2 = $(this).attr('data-enddate2');
+		
+		
+		
+		if(isopen === '2'){
+			state_node.addClass('state_2').html('暂停营业');
+			return;
+		}
+		var thestartdate = Date.parse(today + startdate + ':00');
+		var theenddate = Date.parse(today + enddate + ':00');
+		var thestartdate2 = Date.parse(today + startdate2 + ':00');
+		var theenddate2 = Date.parse(today + enddate2 + ':00');
+		
+		if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+			showkill(!0);
+		}else{
+			showkill(!1);
+		}
+		function showkill(allow){
+			if(!!allow){
+				state_node.addClass('state_1').html('营业中');
+			}else{
+				shipkill === '0'?(state_node.addClass('state_3').html('打烊了')):(state_node.addClass('state_2').html('打烊了'));
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

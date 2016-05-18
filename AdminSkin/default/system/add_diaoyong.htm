@@ -1,0 +1,70 @@
+﻿<style>
+.extcredits{ margin:-5px 0 10px; }
+.extcredits a{ margin-right:5px; padding:2px 5px; line-height:220%; border:1px solid #B6CFD9; background:#FFF; white-space:nowrap; }
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">添加外部数据调用&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" value="返回至调用列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+
+  <form name="form1" method="post" action="?action=addSave" onsubmit="return checkaddsave(this)">
+  <tr><td colspan="2" class="category">
+  {$show}
+  {$details}
+  </td></tr>
+    <tr > 
+      <td width="15%" height="25">模块名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="title" type="text" size="30"  value="{$title}">(请输入一个便于记忆的能代表此数据调用模块作用的名称)</td>
+    </tr>
+	 <tr > 
+      <td height="25">描述： 
+      </td>
+      <td class="category"> <input name="chrmark" type="test" size="60"  value="{$chrmark}">(对当前数据调用的简短描述)</td>
+    </tr>
+	 <tr > 
+      <td height="25">显示数据条数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="number" type="test" value="{$number}" size="6" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> (设置一次显示的主题条目数，请设置为大于 0 的整数)</td>
+    </tr>
+	<tr > 
+      <td height="25">标题最大字节数:<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="titlelen" type="test" value="{$titlelen}" size="6"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> (设置所代表的主题简短内容的字节数，0 为使用默认值 255)</td>
+    </tr>
+	 <tr > 
+      <td height="25">前缀图标： 
+      </td>
+      <td class="category"> <input name="titleico" value="{$titleico}" type="test" size="40" >(输入图片的 URL (绝对或相对)地址即可，留空为不显示前缀图标)</td>
+    </tr>
+    <tr  > <td></td>
+      <td height="25"  class="category"><input type="hidden" name="gotourl" value="{$gotourl}" />
+	  <input type="hidden" name="key" value="{$key}" /><input type="hidden" name="diaoyong" value="0" />
+	  <input type="hidden" name="type" value="{$type}" /><input type="hidden" name="ID" value="{$ID}" /><input type="submit" name="Submit1" value="预览" onclick="this.form.diaoyong.value='1';"> &nbsp; 
+		<input type="submit" name="Submit" value="确定提交"> &nbsp; 
+        <input name="Reset" type="reset" id="Reset" value="取消重写"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

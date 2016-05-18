@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>留言建议-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_guestbook.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 留言建议</div>
+	<!-- 主体 -->
+	<div id="content">
+		<div class="user_comment">
+					<div class="hd clearfix"><p class="right"><em id="show_total_revert">0</em>条评论</p>留言建议</div>
+					<div class="bd comment">
+						<div id="showcomment"></div>
+						
+						<div class="write2014">
+							<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+							<input type="hidden" id="isrep" value="" />
+							<input type="hidden" id="istg" value="" />
+							<input type="hidden" id="parentid" value="" />
+							<form id="myform">
+								<input id="chrmarkForm" name="chrmark" type="hidden" />
+								<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+								<div class="cmt_control clearfix">
+									<div class="left">
+										<div class="emot po_re">
+											<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+										</div>
+									</div>
+									<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+									<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+								</div>
+							</form>
+						</div>
+						<p class="shengming">声明：相关评论纯属个人观点和网友自行上传，并不代表本站立场。如发现有违法信息或侵权行为，请留言或直接与本站管理员联系，我们将在收到您的信息后24小时内作出删除处理。</p>
+					</div>
+				</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '0';
+window['STYLEID'] = '0';
+window['TPLNUM'] = '0';
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+});
+</script>
+
+
+
+
+</body>
+</html>

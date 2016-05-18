@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>出租房房源-{$House_ZhongjieTruename}的店铺-经纪人-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_zj.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">{$lanmuname}</a> <a href="{$fcurl}zhongjie.html">经纪人</a> <a href="shop_{$House_ZhongjieManid}.html">{$House_ZhongjieTruename}的店铺</a> <span class="cur_tit">出租房房源</span>
+   </div> 
+   <div class="zj_name" style="background:url({$House_ZhongjieTonglangfilepath}) no-repeat 0 0;">{$House_ZhongjieTonglang}</div>
+   <div class="clearfix">
+   <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="{$jingjirenurl}">店铺首页</a></li>
+        <li><a href="shop_shou{$House_ZhongjieManid}.html">二手房</a></li>
+        <li class="current"><a href="shop_zhu{$House_ZhongjieManid}.html">出租房</a></li>
+        {$genrenlist}
+      </ul>
+     </div>
+     <div class="fr clearfix">
+       <ul>
+        <li>        
+         <span class="fl">排序</span>
+         <div class="selects sort" id="selects_1">
+           <dl>
+             <dt class="txt" id="paixu_txt">发布时间</dt>
+           </dl>
+           <div class="po">
+            <ul>
+              <li><a href="?price={$House_Searhprice}&zz={$House_Searchzz}&lei={$House_Searchlei}&mySle0=0" id="paixu_val_0">发布时间</a></li>
+              <li><a href="?price={$House_Searhprice}&zz={$House_Searchzz}&lei={$House_Searchlei}&mySle0=1" id="paixu_val_1">价格高到低</a></li>
+              <li><a href="?price={$House_Searhprice}&zz={$House_Searchzz}&lei={$House_Searchlei}&mySle0=2" id="paixu_val_2">价格低到高</a></li>
+              <li><a href="?price={$House_Searhprice}&zz={$House_Searchzz}&lei={$House_Searchlei}&mySle0=3" id="paixu_val_3">面积大到小</a></li>
+              <li><a href="?price={$House_Searhprice}&zz={$House_Searchzz}&lei={$House_Searchlei}&mySle0=4" id="paixu_val_4">面积小到大</a></li>
+            </ul>
+           </div>
+           <div class="ico"></div>
+           </div>
+        </li>
+       </ul> 
+     </div>
+   </div>
+   <div class="select_box">
+    <dl>
+     <dt>租金：</dt>
+     <dd>{$House_Xuqiuprice}</dd> 
+    </dl>
+    <dl>
+      <dt>户型：</dt>
+      <dd><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}" class="{$House_SearchleiCss}">不限</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=1" class="{$House_SearchleiCss1}">一室</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=2" class="{$House_SearchleiCss2}">二室</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=3" class="{$House_SearchleiCss3}">三室</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=4" class="{$House_SearchleiCss4}">四室</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=5" class="{$House_SearchleiCss5}">五室</a><a href="?price={$House_Searhprice}&mySle0={$House_SearchmySle0}&zz={$House_Searchzz}&lei=6" class="{$House_SearchleiCss6}">五室以上 </a>
+      </dd>
+    </dl>
+    <dl>
+      <dt>装修：</dt>
+      <dd>{$House_Xuqiuzhuangxiu}</dd>
+    </dl>
+   <div class="count">共有出租房源{$House_total}套</div> 
+  </div>
+   <!--列表-->
+   <div class="list">
+     <ul>
+       <tag:Loop ListType="listshopshoulist" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_shopzhu_tr.html" />
+     </ul>
+   </div>
+   <div class="fc_pageNavigation">{$PageSplit}　每页显示15条</div>
+  </div>
+   <!--经纪人信息-->
+   <div class="jjr_info">
+    {$House_ZhongjieXinxi}
+   </div>
+   </div>
+   {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+    $('#fc_home').removeClass('select');
+	$('#fc_zjie').addClass('select');
+	$('#selects_1').sel_filter();
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(!!url_obj['mySle0'] && url_obj['mySle0'] !== ''){
+		$('#paixu_txt').html($('#paixu_val_'+url_obj['mySle0']).html());
+	}
+	
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我要投票-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+</head>
+<body>
+<div class="register-form">
+	<form name="form1" method="post" action="?" style="margin:0" onSubmit="return toupiao(document.form1.code.value,'{$voteid}','{$detailsid}','{$chrname}',document.form1.chrname.value,document.form1.chrtel.value);return false;">
+		
+		<p class="box"><span class="form_label">姓名：</span><span class="form_control"><input type="text" name="chrname" id="chrname" value="" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">电话：</span><span class="form_control"><input type="text" name="chrtel" id="chrtel" value="" class="codebox2-input" /></span></p>
+		<p class="box po_re"><span class="form_label">验证码：</span><span class="form_control"><input type="text" class="codebox2-input" name="code" id="code" /><span class="yzm po_ab" style="top:6px;"><img src="" id="vadimg" onClick="this.src='../getcode.html?'+(new Date().getTime());" style="cursor:hand;" alt="看不清楚请刷新"/></span></span></p>
+			<script>document.form1.vadimg.src='../getcode.html?'+(new Date().getTime());</script>
+		
+		
+		
+		<p style="text-align:center;"><input class="comn-submit" type="submit" value="投票" />　<input class="comn-submit gray" onClick="parent.LoginHide();" type="button" value="取消" /></p>
+	</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js"></script>
+<script>
+function toupiao(dd,aa,bb,cc,name,tel){
+	var url="../request.aspx?action=toupiao&voteid="+aa+"&code="+encodeURIComponent(dd)+"&xuanshouid="+encodeURIComponent(bb)+"&name="+encodeURIComponent(name)+"&tel="+encodeURIComponent(tel);
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	
+	$.ajax({url:url}).done(function(msg){
+		if(msg=="1"){
+			alert("投票成功！感谢您对“"+cc+"”的支持！");
+				var aa=parseInt(parent.window.document.getElementById("vote"+bb).innerHTML);
+				parent.window.document.getElementById("vote"+bb).innerHTML= aa+1; 
+				parent.LoginHide();
+		}
+		else{
+			alert(msg);	
+		}
+	});	
+	return false;
+}
+
+
+
+
+</script>
+</body>
+</html>
+

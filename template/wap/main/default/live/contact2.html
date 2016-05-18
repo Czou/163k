@@ -1,0 +1,17 @@
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>{$chrname}</h4>
+  <p>{$chrmobile}-<span id="chrmobilearea">查询中...</span></p>
+ </div>
+ <div class="email"><a href="sms:{$chrmobile}">{$chrmobile}</a></div>
+ <div class="phone"><a href="tel:{$chrmobile}">{$chrmobile}</a></div>
+</div>
+<input type="hidden" id="c_chrtel" value="{$chrtel}" />
+<input type="hidden" id="c_chrmobile" value="{$chrmobile}" />
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+	setTimeout(function(){
+		ShowIpAddress('{$chrmobile}','{$chrip1}');
+	},100);
+}, false);
+</script>

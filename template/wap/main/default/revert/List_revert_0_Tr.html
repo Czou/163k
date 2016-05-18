@@ -1,0 +1,10 @@
+﻿			<div class="comment_item">
+				<div class="comment_face"><img src="{$chrpic}" alt="" /></div>
+				<div class="comment_box">
+					<div class="comment_user clearfix"><span class="right">{$dtappenddate}</span> [{$PNum}楼] <span class="userName">{$chrname}</span></div>
+					{$repsmall}
+					<p class="comment_content">{$chrmark}</p>
+					<div class="comment_vote"><a href="#" onclick="return putRevertPage(this,'{$revertid}','isyes=1');" class="edit_btn">支持(<em class="num">{$number1}</em>)</a>　<a href="#" onclick="return putRevertPage(this,'{$revertid}','isyes=2');" class="edit_btn">反对(<em class="num">{$number2}</em>)</a></div>
+					<p class="manage_replay display{$isrep}" data-isrep="{$isrep}">网站回复：{$replaycontent}　<span class="time">{$replaydate}</span></p>
+				</div>
+			</div>

@@ -1,0 +1,62 @@
+@charset "utf-8";
+.photoAlbum .cat_nav .hd,.photoAlbum .cat_nav .bd .cur .s,.photoAlbum .photo_list .hd,.photoAlbum .photo_list .tab li .s,.photoAlbum .photo_list .btn .updata,.photoAlbum .photo_list .btn .create,.photoAlbum .photo_list .bd .item .img { background:url(../images/photoalbum.png) no-repeat 0 0;}
+
+.col_main { float:left; width:100%;}
+.col_sub,.col_extra { float:left;}
+
+.grid_01 .main_wrap { margin-left:149px;}
+.grid_01 .col_sub { width:139px; margin-left:-100%;}
+
+.photoAlbum { margin-top:8px;}
+.photoAlbum .cat_nav {}
+.photoAlbum .cat_nav .hd { height:40px; background-position:0 0; font:0pt/1000px Arial; overflow:hidden;}
+.photoAlbum .cat_nav .bd { border:1px solid #ececec; background-color:#f4f4f4;}
+.photoAlbum .cat_nav .bd .item { vertical-align:top; text-align:left; padding:10px 0 10px 22px; height:16px; overflow:hidden; position:relative; z-index:2; *zoom:1; border-bottom:1px solid #ededed; font:bold 14px/16px Arial;}
+.photoAlbum .cat_nav .bd .item a { color:#555;}
+.photoAlbum .cat_nav .bd .cur a { color:#f60;}
+.photoAlbum .cat_nav .bd .item .s { display:none;}
+.photoAlbum .cat_nav .bd .cur .s { display:block; width:4px; height:7px; background-position:-140px 0; overflow:hidden; position:absolute; top:15px; right:12px;}
+.photoAlbum .photo_list .hd { position:relative; z-index:2; *zoom:1; border:1px solid #f4f4f4; border-bottom:0; background-position:0 -182px; background-repeat:repeat-x; height:31px; padding:8px 0 0 8px;}
+.photoAlbum .photo_list .tab {}
+.photoAlbum .photo_list .tab li { height:30px; padding:0 12px; float:left; display:inline; margin-right:8px; position:relative; z-index:2; *zoom:1; font:bold 14px/30px simsun;}
+.photoAlbum .photo_list .tab li .s { display:none;}
+.photoAlbum .photo_list .tab .select { border:1px solid #1e5d89; border-bottom:0 none; background-color:#fff;}
+.photoAlbum .photo_list .tab .select .s { display:block; position:absolute; overflow:hidden; top:-1px; width:4px; height:30px;}
+.photoAlbum .photo_list .tab .select .s_l { left:-1px; background-position:-144px 0;}
+.photoAlbum .photo_list .tab .select .s_r { right:-1px; background-position:-149px 0;}
+.photoAlbum .photo_list .tab a { color:#275586;}
+.photoAlbum .photo_list .btn { position:absolute; top:5px; right:4px;}
+.photoAlbum .photo_list .btn .updata,.photoAlbum .photo_list .btn .create { display:inline-block; *display:inline; *zoom:1; width:100px; height:28px; font:0pt/1000px Arial; overflow:hidden;}
+.photoAlbum .photo_list .btn .updata { margin-right:6px; background-position:0 -40px;}
+.photoAlbum .photo_list .btn .create { background-position:-101px -40px;}
+.photoAlbum .photo_list .bd { padding-top:10px}
+.photoAlbum .photo_list .bd .item { float:left; width:155px; display:inline; margin:5px 0px 10px 5px; text-align:left;}
+.photoAlbum .photo_list .bd .item .img { background-position:0 -68px; height:107px; overflow:hidden; padding:8px 0 0 8px;}
+.photoAlbum .photo_list .bd .item .img img { display:block; vertical-align:top; width:132px; height:92px;}
+.photoAlbum .photo_list .bd .item p { line-height:20px; height:20px; overflow:hidden;}
+.photoAlbum .photo_list .bd .item .em { color:#999;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑帖子-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tieba-mb.css" rel="stylesheet" />
+{$top$}
+<script>
+window['ipageTitleTxt'] = '编辑帖子';
+</script>
+<style type="text/css">
+#bigcategoryid,#categoryid { display:block; width:100%; outline:0; padding:7px; -webkit-appearance:none; border:0 none; border-top:1px solid #dee0e0;}
+</style>
+<div class="p_main">
+	<form method="post" action="addedit.aspx?action=editsave" target="tijiao" enctype="multipart/form-data" onSubmit="return checkmyfabu();">
+		<input type="hidden" name="id" value="{$id}" />
+		<input type="hidden" data-title="远程图片本地化" value="1" name="issavehttpimg" />
+		<input type="hidden" value="tieba" name="table_id" />
+		<input type="hidden" value="" name="state" id="state2" />
+		<input type="hidden" value="900" name="filewidth" />
+		<input type="hidden" value="0" name="filehight" />
+		<input type="hidden" value="0" name="smallfilewidth1" />
+		<input type="hidden" value="90" name="smallfileheight1" />
+		<input type="hidden" data-title="标题颜色" class="textInt" size="7" name="color" value="{$color}" />
+		<div class="catNode"><label id="cat_1"></label><label id="cat_2" class="display{$iscategoryid}"></label>{$categoryid$}</div>
+		<div class="fill_title"><input type="text" name="title" maxlength="50" id="fabu_title" value="{$title}" placeholder="标题(必填)" /></div>
+		
+		
+
+		<div class="fill_content">
+			<textarea name="chrcontent" id="chrcontent" style="display:none;"></textarea>
+			<div class="cmt_txt" id="txtReplay" contenteditable="true" placeholder="内容(必填)">{$chrcontent}</div>
+
+			<div class="insert_btn" id="tabADS01">
+				<ul class="tab-hd">
+					<li class="item iPic">插入图片</li>
+					<li class="item iHead" style="display:none">插入头像</li>
+				</ul>
+				<div class="imgcon tab-cont">
+					<!--<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=1&table_id=tieba&type=0"></iframe>-->
+					<div id="xiangce" class="my_prop_imgitem_node clearfix">
+						<div class="upimgFileBtnNode"><div id="pageLoaderNode"><span id="pageLoader">loadding</span></div><img src="{$Default_tplPath}images/upimg.png" id="upimgFileBtn" class="upimgFileBtn imgview" alt="" /></div>
+					</div>
+					<input type="hidden" id="urlhidden" value="" />
+				</div>
+				<div class="imgcon tab-cont" style="display:none;"><img src="{$Default_tplPath}images/p/biaoqing.jpg" style="vertical-align:top; margin:0 auto;" /></div>
+			</div>
+			
+		</div>
+		<ul class="fill_form display{$ismanager}">
+			<li><span class="span_1">审核状态：</span><span class="span_2"><input type="radio" name="iskill" value="0" {$iskill_c_0} /> 否　<input type="radio" name="iskill" value="1" {$iskill_c_1} /> 是</span></li>
+			<li><span class="span_1">允许回复：</span><span class="span_2"><input type="radio" name="isrevert" value="0" {$isrevert_c_0} /> 否　<input type="radio" name="isrevert" value="1" {$isrevert_c_1} /> 是</span></li>
+			<li><span class="span_1">是否精华：</span><span class="span_2"><input type="radio" name="isjinghua" value="0" {$isjinghua_c_0} /> 否　<input type="radio" name="isjinghua" value="1" {$isjinghua_c_1} /> 是</span></li>
+			<li><span class="span_1">是否置顶：</span><span class="span_2"><input type="radio" name="iszhiding" value="0" {$iszhiding_c_0} /> 否　<input type="radio" name="iszhiding" value="1" {$iszhiding_c_1} /> 是</span></li>
+			<li><span class="span_1">首页推荐：</span><span class="span_2"><input type="radio" name="isindex" value="0" {$isindex_c_0} /> 否　<input type="radio" name="isindex" value="1" {$isindex_c_1} /> 是</span></li>
+			<li><span class="span_1">排序值：</span><span class="span_2"><input type="text" class="textInt" id="super_intorder" value="{$intorder}" /></span></li>
+			<li><span class="span_1">浏览数：</span><span class="span_2"><input type="text" class="textInt" id="super_hits" value="{$hits}" /></span></li>
+		</ul>
+		<div style="margin:10px;"><input type="hidden" id="onestatenum" name="onestatenum" value="" /><input class="comn-submit btn_block fabu_btn" type="submit" value="提 交"></div>
+	</form>				
+{$bottom$}
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0" style="display:none;"></iframe>
+<form enctype="multipart/form-data" method="post" id="fileForm">
+	<input id="table_id" name="table_id" type="hidden" value="tieba" />
+	<input id="id" name="id" type="hidden" value="{$id}" />
+	<input id="dir" name="dir" type="hidden" value="tieba" />
+	<input id="state" name="state" type="hidden" value="" />
+	<input id="filewidth" name="filewidth" type="hidden" value="900" />
+	<input id="fileheight" name="fileheight" type="hidden" value="0" />	
+	<input id="smallfilewidth" name="smallfilewidth1" type="hidden" value="0" />
+	<input id="smallfileheight" name="smallfileheight1" type="hidden" value="90" />
+	<input type="file" style="display:none;" id="imgFile" name="imgFile" />
+</form>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/commonPaging.js"></script>
+<script src="{$Default_tplPath}js/wap_upimgOne.js"></script>
+<script>
+var mathState = Math.round(Math.random()*1E16);
+$('#state,#state2').val(mathState);
+var nowdomain ="{$SiteUrl}";
+function checkmyfabu(){
+	var txtReplay = $('#txtReplay');
+	if($('#fabu_title').val() === ''){
+		MSGwindowShow('tieba','4','请输入帖子标题！','','');
+		return false;
+	}
+	if(txtReplay.html() === ''){
+		MSGwindowShow('tieba','4','请输入帖子内容！','','');
+		return false;
+	}
+	var imgtxt = $('#urlhidden').val();
+	if(imgtxt !== ''){
+		imgtxt = '<div class="mobile_content_img">'+imgtxt+'</div>';
+	}
+	$('#chrcontent').val(imgtxt + txtReplay.html());
+	setStatenum('#onestatenum');
+}
+$(document).ready(function(){
+	setStatenum('#onestatenum');
+	upLoad_init();
+	$('#nav_ico').hide();
+	$('#login_ico').hide();
+	$('#bigcategoryid').change(function(){categoryData_set("1","bigcategoryid",0,"categoryid",'');});
+	IDC.tabADS($('#tabADS01'));
+	resetChrcontent();
+	reset_moveBtn();
+	$('#bigcategoryid').appendTo('#cat_1');
+	$('#categoryid').appendTo('#cat_2');
+});
+</script> 
+</body>
+</html>

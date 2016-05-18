@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布促销信息--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写促销标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.startdate.value==""){
+		alert("对不起,请选择促销开始时间!");
+		o.startdate.focus();
+		return false;
+	}
+	if(o.enddate.value==""){
+		alert("对不起,请选择促销结束时间!");
+		o.enddate.focus();
+		return false;
+	}
+}
+</script> 
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 发布促销信息</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">发布促销信息</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  请仔细填写,打*的为必填项 <br />
+                </td>
+              </tr>
+            </table>
+            <form name="form1" method="post" action="?action=addSave" onsubmit="return checkform(this)" >
+			<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr>
+                  <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 标题：</td>
+                  <td class="tdcontent" style="width:85%;" ><input name="chrtitle" type="text" class="text" size="70">
+                    <span></span> </td>
+                </tr>
+                <tr>
+                  <td class="tditem"><span style="color:Red">*</span> 有效时间：</td>
+                  <td class="tdcontent" colspan=3><table border="0" cellspacing="1" cellpadding="0">
+                      <tr>
+                        <td align="right" class="blank">从
+                          <input type="text" name="startdate" value="" class="text Wdate" /></td>
+                        <td align="right" class="blank">&nbsp;到：</td>
+                        <td align="right" class="STYLE10"><input type="text" name="enddate" value="" class="text Wdate" />
+                          <span>请输入促销信息的有效时间</span></td>
+                      </tr>
+                    </table>
+                    <input name="intorder" type="hidden" value="{$intorder}" >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tdcontent" colspan=4> 内容：<Br /><textarea cols="60" id="Chrcontent" name="Chrcontent" rows="10">
+      </textarea>
+                    <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+                  </td>
+                </tr>
+				<tr>
+                  <td align="center" colspan=4><input type="hidden" name="gotourl" value="{$gotourl}">
+                <input type="submit" name="Submit" class="global_btn_blue_big" value=" 确认无误，提交 " id="Submit" />　<input type="button" value=" 返 回 " class="global_btn" onclick="javascript:location.href='mycuxiao.aspx';" /></td>
+                </tr>
+              </table>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+</body>
+</html>

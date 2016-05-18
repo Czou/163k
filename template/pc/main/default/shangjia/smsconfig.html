@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>短信通知服务-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function myforms(o){
+	if(document.getElementById('smsconfigmobile').value !== ''){ return true;} 
+	alert('请输入正确的手机号码！');
+	return false;
+}
+</script>
+<style type="text/css">
+.tips .con { color:#096; font-weight:bold; line-height:24px;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">短信通知服务</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">短信通知服务简介</div>
+							<div class="t_bd">
+								这是网站为企业、商家提供的增值服务，在以下情况下我们将将以手机短信的形式通知您
+								<p style="font-size:14px; color:#444; margin-top:8px;">
+<span class="con">招聘</span>-审核通过　　　　<span class="con">招聘</span>-有新的简历投递<br>
+<span class="con">店铺</span>-审核通过　　　　<span class="con">店铺</span>-会员评价<br>
+<span class="con">省啦</span>-收到新订单　　　<span class="con">省啦</span>-会员评价<br>
+<span class="con">快店</span>-收到新订单　　　<span class="con">快店</span>-订单状态变动通知<br>
+<span class="con">快店</span>-订单取消　　　　<span class="con">快店</span>-会员评价<br>
+<span class="con">快店</span>-审核通过
+</p>
+							</div>
+						</div>
+						<div class="forms">
+							<form name="form1" action="?action=save" target="tijiao" onSubmit="return myforms(this)" method="post" enctype="multipart/form-data">
+								<!--<p class="tr">
+									<span class="sp_a">服务设置：</span>
+									<span class="sp_d">
+										<input type="checkbox" name="smsconfig0" value="1" id="smsconfig0" {$smsconfig01}> 有人投递简历应聘的时候发送手机短信通知我(接受求职短信扣除<font color="#ff0000">{$jobfen}</font>{$jifenname})<br>
+										<input type="checkbox" name="smsconfig2" value="1" id="smsconfig2" {$smsconfig21}> 当我的店铺收到点评的时候给我发短信通知<br>
+										
+									</span>
+									<span class="sp_c"></span>
+								</p>-->
+								<p class="tr"><span class="sp_a">手机号码：</span><span class="sp_b"><input type="text" name="smsconfigmobile" id="smsconfigmobile" class="sys_form_ipt" value="{$smsconfigmobile}" size=20></span><span class="sp_c">用于接收短信，不会向该手机收取任何费用，该处与您的会员资料的手机号码一致</span></p>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">提交修改</button></span><span class="sp_c">&nbsp;</span></p>
+								<!--<p class="tr"><span class="sp_a">数据统计：</span><span class="sp_c tongji">
+								您的服务状态：<font color=red>{$state}</font><br>
+		当前已经发送短信通知次数：{$smsnum}<Br>
+		当前每发送一次短信通知需扣除金币数：{$shopfen}<br>
+		您当前的账户金币余额数：{$jifenleft} （当金币数不足以接收1条短信通知服务的时候将自动暂停发送）  <span style="padding-top:10px; display:block;"><a href="../member/modify.aspx?action=consume#tt1" class="sys_btn_small_green">充值</a>　　<a href="../member/modify.aspx?action=jifen#tt1" class="blue_font">查看明细</a></span>
+								</span></p>-->
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+</body>
+</html>

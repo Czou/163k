@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>错误友情提示-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; 错误友情提示</div>
+		<div style="padding:50px 0; text-align:center;">
+		<p>{$errorurl}</p>
+		页面没有找到，5秒钟之后将带您进入首页！</div>
+	</div>
+{$bottom$}
+<script>
+function jump(){
+	location.href = "http://"+location.hostname+"/";
+}
+setTimeout("jump()", 5000);
+</script>
+</body>
+</html>

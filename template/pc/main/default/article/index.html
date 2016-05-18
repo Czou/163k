@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/zixun2015.css" type="text/css" rel="stylesheet" />
+{$top$}
+		<div class="crumb-bar clearfix"><span>当前位置：</span><a href="{$SiteUrl}">首页</a> <span class="cur_tit">{$lanmuname}</span></div>
+		<div class="advs mar10" style="margin-bottom:10px;">{$Mh163k_新闻频道通栏广告}</div>
+		<div class="clearfix">
+			<div class="zx-lside">
+				{$Mh163k_资讯2015_首页_微信数据}
+				<div class="down-app clearfix">
+					<dl>
+					  <dt>全城最近资讯  近在掌中</dt>
+					  <dd>最齐全的二手信息/房产/网购<br/>
+					  最新的新闻资讯
+					  </dd>
+					</dl>
+					<ul>
+						<li class="andorid"><a href="{$appdownloadurl}" target="_blank">Andorid下载</a></li>
+						<li class="ios"><a href="{$appdownloadurl}" target="_blank">IOS下载</a></li>
+					</ul>
+					<div class="ewm"><img src="{$SiteUrl}{$appdownloadurlimg}" alt=""></div> 
+					<p>提示：扫描二维码下载，请勿使用“微信扫一扫”</p>
+				</div>
+				<div class="broke-btn">
+					<a href="{$SiteUrl}member/myarticle.aspx?action=add" target="_blank"><i class="icon"></i>
+					我要爆料
+					</a>
+				</div>
+				<div class="zx-arclist">
+				  <div class="zx-title clearfix">
+					  <h4>楼市快讯</h4>
+					  <span class="zx-more"><a href="{$fcurl}list_1.html" target="_blank">更多</a></span>
+				  </div>
+					<ul>
+						{$Mh163k_资讯2015_首页_楼市快讯}
+					</ul>
+				</div>
+				<div class="adv">{$Mh163k_新闻频道左部html广告}</div>
+				<div class="zx-arclist top">
+					<div class="zx-title no-b clearfix">
+						<h4>贴吧精华推荐</h4>
+						<span class="zx-more"><a href="{$tiebaurl}" target="_blank">更多</a></span>
+					</div>
+					<ul>
+						{$Mh163k_资讯2015_首页_贴吧精华}
+					</ul>
+				</div>
+				<div class="zx-arclist top">
+					<div class="zx-title no-b clearfix">
+						<h4>贴吧新帖</h4>
+						<span class="zx-more"><a href="{$tiebaurl}" target="_blank">更多</a></span>
+					</div>
+					<ul>
+						{$Mh163k_资讯2015_首页_贴吧新帖}
+					</ul>
+				</div>
+			</div>
+			<div class="zx-middle">
+				<div class="slide-img">
+					<div class="slide">
+						<a class="next" href="javascript:void(0)"></a>
+						<ul class="hd dot" id="tabs"><li>1</li><li>2</li><li>3</li><li>4</li></ul>
+						<a class="prev" href="javascript:void(0)"></a>
+						<div class="bd">
+							<ul class="picList clearfix" id="output">
+								{$Mh163k_新闻频道幻灯广告}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="zx-mcon" id="tab01">
+					<div class="zx-title zx-tabs no-b clearfix">
+						<ul class="clearfix tab-hd">
+							<li class="selected"><a href="#">头条</a></li>
+							<li><a href="#">推荐</a></li>
+							<li><a href="#">热门</a></li>
+							<li><a href="#">图文</a></li>
+						</ul>
+						<span class="zx-more"><a href="{$articleurl}list_0_s0_p1.html">更多</a></span>
+					</div>
+					<div class="list">
+						<ul class="tab-cont">
+							{$Mh163k_资讯2015_首页_大列表头条}
+						</ul>
+						<ul class="tab-cont">
+							{$Mh163k_资讯2015_首页_大列表推荐}
+						</ul>
+						<ul class="tab-cont">
+							{$Mh163k_资讯2015_首页_大列表热门}
+						</ul>
+						<ul class="tab-cont">
+							{$Mh163k_资讯2015_首页_大列表图文}
+						</ul>
+						<div class="zx-more2"><a href="{$articleurl}list_0_s0_p1.html">更多资讯</a><i></i></div>
+					</div>
+				</div>
+			</div>
+			<div class="zx-rside">
+			  <div class="zx-search clearfix">
+				  <dl class="stit" id="sel_search">
+					<i></i>
+					<dt class="title">标题</dt>
+					<dd>
+						<ul class="list">
+							<li><a href="#" data-val="0">标题</a></li>
+							<li><a href="#" data-val="1">正文</a></li>
+							<li><a href="#" data-val="2">作者</a></li>
+						</ul>
+					</dd>
+				  </dl>
+				  <form name="inputStyle" method="post" action="{$SiteUrl}search.aspx">
+					<input type="hidden" name="c" value="3">
+					<input type="hidden" name="key" id="key" value="0">
+					<input type="text" name="keyword" placeholder="请输入关键字" value="" />
+					<button type="submit" class="so">搜索</button>
+				  </form>
+			  </div>
+			  <div class="zx-indreco">
+				  <div class="zx-title clearfix">
+					  <h4>特别推荐</h4>
+				  </div>
+				  <div class="slide2">
+					  <div class="list bd">
+						  <ul id="output">
+							  {$Mh163k_资讯2015_首页_特别推荐}
+						  </ul>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="adv">{$Mh163k_新闻频道右部html广告}</div>
+				<div class="zx-arclist top">
+					<div class="zx-title no-b clearfix">
+						<h4>热点排行榜</h4>
+					</div>
+					<ul>
+						{$Mh163k_资讯2015_首页_热点排行榜}
+					</ul>
+				</div>
+				<div class="wonderful-graphic">
+				<div class="zx-title no-b clearfix">
+					<h4>精彩图文</h4>
+					<span class="zx-more n-bg"><a href="{$SiteUrl}photo/index.html" target="_blank">进入图文资讯广场</a></span>
+				</div>
+				<ul class="clearfix">
+					{$Mh163k_资讯2015_首页_精彩图文}
+				</ul>
+			</div>
+		   </div>
+		</div>
+		
+	</div>
+	{$bottom$}
+</div>
+<div class="zx-ind-rmenu">
+	<ul>
+		<li class="current"><a href="{$articleurl}">{$lanmuname}</a></li>
+		{$Mh163k_资讯2015_首页_资讯分类}
+		<li class="top"><a href="#" id="iGo2Top">top</a></li>
+	</ul>
+</div>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$('#tab01').TabADS();
+	$('#iGo2Top').returnTop2014();
+	$(".slide").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,scroll:1,autoPlay:true}).hover(function(){$(this).toggleClass('hover');});
+	$(".slide2").slide({ mainCell:".bd ul",effect:"topLoop",vis:3,scroll:1,autoPlay:true});
+	$.fn.sel2015 = function(selector){
+		var t = $(this),tit = t.find('.title'),list = t.find('a');
+		t.hover(function(){
+			window['timer'] = setTimeout(function(){t.addClass('open');},100);
+		},function(){
+			clearTimeout(window['timer']);
+			t.removeClass('open');
+		});
+		list.bind('click',function(e){
+			$('#'+selector).val($(this).attr('data-val'));
+			tit.html($(this).html());
+			t.trigger('mouseleave');
+			e.preventDefault();
+		});
+	}
+	$('#sel_search').sel2015('key');
+	$('#newsWeixin .gz').hover(function(){
+		$(this).parent().toggleClass('open');
+	}).click(function(e){e.preventDefault();});
+});
+</script>
+</body>
+</html>

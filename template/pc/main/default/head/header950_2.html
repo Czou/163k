@@ -1,0 +1,66 @@
+<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/head2013_w950_2.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/common2013.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper w-950">
+	<div class="header">
+		<div class="topBar"><div class="clearfix">
+			<ul class="left"><li class="first"><a href="{$SiteUrl}request.ashx?action=saveurl">保存快捷方式到桌面</a></li><li class="bor display{$IsOpenWap} mb_false_{$IsWap_Force_Url}"><a href="{$WapHelpUrl}" class="mobile">手机版</a></li><li class="bor display{$IsOpenWap} mb_true_{$IsWap_Force_Url}"><a href="{$SiteUrl}request.ashx?action=iswap&iswap=1" class="mobile">手机版</a></li><li class="bor"><a href="#" onClick="window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">加入收藏</a></li>{$Mh163k_微博微信数据调用}</ul>
+			<ul class="right" id="login_info"><script>setTimeout(function(){is_login2("{$SiteUrl}","{$Default_tplPath}",'{$Mh163k_QQ登录调用}');},500);</script>
+				<li class="fabu bor" id="fabu"><a href="javascript:void(0);" class="btn">快速发布</a>
+					<div class="po">
+						{$Mh163k_快速发布列表}
+					</div>
+				</li>
+			</ul>
+		</div></div>
+		<div class="inner clearfix">
+			<div class="left"><h1 class="logo"><a href="{$SiteUrl}" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></h1></div>
+			<div class="left city">
+				<p class="site_slogan">{$sitebiao}</p>
+				<div class="city_inner"><a href="#" id="modCity_link">切换城市</a>
+					<div class="po" id="modCity">
+						当前：<em>{$Mh163k_当前城市}</em>
+						<ul class="clearfix">
+							{$Mh163k_城市}
+						</ul>
+						<a href="javascript:void(0);" class="close">关闭</a>
+					</div>
+				</div>
+			</div>
+			<div class="right searcher">
+				<form id="searchform1" name="searchform1" method="post" target="_blank" action="{$SiteUrl}search.aspx">
+				<p class="select">
+					<select style="display: none;" name="c" id="mySle">
+						<option selected="selected" value="1">生活信息</option>
+						<option value="2">店铺商家</option>
+						<option value="3">新闻资讯</option>
+						<option value="4">团购活动</option>
+						<option value="5">招聘信息</option>
+						<option value="6">商品信息</option>
+						<option value="7">视频逛街</option>
+					</select>
+				</p>
+				<p class="txt"><input type="text" class="s_txt" name="keyword" maxlength="30" /></p>
+				<p class="btn"><button type="submit" class="s_btn">搜索</button></p>
+				</form>
+				<p class="hot_key">热搜:{$site_remen}</p>
+			</div>
+		</div>
+		<div class="nav po_re" id="channel_nav">
+			<ul class="clearfix">
+				{$Mh163k_头部主导航菜单}
+			</ul>
+			<s class="po_ab s_1"></s>
+			<s class="po_ab s_2"></s>
+		</div>
+		<div class="sub_nav sub_nav_950"><div class="inner">
+			<ul class="clearfix">
+				{$Mh163k_头部副导航菜单_950}
+			</ul>
+		</div></div>
+	</div>
+	<div class="content">

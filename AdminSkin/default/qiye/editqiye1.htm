@@ -1,0 +1,167 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">关于我们&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业列表" onClick="javscript:window.location.href='qiye.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+    
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li><a href='qiye.aspx?action=edit&ID={$ID}'>基本资料</a></li><li class="selected"><a href='qiye.aspx?action=e1&ID={$ID}'>关于我们</a></li><li><a href='qiye.aspx?action=e2&ID={$ID}'>新闻中心</a></li><li><a href='qiye.aspx?action=e3&ID={$ID}'>产品展示</a></li><li><a href='qiye.aspx?action=e4&ID={$ID}'>客户案例</a></li><li><a href='qiye.aspx?action=e5&ID={$ID}'>招贤纳士</a></li><li><a href='qiye.aspx?action=e6&ID={$ID}'>友情链接</a></li><li><a href='qiye.aspx?action=e7&ID={$ID}'>其他</a></li>
+</ul>
+</div>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=e1Save" >
+    <tr > 
+      <td  height="25" width="150px"><input type="text" name="title1" class="myinput" value="{$title1}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">上传一个图片供首页企业介绍中使用：推荐尺寸140*140<br>
+      <span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=bianming&type=1"></iframe>
+	  </span>
+	  <input type=hidden name="url1"  value="{$url1}"  id="url1" > 
+      <br>
+     <textarea cols="80" id="Chrcontent1" name="Chrcontent1" rows="10">{$chrcontent1}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+			
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+			
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="150px"><input type="text" name="title2" class="myinput" value="{$title2}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+     <textarea cols="80" id="Chrcontent2" name="Chrcontent2" rows="10">{$chrcontent2}</textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent2"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="150px"><input type="text" name="title3" class="myinput" value="{$title3}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+     <textarea cols="80" id="chrcontent3" name="Chrcontent3" rows="10">{$chrcontent3}</textarea>
+	  
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent3"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="150px"><input type="text" name="title4" class="myinput" value="{$title4}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+     <textarea cols="80" id="chrcontent4" name="Chrcontent4" rows="10">{$chrcontent4}</textarea>
+	
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent4"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="150px"><input type="text" name="title5" class="myinput" value="{$title5}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+     <textarea cols="80" id="Chrcontent5" name="Chrcontent5" rows="10">{$chrcontent5}</textarea>
+	 
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent5"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="150px"><input type="text" name="title6" class="myinput" value="{$title6}" style="width:120px;"/><font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="category">
+     <textarea cols="80" id="Chrcontent6" name="Chrcontent6" rows="10">{$chrcontent6}</textarea>
+	
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent6"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	
+    
+    
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type="hidden" name="id" value="{$ID}"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="button" name="button1" class="global_btn_big" value="下一页" onclick="window.location.href='qiye.aspx?action=e2&id={$ID}';"> &nbsp;  
+      <input type="hidden" name="over" value="0">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="保存并下一页"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>
+  </body>
+</html>

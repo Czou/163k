@@ -1,0 +1,11 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;">
+	<td>{$NID}</td>
+	<td>{$Chrtitle}</td>
+	<td>{$kid}</td>	
+	<td>{$chrurl}</td>
+	<td>{$isopen}</td>
+	<td>{$dtappenddate}</td>	
+	<td>{$intorder}</td>
+	<td align="center"><a href="link.aspx?action=IsopenM&Isopen={$Isopen}&ID={$ID}">{$IsopenM}</a> <a href="link.aspx?action=edit&ID={$ID}">编辑</a> <a href="javascript:del({$ID});">删除</a></td>
+	<td align="center"><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

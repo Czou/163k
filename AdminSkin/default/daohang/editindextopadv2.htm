@@ -1,0 +1,39 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   
+  <form name="form1" method="post" action="?action=editsave" >
+  <tr > 
+      <td width="15%" height="25" >图片<font color="#FF0000">*</font>：<br>宽*高=607*64
+      </td>
+      <td width="76%" class="category"> <span id="str1">
+	  {$filepath}
+	  </span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1"  id="url1"  value="{$url1}"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >链接<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrurl" type="text" value="{$chrurl}" size="30"></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >属性<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category">   打开方式：<input type="radio" name="target" value="0" {$target0}  >原窗口 <input type="radio" name="target" value="1" {$target1}  >新窗口</td>
+    </tr>
+    
+    <tr > <td></td><input type="hidden" name="id" value="{$ID}">
+      <td height="25"   class="category"><input type="hidden" name="gotourl" value="{$gotourl$}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+</table>
+<script>
+
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}</script>

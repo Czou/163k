@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑招聘职位-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '编辑招聘职位';
+</script>
+<script>
+function checkform(o){
+	if(o.zhiweiname.value==""){
+		alert("请输入职位名称!");
+		return false;
+	}
+	if(o.zhiweixinzhi.value==""){
+		alert("请选择职位性质!");
+		return false;
+	}
+	if(o.hangyecategory.value==""){
+		alert("请选择行业分类!");
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("请选择岗位分类!");
+		return false;
+	}
+	if(o.renshu.value==""){
+		alert("请输入招聘人数！");
+		return false;
+	}
+	if(o.youxiaodate.value==""){
+		alert("请选择有效时间！");
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("请输入地址！");
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("请输入电话！");
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("请输入职位描述！");
+		return false;
+	}
+	setStatenum('#onestatenum');
+}
+</script>
+{$top$}
+<div class="o_main">
+<form name="form1" method="post" target="tijiao" action="?action=editSave" target="tijiao" onSubmit="return checkform(this)" >
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>职位名称</dt>
+   <dd><input type="text" name="zhiweiname" value="{$zhiweiname}" placeholder="输入职位名称，如：销售经理" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>职位性质</dt>
+   <dd>{$zhiweixinzhi}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  
+  <div style="display:none;">{$categoryid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>岗位类别</dt>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  
+  <dl class="clearfix">
+   <dt>语言能力</dt>
+   <dd><input type="text" name="yuyan" value="{$yuyan}" placeholder="输入语言能力" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>简历语言</dt>
+   <dd><input type="text" name="jianli" value="{$jianli}" placeholder="输入简历语言" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>招聘人数</dt>
+   <dd><input type="text" name="renshu" value="{$renshu}" placeholder="输入招聘人数" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>有效时间</dt>
+   <dd><input type="date" name="youxiaodate" id="youxiaodate" value="{$youxiaodate yyyy-MM-dd}" placeholder="输入有效时间，格式：2015-09-06" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>地址</dt>
+   <dd><input type="text" name="chraddress" value="{$chraddress}" placeholder="输入公司详细地址" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>联系人</dt>
+   <dd><input type="text" name="chrcode" value="{$chrcode}" placeholder="输入联系人" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>邮箱地址</dt>
+   <dd><input type="text" name="chremail" value="{$chremail}" placeholder="输入邮箱地址" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>电话</dt>
+   <dd><input type="text" name="chrtel" value="{$chrtel}" placeholder="输入电话号码" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>工作地点</dt>
+   <dd><input type="text" name="gongzuodidian" value="{$gongzuodidian}" placeholder="输入工作地点，如：北京" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>区域</dt>
+   <dd>{$areaid}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix">
+   <dt>工作经验</dt>
+   <dd><input type="text" name="jingnian" value="{$jingnian}" placeholder="输入工作经验，如：3-5年" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>薪资待遇</dt>
+   <dd>{$daiyu}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix">
+   <dt>学历要求</dt>
+   <dd>{$xueli}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="inp_Itembox">
+  <textarea id="chrmark" name="chrmark" placeholder="请输入职位描述，仅限1000字" class="txt">{$chrmark}</textarea>
+ </div>
+	<input type="hidden" name="id" value="{$id}" />
+	<input type="hidden" id="onestatenum" name="onestatenum" value="" />
+ <button type="submit" class="fb">确 认</button>
+</form>
+{$bottom$}
+<script>
+/*Date.prototype.Format = function(fmt) 
+{
+  var o = { 
+    "M+" : this.getMonth()+1,                 //月份 
+    "d+" : this.getDate(),                    //日 
+    "h+" : this.getHours(),                   //小时 
+    "m+" : this.getMinutes(),                 //分 
+    "s+" : this.getSeconds(),                 //秒 
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+    "S"  : this.getMilliseconds()             //毫秒 
+  }; 
+  if(/(y+)/.test(fmt)) 
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+  for(var k in o) 
+    if(new RegExp("("+ k +")").test(fmt)) 
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
+  return fmt; 
+}*/
+$(function() {
+	setStatenum('#onestatenum');
+	$('#categoryid2').append($('#hangyecategory').detach());
+	$('#categoryid1').append($('#categoryid').detach());
+	
+	/*var date_val = $('#youxiaodate').attr('value').split(' ')[0];
+	var regEx = new RegExp("\\-","gi");
+    date_val=date_val.replace(regEx,"/");
+	var d = new Date(date_val);
+	var new_date_val = d.Format('yyyy-MM-dd');
+	
+	$('#youxiaodate').attr('value',new_date_val);*/
+});
+function showhangyecategory(str,nowcc){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str;
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.get(url,function(data){
+			var sel=document.getElementById("categoryid");
+			var val="选择岗位分类";
+			var str =data;
+			sel.options.length=0;
+			var arrstr = new Array();
+			arrstr = str.split(",");
+			
+			sel.options.add(new Option( val,"")); 
+			if(str.length>0)   {
+				for(var i=0;i<arrstr.length-1;i++){
+					//分割字符串
+					var subarrstr=new Array
+					subarrstr=arrstr[i].split("|")
+					//生成下级菜单
+					sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+					if(nowcc==subarrstr[0])
+					{  sel.options[i+1].selected=true;
+					}
+				}
+			}
+		})
+	} 
+} 
+
+</script>
+
+</body>
+</html>

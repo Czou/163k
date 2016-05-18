@@ -1,0 +1,8 @@
+﻿<div class="my_prop_imgitem" id="setfile{$num}" name="setfile{$num}" >
+  <div id="pre_8_{$num}" name="pre_8_{$num}"  style="height:120px; line-height:120px; border:1px solid #cccccc; "><img src="{$url}" width="120px"  height="120px" id="imgview_apf_id_8_{$num}"  start="vertical-align:middle;"/></div>
+  <div id="div_apf_id_8_{$num}" name="div_apf_id_8_{$num}" style="text-align:center;  line-height:20px;text-align:center"><span id="show_id_{$num}_1">
+    <input type="file"  class="text" name="image_file{$num}" id="image_file{$num}"  onchange="setfilevalue({$num},this);"  size="7"  style="width:120px;" />
+    </span><span id="show_id_{$num}_2" name="show_id_{$num}_2" style="display:none;text-align:center;width:120px;"><a href="javascript:delfilevalue({$num})">删除</a></span> </div>
+	<script>var gg="{$urltt}";if(gg!=""){document.getElementById("show_id_{$num}_2").style.display="";document.getElementById("show_id_{$num}_1").style.display="none";}</script>
+</div>
+<input type="hidden" name="url{$num}" id="filesrc{$num}" value="{$urltt}" />

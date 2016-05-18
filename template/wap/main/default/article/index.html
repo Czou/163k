@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-mb.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-scroll5.css" />
+{$top$}
+	<div class="content news_index">
+		<div class="select_01" id="wrapper2">
+			<ul class="tab-hd" id="scroller2">
+				<li class="current item" onClick="return showCatA(this,'');"><a href="javascript:void(0);">头版</a></li>
+				{$Mh163k_wap_新闻频道_一级分类列表}
+			</ul>
+			<div class="more" id="iscrollto"><span></span></div>
+		</div>
+		<div id="wrapper">
+			<div id="scroller">
+				<div id="pullDown" style="display:none;"><span class="loader" style="display:none;">loadding</span></div>
+				<div id="slide" class="clearfix" style="display:none;">
+					<div id="content">
+						{$Mh163k_wap_新闻频道幻灯广告}
+					</div>
+					<ul id="indicator"></ul>
+				</div>
+				<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+				<ul id="innerrow" class="list_normal list_news">
+					
+				</ul>
+				<div id="pullUp" style="display:none;"><span class="loader">loadding</span></div>
+			</div>
+			<div id="reload" style="display:none;"><s class="s"></s><span class="txt">下拉可以刷新</span><br>最后更新：<span class="time">未知</span></div>
+			<span class="loader" id="pageLoader">loadding</span>
+		</div>
+	</div>
+{$bottom$}
+<input id="pagenum" type="hidden" value="1" />
+<input id="bigcatid" type="hidden" value="" />
+<input id="smallcatid" type="hidden" value="" />
+<script type="text/template" id="tp">
+<li class="haspic{{hasImg}}">
+	<a href="article_{{newsid}}.html" class="link">
+	<p class="img"><img data-src="{{filepath}}" src="{$Default_tplPath}images/livelistnopic.gif" data-ifshow="0" /></p>
+	<p class="tit">{{chrtitle}}</p>
+	<p class="txt clearfix"><span class="left">{{dtappenddate}}</span><span class="right">人气：{{hits}}</span></p>
+	</a>
+</li>
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/mustache.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll-probe.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/getArticlePage.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+function showCatA(o,sid){
+	if(sid===''){
+		$('#slide').show();
+	}else{
+		$('#slide').hide();
+	}
+	$('#bigcatid').val(sid);
+	//$('#pagenum').val('1');
+	getPageData('2');
+	$(o).siblings('.current').removeClass('current');
+	$(o).addClass('current');
+	window['myScroll2'].scrollToElement($(o)[0],500)
+}
+window['myScroll2'] = null;
+(function($){
+	var w_w = $(window).width();
+	$('#foot_link').hide();
+	var list = $('#content').find('.cell');
+	if(list.length > 0){
+		var txt = '';
+		list.each(function(i){
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#slide').show();
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+				
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			//list.css({'height':min_height+'px','overflow':'hidden'});
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}
+	$('#scroller2').css('width',(90*$('#scroller2').find('li').length)+40+'px'); 
+	window['myScroll2'] = new IScroll('#wrapper2', {
+		scrollX: true,
+		scrollY: false,
+		click:true,
+		keyBindings: true
+	});
+	$('#iscrollto').click(function(){
+		window['myScroll2'].scrollBy(-100,0,500)
+	});
+})(jQuery);
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+window.onload=function(){loaded_page();}
+</script>
+</body>
+</html>

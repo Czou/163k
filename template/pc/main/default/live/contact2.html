@@ -1,0 +1,14 @@
+<p class="line"><span class="sp_1">联系人</span><span class="sp_2">{$chrname}</span></p>
+<p class="line" id="n_chrtel"><span class="sp_1">联系电话</span><span class="sp_2 gray"><span class="tel">{$chrtel}</span> (<a href="javascript:showotherlive(0,'{$chrtel}');" class="blue">该号码有<em>{$telnum}</em>条发帖记录</a>)</span></p>
+<p class="line" id="n_chrmobile"><span class="sp_1">联系手机</span><span class="sp_2 gray"><span class="tel">{$chrmobile}</span> (<span class="shu" id="chrmobilearea">查询中...</span><a href="javascript:showotherlive(1,'{$chrmobile}');" class="blue">该号码有<em>{$mobilenum}</em>条发帖记录</a>)</span></p>
+<p class="line" id="n_chrqq"><span class="sp_1">QQ</span><span class="sp_2">{$chrqq} <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$chrqq}&amp;site=qq&amp;menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=2:{$chrqq}:41" alt="点击咨询"></a></span></p>
+<p class="line"><span class="sp_1">发布者IP</span><span class="sp_2">{$chrip} <span class="gray" id="chriparea">查询中...</span></span></p>
+<p class="box">小技巧：联系说来自{$SiteName}将会获得更好的效果</p>
+<input type="hidden" id="c_chrtel" value="{$chrtel}" />
+<input type="hidden" id="c_chrmobile" value="{$chrmobile}" />
+<script>
+ShowIpAddress('{$chrmobile}','{$chrip1}');
+if('{$chrqq}' === ''){
+	$('#n_chrqq').hide();
+}
+</script>

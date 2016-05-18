@@ -1,0 +1,10 @@
+﻿<form name="fott{$ID}tt" id="fott{$ID}tt"  method="post" action="?action=baosave" style="margin:0" encType=multipart/form-data >
+        <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> <input type="hidden" name="ID" value="{$ID}" />
+    	  <td  width="100"><a href="javascript:document.getElementById('fott{$ID}tt').submit();">更新</a> <a href="bao.aspx">取消</a></td>
+    	  <td><input type="text"  name="title" value="{$title1}" /></td>
+    	  
+     	  <td><input type="text"  name="chrurl" value="{$chrurl}"  size="20"/></td>
+  		  <td><input type="text"  name="url1" value="{$filepath}" size="8" /> <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(url1)" align="absmiddle" /></td>
+    	  <td><input type="text"  name="intorder" value="{$intorder}" size="5"  class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /></td>
+       </tr>
+	   </form>

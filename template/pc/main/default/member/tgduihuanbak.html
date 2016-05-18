@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>天水生活网团购券兑换系统</title>
+<link rel="stylesheet" href="/plug_in/Template/duihuan/css/html_style.css" />
+
+</head>
+<body>
+	
+<div class="mark">
+	<div class="reg_tip" id="have_show" style="display:none;">
+		<div class="txt">兑 换 状 态</div>
+		<div class="teshu">{$orderaction$}</div>
+		<!--div class="showoff"><button type="submit" onClick="offshow();"> 关 闭 </button></div-->
+
+	</div>
+  <form action="?" method="post" class="form01">
+    <div class="index_01">
+      <label>请输入消费券号：</label>
+      <input value="" type="text" maxlength="16" id="ch" name="chrorder"  onfocus="this.style.imeMode='disabled';" oncopy="onKeyPrice(this);" onkeyup="onKeyPrice(this);" >
+    </div>
+    <div class="index_02 guding">
+      <label><span class="zhuangtai">兑换状态:</span><span class="teshu">{$orderaction$}</span></label>
+      <div class="index_03 guding">
+        <input type="submit" id="submit" style="display:;" onClick="offsubmit();" value=" " />
+      </div>
+      <div class="out_te">
+        <div class="out"><span>{$username}</span>&nbsp;&nbsp;<a href="http://www.0938.cn/member/mytgorder.aspx?action=ss" target="_blank">店铺管理</a>&nbsp;&nbsp;<a href="?action=edit">修改密码</a>&nbsp;&nbsp;<a href="?action=loginout">退出登陆</a></div>
+        <div class="b">天水生活网 陇ICP备10002622号</div>
+      </div>
+    </div>
+  </form>
+  <form name="search" method="POST" action="?">
+    <div class="mark_index">
+      <p> <span class="index_title">我&nbsp;(<font color="#FBF262">{$datestring}</font>)&nbsp;&nbsp;兑换的消费券（一共兑换&nbsp;<font color="#FBF262">{$codenum$}</font>&nbsp;张）</span> <span class="index_input">按日期查询： 
+        <script language="javascript" src="/plug_in/Template/js/My97DatePicker/WdatePicker.js"></script>
+        从&nbsp;<input type="text" name="ondate" size="11" value="" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"  />&nbsp;至&nbsp;<input type="text" name="offdate" size="11"  value="" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"  />
+        &nbsp;期间兑换的消费券&nbsp;&nbsp;
+        <input class="select_sub" type="submit" name="submit"  value="查询" />
+        </span></P>
+      <ul>
+        {$chrcodestr$}
+        <div class="clear"></div>
+      </ul>
+    </div>
+  </form>
+</div>
+
+<script  type="text/javascript">
+	var tlong = 0;
+	function onKeyPrice(t){
+		showoff();
+	 if(t.value == "")  return;
+	 var ms = t.value;
+	 if (tlong < ms.length){
+	  ms = ms.replace(/[^\w\.\/]/ig,'');
+	  if(ms.length > 11 ){  
+	  	ms = ms.substr(0,4) + "-" + ms.substr(4,4) + "-" + ms.substr(8) ;
+	  }else if(ms.length > 7 ){
+	  	ms = ms.substr(0,4) + "-" + ms.substr(4,4) + "-" + ms.substr(8);
+  	}else if(ms.length > 3){
+	 		ms = ms.substr(0,4) + "-" + ms.substr(4);
+		}
+	  	tlong = ms.length ;
+	    t.value = ms;
+	 }else{
+		tlong = ms.length ;
+	 }
+	}
+	function offshow()
+	{
+			showoff();
+			document.getElementById('ch').focus();
+	}
+		function offsubmit()
+	{
+			document.getElementById("submit").style.display="none";
+			
+	}
+			function showoff()
+	{
+			document.getElementById("have_show").style.display="none";
+			
+	}
+	setTimeout("offshow()",5000); 
+
+	document.getElementById('ch').focus();
+	</script>
+</body>
+</html>

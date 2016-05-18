@@ -1,0 +1,92 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script >
+function check(o){
+  if(document.getElementById("count").value==""){
+  	alert("请填写您要生成的充值卡数量!");
+	document.getElementById("count").focus();
+	return false;
+  }
+  if(document.getElementById("qian").value==""){
+  	alert("请填写充值卡号前缀!");
+	document.getElementById("qian").focus();
+	return false;
+  }
+  if(document.getElementById("length").value==""){
+  	alert("请填写卡号长度!");
+	document.getElementById("length").focus();
+	return false;
+  }
+  var output="此操作不可逆,您确认要生成此次充值卡吗?"	
+  if(confirm(output)){
+	   return true;
+  }
+  else{
+  	   return false;
+  }
+}
+
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td >生成充值卡&nbsp;&nbsp;&nbsp; <font color="#FF0000">用户可以通过充值卡进行充值兑换金币，用来实现网站的各项增值服务，“兑换比例”在积分设置中进行设定</font></td>
+          <td  align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至充值卡列表" onClick="javscript:window.location.href='admin_card.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" onsubmit="return check(this);">
+    <tr > 
+      <td height="25" width="21%" >您要生成的充值卡数量<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  > <input name="count" type="text" size="10" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(只能是数字)</em> </td>
+    </tr>
+	<tr > 
+      <td height="25" width="21%" >您要生成的充值卡面值<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  > <select name="key"><option value="1">1元</option><option value="2">2元</option><option value="5">5元</option>
+	  <option value="10">10元</option><option value="30">30元</option>
+	  <option value="50">50元</option><option value="100">100元</option>
+	  </select></td>
+    </tr>
+	<tr > 
+      <td height="25" width="21%" >充值卡号前缀<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  > <input name="qian" type="text" size="10" value="2009" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(只能是数字)</em> </td>
+    </tr>
+	<tr > 
+      <td height="25" width="21%" >卡号长度<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  > <input name="length" type="text" size="10" value="10" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(只能是数字)</em> </td>
+    </tr>
+	<tr > 
+      <td height="25" width="21%" >有效期<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  > <input type="radio" name="youxiao" value="0" checked> 不限制
+	  <input type="radio" name="youxiao" value="1"> 3个月<input type="radio" name="youxiao" value="2"> 6个月<input type="radio" name="youxiao" value="3"> 1年 <em class="global_tip">(过期后将无法使用)</em>
+	  </td>
+    </tr>
+    <tr  > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

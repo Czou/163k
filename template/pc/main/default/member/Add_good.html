@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>提交商品--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+function checkform(o){
+	if(o.chrgood.value==""){
+		alert("请输入商品名称!");
+		o.chrgood.focus();
+		return false;
+	}
+	if(o.goodnum.value==""){
+		alert("请输入商品编号!");
+		o.goodnum.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("请选择商品分类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.p1[0].checked){
+		if(o.pinpai.value==""){
+			alert("请输入商品的品牌!");
+			o.pinpai.focus();
+			return false;
+		}
+	}else{
+		if(o.pinpaiid.value==""){
+			alert("请选择商品品牌!");
+			o.pinpaiid.focus();
+			return false;
+		}
+	}
+	if(o.price1.value==""){
+		alert("请输入市场价格!");
+		o.price1.focus();
+		return false;
+	}
+	if( !o.price1.value.CheckPrice()){
+		alert("请正确输入市场价格!");
+		o.price1.select();
+		return false;
+	}
+	if(o.price2.value==""){
+		alert("请输入我们价格!");
+		o.price2.focus();
+		return false;
+	}
+	if( !o.price2.value.CheckPrice()){
+		alert("请正确输入我们价格!");
+		o.price2.select();
+		return false;
+	}
+}
+//判断价格
+String.prototype.CheckPrice = function()
+{   
+    var MyNumber =  this.search(/^\d{1,10}$|^\d{1,10}\.\d{1,2}\w?$/);
+    if(MyNumber == -1)
+        return false;
+    return true;
+}
+</script> 
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 提交商品</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">提交商品</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		提交商品,需要管理员审核
+
+		<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 商品名称：</td>
+        <td class="tdcontent" colspan=3><input name="chrgood"  class="text" type="text" size="40">
+            </td>
+			
+    </tr>
+	<tr id="tr1">
+	 <td class="tditem" style="width:13%;"><span style="color:Red">*</span> 商品编号：</td>
+        <td class="tdcontent" style="width:30%"  ><input name="goodnum" class="text" type="text"   size="12" maxlength=11><span>(最长11位)&nbsp;<a href="javascript:void(0);" onClick="setbianhao(document.form1.goodnum)">随机生成</a></span>
+            </td>
+        <td class="tditem"  style="width:13%;"><span style="color:Red">*</span> 商品分类：</td>
+        <td class="tdcontent">{qu_classid}</td>
+    </tr>
+	<tr id="tr2">
+        <td class="tditem"><span style="color:Red">*</span> 商品品牌：</td>
+        <td class="tdcontent" colspan=3><input type="radio" value="0"  name="p1">自定义:<input name="pinpai" class="text"  type="text" size="20"  >  <input type="radio" value="1"  name="p1" checked=true>从商品品牌中选择:{$pinpai$}</td>
+    </tr>
+	<tr  > 
+     <td class="tditem">商品型号： 
+      </td>
+      <td class="tdcontent"> <input name="xinghao" class="text"  type="text" size="30"></td>
+	  <td class="tditem">赠送礼品： 
+      </td>
+      <td class="tdcontent"> <input name="zengsong" class="text"  type="text" size="20" value="本商品无赠送礼品"></td>
+    </tr>
+	<tr id="tr2_1">
+        <td class="tditem"> <span style="color:Red">*</span>市场价格：</td>
+        <td class="tdcontent" colspan=3><input name="price1" class="text"  type="text" size="12" onKeyUp="if(isNaN(value))execCommand('undo')"><span>(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</span></td>
+    </tr>
+	<tr id="tr3">
+        <td class="tditem"> <span style="color:Red">*</span>我们价格：</td>
+        <td class="tdcontent" colspan=3><input name="price2" class="text"  type="text" size="12" onKeyUp="if(isNaN(value))execCommand('undo')" ><span>(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</span></td>
+    </tr>
+	<tr id="tr3_1">
+        <td class="tditem"> <span style="color:Red">*</span>货源情况：</td>
+        <td class="tdcontent" ><input type="radio" value="0" checked name="styleid">有货 
+				<input type="radio" value="1" name="styleid">缺货
+           </td>
+		   <td class="tditem"> <span style="color:Red">*</span>相关属性：</td>
+        <td class="tdcontent" ><input type="hidden" name="istop" value="0">
+		  <input type="checkbox" name="cuxiao" value="1">是否加入促销 <input type="hidden" name="remai" value="0">  <input type="checkbox" name="xiaofei" value="1">加入消费者保障计划  <input type="hidden" name="intorder" value="{$intorder}">
+           </td>
+    </tr>
+	<tr>
+	  <td class="tditem">客服QQ1： 
+      </td>
+      <td class="tdcontent" > <input name="chrqq1" value="" type="text" size="20" class="text" >(如果此项不填写，则默认调用网站客服QQ号码)</td>
+	  <Td class="tditem">客服QQ2：</td>
+	  <td  class="tdcontent" > <input name="chrqq2" type="text" size="20" value="" class="text" >(如果此项不填写，则默认调用网站客服QQ号码)</td>
+    </tr>
+		<tr>
+	  <td  height="25" class="tditem">属性： 
+      </td>
+      <td class="tdcontent"  colspan="3"> <input name="shu1" value="0" type="checkbox" checked="checked"><input type="text" size="10" name="shutext1" value="如实描述" class="text"/>  
+	 <input name="shu2" type="checkbox" size="20" value="0" checked="checked" > <input type="text" size="10" name="shutext2" value="七天退换" class="text"/> 
+	  <input name="shu3" type="checkbox" size="20" value="0" checked="checked"> <input type="text" size="10" name="shutext3" value="假一赔三" class="text"/> 
+	  <input name="shu4" type="checkbox" size="20" value="0" checked="checked"> <input type="text" size="10" name="shutext4" value="30天维修" class="text"/> 
+	  <input name="shu5" type="checkbox" size="20" value="0" checked="checked"> <input type="text" size="10" name="shutext5" value="闪电发货" class="text"/> 
+	  <input name="shu6" type="checkbox" size="20" value="0"  checked="checked"> <input type="text" size="10" name="shutext6" value="正品保障" class="text"/> 
+	  </td>
+	  
+    </tr>
+	 <tr   > 
+      <td class="tditem"><span style="color:Red">*</span>商品主图： 
+      </td>
+      <td  colspan=3  class="tdcontent"> <input type="file" class="text"  name="file" size="80"><br>
+	  <span>为了前台显示美观，建议采用高宽为1：1的图片，格式为jpg/gif/png
+	后台自动生成大（280*280）、中（170*170）、小（100*100）、小（80*80）四种缩略图</span>
+	  </td>
+    </tr>
+     <tr  > 
+      <td class="tditem">售后服务：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R2" onClick="setfuwu(0);">网站方公用设置　<input type="radio" value="2"  name="R2" onClick="setfuwu(2);">我的公用设置　<input type="radio" value="1"  name="R2" onClick="setfuwu(1);">使用自定义内容
+	  <div id="fuwu1" style="display:none"><textarea cols="80" id="fuwu" name="fuwu" rows="10"></textarea></div>
+	  
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fuwu"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	 <tr  > 
+      <td class="tditem">付款方式：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R3" onClick="setfukan(0);">网站方公用设置　<input type="radio" value="2"  name="R3" onClick="setfukan(2);">我的公用设置　<input type="radio" value="1"  name="R3" onClick="setfukan(1);">使用自定义内容
+	  
+	  <div id="fukan1" style="display:none"><textarea cols="80" id="fukan1" name="fukan1" rows="10"></textarea></div>
+	  <script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fukan1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr> <tr  > 
+      <td class="tditem">配送/取货方式：
+
+      </td>
+      <td  colspan=3  class="tdcontent"><input type="radio" value="0" checked name="R4" onClick="setpeisong(0);">网站方公用设置　<input type="radio" value="2"  name="R4" onClick="setpeisong(2);">我的公用设置　<input type="radio" value="1"  name="R4" onClick="setpeisong(1);">使用自定义内容
+	  
+	   <div id="peisong1" style="display:none"><textarea cols="80" id="peisong1" name="peisong1" rows="10"></textarea></div>
+	  <script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="peisong1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	 <tr  > 
+     
+      <td  colspan=4  class="tdcontent">详细介绍：<br>
+	   <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">
+      </textarea>
+	 
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '600px'
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	<tr  > 
+     
+      <td  colspan=4 align="center"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+    </tr>
+</table>
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

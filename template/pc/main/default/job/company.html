@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$chrtruename}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; {$chrtruename}</div>
+	<!-- 主体 -->
+	<div id="content" class="v2013">
+		<div class="zp_2013 clearfix">
+			<div class="left">
+				<ul class="sub_nav_zhaopin">
+					<li><a href="javascript:window.location.href=window.location.href;" class="t">公司简介</a></li>
+					<li><a href="javascript:;" class="t">公司职位<em>({$count$})</em></a>
+						<ul class="c">
+							{$zhiweiright}
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+			<div class="right">
+				<div class="gs">
+					<h2>{$chrtruename}</h2>
+					<p>公司行业：{$hangye}</p>
+					<p>公司规模：{$guimo}</p>
+					<p>公司性质：{$xingzhi}</p>
+					<div class="fenxiang clearfix"><span style="float:left; font-size:12px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div>
+					<div class="po"><a href="{$qiyeurl}" id="qiyeurl" target="_blank">官方网站</a></div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">公司介绍</div>
+					<div class="bd" id="resizeIMG">
+						{$chrcontent}
+					</div>
+				</div>
+				<div class="mo_3">
+					<div class="hd">联系方式</div>
+					<div class="bd">
+						<p>公司地址：{$chraddress} </p>
+						<p>联系电话：{$chrtel}</p>
+						<p>传真号码：{$chrfax}</p>
+						<p>　联系人：{$chrcode}</p>
+						<p>　　邮箱：<a href="mailto:{$chremail}">{$chremail}</a></p>
+						<p>注：请在邮件中注明应聘职位的名称或编号，并注明该招聘信息来源于{$SiteName}。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/live2013.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#resizeIMG').resizeIMG(950,800);
+	var btn_qiye = $('#qiyeurl');
+	if(btn_qiye.attr('href') === ''){
+		btn_qiye.parent().addClass('disable');
+		btn_qiye.bind('click',function(e){e.preventDefault();});
+	}
+});
+</script>
+</body>
+</html>

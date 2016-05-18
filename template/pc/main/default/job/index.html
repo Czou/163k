@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/jobs2013.css" type="text/css" rel="stylesheet" />
+<script>
+var nowdomain = '{$SiteUrl}';var zpurl = '{$zpurl}';
+</script>
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+		<div class="grid_j01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="helpGuest clearfix">
+					<div class="personal">
+						<a href="{$SiteUrl}member/myjianli.aspx" target="_blank" class="m_1">投简历</a>
+						<a href="{$zpurl}zhiwei.html?key=0" target="_blank" class="m_2">找工作</a>
+						<strong class="yahei">个人免费找工作</strong>
+						<p>加入人才库,好工作主动找你</p>
+					</div>
+					<div class="enterprise">
+						<a href="{$SiteUrl}member/myzhiwei.aspx?action=add" target="_blank" class="m_3">发职位</a>
+						<a href="{$zpurl}rencai.html" target="_blank" class="m_4">找人才</a>
+						<strong class="yahei">企业免费招聘</strong>
+						<p>人才是您企业发展的源动力</p>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mod_04">
+					<div class="hd clearfix"><ul class="left"><li class="selected"><a href="javascript:void(0);" id="tabadmenu_10" onMouseOver="setTimeout('Show_TabADSMenu(1,0,2)',200);">搜工作</a></li><li><a href="javascript:void(0);" id="tabadmenu_11" onMouseOver="setTimeout('Show_TabADSMenu(1,1,2)',200);">搜人才</a></li></ul></div>
+					<div class="bd" id="tabadcontent_10">
+						<form action="zhiwei.html" method="get" name="form11" />
+						<input type="hidden" name="key" value="0" />
+						<input type="hidden" name="s_hangye" value="" id="s_hangye" />
+						<input type="hidden" name="s_gangwei" value="" id="s_gangwei" />
+						<input type="hidden" name="s_didian" value="" id="s_didian" />
+						<div id="form_1" class="i">
+							<span class="btns">不限制行业类别</span>
+							<ul class="inner_s"><li><a href="zhiwei.html?tt=0" class="link cur" data-id="0" target="_blank">不限制行业类别</a></li>{$Mh163k_招聘求职_行业分类}</ul>
+						</div>
+						
+						<div id="form_2" class="i">
+							<span class="btns">不限制岗位类别</span>
+							<ul class="inner_s"></ul>
+						</div>
+						<div id="form_3" class="i">
+							<span class="btns">不限制工作地点</span>
+							<ul class="inner_s"><li><a href="zhiwei.html?tt=0" class="link cur" data-id="0" target="_blank">不限制工作地点</a></li>{$Mh163k_招聘求职_工作地点区域}</ul>
+						</div>
+						<div class="searchbar">
+							<input type="text" name="keyword" class="s_input" value="" /><button class="s_button" type="submit">搜索</button>
+						</div>
+						</form>
+					</div>
+					<div class="bd" id="tabadcontent_11" style="display:none;">
+						<form name="form22" method="get" action="rencai.html">
+						<input type="hidden" name="xwhangye" value="" id="xwhangye" />
+						<input type="hidden" name="xueli" value="" id="xueli" />
+						<input type="hidden" name="sex" value="" id="sex" />
+						<div id="form_4" class="i">
+							<span class="btns">不限制行业类别</span>
+							<ul class="inner_s"><li><a href="zhiwei.html?tt=" class="link cur" data-id="" target="_blank">不限制行业类别</a></li>{$Mh163k_招聘求职_行业分类}</ul>
+						</div>
+						<div id="form_5" class="i">
+							<span class="btns">不限制学历</span>
+							<ul class="inner_s">
+								<li><a href="zhiwei.html?tt=" class="link cur" data-id="" target="_blank">不限制学历</a></li>
+								<li><a href="zhiwei.html?tt=42" class="link" data-id="42" target="_blank">初中</a></li>
+								<li><a href="zhiwei.html?tt=31" class="link" data-id="31" target="_blank">高中/中专</a></li>
+								<li><a href="zhiwei.html?tt=32" class="link" data-id="32" target="_blank">大专</a></li>
+								<li><a href="zhiwei.html?tt=33" class="link" data-id="33" target="_blank">本科</a></li>
+								<li><a href="zhiwei.html?tt=34" class="link" data-id="34" target="_blank">硕士</a></li>
+							</ul>
+						</div>
+						<div id="form_6" class="i">
+							<span class="btns">不限制性别</span>
+							<ul class="inner_s">
+								<li><a href="zhiwei.html?tt=" class="link cur" data-id="" target="_blank">不限制性别</a></li>
+								<li><a href="zhiwei.html?tt=1" class="link" data-id="1" target="_blank">男</a></li>
+								<li><a href="zhiwei.html?tt=2" class="link" data-id="2" target="_blank">女</a></li>
+							</ul>
+						</div>
+						<div class="searchbar">
+							<input type="text" class="s_input" name="keyword"  value="" /><button class="s_button" type="submit">搜索</button>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="mod_03">
+					<div class="hd clearfix"><h3 class="left">就业动态</h3><p class="more right"><a href="{$zpurl}list_38.html" target="_blank">更多</a></p></div>
+					<div class="bd announcement">
+						{$Mh163k_招聘求职_就业动态_置顶}
+						<ul>
+							{$Mh163k_招聘求职_就业动态}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{$Mh163k_招聘首页通栏html}
+		<div class="mingqi" id="mingqi">
+			<ul class="inner_ul clearfix">
+				{$Mh163k_招聘求职_名企招聘}
+			</ul>
+		</div>
+		<div class="blank10"></div>
+		<div class="mod_05">
+			<div class="hd po_re clearfix"><h3 class="left po_ab">热门职位</h3><p class="more right"><a href="{$zpurl}zhiwei.html?key=3" target="_blank">更多</a></p></div>
+			<div class="bd">
+				<ul class="cat_list clearfix">
+					{$Mh163k_招聘求职_行业分类}
+				</ul>
+				<ul class="text_list clearfix">
+					{$Mh163k_招聘求职_热门职位}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_05 mar10">
+			<div class="hd urgent po_re clearfix"><h3 class="left po_ab">紧急招聘</h3><p class="more right"><a href="{$zpurl}zhiwei.html?key=4" target="_blank">更多</a></p></div>
+			<div class="bd">
+				<ul class="text_list clearfix">
+					{$Mh163k_招聘求职_紧急招聘}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_05 mar10">
+			<div class="hd new po_re clearfix"><h3 class="left po_ab">最新职位</h3><p class="more right"><a href="{$zpurl}zhiwei.html?key=5" target="_blank">更多</a></p></div>
+			<div class="bd">
+				<ul class="text_list clearfix">
+					{$Mh163k_招聘求职_最新职位}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_05 mar10">
+			<div class="hd tui po_re clearfix"><h3 class="left po_ab">推荐职位</h3><p class="more right"><a href="{$zpurl}zhiwei.html?key=6" target="_blank">更多</a></p></div>
+			<div class="bd">
+				<ul class="text_list clearfix">
+					{$Mh163k_招聘求职_推荐职位}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_04 mar10">
+			<div class="hd clearfix"><ul class="left"><li class="selected"><a href="javascript:void(0);" id="tabadmenu_20" onMouseOver="setTimeout('Show_TabADSMenu(2,0,2)',200);">推荐人才简历</a></li><li><a href="javascript:void(0);" id="tabadmenu_21" onMouseOver="setTimeout('Show_TabADSMenu(2,1,2)',200);">最新求职简历</a></li></ul></div>
+			<div class="bd resume" id="tabadcontent_20">
+				<ul class="clearfix">
+					{$Mh163k_招聘求职_推荐人才简历}
+				</ul>
+			</div>
+			<div class="bd resume" id="tabadcontent_21" style="display:none;">
+				<ul class="clearfix">
+					{$Mh163k_招聘求职_最新人才简历}
+				</ul>
+			</div>
+		</div>
+		<div class="grid_j02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mod_03">
+					<div class="hd clearfix"><h3 class="left">面试指南</h3><p class="more right"><a href="{$zpurl}list_40.html" target="_blank">更多</a></p></div>
+					<div class="bd list intorder">
+						<ul class="clearfix">
+							{$Mh163k_招聘求职_面试指南}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mod_03">
+					<div class="hd clearfix"><h3 class="left">求职攻略</h3><p class="more right"><a href="{$zpurl}list_39.html" target="_blank">更多</a></p></div>
+					<div class="bd list intorder">
+						<ul class="clearfix">
+							{$Mh163k_招聘求职_求职攻略}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="mod_03">
+					<div class="hd clearfix"><h3 class="left">简历指导</h3><p class="more right"><a href="{$zpurl}list_41.html" target="_blank">更多</a></p></div>
+					<div class="bd list intorder">
+						<ul class="clearfix">
+							{$Mh163k_招聘求职_简历指导}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div id="dialog_temp" class="dialog_temp" style="display:none;">
+	<div class="img"></div>
+	<div class="inner" style="display:none;">
+		<ul class="clearfix" id="qy_zw"></ul>
+		<div class="about"><h3 id="qy_name"></h3><p id="qy_info"></p></div>
+		<div class="btn"><a id="qy_more" href="#" target="_blank">更多公司简介 &gt;&gt;</a></div>
+	</div>
+</div>
+<div class="mask" id="mask"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jobs2013.js"></script>
+<script>
+
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#form_1').showSelect('s_hangye',!1);
+	$('#form_3').showSelect('s_didian',!1);
+	$('#form_2').showSelect('s_gangwei',!0);
+	$('#form_4').showSelect('xwhangye',!1);
+	$('#form_5').showSelect('xueli',!1);
+	$('#form_6').showSelect('sex',!1);
+	$('#mingqi').showDialog();
+});
+</script>
+</body>
+</html>

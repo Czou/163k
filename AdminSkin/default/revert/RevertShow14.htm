@@ -1,0 +1,57 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">查看文章评论信息</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至文章评论列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+    <form name="form1" action="?action=revert&key={$key$}" method="post" onsubmit="return checkform(this);">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+    <tr > 
+      <td width="101">评论人： </td>
+	  <td colspan=3 class="category"> {$chrname}</td>
+    </tr>
+	<tr >
+	  <td width="101">评论时间：</td>
+	  <td colspan=3 class="category">{$Dtappenddate}</td>
+	</tr>	
+	<!--<tr >
+	  <td width="101">评论：</td>
+	  <td colspan=3 class="category">{$score}  </td>
+	</tr>-->	
+	<tr >
+	  <td width="101">IP地址：</td>
+	  <td colspan=3 class="category">{$Chrip}  </td>
+	</tr>	
+	<tr >
+	  <td width="101">对应文章：</td>
+	  <td colspan=3 class="category"><a href="{$articleurl}article_{$shopid$}.html" target="_blank">{$title}</a>  </td>
+	</tr>	
+	<tr >
+	  <td width="101">内容：</td>
+	  <td colspan=3 class="category"><textarea name="replaycontent"  cols=80 rows=4>{$Chrmark}</textarea>  </td>
+	</tr>	
+	<tr><Td></td><td class="category">
+    <input type=hidden name=gotourl value="{$gotourl}">
+	<input type="submit" name="" value="提交" class="global_btn_blue_big"><input type="hidden" value="{$id$}" name="id"><input type="hidden" value="{$key$}" name="key">　<input type="button" name="button" value="返回" class="global_btn_big" onclick="window.history.back(-1);"></td></tr>
+  </table>
+  </form>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

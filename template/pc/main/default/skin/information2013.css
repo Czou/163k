@@ -1,0 +1,36 @@
+@charset "utf-8";
+.mod_01 { border:1px solid #ededed;}
+.mod_01 h2 { font-size:20px; color:#256cbb; font-weight:bold; text-align:center; padding:20px 0 15px;}
+.mod_01 .info { text-align:center; background-color:#fafafa; border-bottom:1px solid #eee; padding:4px 0;}
+.mod_01 .inner { padding:25px 25px 15px; font-size:14px;}
+.mod_01 .inner p { margin:15px 0; color:#252525;}
+.mod_01 .inner .share { margin-top:30px; line-height:37px;}
+.mod_01 .toBBS { display:block; padding-left:24px; background:url(../images/sp2013.gif) no-repeat -839px -25px; font-size:14px; color:#36c;}
+.mod_02 { border:1px solid #cfcfcf; border-top:2px solid #044c82;}
+.mod_02 .hd { background-color:#f6f6f6; border-bottom:1px solid #cfcfcf;}
+.mod_02 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:5px 0 4px 8px}
+.mod_02 .more { display:inline; margin:7px 8px 0 0;}
+.mod_02 .bd { padding:0 10px 15px;}
+.mod_02 .bd li { float:left; display:inline; width:100px; margin:15px 11px 0 19px;}
+.mod_02 .bd img { vertical-align:top;}
+.mod_02 .bd .tit { display:block; margin-top:4px; height:36px; line-height:18px; overflow:hidden; cursor:pointer;}
+.mod_02 .bd a .tit { color:#36c;}.mod_02 .bd a:hover .tit { text-decoration:underline; color:#d00;}
+
+.header2 { background-color:#fff; border-bottom:2px solid #408ed6; padding:10px 0 7px;}
+.header2 .btn_1,.header2 .btn_2 { margin:16px 0 0 8px; display:inline-block; *display:inline; *zoom:1; padding:4px 10px; color:#fff;}
+.header2 .btn_1:hover,.header2 .btn_2:hover { color:#fff; text-decoration:none; FILTER: alpha(opacity=85); -moz-opacity: 0.85; opacity: 0.85;}
+.header2 .btn_1 { background-color:#0087bd;}
+.header2 .btn_2 { background-color:#f97106;}
+
+.mod_03 { border:1px solid #ebebeb; border-top:2px solid #f60;}
+.mod_03 .hd { background-color:#f8f8f8; border-bottom:1px solid #ebebeb;}
+.mod_03 .hd h3 { color:#333; font-size:16px; font-weight:bold; padding:10px 0 9px 9px}
+.mod_03 .hd .tips { color:#f50; margin:14px 0 0 6px;}
+.mod_03 .btn { display:inline; margin:11px 8px 0 0;}
+.mod_03 .btn a { color:#fff; background-color:#f60; margin-left:8px; font-size:14px; font-weight:bold; padding:4px 15px;}.mod_03 .btn a:hover { text-decoration:none; color:#fff; background:#f50;}
+.mod_03 .bd { padding:15px;}
+.mod_03 h2 { font-size:20px; color:#404040; font-weight:bold; text-align:center; padding:10px 0 0;}
+.mod_03 .info { text-align:center; color:#999; border-bottom:1px solid #eee; padding:15px 0;}
+.mod_03 .inner { padding:25px 25px 15px; font-size:14px;}
+.mod_03 .inner p { margin:15px 0; color:#252525;}
+.mod_03 .inner .share { margin-top:30px; line-height:37px;}

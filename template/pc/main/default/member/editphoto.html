@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改相片--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+<link  media="screen" rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+}) 
+</script>
+
+
+<script>
+function checkform(o){
+	
+	if(o.classid.value==""){
+		alert("对不起,请选择相册! ");
+		o.classid.focus();
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("对不起,请输入相片描述!");
+		o.chrmark.focus();
+		return false;
+	}
+}
+function hid2()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+</script>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改相片</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">修改相片</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  以下内容，打 * 为必填项  您单次可以上传10张GIF、JPG、PNG相片，单张2M内<br />
+                </td>
+              </tr>
+            </table>
+ 
+            <form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)" enctype="multipart/form-data" >
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr>
+                  <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 所属相册：</td>
+                  <td class="tdcontent" style="width:85%;" >{$classid} </td>
+                </tr>
+                <tr>
+                  <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 相片：</td>
+                  <td class="tdcontent" style="width:30%"  ><span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+                    <input type="file" name="file" class="text" size="40">
+                    </span>
+                    <input type=hidden name="url1" value="{$url1}">
+                  </td>
+                </tr>
+                <tr >
+                  <td  height="25" class="tditem" >相片描述<font color="#FF0000">*</font>： </td>
+                  <td class="tdcontent"><input type="text" name="chrmark" class="text" value="{$chrmark}" size=40></td>
+                </tr>
+				<tr >
+                  <td  height="25" class="tditem" >&nbsp;</td>
+                  <td class="tdcontent"><input type="hidden" name="gotourl" value="{$gotourl}">
+                <input type="hidden" name="id" value="{$ID}">
+                <input type="submit" name="Submit" class="global_btn_blue" value=" 确认无误，提交 " id="Submit" />
+                <input type="button" value=" 返 回 " class="global_btn" onClick="javascript:location.href='myphoto.aspx';" /></td>
+                </tr>
+              </table>
+             
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

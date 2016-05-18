@@ -1,0 +1,90 @@
+<tr >
+  <td align="right">活动地点设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="t_huodongType" {$t_huodongType0} onClick="t_huodongshow1.style.display='none';t_huodongshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="t_huodongType" {$t_huodongType1}  onClick="t_huodongshow1.style.display='';t_huodongshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="t_huodongType" {$t_huodongType2} onClick="t_huodongshow1.style.display='none';t_huodongshow2.style.display=''">
+    自定义活动地点</td>
+</tr>
+<tr   id="t_huodongshow1" style="display:{$t_huodongshow1}">
+  <td align="right" ><font color=blue>活动地点开始标记：</font>
+    <p>　</p>
+    <font color=blue>活动地点结束标记：</font></td>
+  <td alang="left"><textarea name="t_huodongsString" cols="70" rows="3">{$t_huodongsString}</textarea>
+    <br>
+    <textarea name="t_huodongoString" cols="70" rows="3">{$t_huodongoString}</textarea></td>
+</tr>
+<tr  id="t_huodongshow2" style="display:{$t_huodongshow2}">
+  <td align="right" ><font color=blue>请指定活动地点：</font></td>
+  <td align=left><input type="text" name="t_huodong" value="{$t_huodong}">
+  </td>
+</tr>
+<tr >
+  <td align="right">人均消费设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="t_xiaofeiType" {$t_xiaofeiType0} onClick="t_xiaofeishow1.style.display='none';t_xiaofeishow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="t_xiaofeiType" {$t_xiaofeiType1}  onClick="t_xiaofeishow1.style.display='';t_xiaofeishow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="t_xiaofeiType" {$t_xiaofeiType2} onClick="t_xiaofeishow1.style.display='none';t_xiaofeishow2.style.display=''">
+    自定义人均消费</td>
+</tr>
+<tr   id="t_xiaofeishow1" style="display:{$t_xiaofeishow1}">
+  <td align="right" ><font color=blue>人均消费开始标记：</font>
+    <p>　</p>
+    <font color=blue>人均消费结束标记：</font></td>
+  <td alang="left"><textarea name="t_xiaofeisString" cols="70" rows="3">{$t_xiaofeisString}</textarea>
+    <br>
+    <textarea name="t_xiaofeioString" cols="70" rows="3">{$t_xiaofeioString}</textarea></td>
+</tr>
+<tr  id="t_xiaofeishow2" style="display:{$t_xiaofeishow2}">
+  <td align="right" ><font color=blue>请指定人均消费：</font></td>
+  <td align=left><input type="text" name="t_xiaofei" value="{$t_xiaofei}">
+  </td>
+</tr>
+<tr >
+  <td align="right">活动人数设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="t_renshuType" {$t_renshuType0} onClick="t_renshushow1.style.display='none';t_renshushow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="t_renshuType" {$t_renshuType1}  onClick="t_renshushow1.style.display='';t_renshushow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="t_renshuType" {$t_renshuType2} onClick="t_renshushow1.style.display='none';t_renshushow2.style.display=''">
+    自定义活动人数</td>
+</tr>
+<tr   id="t_renshushow1" style="display:{$t_renshushow1}">
+  <td align="right" ><font color=blue>活动人数开始标记：</font>
+    <p>　</p>
+    <font color=blue>活动人数结束标记：</font></td>
+  <td alang="left"><textarea name="t_renshusString" cols="70" rows="3">{$t_renshusString}</textarea>
+    <br>
+    <textarea name="t_renshuoString" cols="70" rows="3">{$t_renshuoString}</textarea></td>
+</tr>
+<tr  id="t_renshushow2" style="display:{$t_renshushow2}">
+  <td align="right" ><font color=blue>请指定活动人数：</font></td>
+  <td align=left><input type="text" name="t_renshu" value="{$t_renshu}">
+  </td>
+</tr>
+<tr >
+  <td align="right">属性设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="t_shuxingType" {$t_shuxingType0} onClick="t_shuxingshow1.style.display='none';t_shuxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="t_shuxingType" {$t_shuxingType1}  onClick="t_shuxingshow1.style.display='';t_shuxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="t_shuxingType" {$t_shuxingType2} onClick="t_shuxingshow1.style.display='none';t_shuxingshow2.style.display=''">
+    自定义属性</td>
+</tr>
+<tr   id="t_shuxingshow1" style="display:{$t_shuxingshow1}">
+  <td align="right" ><font color=blue>属性开始标记：</font>
+    <p>　</p>
+    <font color=blue>属性结束标记：</font></td>
+  <td alang="left"><textarea name="t_shuxingsString" cols="70" rows="3">{$t_shuxingsString}</textarea>
+    <br>
+    <textarea name="t_shuxingoString" cols="70" rows="3">{$t_shuxingoString}</textarea></td>
+</tr>
+<tr  id="t_shuxingshow2" style="display:{$t_shuxingshow2}">
+  <td align="right" ><font color=blue>请指定属性：</font></td>
+  <td align=left><input type="radio" name="t_shuxing" value="0" {$t_shuxing0}>
+    个人
+    <input type="radio" name="t_shuxing" value="1"  {$t_shuxing1}>
+    商家 </td>
+</tr>

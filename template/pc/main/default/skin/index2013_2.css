@@ -1,0 +1,85 @@
+@charset "utf-8";
+.announcement li,.touban li,.mod_2 .hd,.friendLink .hd,.estate .picList li .text .menu { background:url(../images/index2013_2_sp.gif) no-repeat 0 0;}
+
+.mod_1 { border:1px solid #eee;}
+.mod_1 .hd { background-color:#f7f7f7; border-bottom:1px solid #eee;}
+.mod_1 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:3px 0 2px 8px}
+.mod_3 { border:1px solid #eee; border-top:2px solid #559400;}
+.mod_3 .hd { border-bottom:1px solid #eee; background-color:#fbfbfb;}
+.mod_3 .hd h3 { color:#559400; font-size:14px; font-weight:bold; padding:3px 0 4px 8px;}
+.mod_2 {border:1px solid #eee;}
+.mod_2 .hd { background-position:0 -307px; background-repeat:repeat-x;}
+.mod_2 .hd li { border-right:1px solid #eee; text-align:center; width:98px; float:left; font-size:14px; line-height:37px; height:37px; font-weight:bold;}
+.mod_2 .hd .selected { background-color:#fff; border-right:1px solid #eee;}
+.mod_2 .hd .selected a { color:#559400;}.mod_3 .hd .selected a:hover { color:#559400;}
+.mod_6 { border:1px solid #eee; border-top:0 none;}
+.mod_6 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:6px 0 0 12px}
+.mod_1 .more,.mod_3 .more { display:inline; margin:5px 6px 0 0;}
+.mod_2 .more { display:inline; margin:9px 8px 0 0;}
+.mod_6 .more { display:inline; margin:8px 8px 0 0;}
+.mod_1 .bd,.mod_2 .bd,.mod_3 .bd,.mod_4 .bd,.mod_6 .bd { padding:10px;}
+.wrapper .content .mod_2 .job2 { padding:6px 0 19px 11px;}
+
+
+.slide{ position:relative; z-index:1; zoom:1; height:179px; overflow:hidden;}
+.slide .dot{ position:absolute; z-index:5; bottom:7px; right:2px;}
+.slide .dot li{ display:inline; float:left; font-size:14px; line-height:20px; padding:2px 8px; margin-right:5px; cursor:pointer; background-color:#949491; color:#fff; text-align:center;}
+.slide .dot .on { background-color:#c00;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:460px; height:179px;}
+.slide-img { border:1px solid #eee; border-top:2px solid #ddd; padding:4px;}
+
+.announcement .topic { margin-bottom:5px; text-align:center; font-weight:bold; font-size:14px;}
+.announcement .topic a { color:#f30;}
+.announcement li { height:21px; line-height:21px; overflow:hidden; background-position:-492px -232px; padding-left:15px;}
+.announcement em { color:#999; margin-left:8px;}
+
+.adBox { border:1px solid #eee; padding:5px 8px 4px; text-align:left;}
+
+.adBox img { border:1px solid #ccc; display:block; margin:0 auto; margin:4px 0;}
+.adBox p { line-height:20px; color:#333; font-family:"宋体";}
+.adBox p .red { color:#f30;}
+
+.focus { border:1px solid #eee; border-left:0 none; border-top:2px solid #ddd; padding:9px 15px 5px;}
+.focus .topic { padding:5px 0 1px;}
+.focus .topic h3 { font-size:18px; text-align:center; height:27px; line-height:27px; overflow:hidden;}
+.focus .topic .more { color:#d00;}
+.focus .topic .info { color:#777; margin:5px 0 10px; line-height:22px; height:44px; overflow:hidden;} 
+.focus .list { border-top:1px dotted #ddd; padding:11px 0 8px;}
+.focus .list li { line-height:26px; height:26px; overflow:hidden; font-size:14px;}
+.focus .list em { margin-left:9px; font-size:12px; color:#999;}
+.focus .list .cat { color:#777; margin-right:3px;}.focus .list .cat:hover { color:#d00;}
+.focus .list .line { border-top:1px dotted #ddd; padding-top:8px; margin-top:10px;}
+
+.touban { font-size:14px;}
+.touban li { background-position:-491px -227px; padding-left:16px; line-height:27px; height:27px; overflow:hidden;}
+.touban .cat { color:#777; margin-right:3px;}.touban .cat:hover { color:#d00;}
+.touban em { margin-left:9px; font-size:12px; color:#999;}
+
+.more .small_nav a { color:#36c;}.small_nav a:hover { color:#d00;}
+
+.friendLink { border:1px solid #e6e6e6;}
+.friendLink .hd { background-position:0 -345px; background-repeat:repeat-x; color:#404040; font-size:14px; font-weight:bold; padding:3px 0 6px 6px;}
+
+.estate .textList { float:left; width:520px; padding-top:3px;}
+.estate .picList { float:right; width:360px;}
+.estate .textList .item { float:left; width:250px; padding-left:10px; _dislpay:inline; line-height:24px; height:24px; overflow:hidden;}
+.estate .textList .chuzu { padding-right:8px; color:#12a114;}
+.estate .textList .chushou { padding-right:8px; color:#fd1719;}
+.estate .textList .item a { color:#404040;}
+.estate .textList .item .price { color:#fa1819; font-family:Georgia, "Times New Roman", Times, serif;}
+.estate .textList .item .area { color:#0406fb; font-family:Georgia, "Times New Roman", Times, serif;}
+.estate .picList li { float:left; width:180px; height:90px; padding-top:7px;}
+.estate .picList li .pic { float:left; width:73px; padding-top:3px;}
+.estate .picList li .pic img { display:block; margin:0 auto; width:54px; height:70px; vertical-align:top; padding:2px; border:1px solid #ddd;}
+.estate .picList li .text { float:left; width:107px; text-align:left;}
+.estate .picList li .text h3 { font-size:14px; font-weight:bold; padding:1px 0;}
+.estate .picList li .text p { line-height:16px; height:16px; overflow:hidden;}
+.estate .picList li .text p em { color:#888;}
+.estate .picList li .text .menu { background-position:-89px -70px; height:21px; width:100px; display:block; line-height:21px; color:#fff; text-align:center; margin-top:3px;}
+.estate .bigPicList { padding:17px 0 5px 1px;}
+.estate .bigPicList .item { float:left; width:112px; text-align:center;}
+.estate .bigPicList img { display:block; vertical-align:top; width:95px; height:70px; margin:0 auto; padding:1px; border:1px solid #ddd;}
+.estate .bigPicList .title { display:block; margin-top:3px; height:18px; overflow:hidden;}
+
+

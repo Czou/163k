@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-店铺展示-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_kbShop.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$Default_tplPath}js/swfobject.js"></script>
+{$top950$}{$Mh163k_口碑商家_独立头部}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a> &gt; 店铺展示</div>
+	<!-- 主体 -->
+	<div id="content" class="{$moban}">
+		<div class="banner">
+			<div class="swf" id="topflashcontent"></div>
+			<div class="positionS">
+				<div class="shopName clearfix">
+					<div class="pic show{$showlogo}" id="shop_logo"><img src="{$filepath}" alt="" width="140" height="60">&nbsp;</div><div class="text show{$showname}">{$chrshop}</div>
+				</div>
+			</div>
+			<div class="navC" style="clear:both;" >
+				<ul class="clearfix">
+				<li class="first"><a href="{$indexurl}" >店铺首页</a></li>
+				<li ><a href="{$TargetUrl}content_{$shopid}.html" >店铺介绍</a></li>
+				<li><a href="{$TargetUrl}notice_{$shopid}.html" >店铺动态</a></li>
+				<li><a href="{$TargetUrl}pic_{$shopid}.html" class="current">店铺展示</a></li>
+				<li><a href="{$TargetUrl}shop_{$shopid}.html">商品展厅</a></li>
+				<li><a href="{$TargetUrl}cuxiao_{$shopid}.html">团购与打折</a></li>
+				<li><a href="{$TargetUrl}comment_{$shopid}.html">网友点评</a></li>
+				{$sslist}
+				<li><a href="{$TargetUrl}contact_{$shopid}.html">联系方式</a></li>
+				<li><a href="{$TargetUrl}yuyue_{$shopid}.html" style="font-weight:bold; color:#f50;">在线预约</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var tonglang="{$tonglang}";
+			if(tonglang.indexOf(".swf")!=-1){
+				var so = new SWFObject(tonglang, "sotester", "950", "148", "9", "#ffffff");
+				so.addParam("wmode", "opaque");
+				so.write("topflashcontent");
+			}
+			else{
+				document.getElementById("topflashcontent").innerHTML="<img src='"+tonglang+"' onerror=\"javascript:this.src='{$Default_tplPath}images/transparent_1px.gif'\" />";
+			}
+			$('#shop_logo').find('img').bind('error',function(e){
+				$(this).attr({'src':'{$Default_tplPath}images/wscbp.gif'});
+			});
+		</script>
+		<div class="zhansiBox">
+			<!-- 视频展示 -->
+			<div class="module_n01">
+				<div class="hd"><h3>视频展示</h3></div>
+				<div class="bd video clearfix">
+					<ul id="ISL_Cont_1">
+						{$videos}
+					</ul>
+					<a href="javascript:void(0);" class="poMenu prev" id="LeftArr">上一个</a>
+					<a href="javascript:void(0);" class="poMenu next" id="RightArr">下一个</a>
+				</div>
+			</div>
+			<!-- 图片展示 -->
+			<div class="module_n01">
+				<div class="hd"><h3 class="h02">图片展示</h3></div>
+				<div class="bd pic">
+				<div class="pageHd"><b>分类：</b><a href="{$TargetUrl}pic_{$shopid}.html" class="current">全部</a>[{$totalcount}]　{$smallcategory}</div>
+					<ul class="clearfix">
+						
+						<tag:Loop ListType="Listshoppic" RecType="New" PageSize="20" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="company/list_pic_tr.html" />
+					</ul>
+					<!-- 分页 -->
+				<div class="pageNavigation">
+					{$PageSplit}　总计：{$total}张　20张/页
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+<script src="{$Default_tplPath}js/ScrollPic.js" type="text/javascript"></script>
+<script type="text/javascript">
+		var scrollPic_02 = new ScrollPic();
+		scrollPic_02.scrollContId   = "ISL_Cont_1"; //内容容器ID
+		scrollPic_02.arrLeftId      = "LeftArr";//左箭头ID
+		scrollPic_02.arrRightId     = "RightArr"; //右箭头ID
+
+		scrollPic_02.frameWidth     = 888;//显示框宽度
+		scrollPic_02.pageWidth      = 148; //翻页宽度
+
+		scrollPic_02.speed          = 10; //移动速度(单位毫秒，越小越快)
+		scrollPic_02.space          = 10; //每次移动像素(单位px，越大越快)
+		scrollPic_02.autoPlay       = false; //自动播放
+		scrollPic_02.autoPlayTime   = 3; //自动播放间隔时间(秒)
+
+		scrollPic_02.initialize(); //初始化
+</script>
+<SCRIPT language=javascript src="{$Default_tplPath}js/highslide.js"></SCRIPT>
+</body>
+</html>

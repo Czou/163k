@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员手机激活验证-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<body>
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 会员手机激活验证</div>
+	<form name="register" id="register" onSubmit="return resendmobile('{$chrname}',document.getElementById('oldtel').value,document.getElementById('chrtel').value);" >
+	<div id="content" class="v2013">
+		<div class="yanzheng clearfix">
+			<div class="left"><s class="mobile"></s></div>
+			<div class="right">
+				<p class="txt">请将您的手机的激活验证码输入到下面</p>
+				<div class="form">请输入验证码：<input type="text" class="t_ipt" name="chrcode" id="chrcode" value="" /><button type="button" onClick="return checksmscode('{$chrname}')" class="btn_2013" id="sendvalue">激活账号<s class="s"></s></button></div>
+				<p class="txt2">如果您的手机填写有误，60秒后可重新修改</p>
+				<div class="form">修改您的手机：<input type="text" class="t_ipt" name="chrtel" id="chrtel" value="{$chrtel}" /><input type="hidden" name="oldtel" id="oldtel" value="{$chrtel}"><button id="sendvaluess" name="sendvaluess" type="submit" class="btn_2013" style="display:none;">确认<s class="s"></s></button><span class="daojishi" id="daojishi">60秒</span></div>
+			</div>
+		</div>		
+	</div>
+	</form>
+	{$bottom$}
+</div>
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script>
+ var i = 61;
+function send(){
+ i--;
+ if(i==-1)
+ {
+    $("#sendvaluess").show();
+    $("#daojishi").hide() ;
+	return null;
+ }
+  $("#daojishi").html(i + "秒") ;
+  $("#sendvaluess").hide();
+  setTimeout("send();",1000);
+}
+function resendmobile(aa,bb,cc)
+{
+	var xmlhttp=createxmlhttp();
+	if(!xmlhttp)
+	{
+		alert("你的浏览器不支持XMLHTTP！！");
+		return;
+	}
+	var url="../request.aspx?action=show1&str1=2&str2="+escape(aa)+"&str3="+escape(bb)+"&str4="+escape(cc);
+	
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert("短信发送成功，请在上方输入您手机收到的验证码");
+			document.getElementById('oldtel').value=cc;
+			i = 61;
+			send();
+			$("#daojishi").show() ;
+			return false;
+		}else{
+			alert(data.error);	
+			return false;
+		}
+	});
+	return false;	
+}
+
+
+send();
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

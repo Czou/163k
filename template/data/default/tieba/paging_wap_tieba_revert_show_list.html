@@ -1,0 +1,17 @@
+﻿<div class="gentie post_item">
+	<div class="user_info">
+		<div class="user_head"><img src="{$chrpic}" /></div>
+		<ul>
+			<li>
+			<span class="uName">{$chrname}</span>
+			<span class="grade i_{$djid}" title="{$chrlevel}">{$djid}</span>
+			<span class="bazhu display{$isbazhu}">版主</span>
+			</li>
+			<li>{$PNum} {$dtappenddate}</li>
+		</ul>
+			<div class="reply_btn" onclick="return loadRevertReplay(this,'{$revertid}','{$parentid}');"></div>
+	</div>
+	<div class="con">{$repsmall}<div class="replaycontent1">{$chrmark}</div></div>
+	<p class="manage_replay display{$isrep}" data-isrep="{$isrep}">{$replaytruename}回复：<span class="replaycontent2">{$replaycontent}</span>　<span class="time">{$replaydate}</span></p>
+	<p class="manage"><a href="#" onclick="return edit_replay(this,'{$revertid}');" class="blue">编辑和回评</a><a href="#" onclick="return loadDelQuick(this,'{$revertid}');" class="blue" style="padding:0 13px;">更多操作</a></p>
+</div>

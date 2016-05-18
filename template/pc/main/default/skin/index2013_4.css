@@ -1,0 +1,119 @@
+@charset "utf-8";
+.mod_2 .hd,.touban li,.fangchan .shou,.fangchan .zu,.koubei .text li,.koubei .btn,.quickly_btn li,.bianmin2 .bd li,.fabu_btn,.hotShop .hd,.estate .picList li .text .menu { background:url(../images/index2013_4_sp.gif) no-repeat 0 0;}
+
+.mod_1 { border:1px solid #cfcfcf; border-top:2px solid #206f96;}
+.mod_1 .hd { border-bottom:1px solid #cfcfcf; background-color:#f7f7f7;}
+.mod_1 .hd h3 { color:#333; font-size:14px; font-weight:bold; padding:4px 0 4px 8px}
+.mod_2 { border:1px solid #cfcfcf; border-top:2px solid #206f96;}
+.mod_2 .hd { background-position:0 -420px; background-repeat:repeat-x;}
+.mod_2 .hd li { border-right:1px solid #ddd; padding:0 19px; float:left; font-size:14px; line-height:30px; height:30px; font-weight:bold;}
+.mod_2 .hd .selected { background-color:#fff;}
+.mod_2 .hd .selected a { color:#333;}.mod_2 .hd .selected a:hover { color:#333;}
+.mod_3 { border-bottom:1px solid #eee; border-right:1px solid #eee;}
+.mod_3 .hd { width:90px;}
+.mod_3 .hd li { text-align:center; font-size:14px; line-height:38px; height:38px; font-weight:bold; padding:0 3px; border:1px solid #eee; border-bottom:0 none; background-color:#fafafa;}
+.mod_3 .hd .selected { background-color:#fff; border-right:0 none; border-left:3px solid #ff8400; padding-left:0;}
+.mod_3 .hd .selected a { color:#333;}.mod_5 .hd .selected a:hover { color:#333;}
+.mod_4 .hd { border-bottom:1px solid #dbdee1; background-color:#f7f7f7;}
+.mod_4 .hd h3 { color:#333; font-size:12px; font-weight:bold; padding:2px 0 2px 8px}
+.mod_1 .more,.mod_2 .more { display:inline; margin:6px 6px 0 0;}
+.mod_1 .bd,.mod_2 .bd { padding:10px;}
+
+
+
+.focus { padding:3px 10px 0;}
+.focus .topic h3 { font-size:18px; text-align:center; height:27px; line-height:27px; overflow:hidden;}
+.focus .topic .more { color:#d00;}
+.focus .topic .info { color:#777; margin:5px 0 10px; line-height:22px; height:44px; overflow:hidden;}
+.focus .list { border-top:1px dotted #ddd; padding:6px 0 0;}
+.focus .list li { line-height:26px; height:26px; overflow:hidden; font-size:14px;}
+.focus .list em { margin-left:9px; font-size:12px; color:#999;}
+.focus .list .cat { color:#777; margin-right:3px;}.focus .list .cat:hover { color:#d00;}
+.focus .list .line { border-top:1px dotted #ddd; padding-top:8px; margin-top:10px;}
+
+.touban { width:463px; padding:8px 0 11px 16px;}
+.touban ul { height:252px;}
+.touban li { background-position:-494px -228px; padding-left:13px; line-height:28px; height:28px; font-size:14px; overflow:hidden;}
+.touban .gray { color:#666;}.touban .gray:hover { color:#d00;}
+.touban li em { padding-left:8px; font-size:11px; color:#999;}
+.touban li img { vertical-align:middle;}
+.touban_pic { width:430px; padding:2px 0 0;}
+.touban_pic li { float:left; display:inline; margin:7px 0px 0 20px; width:120px; padding-bottom:6px;}
+.touban_pic .tit,.touban_pic .bg { display:block; width:116px; padding:0 2px; bottom:6px; left:0; height:22px; line-height:22px; overflow:hidden;}
+.touban_pic .tit { text-align:center; z-index:3; color:#fff; cursor:pointer;}.touban_pic .tit:hover { color:#fff; text-decoration:underline;}
+.touban_pic .bg { background-color:#000; FILTER: alpha(opacity=60); moz-opacity: 0.6; opacity: 0.6; z-index:2;}
+.touban_pic img { vertical-align:top;}
+.touban_pic a:hover .tit { text-decoration:underline;}
+
+.quickly_btn { background-color:#f6f6f6; border-top:2px solid #206f96; padding:5px 0 5px 9px;}
+.quickly_btn li { float:left; width:84px; text-align:center; line-height:22px; height:22px; overflow:hidden; background-position:-499px 7px;}
+.bianmin2 { border:1px solid #cfcfcf;}
+.bianmin2 .hd { width:14px; height:70px; padding:13px 8px 0; background-color:#206f96; font-size:14px; font-weight:bold; color:#fff; line-height:30px;}
+.bianmin2 .bd { width:408px; padding:6px 0 5px;}
+.bianmin2 .bd li { float:left; width:81px; text-align:center; line-height:24px; height:24px; overflow:hidden; background-position:-499px 7px;}
+.quickly_btn .nobor,.bianmin2 .bd .nobor { background:none;}
+
+.slide{ position:relative; z-index:1; zoom:1; height:179px; overflow:hidden;}
+.slide .dot{ position:absolute; z-index:5; bottom:7px; right:2px;}
+.slide .dot li{ display:inline; float:left; font-size:14px; line-height:20px; padding:2px 8px; margin-right:5px; cursor:pointer; background-color:#949491; color:#fff; text-align:center;}
+.slide .dot .on { background-color:#c00;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:440px; height:179px;}
+
+.more .small_nav { color:#aaa;}
+.more .small_nav a { color:#404040;}.small_nav a:hover { color:#d00;}
+
+.friendLink { border:1px solid #ddd;}
+.friendLink .hd { color:#333; font-size:14px; font-weight:bold; padding:4px 0 5px 8px; border-bottom:1px solid #ddd;}
+
+.wrapper .content .fangchan { padding:10px 0 10px 10px;} 
+.fangchan .item { float:left; width:194px; padding:8px 0 8px 30px; border-bottom:1px dotted #e0e0e0;}
+.fangchan .item .title { display:block; height:18px; overflow:hidden; color:#4e4e4e;}
+.fangchan .item .price_line { display:block; height:18px; overflow:hidden; color:#0041d9;}
+.fangchan .item a:hover .title,.fangchan .item a:hover .price_line { text-decoration:underline; color:#c00; cursor:pointer;}
+.fangchan .shou { background-position:-475px -346px;}
+.fangchan .zu { background-position:-475px -281px;}
+.fangchan .pic { padding:4px 0 5px;}
+.fangchan .pic li { float:left; width:101px; display:inline; margin:10px 15px 0 10px}
+.fangchan .pic img { display:block; vertical-align:top; margin:0 auto; padding:2px; border:1px solid #ddd;}
+.fangchan .pic .title { display:block; margin-top:4px; height:20px; line-height:20px; overflow:hidden; color:#f30;}
+.fangchan .pic .price { color:#404040;} 
+.fangchan .pic a:hover .title,.fangchan .pic a:hover .price { text-decoration:underline; color:#d00;}
+
+.wrapper .content .estate { padding-top:1px;} 
+.estate .picList li { overflow:hidden; *zoom:1; vertical-align:top; padding:9px 4px 11px; border-bottom:1px dotted #ccc; color:#333;}
+.estate .picList li .pic { float:left; width:68px; padding:3px 0 0 5px;}
+.estate .picList li .pic img { display:block; vertical-align:top; padding:1px; border:1px solid #ddd;}
+.estate .picList li .text { float:left; width:107px; text-align:left;}
+.estate .picList li .text h3 { font-size:14px; font-weight:bold; padding:1px 0;}
+.estate .picList li .text p { line-height:16px; height:16px; overflow:hidden;}
+.estate .picList li .text p em { color:#999;}
+.estate .picList li .text .menu { background-position:0 -74px; height:21px; width:61px; padding-left:8px; display:block; line-height:19px; color:#fff; text-align:left; margin-top:3px;}
+.fangchan .bigPicList { padding:17px 0 5px 1px;}
+.fangchan .bigPicList li { float:left; width:112px; text-align:center;}
+.fangchan .bigPicList img { display:block; vertical-align:top; width:95px; height:70px; margin:0 auto; padding:1px; border:1px solid #ddd;}
+.fangchan .bigPicList .title { display:block; margin-top:3px; height:18px; overflow:hidden;}
+
+.wrapper .content .news_list { padding-right:0; padding-top:13px;}
+.wrapper .content .news_list .topic { padding:0 10px 0 0; margin-top:0; height:24px; overflow:hidden;}
+
+.fabu_btn { display:block; margin:10px 0 0 3px; width:244px; height:41px; background-position:0 -32px; text-indent:-999em; overflow:hidden;}
+
+.wrapper .content .tuangou1 { padding:12px 6px 9px;}
+.wrapper .content .announcement { padding:9px 10px 8px;}
+.tuangou1 h6 { font-size:16px; line-height:24px; height:48px; overflow:hidden; margin:0 0 12px;}
+.tuangou1 .bg,.tuangou1 .title { display:block; left:0; top:168px;  width:279px; height:22px; overflow:hidden; line-height:22px; padding:0 3px;}
+.tuangou1 .bg { background-color:#000; FILTER: alpha(opacity=50); moz-opacity: 0.5; opacity: 0.5; z-index:2;}
+.tuangou1 .title { color:#fff; z-index:3;}
+.tuangou1 a:hover .title { text-decoration:none;}
+.tuangou1 .price { text-decoration:line-through;}
+.tuangou1 .price_t { color:#f30; font-size:24px; font-weight:bold;}
+.tuangou1 .yen { color:#f30; font-size:14px;}
+.tuangou1 .btn { display:block; margin-top:8px; padding:0px 25px; font-size:16px; font-weight:bold; color:#fff; background-color:#206f96;}
+.tuangou1 img { vertical-align:top;}
+
+.hotShop { border:1px solid #ff8400; border-top:2px solid #ff8400;}
+.hotShop .hd { background-position:0 -451px; background-repeat:repeat-x;}
+.hotShop .hd h3 { padding-top:3px; background-position:-474px -336px;}
+.hotShop .menu { left:auto; right:6px; top:6px;}
+.wrapper .content .hotShop .bd { padding-bottom:7px;}

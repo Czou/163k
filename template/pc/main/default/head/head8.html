@@ -1,0 +1,92 @@
+﻿<link href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/common2013.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/head_8.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/common2013.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/head8.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper">
+<div class="public-top-layout">
+	<div class="topbar w-1200">
+		<div class="user-entry">
+			<img src="{$Default_tplPath}images/index8/icon.png">
+			<a href="{$WapHelpUrl}" class="display{$IsOpenWap}">手机版</a><span class="display{$IsOpenWap}"></span>
+			<a href="{$appdownloadurl}" target="_blank">客户端</a><span></span>
+			<a href="javascript:void(0);" onClick="window.external.AddFavorite('{$SiteUrl}','{$SiteName}');return false;">收藏本站</a>            
+		</div>
+		<div class="quick-menu login_info" id="login_info">
+		   <script>jQuery(document).ready(function(){is_login3("{$SiteUrl}","{$Default_tplPath}",'{$Mh163k_QQ登录调用}','{$isweixinlogin}','{$Tempid}');});</script>
+	       <dl> 
+	           <dt class="zn"><a href="{$SiteUrl}gift/index.html">积分商城</a></dt>
+	       </dl>
+	       <dl class="xian"></dl>
+	      <dl class="long">
+	        <dt><a href="javascript:void(0);">我的中心</a><i></i></dt>
+	        <dd>
+	          <ul>
+	            <li><a href="{$SiteUrl}member/modify.aspx">基本资料</a></li>
+	            <li><a href="{$SiteUrl}member/myorder.aspx?action=myshoucang">我的收藏</a></li>
+				<li><a href="{$SiteUrl}member/myorder.aspx">快店订单</a></li>
+	            <li><a href="{$SiteUrl}member/mytgorder.aspx">省啦订单</a></li>
+				<li><a href="{$SiteUrl}member/mylive.aspx">我的信息</a></li>
+	            <li><a href="{$SiteUrl}member/modify.aspx?action=pass">修改密码</a></li>
+	          </ul>
+	        </dd>
+	      </dl>
+	      <dl class="xian"></dl>
+	      <dl class="long">
+	        <dt><a href="javascript:void(0);">快速发布</a><i></i></dt>
+	        <dd>
+	          {$Mh163k_快速发布列表}
+	        </dd>
+	      </dl>
+	      <dl class="xian"></dl>
+	      <dl class="long">
+	        <dt><a href="javascript:void(0);">网站导航</a><i></i></dt>
+	        <dd>
+	          <ul>
+	            <li><a href="{$SiteUrl}help/">帮助中心</a></li>
+	            <li><a href="{$SiteUrl}service/">留言建议</a></li>
+	            <li><a href="{$SiteUrl}help/article_13.html">联系我们</a></li>
+	          </ul>
+	        </dd>
+	      </dl>
+	    </div>
+	</div>
+</div>
+<!--header-->
+<div class="header w-1200 clearfix">
+	<div style="display:none;" id="ind_head_cb">{$Mh163k_首页重播广告}</div>
+	<div class="logo fl">
+		<a href="{$SiteUrl}"><img src="{$topurl}" alt="{$SiteName}" /></a>
+	</div>
+	<div class="search fl"><form id="searchform1" name="searchform1" method="post" target="_blank" action="{$SiteUrl}search.aspx">
+		<input type="hidden" id="keyword_c" name="c" value="1" />
+		<div class="nav_bbs" id="nav">
+			<p class="set">生活信息</p>
+			<ul class="keyword_new">
+				<li data-val="1">生活信息</li>
+				<li data-val="2">店铺商家</li>
+				<li data-val="3">新闻资讯</li>
+				<li data-val="4">省啦项目</li>
+				<li data-val="5">招聘信息</li>
+				<li data-val="6">商品信息</li>
+				<li data-val="7">视频逛街</li>
+			</ul>
+		</div><input type="text" name="keyword" class="search_text" placeholder="请输入关键字" />
+		<input type="submit" value="搜索" class="search_sub" />
+		</form>
+	</div>
+	
+	<a href="{$liveurl}fabu.html" class="hea_bot">免费发布信息</a>
+</div>
+<!--nav-->
+<div class="navWrap clearfix">
+	<div class="nav w-1200" id="channel_nav">
+		<ul>
+			{$Mh163k_头部主导航菜单_index8}
+		</ul>
+	</div>
+</div>
+<div class="content w-1200 clearfix">

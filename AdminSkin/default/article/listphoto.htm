@@ -1,0 +1,11 @@
+﻿<div class="my_prop_imgitem" id="setfile{$num}">
+  <div id="pre_8_{$num}" name="pre_8_{$num}" style="margin-bottom:5px;"><a href="{$filepath}" class="highslide page-options" onclick="return hs.expand(this)"><img src="{$chrimage}" width="120"  height="120" id="imgview_apf_id_8_{$num}" style="vertical-align:middle;" alt="{$alt}" /></a></div>
+<input type="text" value="{$chrmark}" onblur="editMark(this,'{$ID}')" class="i_img_alt" />
+<p class="p">分类：{$chrcategory}</p>
+<!--<p class="p">用户：{$chrname}</p>-->
+<p class="p"><a href="?action=delphoto&id={$ID}&iskill=3" class="global_btn_blue">取消关联</a></p>
+<a href="#" onclick="return set_FM(this,'{$filepath}','{$ID}');" class="set_FM" data-istop="{$istop}">设为封面</a>
+<p class="p"><a href="?action=delphoto&id={$ID}&iskill={$iskill}" class="global_btn">{$iskill1}</a>  <a href="javascript:del({$ID});" class="global_btn">删除</a></p>
+	<a href="#" onclick="return move_PrevNext(this,0,{$num},{$ID},'setfile','{$table_id}',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,{$num},{$ID},'setfile','{$table_id}',8);" class="move_next">后移</a>
+</div>

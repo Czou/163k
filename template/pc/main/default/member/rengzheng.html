@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>签约、认证--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 签约、认证--会员管理中心</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+  <div class="col_main">
+  <div class="edit_box">
+  <div id="contentfloat">
+  <div id="content">
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+
+<script>
+function checkform2(o){
+	if(o.chrman.value==""){
+		alert("对不起，请输入联系人！");
+		o.chrman.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("对不起，请输入联系方式！");
+		o.chrtel.focus();
+		return false;
+	}
+}
+function checkform1(o){
+	if(o.file.value==""){
+		alert("对不起，请选择上传店铺营业执照！");
+		o.file.focus();
+		return false;
+	}
+	
+}
+</script>
+    <div class="bigtitle">签约、认证</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+      <tr>
+        <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+        <td class="tx_title"><span>重要提示：</span><br />
+          提交后网站工作人员会联系您洽谈具体签约合作事宜！<br>
+          您也可以主动联系网站人员咨询签约合作事宜 </td>
+      </tr>
+    </table>
+  <form name="form1" action="?action=save1"  method="post" enctype="multipart/form-data" onSubmit="return checkform1(this);">
+    <div class="smalltitle">申请认证（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+      <tr>
+        <td class="tditem" style="width:30%;"><span style="color:Red">*</span> 上传您的店铺营业执照进行认证：</td>
+        <td class="tdcontent" ><input type='file' name='file' value=''  class="text"/> (您店铺资质的重要)</td>
+      </tr>
+	  <tr>
+        <td class="tdcontent" colspan=2 align=left>历史记录：</td>
+      </tr>
+	   <tr>
+        <td class="tdcontent" colspan=2 align=left>{$rengzheng}</td>
+      </tr>
+	  <tr>
+        <td class="" colspan=2 align=center><input type="submit" class="global_btn_blue_big" name="submit" value=" 提交认证 " id="" /></td>
+      </tr>
+    </table>
+   </form>
+   <div class="blank10"></div>
+   <form name="form1" action="?action=save2"  method="post" onSubmit="return checkform2(this);">
+    <div class="smalltitle">申请成为“签约店铺”（签约后您将获得店铺全部功能）（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+      <tr>
+        <td class="tditem" style="width:30%;"><span style="color:Red">*</span> 我要申请成为“签约店铺”：</td>
+        <td class="tdcontent" >联系人：<input type='text' name='chrman' value=''  class="text"/>  联系方式：<input type='text' name='chrtel' value=''  class="text"/></td>
+      </tr>
+	   <tr>
+        <td class="tdcontent" colspan=2 align=left>历史记录：</td>
+      </tr>
+	   <tr>
+        <td class="tdcontent" colspan=2 align=left>{$qianyue}</td>
+      </tr>
+	  <tr>
+        <td class="" colspan=2 align=center><input type="submit" class="global_btn_blue_big" name="submit" value=" 提交签约 " id="" /></td>
+      </tr>
+    </table>
+  
+   </form>
+   </div>
+    </div>
+    </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+    </div>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

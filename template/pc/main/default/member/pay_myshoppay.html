@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的购物车-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kuaisonORDER.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<script>var siteUrl = '{$SiteUrl}';</script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_快送_头部}
+	<div class="content bgk">
+		<div class="w-1200">
+			<div class="stepBlock">
+				<h2 class="first"></h2>
+				<p class="stepTxt">
+					<span class="one selected">加入购物车</span>
+					<span class="two">确认订单内容</span>
+					<span class="three">成功提交并付款</span>	
+					<span class="four">确认收货并评论</span>	
+				</p>
+			</div>
+			<form method="get" action="/member/myorder.aspx" onSubmit="return chechLogin(this);">
+			<input type="hidden" name="action" value="shoppay" />
+			<input type="hidden" name="shopid" value="{$shopid}" />
+			<div class="mod_01">
+				<div class="order_detial">
+					<div class="shop_list clearfix" id="shop_list"><a href="{$SiteUrl}k{$shopid}.html" target="_blank" class="right display0" id="shopLink">进入店铺</a>{$PayShopMenu}</div>
+					<div class="table table2" id="pro_list">
+						<p class="th">
+							<span class="a">商品名称</span>
+							<span class="b">商品数量</span>
+							<span class="c">商品单价</span>
+							<span class="d">小计</span>
+							<span class="e">操作</span>
+						</p>
+						{$pay_small_list} 
+					</div>
+					<p style="text-align:right; margin-top:25px;">选择抵用券：<select name="" disabled><option value="0">暂无可用抵用券</option></select></p>
+					<p class="total">商品总计：<em class="em">&yen;<span id="chrmoneyAll">{$chrmoneyAll}</span></em>　满减优惠：<em class="em">-&yen;<span id="chrmoneyyouhui">{$chrmoneyyouhui}</span></em><span class="display1{$discount1}" title="配送费不累计">(满{$discount}减{$discount1})</span>　配送费：<em class="em">&yen;<span id="chrmoneyYunfei">{$chrmoneyYunfei}</span></em><span class="display1{$daijinnum}">　{$daijinname}抵：-<span id="daijinnumdikou">{$daijinnumdikou}</span></span>　<em class="em2">需支付：&yen;<span id="chrmoneyPay">{$chrmoneyPay}</span></em></p>
+				</div>
+			</div>
+			<input type="hidden" id="shipmoney1" value="{$shipmoney1}">
+			<div class="submit_node po_re"><button class="s_btn_green disabled" data-numAll="{$numAll}" id="submitGo" type="submit" disabled>我要结算</button><div class="po_ab"></div></div>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/kuaisonCommon.js?{$CacheHash}"></script>
+<script>
+window['SHOPID'] = '{$shopid}';
+function showOther(jsn){
+	var chrmoneyAll = $('#chrmoneyAll'),chrmoneyyouhui = $('#chrmoneyyouhui'),chrmoneyYunfei = $('#chrmoneyYunfei'),chrmoneyPay = $('#chrmoneyPay'),daijinnumdikou = $('#daijinnumdikou');
+	chrmoneyAll.html(jsn.chrmoneyAll);
+	chrmoneyyouhui.html(jsn.chrmoneyyouhui);
+	
+	daijinnumdikou.html(jsn.daijinnumdikou);
+	chrmoneyPay.html(jsn.chrmoneyPay);
+}
+function setShoppingCart(sid,num,node,typeid){
+	var url=siteUrl+'request.ashx?action=addmyshopping&id='+sid+'&styleid=1&num='+num+'&shopid='+window['SHOPID']+'&ishtml=1&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			var chrmoney = node.parent().parent().parent().find('.chrmoney');
+			var submoney = node.parent().parent().parent().find('.submoney');
+			var result =  changeTwoDecimal_f(parseFloat(chrmoney.html())*parseInt(num));
+			submoney.html(result);
+			showOther(data[0].CHRMONEY);
+			showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+		}else{
+			if(typeof typeid !== 'undefined'){
+				if('increase' === typeid){
+					$('#gouwuche'+sid).val(parseInt($('#gouwuche'+sid).val())-1);
+				}
+			}
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+function getShoppingCart(delid,node){
+	var Delid = delid || '';
+	var url=siteUrl+'request.ashx?action=getmyshopping&shopid='+window['SHOPID']+'&ishtml=1&delid='+Delid+'&jsoncallback=?';
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			showOther(data[0].CHRMONEY);
+			node.parent().parent().remove();
+			showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+		}else{
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+function shoplist(){
+	var node = $('#pro_list');
+	node.find('.reduce').click(function(e){
+		e.preventDefault();
+		var now_node = $(this).siblings('.n_ipt'),
+			now_val = parseInt(now_node.val());
+		if(now_val===1){return false;}
+		--now_val === 1?($(this).addClass('disabled'),now_val=1):($(this).removeClass('disabled'));
+		now_node.val(now_val);
+		$(this).siblings('.increase').removeClass('disabled');
+		setShoppingCart($(this).attr('data-id'),now_val,$(this),'reduce');
+	}).end().find('.increase').click(function(e){
+		e.preventDefault();
+		var now_node = $(this).siblings('.n_ipt'),
+			now_val = parseInt(now_node.val());
+		if(now_val===100){return false;}
+		++now_val === 100?($(this).addClass('disabled'),now_val=100):($(this).removeClass('disabled'));
+		now_node.val(now_val);
+		$(this).siblings('.reduce').removeClass('disabled');
+		setShoppingCart($(this).attr('data-id'),now_val,$(this),'increase');
+	}).end().find('.del').click(function(e){
+		e.preventDefault();
+		getShoppingCart($(this).attr('data-id'),$(this));
+	});	
+}
+shoplist();
+function chechLogin(o){
+	if($('#isLogin')[0] && $('#isLogin').val() === '1'){
+		return true;
+	}else{
+		MSGwindowShow('shopping','1','您需要先登录才能进行购物车结算！',siteUrl+'member/login.html?from='+encodeURIComponent(siteUrl+'member/myorder.aspx?action=shoppay&shopid='+window['SHOPID']),'');
+		return false;
+	}
+}
+(function($){
+	var submitGo = $('#submitGo');
+	if(parseInt(submitGo.attr('data-numAll')) > 0){
+		submitGo.prop('disabled',false).removeClass('disabled');
+		$('#shopLink').show();
+		showQison(parseFloat($('#shipmoney1').val()),parseFloat($('#chrmoneyAll').html()));
+	}
+	$('#shop_list').find('li a').each(function(){
+		$(this).attr('href',siteUrl+'member/myorder.aspx?action=myshoppay&shopid='+$(this).attr('data-id'));
+	});
+	
+})(jQuery);
+</script>
+</body>
+</html>

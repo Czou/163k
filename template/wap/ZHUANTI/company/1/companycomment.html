@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$shopmenustr}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<div id="post_btn"><a href="#write">我要评论</a></div>
+<style type="text/css">
+.write2014  { padding:0 15px 15px;}
+.write2014 .select_star .btn {margin-right:10px; float:right; }
+.write2014 .select_star .sp { font-size:14px;}
+.write2014 .select_star { border:0 none;}
+#selStar {margin-right:10px;}
+.pageNavigation { margin:0; padding-bottom:15px; margin-top:15px;}
+.comment { border-bottom:1px solid #d1d1d1;}
+</style>
+<div class="star_nav mb_15" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main bgk_main">
+ <div class="user_reviews">
+  <div class="r_tabs">
+   <ul class="clearfix" id="filter">
+		<li class="current"><a href="#" class="item" data-val="">全部<p>(<span id="show_total_revert">0</span>)</p></a></li>
+		<li><a href="#" class="item" data-val="1">好评<p>(<span id="hp">{$num1}</span>)</p></a></li>
+		<li><a href="#" class="item" data-val="2">中评<p>(<span id="zp">{$num2}</span>)</p></a></li>
+		<li><a href="#" class="item" data-val="3">差评<p>(<span id="cp">{$num3}</span>)</p></a></li>
+	</ul>
+  </div>
+  <div class="comment"><input type="hidden" id="fscore" value="" />
+			<div class="bd" id="showcomment"></div>
+		</div>
+ </div>
+ <!--发布点评-->
+ <div class="post_reviews">
+  <form id="myform">
+		<div class="write2014" id="write">
+			<input type="hidden" id="needLogin" value="1">
+			<input type="hidden" id="needScore" value="1">
+			<input type="hidden" id="isrep" value="" />
+			<input type="hidden" id="istg" value="" />
+			<input type="hidden" id="parentid" value="" />
+			<input type="hidden" id="total_score" value="" />
+			<input type="hidden" id="score_1" value="" />
+			<div id="selScore" class="select_star">
+				<span id="selStar" class="i_star_0"><a data-index="1" class="s_star" href="#">1星</a><a data-index="2" class="s_star" href="#">2星</a><a data-index="3" class="s_star" href="#">3星</a><a data-index="4" class="s_star" href="#">4星</a><a data-index="5" class="s_star" href="#">5星</a></span>
+			    <span id="pj_txt"></span>
+                <span class="tips">请给商家打分评级</span>
+            </div>
+			<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+           
+            <button type="submit" class="cmt_btn cmt_btn2">提交</button>
+		</div>
+	</form>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = window['$id'] = '0';
+window['SHOPID'] = window['$shopid'] = '{$shopid}';
+window['STYLEID'] = '1';
+window['TPLNUM'] = '2';
+function setclassname(tt){
+	for(var i=0;i<4;i++){
+		if(i==tt){
+			$("#selected"+i).addClass("current");
+		}
+		else{
+			$("#selected"+i).removeClass();
+		}
+	}
+}
+(function($){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1'),total_score = $('#total_score'),pj_txt = $('#pj_txt');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+			if(val==1){
+				total_score.val(3);
+				pj_txt.text('差评');
+				}
+			else if(val > 1 && val < 4){
+				total_score.val(2);
+				pj_txt.text('中评');
+				}
+			else{
+				total_score.val(1);
+				pj_txt.text('好评');
+				}	
+		});
+	};
+/*	$.fn.selScore = function(){
+		var t = $(this),list = t.find('.btn'),total_score = $('#total_score');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.removeClass('cur');
+			$(this).addClass('cur');
+			total_score.val(val);
+		});
+	};*/
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('li').removeClass('current');
+			$(this).parent().addClass('current');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+})(jQuery);
+
+
+document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	/*if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}*/
+	$('#filter').cmtfilter();
+	$('#selStar').selStar();
+	//$('#selScore').selScore();
+},false);
+</script>
+</body>
+</html>

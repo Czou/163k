@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="90%">店铺二级域名设置&nbsp;&nbsp;&nbsp; <font color="#FF0000">提示：您只有使用的是独立服务器或具有独立IP的VPS，且需要正确的对您的域名和服务器做相应的配置，方可使店铺二级域名系统正常使用。</font></td>
+          <td width="10%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+<table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+ 
+  <form name="form1" method="post" action="?action=AddSave">
+    <!--
+	 <tr > 
+      <td width="15%" height="25" >是否启用二级域名：<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="yumingkill" type="radio" value="0" {$yumingkill0} >不启用 <input name="yumingkill" type="radio" value="1" {$yumingkill1} >启用  (请确保您的服务器已经正确配置使得二级域名系统正常使用)</td>
+    </tr>-->
+    <tR><Td width="15%">非签约商家使用二级域名：</td><td class="category"><input type="radio" name="qianyueshop" value="0" {$qianyueshop0} />不允许 <input type="radio" name="qianyueshop" value="1" {$qianyueshop1}/>允许
+</td></tr>
+   
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+    
+  </form>
+ </table>
+ <table cellpadding="0" cellspacing="0" width="100%" style="height:30px;">
+    <tr>
+      <td>正在使用二级域名的店铺</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+ <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td width="25" class="category">ID</td>
+				<td class="category">店铺名称</td><td class="category">启用时间</td><td class="category">域名</td><td class="category">域名类型</td><td class="category">状态</td>
+				<td  align="center" class="category">操作</td>
+				</tr>
+				<tag:Loop ListType="Listshopyuming" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="List_dianpuyuming_Tr.htm" />
+				
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+ 
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	
+  </body>
+</html>
+

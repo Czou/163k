@@ -1,0 +1,360 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">查看系统信息</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+	
+
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+    <TR  height=18>
+              <TD width="35%" >&nbsp;服务器名</TD>
+              <TD > &nbsp;
+                    {name}   
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器IP</TD>
+              <TD> &nbsp;
+                    {ip}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器域名</TD>
+              <TD>&nbsp;
+                    {domain}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器端口</TD>
+              <TD> &nbsp;
+                    {port}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器时间</TD>
+              <TD> &nbsp;
+                    {ontime}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器语言</TD>
+              <TD>&nbsp;
+                    {lan}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器CPU数量</TD>
+              <TD> &nbsp;
+                    {cpuqty}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器CPU结构</TD>
+              <TD> &nbsp;
+                    {cpumore}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;服务器操作系统</TD>
+              <TD> &nbsp;
+                    {system}   
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;DotNET引擎版本&nbsp;</TD>
+              <TD> &nbsp;
+                    {dotnet}    
+              </TD>
+            </TR>
+   			<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">服务器的其它参数</td></tr>
+    <TR  height=18>
+              <TD  >&nbsp;当前执行用户</TD>
+              <TD >&nbsp;
+                    {user}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;系统安装目录 </TD>
+              <TD> &nbsp;
+                    sysdir    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;系统临时目录</TD>
+              <TD>&nbsp;
+                    {systmp}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;IIS版本</TD>
+              <TD>&nbsp;
+                    {IIS}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;SSL支持</TD>
+              <TD>&nbsp;
+                    SSL    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;CGI版本</TD>
+              <TD>&nbsp;
+                    {CGI}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;脚本超时时间</TD>
+              <TD >&nbsp;
+                    {timeout}   
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;系统运行时间</TD>
+              <TD>&nbsp;
+                    {runtime}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;当前文件目录</TD>
+              <TD>&nbsp;
+                    {path}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;当前文件位置</TD>
+              <TD>&nbsp;
+                    {pathinfo}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;已使用内存</TD>
+              <TD> &nbsp;
+                    {mem}    
+              </TD>
+            </TR>
+            <TR  height=18>
+              <TD >&nbsp;主机所在域</TD>
+              <TD> &nbsp;
+                    {atdomain}    
+              </TD>
+            </TR>
+   
+<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">组件支持情况</td></tr>
+ <TR  align=middle height=18>
+      <TD >组 件 名 称</TD>
+      <TD align="center">支持</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.AdRotator</TD>
+      <TD >
+        {adrot}        
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.BrowserType</TD>
+      <TD >
+      {brow}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.NextLink</TD>
+      <TD >
+      {next}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.Tools</TD>
+      <TD >
+      {tool}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.Status</TD>
+      <TD >
+      {stat}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.Counters</TD>
+      <TD >
+      {coun}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;IISSample.ContentRotator</TD>
+      <TD >
+       {cont}        
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;IISSample.PageCounter</TD>
+      <TD >
+      {pagec}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;MSWC.PermissionChecker</TD>
+      <TD >
+      {perm}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;Scripting.FileSystemObject(FSO 文本文件读写)</TD>
+      <TD >
+      {fso}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;Adodb.Connection(ADO 数据对象)</TD>
+      <TD >
+      {adodb}      
+</TD>
+      </TR>
+<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">常见的文件上传组件</td></tr>
+ <TR  align=middle height=18>
+      <TD width=324>组 件 名 称</TD>
+      <TD width=40 align="center">支持</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;SoftArtisans.FileUp(SA-FileUp 文件上传)</TD>
+      <TD >
+        {saup}        
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;SoftArtisans.FileManager(SoftArtisans 文件管理)</TD>
+      <TD >
+         {arup}         
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;LyfUpload.UploadFile(刘云峰的文件上传组件)</TD>
+      <TD >
+        {lyup}        
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;Persits.Upload.1(ASPUpload 文件上传)</TD>
+      <TD >
+        {aspup}        
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;w3.upload(Dimac 文件上传)</TD>
+      <TD >
+        {w3up}        
+</TD>
+      </TR>
+<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">常见的邮件收发组件</td></tr>
+<TR  align=middle height=18>
+      <TD>组 件 名 称</TD>
+      <TD  align="center">支持</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;JMail.SmtpMail(Dimac JMail 邮件收发) </TD>
+      <TD >
+      {jmail}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;CDONTS.NewMail(虚拟 SMTP 发信)</TD>
+      <TD >
+      {cdon}     
+&nbsp;<font color=red>&nbsp;</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;Persits.MailSender(ASPemail 发信)</TD>
+      <TD >
+      {pers}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;SMTPsvg.Mailer(ASPmail 发信)</TD>
+      <TD >
+     {smtp}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;DkQmail.Qmail(dkQmail 发信)</TD>
+      <TD >
+      {qmail}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;Geocel.Mailer(Geocel 发信)</TD>
+      <TD >
+      {mailer}     
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;IISmail.Iismail.1(IISmail 发信)</TD>
+      <TD >
+      {iismail}      
+</TD>
+      </TR>
+    <TR  height=18>
+      <TD >&nbsp;SmtpMail.SmtpMail.1(SmtpMail 发信)</TD>
+      <TD >
+      {smtpmail}      
+</TD>
+      </TR>
+<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">常见的图像处理组件</td></tr>
+<TR  align="center" height="18">
+									<TD>组 件 名 称</TD>
+									<TD align="center">支持</TD>
+								</TR>
+								<TR  height="18">
+									<TD align="left">&nbsp;SoftArtisans.ImageGen<FONT color="#888888">&nbsp;(SA 的图像读写组件)</TD>
+									<TD align="left">
+                                    {saimg}                                    
+</TD>
+								</TR>
+								<TR  height="18">
+									<TD align="left">&nbsp;W3Image.Image<FONT color="#888888">&nbsp;(Dimac 的图像读写组件)</TD>
+									<TD align="left">
+                                    {w3img}                                    
+</TD>
+								</TR>
+<tr><td background="{$atplPath}Images/r_0.gif" colspan="2" align="center">服务器性能测试</td></tr>
+ <TR  align=middle height=18>
+      <TD >测试项目</TD>
+      <TD width=78 align="center">使用时间</TD>
+      
+    </TR>
+    <TR  height=18>
+      <TD >&nbsp;本页执行时间:打开本页面的速度测试</TD>
+      <TD >
+      {timerun}      
+</TD>
+   
+    </TR>
+    <TR  height=18>
+      <TD >&nbsp;整数运算测试:进行100万次加法运算</TD>
+      <TD >
+      {timetol}      
+</TD>
+     
+    </TR>
+</TABLE>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

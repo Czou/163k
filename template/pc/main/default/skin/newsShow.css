@@ -1,0 +1,74 @@
+﻿@charset "utf-8";
+.col_main { float:left; width:100%;}
+.col_sub { float:left;}
+
+.grid_01 { margin-top:5px;}
+.grid_01 .main_wrap { margin:0 322px 0 0;}
+.grid_01 .col_sub { width:312px; margin-left:-312px;}
+
+.mainBox { border:1px solid #d9d9d9;}
+.subBox { border:1px solid #d9d9d9; background-color:#f8f8f8;}
+
+.mainBox h1 { color:#000; font-size:20px; padding:15px 0 12px; font-family:"黑体";}
+.top_menu2 { padding:12px 0 12px; border-bottom:1px solid #ededed; margin:0 20px;}
+.top_menu2 li { display:-moz-stack-block; display:inline-block; *display:inline; *zoom:1; margin-left:3px;}
+.top_menu2 li a { background-image:url(../images/icon2.gif); background-repeat:no-repeat; display:block; border:1px solid #bbdded; width:40px; height:22px; line-height:22px; text-align:left; padding-left:30px; color:#277cb4;}
+.top_menu2 li a.print { background-position:6px -309px;}
+.top_menu2 li a.fav { background-position:6px -280px;}
+.top_menu2 li a.send { background-position:6px -252px;}
+.news_content { padding:10px 30px; text-align:left; margin-top:10px; font-size:14px; line-height:25px; color:#333;}
+.news_content p { margin-bottom:15px;}
+#icefable1 { margin-top:15px; line-height:24px; font-size:14px; height:24px;}
+.vote_box { margin-top:15px;}
+.page_get { margin:15px 15px 0; }
+.page_get .left { float:left;}
+.page_get .right { float:right;}
+.comment { margin:15px;}
+.comment .hd { text-align:left; font-size:14px; font-weight:bold; color:#333; border-bottom:1px dotted #bcd1e2; padding:5px 0 5px 5px;}
+.comment .hd .fr { float:right; display:inline; margin-right:5px; font-size:12px; font-weight:normal; color:#666;}
+.comment .hd .fr em { color:#d00;}
+.comment .item p { margin-bottom:5px; text-align:left;}
+.comment .item { border-bottom:1px dotted #bcd1e2; padding:5px;}
+.comment .item .floor { color:#f50; font-weight:bold;}
+.comment .item .user { color:#3366cc;}
+.comment_write { padding:0 15px 15px; text-align:left;}
+.comment_write .hdt { padding-left:4px; text-align:left; color:#333; font-size:14px; font-weight:bold;}
+.comment_input { width:575px; padding:2px 5px; line-height:20px; color:#444; height:90px; border:1px solid #ddd;}
+.comment_login { margin-top:8px; color:#666; line-height:20px;}
+.comment_login .left { display:inline; float:left; margin-left:5px;}
+.comment_login .login_test { border:1px solid #ddd; height:18px; line-height:18px; width:80px;}
+.comment_login .send { background:url(../images/live_bg.png) no-repeat -228px -32px; width:68px; height:22px; color:#7d4800; font-size:12px; border:0; cursor:pointer; line-height:22px; font-weight:bold;}
+.newsPH {text-align:left; padding:8px;}
+.newsPH .hd { font-size:14px; font-weight:bold; color:#333; padding-bottom:4px;}
+.newsPH .bd { background:url(../images/newsShowNum.gif) no-repeat 5px 4px;}
+.newsPH .bd li { line-height:25px; height:25px; overflow:hidden; padding-left:36px;}
+.searchBar { padding:8px 8px 11px; border-top:1px solid #cecece; background:#fff url(../images/newsShowSearch.gif) no-repeat 8px 10px; height:37px; text-align:left;}
+.searchBar input { vertical-align:middle; margin:3px 0 0 3px; width:200px; height:17px; padding:9px 4px 5px; font-size:14px; color:#aaa; border:0 none; background-color:transparent;}
+.searchBar button { cursor:pointer; vertical-align:middle; margin-top:3px; width:80px; height:31px; font:0pt/1000px Arisl; overflow:hidden; background-color:transparent; border:0 none;}
+.picScrl { padding:10px; border-top:1px solid #cecece;}
+.picScrl li { float:left; width:125px; padding:13px 10px 0; _display:inline; height:136px;}
+.picScrl li img { display:block; margin-bottom:4px; width:100px;height:100px; vertical-align:top; margin:0 auto; overflow:hidden;}
+.picScrl li h3{ line-height:20px; height:40px; overflow:hidden;}
+.mainBox2 { border:1px solid #d9d9d9; background:url(../images/wenlistBgX.gif) repeat-x 0 0; text-align:left; padding:8px 12px;}
+.mainBox2 .p_title { font-size:14px; font-weight:bold; color:#333;}
+.mainBox2 .tab { margin-top:15px; background:url(../images/wenlist1px.gif) repeat-x 0 29px; padding-left:10px;}
+.mainBox2 .tab li { height:20px; line-height:16px; float:left; _display:inline; margin-left:3px; padding:8px 15px 0; border:1px solid #d8d8d8; background:url(../images/wenlistBgX2.gif) repeat-x 0 0; color:#888; font-size:12px;}
+.mainBox2 .tab li a { font-size:14px; color:#404040;}
+.mainBox2 .tab li a:hover { color:#36c; text-decoration:none;}
+.mainBox2 .tab .selected { font-weight:bold; background:none; background-color:#fff; border-bottom:1px solid #fff;}
+.wen_list { padding:15px}
+.wen_list li { font-size:14px; color:#404040; font-family:"simsun"; line-height:24px; height:24px; overflow:hidden;}
+.wen_list .time { color:#888; font-size:12px; padding-left:18px; font-family:Arial, Helvetica, sans-serif;}
+.wen_list li a { color:#404040; font-family:Arial, Helvetica, sans-serif;}
+.wen_list .line { height:14px; overflow:hidden;}
+.manu .left { float:left; background:url(../images/icon2.gif) no-repeat 0 -86px; padding-left:22px; display:inline;}
+.manu .left span.num { color:#f60; font-size:18px; line-height:20px; font-weight:bold; font-family:Arial, Helvetica, sans-serif;}
+.adv { margin-top:10px; border:1px solid #d9d9d9; padding:10px 0;}
+.adv img { vertical-align:top;}
+
+
+
+
+
+
+

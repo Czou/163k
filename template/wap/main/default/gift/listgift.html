@@ -1,0 +1,17 @@
+﻿<li>
+    <a href="javascript:showduihuan({$ID});">
+    <div class="pic"><img src="{$filepath}" onerror="this.src='{$Default_tplPath}images/tg_nofindPic.gif'" alt="{$chrtitle}" /></div>
+    <div class="con">
+      <h3>{$chrtitle}</h3>
+      <p>价值:<span class="f99">￥{$price}</span></p>
+      <p>兑换:<span class="price">{$score}</span><span class="f99">{$jifenname}</span></p>
+      <div class="fen">
+        <!--<span class="dec">-</span>
+        <span class="amount">2</span>
+        <span class="add">+</span>-->
+        <span class="overage">剩余:{$store}</span>
+       </div>
+    </div><div class="po_ab btn">兑换</div>
+    </a>
+    
+   </li>

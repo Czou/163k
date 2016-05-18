@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员管理中心-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/clock.js"></script>
+<style>
+.upjibie0 { color:#36c;}.upjibie0:hover { color:#f50;}
+.upjibie1,.upjibie2 { display:none;}
+</style>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 会员管理中心</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main2">
+			<!-- 会员资料 开始 -->
+			<div class="user_info clearfix">
+				<div class="pic"><img src="{$chrpic}" alt=""  width="96" height="96"/></div>
+				<div class="info_cont">
+					<p><span class="blue_skin">{$chrname}</span>，当前类型：<span style="font-weight:bold;">{$styleidstr}</span> <a href="modify.aspx?action=styleid" class="upjibie{$styleid}" onClick="return window.confirm('您确定升级成为企业会员吗？');">升级为企业会员</a></p>
+					<p>注册时间：{$regdate}　　<span style="color:#999;">您现在是第{$loginnum}次登录{$SiteName}</span></p>
+					<p>{$daijinname}：<b class="blue_skin">{$daijinnum}</b> , {$jifenname}：<b class="blue_skin">{$jifennum}</b> <a href="modify.aspx?action=consume" class="red_skin">充值</a></p>
+					<p><a href="modify.aspx?action=tou" class="menu_info">更换头像</a><a href="modify.aspx" class="green_menu menu_info">完善资料</a><a href="myjianli.aspx" class="red_menu menu_info" id="add_jl" style="display:none;">录入简历</a><a href="{$bianmingurl}index.html?action=add" id="add_hy" style="display:none;" class="red_menu menu_info">开通黄页</a><a href="modify.aspx?action=pass" class="green_menu menu_info">修改密码</a><!--<a href="qq.aspx?from={$SiteUrl}member%2fuserindex.aspx%3f" class="green_menu menu_info">绑定QQ</a>--></p>
+				</div>
+				<div class="ft">
+				<iframe allowtransparency="true" frameborder="0" width="410" height="64" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=2&z=3&t=1&v=2&d=2&k=&f=1&q=0&e=1&a=1&c=54511&w=410&h=64"></iframe>
+				</div>
+			</div>
+			<div class="data_box clearfix">
+				<span class="left"><span class="yellow_skin">今天是：</span><script type="text/javascript">showcal();</script>　<span class="weather_zone"  id="spanWeather" style="color:#000099;"></span></span>
+				<span class="right" style="{$qiyetishi}"><span class="red_skin">小贴士：</span>[升级为<span class="yellow_skin">高级企业会员</span>可享受至尊特权哦]</span>
+			</div>
+			<!-- 会员资料 结束 -->
+			<!-- 我的统计 开始 -->
+			<div class="admin_index">
+		  <div class="hd clearfix"><div style="float:right; display:inline; margin-right:10px; font-weight:normal;"><a href="../help/index.html" class="more" target="_blank">常见问题帮助</a>　<a href="../service/index.html" target="_blank" class="more jianyi">给网站留言</a></div>我的统计</div>
+		  <div class="bd">
+			
+			
+			
+			<table class="tab_01" cellpadding="0" cellspacing="0" width="100%" id="user_0" style="display:none;">
+			  <tbody>
+			  <tr>
+				<td class="bg1">我的信息：</td><td><b>{$mylive0}</b>条待审　<b>{$mylive1}</b>条正常 <a href="/member/mylive.aspx">[管理]</a></td>
+				<td class="bg1">我的求职：</td><td>新收到面试邀请 <b>{$mymsyq}</b> 份 <a href="#">[查看]</a>　<a href="myjianli.aspx?styleid=1#tt4">我的简历</a></td>
+			  </tr>
+			  <tr>
+				<td class="bg1">我的省啦：</td><td><b>{$mytgorder0}</b>待付款　<b>{$mytgorder2}</b>份成功 <a href="/member/mytgorder.aspx">[查看]</a></td>
+				<td class="bg1">我的订单：</td><td><b>{$myorder0}</b>待付款　<b>{$myorder1}</b>份成功 <a href="/member/myorder.aspx">[查看]</a></td>
+			  </tr>
+			  <tr>
+				<td class="bg1">我的投稿：</td><td><b>{$myarticle0}</b>条待审　<b>{$myarticle1}</b>条正常 <a href="/member/myarticle.aspx?action=add">[投稿]</a></td>
+				<td class="bg1">我的图集：</td><td><b>{$myphoto0}</b>条待审　<b>{$myphoto1}</b>条正常 <a href="/member/myce.aspx?action=add">[上传]</a></td>
+			  </tr>
+			  <tr>
+				<td colspan="4" align="right"><p style="text-align:right;">更多详细请使用左侧目录</p></td>
+			  </tr>
+			</tbody></table>
+			
+			<table class="tab_01" cellpadding="0" cellspacing="0" width="100%" id="user_1" style="display:none;">
+			  <tbody>
+			  <tr>
+				<td class="bg1">我的信息：</td><td><b>{$mylive0}</b>条待审　<b>{$mylive1}</b>条正常 <a href="/member/mylive.aspx">[管理]</a></td>
+				<td class="bg1">我的房源：</td><td><b>{$myfang0}</b>条待审 <b>{$myfang1}</b>条正常 <a href="/member/manage_chuzhu.aspx">[管理]</a></td>
+			  </tr>
+			  <tr>
+				<!--<td class="bg1">我的招聘：</td><td>新收到求职简历<b>{$myjianli}</b>份 <a href="/member/myjob.aspx">[查看]</a></td>-->
+				<td class="bg1">我的黄页：</td><td><span class="display_false_0{$mybianmingiskill}">[未开通]</span><span class="display_true_0{$mybianmingiskill}"><font color="#ff6600">[正常]</font> <a href="bianming.aspx">管理我的黄页</a></span></td>
+				
+				<td class="bg1">我的网站：</td><td><span class="display_false_0{$myqiyeiskill}">[未开通]</span><span class="display_true_0{$myqiyeiskill}"><font color="#ff6600">[正常]</font> <a href="qiye.aspx">管理我的网站</a></span></td>
+			  </tr>
+			 <tr>
+				<td class="bg1">我的省啦：</td><td><b>{$mytgorder0}</b>待付款　<b>{$mytgorder2}</b>份成功 <a href="/member/mytgorder.aspx">[查看]</a></td>
+				<td class="bg1">我的订单：</td><td><b>{$myorder0}</b>待付款　<b>{$myorder1}</b>份成功 <a href="/member/myorder.aspx">[查看]</a></td>
+			  </tr>
+			  <!--<tr>
+				<td class="bg1">店铺省啦订单：</td><td><b>{$mytg0}</b>待付款　<b>{$mytg2}</b>份成功 <a href="/member/tgOrderManage.aspx">[查看]</a></td>
+				<td class="bg1">店铺购物订单：</td><td><b>{$myshoporder0}</b>待付款　<b>{$myshoporder1}</b>份成功 <a href="/member/manage_order.aspx">[查看]</a></td>
+			  </tr>-->
+			  <!--<tr>
+				
+				<td class="bg1">我的店铺：</td><td><span class="display_false_0{$myshopiskill}">[未开通]</span><span class="display_true_0{$myshopiskill}"><font color="#ff6600">[正常]</font> <a href="myshop.aspx">管理我的店铺</a></span></td>
+			  </tr>-->
+			   <tr>
+				<!--<td class="bg1">我的招聘：</td><td>新收到求职简历<b>{$myjianli}</b>份 <a href="/member/myjob.aspx">[查看]</a></td>-->
+				<td class="bg1">我的投稿：</td><td><b>{$myarticle0}</b>条待审　<b>{$myarticle1}</b>条正常 <a href="/member/myarticle.aspx?action=add">[投稿]</a></td>
+				<td colspan="2">&nbsp;</td>
+			  </tr>
+			 
+			  
+			</tbody></table>
+		  </div>
+		</div>
+			<!-- 我的统计 结束 -->
+			
+			
+		</div>
+		<div class="col_sub2" id="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				{$usermenu}
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var url = "../request.ashx?action=islogin&json=1&jsoncallback=?&date=" + new Date();
+	$.getJSON(url,function(data){
+		if(data[0].islogin==="1"){
+			if(data[0].jibie !== '0'){
+				$('#user_1').show();
+				$('#add_hy').show();
+				var linode = document.createElement('li');
+				linode.className='shangjia';
+				linode.innerHTML = '<a href="{$SiteUrl}member/userindex_s.aspx">商家平台</a>';
+				$('#list_nav_2013').append(linode);
+			}else{
+				$('#user_0').show();
+				$('#add_jl').show();
+			}
+		}
+	});
+});
+</script>
+</body>
+</html>

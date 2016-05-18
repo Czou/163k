@@ -1,0 +1,285 @@
+﻿<link rel="stylesheet" rev="stylesheet" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;本次活动部分商品展示</td>
+          <td align="right">&nbsp;
+            <input name="GoToGQList" type="submit" id="GoToGQList" value="返回至活动列表" class="global_btn" onClick="javscript:window.history.go(-1);"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><!--
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+	<td height="25">
+		按活动名称查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="10">按分类查找:{category}
+		按状态查找： {quanbu}
+		<input type="submit" name="Submit3" value="Go"></td>
+</tr>
+</form>
+</table>-->
+
+      <table align="center" cellpadding="4" width="600" cellspacing="1" class="toptable grid" border="1">
+        <form name="form" id="form" method="post" action="?action=shopsave" onsubmit="return checkform();">
+		<tr><td colspan="4">多选请按 Ctrl + 鼠标点击即可！（Shift + 鼠标点击）</td></tr>
+        <tr><Td colspan="4">按商品名称查找：
+		<input name="KeyWord" type="text" id="KeyWord" value="" size="30"> <input type="button" name="button"  onclick="searchshop();" value="Go" class="global_btn" /> 按分类查找：{$categorySelect} 按品牌查找：{$pinpaiSelect}</Td></tr>
+		
+          <tr >
+			<td  align="center" bgcolor="#FFFFFF" >查找店铺：
+		<input type="text" id="shopKeyWord" value="" size="30" /> <input type="button" name="button"  onclick="searchshoptitle();" value="Go" class="global_btn" /><br><select name="shopid" id="shopid" onchange="searchshop();" style="height:260px;width:300px;" multiple="multiple"><option value="" selected="selected">请先搜索店铺</option></select>
+            </td>
+			<td  align="center" bgcolor="#FFFFFF" ><select name="friend" size="4" multiple="multiple" id="friend" ondblclick="JavaScript:AddItem('friend','tolist', '')" style="height:300px;width:300px;">
+                {$left$}
+              </select>
+            </td>
+            <td  class="category" style="text-align:center"><img src="{$atplPath}images/addto.gif" border="0" style="CURSOR:hand" onclick="JavaScript:AddItem('friend','tolist', '')"> <br>
+              <img src="{$atplPath}images/deleteto.gif" style="CURSOR:hand" border="0" onclick="JavaScript:DeleteItem('tolist')"> </td>
+            <td  class="category">
+              <select name="tolist" id="tolist" style="height:300px;width:300px;" multiple="multiple" size="8" ondblclick="JavaScript:DeleteItem('tolist')">
+			  {$right$}
+              </select>
+            </td>
+          </tr>
+          <tr >
+            <td height="24" align="center" bgcolor="#FFFFFF" colspan=4><input type="hidden" name="id" value="{$ID}" />
+              <input type="hidden" name="gotourl" value="{$gotourl}" />
+              <input type="submit" name="submit" class="global_btn_blue_big" value="提交保存">
+              <input type="reset" name="reset" class="global_btn_big" value="取消选择">
+            </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint-->
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<style>
+#agan{ width:100%; list-style-type:none; }
+#agan ul{ margin:0; padding:0; width:100%}
+#agan ul li{ width:232px; float:left; text-align:left; line-height:22px; height:22px; overflow:hidden}
+</style>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+function GetObjID(ObjName) {
+    for (var ObjID = 0; ObjID < window.form.elements.length; ObjID++) if (window.form.elements[ObjID].name == ObjName) {
+        return (ObjID);
+        break;
+    }
+    return ( - 1);
+}
+function AddItem(ObjName, DesName, CatName) {
+    ObjID = GetObjID(ObjName);
+    DesObjID = GetObjID(DesName);
+
+    k = 0;
+
+    i = document.form.friend.options.length;
+    if (i == 0) return;
+    maxselected = 0
+    for (h = 0; h < i; h++) if (document.form.elements[ObjID].options[h].selected) {
+        k = k + 1;
+        maxselected = h + 1;
+    }
+    if (maxselected >= i) maxselected = 0;
+
+    if (CatName != "") CatObjID = GetObjID(CatName);
+    else CatObjID = 0;
+    if (ObjID != -1 && DesObjID != -1 && CatObjID != -1) {
+        jj = document.form.elements[CatObjID].selectedIndex;
+        if (CatName != "") {
+            CatValue = document.form.elements[CatObjID].options[jj].text;
+            CatCode = document.form.elements[CatObjID].options[jj].value;
+        } else CatValue = "";
+        i = document.form.elements[ObjID].options.length;
+        j = document.form.elements[DesObjID].options.length;
+        for (h = 0; h < i; h++) {
+            if (document.form.elements[ObjID].options[h].selected) {
+                Code = document.form.elements[ObjID].options[h].value;
+                Text = document.form.elements[ObjID].options[h].text;
+                j = document.form.elements[DesObjID].options.length;
+                if (Text.indexOf('--') != -1) {
+                    for (k = j - 1; k >= 0; k--) {
+                        document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = 0;
+                }
+                if (Text.substring(0, 1) == '-' && Text.substring(1, 2) != '-') {
+                    for (k = j - 1; k >= 0; k--) {
+                        if (((document.form.elements[DesObjID].options[k].value).substring(0, 2)) == (Code.substring(0, 2))) document.form.elements[DesObjID].options[k] = null;
+                    }
+                    j = document.form.elements[DesObjID].options.length;
+                }
+                HasSelected = false;
+                for (k = 0; k < j; k++) {
+                    if (document.form.elements[DesObjID].options[k].value == Code) {
+                        HasSelected = true;
+                        break;
+                    }
+                }
+                if (HasSelected == false) {
+                    if (CatValue != "") {
+                        Location = GetLocation(DesObjID, CatValue);
+                        if (Location == -1) {
+                            document.form.elements[DesObjID].options[j] = new Option("---" + CatValue + "---", CatCode);
+                            document.form.elements[DesObjID].options[j + 1] = new Option(Text, Code);
+                        } //if
+                        else {
+                            InsertItem(DesObjID, Location + 1);
+                            document.form.elements[DesObjID].options[Location + 1] = new Option(Text, Code);
+                        } //else
+                    } else document.form.elements[DesObjID].options[j] = new Option(Text, Code);
+                } //if
+                document.form.elements[ObjID].options[h].selected = false;
+            } //if
+        } //for
+        document.form.elements[ObjID].options[maxselected].selected = true;
+    } //if
+} //end of function
+
+function DeleteItem(ObjName) {
+    ObjID = GetObjID(ObjName);
+    minselected = 0;
+    if (ObjID != -1) {
+        for (i = window.form.elements[ObjID].length - 1; i >= 0; i--) {
+            if (window.form.elements[ObjID].options[i].selected) { // window.alert(i);
+                if (minselected == 0 || i < minselected) minselected = i;
+                window.form.elements[ObjID].options[i] = null;
+            }
+        }
+        i = window.form.elements[ObjID].length;
+
+        if (i > 0) {
+            if (minselected >= i) minselected = i - 1;
+            window.form.elements[ObjID].options[minselected].selected = true;
+        }
+    }
+}
+
+function checkform() {
+    if (!CheckMultiSelect()) return false;
+    ToSubmit();
+}
+function CheckMultiSelect() {
+    ToListID = GetObjID('tolist');
+    i1 = window.form.elements[ToListID].length;
+
+    /*if (i1 == 0) {
+        window.alert('对不起，请选择！');
+        return false;
+    }
+	*/
+    return true;
+}
+
+function ToSubmit() {
+    SelectTotal('tolist');
+}
+
+function SelectTotal(ObjName) {
+    ObjID = GetObjID(ObjName);
+    if (ObjID != -1) {
+        for (i = 0; i < document.form.elements[ObjID].length; i++) document.form.elements[ObjID].options[i].selected = true;
+    }
+}
+function searchshoptitle(){
+	var shopKeyWord = $('#shopKeyWord');
+	if(shopKeyWord.val()=== ''){
+		alert('请输入店铺名称关键字！');
+		return false;
+	}
+	var url = '../request.ashx?action=shop_small&isadmin=1&keyword='+encodeURIComponent(shopKeyWord.val());
+	var  Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success: function(data){
+		var sel=document.getElementById("shopid");
+		sel.options.length=0;
+		sel.options.add(new Option( "::请选择::",""));
+		if(data.islogin === '1'){
+			for(var i in data.MSG){
+				sel.options.add(new Option(data.MSG[i],i)); 
+			}
+		}else{
+			alert(data.error);
+		}
+	}});
+}
+function searchshop(){	
+	var url = "../request.ashx?action=showshopgood&isadmin=1&shopid="+$("#shopid").val()+"&bigcategoryid="+$("#bigcategoryid").val()+"&categoryid="+$("#categoryid").val()+"&pinpaibigid="+$("#pinpaibigid").val()+"&pinpaiid="+$("#pinpaiid").val()+"&KeyWord="+encodeURIComponent($("#KeyWord").val());
+	var  Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success: function(data){
+		var sel=document.getElementById("friend");
+		sel.options.length=0;
+		if(data.islogin === '1'){
+			for(var i in data.MSG){
+				sel.options.add(new Option(data.MSG[i],i)); 
+			}
+		}else{
+			alert(data.error);
+		}
+	}});
+}
+function newBuildSel(arrstr,sel){
+	sel.options.length=0;
+	sel.options.add(new Option( "::请选择::",""));
+	for(var i in arrstr){
+		sel.options.add(new Option(arrstr[i],i)); 
+	}
+	sel.options[0].selected=true;
+}
+function showshopcategory(str,val,sel){
+	var docSel= document.getElementById(sel);
+	if (val !== ''){
+		var url="../request.ashx?action=category&isadmin=1&id="+str;
+		var  Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		var data;
+		$.ajax({url:url,success: function(data){
+			for(var i in data.MSG){
+				if(data.MSG[i].id === val){
+					data = data.MSG[i].arr;
+					break;
+				}
+			}
+			newBuildSel(data,docSel);
+		}});
+	}else{
+		docSel.options.length=0;
+		docSel.options.add(new Option( "::请选择::",""));
+	}
+}
+(function($){
+	$('#bigcategoryid').change(function(){
+		showshopcategory('5',$(this).val(),'categoryid');
+		searchshop();
+	});
+	$('#pinpaibigid').change(function(){
+		showshopcategory('8',$(this).val(),'pinpaiid');
+		searchshop();
+	});
+	$('#categoryid').change(function(){
+		searchshop();
+	});
+	$('#pinpaiid').change(function(){
+		searchshop();
+	});
+})(jQuery);
+</script>
+
+</body></html>

@@ -1,0 +1,271 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+#qiyeName_inner { position:absolute; left:200px; top:30px; padding:10px; border:1px solid #e6e6e6; background-color:#f6f6f6;}
+#qiyeName_inner ul,#qiyeName_inner li { margin:0; padding:0; list-style:none;}
+#qiyeName_inner li { padding:3px 0;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改职位信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至职位列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkaddzhiweiform(this)">
+  {$daishen$}
+   <tr > 
+      <td height="25" width="14%" >招聘企业<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"  colspan="3" >
+	  <div style="position:relative;*zoom:1;"><input type="radio" value="1"  name="p1" onclick="setstate(0);" checked />从站内企业会员中选择 <input id="qiyeName" value="{$chrtruename}" title="请输入公司名称" name="chrtruename"  class="text" style="width: 200px;" type="text" onkeyup="getKeyWordjob2();" onclick="getKeyWordjob2();" autocomplete="off"  onblur="setTimeout(function(){hide_qiyeName_inner()},200);"><input id="CommId" name="CommId" type="hidden"  value="{$userid}" />　<input type="radio" value="0"  name="p1" onclick="setstate(1);">自定义:<input name="zidingyi" type="text" size="30"  value="{$zidingyi}" >
+	  <div id="qiyeName_inner" style="display:none;"></div>
+	  </div>
+<script>
+(function($){
+var qiyeName = $('#qiyeName');
+var qiyeName_inner = $('#qiyeName_inner');
+var CommId = $('#CommId');
+window.getKeyWordjob2 = function(){
+	
+	if(qiyeName.val() === '') return;
+	var url = '../request.ashx?action=qiyeusername&qiyename='+encodeURIComponent(qiyeName.val())+'&json=1&jsoncallback=?';
+	$.getJSON(url,function(data){
+		var txt = '';
+		var arr = data[0];
+		for(var i in arr){
+			if(i!=='0'){
+				txt+='<li><a href="javascript:choos_qiye(\''+i+'\',\''+arr[i]+'\')">'+arr[i]+'</a></li>';
+			}else{
+				txt+='<li>'+arr[i]+'</li>';
+			}
+			
+		}
+		txt = '<ul>'+txt+'</ul>';
+		qiyeName_inner.html(txt).show();
+	});
+}
+window.choos_qiye = function(id,name){
+	
+	qiyeName.val(name);
+	CommId.val(id);
+	hide_qiyeName_inner();
+}
+window.hide_qiyeName_inner = function(){
+	qiyeName_inner.hide();
+}
+window.setstate = function(aa)
+{
+	if(aa=="0")
+		$("#company").hide();
+	else
+		$("#company").show();
+}
+})(jQuery);
+</script>
+	   <div id="company" style="display:none">
+	<Table width="100%" cellpadding="0" cellspacing="0">
+	<tr > 
+      <td  height="25">企业规模： 
+      </td>
+      <td  class="category"> {$qiyeguimo}</td>
+    </tr>
+	<tr > 
+      <td  height="25">企业性质： 
+      </td>
+      <td  class="category"> {$qiyexizhi}</td>
+    </tr>
+	<tr > 
+      <td  height="25">所属行业： 
+      </td>
+      <td  class="category"> {$hangye}</td>
+    </tr><tr > 
+      <td  height="25">企业描述： 
+      </td>
+      <td  class="category"> 
+	  <textarea cols="80" id="qiyecontent" name="qiyecontent" rows="10">{$qiyecontent}</textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="qiyecontent"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '150px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+	</td>
+	</tr>
+	</Table>
+	</div>
+	  </td>
+    </tr>
+              <tr > 
+      <td width="15%" height="25">企业官方网站： 
+      </td>
+      <td colspan="3" class="category"><input id="qiyeurl" value="{$qiyeurl}" title="企业官方网站" name="qiyeurl"  class="text" style="width: 280px;" type="text" />
+	       
+           </td>
+    </tr>
+    <tr > 
+      <td height="25" width="14%" >职位名称<font color="#FF0000">*</font>： 
+      </td>
+      <td width="35%" class="category"  > <input name="zhiweiname" type="text" size="20"  style="width:280px;" value="{$zhiweiname}"> <em class="global_tip">(如：销售经理)</em></td>
+	   <td height="25" width="14%" >职位性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$zhiweixinzhi}</td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">岗位类别<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"  colspan="3" > {$categoryid}</td>
+    </tr>
+	<tr > 
+      <td  height="25">语言能力： 
+      </td>
+      <td  class="category" > <input name="yuyan" type="text" style="width:280px;" size="14" value="{$yuyan}"></td>
+	  <td  height="25">简历语言： 
+      </td>
+      <td  class="category" > <input name="jianli" type="text" style="width:280px;" size="14" value="{$jianli}"></td>
+	  </tr>
+	  <tr>
+	  <td  height="25">招聘人数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="renshu" type="text" style="width:280px;" size="12" value="{$renshu}"> <em class="global_tip">人</em></td>
+	  <td  height="25">有效时间<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="youxiaodate" value="{$youxiaodate}" type="text" size="20" class="Wdate" />
+	  </td>
+	  
+    </tr>
+	 <tr > 
+      <td  height="25">地址： 
+      </td>
+      <td  class="category"> <input name="chraddress" type="text" style="width:280px;" size="25"  value="{$chraddress}"></td>
+      <td  height="25">联系人： 
+      </td>
+      <td  class="category">  <input name="chrcode" type="text" style="width:280px;" size="12"  value="{$chrcode}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25">E-mail： 
+      </td>
+      <td  class="category"> <input name="chremail" type="text" style="width:280px;" size="20"  value="{$chremail}"></td>
+      <td  height="25">电话： 
+      </td>
+      <td  class="category"> <input name="chrtel" type="text" style="width:280px;" size="20"  value="{$chrtel}"></td>
+    </tr>
+	 <tr > 
+      <td  height="25">工作地点<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="gongzuodidian" type="text" style="width:280px;" size="12"  value="{$gongzuodidian}"></td>
+      <td  height="25">区域：</td>
+      <td  class="category"> {$areaid}</td>
+    </tr>
+<tr > 
+      <td  height="25">工作经验<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="jingnian" type="text" style="width:280px;" size="30"  value="{$jingnian}"> <em class="global_tip">(如3-5年)</em></td>
+      <td  height="25">薪资待遇<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$daiyu}</td>
+    </tr>
+	<tr > 
+      <td  height="25">学历要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"  colspan=3> {$xueli}</td>
+	  </tr>
+	<tr >
+    <!--<tr > 
+      <td  height="25">岗位福利： 
+      </td>
+      <td  class="category"  colspan=3><input type="checkbox" name="" value="" />单休 <input type="checkbox" name="" value="" />双休 <input type="checkbox" name="" value="" />包吃 <input type="checkbox" name="" value="" />包住 <input type="checkbox" name="" value="" />上保险 <input type="checkbox" name="" value="" />年终奖</td>
+	  </tr>-->
+	<tr > 
+      <td  height="25">职位描述<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"  colspan=3> <textarea name="chrmark" style="width:80%;" cols=70 rows=5>{$chrmark}</textarea></td>
+    </tr>
+    <tr > 
+      <td height="25" >属性： 
+      </td>
+      
+      <td class="category" colspan=3><input type="checkbox" name="tuijian" value="1"  {$tuijian}>加入推荐 <input type="checkbox" name="remen" value="1" {$remen}>加入到首页热点招聘
+      <input type="checkbox" name="jingji" value="1"  {$jingji} />紧急招聘  <input type="checkbox" name="redian" value="1"  {$redian} />热门招聘</td>
+    </tr>
+    
+	<tr>
+	  <td  height="25">排序<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"  colspan=3> <input name="intorder" value="{$intorder}" style="width:280px;" type="text" size="4" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">(数字越大越靠前)</em></td>
+	  
+    </tr>
+	<tr > 
+      <td height="25" >点击率<font color="#FF0000">*</font>： 
+      </td>
+      
+      <td class="category" colspan=3> <input type="text" name="hits" style="width:280px;" value="{$hits}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/> <em class="global_tip">(更改后将在新值+实际浏览数的算法继续统计)</em></td>
+    </tr>
+<tR>
+<td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan=3> <input type="radio" name="iskill" value="0" {$iskill0}>等待审核<input type="radio" name="iskill" value="1" {$iskill1}>通过审核<input type="radio" name="iskill" value="2" {$iskill2} >审核失败</td>
+    </tr>
+	<tr  >
+          <td>刷新记录:</td>
+          <td height="25" colspan="4" class="category" id="flushnumbers">{$shuaxin}</td>
+        </tr>
+    <tr  > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}">
+	  <input type=hidden name=id value="{$id}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">　<input name="button" class="global_btn_big" type="button" id="button" value="清空刷新记录" onclick="deleteflushdetails({$id},3)"></td>
+    </tr>
+  </form>
+</table>
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+
+var tt ="{$zhiweiuserid}";
+if(tt=="0"){
+	document.form1.p1[1].checked=true;
+	setstate(1);
+}
+else{
+	document.form1.p1[0].checked=true;
+	setstate(0);
+}
+</script>
+  </body>
+</html>

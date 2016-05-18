@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrgood}-{$chrshop}-{$shopmenustr}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/share-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>{$chrshop}</h4>
+  <p>{$chrtel}</p>
+ </div>
+ <div class="email"><a href="sms:{$chrtel}">{$chrtel}</a></div>
+ <div class="phone"><a href="tel:{$chrtel}">{$chrtel}</a></div>
+</div>
+<style type="text/css">
+#slide { width:100%;}
+#slide #indicator { text-align:center; left:0; right:0; width:100%; margin-left:0; bottom:5px;}
+#slide #indicator li { float:none; display:inline-block;}
+</style>
+<div class="star_nav" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main">
+ {$show_good_div}
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="{$Default_tplPath}js/wap_kuaisonCommon.js?{$CacheHash}"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#dialog_imgList').attr('data-imglist');
+var data = JSON.parse(filepath1);
+var arr = data['bigimg'];
+if(!arr){
+	arr = ['{$Default_tplPath}images/kuaison_nofind_product2.gif'];
+}else{
+	shareImg = nowdomain + arr[0].replace('../','');
+}
+
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrgood}','{$chrshop}-{$shopmenustr}-{$SiteName}',shareImg,window.location.href);
+	});
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}
+	IDC.resizeIMG(document.getElementById('resizeIMG'),$(window).width()-20,480);
+},false);
+(function($){
+	var kuaisonLink = $('#kuaisonLink');
+	if(kuaisonLink.attr('data-isgoodshop') === '1' && kuaisonLink.attr('data-styleid') === '0'){
+		$('#kuaisonLink').attr('data-MyGoodShopUrl','{$MyGoodShopUrl}').parent().removeClass('display0');
+	}
+})(jQuery);
+
+
+
+
+
+$.fn.shopPicList = function(){
+	var dialog_imgList = $('#dialog_imgList');
+	var slide = $('#slide');
+	if(!arr){
+		dialog_imgList.show();
+	}else{
+		var slide = $('#slide');
+		var Lanterninfo=arr;
+		var txt = '',
+			txtImg = '',i=0;
+		if(Lanterninfo.length > 0){
+			for(var i=0; i<Lanterninfo.length;i++){
+				txtImg+='<div class="cell"><img src="'+Lanterninfo[i]+'" alt=""></div>';
+				if(i === 0){
+					txt += '<li class="active">1</li>';
+				}else{
+					txt += '<li>'+(i+1)+'</li>';
+				}
+			}
+			$('#content').html(txtImg);
+			$('#indicator').html(txt);
+			setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:$(window).width(),intervalTime:0,lazyIMG:!!0});},20);
+		}
+		slide.show();
+	}
+}
+$('#dialog_imgList').shopPicList();
+
+//展开更多
+ $(function(){
+   var show_more = $(".sp_detail .more");
+       show_more.bind("click",function(){
+	   var hCur = $(this).hasClass("current");							   
+	       if(!hCur){
+			  $(this).html("收起<em style='margin-left:17px;'></em>").addClass("current"); 
+			  $("#resizeIMG").css("height","auto");
+			 }
+		   else{
+			  $(this).html("展开更多<em></em>").removeClass("current");
+			  $("#resizeIMG").css("height",500);
+			} 
+		
+	});
+ })
+</script>
+</body>
+</html>

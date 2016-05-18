@@ -1,0 +1,8 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><a href="../notice/notice_{$ID}.html" target=_blank>{$title}</a></td><td>{$intorder}</td>
+	
+	<td>{$dtappenddate}</td><td>{$Users}</td><td>{$ifshow}</td>
+	<td align="center"><a href="help.aspx?action=dedit&ID={$ID}">编辑</a> <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

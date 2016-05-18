@@ -1,0 +1,101 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+.list_p p { height:30px; padding:6px; border-bottom:1px solid #C9DBEF; line-height:30px; text-align:center;}
+.table_style td { padding:0;}
+.table_hd td { padding:6px; text-align:center;}
+.list_p input { vertical-align:middle;}
+</style>
+
+
+
+<!--前台页面:
+所有涉及到这些项目的添加页面添加:
+{$IsFabuKill}:是否允许发布发表.对应配置ctr项目返回0(不允许)或1(允许)
+{$IsSaveKill}:允许发布时:发布的信息初始审核状态,对应str配置项目返回:0(需要审核)1(直接审核通过)
+-->
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">会员权限设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+   <form name="form1" method="post" action="?action=EditSave" target="tijiao">
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+
+
+      	<table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+      		<tr class="table_hd"><td>权限名称</td><td>游客</td><td>个人会员</td><td>企业会员</td><td>企业高级会员</td></tr>
+      	  <tr>
+      	  	<td class="list_p" valign="top" style="text-align:right;">
+<p>（分类频道）发布生活信息</p>
+<p>（招聘频道）发布招聘信息</p>
+<p>（招聘频道）登记简历信息</p>
+<p>（房产频道）发布出租</p>
+<p>（房产频道）发布出售</p>
+<p>（房产频道）房产中介入驻</p>
+<p>（资讯频道）文章资讯投稿</p>
+<p>（图片频道）上传图库图片</p>
+<p>（黄页频道）建立黄页/网站</p>
+<p>（活动频道）发布网站活动</p>
+<p>（活动频道）报名网站活动</p>
+<p>（商家频道）开通网上店铺</p>
+<p>（评论与贴吧）回复权限</p>
+<p>（评论系统）评论字数(条数)限制</p>
+<p>（贴吧系统）是否允许发布</p>
+<p>（贴吧系统）贴吧字数(条数)限制</p>
+      	  	</td>
+      	 <td class="list_p">{$list3}</td>
+      	  <td class="list_p">{$list0}</td>
+      	  <td class="list_p">{$list1}</td>
+      	  <td class="list_p">{$list2}</td>
+
+      	  </tr>
+		  <tr><td colspan="5" align="center" style="padding:10px 0;">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td></tr>
+      	</table>
+		
+		</td>
+
+  </form>
+
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+
+
+		</td>
+
+
+
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+ <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+$('#p8_0,#p8_1,#p8_2').append('√');
+$('#p3_3,#p2_3,#p11_3,#p12_3,#p13_3,#p4_3,#p15_3,#p14_3,#p5_3,#p5_0,#p16_3,#p16_0').append('×');
+
+$('#str1_3').val('0').hide();
+$('#ctr1_0,#ctr1_1,#ctr1_2,#ctr3_3,#str3_3,#ctr2_3,#str2_3,#ctr11_3,#str11_3,#ctr12_3,#str12_3,#ctr13_3,#str13_3,#ctr4_3,#str4_3,#ctr15_3,#str15_3,#ctr14_3,#str14_3,#ctr5_3,#str5_3,#ctr8_0,#ctr8_1,#ctr8_2,#ctr9_0,#ctr9_1,#ctr9_2,#str5_0,#ctr5_0,#ctr5_1,#ctr5_2,#ctr6_0,#ctr6_1,#ctr6_2,#ctr16_3,#ctr16_0,#str16_3,#str16_0').hide();
+
+$('#ctr3_0,#ctr3_1,#ctr3_2,#ctr2_0,#ctr2_1,#ctr2_2,#ctr11_0,#ctr11_1,#ctr11_2,#ctr12_0,#ctr12_1,#ctr12_2,#ctr13_0,#ctr13_1,#ctr13_2,#ctr4_0,#ctr4_1,#ctr4_2,#ctr15_0,#ctr15_1,#ctr15_2,#ctr14_0,#ctr14_1,#ctr14_2').hide();
+</script>
+</body>
+</html>
+

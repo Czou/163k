@@ -1,0 +1,18 @@
+﻿<tr><td  colspan="2">
+	 第{$num}个：
+	 </td></tr>
+	 <tr><td >
+	 标题</td><td><input type="text" name="title{$num}" id="title{$num}" size="50"  value="{$title}"/>
+	 </td></tr>
+	  <tr><td >
+	 连接</td><td><input type="text" name="chrurl{$num}" id="chrurl{$num}" size="50"  value="{$chrurl}"/><input type="hidden" name="styleid{$num}" id="styleid{$num}" value="0"  />
+	 </td></tr>
+	  <tr><td  valign="top">
+	 图片</td><td>
+	 <span id="pict{$num}" name="pict{$num}">
+	 {$filepath}
+	 </span>
+	 <span  id="pict1{$num}" name="pict1{$num}" style="display:none">
+	 <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=adv{$num}"></iframe>
+	 </span><input type=hidden name="urladv{$num}" id="urladv{$num}" value="{$filepathurl}">
+	 </td></tr>

@@ -1,0 +1,179 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/jquery.js"></script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入房产资讯标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.qu_catgoryid.value==""  ){
+		alert("请选择房产资讯栏目!");
+		o.qu_catgoryid.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("请输入排序！");
+		o.intorder.focus();
+		return false;
+	}
+	if(!isInt(o.intorder.value)){
+		alert("排序只能为数字！");
+		o.intorder.select();
+		return false;
+	}
+	if(o.chrauthor.value==""){
+		alert("请输入作者!");
+		o.chrauthor.focus();
+		return false;
+	}
+	if(o.hits.value==""){
+		alert("请输入点击数！");
+		o.hits.focus();
+		return false;
+	}
+	if(!isInt(o.hits.value)){
+		alert("点击数只能为数字！");
+		o.hits.select();
+		return false;
+	}
+	
+}
+</script> 
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改房产资讯信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至房产资讯列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+    <tr > 
+      <td height="25" width="15%" >标题<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan=3> <input name="chrtitle" type="text" size="50" value="{$chrtitle$}"></td>
+	  
+	   <td height="25"   width="22%" >颜色： 
+      </td>
+      <td width="22%" class="category"><input name="color" type="text" id="cptext" size="10" value="{$color$}" style="color:{$color$};" > <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+    </tr>
+	<tR>
+	 <td height="25" width="13%"  >分类<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" colspan=3> {categoryid}</td>
+	   <td height="25"  >标题加粗： 
+      </td>
+      <td width="22%" class="category"> <input name="isfont" type="radio"  value="0"   {$isfont0}>&nbsp;&nbsp;否 <input name="isfont" type="radio"  value="1"  {$isfont1} >&nbsp;&nbsp;是</td>
+	</tR>
+    <tr > 
+ 	  <td  height="25">关键词(SEO)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"> <input name="keyword" type="text" size="40"  value="{$keyword$}"> <em class="global_tip">(多个用,隔开)</em></td>
+    
+	  <td  height="25">排序<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <input name="intorder" type="text" size="10" value="{$intorder$}"  onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">越大越靠前！</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">作者<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="chrauthor" type="text" size="20" value="{$chrauthor$}"></td>
+	  <td  height="25">来源： 
+      </td>
+      <td class="category" > <input name="chrfrom" type="text" size="20"  value="{$chrfrom$}"></td>
+	  <td  height="25">点击数<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" > <input name="hits" type="text" size="20" value="{$hits$}"   onKeyUp="if(isNaN(value))execCommand('undo')"></td>
+    </tr>
+	 <tr > 
+      <td  height="25">网址跳转： 
+      </td>
+      <td  class="category" colspan="5"> <input type="radio" value="0" name="styleid" {$styleid1$} onclick="document.getElementById('xtr1').style.display='none';">不启用<input type="radio" value="1" name="styleid" {$styleid2$} onclick="document.getElementById('xtr1').style.display='';">启用<span id="xtr1" style="display:{$display$}">,跳转至：<input type="text" name="chrurl" size="32" value="{$chrurl$}">(直接跳转到指定的网址)</span></td>
+	
+    </tr>
+	
+	<tr > 
+	<td  height="25">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" colspan=2> <input name="iskill" type="radio"  value="0"  {$iskill1$}> 等待审核 <input name="iskill" type="radio"  value="1"  {$iskill2$}> 审核通过</td>
+	    
+      <td  height="25">是否加入到TOP1： 
+      </td>
+      <td  class="category" colspan=2> <input type="radio" value="0" name="toutiao" {$toutiao0}>不加入 
+					<input  type="radio" value="1" name="toutiao" {$toutiao1}>加入&nbsp; <em class="global_tip">(将自动替换以前的)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">本资讯关联楼盘： 
+      </td>
+      <td  class="category" colspan="5">  <input  name="xiaoqu" id="xiaoqu"  class="text" style="width: 200px;" type="text" onkeyup="getKeyWordLoupan();" onclick="getKeyWordLoupan();" autocomplete="off" onblur='if(ismouse=="0"){document.getElementById("keytishi").style.display = "none";}' value="{$chrloupan$}">
+            <em class="global_tip">请输入小区名称,如:上海绿城  设置关联楼盘后本资讯将于楼盘进行关联，成为本楼盘的最新动态文章</em>
+            <div>
+              <div id="keytishi" onmouseover="ismouse='1';" onmouseout="ismouse='0';">
+                <iframe id="listComm" src=""  scrolling="no" width="330" frameborder="0" ></iframe>
+              </div>
+              
+            </div>
+            <input id="loupanid" name="loupanid" type="hidden"  value="{$loupanid$}"/> </td>
+	
+    </tr>
+    <tr  > 
+      <td >内容： 
+      </td>
+      <td  colspan=5  class="category"> <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">
+                {$chrcontent$}
+      </textarea>
+	  
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	  </td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});  
+})(jQuery);
+</script>
+  </body>
+</html>

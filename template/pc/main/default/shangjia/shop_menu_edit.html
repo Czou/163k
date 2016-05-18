@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>自定义栏目编辑-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<script src="/kindeditor/kindeditor.js"></script>
+<script src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+function myforms(o){
+	return true;
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">自定义栏目编辑</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">该功能仅签约店铺才能生效使用</div>
+						</div>
+						<div class="forms">
+							<form name="form1" action="?action=editsave" target="tijiao" onSubmit="return myforms(this)" method="post">
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_d">提醒：该服务仅对"签约店铺"生效</span></p>
+								<p class="tr"><span class="sp_a">自定义栏目1：</span><span class="sp_b"><input name="add1title" class="sys_form_ipt" id="add1title" value="{$add1title}" /></span><span class="sp_c"><input name="add1kill" id="add1kill" {$add1kill_c_1} value="1" type="checkbox" /> 是否启用</span></p>
+								<p class="tr display{$add1kill}" id="add1killNode"><span class="sp_a">内容1：</span><span class="sp_d" style="width:800px;">
+									<textarea cols="100" id="add1content" name="add1content" rows="10">{$add1content}</textarea>
+								</span></p>
+								<p class="tr"><span class="sp_a">自定义栏目2：</span><span class="sp_b"><input name="add2title" class="sys_form_ipt" id="add2title" value="{$add2title}" /></span><span class="sp_c"><input name="add2kill" id="add2kill" {$add2kill_c_1} value="1" type="checkbox" /> 是否启用</span></p>
+								<p class="tr display{$add2kill}" id="add2killNode"><span class="sp_a">内容2：</span><span class="sp_d" style="width:800px;">
+									<textarea cols="100" id="add2content" name="add2content" rows="10">{$add2content}</textarea>
+								</span></p>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">提交修改</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="add1content"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '300px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="add2content"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '300px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+(function($){
+	$('#add2kill,#add1kill').click(function(){
+		var tid = '#'+$(this).attr('id')+'Node';
+		if(!!$(this).prop('checked')){
+			$(tid).show();
+		}else{
+			$(tid).hide();
+		}
+	});	
+})(jQuery);
+</script>
+</body>
+</html>

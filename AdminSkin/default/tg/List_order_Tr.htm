@@ -1,0 +1,11 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><a href="tgorder.aspx?action=look&ID={$ID}" class="lightwindow page-options">{$chrorder}</a></td><td><a href="users.aspx?action=edit&ID={$userid}">{$username}</a></td>
+	<td><a href="{$tgurl}tg_{$tgid}.html" target=_blank>{$chrtitle}</a></td>
+	<td>{$styleid}<br><span id="cidc{$chrcode}">{$xiaokill}</span></td><td>{$intnum}</td>
+	<td>{$moneytotal}/{$daijinnum}/{$intmoney}</td><td>{$Dtappenddate}</td>
+	
+	<td>{$iskill}<br>{$payid}</td><td><span style="display:{$xiaofeiquan}">{$chrcode}<Br>{$chrtel}<br>{$youxiao}</span></td>
+	<td align="center"><a href="tgorder.aspx?action=look&ID={$ID}" class="lightwindow page-options display{$IsUp}">查看</a> <a href="javascript:del({$ID});" class="display{$IsUp}">删除</a> <a href="javascript:;" onclick="sendquan({$ID});">{$send}</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}" class="display{$IsUp}"></td>
+</tr>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$articleurl}">{$lanmuname}</a> &gt; <a href="{$articleurl}listnew_{$categoryid}.html">{$chrcategory}</a> &gt; 正文</div>
+		<div class="news_nr">
+			<h1>{$chrtitle}</h1>
+			<div class="news_info">
+				<p>{$dtappenddate}　{$chrfrom}　人气：{$hits}</p>
+			</div>
+			<div class="article_content" id="resizeIMG">
+				{$chrcontent}
+			</div>
+			<div class="inner_html shengming">声明：频道所载文章、图片、数据等内容以及相关文章评论纯属个人观点和网友自行上传，并不代表本站立场。如发现有违法信息或侵权行为，请留言或直接与本站管理员联系，我们将在收到您的信息后24小时内作出删除处理。</div>
+			<div class="mod_01">
+				<div class="hd">精彩推荐</div>
+				<div class="bd">
+					<ul class="list_normal">
+						{$Mh163k_wap_新闻频道_精彩推荐}
+					</ul>
+					<div class="inner_html"><a href="{$articleurl}" class="comn-submit gray btn_block">返回资讯频道<span class="jian"></span></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),300,480);
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的兑换礼品管理-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.card_con li{border:none;}
+</style>
+<script>
+window['ipageTitleTxt'] = '我的兑换礼品管理';
+</script>
+{$top$}
+<div class="o_main">
+<form name="form1" method="post" action="?action=editsave" onSubmit="return checkform(this);">
+<div class="smalltitle">1、订单基本信息</div>
+<div class="card_con">
+ <ul>
+  <li>
+   <dl>
+    <dt>订单编号</dt>
+    <dd class="dh">{$chrorder$}<input type="hidden" name="orderid" id="orderid" value="{$ID}" /></dd>
+    <dt>礼品名称</dt>
+    <dd class="lpName"><img src="{$filepath$}"><br /><h4>{$chrtitle$}</h4></dd>
+    <dt>所需{$daijinname}</dt>
+    <dd>{$score$}枚</dd>
+   </dl>
+  </li>
+ </ul>
+ </div>
+<div class="smalltitle">2、联系方式</div>
+<div class="card_con">
+ <ul>
+  <li>
+   <dl>
+    <dt>联系人<span style="color:Red">*</span></dt>
+    <dd><input name="contactname" type="text" size="16"  class="text" value="{$contactname$}"> 
+            <span>(请如实填写)</span></dd>
+    <dt>联系方式<span style="color:Red">*</span></dt>
+    <dd><input name="contacttel" type="text" size="16"  class="text" value="{$contacttel$}"> 
+            <span>(请如实填写)</span></dd>
+    <dt>联系地址<span style="color:Red">*</span></dt>
+    <dd><input name="contactaddress" type="text" size="30" class="text" value="{$contactaddress$}"> 
+            <span>(请如实填写)</span></dd>
+    <dt>简短附言</dt>
+    <dd><textarea name="chrmark" rows="5" cols="50" id="chrmark">{$chrmark$}</textarea>
+            <span>(限定200字)</span></dd>
+    <dt></dt>
+    <dd><input type="hidden" id="onestatenum" name="onestatenum" value="" /><input type="submit" name="Submit" class="global_btn_blue" value=" 确认无误，提交 " id="Submit" />
+    <input type="button" value=" 返 回 " class="global_btn" onClick="javascript:location.href='myduihuan.aspx?colname=0#tt7';" /></dd>
+   </dl> 
+  </li>
+ </ul>
+</div>
+</form>
+{$bottom$}
+<script type="text/javascript">
+function checkform(o){
+	setStatenum('#onestatenum');
+}
+setStatenum('#onestatenum');
+</script>
+</body>
+</html>

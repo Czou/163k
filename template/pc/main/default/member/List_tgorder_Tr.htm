@@ -1,0 +1,17 @@
+﻿
+
+<div class="blank10"></div>
+<table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+<tr class="tabletitle">
+<td align="left"><span class="gray_font">订单编号：</span><span style="color:#36c;">{$chrorder}</span>　<span class="gray_font">数量：</span><span style="color:#d00;">{$intnum}</span>　<span class="gray_font">总额：</span><span style="color:#d00;">&yen;{$moneytotal}</span>　<span class="gray_font">手机号码：</span>{$chrtel}</td>
+<td align="center" width="220"><span class="gray_font">下单时间：</span>{$Dtappenddate}</td>
+</tr>
+<tr>
+<td><div class="clearfix"><a href="{$tgurl}tg_{$tgid}.html" target="_blank" style="float:left; display:inline; margin:0 15px 0 4px;"><img src="{$chrimage}" onerror="this.src='{$Default_tplPath}images/fabu_nopic1.gif';this.onerror='';" width="50" height="50" style="vertical-align:top" alt="" /></a><a href="{$tgurl}tg_{$tgid}.html" target="_blank" style="font-size:16px;font-weight:bold; line-height:50px;">{$chrtitle}</a></div></td>
+<td align="center">{$iskill}</td>
+</tr>
+<tr>
+<td><p><span class="gray_font">消费券有效期：</span>{$youxiao}</p><ul>{$xiaofeiquan}</ul></td>
+<td align="center"><a href="mytgorder.aspx?action=look&ID={$ID}&k={$date$}" rel="facebox" class="global_btn">订单详情</a> <a href="mytgorder.aspx?action=pay&ID={$ID}" class="global_btn_orange display0{$zhifu}">{$zhifu}</a> <a href="javascript:;" onclick="sendquan({$ID});" class="global_btn_blue display0{$send}">{$send}</a></td>
+</tr>
+</table>

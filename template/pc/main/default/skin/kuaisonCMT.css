@@ -1,0 +1,83 @@
+@charset "utf-8";
+.module_02 .filter li a,.cmt_list .time .zan, .write .i_star_5, .write .i_star_4, .write .i_star_3, .write .i_star_2, .write .i_star_1, .write .i_star_0, .write .po_captcha .close,.comments .btn_write .btn .s { background:url(../images/kuaisonSP.gif) no-repeat 0 0;}
+.grid_cmt .main_wrap { margin:0 291px 0 157px;}
+.grid_cmt .col_sub { width:156px; margin-left:-100%; border-right:1px solid #dcdcdc;}
+.grid_cmt .col_extra { text-align:center; width:289px; margin-left:-290px; border-left:1px solid #dcdcdc;}
+.module_02 .hd { font-size:20px; padding-top:12px;}
+.module_02 .hd .tit { border-left:3px solid #fd8712; padding-left:6px; display:inline-block; *display:inline; *zoom:1; color:#333;}
+.module_02 .bd { padding:22px 20px;}
+.module_02 .filter { border-bottom:1px solid #e3e3e3; font-size:12px; padding-bottom:10px;}
+.module_02 .filter li { float:left; display:inline; margin-right:15px;}
+.module_02 .filter li a { display:block; padding-left:24px; background-position:-580px -634px;}
+.module_02 .filter .cur a { background-position:-580px -657px;} 
+.module_02 .filter .num { position:absolute; left:auto; top:0px; right:0;}
+.module_02 .filter .num em { font-weight:bold;}
+.module_02 .filter { padding:10px 0 8px 10px; border-top:1px solid #dcdcdc;}
+.module_02 .filter .num { right:10px; top:10px;}
+
+
+.comments { border:1px solid #dcdcdc; background-color:#fff; margin:0;}
+.comments .cmt_list .txt { width:1085px;}
+.comments .cmt_list { padding:0 25px;}
+.comments .percentage { padding:10px 0; color:#aaa; font-size:12px; text-align:center; line-height:14px;}
+.comments .percentage em { font-size:36px; color:#d00; display:block; line-height:38px;}
+.comments .percentage s { font-size:22px; text-decoration:none; line-height:38px;}
+.comments .btn_write { padding:21px 0 20px;}
+.comments .btn_write .btn { display:inline-block; *display:inline; *zoom:1; padding:4px 30px 4px 60px; background-color:#ff7200; border-bottom:1px solid #cc5d17; font-size:18px; color:#fff;}
+.comments .btn_write .btn:hover { background-color:#ff6900; text-decoration:none; border-bottom:1px solid #c45515; color:#fff;}
+.comments .btn_write .btn .s { display:block; position:absolute; top:8px; left:30px; width:24px; height:20px; background-position:-369px -23px;}
+.comments .btn_write .btn:hover .s { background-position:-369px -44px;}
+
+.comments .cmt_statistical {padding-top:29px;}
+.comments .cmt_statistical li { float:left; display:inline; margin-left:20px;}
+.comments .cmt_statistical span { display:inline-block; *display:inline; *zoom:1; vertical-align:middle; margin:0 5px;}
+.comments .cmt_statistical .inner { border:1px solid #ddd; height:12px; overflow:hidden; width:100px; position:relative; *zoom:1; z-index:1;}
+.comments .cmt_statistical .inner em { position:absolute; display:block; height:12px; top:0; left:0; overflow:hidden; background-color:#f60;}
+
+.cmt_list li { overflow:hidden; *zoom:1; padding-top:20px;}
+.cmt_list .face { float:left; width:48px; height:48px; vertical-align:top; display:inline; margin:5px 15px 0 0; border-radius:48px;}
+.cmt_list .txt { float:left; width:827px; border-bottom:1px solid #eee; color:#333; padding-bottom:20px;}
+.cmt_list .name { vertical-align:middle;}
+.cmt_list .pj { vertical-align:middle; color:#999;}
+.cmt_list .pj img { vertical-align:-4px;}
+.cmt_list .pj .st_1 { color:#d00;}
+.cmt_list .pj .st_2 { color:#f60}
+.cmt_list .pj .st_3 { color:#555}
+.cmt_list .cbd { padding:12px 0; line-height:24px;} 
+.cmt_list .time { color:#999; font-size:12px;}
+.cmt_list .time .zan { float:right; padding-left:22px; background-position:-582px -687px;}
+.cmt_list .reply { margin-top:8px;}
+.cmt_list .reply .red { color:#f50;}
+.cmt_list .sys_more { margin:15px 0 0 63px;}
+
+.write { padding:20px;}
+.write .hds { font-size:20px; margin-bottom:5px; color:#444;}
+.write .cmt_txt { vertical-align:top; padding:7px 10px 10px; border:1px solid #ddd; width:1136px; height:80px; color:#404040; outline:0;}
+.write .cmt_control { border:1px solid #ddd; border-top:0 none; padding:5px 5px 5px 10px; font-size:12px; line-height:30px;}
+.write .cmt_btn { width:88px; height:30px; background-color:#f60; color:#fff; cursor:pointer; font-size:16px; border:0 none; vertical-align:top;}
+.write .po_captcha { display:none; position:absolute; width:150px; border:1px solid #ddd; background-color:#f6f6f6; padding:5px 0 15px 15px; right:0; bottom:0;}
+.write .captcha_ipt { display:block; float:left; border:1px solid #ddd; color:#404040; padding:0px 4px; height:20px; line-height:20px; width:80px; vertical-align:top;}
+.write .captcha_img { cursor:pointer; vertical-align:top; margin-bottom:8px; border:1px solid #aaa;} 
+.write .cmt_btn2 { display:block; float:left; padding:0px 8px; background-color:#f60; color:#fff; cursor:pointer; line-height:22px; height:22px; font-size:12px; border:0 none; vertical-align:top;}
+.write .po_captcha .close { display:block; position:absolute; top:5px; right:5px; width:17px; height:17px; background-position:-329px -19px; overflow:hidden; text-indent:-999em;}
+.write .po_captcha .close:hover { background-position:-349px -19px;}
+.write .disabled { background-color:#aaa; cursor:default;}
+.write .select_star { border:1px solid #ddd; border-bottom:0 none; padding:12px 8px; color:#999;}
+.write .select_star .sp { vertical-align:middle;}
+.write .select_star .btn { vertical-align:middle; margin-right:3px;}
+.write .select_star .btn span { display:inline-block; *display:inline; *zoom:1; padding:1px 5px; border-radius:4px; cursor:pointer;}
+.write .select_star .btn_1 { color:#d23e3a; border:1px solid #ffa09e;}
+.write .select_star .btn_2 { color:#f60; border:1px solid #f6bb8b;}
+.write .select_star .btn_3 { color:#4d4d4d; border:1px solid #aaa;}
+.write .select_star .cur .btn_1 { color:#fff; background-color:#d23e3a; border-color:#d23e3a;}
+.write .select_star .cur .btn_2 { color:#fff; background-color:#e59452; border-color:#e59452;}
+.write .select_star .cur .btn_3 { color:#fff; background-color:#4d4d4d; border-color:#4d4d4d;}
+.write .select_star .btn:hover { text-decoration:none;}
+.write .i_star_5,.write .i_star_4,.write .i_star_3,.write .i_star_2,.write .i_star_1,.write .i_star_0 { display:inline-block; *display:inline; *zoom:1; vertical-align:middle; width:135px; height:23px; background-position:0 -291px; overflow:hidden; margin:0; text-indent:0;}
+.write .i_star_5 { background-position:0 -171px;}
+.write .i_star_4 { background-position:0 -195px;}
+.write .i_star_3 { background-position:0 -219px;}
+.write .i_star_2 { background-position:0 -243px;}
+.write .i_star_1 { background-position:0 -267px;}
+.write .i_star_0 { background-position:0 -291px;}
+.write .s_star { display:inline-block; *display:inline; *zoom:1; width:24px; height:23px; margin-right:3px; font:0pt/1000px Arial; overflow:hidden; vertical-align:top;}

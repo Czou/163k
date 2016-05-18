@@ -1,0 +1,79 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function clickcolor(tt)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) tt.value=aarr;
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>图标类(数字越大越排在前面,一共8个)</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<tr align="center">
+				<td  width="80" class="category">操作</td>
+				<td class="category">标题</td>
+				<td class="category">图标</td>
+				<td class="category">连接地址</td>
+				<td class="category">排序</td>
+				</tr>
+				<tag:Loop ListType="Listbao1" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="bao/List_bao1_Tr.htm" />
+			
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+	<td height="25">
+		文字类(数字越大越排在前面,一共25个)
+</tr>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<tr align="center">
+				<td  width="80" class="category">操作</td>
+				<td class="category">标题</td>
+				<td class="category">连接地址</td>
+				<td class="category">颜色</td>
+				<td class="category">排序</td>
+				</tr>
+				<tag:Loop ListType="Listbao2" RecType="New" PageSize="100" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="bao/List_bao2_Tr.htm" />
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr> 
+	<td height="25">
+		便民电话(数字越大越排在前面,一共5个)
+</tr>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<tr align="center">
+				<td  width="80" class="category">操作</td>
+				<td class="category">标题</td>
+				<td class="category">电话</td>
+				<td class="category">颜色</td>
+				<td class="category">排序</td>
+				</tr>
+				<tag:Loop ListType="Listbao3" RecType="New" PageSize="100" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="bao/List_bao3_Tr.htm" />
+</table>
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

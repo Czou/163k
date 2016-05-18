@@ -1,0 +1,9 @@
+﻿         <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td align="center"><input type="text" name="chrkind{$ID}" value="{$chrkind}" size="12"><input name="ID" type="hidden" id="ID" value="{$ID}"></td>
+	<td align="center"><input type="text" name="chrurl{$ID}" value="{$chrurl}" size="24"  ></td>
+	<td align="center"><input type="text" name="intorder{$ID}" value="{$intorder}" size="24"  ></td>
+	<td align="center"><input type="text" name="color{$ID}" value="{$color}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color{$ID})" align="absmiddle" />&nbsp;&nbsp;<input type="checkbox" name="isfont{$ID}" value="1" {$isfont1}/>加粗</td>
+	<td align="center"><input type="radio" name="typeid_{$ID}" value="1" {$typeid{$ID}1}  >无 <input type="radio" name="typeid_{$ID}" value="2" {$typeid{$ID}2}  >抢 <input type="radio" name="typeid_{$ID}" value="3" {$typeid{$ID}3}  >新 <input type="radio" name="typeid_{$ID}" value="4" {$typeid{$ID}4}  >热</td>
+	<td align="center"><input type="radio" name="newwin_{$ID}" value="0" {$newwin{$ID}0}  >原窗口 <input type="radio" name="newwin_{$ID}" value="1" {$newwin{$ID}1}  >新窗口</td>
+</tr>

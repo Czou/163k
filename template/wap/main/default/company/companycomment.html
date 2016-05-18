@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-客户点评-{$SiteName}</title>
+<meta name="keywords" content="{$seokeyword}" />
+<meta name="description" content="{$seodescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/huangye-mb.css" />
+{$top$}
+{$Mh163k_wap_口碑商家_独立头部_层1}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a></div>
+		<div class="huangye_header clearfix">
+			<div class="img show{$showlogo}" style="margin:8px 10px 0 0"><img src="{$filepath}" width="98" height="42" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="" /></div>
+			<h1>{$chrshop}</h1>
+			<p><img src="{$Default_tplPath}/images/koubei/{$chrimage}" style="vertical-align:middle" alt="{$chrlevel}" /> <span style="color:#090">{$koubei}</span></p>
+		</div>
+		<div class="lp_nav">
+			<a href="{$indexurl}" class="comn-submit gray btn_block">店铺首页<span class="jian"></span></a>
+			<a href="{$TargetUrl}content_{$shopid}.html" class="comn-submit gray btn_block">店铺介绍<span class="jian"></span></a>
+			<a href="{$TargetUrl}notice_{$shopid}.html" class="comn-submit gray btn_block">店铺动态<span class="jian"></span></a>
+			<a href="{$TargetUrl}pic_{$shopid}.html" class="comn-submit gray btn_block">店铺展示<span class="jian"></span></a>
+			<a href="{$TargetUrl}comment_{$shopid}.html" class="comn-submit btn_block">网友点评</a>
+		</div>
+		
+		<div class="huangye_content">
+			<div class="hd">网友点评</div>
+		</div>
+		<div class="select_02">
+			<ul class="clearfix">
+				<li id="selected0" class="current"><a href='javascript:setclassname(0);getdata("../request.aspx?action=showcompanycomment&shopid={$shopid}","showcomment");'>全部</a></li>
+				<li id="selected1"><a href='javascript:setclassname(1);getdata("../request.aspx?action=showcompanycomment&colname=1&shopid={$shopid}","showcomment");'>好评</a></li>
+				<li id="selected2"><a href='javascript:setclassname(2);getdata("../request.aspx?action=showcompanycomment&colname=2&shopid={$shopid}","showcomment");'>中评</a></li>
+				<li id="selected3"><a href='javascript:setclassname(3);getdata("../request.aspx?action=showcompanycomment&colname=3&shopid={$shopid}","showcomment");'>差评</a></li>
+			</ul>
+		</div>
+		<div class="comment">
+			<div class="bd" id="showcomment"></div>
+		</div>
+		<div class="fabu_comment register-form">
+			<div class="hd">发表评论</div>
+			<form name="inputStyle" id="inputStyle" method="post" onSubmit="return checkcompanycomment();">
+				<input type="hidden" name="score_1" id="score_1" value="5">
+				<input type="hidden" name="score_2" id="score_2" value="5">
+				<input type="hidden" name="score_3" id="score_3" value="5">
+				<input type="hidden" name="score_4" id="score_4" value="5">
+				<input type="hidden" name="total_score" id="total_score" value="1">
+				<input type="hidden" name="shopid" value="{$shopid}">
+				<p class="box"><span class="form_label">级别：</span><span class="form_control"><input name="score" id="score1" type="radio" value="1"  checked onClick="document.inputStyle.total_score.value='1'" /> <label for="score1" style="color:#d00;" onClick="document.inputStyle.total_score.value='1'">好评</label>　<input name="score" id="score2" type="radio" value="2" onClick="document.inputStyle.total_score.value='2'" /> <label for="score2" style="color:#f60;" onClick="document.inputStyle.total_score.value='2'">中评</label>　<input name="score" id="score3" type="radio" value="3" onClick="document.inputStyle.total_score.value='3'"/> <label for="score3" style="color:#333;" onClick="document.inputStyle.total_score.value='3'">差评</label></span></p>
+				<p class="box"><span class="form_label">星级评分：</span><span class="form_control form_star" id="star_query_01" data-input="score_1"><a href="#" class="item" data-star="1">一星</a><a href="#" class="item" data-star="2">二星</a><a href="#" class="item" data-star="3">三星</a><a href="#" class="item" data-star="4">四星</a><a href="#" class="item" data-star="5">五星</a></span></p>
+				<p class="box"><span class="form_label">内容：</span><span class="form_control"><textarea name="chrmark" rows="4" class="codebox2-textarea" placeholder="请输入评论内容，仅限300字"></textarea></span></p>
+				<p class="box po_re"><span class="form_label">验证码：</span><span class="form_control"><input type="text" name="code" placeholder="输入验证码" id="code" data-max="30" class="codebox2-input" /></span><span class="yzm po_ab" style="top:6px;"><img src="{$HeadSiteUrl}getcode.html" id="vadimg" onClick="this.src='{$HeadSiteUrl}getcode.html?'+(new Date().getTime());" /></span></p>
+				
+				<input class="comn-submit btn_block" type="submit" value="提交" />
+			  </form>
+		</div>
+	</div>
+{$bottom$}
+<script>
+//star
+$.fn.starQuery = function(){
+	var t = $(this),
+		list = t.find('.item'),
+		index = 0,
+		toform = $('#'+t.attr('data-input'));
+		list.click(function(e){
+			e.preventDefault();
+			index = $(this).attr('data-star');
+			list.removeClass('cur').slice(0, index).addClass('cur');
+			toform.val(index);
+		});
+}
+$('#star_query_01').starQuery();
+//show
+var nowdomain = '{$SiteUrl}';
+function setclassname(tt){
+	for(var i=0;i<4;i++){
+		if(i==tt){
+			$("#selected"+i).addClass("current");
+		}
+		else{
+			$("#selected"+i).removeClass();
+		}
+	}
+}
+function getdata(url,obj1){
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	var node = $('#'+obj1);
+	node.html("正在加载数据，请稍等......");
+	$.ajax({url: url}).done(function( msg ) {
+		node.html(msg);
+	});
+}
+getdata("../request.aspx?action=showcompanycomment&shopid={$shopid}","showcomment");
+
+//fabu
+function checkcompanycomment(){
+	var chrname="";
+	var chrpwd="";
+	if($('#isLogin').val() !=='1'){
+		alert('对不起，请先登录再发表评论！');
+		return false;
+	}
+	var chrmark = $("textarea[name='chrmark']");
+	if(chrmark.val()==""){
+		chrmark.focus();
+		alert("对不起，请输入评论！");
+		return false;
+	}
+	if(chrmark.val().length>300){
+		chrmark.select();
+		alert("对不起，评论不能大于300汉字！");
+		return false;
+	}
+	if($("input[name='code']").length>0){
+		var code = $("input[name='code']");
+		if(code.val()==""){
+			code.focus();
+			alert("对不起，请输入验证码！");
+			return false;
+		}	
+	}
+	var commentyouke='0';
+	addcompanycomment(chrname,chrpwd,code.val(),chrmark.val(),commentyouke,$("input[name='shopid']").val(),$("input[name='total_score']").val(),$("input[name='score_1']").val(),$("input[name='score_2']").val(),$("input[name='score_3']").val(),$("input[name='score_4']").val());
+	return false;
+}
+
+function addcompanycomment(chrname,chrpwd,code,chrmark,commentyouke,shopid,score,score1,score2,score3,score4){
+      	var url="../request.aspx?action=addcommpanycomment&chrname="+encodeURIComponent(chrname);
+		url =url+"&chrpwd="+encodeURIComponent(chrpwd)+"&commentyouke="+encodeURIComponent(commentyouke)+"&code="+encodeURIComponent(code)+"&chrmark="+encodeURIComponent(chrmark)+"&shopid="+encodeURIComponent(shopid)+"&score="+encodeURIComponent(score)+"&score1="+encodeURIComponent(score1)+"&score2="+encodeURIComponent(score2)+"&score3="+encodeURIComponent(score3)+"&score4="+encodeURIComponent(score4);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		$.ajax({url: url}).done(function( msg ) {
+			var tt=window.location.href;
+			if(tt.indexOf("#")>0)
+				tt =tt.substring(0,tt.indexOf("#"))
+			if(msg==0)
+			{
+				alert("恭喜您，发布成功，请等待管理员审核！");	
+				window.location.href=tt;
+			}
+			else if(msg==1)
+			{
+				alert("恭喜您，发布成功！");	
+				window.location.href=tt;
+			}
+			else{
+				alert(msg);
+			}
+		});
+}
+
+</script>
+</body>
+</html>

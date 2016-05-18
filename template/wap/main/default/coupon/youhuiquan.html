@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+		<div class="filter">
+			<ul class="clearfix">
+				<li><a href="javascript:void(0);" id="show_categories">{$allcategory}<em></em></a></li>
+				<li><a href="javascript:void(0);" id="show_district">{$strarea}<em></em></a></li>
+			</ul>
+		</div>
+		<div class="float-navbox" id="navbox_categories" style="display:none;">
+			<div class="inner">
+				<ul id="list_nav_2013">
+					{$allfenlei}
+				</ul>
+			</div>
+		</div>
+		<div class="float-navbox" id="navbox_district" style="display:none;">
+			<div class="inner">
+				<ul>
+					{$quyu}
+				</ul>
+			</div>
+		</div>
+		<div class="fullbg" id="fullbg1" style="display:none;"><i class="pull"></i></div>
+		<div class="fullbg" id="fullbg2" style="display:none;"><i class="pull"></i></div>
+		<div class="mod_02">
+			
+			<div class="bd">
+				<ul class="list_normal list_tg list_yhq">
+					<tag:Loop ListType="listcouponqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="100" RecColumn="5" CusTpl="1" Template="coupon/listyouhui.html" />
+				</ul>
+				<div class="pageNav">
+					{$PageSplit}
+				</div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/dropDown2013.js"></script>
+<script>
+(function($){
+	IDC.showMore($('#show_categories'),$('#navbox_categories'),$('#fullbg1'));
+	IDC.showMore($('#show_district'),$('#navbox_district'),$('#fullbg2'));
+	function couponUrl(){
+		var url_obj = {'colname':'{$colname}','classid':'{$classid}'};
+		if(url_obj['colname'] !== '' && url_obj['colname'] !== '0'){
+			$('#s_'+url_obj['colname']).addClass('current').parent().parent().prev().removeClass().addClass('xias');
+		}
+		if(url_obj['classid'] !== ''){
+			$('#s_quyu_'+url_obj['classid']).addClass('current');
+		}
+	}
+	couponUrl();
+
+})(jQuery);
+</script>
+</body>
+</html>

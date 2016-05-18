@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$fcurl}">{$lanmuname}</a> &gt; {$chrcategory}</div>
+	<!-- 主体 -->
+	<div class="v2013">
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_list news_list2 news_list3">
+					<div class="hd">{$chrcategory}</div>
+					<ul>
+						<tag:Loop ListType="listhousearticleqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="40" RecColumn="5" CusTpl="1" Template="house/listarticle.htm" />
+					</ul>
+					<div class="pageNav_2013">
+						{$PageSplit}
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mo_2 loupan">
+					<div class="hd">热门楼盘</div>
+					<div class="bd">
+						<ul>
+							{$renmenloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+				<div class="mo_2 marTop10 loupan">
+					<div class="hd">推荐楼盘</div>
+					<div class="bd">
+						<ul>
+							{$rentuiloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

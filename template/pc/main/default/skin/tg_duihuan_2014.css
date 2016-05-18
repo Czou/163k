@@ -1,0 +1,71 @@
+@charset "utf-8";
+:focus{outline: 0;}
+a { color:#fff; text-decoration:underline;}
+a:hover { color:#e7d068;}
+.po_re { position:relative; z-index:1; *zoom:1;}
+.po_ab { position:absolute;}
+.header,.is_login_fail .t,.ipt_bg,.ipt_bg .s,.btn,.is_login .t,.login_node,.login_node .s,.query { background:url(../images/tg_duihuan_sp.jpg) no-repeat 0 0;}
+body { background:#003064 url(../images/tg_duihuan_bg.jpg) repeat-x 0 0; color:#fff; font-size:14px;}
+.wrapper { width:800px; margin:0 auto;} 
+.footer { text-align:center; font-size:11px; color:#5d82a1; padding:30px 0;} 
+.header { margin-top:100px; height:78px; overflow:hidden; font:0pt/1000px Arial; background-position:0 -430px;}
+.showDuihuan { background-position:0 0;}
+
+.ipt_bg { margin-bottom:10px; background-position:0 -79px; height:33px; width:326px; padding:8px 10px 2px;}
+.ipt_bg .s { position:absolute; top:0; right:0; background-position:0 -123px; height:43px; width:5px; overflow:hidden;}
+.ipt_bg_all { width:772px; height:63px; background-position:0 -353px;}
+.ipt_bg_all .s { background-position:-795px -238px; height:73px; width:5px;}
+.ipt_bg_all .ipt { font-size:40px;}
+
+.ipt { border:0 none; font-size:18px; color:#333; vertical-align:middle; width:100%;}
+.btn { display:block; font:0pt/1000px Arial; overflow:hidden; height:43px; vertical-align:middle; border:0 none; cursor:pointer;}
+.login_btn { float:left; background-position:-6px -123px; width:91px;}
+.reg_btn { background-position:-230px -123px; width:131px;}
+.dh_btn { margin:0 auto; background-position:-98px -123px; width:131px;}
+.dh_btn2 { margin:20px auto 0; background-position:-474px -123px; width:131px;}
+.xsl_btn { margin:15px auto 0; background-position:-362px -123px; width:111px; height:33px;}
+
+.is_login_fail,.is_login { padding:70px 15px 30px;}
+.is_login_fail .left { float:left; width:346px;}
+.is_login_fail .right { float:right; width:355px;}
+.is_login_fail .t,.is_login .t { margin-bottom:20px; display:block; width:293px; height:21px; overflow:hidden; font:0pt/1000px Arial; background-position:-488px -169px;}
+.is_login_fail .right .t { background-position:-322px -169px; width:165px;}
+.is_login_fail .p { margin-bottom:15px; font-size:12px; line-height:22px;}
+.is_login_fail .remember { float:left; margin:10px 0 0 20px; display:inline; color:#e7d068;}
+.is_login_fail .remember input { vertical-align:middle;}
+.is_login { text-align:center;}
+.is_login .t { background-position:0 -169px; width:135px;}
+.state { text-align:center; margin:20px 0;}
+.state .txt { color:#e7d068; font-size:18px;}
+.login_node { margin-top:35px; background-position:0 -191px; height:33px; padding:12px 20px 0 48px; display:inline-block; *display:inline; *zoom:1;}
+.login_node .s { display:block; top:0; right:0; width:5px; height:46px; background-position:-795px -123px; overflow:hidden;}
+.query { margin-top:35px; width:772px; height:114px; background-position:0 -238px;}
+.query .info { font-size:18px; padding-top:18px;}
+.query .info em { color:#e7d068;}
+.query .left { float:left; display:inline;}
+.query .form { margin:15px 0 0 198px;}
+.query .ipts { width:155px; margin-top:4px; border:0 none; background:none;}
+.query .btns { width:85px; height:29px; overflow:hidden; border:0 none; background:none; display:block; font:0pt/1000px Arial; cursor:pointer;}
+.query .l2 { margin-left:51px;}
+.query .l3 { margin-left:20px;}
+.results { text-align:left; margin-top:30px;}
+.results .hd { font-size:18px;}
+.results .bd { font-size:12px; margin-top:10px;}
+.results .bd li { color:#6c91b0; border-bottom:1px solid #00407b; height:18px; line-height:18px; padding:8px; overflow:hidden;}
+.loadding { padding:150px; text-align:center;}
+.datepicker { color:#404040; z-index:9;}
+
+
+
+.mask { z-index:999; color:#333; font-size:16px; position:absolute; width:700px; padding:70px 50px 90px; text-align:left; left:50%; top:0; margin:0 0 0 -400px; border:3px solid #003f79; background-color:#fff; border-radius:10px; box-shadow: 5px 5px 10px #222;}
+.mask .close { display:block; position:absolute; top:-25px; right:-25px; background:url(../images/close.png) no-repeat 0 0; width:52px; height:52px; overflow:hidden;}
+
+.errormes { font-size:48px; color:#c00;}
+.okmes { font-size:48px; color:#3b8300;}
+
+
+
+
+
+
+

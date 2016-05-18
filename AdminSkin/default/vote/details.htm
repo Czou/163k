@@ -1,0 +1,101 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delaa(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+    document.getElementById("form").action="votedetails.aspx?action=del"
+	if ( confirm("该操作将不可逆！\n您确定要删除选中的投票记录？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+
+function delall()
+{
+    if ( confirm("该操作将不可逆！\n您确定要清空记录吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "votedetails.aspx?action=delall";
+        }
+}
+
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<span class="blank">参赛选手投票统计</span></td>
+      <td align="right" style="text-align:right;"><a href="javascript:delall();" class="global_btn">清空全部记录</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按关键字查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" >投票IP</td>
+     		<td class="category" >投票时间</td>
+      		<td class="category" >选手姓名</td>
+       		<td class="category" >联系人</td>
+      		<td class="category" >联系电话</td>
+         	<td width="73"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+          </tr>
+		  <tag:Loop ListType="LISTXUANSHOUDETAILS" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="vote/list_details_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=18>
+		  <a href="javascript:delaa(this);" class="global_btn_blue">删除选中</a>&nbsp;
+		  </td></tr>
+		  </form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+		{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

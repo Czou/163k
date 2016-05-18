@@ -1,0 +1,11 @@
+﻿<tr>
+	<td>{$chrorder}</td>
+	<td>{$chrname}</td>
+	<td style="font-size:12px;"><span class="time_left" data-id="{$ID}" data-state="1">{$Dtappenddate}</span></td>
+	<td><a href="manage_order.aspx?action=look&ID={$ID}" rel="facebox" class="sys_btn_small_blue">查看</a></td>
+	<td>待完善</td>
+	<td>{$iskill} <a href="#" onclick="return tgQuick(this,'{$ID}')" class="sys_btn_small_white">操作</a></td>
+	<td>待完善 <a href="#" onclick="return tgQuick(this,'{$ID}-123')" class="sys_btn_small_white">操作</a></td>
+	<td><!--已分配--><select><option>选择派送员</option></select></td>
+	<td><div id="time_{$ID}"></div></td> 
+</tr>

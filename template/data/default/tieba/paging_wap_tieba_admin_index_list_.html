@@ -1,0 +1,14 @@
+<div class="item">
+	<p class="line clearfix"><span class="right display2{$iskill}" style="color:#d00;">[待审]</span><span class="right display3{$iskill}" style="color:#aaa;">[已审]</span><input type="checkbox" class="checkbox" name="ID" value="{$id}" /> <a href="{$tiebaurl}../tieba_show_{$id}.html" style="font-weight:bold; font-size:16px; color:{$color}" class="link">{$title}</a> <span class="display{$isjinghua}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#096; padding:2px 4px;">精华</span> <span class="display{$iszhiding}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#F30; padding:2px 4px;">置顶</span></p>
+	
+	<div style="padding:10px;">{$chrcontent}<div class="n_img piclist">{$piclist}</div></div>
+	
+	<p class="line2" style="text-align:center;"><a href="{$tiebaurl}addedit.aspx?action=edit&id={$id}" class="global_btn_blue">编辑</a> <a href="admin_tieba.aspx?action=revert&id={$id}" class="global_btn_blue display3{$iskill}">查看回复</a> <a href="javascript:void(0);" onclick="superManage('{$id}');" class="global_btn_blue displaysuper">超级管理</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','1');" class="global_btn_blue displaysuper display2{$iskill}">通过审核</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','0');" class="global_btn_blue displaysuper display3{$iskill}">取消审核</a> <a href="javascript:void(0);" onclick="$.managerTBisdel('{$id}');" class="global_btn">删除</a></p>
+	
+	<div class="order_detial">
+		<p class="guest">{$bigChrcategory} - {$chrcategory}</p>
+		<p class="guest">查看：{$hits}　回复：{$revertnum}　赞：{$num1}</p>
+		<p class="guest">{$chrname}　{$dtappenddate}　ip：{$chrip}</p>
+	</div>
+	<a href="#" class="view_order_detial po_re" title="展开/收起"><s class="s po_ab"></s></a>
+</div>

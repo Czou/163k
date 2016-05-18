@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrname}-{$chrtitle}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+<script>
+var nowdomain = '{$SiteUrl}';
+window['ipageTitleTxt'] = '{$chrtitle}';
+function DrawImage(ImgD,iwidth,iheight){}
+</script>
+{$top$}
+<div class="vote_bot_btn">
+ <ul>
+  <li><a href="#myform">我要评论</a></li>
+  <li class="bm"><a href="{$SiteUrl}member/myvote.aspx?action=add&id={$voteid}">报名参加</a></li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <!--默认排行-->
+ <div class="home_focus">
+  <div id="scroller">
+  	 <ul style="display:none;" id="slide_data">
+	   {$chrpics}
+	  </ul>
+    <div id="slide" class="clearfix" style="display:none;">
+        <div id="content">
+         
+        </div>
+        <div class="num" id="indicator">
+        </div>
+        <div class="total">共<span id="total"></span>张</div>
+    </div>
+    <span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  </div>
+ </div>
+<!--儿童信息--> 
+<div class="child_info">
+  <dl>
+   <dt>{$chrname}</dt>
+   <dd><a href="javascript:showvotedetails('{$voteid}','{$detailsid}');">投我一票</a></dd>
+  </dl>
+  <p>编号:{$chrnumber}&nbsp;&nbsp;&nbsp;&nbsp;人气:{$views}&nbsp;&nbsp;&nbsp;&nbsp;票数:<span class="f66" id="vote{$detailsid}">{$intnum}</span></p>
+</div>
+<div class="e_condit">
+ <dl>
+  <dt>年龄</dt>
+  <dd>{$chrage}岁</dd>
+ </dl>
+ <dl>
+  <dt>身高</dt>
+  <dd>{$shenggao}cm</dd>
+ </dl>
+ <dl>
+  <dt>体重</dt>
+  <dd>{$tizhong}kg</dd>
+ </dl>                                                         
+</div>
+<div class="o_info">
+ <dl>
+  <dt>来自</dt>
+  <dd>{$laizhi}</dd>
+ </dl> 
+ <dl>
+  <dt>兴趣</dt>
+  <dd>{$aihao}</dd>
+ </dl>
+</div>
+<div class="new_active">
+ <div class="title"><span>参赛文选</span></div>
+ <div class="con_wxbox">
+   <div class="con" id="resizeIMG" style="height:92px;overflow:hidden;">{$chrcontent}</div>  
+   <div class="more">展示更多<em></em></div>
+ </div>
+
+</div>
+<!--分享--> 
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+ <!--网友评论-->
+ <div class="user_reviews n_mb">
+  <div class="title"><a href="#"><h3>网友评论</h3><span class="ComentNum" id="show_total_revert">0</span><sup></sup></a></div>
+   <div class="review_list">
+    <div id="showcomment">正在加载数据，请稍等......</div>
+   </div>
+   <div class="register-form">
+		<p>我来说两句</p>
+		<form id="myform">
+			<div class="write2014">
+				<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+				<input type="hidden" id="isrep" value="" />
+				<input type="hidden" id="istg" value="" />
+				<input type="hidden" id="parentid" value="" />
+				<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+				<div class="cmt_control clearfix">
+					<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+					<div class="left">文明上网 礼貌发帖 仅限300字</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div style="height:15px; overflow:hidden;"></div>
+  </div> 
+{$bottom$}
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('#slide_data').find('img').eq(0);
+if(typeof filepath1[0] !== 'undefined'){shareImg = nowdomain + filepath1.attr('src').replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrname}-{$chrtitle}','编号:{$chrnumber}，人气:{$views}，票数:{$intnum}',shareImg,'{$SiteUrl}vote/xuanshou_{$detailsid}.html');
+	});
+}
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$detailsid}';
+window['STYLEID'] = '10';
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-20,480);
+
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$('.new_active .more').bind('click',function(){
+		var hCur = $(this).hasClass("current");												  
+	    if(!hCur){
+			$(this).html("收起更多<em></em>").addClass("current");
+		    $(this).prev().css({"height":"auto"});	
+			}	
+		else{
+			$(this).html("展开更多<em></em>").removeClass("current");
+		    $(this).prev().css({"height":92});	
+			}	
+	 });
+	
+	
+})(jQuery);
+function showvotedetails(aa,tt){
+	var heightV = 250;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	inner_iframe.css({'top':($(window).height()-heightV)/2+'px'}).show();
+	inner_iframe.css({'top':'45px'}).show();
+	
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	var url="../request.aspx?action=checktoupiao&aa="+aa+"&bb="+tt+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url}).done(function(msg){
+		if(msg=="0"){
+			mask.show();
+			var myiframe = '<iframe src="voteyan.aspx?id='+tt+'" scrolling="no" frameBorder="0" width="100%" height="'+heightV+'"></iframe>';
+			inner_iframe[0].innerHTML=myiframe;
+		}
+		else{
+			alert(msg);	
+		}
+	});	
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+(function($){
+  var list = $('#slide_data').find('.item');
+  var w_w = $(window).width();
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		var txt2 = '';
+		list.each(function(i){
+			txt2 += '<div class="cell"><img src="'+$(this).find('img').attr('src')+'" /></div>';
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#content').html(txt2);
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		$('#total').html(list.length);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}	
+  })(jQuery);
+</script>
+</body>
+</html>

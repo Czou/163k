@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tuan2013.css" type="text/css" rel="stylesheet" />
+<!--[if IE 6]>
+<script src="{$Default_tplPath}js/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.png_ie6');
+</script>
+<![endif]-->
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/tg2013.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<div class="v2013" id="tgIndex">
+		<div class="tuan_nav">
+			<ul class="clearfix">
+				<li class="current"><a href="{$tgurl}">今日推荐</a></li>
+				<li><a href="{$tgurl}more.html">更多省啦</a></li>
+				<li><a href="{$tgurl}miaosha.aspx" target="_blank">限量秒杀</a><s class="s_new"></s></li>
+				<li><a href="{$tgurl}liucheng.html">省啦流程</a></li>
+				<li><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="{$SiteUrl}service/" target="_blank">省啦反馈</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		{$Mh163k_团购频道通栏自定义html广告}
+		{$Mh163k_团购频道_团购首页列表}
+		<a href="{$tgurl}more.html" class="more_tuan">更多省啦</a>
+		{$Mh163k_团购频道_页脚}
+	</div>
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<script language="javascript">
+	  var sec = {};
+	  function getInitTime(){
+		  var cur_time = Date.parse($('#system_date').val());
+		  var end_time;
+		  $('.time_left').each(function(){
+			 var jobj = $(this);
+			 end_time = Date.parse(jobj.text());
+			 
+			 var SysSecond = parseInt(end_time - cur_time)/1000;
+			 var theid = parseInt((jobj.attr('id')).replace(/sec_left_/,''));
+			 sec[theid]= SysSecond;
+		  });
+	  }
+	  getInitTime();
+	  function SetRemainTime() {
+			for(var i in sec){
+				setRemainTimeSite(i,sec[i]);
+			}
+	   }
+	  function setRemainTimeSite(theid,SysSecond){
+		  if (SysSecond > 0) {
+			   SysSecond = SysSecond - 1;
+			   var second = Math.floor(SysSecond % 60).toString();
+			   var minite = Math.floor((SysSecond / 60) % 60).toString();
+			   var hour = Math.floor((SysSecond / 3600) % 24).toString();
+			   var day = Math.floor((SysSecond / 3600) / 24).toString();
+			  // hour=parseInt(day*24)+parseInt(hour);
+			   $("#time_show_"+theid).html("<p>距离本单结束</p>"+day+"<em>天</em>"+hour+"<em>时</em>"+minite+"<em>分</em>"+second+"<em>秒</em>");
+			   sec[theid]--;
+		  }else{
+			   $("#time_show_"+theid).html("<p>亲，下次记得早点来哦！</p><em>本单已结束</em>").siblings('.btn').find('a').text('卖光了').removeClass().addClass('end');
+			return;
+		  }
+		}
+	  window.setInterval(SetRemainTime,1000);
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+window['siteUrl'] = '{$SiteUrl}';
+$('#tgIndex').get_TG_num('.tg_chrnum');
+$('#mySle').selectbox();
+$(document).modCity();
+$('#fabu').showMore();
+$('#weixin').showMore();
+$.returnTop();
+</script>
+</body>
+</html>

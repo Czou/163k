@@ -1,0 +1,28 @@
+﻿<div class="tuan_item tuan_item_list">
+			<div class="po2" ><s class="s s_duotaocan" style="display:{$kill3}">多套餐</s><s class="s s_mianyuyue" style="display:{$kill4}">免预约</s><s class="s s_tehui" style="display:{$kill2}">特惠</s></div>
+			<div class="po3"><s class="s s_xindan png_ie6" style="display:{$kill1}">新单</s></div>
+			<div class="title tuijian"><a href="tg_{$tgid}.html" target="_blank">{$chrtitle}</a></div>
+			<div class="img"><a href="tg_{$tgid}.html" target="_blank"><img src="{$chrimage}" alt="" width=680 height=425 /></a></div>
+			<div class="price">
+				<div class="jiesheng">
+					<table width="100%">
+						<tr>
+							<th>原价</th><th>节省</th><th>折扣</th>
+						</tr>
+						<tr>
+							<td>&yen;{$chrmoney1}</td><td>&yen;{$chrjie} </td><td>{$chrzhekou}折</td>
+						</tr>
+					</table>
+				</div>
+				<p class="p">&yen;<em>{$chrmoney2}</em></p>
+				<div class="btn"><a href="tgorder.aspx?id={$tgid}" target="_blank" class="buy">立即购买</a></div>
+				
+				<div class="num"><em>{$chrnum}</em>人已购买<p>数量有限，赶紧下单！</p></div> 
+				<div class="timer" id="time_show_{$num}"></div>
+				<div class="tui_ok" style="display:{$kill51}">本单支持退款</div>
+				<div class="tui_no " style="display:{$kill52}">本单不支持退款</div>
+				<div class="po png_ie6"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+<div id="sec_left_{$num}"  style="display:none" class="time_left">{$timeleft}</div>

@@ -1,0 +1,100 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$Default_tplPath}skin/tieba.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.right { float:right;}
+.display21 { display:none;}
+.display30 { display:none;}
+.manage_replay { margin-top:10px; font-size:14px; color:#f50;}
+.manage_replay .time { color:#999; font-size:12px;}
+.replaycontent1 img { vertical-align:top; width:130px!important; height:auto!important; width:130px; height:auto;}
+.dialogImg { position:absolute; left:0; top:0; border:1px solid #ddd; background-color:#fff;}
+.dialogImg img { vertical-align:top; padding:5px;}
+.dialogImg .close {  display: block; position:absolute; right:-22px; top:-22px; width:52px; height:52px; background:url('{$Default_tplPath}images/close.png') no-repeat 0 0; overflow:hidden; text-indent:-999em;}
+
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">回复管理</td>
+          <td width="40%" align="right"><a href="admin_tieba.aspx" target="_blank" class="global_btn_blue">贴吧管理</a></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="" style="padding:10px; background-color:#fff;"> <!--startprint-->
+    <form onSubmit="return checkSearch(this);">按状态：<select id="f_iskill"><option value="0">待审优先</option><option value="1">正常</option></select>　按关键字搜索：<select id="sel_d" class="s_select"><option value="1">回复内容</option><option value="0">回复人昵称</option></select> <input class="s_ipt" type="text" id="keyword" value="" /> <button type="submit" class="global_btn">搜索</button></form>
+   <form name="form" method="post" action="?" id="form">
+   <div id="pagingList"></div>
+<div style="margin-top:10px;"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)"> 全选 <a href="javascript:void(0);" onclick="return iskillAllRevert('1');" class="global_btn_blue">审批通过</a> <a href="javascript:void(0);" onclick="return delAllRevert('0');" class="global_btn">清空选中</a> <a href="javascript:delAllRevert('2');" class="global_btn">删除选中</a> <a href="javascript:void(0);" onclick="return delAllRevert('1');" class="global_btn">删除包括后续回复</a></div>
+<div class="pageNavigation" id="pageNavigation"></div>
+</form>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<div class="display0" id="ue_editor"><script id="chrmark" name="chrmark" type="text/plain" style="width:959px;height:246px;"></script></div>
+
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script src="{$Default_tplPath}js/commonPaging.js"></script>
+<script src="{$Default_tplPath}js/tieba.js?{$CacheHash}"></script>
+<script>
+window["ueuploadcfg"]={"table_id":"tieba","filewidth":"866","filehight":"0"};
+</script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js?{$CacheHash}"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.js?{$CacheHash}"></script>
+<script>
+window['STYLEID'] = '1';//回评操作时的是否可回
+var nowdomain ="{$SiteUrl}";
+var categoryJson=[];//分类json.MSG缓存,页面最多N个sel
+var keyvalues = {"table_id":"253",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_tieba_admin_revert_list.html",
+	"strlen":"220",	
+	"titleLen":"100",
+	"isjson":"0",
+	"p":"1",
+	"_key":"",
+	"e":"",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"g":"",//只查看某用户贴(userid)
+	"i":"{$ID}"
+};
+(function($){
+	$('#pagingList').dialogImg('img');
+	$('#bigcategoryid').change(function(){categoryData_set("1","bigcategoryid",0,"categoryid",'');});
+	$('#f_iskill').change(function(){
+		getPagingGlobal({'f':$(this).val(),'p':'1'});
+	});
+	$('#bigcategoryid').change(function(){
+		getPagingGlobal({'a':$(this).val(),'b':'0','p':'1'});
+	});
+	$('#categoryid').change(function(){
+		getPagingGlobal({'a':$('#bigcategoryid').val(),'b':$(this).val(),'p':'1'});
+	});
+	$('#sel_h').click(function(){
+		var val = $(this).prop('checked')?'1':'0';
+		getPagingGlobal({'h':val,'p':'1'});
+	});
+	$('#sel_i').click(function(){
+		var val = $(this).prop('checked')?'1':'0';
+		getPagingGlobal({'i':val,'p':'1'});
+	});
+	getPagingGlobal();
+})(jQuery);
+function checkSearch(){
+	getPagingGlobal({'p':'1','_key':$('#keyword').val(),'d':$('#sel_d').val()});
+	return false;
+}
+var ueConfig = {toolbars: [['fullscreen', 'emotion', 'simpleupload', 'insertimage', 'scrawl', 'music', 'insertvideo', 'snapscreen', 'map']],theme:'defaulti',wordCount:false,maximumWords:10000,autoHeightEnabled:false};
+var ue = UE.getEditor('chrmark',ueConfig);
+</script>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>选择分类-发布信息-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.foot_link { display:none!important;}
+</style>
+{$top$}
+<script>
+window['ipageTitleTxt'] = '选择分类';
+var siteUrl = '{$SiteUrl}';
+var isFabuKill="{$IsFabuKill}";
+if(isFabuKill === '0'){
+	MSGwindowShow('shopping','1','对不起，您需要登录后才能发布信息！',siteUrl+'member/login.html?from={$liveurl}fabu.html','');
+}
+</script>
+<div class="o_main">
+ <div class="post_category" id="post_category">
+   {$details}
+ </div>
+{$bottom$}
+<script>
+(function($){
+	var node = $('#post_category');
+	var list = node.find('.item');
+	list.each(function(){
+		var tit = $(this).find('dl');
+		var conts = $(this).find('ul');
+		tit.click(function(){
+			conts.toggle();
+			tit.toggleClass('current');
+		});
+	});
+})(jQuery);
+</script>
+</body>
+</html>

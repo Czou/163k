@@ -1,0 +1,8 @@
+﻿<div class="comment_source">
+	<div class="comment_user"><span class="userName">{$chrname}</span> 的原帖  {$dtappenddate}</div>
+	<p class="comment_content">{$chrmark}<textarea style="display:none" id="replay_tips_input">{$chrmark}</textarea></p>
+</div>
+<div class="comment_replay_list display{$huifunum}">
+{$repsmall_rep}
+</div>
+<div class="write_2014" id="write_replay"><div class="timer clearfix"><p class="timer display0{$replaydate}" style="float:right; font-size:12px; color:#666;">回复日期：{$replaydate}</p>回复：</div><textarea id="replay_tips_textarea" class="textarea">{$replaycontent}</textarea><button class="sys_btn_blue" onclick="return post_replay();" type="button">确认提交</button></div>

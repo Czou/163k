@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员登录-{$SiteName}</title>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<link href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<link href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" rel="stylesheet" rev="stylesheet" />
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.nofixed { padding-top:0;}
+</style>
+</head>
+<body class="nofixed">
+<div class="header alpha" style="position:absolute;">
+	<div class="back"><a href="javascript:void(0);" onClick="return window.history.go(-1);">返回</a></div>
+	<div class="type" id="nav_ico">导航</div>
+	<div class="nav_APP" id="nav_APP"><ul class="clearfix">{$Mh163k_APP_头部主导航菜单}</ul><span class="arrow-up"></span></div>
+</div>
+<div class="slogan"><img src="{$Default_tplPath}images/login_slogan.png" width="100%" alt="" /></div>
+<form id="formRegStep1Main" name="formRegStep1Main" method="post" onSubmit="return checkinput(this);">
+<div class="login">
+	<ul>
+		<li class="userName"><input type="text" id="logname" name="logname" autocomplete="off" placeholder="昵称/手机/邮箱" maxlength="32" /></li>
+		<li class="pw"><input type="password" name="originalLogpasswd" id="originalLogpasswd" autocomplete="off" placeholder="密码" maxlength="32" /><i class="q"><a href="/find.aspx">?</a></i></li>
+	</ul>
+</div> 
+<button type="submit" class="dl" id="form_submit_disabled">登 录</button>
+<div class="loadding" id="loadding"><img src="{$Default_tplPath}images/loadding.gif"></div>
+</form>
+<div class="login_nav">
+	<div class="title"><span>快捷登录/注册</span></div>
+	<ul>
+		<li class="qq" style="display:{$qqnone};"><a href="{$SiteUrl}member/qq.aspx?from={$from}">QQ登录</a></li>
+		<li class="wx display{$isweixinlogin}"><a href="{$SiteUrl}member/qq.aspx?action=weixin&from={$from}">微信登录</a></li>
+		<li class="reg"><a href="register.html?from={$from}">注册账号</a></li>
+	</ul>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+{$AppSDKJS}<!--必须在现有的script外-->
+<script>
+var isapp ="{$IsApp}"; //在现有的js内:是否app平台
+var YDB;
+$(document).ready(function(){if(isapp === '1'){YDB = new YDBOBJ();YDB.SetDragRefresh(0);}});
+var nowdomain = '{$SiteUrl}';
+document.addEventListener('DOMContentLoaded',function(){
+	$('#nav_ico').click(function(e){
+		e.preventDefault();
+		$('#nav_APP').fadeToggle('fast');
+	});
+},false);
+function getCookie(name){
+	 var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+     if(arr != null) return decodeURIComponent(arr[2]); return null;
+}
+function setCookie(name,value){
+  var Days = 30; //此 cookie 将被保存 30 天
+  var exp  = new Date();    //new Date("December 31, 9998");
+  exp.setTime(exp.getTime() + Days*24*60*60*1000);
+  document.cookie = name + "="+ encodeURIComponent(value) +";expires="+ exp.toGMTString()+";path=/" ;
+}
+function delCookie(name)
+{
+  var exp = new Date();
+  exp.setTime(exp.getTime() - 1);
+  var cval=getCookie(name);
+  if(cval!=null) document.cookie=name +"="+cval+";expires="+exp.toGMTString();
+}
+function judgeString(str){
+ 	var len = str.length;
+	var tt=0;
+    for(var i=0;i<len;i++){
+       var txt = str.charCodeAt(i);
+       if(txt>128){     //ascii码大于128的是汉字
+          tt= tt+2;
+       } else{
+          tt= tt+1;
+       }
+    }
+ 	return tt;
+}
+function checkinput(o) {
+	var sberr = document.formRegStep1Main.submitBackError;
+	if(sberr!= null){
+	  var p =sberr.parentNode;
+	  p.removeChild(sberr);
+	}
+	var logname = document.formRegStep1Main.logname;
+	var logemail = logname.value;
+	var originalPW  = document.formRegStep1Main.originalLogpasswd;
+	var oPW = originalPW.value;
+	var showCode = '';
+	var hasWrongPW = false;
+	var WrongTipStr = "";
+	var isnulllogemail=(logemail=="")||(logemail==null)||(logemail.length==0);
+	var lent=judgeString(logemail);
+	var isnullopw=oPW== "" || oPW == null || oPW.length == 0;
+	if(isnulllogemail&&isnullopw){
+		showCode +=　"请输入昵称和密码";
+		logname.focus();
+		hasWrongPW = true;
+	} else if(isnulllogemail){
+		logname.focus();
+		showCode += "请输入昵称";
+		hasWrongPW = true;
+	}
+	/*else if(lent < 3 || lent > 15) {
+		showCode += '昵称长度为3到15个字符';
+		logname.select();
+		hasWrongPW = true;
+	}*/ 
+	else if(isnullopw) {
+		showCode += '必须填写密码';
+		originalPW.focus();
+		hasWrongPW = true;
+	} else if(oPW.length < 6 || oPW.length > 32) {
+		showCode += '密码最少6个字，不得超过32个字';
+		originalPW.select();
+		hasWrongPW = true;
+	}  else {
+		hasWrongPW = false;
+	}
+	if(hasWrongPW)
+	{
+		//showCode += '</tr></table>';
+		alert(showCode);
+		return false;
+	}
+	delCookie("nextcookie"); //不需要跳转,直接继续
+	setCookie("nextcookie","");
+	var remeber=false;
+	Login(logemail,oPW,remeber);
+	return false;
+}
+function Login(str1,str2,str3){
+	$('#loadding').show();
+	$('#form_submit_disabled').addClass('disabled').prop('disabled',true);
+	var url="../request.ashx?action=login&str1="+encodeURIComponent(str1)+"&str2="+encodeURIComponent(str2)+"&str3="+encodeURIComponent(str3)+"&json=1&jsoncallback=?";
+	if(window.location.href.indexOf("loginother")!=-1){
+		url = url.replace("../","");
+	}
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	
+	var jump_url = purl().param('from');
+	if(jump_url =='' || jump_url == null){
+		jump_url= nowdomain;
+	}else{
+		jump_url = decodeURIComponent(jump_url);
+	}
+	function reload_go(){
+		window.location.href=jump_url;
+	}
+	
+	var jqxhr = $.getJSON(url,function(data){
+		$('#loadding').hide();
+		var d = data[0];
+		if(d.islogin === '1'){
+			if(isapp === '1'){
+				//var YDB = new YDBOBJ();
+				YDB.SetUserRelationForPush(d.userid);
+
+			}
+			setTimeout(function(){reload_go();},100);
+		}else if(d.islogin === '3'){
+			MSGwindowShow('login','1','您好，您的账户需要激活才能登录！',d.checkurl,'');
+		}else{
+			MSGwindowShow('login','0',d.error,'','');
+		}
+	}).error(function(){
+		$('#loadding').hide();
+		MSGwindowShow('login','0',"error",'','');
+	})
+}
+window.onerror=fnErrorTrap;
+function fnErrorTrap(sMsg,sUrl,sLine){
+alert(sMsg);
+return false;
+}
+</script>
+</body>
+</html>

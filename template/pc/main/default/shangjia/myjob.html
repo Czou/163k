@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>收到的简历-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra">
+					<ul class="clearfix">
+						<li class="{$style2$}">{$url2$}</li>
+						<li class="{$style0$}">{$url0$}</li>
+						<li class="{$style1$}">{$url1$}</li>
+					</ul>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<form name="aspnetForm" method="post" action="?action=look" id="aspnetForm">
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+								<td class="td_first">选择</td>
+								<td>序号</td>
+								<td>姓名</td>
+								<td>性别</td>
+								<td>籍贯</td>
+								<td>年龄</td>
+								<td>投递职位</td>
+								<td>状态</td>
+								<td>投递时间</td>
+							</tr> 
+<tag:Loop ListType="LISTMYJOBMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_myjob_Tr.html" />
+							<tr class="tabletitle" bgcolor="#f8f8f8">
+							<td colspan="9"><input type="checkbox" id="chkall" value="checkbox" onclick="CheckAll(this.form);" /> 选中/取消所有　<input type="submit" name="submits" class="sys_btn_small_blue" value="删除投递记录" onclick="aspnetForm.action='?action=del';return confirmAlert(this.form,'您确认要删除这些投递记录吗！');"  id="submits" /> <input type="submit" name="submits"  value="置为已查看状态" class="sys_btn_small_green" onclick="return confirmAlert(this.form,'您确认要把这些置为已查看状态吗！');"  id="submits" /></td>
+							</tr>
+						</table>
+						</form>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+
+</script>
+</body>
+</html>

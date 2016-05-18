@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">贴吧设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><a href="Category.aspx?key=1" class="global_btn_blue">板块分类设置</a> <a href="?action=bazhu" class="global_btn_blue">版主设置</a></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=configsave" ID="Form1" target="tijiao"  style="margin:0">
+    <tr > 
+      <td width="15%" height="25" >是否使用独立logo<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="tiebalogo" value="0" {$tiebalogo_c_0} /> 不启用　<input type="radio" name="tiebalogo" value="1" {$tiebalogo_c_1} /> 启用<em class="global_tip">(启用后必须上传logo图片)</em></td>
+    </tr>
+  
+	<tr>
+	  <td>贴吧独立logo：<br>宽*高=268*60</td>
+	  <td class="category">
+	  <span id="str3">
+	  <img src="{$url1}" /><p><a href="javscript:void(0);" class="global_btn" onclick="return hid2()">重新上传</a></p>
+	  </span>
+	  <span id="str4" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1" value="{$url1}"></td>
+	</tr>
+	<tr>
+	  <td>贴吧地址二维码：</td>
+	  <td class="category">
+	  <span id="str1">
+	  <img src="{$url0}" /><p><a href="javscript:void(0);" class="global_btn" onclick="return hid1()">重新上传</a>　二维码生成：<a href="http://cli.im/" target="_blank">http://cli.im/</a></p>
+	  </span>
+	  <span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=0&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url0" id="url0" value="{$url0}"></td>
+	</tr>
+	 <tr>
+	  <td>用户等级：</td>
+	  <td class="category">
+	  <ul>{$admin_config_dengji_list}</ul></td>
+	</tr>
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+  </form>
+  <tr  > 
+       <td height="25"  align="right">添加级别：</td>
+	  <td class="category" align="left">
+		<form name="form1" method="post" action="?action=configaddsave" ID="Form1" target="tijiao"  style="margin:0">
+等级名：<input type="text" name="chrlevel" value="" /> 发帖数：<input type="text" name="intnum" value="" />
+	<input type="hidden" name="chrimage" value="" /> <input type="submit" class="global_btn" value="确认添加级别" />
+	
+</form></td>
+    </tr>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script>
+function hid1(){
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+	return false;
+}
+function hid2(){
+	document.getElementById("str3").style.display="none";
+	document.getElementById("str4").style.display="block";
+	return false;
+}
+if($('#url1').val() == ''){
+	hid2();
+}
+if($('#url0').val() == ''){
+	
+	hid1();
+}
+</script>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>

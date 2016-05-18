@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>登记发布您的求租需求、求购需求-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_fb.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				{$Mh163k_房产2015_房产主导航}
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+	<span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}xuqiu.html">求租求购</a> <span class="cur_tit">发布</span>
+   </div>
+   <!--发布-->
+   <div class="fb_con">
+     <div class="step clearfix">
+       <ul class="s_1">
+         <li class="current">01.登记你的住房、购房需求</li>
+         <li class="w550">02.发布成功</li>
+       </ul>
+     </div>
+     <div class="fb_inp_info">
+       <h4>登记您的住房、购房需求<span>(合适的房源将主动联系您)</span></h4>
+       <form name="formt" action="?action=save" style="margin:0" method="post" onSubmit="return checkaddxuqiu(this);">
+	   <dl>
+         <dt>写个标题：</dt>
+         <dd><input type="text" name="chrtitle" class="title" placeholder="例如：我要求租一套清华大学附近总价200万以内的2居" /><span class="tips">必填 限40汉字</span></dd>
+         <dt>要求描述：</dt>
+         <dd>
+           <textarea name="chrcontent" placeholder="例如：小区/楼层/位置/总价/租金/装修/朝向等方面的要求" class="ms"></textarea>
+           <span class="tips mt_238">必填 限100汉字</span>
+         </dd>
+         <dt>登记性质：</dt>
+         <dd><span class="r_a"><input name="styleid" type="radio" value="0" checked>求租</span><span class="r_a"><input name="styleid" type="radio" value="1">求购</span></dd>
+         <dt>需求区域：</dt>
+         <dd>
+         {$House_classid}
+         </dd>
+         <dt>您的称呼：</dt>
+         <dd><input type="text" name="chrman" class="txt" /></dd>
+         <dt>联系电话：</dt>
+         <dd><input type="text" name="chrtel" class="txt" /></dd>
+         <dt>验证码：</dt>
+         <dd><input name="code" type="text" class="yzm" /><img src="../getcode.html" id="vadimg" onClick="this.src='../getcode.html?'+(new Date().getTime());" style="cursor:hand;" alt="看不清楚请刷新" align="absmiddle"/> 看不清？换一换</dd>
+       </dl>
+       <input type="submit" value="提交" class="submit" />
+	   </form>
+     </div>
+   </div>
+</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

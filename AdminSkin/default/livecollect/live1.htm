@@ -1,0 +1,91 @@
+<tr >
+  <td align="right">供需设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="gongxuType" {$gongxuType0} onClick="gongxushow1.style.display='none';gongxushow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="gongxuType" {$gongxuType1}  onClick="gongxushow1.style.display='';gongxushow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="gongxuType" {$gongxuType2} onClick="gongxushow1.style.display='none';gongxushow2.style.display=''">
+    自定义供需</td>
+</tr>
+<tr   id="gongxushow1" style="display:{$gongxushow1}">
+  <td align="right" ><font color=blue>供需开始标记：</font>
+    <p>　</p>
+    <font color=blue>供需结束标记：</font></td>
+  <td alang="left"><textarea name="gongxusString" cols="70" rows="3">{$gongxusString}</textarea>
+    <br>
+    <textarea name="gongxuoString" cols="70" rows="3">{$gongxuoString}</textarea></td>
+</tr>
+<tr  id="gongxushow2" style="display:{$gongxushow2}">
+  <td align="right" ><font color=blue>请指定供需：</font></td>
+  <td align=left><input type="radio" name="gongxu" value="0" {$gongxu0}>
+    求购
+    <input type="radio" name="gongxu" value="1"  {$gongxu1}>
+    转让 </td>
+</tr>
+<tr >
+  <td align="right">新旧程度设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="xinjiuType" {$xinjiuType0} onClick="xinjiushow1.style.display='none';xinjiushow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="xinjiuType" {$xinjiuType1}  onClick="xinjiushow1.style.display='';xinjiushow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="xinjiuType" {$xinjiuType2} onClick="xinjiushow1.style.display='none';xinjiushow2.style.display=''">
+    自定义新旧程度</td>
+</tr>
+<tr   id="xinjiushow1" style="display:{$xinjiushow1}">
+  <td align="right" ><font color=blue>新旧程度开始标记：</font>
+    <p>　</p>
+    <font color=blue>新旧程度结束标记：</font></td>
+  <td alang="left"><textarea name="xinjiusString" cols="70" rows="3">{$xinjiusString}</textarea>
+    <br>
+    <textarea name="xinjiuoString" cols="70" rows="3">{$xinjiuoString}</textarea></td>
+</tr>
+<tr  id="xinjiushow2" style="display:{$xinjiushow2}">
+  <td align="right" ><font color=blue>请指定新旧程度：</font></td>
+  <td align=left>{$xinjiu} </td>
+</tr>
+<tr >
+  <td align="right">价格设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="jiageType" {$jiageType0} onClick="jiageshow1.style.display='none';jiageshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="jiageType" {$jiageType1}  onClick="jiageshow1.style.display='';jiageshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="jiageType" {$jiageType2} onClick="jiageshow1.style.display='none';jiageshow2.style.display=''">
+    自定义价格</td>
+</tr>
+<tr   id="jiageshow1" style="display:{$jiageshow1}">
+  <td align="right" ><font color=blue>价格开始标记：</font>
+    <p>　</p>
+    <font color=blue>价格结束标记：</font></td>
+  <td alang="left"><textarea name="jiagesString" cols="70" rows="3">{$jiagesString}</textarea>
+    <br>
+    <textarea name="jiageoString" cols="70" rows="3">{$jiageoString}</textarea></td>
+</tr>
+<tr  id="jiageshow2" style="display:{$jiageshow2}">
+  <td align="right" ><font color=blue>请指定价格：</font></td>
+  <td align=left><input type="text" name="jiage" value="{$jiage}">
+  </td>
+</tr>
+<tr >
+  <td align="right">属性设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="shuxingType" {$shuxingType0} onClick="shuxingshow1.style.display='none';shuxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="shuxingType" {$shuxingType1}  onClick="shuxingshow1.style.display='';shuxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="shuxingType" {$shuxingType2} onClick="shuxingshow1.style.display='none';shuxingshow2.style.display=''">
+    自定义属性</td>
+</tr>
+<tr   id="shuxingshow1" style="display:{$shuxingshow1}">
+  <td align="right" ><font color=blue>属性开始标记：</font>
+    <p>　</p>
+    <font color=blue>属性结束标记：</font></td>
+  <td alang="left"><textarea name="shuxingsString" cols="70" rows="3">{$shuxingsString}</textarea>
+    <br>
+    <textarea name="shuxingoString" cols="70" rows="3">{$shuxingoString}</textarea></td>
+</tr>
+<tr  id="shuxingshow2" style="display:{$shuxingshow2}">
+  <td align="right" ><font color=blue>请指定属性：</font></td>
+  <td align=left><input type="radio" name="shuxing" value="0" {$shuxing0}>
+    个人
+    <input type="radio" name="shuxing" value="1"  {$shuxing1}>
+    商家 </td>
+</tr>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>综合搜索-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/common2013.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{$Default_tplPath}skin/global2.css" />
+<link rel="stylesheet" href="{$Default_tplPath}skin/search0623.css" />
+<script src="{$Default_tplPath}js/clock.js"></script>
+<script type="text/javascript">
+function Show_TabADSMenu(tabadid_num,tabadnum,tabNums){
+	for(var i=0;i<tabNums;i++){
+		if(document.getElementById("tabadcontent_"+tabadid_num+i))
+			document.getElementById("tabadcontent_"+tabadid_num+i).style.display="none";
+	}
+	for(var i=0;i<tabNums;i++){
+		if( document.getElementById("tabadmenu_"+tabadid_num+i) )
+			document.getElementById("tabadmenu_"+tabadid_num+i).parentNode.className="";
+	}
+	document.getElementById("tabadmenu_"+tabadid_num+tabadnum).parentNode.className="current";
+	document.getElementById("tabadcontent_"+tabadid_num+tabadnum).style.display="block";
+}
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <div id="header">
+    <div class="data" style="text-align:left;">
+      <script type="text/javascript">showcal();</script>
+      <a href="calendar/index.html" target=_blank>[万年历]</a></div>
+    <div class="returnIndex"><a href="/">返回网站主页</a></div>
+  </div>
+  <div id="content">
+    <div class="lg">
+      <h1><a href="/"><img src="{$topurl}" alt="" /></a></h1>
+      <div class="subLogo"><img src="{$Default_tplPath}images/sp5/bendisousuo.gif" alt=""></div>
+    </div>
+    <div class="main">
+      <div class="nav">
+        <ul class="fix">
+          <!-- <li><a href="#" id="tabadmenu_10" onMouseOver="setTimeout('Show_TabADSMenu(1,0,12)',200);">全部</a></li>-->
+          <li class="current"><a href="#" id="tabadmenu_11" onMouseOver="setTimeout('Show_TabADSMenu(1,1,12)',200);">信息</a></li>
+          <li><a href="#" id="tabadmenu_12" onMouseOver="setTimeout('Show_TabADSMenu(1,2,12)',200);">活动</a></li>
+          <li><a href="#" id="tabadmenu_13" onMouseOver="setTimeout('Show_TabADSMenu(1,3,12)',200);">商品</a></li>
+          <li><a href="#" id="tabadmenu_14" onMouseOver="setTimeout('Show_TabADSMenu(1,4,12)',200);">店铺</a></li>
+          <li><a href="#" id="tabadmenu_15" onMouseOver="setTimeout('Show_TabADSMenu(1,5,12)',200);">职位</a></li>
+          <li><a href="#" id="tabadmenu_16" onMouseOver="setTimeout('Show_TabADSMenu(1,6,12)',200);">出租</a></li>
+          <li><a href="#" id="tabadmenu_17" onMouseOver="setTimeout('Show_TabADSMenu(1,7,12)',200);">出售</a></li>
+          <li><a href="#" id="tabadmenu_18" onMouseOver="setTimeout('Show_TabADSMenu(1,8,12)',200);">视频</a></li>
+          <li><a href="#" id="tabadmenu_19" onMouseOver="setTimeout('Show_TabADSMenu(1,9,12)',200);">黄页</a></li>
+          <li><a href="#" id="tabadmenu_110" onMouseOver="setTimeout('Show_TabADSMenu(1,10,12)',200);">资讯</a></li>
+          <li><a href="http://www.baidu.com/" target=_blank style="color:#f00;" id="tabadmenu_111" onMouseOver="setTimeout('Show_TabADSMenu(1,11,12)',200);">百度</a></li>
+        </ul>
+      </div>
+      <div class="fm" id="tabadcontent_10" style="display:none;">
+        <input type="text" class="s_t" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+        <button type="submit">搜索</button>
+      </div>
+      <div class="fm" id="tabadcontent_11" >
+        <form name="searchzhong" method="post" action="search.aspx?c=1">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_12" style="display:none;">
+        <form name="searchzhong" method="post" action="{$tuangouurl}list.html">
+          <input type="text" class="s_t" name="a" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_13" style="display:none;">
+        <form name="searchzhong" method="post" action="{$goodurl}index.html">
+          <input type="text" class="s_t" name="a" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_14" style="display:none;">
+        <form name="searchzhong" method="post" action="search.aspx?c=2">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_15" style="display:none;">
+        <form name="searchzhong" method="post" action="{$zpurl}zhiwei.html">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_16" style="display:none;">
+        <form name="searchzhong" method="post" action="{$fcurl}chuzhu.html">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_17" style="display:none;">
+        <form name="searchzhong" method="post" action="{$fcurl}chushou.html">
+          <input type="text" class="s_t" name="keyword"  onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_18" style="display:none;">
+        <form name="searchzhong" method="post" action="{$videourl}list.html">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_19" style="display:none;">
+        <form name="searchzhong" method="post" action="{$bianmingurl}index.html">
+          <input type="text" class="s_t" name="keyword" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_110" style="display:none;">
+        <form name="searchzhong" method="post" action="search.aspx?c=3">
+          <input type="text" class="s_t" name="keyword"  onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="fm" id="tabadcontent_111" style="display:none;">
+        <form name="searchzhong" method="get" action="http://www.baidu.com/s" target=_blank>
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="text" class="s_t" name="wd" onBlur="if(this.value==''){this.value='请输入关键字';this.style.color='#aaa'}" onFocus="if(this.value=='请输入关键字'){this.value='';this.style.color='#333'}" value="请输入关键字" />
+          <button type="submit">搜索</button>
+        </form>
+      </div>
+      <div class="lk">
+        <ul class="fix">
+          <li><a href="member/register.html">注册会员</a></li>
+          <li><a href="{$liveurl}fabu.html">发布信息</a></li>
+          <li><a href="member/myarticle.aspx?action=add#tt8">新闻投稿</a></li>
+          <li><a href="member/manage_chuzhu.aspx?action=add#tt3">发布出租</a></li>
+          <li><a href="member/manage_chushou.aspx?action=add#tt3">发布出售</a></li>
+          <li class="noMar"><a href="house/qiugou.aspx">求租求购</a></li>
+          <li><a href="{$shopurl}join.aspx#tt10">登记店铺</a></li>
+          <li><a href="member/mygood.aspx#tt13">发布商品</a></li>
+          <li><a href="member/myvideo.aspx?action=add#tt12">发布视频</a></li>
+          <li><a href="member/myzhiwei.aspx?action=add#tt9">发布招聘</a></li>
+          <li><a href="member/myjianli.aspx#tt4">填写简历</a></li>
+          <li class="noMar"><a href="member/">管理中心</a></li>
+        </ul>
+        <div class="weather">
+          <iframe src="http://m.weather.com.cn/m/pn11/weather.htm " width="490" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <s class="rc_tpL"></s><s class="rc_tpR"></s><s class="rc_btL"></s><s class="rc_btR"></s> </div>
+    </div>
+  </div>
+  {$bottom950$} </div>
+</body>
+</html>

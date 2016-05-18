@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>楼盘详情-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}xq_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>联系售楼部</h4>
+  <p>{$Loupan_shouloutel}</p>
+ </div>
+ <div class="phone"><a href="tel:{$Loupan_shouloutel}">{$Loupan_shouloutel}</a></div>
+ <div class="addtg"><a href="javascript:void(0);" onClick="return showloupanAddTG('{$Loupan_loupanid}');">加入团购</a></div>
+</div>
+<div class="o_main mar_b_50">
+ <!--home focus-->
+ <div class="home_focus">
+  <div id="scroller">
+    <div id="slide" class="clearfix" style="display:none;">
+        <div id="content">
+         
+        </div>
+        <div class="num" id="indicator">
+        </div>
+        <div class="total">共<span id="total"></span>张</div>
+    </div>
+    <span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  </div>
+ </div>
+ <div class="star_nav" id="star_nav">
+  <ul data-scrollable="x" class="clearfix" style="width:450px;">
+   <li class="current"><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+   <li><a href="fang_{$Loupan_loupanid}.html">户型图</a></li>
+   <li><a href="video_{$Loupan_loupanid}.html">视频</a></li>
+   <li><a href="pic_{$Loupan_loupanid}.html">相册</a></li>
+   <li><a href="zb_{$Loupan_loupanid}.html">周边配套</a></li>
+   <li><a href="revert_{$Loupan_loupanid}.html">在线问房</a></li>
+  </ul>
+  <div class="more"><span></span></div>
+ </div>
+<!--楼盘信息-->
+<div class="lp_info">
+  <h2>{$Loupan_chrloupan}</h2>
+  <div class="price" id="price">均价：<span>{$Loupan_avgprice}</span>元/平米</div>
+  <p>{$Loupan_biaoyu}</p>
+  <!--是否在售-->
+  <!--<div class="{$Loupan_xiaoshoutypeid}"></div>-->
+  <div class="{$Loupan_xiaoshoutypeid}"></div>
+</div> 
+ <div class="e_condit">
+ <dl>
+  <dt>期房/现房</dt>
+  <dd>{$Loupan_xiaoshoustyleid_str}</dd>
+ </dl>
+ <dl>
+  <dt>楼盘类型</dt>
+  <dd>{$Loupan_leixing}</dd>
+ </dl>
+ <dl>
+  <dt>建筑类型</dt>
+  <dd>{$Loupan_jianzhuleibie}</dd>
+ </dl>                                                         
+</div>
+<!--分享--> 
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+<!--相关信息-->
+<div class="lp_related_info">
+ <dl>
+  <dt>开 发 商</dt>
+  <dd>{$Loupan_chrsupply}</dd>
+ </dl>
+ <dl> 
+  <dt>楼盘地址</dt>
+  <dd>{$Loupan_chraddress}</dd>
+ </dl>
+ <dl>
+  <dt>开盘时间</dt>
+  <dd>{$Loupan_kaipandate}</dd>
+ </dl>
+ <dl>
+  <dt>建筑类型</dt>
+  <dd>{$Loupan_jianzhuleibie}</dd>
+ </dl>
+</div>
+<!--相关信息-->
+<div class="lp_related_info">
+ <dl>
+  <dt>装修情况</dt>
+  <dd>{$Loupan_zhuangxiucategory}</dd>
+ </dl> 
+ <dl>
+  <dt>物管费用</dt>
+  <dd>{$Loupan_wuyeguanli}元/平米</dd>
+ </dl> 
+ <dl>
+  <dt>物业公司</dt>
+  <dd>{$Loupan_wuyecompany}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>占地面积</dt>
+  <dd>{$Loupan_zhangdi}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>建筑面积</dt>
+  <dd>{$Loupan_jianzhu}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>绿 化 率</dt>
+  <dd>{$Loupan_lvhua}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>得 房 率</dt>
+  <dd>{$Loupan_defang}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>容 积 率</dt>
+  <dd>{$Loupan_rongji}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>车 位 数</dt>
+  <dd>{$Loupan_chewei}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>开工时间</dt>
+  <dd>{$Loupan_kaigongdate}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>竣工时间</dt>
+  <dd>{$Loupan_jungongdate}</dd>
+ </dl>
+ <div class="more arr"><a href="javascript:void(0)">详细信息</a></div>
+</div>
+<!--最新动态-->
+<div class="new_active">
+ <div class="title"><span>最新动态</span></div>
+ <div class="new_arc">
+   <ul>
+    {$Mh163k_wap_房产频道_资讯}
+   </ul>
+   <div class="more arr"><a href="list.aspx?action=s&lid={$Loupan_loupanid}">更多动态</a></div>
+ </div>
+</div>
+<div class="new_active n_mb">
+<div class="title"><span>周边楼盘</span></div>
+<div class="info_list">
+  <ul>
+  {$Mh163k_wap_房产频道_周边楼盘}
+   
+  </ul>
+  <div class="more arr"><a href="loupan.html">更多推介</a></div>
+ </div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script language="javascript">
+var nowdomain = '{$SiteUrl}';
+(function($){
+    $('.lp_related_info .more').bind('click',function(){
+		var hCur = $(this).hasClass("show");												  
+	    if(!hCur){
+			$(this).addClass("show");
+		    $(this).parent().find('dl').show();	
+			}	
+		else{
+			$(this).removeClass("show");
+		    $(this).parent().find('dl').slice(3).hide();	
+			}
+	 });
+ 
+  var slide_data = '{$Loupan_filepath}';
+  var list = slide_data.split(',');
+  
+  
+	var shareImg = '';
+	if(slide_data !== ''){shareImg = nowdomain + list[0].replace('../','');}
+	if(isapp === '1'){
+		$('#share_fd').hide();
+		$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+		$('#appShareBtn').bind('click',function(e){
+			e.preventDefault();
+			YDB.Share('{$Loupan_chrloupan}','{$Loupan_biaoyu}，均价{$Loupan_avgprice}元/平米',shareImg,'{$fcurl}xq_{$Loupan_loupanid}.html');
+		});
+	}
+  
+  var w_w = $(window).width();
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		var txt2 = '';
+		for(var i=0;i<list.length;i++){
+			txt2 += '<div class="cell"><img src="'+list[i]+'" /></div>';
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		}
+		
+		$('#content').html(txt2);
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		$('#total').html(list.length);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}
+	
+	//修改价格状态
+	var price = $("#price span").text();
+	if(price === '0'){
+		$("#price").html("均价：待定");
+	}
+	if(price === '1'){
+		$("#price").html("均价：一房一价");
+	}
+	
+})(jQuery);
+  
+  document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.current')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.current').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+},false);
+</script>
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+</body>
+</html>

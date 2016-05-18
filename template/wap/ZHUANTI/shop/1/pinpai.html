@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>入驻品牌大全-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$tplPath}skin/_tcShop.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<!-- 主体 -->
+	<div id="content">
+		<div class="tcShop_banner"><div class="zone">{$sitetel}</div></div>
+		<div class="grid_01">
+			<!-- 品牌入驻大全 -->
+			<div class="module_01 marTop10">
+				<div class="hd clearfix"><a href="fenlei.html" class="f_qh">切换到商品分类目录 »</a></div>
+				<div class="title pp2">品牌入驻大全</div>
+				<div class="bd ppZone clearfix">
+					<ul>
+						<tag:Loop ListType="listpinpaiqian" RecType="New" PageSize="42" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="shop/list_pinpai_tr.html" />
+					</ul>
+					<!-- 分页 -->
+					<div class="clear"></div>
+					<div class="pagination_module clearfix" style="margin-top:4px;float:none">
+						<span class="right2">{$PageSplit}</span>	
+						<span class="right2"><b>总计：</b>{$total}个 42个/页</span>
+					</div>
+				</div>
+				<div class="ft"></div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+
+</body>
+</html>

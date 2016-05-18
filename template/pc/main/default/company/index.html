@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/merchants2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+		
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a><span class="display{$a}"> &gt; <a href="{$SiteUrl}c_index_a{$a}_b0_c0_d0_e0_f0_g0_h0_i0_p1.html">{$bigstr}</a></span><span class="display{$b}"> &gt; <a href="{$SiteUrl}c_index_a{$a}_b{$b}_c0_d0_e0_f0_g0_h0_i0_p1.html">{$smalstr}</a></span></div>
+		{$Mh163k_口碑商家首页_通栏广告}
+		<div class="grid_k01 clearfix">
+			<div class="col_main" id="fixed_can"><div class="main_wrap">
+				<div class="quyu filter">
+					<div class="line line2">
+						<span class="sp">区域</span>{$areaidlist}
+						<div class="small display{$c}">
+						{$arealist}
+						</div>
+					</div>
+				</div>
+				<!--<div class="mod_01 mod_koubei clearfix">
+					<p class="i">
+						<a href="{$shopurl}join.aspx" target="_blank" class="text_btn">加盟{$lanmuname}</a>
+					</p>
+				</div>-->
+				<div class="mod_filter po_re">
+					<div class="sortbar clearfix">
+						<ul class="left" id="reset_href0">
+							<li id="s_e_2"><a href="/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e2_f{$f}_g{$g}_h0_i0_p1.html">智能排序<span class="top"></span></a></li>
+							<li id="s_e_3"><a href="/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e3_f{$f}_g{$g}_h0_i0_p1.html">人均<span class="top"></span></a></li>
+							<li id="s_e_5"><a href="/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e5_f{$f}_g{$g}_h0_i0_p1.html">好评<span class="top"></span></a></li>
+							<li id="s_e_1"><a href="/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e1_f{$f}_g{$g}_h0_i0_p1.html">星级<span class="top"></span></a></li>
+						</ul>
+						
+						<div class="business">
+							<ul>
+								<li id="s_f_1"><a href="/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f1_g{$g}_h0_i0_p1.html">签约商家</a></li>
+								<!--<li><a href="#">有团购</a></li>-->
+							</ul>
+						</div>
+						
+						
+						<div class="map"><a href="{$SiteUrl}map/koubeishangjia.aspx" target="_blank">地图找商家</a></div>
+						<div class="search">
+							<form action="?" method="get" id="myform">
+								<input type="hidden" name="p" value="1" />
+								<input class="s_ipt" type="text" name="_key" value="{$key}" /><button type="submit" class="s_btn">搜索</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+				<div class="company">
+					<ul id="hover_bg">
+						<Paging:{
+	"table_id":"8",	
+	"pagesize":20,		
+	"strlen":80,	
+	"titlelen":100,
+	"tplpath":"company",	
+	"tplname":"paging_company_index_list.html",	
+	"isjson":0 	
+	}
+	/>
+					</ul>
+					<div class="pageNavigation" style="border:1px solid #e6e6e6; border-top:0 none;">
+						{$PageSplit}
+					</div>
+				</div>
+				
+				<!--div class="company">
+					<ul id="hover_bg">
+						<tag:Loop ListType="listcompanyqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="100" RecColumn="5" CusTpl="1" Template="company/listcompany.html" />
+					</ul>
+					<div class="pageNavigation" style="border:1px solid #e6e6e6; border-top:0 none;">
+						{$Page Split}
+					</div>
+				</div-->
+			</div></div>
+			<div class="col_sub">
+				<div id="fixed">
+					<div class="list_nav_2015" id="list_nav_2013" style="width:150px;">
+						<ul>
+							<li class="all"><a href="{$shopurl}" class="t">全部商家</a></li>
+							{$allfenlei}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/dropDown2013.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fixed').fixed($('#fixed_can'));
+	$('#mySle2').selectbox();
+	$('#s_e_{$e}').addClass('cur');
+	$('#s_f_{$f}').addClass('cur');
+	if('1'==='{$f}'){
+		$('#s_f_1').find('a').attr('href','/c_index_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f0_g{$g}_h0_i0_p1.html')
+	}
+	$('#hover_bg').find('.item').hover(function(){
+		$(this).addClass('hover');
+	},function(){
+		$(this).removeClass('hover');
+	});
+	$('#list_nav_2013').find('.cur').parent().prev().find('.rights').removeClass().addClass('xias');
+});
+</script>
+</body>
+</html>

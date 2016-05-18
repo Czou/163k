@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑店铺介绍-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function myforms(o){
+	if(document.getElementById('Chrcontent').value == ''){
+		alert('请输入内容！');
+		return false;
+	}
+	return true;
+}
+</script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>	
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">编辑店铺介绍</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						
+						<div class="forms">
+							<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;" id="nav_extra">
+								<ul class="clearfix">
+									<li><a href="?action=content&id=0" id="s_id_0" data-id="0">店铺介绍</a></li>
+									{$edit_content_list}
+									<li><a href="?action=content&id=-1" data-id="-1">添加栏目</a></li>
+								</ul>
+							</div>
+							<form name="form1" method="post" target="tijiao" action="?action=contentsave" onSubmit="return myforms(this)" >
+								<p class="tr contenthide"><span class="sp_a">栏目名称：</span><span class="sp_d"><input type="text" class="sys_form_ipt" id="chrtitle" name="chrtitle" value="{$chrtitle}" /></span><span class="sp_c">必填</span></p>
+								<p class="tr contenthide"><span class="sp_a">显示顺序：</span><span class="sp_d"><input type="text" class="sys_form_ipt" id="intorder" name="intorder" value="{$intorder}" /></span><span class="sp_c"></span></p>
+								<p class="tr contenthide"><span class="sp_a">状态：</span><span class="sp_d"><select name="iskill" id="iskill"><option value="0">::隐藏::</option><option value="1" {$iskill_s_1}>显示</option></select></span><span class="sp_c"></span></p>
+								
+								<p class="tr"><span class="sp_a">内容：</span><span class="sp_d"><textarea cols="60" id="Chrcontent" name="Chrcontent" rows="10" class="sys_form_ipt">{$chrcontent}</textarea></span><span class="sp_c">必填</span></p>
+
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b">
+									<input type="hidden" name="ID" value="{$ID}"><input type="hidden" name="chrcolor" value="{$chrcolor}" />
+									<button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/jquery.colorpicker.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+$("#cp").colorpicker({fillcolor:true,target:$("#cptext")});
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="Chrcontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '750px',height : '400px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+var current_host = window.location;
+var url_obj = $.url(current_host).param();
+$('#nav_extra').find('a[data-id="'+url_obj['id']+'"]').addClass('cur');
+if(url_obj['id'] === '0' || !url_obj['id']){
+	$('.contenthide').hide();
+	$('#s_id_0').addClass('cur');
+}
+</script>
+</body>
+</html>

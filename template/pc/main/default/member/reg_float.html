@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员注册登陆</title>
+<link href="{$tplPath}skin/_g.css" type="text/css" rel="stylesheet" />
+<link href="{$tplPath}skin/_regLogin.css" type="text/css" rel="stylesheet" />
+<SCRIPT language=javascript src="{$tplPath}js/common.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/member.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/java.js"></SCRIPT>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+</head>
+<script>
+function showtt(ab)
+{
+	for(var i=1;i<5;i++){
+		$$('qiye'+i).style.display=ab;
+	}
+}
+
+</script>
+<body >
+<!-- 注册浮动层 开始 -->
+<div id="reg_node" class="reg_login_box">
+	<div class="hd clearfix">
+		<span class="left">会员登录与注册</span>
+		<span class="right"><a href="javascript:parent.LoginHide();" class="close_reg">关闭</a></span></div>
+	<div class="bd clearfix">
+		<div class="col_main">
+			<!-- reg -->
+			<form name="form1" method="post" action=""  style="margin:0" onsubmit="return checkfloatregister();">
+			<div class="reg_box">
+				<h3>立即注册成为会员(免费)</h3>
+				<div class="info"><b><font color="#0055aa">*</font> 选择注册类型</b>　<input name="styleid" type="radio"  checked value="0" onclick="showtt('none')" /> 个人会员　<input name="styleid" type="radio" value="1" onclick="showtt('')" /> 企业会员</div>
+				<div class="reg_box_bd" style="height:336px;">
+					<ul>
+						<li><span>用户名：</span><input type="text" class="reg_input" name="chrname" id="chrname" /> * </li>
+						<li><span>登录密码：</span><input type="password" class="reg_input" name="chrpwd" id="chrpwd"  /> *</li>
+						<li><span>验证密码：</span><input type="password" class="reg_input" name="chrpwd_1" id="chrpwd_1"  /> *</li>
+						<li><span>电子邮件：</span><input type="text" class="reg_input" name="chremail" id="chremail" /> *</li>
+						<li><span>QQ号码：</span><input type="text" class="reg_input" name="chrqq" id="chrqq" /> </li>
+						<li id="qiye1" style="display:none"><span>企业名称：</span><input type="text" class="reg_input" name="chrtruename" id="chrtruename" /> *</li>
+						<li id="qiye2" style="display:none"><span>企业地址：</span><input type="text" class="reg_input" name="qiyedizhi" id="qiyedizhi" /> *</li>
+						<li id="qiye3" style="display:none"><span>法人代表：</span><input type="text" class="reg_input" name="faren" id="faren" /> *</li>
+						<li id="qiye4" style="display:none"><span>联系电话：</span><input type="text" class="reg_input" name="chrtel" id="chrtel" /> *</li>
+						<li><span>验证码：</span><input type="text" class="reg_input" name="code" id="code"  style="width:120px;"/> <img src="../regcode.html"   id="vadimg" onClick="this.src='../regcode.html?'+(new Date().getTime());" style="cursor:hand;" alt="看不清楚请刷新"/></li>
+						<li class="menu"><input type="submit" value=" " class="reg_submit" /></li>
+					</ul>
+				</div>
+			</div>
+			</form>
+			<!-- reg over -->
+		</div>
+		<div class="col_sub">
+			<!-- 会员登录 开始 -->
+			<div class="login_box">
+				<h3>会员登录</h3>
+				<div class="info">如果已经是会员，请直接登录</div>
+				<div class="login_box_bd">
+				<form id="formRegStep1Main" style="margin:0" name="formRegStep1Main" method="post" onsubmit="return checkfloatlogin();">
+					<ul>
+						<li class="test">用户名:</li>
+						<li><input type="text" class="name_input" value="" name="logname" /></li>
+						<li class="test">密&nbsp;&nbsp;&nbsp;&nbsp;码:</li>
+						<li><input type="password" class="pwd_input" value="" name="originalLogpasswd" /></li>
+						<li class="menu"><input type="submit" value=" " class="login_submit" /> <span style="display:{$qqnone}"><a href="../member/qq.aspx">使用QQ登录</a></span></li>
+						<li class="menu"><a href="/find.aspx" target=_blank>我忘记登录密码了！</a></li>
+					</ul>
+				</form>
+				</div>
+			</div>
+			<!-- 会员登录 结束 -->
+		</div>
+	</div>
+</div>
+<!-- 注册浮动层 结束 -->
+</body>
+</html>

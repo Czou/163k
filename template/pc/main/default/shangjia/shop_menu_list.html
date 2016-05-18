@@ -1,0 +1,9 @@
+﻿<tr> <form id="form_{$mid}" name="form_{$mid}" method="post" target="tijiao" action="mydianpu.aspx?action=save&id={$id}">
+	<td>{$mid_str}</td>
+	<td><input type="text" name="chrtitle" class="sys_form_ipt" value="{$chrtitle}" style="width:120px;" /></td>
+	<td><a href="?action=move&pn=0&id={$id}" class="blue_font" target="tijiao">上移</a> <a href="?action=move&pn=1&id={$id}" class="blue_font" target="tijiao">下移</a><input type="hidden" name="intorder" value="{$intorder}"><input type="hidden" name="color" value="{$color}"></td>
+	<td><input type="radio" name="isblank" value="" {$isblank_c_} /> 原窗口　<input type="radio" name="isblank" value='target="_blank"' {$isblank_c_target="_blank"}/> 新窗口</td>
+	<td><input type="radio" name="iskill" value="1" {$iskill_c_1} /> 开启　<input type="radio" name="iskill" value="0" {$iskill_c_0} /> 关闭</td>
+	<td><span class="display1{$isedit}"><a href="mydianpu.aspx?action=edit" class="sys_btn_small_white">编辑</a></span><span class="display0{$isedit}"><button type="submit" class="sys_btn_small_blue">提交</button></span> </td>
+	</form>
+</tr>

@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑商品-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<style type="text/css">
+.my_prop_img{ width:100%; margin:0; padding:0;}
+.my_prop_imgitem{ width:122px;float:left; display:inline;margin:15px 15px 15px 0; position:relative; *zoom:1; z-index:1; text-align:center}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; font-size:12px; line-height:14px;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:104px; width:auto; padding:2px 5px; font-size:12px; line-height:14px;}
+.i_img_alt { width:114px;}
+</style>
+<script>
+var siteUrl = '{$SiteUrl}';
+function checkform(o){
+	if(o.chrgood.value==""){
+		alert("请输入商品名称!");
+		o.chrgood.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("请选择商品分类!");
+		return false;
+	}
+	if(o.price1.value==""){
+		alert("请输入市场价格!");
+		o.price1.focus();
+		return false;
+	}
+	if( !o.price1.value.CheckPrice()){
+		alert("请正确输入市场价格!");
+		o.price1.select();
+		return false;
+	}
+	if(o.price2.value==""){
+		alert("请输入我们价格!");
+		o.price2.focus();
+		return false;
+	}
+	if( !o.price2.value.CheckPrice()){
+		alert("请正确输入我们价格!");
+		o.price2.select();
+		return false;
+	}
+	if(o.url0.value==""){
+		var fmIMG = jQuery('.my_prop_imgitem').eq(0).find('img');
+		if(fmIMG.length > 0){
+			o.url0.value = fmIMG.attr('src');
+		}
+	}
+}
+//判断价格
+String.prototype.CheckPrice = function()
+{   
+    var MyNumber =  this.search(/^\d{1,10}$|^\d{1,10}\.\d{1,2}\w?$/);
+    if(MyNumber == -1)
+        return false;
+    return true;
+}
+</script>
+<script src="/kindeditor/kindeditor.js"></script>
+<script src="/kindeditor/lang/zh_CN.js"></script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">编辑商品</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=editSave" onSubmit="return checkform(this)">
+								<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,2)',200);">基本内容</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,2)',200);">商品详情</a></li>
+										
+									</ul>
+									<div class="tab_cont" id="tabadcontent_10" style="padding:0;">
+										<p class="tr"><span class="sp_a">发布平台：</span><span class="sp_b">该商品发布到 <input type="checkbox" name="isgoodshop" value="1" {$isgoodshop_c_1} /> 我的快店　<input type="checkbox" name="isshop" value="1" {$isshop_c_1} /> 我的店铺</span></p>
+										<p class="tr"><span class="sp_a">商品名称：</span><span class="sp_b"><input type="text" name="chrgood" id="chrgood" class="sys_form_ipt" value="{$chrgood$}" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">商品分类：</span><span class="sp_d">{$categoryid$}</span><span class="sp_c">必填　<a href="category.aspx?key=5" class="blue_font">管理商品分类</a></span></p>
+										<div class="tr"><span class="sp_a">商品图片：</span><div class="sp_d" style="width:863px;">
+											<div style="border:1px solid #ccc; background-color:#f8f8f8; padding:10px;">
+		<input type="button" id="J_selectImage" class="sys_btn_white" value="批量上传" />
+		<div id="J_imageView" class="clearfix"></div>
+		<input type="hidden" name="urlhidden" id="urlhidden" value="" />
+		<input type="hidden" name="urlmark" id="urlmark" value="" />
+		<input name="filewidth" type="hidden" value="360" />
+      	<input name="fileheight" type="hidden" value="360" />
+		<input name="filewidth1" type="hidden" value="160" />
+		<input name="fileheight1" type="hidden" value="160" />
+		<input name="filewidth2" type="hidden" value="160" />
+		<input name="fileheight2" type="hidden" value="160" />
+		<input name="filewidth3" type="hidden" value="160" />
+		<input name="fileheight3" type="hidden" value="160" />
+		<input name="filewidth4" type="hidden" value="160" />
+		<input name="fileheight4" type="hidden" value="160" />
+		<input type="hidden" id="smallfilewidth" value="360" />
+		<input type="hidden" id="smallfileheight" value="360" />
+		<input name="url0" id="url0" type="hidden" value="{$url0}" />
+	</div>
+	  <div id="xiangce" class="clearfix">
+		{$goodpiclist}
+		<!--模板edit_good_pic_list.html-->
+		</div>
+										</div></div>
+										<p class="tr"><span class="sp_a">市场价格：</span><span class="sp_d"><input type="text" name="price1" onKeyUp="if(isNaN(value))execCommand('undo')" value="{$price1$}" id="price1" class="sys_form_ipt" style="width:200px;" /> 元</span><span class="sp_c">必填，0表示“面议”</span></p>
+										<p class="tr"><span class="sp_a">我们价格：</span><span class="sp_d"><input type="text" name="price2" id="price2" class="sys_form_ipt" onKeyUp="if(isNaN(value))execCommand('undo')" value="{$price2$}" style="width:200px;" /> 元</span><span class="sp_c">必填，0表示“面议”</span></p>
+										<p class="tr"><span class="sp_a">商品品牌：</span><span class="sp_d">{$pinpaiid$}</span><span class="sp_c"><a href="category.aspx?key=8" class="blue_font">管理品牌分类</a></span></p>
+										<p class="tr"><span class="sp_a">出品商：</span><span class="sp_b"><input type="text" name="goodnum" id="goodnum" class="sys_form_ipt" value="{$goodnum$}" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">商品规格：</span><span class="sp_b"><input type="text" name="xinghao" id="xinghao" class="sys_form_ipt" value="{$xinghao$}" /></span><span class="sp_c">如：360ml，1.5L，80g，2kg</span></p>
+										<p class="tr"><span class="sp_a">货源情况：</span><span class="sp_d"><select name='styleid' id='styleid'> 
+      				<option value='0'>::本站商品::</option>
+      				<option value='1' {$styleid_s_1}>::外链商品::</option>
+      				</select>　<span id="styleid1" style="display:none;">库存量：<input name="kcnum" type="text" class="sys_form_ipt" style="width:100px;" value="{$kcnum}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">外链商品不显示库存量</em></span>
+					<span id="styleid2" style="display:none;">外链地址：
+      				<input name="httpurl" type="text" class="sys_form_ipt" value="{$httpurl$}"></span></span></p>
+										
+										<p class="tr"><span class="sp_a">属性设置：</span><span class="sp_d"><input type="checkbox" name="istop" value="1" {$istop_c_1}> 招牌推荐（仅限餐饮外卖）　<input type="checkbox" name="cuxiao" value="1" {$cuxiao_c_1}> 本店促销　<input type="checkbox" name="remai" value="1"  {$remai_c_1}> 本店新品</span></p>
+										<p class="tr"><span class="sp_a">状态：</span><span class="sp_d"><input type="radio" name="iskill" value="0" {$iskill_c_0} />上架　<input type="radio" name="iskill" value="1" {$iskill_c_1} />下架</span></p>
+									</div>
+									
+									
+									<div class="tab_cont" id="tabadcontent_11" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">商品详情：</span><span class="sp_d"><textarea class="sys_form_ipt" id="Chrcontent" name="Chrcontent">{$Chrcontent$}</textarea></span><span class="sp_c"></span></p>
+									</div>
+								</div>
+								<input type="hidden" name="id" value="{$ID}" />
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="Chrcontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+		allowFileManager : true,width : '750px',height : '600px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+$('#pinpaibigid').bind('change',function(){
+	showTgCategory('8',$(this).val(),'pinpaiid')
+});
+$('#bigcategoryid').bind('change',function(){
+	showTgCategory('5',$(this).val(),'categoryid')
+});
+var styleid = '{$styleid}';
+if(styleid === '0'){
+	$('#styleid1').show();
+}else{
+	$('#styleid2').show();
+}
+$('#styleid').bind('change',function(){
+	if($(this).val() === '0'){
+		$('#styleid1').show();
+		$('#styleid2').hide();
+	}else{
+		$('#styleid2').show();
+		$('#styleid1').hide();
+	}
+});
+$.fn.showFenmianIndex = function(){
+	var t = $(this),xiangce = $('#xiangce');
+	if(t.val() === ''){
+		return;
+	}
+	xiangce.find('img').each(function(){
+		if($(this).attr('src') === t.val()){
+			$(this).parent().parent().find('.set_FM').html('已设封面');
+		}
+	});
+}
+$('#url0').showFenmianIndex();
+
+var table_id = 'shop_pic';
+KindEditor.ready(function(K) {
+	var editor = K.editor({
+		uploadJson : '/kindeditor/upload_json.ashx?table_id='+table_id,
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '100%',height : '500px'
+	});
+	K('#J_selectImage').click(function() {
+		editor.loadPlugin('multiimage', function() {
+			editor.plugin.multiImageDialog({
+				clickFn : function(urlList) {
+					var i=0;
+					jQuery("#urlhidden").val();
+					jQuery("#urlmark").val();
+					K.each(urlList, function(i, data) {
+						if( jQuery("#urlhidden").val()=="" ){
+							jQuery("#urlhidden").val(data.id);
+						}else{
+							jQuery("#urlhidden").val(jQuery("#urlhidden").val()+","+data.id);
+						}
+						i++;
+					});
+					saveMyImage();
+					editor.hideDialog();
+				}
+			});
+		});
+	});
+});
+function saveMyImage(){
+	var parentid = '2';
+	var urlhidden = jQuery('#urlhidden').val();
+	var urlmark = jQuery('#urlmark').val();
+	var smallfilewidth = jQuery('#smallfilewidth').val();
+	var smallfileheight = jQuery('#smallfileheight').val();
+	var url = '/request.ashx?action=picBatchUpload&table_id='+table_id+'&parentid='+parentid+'&classid=2&id={$ID}&isadmin=0&urlhidden='+urlhidden+'&urlmark='+urlmark+'&smallfilewidth='+smallfilewidth+'&smallfileheight='+smallfileheight+'&timer=' + new Date();
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			showMyImage(data['MSG']);
+		}else{
+			alert(data);
+		}
+	}});
+}
+function showMyImage(o){
+	var txt='',node = jQuery('#xiangce');
+	for(var i=0;i<o.length;i++){
+		txt='<div class="my_prop_imgitem">'+
+			'<div  style="border:1px solid #cccccc; margin-bottom:5px;"><img src="'+o[i]["url"]+'" width="120"  height="120" style="vertical-align:middle;"/></div>'+
+			
+			'<a href="javascript:" onclick="delfile(this,\''+o[i]["id"]+'\',\'5\')">删除</a>'+
+			'<a href="#" onclick="return set_FM(this,\''+o[i]["filepath"]+'\',\''+o[i]["id"]+'\');" class="set_FM">设为封面</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o[i]["id"]+'\',\'setfile\',\'photo&classid={$ID}\',\'2\');" class="move_prev">前移</a>'+
+			'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o[i]["id"]+'\',\'setfile\',\'photo&classid={$ID}\',\'2\');" class="move_next">后移</a>'+
+			'</div>';
+		node.append(jQuery(txt));
+	}
+	reset_moveBtn();
+}
+function set_FM(o,imgURL,imgid){
+	var url = siteUrl+'request.ashx?action=phototop&table_id='+table_id+'&istop=1&id='+imgid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$('#url0').val(imgURL);
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			$('#xiangce').find('.set_FM').html('设为封面');
+			$(o).html('已设封面');
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+function delfile(o,sid,type){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		var url = siteUrl+'request.ashx?action=delpic&id='+sid+'&liveid={$ID}&table_id='+table_id;
+		var Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		jQuery.ajax({url:url,success:function(data){
+			if(data.islogin == '1'){
+				alert('删除成功！');
+				jQuery(o).parent().remove();
+			}else{
+				alert(data['error']);
+			}
+		}});
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('.my_prop_imgitem:last .move_next').hide();
+	node.find('.my_prop_imgitem:first .move_prev').hide();
+	node.find('.my_prop_imgitem:first .move_next').css({'left':'0'});
+	//封面和推荐的默认值
+	node.find('.set_FM').each(function(){
+		if($(this).attr('data-istop') === '1'){
+			$(this).html('已设封面');
+		}
+	});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,styleid){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid+'&styleid='+styleid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery(o).parent(),ht2 = '';
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			
+			if(index === 0){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

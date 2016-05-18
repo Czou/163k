@@ -1,0 +1,327 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>本导航设置专用于头部模板五（为了美观和前台页面的控制，导航的排序和字数要求都是固定的）</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+	<tr><td colspan="11"><form name="form1" method="post" action="?action=save">&nbsp;将链接中的：<span style="font-size: 10.5pt"><input type="text" name="t1" size="27" value="http://www.163k.com/"></span>批量替换为：<span style="font-size: 10.5pt"><input type="text" name="t2" size="27" value="http://"> <input type="submit" name="submit" value="替换"></form></td></tr>
+        <form name="form" method="post" action="?action=editsave">
+		<tr><td colspan=11 style="background:#ffffff;">区块一（资讯）：排版阵列 422*2（解释：四字导航 两字导航 两字导航 *2排）</td></tr>
+          <tr align="center">
+            <td width="60" class="category">排序</td>
+            <td class="category">导航名称</td>
+            <td class="category">字数要求</td>
+            <td class="category">链接</td>
+            <td class="category">颜色</td>
+             <td class="category">属性</td>
+            <td class="category">打开方式</td>
+          </tr>
+			<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">1</td>
+			<td align="center"><input type="text" name="title1" value="{$title1}" size="12"><input name="ID1" type="hidden" id="ID1" value="{$ID1}"></td>
+			<td class="Number" align="center">{$num1}</td>
+			<td align="center"><input type="text" name="chrurl1" value="{$chrurl1}" size="52"  ></td>
+			<td align="center"><input type="text" name="color1" value="{$color1}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color1)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold1" value="1" {$isbold11}/>小图</td>
+			<td align="center"><input type="radio" name="target1" value="0" {$target10}  >原窗口 <input type="radio" name="target1" value="1" {$target11}  >新窗口</td>
+		</tr>
+<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">2</td>
+			<td align="center"><input type="text" name="title2" value="{$title2}" size="12"><input name="ID2" type="hidden" id="ID2" value="{$ID2}"></td>
+			<td class="Number" align="center">{$num2}</td>
+			<td align="center"><input type="text" name="chrurl2" value="{$chrurl2}" size="52"  ></td>
+			<td align="center"><input type="text" name="color2" value="{$color2}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color2)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold2" value="1" {$isbold21}/>小图</td>
+			<td align="center"><input type="radio" name="target2" value="0" {$target20}  >原窗口 <input type="radio" name="target2" value="1" {$target21}  >新窗口</td>
+		</tr>
+<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">3</td>
+			<td align="center"><input type="text" name="title3" value="{$title3}" size="12"><input name="ID3" type="hidden" id="ID3" value="{$ID3}"></td>
+			<td class="Number" align="center">{$num3}</td>
+			<td align="center"><input type="text" name="chrurl3" value="{$chrurl3}" size="52"  ></td>
+			<td align="center"><input type="text" name="color3" value="{$color3}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color3)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold3" value="1" {$isbold31}/>小图</td>
+			<td align="center"><input type="radio" name="target3" value="0" {$target30}  >原窗口 <input type="radio" name="target3" value="1" {$target31}  >新窗口</td>
+		</tr>
+		<tr><td colspan=11 style="background:#ffffff;">上面的是第一排，下面的是第二排</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">4</td>
+			<td align="center"><input type="text" name="title4" value="{$title4}" size="12"><input name="ID4" type="hidden" id="ID4" value="{$ID4}"></td>
+			<td class="Number" align="center">{$num4}</td>
+			<td align="center"><input type="text" name="chrurl4" value="{$chrurl4}" size="52"  ></td>
+			<td align="center"><input type="text" name="color4" value="{$color4}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color4)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold4" value="1" {$isbold41}/>小图</td>
+			<td align="center"><input type="radio" name="target4" value="0" {$target40}  >原窗口 <input type="radio" name="target4" value="1" {$target41}  >新窗口</td>
+		</tr>
+<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">5</td>
+			<td align="center"><input type="text" name="title5" value="{$title5}" size="12"><input name="ID5" type="hidden" id="ID5" value="{$ID5}"></td>
+			<td class="Number" align="center">{$num5}</td>
+			<td align="center"><input type="text" name="chrurl5" value="{$chrurl5}" size="52"  ></td>
+			<td align="center"><input type="text" name="color5" value="{$color5}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color5)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold5" value="1" {$isbold51}/>小图</td>
+			<td align="center"><input type="radio" name="target5" value="0" {$target50}  >原窗口 <input type="radio" name="target5" value="1" {$target51}  >新窗口</td>
+		</tr>
+<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">6</td>
+			<td align="center"><input type="text" name="title6" value="{$title6}" size="12"><input name="ID6" type="hidden" id="ID6" value="{$ID6}"></td>
+			<td class="Number" align="center">{$num6}</td>
+			<td align="center"><input type="text" name="chrurl6" value="{$chrurl6}" size="52"  ></td>
+			<td align="center"><input type="text" name="color6" value="{$color6}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color6)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold6" value="1" {$isbold61}/>小图</td>
+			<td align="center"><input type="radio" name="target6" value="0" {$target60}  >原窗口 <input type="radio" name="target6" value="1" {$target61}  >新窗口</td>
+		</tr>
+		<tr><td colspan=11 style="background:#ffffff;">区块二（生活）：排版阵列 4442*2</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">1</td>
+			<td align="center"><input type="text" name="title7" value="{$title7}" size="12"><input name="ID7" type="hidden" id="ID7" value="{$ID7}"></td>
+			<td class="Number" align="center">{$num7}</td>
+			<td align="center"><input type="text" name="chrurl7" value="{$chrurl7}" size="52"  ></td>
+			<td align="center"><input type="text" name="color7" value="{$color7}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color7)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold7" value="1" {$isbold71}/>小图</td>
+			<td align="center"><input type="radio" name="target7" value="0" {$target70}  >原窗口 <input type="radio" name="target7" value="1" {$target71}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">2</td>
+			<td align="center"><input type="text" name="title8" value="{$title8}" size="12"><input name="ID8" type="hidden" id="ID8" value="{$ID8}"></td>
+			<td class="Number" align="center">{$num8}</td>
+			<td align="center"><input type="text" name="chrurl8" value="{$chrurl8}" size="52"  ></td>
+			<td align="center"><input type="text" name="color8" value="{$color8}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color8)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold8" value="1" {$isbold81}/>小图</td>
+			<td align="center"><input type="radio" name="target8" value="0" {$target80}  >原窗口 <input type="radio" name="target8" value="1" {$target81}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">3</td>
+			<td align="center"><input type="text" name="title9" value="{$title9}" size="12"><input name="ID9" type="hidden" id="ID9" value="{$ID9}"></td>
+			<td class="Number" align="center">{$num9}</td>
+			<td align="center"><input type="text" name="chrurl9" value="{$chrurl9}" size="52"  ></td>
+			<td align="center"><input type="text" name="color9" value="{$color9}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color9)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold9" value="1" {$isbold91}/>小图</td>
+			<td align="center"><input type="radio" name="target9" value="0" {$target90}  >原窗口 <input type="radio" name="target9" value="1" {$target91}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">4</td>
+			<td align="center"><input type="text" name="title10" value="{$title10}" size="12"><input name="ID10" type="hidden" id="ID10" value="{$ID10}"></td>
+			<td class="Number" align="center">{$num10}</td>
+			<td align="center"><input type="text" name="chrurl10" value="{$chrurl10}" size="52"  ></td>
+			<td align="center"><input type="text" name="color10" value="{$color10}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color10)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold10" value="1" {$isbold101}/>小图</td>
+			<td align="center"><input type="radio" name="target10" value="0" {$target100}  >原窗口 <input type="radio" name="target10" value="1" {$target101}  >新窗口</td>
+		</tr>
+  		<tr><td colspan=11 style="background:#ffffff;">上面的是第一排，下面的是第二排</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">5</td>
+			<td align="center"><input type="text" name="title11" value="{$title11}" size="12"><input name="ID11" type="hidden" id="ID11" value="{$ID11}"></td>
+			<td class="Number" align="center">{$num11}</td>
+			<td align="center"><input type="text" name="chrurl11" value="{$chrurl11}" size="52"  ></td>
+			<td align="center"><input type="text" name="color11" value="{$color11}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color11)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold11" value="1" {$isbold111}/>小图</td>
+			<td align="center"><input type="radio" name="target11" value="0" {$target110}  >原窗口 <input type="radio" name="target11" value="1" {$target111}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">6</td>
+			<td align="center"><input type="text" name="title12" value="{$title12}" size="12"><input name="ID12" type="hidden" id="ID12" value="{$ID12}"></td>
+			<td class="Number" align="center">{$num12}</td>
+			<td align="center"><input type="text" name="chrurl12" value="{$chrurl12}" size="52"  ></td>
+			<td align="center"><input type="text" name="color12" value="{$color12}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color12)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold12" value="1" {$isbold121}/>小图</td>
+			<td align="center"><input type="radio" name="target12" value="0" {$target120}  >原窗口 <input type="radio" name="target12" value="1" {$target121}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">7</td>
+			<td align="center"><input type="text" name="title13" value="{$title13}" size="12"><input name="ID13" type="hidden" id="ID13" value="{$ID13}"></td>
+			<td class="Number" align="center">{$num13}</td>
+			<td align="center"><input type="text" name="chrurl13" value="{$chrurl13}" size="52"  ></td>
+			<td align="center"><input type="text" name="color13" value="{$color13}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color13)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold13" value="1" {$isbold131}/>小图</td>
+			<td align="center"><input type="radio" name="target13" value="0" {$target130}  >原窗口 <input type="radio" name="target13" value="1" {$target131}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">8</td>
+			<td align="center"><input type="text" name="title14" value="{$title14}" size="12"><input name="ID14" type="hidden" id="ID14" value="{$ID14}"></td>
+			<td class="Number" align="center">{$num14}</td>
+			<td align="center"><input type="text" name="chrurl14" value="{$chrurl14}" size="52"  ></td>
+			<td align="center"><input type="text" name="color14" value="{$color14}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color14)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold14" value="1" {$isbold141}/>小图</td>
+			<td align="center"><input type="radio" name="target14" value="0" {$target140}  >原窗口 <input type="radio" name="target14" value="1" {$target141}  >新窗口</td>
+		</tr>
+   		<tr><td colspan=11 style="background:#ffffff;">区块三（房产）：排版阵列 334*2</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">1</td>
+			<td align="center"><input type="text" name="title15" value="{$title15}" size="12"><input name="ID15" type="hidden" id="ID15" value="{$ID15}"></td>
+			<td class="Number" align="center">{$num15}</td>
+			<td align="center"><input type="text" name="chrurl15" value="{$chrurl15}" size="52"  ></td>
+			<td align="center"><input type="text" name="color15" value="{$color15}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color15)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold15" value="1" {$isbold151}/>小图</td>
+			<td align="center"><input type="radio" name="target15" value="0" {$target150}  >原窗口 <input type="radio" name="target15" value="1" {$target151}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">2</td>
+			<td align="center"><input type="text" name="title16" value="{$title16}" size="12"><input name="ID16" type="hidden" id="ID16" value="{$ID16}"></td>
+			<td class="Number" align="center">{$num16}</td>
+			<td align="center"><input type="text" name="chrurl16" value="{$chrurl16}" size="52"  ></td>
+			<td align="center"><input type="text" name="color16" value="{$color16}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color16)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold16" value="1" {$isbold161}/>小图</td>
+			<td align="center"><input type="radio" name="target16" value="0" {$target160}  >原窗口 <input type="radio" name="target16" value="1" {$target161}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">3</td>
+			<td align="center"><input type="text" name="title17" value="{$title17}" size="12"><input name="ID17" type="hidden" id="ID17" value="{$ID17}"></td>
+			<td class="Number" align="center">{$num17}</td>
+			<td align="center"><input type="text" name="chrurl17" value="{$chrurl17}" size="52"  ></td>
+			<td align="center"><input type="text" name="color17" value="{$color17}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color17)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold17" value="1" {$isbold171}/>小图</td>
+			<td align="center"><input type="radio" name="target17" value="0" {$target170}  >原窗口 <input type="radio" name="target17" value="1" {$target171}  >新窗口</td>
+		</tr>
+   		<tr><td colspan=11 style="background:#ffffff;">上面的是第一排，下面的是第二排</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">4</td>
+			<td align="center"><input type="text" name="title18" value="{$title18}" size="12"><input name="ID18" type="hidden" id="ID18" value="{$ID18}"></td>
+			<td class="Number" align="center">{$num18}</td>
+			<td align="center"><input type="text" name="chrurl18" value="{$chrurl18}" size="52"  ></td>
+			<td align="center"><input type="text" name="color18" value="{$color18}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color18)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold18" value="1" {$isbold181}/>小图</td>
+			<td align="center"><input type="radio" name="target18" value="0" {$target180}  >原窗口 <input type="radio" name="target18" value="1" {$target181}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">5</td>
+			<td align="center"><input type="text" name="title19" value="{$title19}" size="12"><input name="ID19" type="hidden" id="ID19" value="{$ID19}"></td>
+			<td class="Number" align="center">{$num19}</td>
+			<td align="center"><input type="text" name="chrurl19" value="{$chrurl19}" size="52"  ></td>
+			<td align="center"><input type="text" name="color19" value="{$color19}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color19)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold19" value="1" {$isbold191}/>小图</td>
+			<td align="center"><input type="radio" name="target19" value="0" {$target190}  >原窗口 <input type="radio" name="target19" value="1" {$target191}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">6</td>
+			<td align="center"><input type="text" name="title20" value="{$title20}" size="12"><input name="ID20" type="hidden" id="ID20" value="{$ID20}"></td>
+			<td class="Number" align="center">{$num20}</td>
+			<td align="center"><input type="text" name="chrurl20" value="{$chrurl20}" size="52"  ></td>
+			<td align="center"><input type="text" name="color20" value="{$color20}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color20)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold20" value="1" {$isbold201}/>小图</td>
+			<td align="center"><input type="radio" name="target20" value="0" {$target200}  >原窗口 <input type="radio" name="target20" value="1" {$target201}  >新窗口</td>
+		</tr>
+   		<tr><td colspan=11 style="background:#ffffff;">区块四（综合）：排版阵列 2224*2</td></tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">1</td>
+			<td align="center"><input type="text" name="title21" value="{$title21}" size="12"><input name="ID21" type="hidden" id="ID21" value="{$ID21}"></td>
+			<td class="Number" align="center">{$num21}</td>
+			<td align="center"><input type="text" name="chrurl21" value="{$chrurl21}" size="52"  ></td>
+			<td align="center"><input type="text" name="color21" value="{$color21}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color21)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold21" value="1" {$isbold211}/>小图</td>
+			<td align="center"><input type="radio" name="target21" value="0" {$target210}  >原窗口 <input type="radio" name="target21" value="1" {$target211}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">2</td>
+			<td align="center"><input type="text" name="title22" value="{$title22}" size="12"><input name="ID22" type="hidden" id="ID22" value="{$ID22}"></td>
+			<td class="Number" align="center">{$num22}</td>
+			<td align="center"><input type="text" name="chrurl22" value="{$chrurl22}" size="52"  ></td>
+			<td align="center"><input type="text" name="color22" value="{$color22}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color22)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold22" value="1" {$isbold221}/>小图</td>
+			<td align="center"><input type="radio" name="target22" value="0" {$target220}  >原窗口 <input type="radio" name="target22" value="1" {$target221}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">3</td>
+			<td align="center"><input type="text" name="title23" value="{$title23}" size="12"><input name="ID23" type="hidden" id="ID23" value="{$ID23}"></td>
+			<td class="Number" align="center">{$num23}</td>
+			<td align="center"><input type="text" name="chrurl23" value="{$chrurl23}" size="52"  ></td>
+			<td align="center"><input type="text" name="color23" value="{$color23}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color23)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold23" value="1" {$isbold231}/>小图</td>
+			<td align="center"><input type="radio" name="target23" value="0" {$target230}  >原窗口 <input type="radio" name="target23" value="1" {$target231}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">4</td>
+			<td align="center"><input type="text" name="title24" value="{$title24}" size="12"><input name="ID24" type="hidden" id="ID24" value="{$ID24}"></td>
+			<td class="Number" align="center">{$num24}</td>
+			<td align="center"><input type="text" name="chrurl24" value="{$chrurl24}" size="52"  ></td>
+			<td align="center"><input type="text" name="color24" value="{$color24}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color24)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold24" value="1" {$isbold241}/>小图</td>
+			<td align="center"><input type="radio" name="target24" value="0" {$target240}  >原窗口 <input type="radio" name="target24" value="1" {$target241}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">5</td>
+			<td align="center"><input type="text" name="title25" value="{$title25}" size="12"><input name="ID25" type="hidden" id="ID25" value="{$ID25}"></td>
+			<td class="Number" align="center">{$num25}</td>
+			<td align="center"><input type="text" name="chrurl25" value="{$chrurl25}" size="52"  ></td>
+			<td align="center"><input type="text" name="color25" value="{$color25}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color25)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold25" value="1" {$isbold251}/>小图</td>
+			<td align="center"><input type="radio" name="target25" value="0" {$target250}  >原窗口 <input type="radio" name="target25" value="1" {$target251}  >新窗口</td>
+		</tr>
+    		<tr><td colspan=11 style="background:#ffffff;">上面的是第一排，下面的是第二排</td></tr>
+			<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">6</td>
+			<td align="center"><input type="text" name="title26" value="{$title26}" size="12"><input name="ID26" type="hidden" id="ID26" value="{$ID26}"></td>
+			<td class="Number" align="center">{$num26}</td>
+			<td align="center"><input type="text" name="chrurl26" value="{$chrurl26}" size="52"  ></td>
+			<td align="center"><input type="text" name="color26" value="{$color26}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color26)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold26" value="1" {$isbold261}/>小图</td>
+			<td align="center"><input type="radio" name="target26" value="0" {$target260}  >原窗口 <input type="radio" name="target26" value="1" {$target261}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">7</td>
+			<td align="center"><input type="text" name="title27" value="{$title27}" size="12"><input name="ID27" type="hidden" id="ID27" value="{$ID27}"></td>
+			<td class="Number" align="center">{$num27}</td>
+			<td align="center"><input type="text" name="chrurl27" value="{$chrurl27}" size="52"  ></td>
+			<td align="center"><input type="text" name="color27" value="{$color27}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color27)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold27" value="1" {$isbold271}/>小图</td>
+			<td align="center"><input type="radio" name="target27" value="0" {$target270}  >原窗口 <input type="radio" name="target27" value="1" {$target271}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">8</td>
+			<td align="center"><input type="text" name="title28" value="{$title28}" size="12"><input name="ID28" type="hidden" id="ID28" value="{$ID28}"></td>
+			<td class="Number" align="center">{$num28}</td>
+			<td align="center"><input type="text" name="chrurl28" value="{$chrurl28}" size="52"  ></td>
+			<td align="center"><input type="text" name="color28" value="{$color28}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color28)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold28" value="1" {$isbold281}/>小图</td>
+			<td align="center"><input type="radio" name="target28" value="0" {$target280}  >原窗口 <input type="radio" name="target28" value="1" {$target281}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">9</td>
+			<td align="center"><input type="text" name="title29" value="{$title29}" size="12"><input name="ID29" type="hidden" id="ID29" value="{$ID29}"></td>
+			<td class="Number" align="center">{$num29}</td>
+			<td align="center"><input type="text" name="chrurl29" value="{$chrurl29}" size="52"  ></td>
+			<td align="center"><input type="text" name="color29" value="{$color29}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color29)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold29" value="1" {$isbold291}/>小图</td>
+			<td align="center"><input type="radio" name="target29" value="0" {$target290}  >原窗口 <input type="radio" name="target29" value="1" {$target291}  >新窗口</td>
+		</tr>
+		<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+			<td class="Number" align="center">10</td>
+			<td align="center"><input type="text" name="title30" value="{$title30}" size="12"><input name="ID30" type="hidden" id="ID30" value="{$ID30}"></td>
+			<td class="Number" align="center">{$num30}</td>
+			<td align="center"><input type="text" name="chrurl30" value="{$chrurl30}" size="52"  ></td>
+			<td align="center"><input type="text" name="color30" value="{$color30}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color30)" align="absmiddle" /></td>
+			<td align="center"><input type="checkbox" name="isbold30" value="1" {$isbold301}/>小图</td>
+			<td align="center"><input type="radio" name="target30" value="0" {$target300}  >原窗口 <input type="radio" name="target30" value="1" {$target301}  >新窗口</td>
+		</tr>
+      <tr >
+            <td height="24" align="center" bgcolor="#FFFFFF" colspan=9><input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big">
+            </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function clickcolor(object)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) object.value=aarr;
+}
+</script>
+</body></html>

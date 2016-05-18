@@ -1,0 +1,180 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗{$delete$}？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "CategoryRegion.aspx?key={$key}&action=del&ID=" + id
+        }
+}
+function del11(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除此分类下面的所有数据吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "CategoryRegion.aspx?key={$key}&action=delall&ID=" + id
+        }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的信息吗{$delete$}？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+}
+function delaa(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+   document.getElementById("form").action="CategoryRegion.aspx?action=del&key={$key}&styleid=2"
+	if ( confirm("该操作将不可逆！\n您确定要取消热门显示吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+function examAll(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	document.getElementById("form").action="CategoryRegion.aspx?action=del&key={$key}&styleid=1"
+	if ( confirm("该操作将不可逆！\n您确定要设置为热门吗？"))
+        {
+		
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+
+function delzhuang(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	document.getElementById("form").action="CategoryRegion.aspx?action=del&key={$key}&styleid=10"
+	if ( confirm("该操作将不可逆！\n您确定要转移选中的商品品牌吗？"))
+        {
+		
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;{$title}管理</td>
+	  <td align="right">&nbsp;<a href="CategoryRegion.aspx?action=Add&key={$key}" class="global_btn_blue">请点击这里添加{$title}</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="" ID="Form1">
+<tr> 
+	<td height="25">
+		按名称查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+		<input type="submit" name="Submit3" value="Go" class="global_btn" ID="Submit1"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" method="post" action="?action=del&key={$key}" ID="form">
+				<tr align=center>
+				<td width="29" class="category">ID</td>
+				<td class="category">名称</td>{$top$}
+				<td   class="category">排序</td>
+				<td  class="category">状态</td>
+			
+				<td  align="center" class="category">操作</td>
+				<td width="80" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				全选</strong></td>
+				</tr>
+				<tag:Loop ListType="ListPCategory" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="category/ListPCategory.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+		  <a href="javascript:examAll(this);;"><font color=blue>{$cname1}</font></a> <a href="javascript:delaa(this);"><font color=red>{$cname2}</font></a>&nbsp;<a href="javascript:delAll(this);">删除选中</a>
+		  <div style="display:{$zhuanstyle$}"><strong>
+			将选中的商品品牌转移到品牌分类：{$zhuan$} <a href="javascript:delzhuang(this);"><font color=red>确定转移？</font></a>
+			</strong>
+			</div>
+		  </td></tr>
+		 
+				</form>
+				<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

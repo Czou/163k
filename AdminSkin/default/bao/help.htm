@@ -1,0 +1,40 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>帮助中心问题分类设置(说明：由于ID1-5的分类问题在前台分别做了类别调用，故不可删除，可自由编辑分类名称和显示排序，不需要显示的分类可设置为隐藏)</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<tr align="center">
+				<td  width="80" class="category">ID</td>
+				<td class="category">分类名称</td>
+				<td class="category">排序</td>
+				<td class="category">状态</td>
+				<td class="category">操作</td>
+				</tr>
+				<tag:Loop ListType="LISTHELPCATEGORY" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="bao/List_help_Tr.htm" />
+			
+</table>
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

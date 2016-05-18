@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>申请开通公司企业网站--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+<script>
+function checkform(o){
+	if(o.qiyename.value==""){
+		alert("对不起,请填写企业名称!");
+		o.qiyename.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("对不起,请选择企业分类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.chrdiqu.value==""){
+		alert("对不起,请选择所在地区!");
+		o.chrdiqu.focus();
+		return false;
+	}
+}
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 申请开通公司企业网站</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">申请开通公司企业网站</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />成功提交您的基本资料以后，您可以在“管理公司企业网站”中进行“编辑”，对您的内容进行资料填充和完善！<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+     <tr > 
+      <td  class="tditem">企业名称<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="qiyename" class="text" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+ 	  <td  class="tditem">企业二级域名功能要求<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent" colspan=3>{$bmyumingkillstate} （如果想为您的网站绑定独立顶级域名，请联系网站客服）</td>
+     </tr>
+	<tr > 
+ 	  <td  class="tditem">是否启用企业二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="tdcontent" colspan=3> <input name="yumingkill" type="radio" value="0" checked >不启用（暂停） <input name="yumingkill" type="radio" value="1"  >启用(正常)   </td>
+     </tr>
+     <tr > 
+ 	  <td  class="tditem"> 为该企业绑定二级域名<font color="#FF0000"></font>： 
+      </td>
+      <td  class="tdcontent" colspan=3><input type="text" class="text" name="yumingname" id="yumingname" maxlength="20" value="" style="width:100px;"  onblur="checkyuming(this.value,'yumingshow',0,3)">.{$SiteYuming}<span id="yumingshow">(请设置一个域名前缀)</span> </td>
+     </tr>
+    <tr > 
+      <td  class="tditem" >网站辅标题<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chrtitle" class="text" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+      <td  class="tditem" >网站关键词<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chrkeyword" class="text" style="width:260px;"/>(多个用,隔开)</td>
+    </tr>
+     <tr > 
+      <td  class="tditem" >网站描述<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><textarea type="text" name="chrdescription" class="text" style="width:460px; height:60px"/></textarea></td>
+    </tr>
+    <tr > 
+      <td  class="tditem">网站分类<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent">{$categoryid}</td>
+    </tr>
+    <tr > 
+      <td  class="tditem">所在地区<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent">{$chrdiqu$}</td>
+    </tr>
+	<tr  > 
+      <td class="tditem">网站LOGO(340*50)：
+      </td>
+      <td  colspan=5  class="tdcontent">
+      <input name="islogo"  type="radio" value="0" checked="checked" />文字(直接以网站名称为文字LOGO)<br />
+      <input name="islogo"  type="radio" value="1"  />图片logo（340*50）<br />
+      <input type="file" class="text"  name="file" size="80"></td>
+    </tr>
+	<tr  > 
+      <td class="tditem">公司位置地图标注：
+      </td>
+      <td  colspan=5  class="tdcontent"><a href="javascript:void(0);" onclick='set_image()'><font  color="red">标注地图位置</font></a>
+        <input type="hidden" id="shop_x" name="shop_x" >
+		<input type="hidden" id="shop_y" name="shop_y" >
+<input type="hidden" id="shop_z" name="shop_z" ><input type="hidden" id="ggmap" name="ggmap"  value="1">
+<span class="red">标注后,企业将定位到电子地图上</span>
+                     </td>
+    </tr>
+    <span style="display:none">
+      <input type="file" class="text"  name="file" size="80"></span>
+    <tr > 
+      <td  class="tditem">使用模板<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent">您当前选择的是：<span id="selectmobanshow"></span>&nbsp;&nbsp;&nbsp;<a href="javascript:showmobanid(0);">点击这里选择模板</a> 您当前使用的模板是：<span id="mobanName">企业模板一</span>
+      <input type="hidden" name="mobanid" value="1" id="mobanid" /></td>
+    </tr>
+    <tr > 
+      <td  class="tditem" width="200px">网站底部<br />(支持HTML)<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><textarea type="text" name="chrbottom" class="text" style="width:460px; height:60px"/></textarea></td>
+    </tr>
+    <tr > 
+      <td  class="tditem">联系地址<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chraddress" id="chraddress" class="text" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+      <td  class="tditem">联系电话<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chrtel" class="text" style="width:260px;"/></td>
+    </tr>
+    <tr > 
+      <td  class="tditem">传真号码<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chrcode" class="text" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+      <td  class="tditem">电子邮件<font color="#FF0000"></font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chremail" class="text" style="width:260px;"/></td>
+    </tr>
+	<tr > 
+     
+      <td  colspan=4 align="center"><input type="submit" class="global_btn_blue_big" name="Submit" value=" 确认无误，提交 " id="Submit" /></td>
+    </tr>		
+</table>
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+ <div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

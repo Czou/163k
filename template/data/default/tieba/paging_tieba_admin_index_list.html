@@ -1,0 +1,16 @@
+<div class="blank10"></div>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style tablelist" border="0">
+	<tbody>
+	<tr class="tabletitle">
+		<td align="left" width="50%" style="font-weight:bold;"><span class="right display2{$iskill}" style="color:#d00;">[待审]</span><span class="right display3{$iskill}" style="color:#aaa;">[已审]</span><input type="checkbox" class="checkbox" name="ID" value="{$id}" /> <a href="{$tiebaurl}../tieba_show_{$id}.html" target="_blank" style="color:{$color}">{$title}</a> <span class="display{$isjinghua}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#096; padding:2px 4px;">精华</span> <span class="display{$iszhiding}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#F30; padding:2px 4px;">置顶</span></td>
+		<td align="center" width="30%">{$bigChrcategory} - {$chrcategory}</td>
+		<td align="center" width="20%">查看：{$hits}　回复:{$revertnum}　赞：{$num1}</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="background-color:#ffffff; padding:10px; color:#404040;word-break:break-all;">{$chrcontent}<div class="n_img">{$piclist}</div></td>
+	</tr>
+	<tr>
+		
+		<td colspan="3" style="background-color:#ffffff; padding:10px; color:#999;"><span class="right"><a href="{$tiebaurl}addedit.aspx?action=edit&id={$id}" target="_blank" class="global_btn_blue">编辑</a> <a href="admin_tieba.aspx?action=revert&id={$id}" class="global_btn_blue display3{$iskill}">查看回复</a> <a href="javascript:void(0);" onclick="superManage('{$id}');" class="global_btn_blue displaysuper">超级管理</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','1');" class="global_btn_blue displaysuper display2{$iskill}">通过审核</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','0');" class="global_btn_blue displaysuper display3{$iskill}">取消审核</a> <a href="javascript:void(0);" onclick="$.managerTBisdel('{$id}');" class="global_btn">删除</a></span>{$chrname}　发布时间：{$dtappenddate}　发布ip：{$chrip}</td>
+	</tr>
+</tbody></table>

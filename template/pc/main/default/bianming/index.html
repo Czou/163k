@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}skin/huangye2015.css">
+{$top$}
+    
+        <div class="crumb-bar clearfix">
+            <span>当前位置：</span><a href="{$SiteUrl}">首页</a><span class="cur_tit">{$lanmuname}</span>
+        </div>
+    <div class="hy-banner"><a href="#" target="_blank"><img src="{$tplPath}images/hy_banner.jpg" alt=""></a></div>
+    <div class="hy-searchbox clearfix">
+    <form name="inputStyle" id="bmsearch" method="post" action="index.html" style="margin:0">
+        <div class="sbox">
+            <i class="arr"></i>
+            <select style="display: none;" name="mySle2" id="mySle2">
+                <option selected="selected" value="0">服务机构</option>
+                <option value="1">公司企业</option>
+            </select>
+        </div>
+        <div class="kword"><input name="keyword" type="text" value="{$keyword}" placeholder="输入搜索关键字"></div>
+        <button type="submit" class="so">搜索</button>
+        </form>
+        <div class="add-hy"><a href="?action=add" target="_blank">免费加入超级黄页</a></div>
+    </div>
+    <div class="clearfix">
+		<div class="hy_col_sub">
+			<div id="fixed" style="width:210px;">
+			<div class="hy-side-menu" id="list_nav_2013">
+				<div class="title"><a href="{$bianmingurl}#fixed_can">全部服务机构</a></div>
+				<dl>{$114categoryid}</dl>
+			</div>
+			</div>
+		</div>
+		<div class="hy-list-box"  id="fixed_can">
+			<div class="hy-area-select">
+				<dl class="clearfix">
+					<dt>区域：</dt>
+					<dd>{$areaidlist}</dd>
+				</dl>
+			</div>
+			<div class="title clearfix">
+				<span class="zt">信息主题</span>
+				<span class="update">发布时间</span>
+				<span class="score">评分</span>
+			</div>
+			<div class="list">
+				<ul>
+					<tag:Loop ListType="listbianmingqian" intcontentLen="100" RecType="New" PageSize="20" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="bianming/list_index_tr.html" />
+				</ul>
+			</div>
+			<div class="fc_pageNavigation">{$PageSplit}　每页显示20条</div>
+		</div>
+	</div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();
+    $(document).modCity();
+    $('#fabu').showMore();
+    $('#weixin').showMore();
+    $.returnTop();
+	$('#fixed').fixed($('#fixed_can'));
+    $('#mySle2').selectbox();
+    $('#list_nav_2013').listNav2();
+    $('#mySle2_container').delegate('li','click',function(){
+        $(this).html() === '服务机构'?($('#bmsearch').attr('action','index.html')):($('#bmsearch').attr('action','qiyelist.html'));
+    });
+    $('.allCat').each(function(){
+        $(this).attr('href','{$bianmingurl}index_c'+$(this).attr('data-id')+'_d{$areaid}_p1.html');
+    });
+});
+function bianminUrl(){
+    var url_obj = {'colname':'{$colname}'};
+    if(url_obj['colname'] !== '' && url_obj['colname'] !== '0'){
+        $('#s_'+url_obj['colname']).addClass('cur').parents('.bd').addClass('open').prev('.hd').addClass('hd_open');
+    }
+}
+bianminUrl();
+</script>
+</body>
+</html>

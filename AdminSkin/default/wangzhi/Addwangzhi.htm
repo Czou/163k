@@ -1,0 +1,99 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function check(o){
+	if(o.title.value==""){
+		alert("对不起,请输入网址标题!");
+		o.title.focus();
+		return false;
+	}
+	if(o.classid.value==""){
+		alert("对不起,请选择所属类别!");
+		o.classid.focus();
+		return false;
+	}
+	if(o.url.value==""){
+		alert("对不起,请输入网址!");
+		o.url.focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加网址&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至网址列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" ID="Form1" onsubmit="return check(this);">
+    <tr > 
+      <td  height="25" width=15%>网址标题<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="title" type="text" size="30" ID="title"></td>
+    </tr>
+	  <tr > 
+      <td  height="25">所属类别： 
+      </td>
+      <td class="category"> {$classid}</td>
+    </tr>
+	<tr > 
+      <td  height="25" width=15%>网址链接<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="url" type="text" size="50" ID="url"></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="orders" type="text" id="orders" size="10" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">(排序越小,越排在前面)</em></td>
+    </tr>
+    <tr > 
+      <td  height="25">是否显示<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="isopen" type="radio" value="0" checked ID="isopen">显示 <input name="isopen" type="radio" value="1" ID="isopen">关闭</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >颜色： 
+      </td>
+      <td width="76%"  class="category"> <input name="color" type="text" id="cptext" value="" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+    </tr>
+	 <tr > 
+      <td  height="25">属性<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="istop" type="checkbox" value="1"  ID="istop">名站导航 <input name="styleid" type="checkbox" value="1" ID="styleid">推荐 <em class="global_tip">(后面会加上红色的勾)</em></td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" class="category"><input type="hidden" name="gotourl" value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+})(jQuery);
+</script>
+  </body>
+</html>

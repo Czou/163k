@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news2016-mb.css" />
+<div id="inner_iframe" style="display:none"></div>
+{$top$}
+<div class="city_btn">
+ <ul>
+  <li><a href="#myform">我要评论</a></li>
+  <li class="bm"><a href="javascript:void(0);" onClick="showwybaoming({$activeid},'{$youkebaoming}');">报名参加</a></li>
+ </ul>
+</div>
+	<div class="o_main mar_b_50">
+ <div class="banner"><img src="{$filepath1}" alt="" /></div> 
+ <div class="city_info">
+  <h3>{$chrtitle}</h3>
+  <p>
+   <span class="source">{$styleid}</span>
+   <span class="s" data-iskill="{$iskill}">{$day}</span>天后截止
+   <span class="s"><span class="num" id="suc_num">0</span></span>人已报名
+  </p>
+ </div> 
+ <div class="active_condit">
+ <dl>
+  <dt>时间</dt>
+  <dd>{$jihe}</dd>
+ </dl>
+ <dl>
+  <dt>名额</dt>
+  <dd>{$minge}</dd>
+ </dl>
+ <dl>
+  <dt>费用</dt>
+  <dd>{$feiyong}</dd>
+ </dl>                                                         
+</div>
+<div class="city_o_info">
+ <dl>
+  <dt>所在区域</dt>
+  <dd>{$diqu}</dd>
+ </dl>
+ <dl>
+  <dt>活动地点</dt>
+  <dd>{$chraddress}</dd>
+ </dl>
+ <dl>
+  <dt>报名截止</dt>
+  <dd>{$enddate}</dd>
+ </dl>
+ <dl>
+  <dt>带队团长</dt>
+  <dd>{$tuanzhang}&nbsp;QQ:{$chrqq}</dd>
+ </dl>
+ <!--状态-->
+ <i class="pass{$iskill}"></i>
+</div>
+<!--活动介绍-->
+<div class="active_intro">
+ <div class="title"><span>活动介绍</span></div>
+ <div class="con" id="resizeIMG">
+  {$content}
+ </div>
+ <div class="more" id="moreresizeIMG">展开更多</div>
+</div>
+<!--分享-->
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   {$Mh163k_wap_整站通用_分享代码}
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	var url = '{$SiteUrl}request.ashx?action=weixinfx&jsoncallback=?&url='+encodeURIComponent(window.location.href);
+	$.getJSON(url,function(data){
+		if(data[0].islogin !== '1'){
+			//没有开启微信分享或配置有误
+			$('#wx_tqq,#wx_renren,#wx_tieba').css('display','block');
+			console.info('没有开启微信分享或配置有误');
+		}else{
+			wx.config({
+				debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: data[0].MSG.appid, // 必填，公众号的唯一标识
+				timestamp: parseInt(data[0].MSG.timestamp), // 必填，生成签名的时间戳
+				nonceStr: data[0].MSG.noncestr, // 必填，生成签名的随机串
+				signature: data[0].MSG.signature,// 必填，签名，见附录1
+				jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+			wx.ready(function(){
+				$('#wx_message').css('display','block').bind('click',function(e){
+					e.preventDefault();
+					wx.onMenuShareAppMessage({
+						title: '{$chrtitle}', // 分享标题
+						desc: '活动地点：{$chraddress}，报名截止：{$enddate}', // 分享描述
+						link: '{$tuangouurl}huodong_{$activeid}.html', // 分享链接
+						imgUrl: '{$filepath1}', // 分享图标
+						type: '', // 分享类型,music、video或link，不填默认为link
+						dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+						success: function () {},
+						cancel: function () {}
+					});
+				});
+				$('#wx_shareQQ').css('display','block').bind('click',function(e){
+					e.preventDefault();
+					wx.onMenuShareQQ({
+						title: '{$chrtitle}', // 分享标题
+						desc: '活动地点：{$chraddress}，报名截止：{$enddate}', // 分享描述
+						link: '{$tuangouurl}huodong_{$activeid}.html', // 分享链接
+						imgUrl: '{$filepath1}', // 分享图标
+						success: function(){},
+						cancel: function(){}
+					});
+				});
+				$('#wx_timeline').css('display','block').bind('click',function(e){
+					e.preventDefault();
+					wx.onMenuShareTimeline({
+						title: '{$chrtitle}', // 分享标题
+						link: '{$tuangouurl}huodong_{$activeid}.html', // 分享链接
+						imgUrl: '{$filepath1}', // 分享图标
+						success: function () {},
+						cancel: function () {}
+					});
+				});
+			});
+		}
+	});
+   </script>-->
+  </div>
+ <!--网友评论-->
+<div class="user_reviews">
+	<div class="title"><span>网友评论</span><div class="ComentNum" id="show_total_revert">2</div></div>
+	<div id="showcomment">正在加载数据，请稍等......</div>
+	<form id="myform">
+		<div class="write2014">
+			<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+			<input type="hidden" id="isrep" value="" />
+			<input type="hidden" id="istg" value="" />
+			<input type="hidden" id="parentid" value="" />
+			<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+			<div class="cmt_control clearfix">
+				<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+				<div class="left">文明上网 礼貌发帖 仅限300字</div>
+			</div>
+		</div>
+	</form>
+</div> 
+{$bottom$}
+<div class="mask" id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var filepath1 = '{$filepath1}';
+var shareImg =  nowdomain + filepath1.replace('../','');
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','活动地点：{$chraddress}，报名截止：{$enddate}',shareImg,'{$tuangouurl}huodong_{$activeid}.html');
+	});
+}
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$activeid}';
+window['STYLEID'] = '2';
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-40,480);
+	getnum('{$activeid}');
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	if($('#resizeIMG').html().length > 1000){
+		$('#resizeIMG').css({'height':'120px','overflow':'hidden'});
+		$('#moreresizeIMG').click(function(){
+			$(this).hide();
+			$('#resizeIMG').css({'height':'auto','overflow':'visible'});
+		});
+	}
+})(jQuery);
+
+function getnum(sid){
+	var url = nowdomain+'request.ashx?action=chrnum&key=active&id='+sid+'&jsoncallback=?';
+	$.getJSON(url,function(data){
+		var obj = data[0]['MSG'][0];
+		for(var k in obj){
+			$('#suc_num').html(obj[k][0]['intnum']);
+		}
+	});
+}
+function showwybaoming(val,tt){
+	var heightV = 330;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var martop = Math.ceil(($(window).height()-heightV)/2);
+	inner_iframe.css({'top':martop+'px'});
+	
+	if(tt=="1"){
+		mask.show();
+		inner_iframe.show();
+		var myiframe = '<iframe src="../baoming.aspx?activeid='+val+'" scrolling="no" frameBorder="0" width="100%" height="'+heightV+'"></iframe>';
+		inner_iframe[0].innerHTML=myiframe;	
+	}
+	else{
+		if(document.getElementById('isLogin').value !== '1'){	
+			window.location.href=nowdomain+"member/login.html?from="+(encodeURIComponent(window.location.href));
+		}
+		else{
+			mask.show();
+			inner_iframe.show();
+			var myiframe = '<iframe src="../baoming.aspx?activeid='+val+'" scrolling="no" frameBorder="0" width="100%" height="'+heightV+'"></iframe>';
+			inner_iframe[0].innerHTML=myiframe;
+		}
+	}
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+</script>
+</body>
+</html>

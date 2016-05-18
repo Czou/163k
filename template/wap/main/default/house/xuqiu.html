@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>求租求购-{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '求租求购';
+</script>
+{$top$}
+
+<div class="post_btn"><a href="{$fcurl}qiugou.aspx" id="seniorSend">发需求</a></div>
+<div class="o_main">
+
+<div class="filter2 filterMore" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_lei">全部信息</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_quyu">全部区域</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="s_txt_time">全部时间</span><em></em></a></li>
+		
+	</ul>
+	<div class="inner" style="display:none;" id="s_list_lei">
+        <ul>
+			<li><a href="xuqiu.html?quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}" class="{$House_LeixingClass1}">全部信息</a></li>
+			<li><a href="xuqiu.html?tt=0&quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}" class="{$House_LeixingClass2}">求租信息</a></li>
+			<li><a href="xuqiu.html?tt=1&quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}" class="{$House_LeixingClass3}">求购信息</a></li>
+		</ul>
+	</div>
+	<div class="inner" style="display:none;" id="s_list_quyu">
+		{$House_Xuqiuquyu}
+	</div>
+	<div class="inner" style="display:none;" id="s_list_time">
+		<ul>
+			<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}" class="{$House_Leixingday1}">全部时间</a></li>
+			<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=1" class="{$House_Leixingday2}">今天</a></li>
+			<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=2" class="{$House_Leixingday3}">本周</a></li>
+			<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=3" class="{$House_Leixingday4}">本月</a></li>
+			<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=4" class="{$House_Leixingday5}">本季度</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg fullbgMore" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+
+<div class="new_active">
+<div class="info_list xuqiu_list">
+  <ul id="xuqiuList">
+   <tag:Loop ListType="listxuqiulist" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_xuqiu_Tr.html" />
+  </ul>
+  <div class="pageNav2 pageNav3">
+    {$PageSplit}
+  </div>
+ </div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script>
+(function($){
+	$('#s_txt_lei').html($('#s_list_lei').find('.current').html());
+	$('#s_txt_quyu').html($('#s_list_quyu').find('.selected').html());
+	$('#s_txt_time').html($('#s_list_time').find('.current').html());
+	
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	$('#xuqiuList').find('.link').bind('click',function(e){
+		e.preventDefault();
+		var itarget = $(this).parent();
+		if(itarget.hasClass('show')){
+			itarget.removeClass('show');
+		}else{
+			itarget.siblings('li').removeClass('show');
+			itarget.addClass('show');
+		}
+		
+	});
+	//$('#xuqiuList').find('li').eq(0).addClass('show');
+})(jQuery);
+
+</script>
+</body>
+</html>

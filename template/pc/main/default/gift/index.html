@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{$lanmuname}-{$SiteName}</title>
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}skin/lipin2015.css">
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain = "{$SiteUrl}";</script>
+{$top$}
+<body>
+    <div class="w-1200 mb-60 clearfix">
+        <div class="crumb-bar clearfix">
+            <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <span class="cur_tit">{$lanmuname}</span>
+        </div>
+        <div class="lp-topinfo clearfix">
+            <div class="lp-banner">
+                1.兑换前检查金币是否足够；<br>
+                2.真实填写兑换申请表，提交后客服会与您取得联系；<br>
+                3.兑换成功后将自动从您的账户扣除金币。
+            </div>
+            <div class="user-login">
+                <div class="no-login">
+                    <div class="user-head2"></div>
+                    <p id="noLogin"><a href="{$SiteUrl}member/login.html?from={$SiteUrl}gift%2Findex.html">您好，请先登录</a></p>
+					<p id="yesLogin" style="display:none;"></p>
+                </div>
+                <div class="user-info hide">
+                    <div class="user-head2"><img src="temp/user_head.jpg" alt="163K.COM"></div>
+                    <p>您好，163K.COM</p>
+                    <dl class="clearfix">
+                        <dt>您的积分</dt>
+                        <dd><span class="count"></span> 金币</dd>
+                    </dl>
+                    <a href="{$SiteUrl}member/index.html" target="_blank" class="ent">进入个人中心</a>
+                </div>
+            </div>
+        </div>
+        <div class="lp-list">
+            <ul class="clearfix">
+                <tag:Loop ListType="listgiftqian" RecType="New" PageSize="28" ColorSplit="1" TitleLen="12" RecColumn="5" CusTpl="1" Template="gift/listgift.html" />
+            </ul>
+        </div>
+        <div class="fc_pageNavigation">{$PageSplit}</div>
+        <div class="lp-sm">
+            <h4>踊跃参与网站各项活动、积极参与网站互动均可获得金币奖励</h4>
+            <p>1、兑换钱请检查金币是否足够；</p>
+            <p>2、真实填写兑换申请表，提交后客服会与您取得联系；</p>
+            <p>3、兑换成功后将会自动从您的账户扣除金币</p>
+        </div>
+   </div>
+{$bottom$}
+
+<div id="mask" style="display:none"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+    $('#mySle').selectbox();$('#mySle2').selectbox();
+    $(document).modCity();
+    $('#fabu').showMore();
+    $('#weixin').showMore();
+    $.returnTop();
+});
+function getUserState(){
+	if(!$.isEmptyObject(window['userDate']) && typeof window['userDate'].islogin !== 'undefined'){
+		$('#noLogin').hide();
+		$('#yesLogin').html('您好，'+window['userDate'].name+'！欢迎登录{$SiteName}。').show();
+	}
+}
+</script>
+</body>
+</html>

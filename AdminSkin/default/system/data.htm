@@ -1,0 +1,78 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">数据库连接参数设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=datasave">
+     <tr > 
+      <td width="24%" height="25">网站服务器IP地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="datasource" value="{$datasource$}" type="text" id="chrfile" size="30"></td>
+    </tr>
+   
+<tr > 
+      <td width="24%" height="25">网站SQL用户名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="userid" value="{$userid$}" type="text" id="chrfile" size="30"></td>
+    </tr>
+ <tr > 
+      <td width="24%" height="25">网站SQL密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="password" value="{$password$}" type="password" id="chrfile" size="30"></td>
+    </tr>
+<tr > 
+      <td width="24%" height="25">网站数据库名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="databasename" value="{$databasename$}" type="text" id="chrfile" size="30"></td>
+    </tr>
+
+<!--<tr > 
+      <td width="24%" height="25">论坛服务器IP地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="bbsdatasource" value="{$bbsdatasource$}" type="text" id="chrfile" size="30"></td>
+    </tr>
+   
+<tr > 
+      <td width="24%" height="25">论坛SQL用户名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="bbsuserid" value="{$bbsuserid$}" type="text" id="chrfile" size="30"></td>
+    </tr>
+ <tr > 
+      <td width="24%" height="25">论坛SQL密码<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="bbspassword" value="{$bbspassword$}" type="password" id="chrfile" size="30"></td>
+    </tr>
+<tr > 
+      <td width="24%" height="25">论坛数据库名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="bbsdatabasename" value="{$bbsdatabasename$}" type="text" id="chrfile" size="30"></td>
+    </tr>-->
+    <tr > 
+	<td></td>
+      <td height="25"  class="category">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定备份"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+

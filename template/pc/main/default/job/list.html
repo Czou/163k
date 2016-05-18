@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+  <div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; {$chrcategory}</div>
+  <!-- 主体 -->
+  <div id="content" class="v2013">
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_list news_list2">
+					<div class="hd">{$chrcategory}</div>
+					<ul>
+						<tag:Loop ListType="listarticlezpqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="100" RecColumn="5" CusTpl="1" Template="job/listarticle.htm" />
+					</ul>
+					<div class="pageNav_2013">
+						{$PageSplit}
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mo_2 zhiwei">
+					<div class="hd">最新职位</div>
+					<div class="bd">
+						<ul>
+							{$jobindex12}
+						</ul>
+					</div>
+					<div class="ft"><a href="zhiwei.html">更多</a></div>
+				</div>
+				<div class="mo_2 marTop10 zhiwei">
+					<div class="hd">推荐人才</div>
+					<div class="bd">
+						<ul>
+							{$indexremenrencai}
+						</ul>
+					</div>
+					<div class="ft"><a href="rencai.html">更多</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmutitle}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/tieba.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+<script>
+window['Bigcategory'] = '{$a}';
+</script>
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$tiebaurl}">{$lanmuname}</a><span class="display{$a}"> &gt; <a href="../tieba_a{$a}_b0_c0_d0_e0_f0_g0_h0_i0_p1.html">{$bigchrcategory}</a></span></div>
+		
+		<div class="tieba clearfix">
+          <div class="definit">{$Mh163k_贴吧_自定义html}</div>
+          <!--侧栏-->
+          <div class="tb_side left">
+            <div class="reg" id="qiandaoWrap">
+              <div class="reg_inner clearfix"><a href="javascript:void(0);" onClick="return checkQD();" id="qiandao" class="qiandao">签到</a><span class="left">{$system_datetime MM月dd日}<br>漏签<em class="yellow" id="qdlou">0</em>天</span></div>
+			 <div id="wrap_kalendar_node" class="wrap_kalendar_node" style="display:none;"><div class="sign_tip_bd_arr"></div><div id="wrap_kalendar"></div><p class="qiandaolx">连续签到：<em id="qdlian">0</em>天　当月累计签到：<em id="qdmonths">0</em>天　总计：<em id="qdallnum">0</em>天</p></div>
+            </div>
+            <div class="title">我的贴吧</div>
+            <div class="user_info" id="userInfo" style="display:none;">
+				<div class="head_img"><img src="{$Default_tplPath}images/defalut_face.gif" alt="" /></div>
+             <div style="text-align:center;">您还没有<a href="{$SiteUrl}member/login.html?from={$tiebaurl}" target="_blank">登录</a></div>
+             
+			</div>
+            <div class="tb_nav">
+             <ul><li id="s_a_0"><a href="{$tiebaurl}" data-bazhu="0" onClick="return showCatA('items00',{'a':'0','b':'0','_key':''},this)">全部版块</a></li>{$Category_div}</ul>
+            </div>
+            <div class="ewm"><p>手机访问贴吧</p><img src="{$tiebawapimg}" onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" /></div>
+          </div>
+          <!--侧栏 ernd-->
+          <!--列表-->
+		  <div class="col_tb_main right">
+		    <div class="tongji clearfix">
+				<div class="left"><span class="tit" id="tiebaCatChr">全部帖子</span>　帖子：<em>{$allnum}</em>　今日：<em>{$Todaynum}</em>　昨日：<em>{$Yesterdaynum}</em></div>
+				<div class="right"><form id="mySearch"><input type="text" id="keyword" class="kw" /><input type="submit" value="搜索" class="sbtn" /></form></div>
+			</div>
+			<div class="blank10"></div>
+          <div class="tb_main">
+            
+			<div class="filter_title clearfix" id="filter_title">
+             <ul class="clearfix">
+              <li class="item  cur"><a href="javascript:void(0);" class="all p" onClick="return getPagingGlobal({'h':'0'},this);">全部</a></li>
+              <li class="item"><a href="javascript:void(0);" class="j p" onClick="return getPagingGlobal({'h':'1'},this);">精华</a></li>
+			  <li class="item po_re" id="allZhuti" style="display:none;"><a href="javascript:void(0);" class="k p" id="smallCatTxt">全部主题分类</a><ul class="po" id="smallCat"></ul></li>
+			  <li class="item po_re" id="allPaixu"><a href="javascript:void(0);" class="h p" id="smallHuifuTxt">默认排序</a><ul class="po2">
+			    <li><a href="javascript:void(0);" onClick="return showCatB({'e':'0'},'#smallHuifuTxt',this);">最后回复</a></li>
+				<li><a href="javascript:void(0);" onClick="return showCatB({'e':'1'},'#smallHuifuTxt',this);">最新发贴</a></li>
+				<li><a href="javascript:void(0);" onClick="return showCatB({'e':'3'},'#smallHuifuTxt',this);">最多回复</a></li>
+				<li><a href="javascript:void(0);" onClick="return showCatB({'e':'4'},'#smallHuifuTxt',this);">最多浏览</a></li>
+			  </ul></li>
+             </ul>
+			 <div class="fabu_btn"><a href="javascript:void(0);" class="link" id="myFabu_1">发帖</a></div>
+              <div class="s" id="bazhuNode"></div>
+            </div>
+            
+            <div class="list">
+             <ul id="pagingList">
+	<Paging:{
+	"table_id":"25",	
+	"pagesize":20,		
+	"strlen":80,	
+	"titlelen":80,
+	"tplpath":"tieba",	
+	"tplname":"paging_tieba_index_list.html",	
+	"isjson":0 	
+	}
+	/></ul>
+             <div class="pageNavigation" id="pageNavigation">{$PageSplit}</div>
+            </div>
+			<!--发表新帖-->
+            <div class="send_new clearfix">
+              <h4 id="fabuForm">发表新帖</h4>
+			  <form action="{$tiebaurl}addedit.aspx?action=save" method="post" target="tijiao" onSubmit="return checkmyfabu();" enctype="multipart/form-data">
+			    <input type="hidden" id="isfabukill" value="0" />
+				<input type="hidden" id="fabu_bigcategoryid" name="bigcategoryid" value="" />
+				<input type="hidden" id="fabu_categoryid" name="categoryid" value="" />
+			  	<input type="hidden" data-title="标题颜色" class="textInt" size="7" name="color" />
+				<input type="hidden" data-title="远程图片本地化" class="textInt" value="1" name="issavehttpimg" />
+				<input type="hidden" value="0" name="filewidth" />
+				<input type="hidden" value="90" name="filehight" />
+              <div class="title"><input type="text" id="fabu_title" maxlength="50" name="title" placeholder="请填写标题" /></div>
+              <div class="editor"><script id="chrcontent" name="chrcontent" type="text/plain" style="height:300px;"></script></div>
+              <div class="send_btn clearfix"><a href="javascript:void(0);" id="seniorSend" target="_blank" class="right blue">[高级发帖模式]</a><input type="submit" value="发表" class="send" />承诺遵守文明发帖，国家相关法律法规</div>
+			  </form>
+            </div>
+          </div>
+          <!--列表 end-->
+		  </div>
+        </div>
+	</div>
+	{$bottom$}
+</div>
+<div class="rmenu"><ul><li class="fabu"><a href="javascript:void(0);" class="link" id="myFabu" title="发帖">发帖</a></li><li class="f5"><a href="javascript:void(0);" onClick="return getPagingGlobal();" class="link" title="刷新">刷新</a></li><li class="share po_re" title="分享" id="myShare"><a href="javascript:void(0);" class="link">分享</a><div class="po content"><span style="float:left; font-size:12px; line-height:40px;">分享到：</span>{$Mh163k_整站通用_分享代码}</div></li><li id="top"><a href="javascript:void(0);" class="link" title="返回顶端">返回顶端</a></li></ul></div>
+<div class="media_box" id="media_box">
+	<div class="p_tools">
+		<a class="p_putup" href="#">收起</a><span class="line">|</span><a class="tb_icon_ypic" href="" target="_blank">查看大图</a><span class="line">|</span><a class="tb_icon_turnleft" href="#">向左转</a><span class="line">|</span><a class="tb_icon_turnright" href="#">向右转</a>
+	</div>
+	<div class="media_bigpic_wrap"><img class="j_large_pic" cur="0" src="about:blank" /></div>
+	<div class="bigpic_display_pre bigpic_turn"></div>
+	<div class="bigpic_display_next bigpic_turn"></div>
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js?{$CacheHash}"></script>
+<script>
+window["ueuploadcfg"]={"table_id":"tieba","filewidth":"900","filehight":"0"};
+</script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js?{$CacheHash}"></script>
+<script type="text/javascript" src="/ueditor/ueditor.all.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/tieba.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/kalendar.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.colorpicker.js?{$CacheHash}"></script>
+<script>
+window['islazyImg'] = true; //是否开启了延迟加载图片
+var nowdomain ="{$SiteUrl}";
+window['Default_tplPath'] = '{$Default_tplPath}';
+
+var ueConfig = {toolbars: [['fullscreen', 'emotion', 'simpleupload', 'insertimage', 'scrawl', 'music', 'insertvideo', 'snapscreen', 'map']],theme:'defaulti',wordCount:true,maximumWords:10000,autoHeightEnabled:false};
+var ueSize1 = '{$isfabusize}';
+ueSize1 === '0'&&(ueConfig.wordCount = false);
+ueConfig.maximumWords = ueSize1;
+var ue = UE.getEditor('chrcontent',ueConfig);
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.rmenuShow();
+	setTimeout(function(){lazyImg('#pagingList .n_img',false);},50);
+	$(window).bind("scroll",function(){
+		lazyImg('#pagingList .n_img',false);
+	});
+	$('.n_img').myAlbum();
+	if('{$a}' !== '0'){
+		$('#s_a_{$a}').addClass('cur');
+	}else{
+		$('#s_a_0').addClass('cur');
+	}
+	$('#mySearch').submit(function(e){
+		e.preventDefault();
+		getPagingGlobal({'_key':$('#keyword').val()});
+	});
+	$('#allZhuti,#allPaixu,#myShare').hover(function(){
+		$(this).toggleClass('open');
+	});
+	$('#seniorSend').click(function(e){
+		e.preventDefault();
+		isfabukill()&&window.open('{$tiebaurl}addedit.aspx?bigcategoryid='+keyvalues['a']+'&categoryid='+keyvalues['b']);
+	});
+	$('#fabu_title').focus(function(){
+		isfabukill();
+	});
+	ue.addListener('focus',function(){
+		isfabukill();
+	});
+	function isfabukill(){
+		if($('#isfabukill').val() === '0'){
+			MSGwindowShow('tieba','1','请登录后再发表新帖！',nowdomain+'member/login.html?from='+encodeURIComponent('{$tiebaurl}addedit.aspx?bigcategoryid='+keyvalues['a']+'&categoryid='+keyvalues['b']),'');
+			return false;
+		}
+		return true;
+	}
+});
+var keyvalues = {"table_id":"25",
+	"pagesize":"20",
+	"tplpath":"tieba",
+	"tplname":"paging_tieba_index_list.html",
+	"strlen":"80",	
+	"titleLen":"80",
+	"isjson":"0",
+	"p":"{$PageNo}",
+	"_key":"{$_key}",
+	"a":"{$a}",//板块
+	"b":"{$b}",//小类
+	"e":"{$e}",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"g":"{$g}",//只查看某用户贴(userid)
+	"h":"{$h}",//只看精华
+	"i":"{$i}"//有图
+};
+function checkmyfabu(){
+	$('#fabu_bigcategoryid').val(keyvalues.a);
+	$('#fabu_categoryid').val(keyvalues.b);
+	if($('#fabu_title').val() === ''){
+		MSGwindowShow('tieba','4','请输入帖子标题！','','');
+		return false;
+	}
+	if(!ue.hasContents()){
+		MSGwindowShow('tieba','4','请输入帖子内容！','','');
+		return false;
+	}
+}
+function showCatA(mm,obj,node){
+	getPagingGlobal(obj,node);
+	$('#smallCatTxt').html('全部主题分类');
+	$('#tiebaList').removeClass('showManage');
+	if(!$('#'+mm)[0] || $('#'+mm).html() === ''){
+		$('#allZhuti').hide();
+	}else{
+		$('#smallCat').html($('#'+mm).html());
+		$('#allZhuti').show();
+	}
+	var bazhu = $(node).attr('data-bazhu');
+	if(bazhu !== '0'){
+		$('#bazhuNode').html('版主：'+bazhu);
+	}else{
+		$('#bazhuNode').html('');
+	}
+	window['Bigcategory'] = obj.a;
+	getUserState();
+	$("html,body").animate({scrollTop: $('#qiandaoWrap').offset().top},300);
+	return false;
+}
+function showCatB(obj,sid,node){
+	getPagingGlobal(obj,node);
+	$(sid).html($(node).html());
+	return false;
+}
+
+//翻页调用  getPagingGlobal({'p':'页数'});
+//getPagingGlobal();//初始化页面
+</script>
+
+</body>
+</html>

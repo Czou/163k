@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>登记发布您的求租需求、求购需求-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+window['ipageTitleTxt'] = '发布求租求购';
+</script>
+{$top$}
+
+<div class="o_main">
+<form name="formt" action="?action=save" style="margin:0" method="post" onSubmit="return checkaddxuqiu(this);">
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>标题</dt>
+   <dd><input type="text" name="chrtitle" value="" placeholder="输入标题，6-40字" /></dd>
+  </dl>
+  <dl class="clearfix sel_radio_form" data-name="styleid">
+   <dt>性质</dt>
+   <dd>
+   <span class="display0"><input name="styleid" type="radio" value="0" checked><input name="styleid" type="radio" value="1"></span>
+    <span class="gx_radio current" data-val="0">求租</span>
+    <span class="gx_radio" data-val="1">求购</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox"> 
+  <div style="display:none;">{$House_classid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>区域</dt>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox">
+  
+  
+  <dl class="clearfix">
+   <dt>您的称呼</dt>
+   <dd><input type="text" placeholder="请输入您的称呼" name="chrman" id="chrman" value="" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>联系电话</dt>
+   <dd><input type="text" placeholder="请输入您的联系电话" name="chrtel" id="chrtel" value="" /></dd>
+  </dl>
+  
+ </div>
+
+ 
+ <div class="inp_Itembox">
+  <textarea id="chrcontent" name="chrcontent" placeholder="请输入描述文字，仅限1000字" class="txt"></textarea>
+  <dl class="clearfix"> 
+   <dt>验证码</dt>
+   <dd><input type="text" placeholder="请输入验证码" name="code" id="code" value="" /><span class="yuan"><img src="../getcode.html" id="vadimg" onClick="this.src='../getcode.html?'+(new Date().getTime());" style="cursor:hand;" alt="看不清楚请刷新" align="absmiddle"/></span></dd>
+  </dl>
+ </div>
+ <button type="submit" class="fb">确 认</button>
+</form>
+{$bottom$}
+
+<script>
+$(document).ready(function(){
+	$('.sel_radio_form').radioForm();
+	$('#categoryid2').append($('#loupancategory').detach());
+	$('#categoryid1').append($('#qu_classid').detach());
+});
+function checkaddxuqiu(o){
+	if(o.chrtitle.value==""){
+		MSGwindowShow('qiugou','0','对不起,请输入标题!','','');
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		MSGwindowShow('qiugou','0','对不起,请选择区域!','','');
+		return false;
+	}
+	if(o.chrman.value==""){
+		MSGwindowShow('qiugou','0','对不起,请输入您的称呼!','','');
+		return false;
+	}
+	if(o.chrtel.value==""){
+		MSGwindowShow('qiugou','0','对不起,请输入您的联系电话!','','');
+		return false;
+	}
+	if(o.chrcontent.value==""){
+		MSGwindowShow('qiugou','0','对不起,请输入描述文字!','','');
+		return false;
+	}
+	if(o.code.value==""){
+		MSGwindowShow('qiugou','0','对不起,请输入验证码!','','');
+		return false;
+	}
+}
+function showloupancategory(str,nowcc){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str;
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.get(url,function(data){
+			var sel=document.getElementById("qu_classid");
+			var val="选择地段";
+			var str =data;
+			sel.options.length=0;
+			var arrstr = new Array();
+			arrstr = str.split(",");
+			
+			sel.options.add(new Option( val,"")); 
+			if(str.length>0)   {
+				for(var i=0;i<arrstr.length-1;i++){
+					//分割字符串
+					var subarrstr=new Array
+					subarrstr=arrstr[i].split("|")
+					//生成下级菜单
+					sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+					if(nowcc==subarrstr[0])
+					{  sel.options[i+1].selected=true;
+					}
+				}
+			}
+		})
+	} 
+} 
+</script>
+</body>
+</html>

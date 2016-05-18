@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<script>
+window['ipageTitleTxt'] = '留言反馈';
+</script>
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; 留言反馈</div>
+		<div class="register-form-hd" style="margin:15px 15px 5px;">发表留言</div>
+		<div class="register-form">
+			<form id="myform">
+				<div class="write2014">
+					<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+					<input type="hidden" id="isrep" value="" />
+					<input type="hidden" id="istg" value="" />
+					<input type="hidden" id="parentid" value="" />
+					<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+					<div class="cmt_control clearfix">
+						<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+						<div class="left">文明上网 礼貌发帖 仅限300字</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="mod_01" style="margin-top:20px;">
+			<div class="hd">网友留言</div>
+			<div class="bd">
+				<div id="showcomment">正在加载数据，请稍等......</div>
+			</div>
+		</div>
+		
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '0';
+window['STYLEID'] = '0';
+window['TPLNUM'] = '0';
+(function($){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	
+})(jQuery);
+</script>
+</body>
+</html>

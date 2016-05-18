@@ -1,0 +1,49 @@
+<tr >
+  <td align="right">类型设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="s_leixingType" {$s_leixingType0} onClick="s_leixingshow1.style.display='none';s_leixingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="s_leixingType" {$s_leixingType1}  onClick="s_leixingshow1.style.display='';s_leixingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="s_leixingType" {$s_leixingType2} onClick="s_leixingshow1.style.display='none';s_leixingshow2.style.display=''">
+    自定义类型</td>
+</tr>
+<tr   id="s_leixingshow1" style="display:{$s_leixingshow1}">
+  <td align="right" ><font color=blue>类型开始标记：</font>
+    <p>　</p>
+    <font color=blue>类型结束标记：</font></td>
+  <td alang="left"><textarea name="s_leixingsString" cols="70" rows="3">{$s_leixingsString}</textarea>
+    <br>
+    <textarea name="s_leixingoString" cols="70" rows="3">{$s_leixingoString}</textarea></td>
+</tr>
+<tr  id="s_leixingshow2" style="display:{$s_leixingshow2}">
+  <td align="right" ><font color=blue>请指定类型：</font></td>
+  <td align=left><input type="radio" name="s_leixing" value="0" {$s_leixing0}>
+    提供
+    <input type="radio" name="s_leixing" value="1"  {$s_leixing1}>
+    需求 </td>
+</tr>
+<tr >
+  <td align="right">属性设置：</td>
+  <td align="left" class="category"><input type="radio" value="0" name="s_shuxingType" {$s_shuxingType0} onClick="s_shuxingshow1.style.display='none';s_shuxingshow2.style.display='none'">
+    不作设置&nbsp;
+    <input type="radio" value="1" name="s_shuxingType" {$s_shuxingType1}  onClick="s_shuxingshow1.style.display='';s_shuxingshow2.style.display='none'">
+    标签生成&nbsp;
+    <input type="radio" value="2" name="s_shuxingType" {$s_shuxingType2} onClick="s_shuxingshow1.style.display='none';s_shuxingshow2.style.display=''">
+    自定义属性</td>
+</tr>
+<tr   id="s_shuxingshow1" style="display:{$s_shuxingshow1}">
+  <td align="right" ><font color=blue>属性开始标记：</font>
+    <p>　</p>
+    <font color=blue>属性结束标记：</font></td>
+  <td alang="left"><textarea name="s_shuxingsString" cols="70" rows="3">{$s_shuxingsString}</textarea>
+    <br>
+    <textarea name="s_shuxingoString" cols="70" rows="3">{$s_shuxingoString}</textarea></td>
+</tr>
+<tr  id="s_shuxingshow2" style="display:{$s_shuxingshow2}">
+  <td align="right" ><font color=blue>请指定属性：</font></td>
+  <td align=left><input type="radio" name="s_shuxing" value="0" {$s_shuxing0}>
+    个人
+    <input type="radio" name="s_shuxing" value="1"  {$s_shuxing1}>
+    商家 </td>
+</tr>
+

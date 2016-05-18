@@ -1,0 +1,8 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><a href="{$fcurl}loupan_{$ID}.html" target=_blank>{$chrloupan}</a></td><td>{$chrcategory}</td><td>{$smallcategory}</td>
+	<td>{$xiashoutypeid}</td><td>{$iskill}</td><td>{$dtappenddate}</td>
+
+	<td align="center"><a href="?action=price&ID={$ID}">价格</a> <a href="?action=e1&ID={$ID}">房型图</a> <a href="?action=edit&ID={$ID}">编辑</a> <a href="javascript:del({$ID});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

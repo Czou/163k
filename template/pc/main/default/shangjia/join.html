@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>开通店铺-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.chrshop.value==""){
+		alert("请输入店铺名称!");
+		o.chrshop.focus();
+		return false;
+	}
+	if(o.qu_catgoryid.value==""){
+		alert("请选择店铺大类!");
+		o.qu_catgoryid.focus();
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("请选择店铺小类!");
+		o.qu_classid.focus();
+		return false;
+	}
+	if(o.chrdiqu.value==""){
+		alert("请选择店铺地区!");
+		o.chrdiqu.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">开通店铺</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">提交资料后，需要管理员等待审核。</div>
+						</div>
+						<div class="forms">
+							<form name="form1" action="?action=addshopsave" target="tijiao" onSubmit="return checkform(this)" method="post">
+								<p class="tr"><span class="sp_a">店铺名称：</span><span class="sp_b"><input type="text" name="chrshop" id="chrshop" class="sys_form_ipt" onBlur="checkaddchrshop();" /></span><span class="sp_c" id="checkchrshop">必填</span></p>
+								<p class="tr"><span class="sp_a">店铺分类：</span><span class="sp_b">{qu_classid}</span><span class="sp_c">必填</span></p>
+								<p class="tr"><span class="sp_a">店铺风格模板：</span><span class="sp_d">{$template}</span></p>
+								
+								<p class="tr"><span class="sp_a">所在区域：</span><span class="sp_d">{$chrdiqu$}</span><span class="sp_c">必填</span></p>
+								<p class="tr"><span class="sp_a">详细地址：</span><span class="sp_d"><input type="text" name="chraddress" id="chraddress" class="sys_form_ipt" value="" /> <a href="#" class="sys_btn_blue" onClick="return set_image();">标注地理位置</a><input type="hidden" id="shop_x" name="shop_x"  value=""><input type="hidden" id="shop_y" name="shop_y"  value=""><input type="hidden" id="ggmap" name="ggmap"  value="1"><input type="hidden" id="shop_z" name="shop_z"  value=""></span><span class="sp_c">必填</span></p>
+								
+								
+								<p class="tr"><span class="sp_a">店铺logo：</span><span class="sp_b"><span id="str1" style="display:none;"><img src="" class="img_block" id="for_url_0" width="150" height="100" alt="" /><a href="#" onClick="return upload_img_action_X('str1','str2');" class="sys_btn_small_blue">重新上传</a></span><span id="str2">
+								<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url0" id="url0" /></span><input type="hidden" value="150" name="filewidth" /><input type="hidden" value="100" name="fileheight" /></span><span class="sp_c">最佳尺寸：150x100</span></p>
+								
+								
+								<p class="tr"><span class="sp_a">商家微信二维码：</span><span class="sp_b"><span id="str3" style="display:none;"><img src="" id="for_url_1" class="img_block" width="88" height="88" alt="" /><a href="#" onClick="return upload_img_action_X('str3','str4');" class="sys_btn_small_blue">重新上传</a></span><span id="str4" style="">
+								<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=1&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url1" id="url1" /></span><input type="hidden" value="88" name="filewidth1" /><input type="hidden" value="88" name="fileheight1" /></span><span class="sp_c">二维码生成： <a href="http://cli.im/" target="_blank">http://cli.im/</a></span></p>
+								
+								<p class="tr"><span class="sp_a">手机店铺二维码：</span><span class="sp_b"><span id="str5" style="display:none;"><img src="" id="for_url_2" class="img_block" width="88" height="88" alt="" /><a href="#" onClick="return upload_img_action_X('str5','str6');" class="sys_btn_small_blue">重新上传</a></span><span id="str6" style="">
+								<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=2&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url2" id="url2" /></span><input type="hidden" value="88" name="filewidth2" /><input type="hidden" value="88" name="fileheight2" /></span><span class="sp_c">二维码生成： <a href="http://cli.im/" target="_blank">http://cli.im/</a></span></p>
+								
+								<p class="tr"><span class="sp_a">联系电话：</span><span class="sp_b"><input type="text" name="chrtel" id="chrtel" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">联系QQ：</span><span class="sp_b"><input type="text" name="chrqq" id="chrqq" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">微信号：</span><span class="sp_b"><input type="text" name="weixin" id="weixin" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">交通线路：</span><span class="sp_b"><input type="text" name="chrjiaotong" id="chrjiaotong" class="sys_form_ipt" value="" size="30" /></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">营业时间：</span><span class="sp_b"><input type="text" name="chrdate" id="chrdate" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">折扣：</span><span class="sp_b"><input type="text" name="zhe" id="zhe" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">比如95折，88折</span></p>
+								<p class="tr"><span class="sp_a">人均消费：</span><span class="sp_b"><input type="text" name="consumption" id="consumption" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">&nbsp;</span></p>
+								
+								<p class="tr"><span class="sp_a">本店特色：</span><span class="sp_b"><input type="text" name="shoptese" id="shoptese" class="sys_form_ipt" value="" size="20" /></span><span class="sp_c">比如：绿色、无污染、土特产品</span></p><p class="tr"><span class="sp_a">店铺简介：</span><span class="sp_b"><textarea name="chrmark" class="sys_form_ipt" style="width:370px;height:100px;"></textarea></span><span class="sp_c">&nbsp;</span></p>
+
+               					 <p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$tplPath}js/javascript.js"></script>
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/join.js"></script>
+<script>
+(function($){
+	if($('#url0').val() === ''){
+		upload_img_action_X('str1','str2');
+	}else{
+		upload_img_action_X('str2','str1');
+	}
+	$('#bigchrdiqu').bind('change',function(){
+		showTgQuyu($(this).val(),'chrdiqu');			   
+	});
+})(jQuery);
+
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	tag.attr({'src':surl});
+	if(num === '0'){
+		upload_img_action_X('str2','str1');
+	}else if(num === '1'){
+		upload_img_action_X('str4','str3');
+	}else{
+		upload_img_action_X('str6','str5');
+	}
+}
+</script>
+</body>
+</html>

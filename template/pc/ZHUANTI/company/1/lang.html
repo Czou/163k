@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$add2title}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/starShop.css" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_星级店铺_头部}
+	<div class="content moban{$moban}">
+		<div class="w-1200 po_re">
+			<div class="grid_starHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$chrshop}</span><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="i_qianyue" style="display:{$qianyue}">签约商家</span><span class="i_renzheng" style="display:{$renzheng}">认证商家</span></p>
+					<p class="p">地址：{$chraddress} <a href="#" onClick="return showMap('{$shopid}');" class="blue_font">[查看地图]</a></p>
+					<p class="p">交通路线：{$chrjiaotong}</p>
+					<p class="p">营业时间：{$chrdate}</p>
+					<div class="contact">
+						<span class="tel"><s class="s"></s>{$chrtel}</span>
+						<span class="weixin po_re" id="weixinX4"><s class="s"></s>{$weixin}<span style="display:none;" class="node"><img src="{$shopweixinimg}" id="weixinImg" alt="" />打开微信扫一扫</span></span>
+						<span class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=qq&menu=yes" target="_blank"><s class="s"></s>{$chrqq}</a></span>
+					</div>
+					<p class="p tese">本店特色：{$shoptese}　　　人均消费：<span class="red">{$consumption}</span>元</p>
+					<p class="p">会员折扣：{$zhe} <a href="{$SiteUrl}member/register.html" class="orange_font">[申请会员]</a></p>
+				</div></div>
+				<div class="col_sub">
+					<div class="slide" id="slide">
+						<a class="next" href="#" onClick="return false;"><i class="i"></i></a>
+						<ul class="hd dot" id="tabs"></ul>
+						<a class="prev" href="#" onClick="return false;"><i class="i"></i></a>
+						<div class="bd">
+							<ul class="picList fix" id="output"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mobile_href po_ab"><img onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" src="{$shopwapurlimg}" width="88" height="88" alt="" />手机访问</div>
+			<div class="ico_kuaison po_ab display{$MyGoodShopIskill}"><a href="{$MyGoodShopUrl}" target="_blank"><img src="{$Default_tplPath}images/ico_kuaison.gif" width="190" height="70" alt="" /></a></div>
+		</div>
+		<div class="star_nav">
+			<ul class="w-1200 clearfix" id="star_nav">
+				{$shop_menu_list}
+			</ul>
+		</div>
+		<div class="w-1200">
+			<div class="module_all">
+				<div class="hd">{$add2title}</div>
+				<div class="bd">
+					<div class="about">
+						{$add2content}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script>
+var nowdomain = "{$SiteUrl}";
+(function($){
+	var Lanterninfo=[{$huangdengpian}];
+	var txt = '',
+		txtImg = '';
+	if(Lanterninfo.length > 0){
+		for(var i=0;i<Lanterninfo.length;i++){
+			txtImg+='<li><a href="'+Lanterninfo[i][2]+'"><img src="'+Lanterninfo[i][0]+'" alt="'+Lanterninfo[i][1]+'" /></a></li>';
+			if(i === 0){
+				txt += '<li class="on">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		}
+		$('#output').html(txtImg);
+		$('#tabs').html(txt);
+		setTimeout(function(){$("#slide").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,scroll:1,autoPlay:true});},20);
+		showSlide($('#slide'));
+	}
+	function showSlide(node){
+		var prev = node.find('.prev'),next = node.find('.next');
+		node.hover(function(){
+			prev.toggleClass('show');
+			next.toggleClass('show');
+		});
+	}
+	$('#weixinX4')[0]&&weixinX4();
+})(jQuery);
+/*$(document).ready(function(){
+	var that=$('#star_nav'),
+		url = window.location.href,
+		url_L = url.toLowerCase(),
+		channel = that.find('a'),
+		forlink;
+	channel.each(function(){
+		forlink = $(this).attr("href").toLowerCase();
+		forlink = forlink.replace('?','\\?');
+		var rec = new RegExp(forlink+"$", 'gi');
+		if(rec.test(url_L)){
+			$(this).parent().addClass("cur");
+			
+		}
+	});
+});*/
+</script>
+</body>
+</html>

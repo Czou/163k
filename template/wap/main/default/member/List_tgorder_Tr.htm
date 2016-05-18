@@ -1,0 +1,15 @@
+﻿<li>
+	<div class="pic"><img src="{$chrimage}" onerror="this.src='{$Default_tplPath}images/fabu_nopic1.gif';this.onerror='';" width="50" height="50" style="vertical-align:top" alt="" /></div>
+	<div class="cont">
+		<p class="tit"><a href="mytgorder.aspx?action=look&ID={$ID}&k={$date$}" class="showall">{$chrshop}</a></p>
+		<p class="txt"><span class="gray_font">订单号：</span>{$chrorder}</p>
+		<p class="txt"><span class="gray_font">下单时间：</span>{$Dtappenddate}</p>
+		<!--<p class="po">数量：{$intnum}个<br />合计：<span style="color:#f60">{$moneytotal}元</span></p>-->
+		<p class="po"><a href="mytgorder.aspx?action=look&ID={$ID}&k={$date$}" class="showall btns">详情</a></p>
+		<ul class="xiaofeiquan">{$xiaofeiquan}</ul>
+	</div>
+	
+	<!--<p class="txt"><span class="right"><em class="green">{$iskill}</em><br>有效期：<span style="color:#f60;">{$youxiao}</span></span></p>-->
+	
+	<p class="t_right"><a href="mytgorder.aspx?action=pay&ID={$ID}" class="btns yellow display0{$zhifu}">{$zhifu}</a><a href="javascript:;" onclick="sendquan({$ID});" class="btns display0{$send}">{$send}</a></p>
+</li>

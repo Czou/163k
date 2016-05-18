@@ -1,0 +1,69 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改会员中心菜单&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至会员中心菜单列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave">
+    <tr > 
+      <td  height="25">菜单名称<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="fundetail" type="text"  style="width:200px;" value="{$fundetail}"></td>
+    </tr>
+	  <tr > 
+      <td  height="25">菜单地址： 
+      </td>
+      <td class="category"> <input name="funcfile" type="text"  style="width:320px;"  value="{$funcfile}"> <em class="global_tip">(一级菜单此项不需填写)</em></td>
+    </tr>
+	<tr > 
+      <td  height="25">会员类别<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <select name='categoryidmenu' id='categoryidmenu' onchange='javascript:changemenu(this.value);'>
+                <option value=''>::请选择::</option>
+                <option value='0' {$colname0}>个人会员</option>
+                <option value='1' {$colname1}>普通企业会员</option>
+                <option value='2' {$colname2}>高级企业会员</option>
+              </select>   {$categoryid} <em class="global_tip">(如果是一级菜单,则上级菜单不需选择)</em></td>
+    </tr>
+    <tr > 
+      <td  height="25">排序<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input type="text" name="intseq" value="{$intseq}" size=8></td>
+    </tr>
+	 <tr > 
+      <td  height="25">是否开通： 
+      </td>
+      <td class="category"> <input name="iskill" type="radio" value="0" {$ifshow0} ID="iskill"> 开通<input name="iskill" type="radio" value="1" {$ifshow1}>关闭 <em class="global_tip">(关闭后该类型会员的会员中心将不显示该菜单)</em></td>
+    </tr>
+	 <tr > 
+      <td  height="25">打开方式： 
+      </td>
+      <td class="category"> <input name="isnew" type="radio" value="0"  {$isnew0} ID="isnew"> 原窗口<input name="isnew" type="radio" value="1" {$isnew1} ID="isnew">新窗口</td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" class="category"><input type=hidden name=ID value="{$ID}"><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

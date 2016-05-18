@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$chrtitle} - {$qiyename} - 首页</title>
+<meta name="keywords" content="{$chrkeyword}">
+<meta name="description" content="{$chrdescription}">
+<link type="text/css" rel="stylesheet" href="{$tplPath}bianming/2/skin/global.css" />
+<link type="text/css" rel="stylesheet" href="{$tplPath}bianming/2/skin/style.css" />
+</head>
+<base href="{$bianmingurl}" />
+<body class="index">
+<div class="wrapper">
+	<div class="header clearfix">
+    	<h1 class="logo"><a href="{$qiyeurl}">{$chrlogo}</a></h1>
+		<div class="fav"><a href="javascript:window.external.AddFavorite('{$qiyeurl}','{$qiyename}')" >加入收藏</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$qiyeurl}');">设为首页</a></div>
+    </div>
+    <div class="content">
+    	<div class="nav">
+			<ul class="clearfix">
+				<li  class="current"><a href="{$qiyeurl}">{$text1}</a></li>
+				<li ><a href="{$TargetUrl}about_{$qiyeid}.html">{$text2}</a></li>
+				<li ><a href="{$TargetUrl}ld_{$qiyeid}.html">{$text3}</a></li>
+				<li><a href="{$TargetUrl}news_{$qiyeid}.html">{$text4}</a></li>
+				<li><a href="{$TargetUrl}pic_{$qiyeid}.html">{$text5}</a></li>
+				<li><a href="{$TargetUrl}anli_{$qiyeid}.html">{$text6}</a></li>
+				<li><a href="{$TargetUrl}job_{$qiyeid}.html">{$text7}</a></li>
+				<li><a href="{$TargetUrl}liuyan_{$qiyeid}.html">{$text8}</a></li>
+				<li class="noBor"><a href="{$TargetUrl}lianxi_{$qiyeid}.html">{$text9}</a></li>    
+			</ul>
+		</div>
+		<div class="banner">
+<div class="main">
+	<ul id="per_slideplay"  class="showpic" style="display:none;">
+		{$banners}
+	</ul>
+</div>
+		</div>
+		<div class="white_wrapper">
+			<div class="grid_01">
+				<div class="col_main"><div class="main_wrap">
+					<div class="box_01">
+						<div class="hd"><s></s><strong>{$title1}</strong></div>
+						<div class="bd clearfix about_index">
+							<div class="pic">{$qiyepic}</div>
+							<div class="txt">
+								<h3>{$qiyename}</h3>
+								<p>　　{$chrcontent1}</p>
+							</div>
+						</div>
+						<div class="ft"><a href="{$TargetUrl}about_{$qiyeid}.html" class="more">更多</a></div>
+					</div>
+					<div class="box_01 martop10">
+						<div class="hd"><s></s><strong>{$title2}</strong></div>
+						<div class="bd clearfix about_index">
+							{$chrcontent2}
+						</div>
+						<div class="ft"><a href="{$TargetUrl}about_{$qiyeid}_2.html" class="more">更多</a></div>
+					</div>
+					<div class="box_01">
+						<div class="hd"><s></s><strong>{$text5}</strong></div>
+						<div class="bd product_index">
+							<ul class="clearfix">
+								{$indexpic}
+							</ul>
+						</div>
+						<div class="ft"><a href="{$TargetUrl}pic_{$qiyeid}.html" class="more">更多</a></div>
+					</div>
+				</div></div>
+				<div class="col_sub">
+					<div class="box_02">
+						<div class="hd"><s></s><strong>{$text4}</strong></div>
+						<div class="bd news_index">
+							<ul>
+								{$indexnews}
+							</ul>
+						</div>
+						<div class="ft"><a href="{$TargetUrl}news_{$qiyeid}.html" class="more">更多</a></div>
+					</div>
+					<div class="jobs"><a href="{$TargetUrl}job_{$qiyeid}.html"><img src="{$tplPath}bianming/2/images/jobs.gif" alt="" /></a></div>
+					<div class="contact_index">
+						<div class="tel">{$chrtel}</div>
+						<div class="addr">
+							<p style="margin-left:38px; text-indent:-28pt;">地址：{$chraddress}</p>
+							<p>邮件：<a href="mailto:{$chremail}">{$chremail}</a></p>
+						</div>
+						<div class="guestbook"><a href="{$TargetUrl}liuyan_{$qiyeid}.html" class="link">在线留言</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="links_index">
+				<div class="hd"><a href="{$TargetUrl}link_{$qiyeid}.html">友情链接</A></div>
+				<div class="bd">
+					<ul class="{$tplPath}bianming/1/images clearfix">
+                        {$linkpic}
+                    </ul>
+                    <ul class="text clearfix">
+                        {$linkart}
+                    </ul>
+				</div>
+			</div>
+		</div>
+		
+    </div>
+   <div class="footer">
+    	<p>{$bottomlink}</p>
+		{$chrbottom}
+	</div>
+</div>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/effect_common.js"></script>
+<script type="text/javascript">new dk_slideplayer("#per_slideplay",{width:"930px",height:"247px",fontsize:"12px",time:"5000"});</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$ID}</td>
+	<td align="left" width="400">{$chrgood}</td>
+	<td><span class="display{$isgoodshop}"><span style="color:#f00; font-weight:bold">快店</span>-{$name}</span> <span class="display{$isshop}"><span style=" color:#36F; font-weight:bold">店铺</span>-{$chrshop}</span></td>
+	<!--<td>{$chrname}</td>-->
+	<td>{$dtappenddate}</td>
+	<td>{$istop}</td>
+	<td>{$iskill}</td>
+	<td align="center"><!--<a href="good.aspx?action=edit&ID={$ID}">编辑</a> --><a href="javascript:void(0);" onclick="superManage('{$ID}');">超级管理</a> <a href="users.aspx?action=loginuser&shopid={$shopid}&url=/member/mygood.aspx?action=edit%26ID={$ID}" target="_blank">内容维护</a> <a href="javascript:void(0);" onclick="delgood('{$ID}');">删除</a></td>
+	<td ><input name="ID" type="checkbox" value="{$ID}"></td>
+</tr>

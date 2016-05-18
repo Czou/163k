@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的快店订单--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/order2015.css" type="text/css" rel="stylesheet" />
+<script>var siteUrl = '{$SiteUrl}';</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我的快店订单</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div id="contentfloat">
+
+<div class="bigtitle">我的快店订单</div>
+	   <div class="blank10"></div>
+<div class="ptag" id="ptag" data-iskill="{$iskill}"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="width:100px" id="ptag0" class="card_normal"><a href="myorder.aspx">所有订单</a></td><td class="card_line"></td><td style="width:100px" class="card_normal {$iskill_s_0}"><a href="myorder.aspx?iskill=0">未支付</a></td><td class="card_line"></td><td style="width:100px" class="card_normal {$iskill_s_1}"><a href="myorder.aspx?iskill=1">已支付</a></td><td class="card_line"></td><td style="width:100px" class="card_normal {$iskill_s_4}"><a href="myorder.aspx?iskill=4">交易失败</a></td><td class="card_line"></td><td style="width:100px" class="card_normal {$iskill_s_3}"><a href="myorder.aspx?iskill=3">交易完成</a></td><td class="card_line"></td><td>&nbsp;<img src="{$Default_tplPath}member/images/icon_arrow.gif" alt="" />点击左侧书签进行切换</td><td align="right"></td></tr></table></div>
+        
+
+       
+        
+<div id="order_list">    
+     <tag:Loop ListType="listmyorder" RecType="New" PageSize="10" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_order_Tr.htm" />
+</div>
+    <div class="manu clearfix" style="text-align:center;">
+			{$PageSplit}
+		</div>
+		<input type="hidden" value="{$system_datetime MM\/dd\/yyyy HH:mm:ss}" id="system_date" />
+       
+	</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+
+
+<div class="changeAddressNode" id="changeAddressNode" style="display:none;">
+	<ul class="addressList clearfix" id="addressList"></ul>
+	<p class="btnNode"><input type="button" class="global_btn_blue_big" id="changeAddressSubmit" value="确认提交" />　<input type="button" class="global_btn_big" id="changeAddressColse" value="取消" /></p>
+</div>
+<div class="mod_02 addeditNode" id="addeditNode">
+	<div class="hds" id="s_tit">请填写新的配送地址</div>
+	<div class="bds address">
+		<form method="get" id="myformAddress">
+		<input type="hidden" id="s_id" value="" />
+		<input type="hidden" id="s_styleid" value="" />
+		<input type="hidden" id="s_ismoren" value="" />
+		<p class="p"><span class="a">联系人：</span><span class="b"><input type="text" class="s_ipt" id="s_realname" /></span></p>
+		<p class="p"><span class="a">电话：</span><span class="b"><input type="text" class="s_ipt" id="s_phone" /></span></p>
+		<p class="p"><span class="a">配送地址：</span><span class="b"><input type="text" class="s_ipt" id="s_address" /></span></p>
+		<p class="p"><span class="a">&nbsp;</span><span class="b"><button class="s_btn" type="submit">确认</button>　<button class="s_btn2 close" type="button">取消</button></span><span class="b" id="tip_error"></span></p>
+		</form>
+	</div>
+</div>
+<div class="addeditMask" id="addeditMask"></div>
+<input type="hidden" id="changeAddressId" value="" />
+<input type="hidden" id="addressid" value="">
+<script src="{$Default_tplPath}js/kuaisonCommon.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/order2015.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	if($('#ptag').attr('data-iskill') === ''){
+		$('#ptag0').addClass('card_down');
+	}
+	$('#order_list').find('.view_order_detial').each(function(){
+		$(this).bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('.item').removeClass('cur');
+			$(this).parent().siblings('.item').find('.order_detial').hide();
+			$(this).parent().siblings('.item').find('.view_order_detial').removeClass('open');
+			var $order_detial = $(this).siblings('.order_detial');
+			$order_detial.toggle();
+			$(this).toggleClass('open');
+			$(this).parent().toggleClass('cur');
+		});
+	});
+	$('#addressList').addressList();
+	$('#myformAddress').bind('submit',function(e){
+		function checkmobile(value){
+			return /^(13\d{9}|18\d{9}|14\d{9}|15\d{9}|659\d{7}|658\d{7})$/i.test(value) || /(\(\d{3,4}\)|\d{3,4}-|\s)?\d{8}/i.test(value);	
+		}
+		var $realname = $('#s_realname'),$address = $('#s_address'),$phone = $('#s_phone'),tip_error = $('#tip_error');
+		if($realname.val() === ''){
+			tip_error.html('请输入配送人姓名！');
+			return false;
+		}
+		if($phone.val() === ''){
+			tip_error.html('请输入电话号码！');
+			return false;
+		}
+		if(!checkmobile($phone.val())){
+			tip_error.html('请输入有效的电话号码！');
+			return false;
+		}
+		if($address.val() === ''){
+			tip_error.html('请输入配送地址！');
+			return false;
+		}
+		addeditAddress(encodeURIComponent($realname.val()),encodeURIComponent($address.val()),encodeURIComponent($phone.val()),$('#s_id').val(),$('#s_styleid').val(),$('#s_ismoren').val());
+		return false;
+	});
+});
+function getNewPage(page){
+	window.location.href="?page="+page;
+	return false;
+}
+function changekill(o,sid){
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=3&skill=10&isadmin=2';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','收货成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+function tuikuan(o,sid){
+	if(!window.confirm('您确定要申请退款吗？')){return false;}
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=&isadmin=2';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','退款申请成功，请耐心等待系统处理！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+
+//时间控件
+var secArr = [];
+function getInitTime(){
+  $('#item_1')[0]&&$('#item_1').find('.order_detial').show().end().find('.view_order_detial').addClass('open');
+  var cur_time = Date.parse($('#system_date').val());
+  var start_time;
+  $('.time_left').each(function(){
+	 var jobj = $(this);
+	 var sec = {};
+	 var theid = jobj.attr('data-id');
+	 if(jobj.attr('data-iskill') === '3'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">订单完成</p>');
+	 }else if(jobj.attr('data-state') === '7'){
+		 $("#time_"+theid).html('<p">派送失败</p>');
+	 }else if(jobj.attr('data-state') === '10'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">派送完成</p>');
+	 } else if(jobj.attr('data-iskill') === '4'){
+		 $("#time_"+theid).html('<p">订单取消</p>');
+	 }else if(jobj.attr('data-iskill') === '0'){
+		 if(jobj.attr('data-payid') === '99'){
+			 start_time = Date.parse(jobj.html());
+			 var SysSecond = parseInt(cur_time - start_time)/1000;
+			 sec['sec']= SysSecond;
+			 sec['sid'] = theid;
+			 secArr.push(sec);
+		 }else{
+			 $("#time_"+theid).html('<p">付款后开始计时</p>');
+		 }
+	 }else{
+		if(jobj.attr('data-payid') == '99'){
+			 start_time = Date.parse(jobj.html());
+		}else{
+			 start_time = Date.parse($('.time_left_'+theid).html());
+		}
+		 var SysSecond = parseInt(cur_time - start_time)/1000;
+		 sec['sec']= SysSecond;
+		 sec['sid'] = theid;
+		 secArr.push(sec);
+	 }
+  });
+}
+getInitTime();
+function SetRemainTime(){
+	for(var i=0;i<secArr.length;i++){
+		setRemainTimeSite(secArr[i]);
+	}
+}
+function setRemainTimeSite(secObj){
+  var second = Math.floor(secObj.sec % 60).toString();
+  var minite = Math.floor((secObj.sec / 60) % 60).toString();
+  var hour = Math.floor((secObj.sec / 3600) % 24).toString();
+  var day = Math.floor((secObj.sec / 3600) / 24).toString();
+  if(day > 0){
+	$("#time_"+secObj.sid).html('<p style="font-weight:bold;color:#d00;">派送超时</p>已经超过24小时!');
+  }else{
+	$("#time_"+secObj.sid).html('<p style="font-weight:bold;color:#d00;">已等候</p>'+hour+"时"+minite+"分"+second+"秒");
+ 	secObj.sec++;
+  }
+}
+window.setInterval(SetRemainTime,1000);
+</script>
+</body>
+</html>

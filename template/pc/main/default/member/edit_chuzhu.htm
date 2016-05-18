@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改出租房源--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script src="{$Default_tplPath}js/CJL.0.1.min.js"></script>
+<script src="{$Default_tplPath}js/ImagePreview.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var imgsrc="{$Default_tplPath}images/fabu_nopic.gif";
+var loadingsrc="{$Default_tplPath}images/upload_120x120.gif";
+function hidden1(){
+   $$("hidurl1").style.display="none";
+   $$("hidurl2").style.display="";
+}
+function overtime(){
+	$$('keytishi').style.display='none';
+}
+</script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+.my_prop_img{ font-size:12px; width:100%; margin:0; padding:0}
+.my_prop_imgitem{float:left; display:inline;margin-right:15px;margin-top:10px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .imgview { width:80px; height:80px;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:0 0; text-align:center; text-decoration:none;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:100px; width:auto; padding:0px 5px;}
+.my_prop_imgitem .global_btn,.my_prop_imgitem .global_btn_blue { margin-top:8px;}
+</style>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改出租房源</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">修改出租房源信息</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		请仔细填写,打*的为必填项
+
+		<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" target="tijiao" action="?action=editSave" onSubmit="return checkaddchuzhu(this)" enctype="multipart/form-data">
+ <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+       <tr >
+		 <td class="tditem" >房源编号： </td>
+		  <td  class="tdcontent" colspan=3 >{$chrlive}</td>
+		</tr>
+        <tr >
+          <td class="tditem" >标题<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 ><input type="text" name="chrtitle" class="text" value="{$chrtitle}" size=50 maxsize=40>
+            (描述生动准确能更快把房子租出去，限6-30个字)</td>
+        </tr>
+        <tr >
+          <td class="tditem">小区<font color="#FF0000"></font>： </td>
+          <td  class="tdcontent" colspan=3 ><input type="radio" value="1" {$R11} name="R1">
+            从小区中选择：
+            <input id="xiaoqu" title="请输入小区名称" name="xiaoqu"  class="text" style="width: 200px;" type="text" onKeyUp="getKeyWord();" onClick="getKeyWord();" value="{$chrloupan}" onBlur="setTimeout('overtime()',1000)"  autocomplete="off">
+            &nbsp;  请输入小区名称,如:上海绿城<br><br>
+            <div>
+              <div id="keytishi">
+                <iframe id="listComm" src=""  scrolling="no" width="330" frameborder="0" ></iframe>
+              </div>
+              
+            </div>
+            <input id="CommId" name="CommId" type="hidden"  value="{$loupanid}"/>
+            <p>
+              <input type="radio" value="2" {$R12}  name="R1">
+              自定小区名称： <input type="text" class="text" name="zidingyi" value="{$zidingyi}" style="width: 200px;">
+              &nbsp; 
+              提醒：前台将无法提供该小区的详细介绍链接</td>
+        </tr>
+        <tr >
+          <td class="tditem"  >区域/地段<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  colspan=3 > {$qu_classid} 地址：
+            <input type="text" name="chraddress" value="{$chraddress}"  id="chraddress" class="text"  size=40>
+            <a href="#" onclick='set_image()'><font  color="red">标注地图位置</font></a>
+            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
+            <input type="hidden" id="shop_z" name="shop_z"  value="{$shop_z}"></td>
+        </tr>
+		<!--<tr >
+          <td class="tditem" >代表图片(195*145)： </td>
+          <td  class="tdcontent" colspan=3 ><span id="hidurl1" ><a href="javascript:void(0);"><img src="{$filepath}" border="0"></a> <span onClick="hidden1()" style="cursor:pointer">重新上传</span></span><span id="hidurl2" style="display:none">
+		<input type="file" name="file1" size="60" class="text">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		</span>
+	  <input type=hidden name="filepath" id="filepath" value="{$filepath}"></td>
+        </tr>-->
+        <tr >
+          <td class="tditem" width="15%" >类型<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  >{$leixing}</td>
+          <td class="tditem" width="13%" >户型<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  ><input name="shi" value="{$shi}"class="text" id="shi" style="width: 25px;"  onKeyUp="value=value.replace(/\D+/g,'')">
+            室
+            <input name="ting" id="ting" style="width: 25px;" class="text" value="{$ting}" onKeyUp="value=value.replace(/\D+/g,'')" >
+            厅
+            <input name="wei" id="wei" style="width: 25px;" class="text" value="{$wei}" onKeyUp="value=value.replace(/\D+/g,'')">
+            卫 </td>
+        </tr>
+        <tr >
+          <td class="tditem" >面积<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" ><input type="text" name="chrsize" class="text" value="{$chrsize}" onKeyUp="if(isNaN(value))execCommand('undo')" size=10>
+            平米</td>
+          <td class="tditem" >房龄： </td>
+          <td  class="tdcontent" ><input type="text" name="fangling" class="text" value="{$fangling}" size=10>
+            年</td>
+        </tr>
+        <tr >
+          <td class="tditem" >装修<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" >{$zhuangxiu}</td>
+          <td class="tditem" >朝向： </td>
+          <td  class="tdcontent" ><input type="text" name="chaoxiang" class="text" value="{$chaoxiang}" size=15></td>
+        </tr>
+		<tr >
+          <td class="tditem" >付租方式： </td>
+          <td  class="tdcontent" ><select size="1" name="fuzhufangshi">
+	<option selected value="付三押一" {$fuzhufangshi付三押一}>付三押一</option>
+	<option value="付三押二" {$fuzhufangshi付三押二}>付三押二</option>
+	<option value="半年付" {$fuzhufangshi半年付}>半年付</option>
+	<option value="年付" {$fuzhufangshi年付}>年付</option>
+	<option value="年付" {$fuzhufangshi年付}>年付</option>
+	<option value="单月付" {$fuzhufangshi单月付}>单月付</option>
+	</select></td>
+          <td class="tditem" >承租方式： </td>
+          <td  class="tdcontent" ><select size="1" name="cengzhufangshi">
+	<option selected value="整租" {$cengzhufangshi整租}>整租</option>
+	<option value="合租" {$cengzhufangshi合租}>合租</option>
+	</select></td>
+        </tr>
+        <tr >
+          <td class="tditem" >楼层： </td>
+          <td  class="tdcontent"  colspan=3>楼层总高
+            <input type="text" name="zonglou" value="{$zonglou}" class="text" size=8>
+            层  本房在
+            <input type="text" name="nowlou" value="{$nowlou}" class="text" size=8>
+            层</td>
+        </tr>
+		 <tr >
+                  <td class="tditem" >房屋配置： </td>
+                  <td  class="tdcontent" colspan=3><table width=100%><tr><td  width="30"><a href="javascript:selected('peizhi');">全选</a></td><td><ul class="i_list_li clearfix">{$peizhi}</ul></td></tr></table></td>
+                </tr>
+                <tr >
+                  <td class="tditem" >基础设施： </td>
+                  <td  class="tdcontent" colspan=3><table width=100%><tr><td width="30"><a href="javascript:selected('sheshi');">全选</a></td><td><ul class="i_list_li clearfix">{$sheshi}</ul></td></tr></table></td>
+                </tr>
+                <tr >
+                  <td class="tditem" >特色： </td>
+                  <td  class="tdcontent" colspan=3><table width=100%><tr><td  width="30"><a href="javascript:selected('categoryid');">全选</a></td><td><ul class="i_list_li clearfix">{$teshe}</ul></td></tr></table></td>
+                </tr>
+        <tr >
+          <td class="tditem" >详细描述： </td>
+          <td  class="tdcontent" colspan=3><textarea cols="80" id="chrmark" name="chrmark" rows="10">{$chrmark}</textarea>
+             
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrmark"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '300px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script></td>
+        </tr>
+        <!--<tr>
+          <td class="tditem">上传图片(图片格式为jpg、gif、png，大小不超过1M,最多上传八张)</td>
+          <td   class="tdcontent" valign=top colspan=3><div class="my_prop_img" id="xiangce">
+              
+             
+            </div></td>
+        </tr>-->
+       
+	   
+	   <tr>
+                  <td class="tditem">上传图片(最佳尺寸900*670)</td>
+                  <td   class="tdcontent" valign=top colspan=3>
+		<input type="button" id="J_selectImage" value="批量上传" class="global_btn_blue_big" />
+		<div id="J_imageView" class="clearfix">{$filevalues}<!--member/house_chuzhu_smallfile.html--></div>
+		<input id="filewidth" type="hidden" value="900">
+		<input id="fileheight" type="hidden" value="">	
+		<input type="hidden" id="smallfilewidth" value="195">
+		<input type="hidden" id="smallfileheight" value="145">
+		<input name="url0" type="hidden" id="url0"  value="{$url0}" />
+		<input name="filewidth" type="hidden" value="195" data-txt="控制代表图的宽度">
+		<input name="fileheight" type="hidden" value="145" data-txt="控制代表图的高度">	
+				  </td>
+                </tr>
+	   
+	   
+        <tr>
+          <td class="tditem" >房源性质<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" ><select name="styleid" disabled>
+			  	<option value="0" {$styleid_s_0}>个人房源</option>
+				<option value="1" {$styleid_s_1}>中介房源</option>
+			  </select> 仅供查看，不允许修改</td>
+			<td class="tditem"  >出租状态<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" ><input type="radio" name="typeid" value="0" {$typeid0}>
+            出租中
+            <input type="radio" name="typeid" value="1"  {$typeid1}>
+            已租出 </td>
+        </tr>
+		<tr >
+          <td height="25" class="tditem" >其它<font color="#FF0000"></font>： </td>
+          <td  class="tdcontent" colspan=3 >
+            <input type="checkbox" name="jingxuan" value="1" {$jingxuan}>
+            精选房源
+            </td>
+        </tr>
+        <tr>
+          <td class="tditem" >联系电话<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" ><input type="text" name="chrtel" class="text" value="{$chrtel}" size=20></td>
+          <td class="tditem" >租金<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" ><input type="text" name="price" class="text" value="{$price}" size=10 onKeyUp="if(isNaN(value))execCommand('undo')">
+            元（<font color=red>如果填0则表示“面议”</font>）</td>
+        </tr>
+       <tr>
+          <td class="tditem" >刷新发布记录： </td>
+          <td  class="tdcontent"  colspan=3>{$shuaxin}</td>
+        </tr>
+		<tr>
+          <td class="tditem" >&nbsp;</td>
+          <td  class="tdcontent"  colspan=3><input type="hidden" name="gotourl" value="{$gotourl}"><input type="hidden" name="id" id="id" value="{$id}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+        </tr>
+       </table>
+			<select name="styleid" style="display:none;">
+			  	<option value="0" {$styleid_s_0}>个人房源</option>
+				<option value="1" {$styleid_s_1}>中介房源</option>
+			  </select>
+</form>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<div id="i_ifm_upload" style="z-index:9; display:none; position:absolute; top:50%; left:50%; margin-left:-340px; width:660px; padding-left:20px; height:50px; background-color:#fff; border:2px solid #36c; border-radius:5px;box-shadow:2px 2px 8px #000;"><a href="#" id="i_ifm_upload_close" style="position:absolute; z-index:10; top:5px; right:5px; display:block; color:#36c;">关闭</a><iframe name="ifm_upload" id="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="about:blank"></iframe></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+<script src="{$Default_tplPath}js/upLoadImg2015.js"></script>
+<script>
+//{$logincookieName}
+//{$adminlogincookieName}
+var table_id = 'house_chuzhu_file';
+window['state'] = "";
+window['logincookieStr'] = $.cookie('{$logincookieName}');
+if(!!window['logincookieStr']){
+	var imgURL = window['siteUrl']+"kindeditor/upload_json.ashx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val()+"&" + window['logincookieStr'];
+	newPLUploadImg();
+}
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#url0').compareFM('#J_imageView');
+});
+</script>
+</body>
+</html>

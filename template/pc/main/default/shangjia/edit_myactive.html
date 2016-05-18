@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>编辑活动-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/cal/calendar.css?{$CacheHash}" />
+<script>
+function checkform(o){
+	if(o.activenum.value==""){
+		alert("请输入活动编号!");
+		o.activenum.focus();
+		return false;
+	}
+	if(o.chrtitle.value==""){
+		alert("请输入活动名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("请选择活动分类!");
+		o.categoryid.focus();
+		return false;
+	}
+	if(o.quyu.value==""){
+		alert("请选择所在区域!");
+		o.quyu.focus();
+		return false;
+	}
+	if(o.jihe.value==""){
+		alert("请输入活动时间!");
+		o.jihe.focus();
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("请输入活动地点!");
+		o.chraddress.focus();
+		return false;
+	}
+	if(o.enddate.value==""){
+		alert("请选择结束时间!");
+		o.enddate.focus();
+		return false;
+	}
+}
+</script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>	
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">编辑活动</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=myeditsave" onSubmit="return checkform(this)">
+								<input type="hidden" name="ID" value="{$id$}" />
+								<input type="hidden" value="1" name="styleid" title="网友发起" />
+								<div class="nav_extra" style="border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" class="cur" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,4)',200);">基本内容</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,4)',200);">活动详情</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_12" onClick="setTimeout('Show_TabADSMenu(1,2,4)',200);">活动报道</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_13" onClick="setTimeout('Show_TabADSMenu(1,3,4)',200);">活动赞助商</a></li>
+									</ul>
+									<div class="tab_cont" id="tabadcontent_10" style="padding:0;">
+										<p class="tr"><span class="sp_a">活动标题：</span><span class="sp_b"><input type="text" name="chrtitle" id="chrtitle" class="sys_form_ipt" value="{$chrtitle$}" size="70" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">活动分类：</span><span class="sp_b">{$categoryid$}</span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">所在区域：</span><span class="sp_b">{$quyu$}</span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">小图：</span><span class="sp_b"><span id="str1" style="display:none;"><img src="{$url0}" class="img_block" id="for_url_0" width="150" height="150" alt="" /><a href="#" onClick="return upload_img_action_X('str1','str2');" class="sys_btn_small_blue">重新上传</a></span><span id="str2"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=active&reqfile=upload_X4.aspx"></iframe><input type="hidden" value="{$url0}" name="url0" id="url0" /></span><input type="hidden" value="150" name="filewidth" /><input type="hidden" value="150" name="fileheight" /></span><span class="sp_c">最佳尺寸：150x150</span></p>
+										<p class="tr"><span class="sp_a">大图：</span><span class="sp_b"><span id="str3" style="display:none;"><img src="{$url1}" class="img_block" id="for_url_1" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str3','str4');" class="sys_btn_small_blue">重新上传</a></span><span id="str4"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=1&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly1" value="1" /><input type="hidden" value="{$url1}" name="url1" id="url1" /><input type="hidden" value="680" name="filewidth1" /><input type="hidden" value="210" name="fileheight1" /></span><span class="sp_c">最佳尺寸：680x210　请先上传小图，否则大图不能正常显示</span></p>
+										<p class="tr"><span class="sp_a">活动时间：</span><span class="sp_b"><input type="text" name="jihe" id="jihe" class="sys_form_ipt" value="{$jihe$}" /></span><span class="sp_c">如：中秋节、周末、08-21</span></p>
+										<p class="tr"><span class="sp_a">活动地点：</span><span class="sp_b"><input type="text" name="chraddress" id="chraddress" class="sys_form_ipt" value="{$chraddress$}" /></span><span class="sp_c"><a href="#" class="sys_btn_blue" onClick="return set_image();">标注地图位置</a><input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" /><input type="hidden" id="shop_y" name="shop_y" value="{$shop_y}" /><input type="hidden" id="shop_z" name="shop_z" value="0"/><input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}" /></span></p>
+										<p class="tr"><span class="sp_a">报名截止时间：</span><span class="sp_b"><input type="text" name="enddate" id="enddate" class="sys_form_ipt Wdate" value="{$enddate$}" size="20" /></span><span class="sp_c">必填</span></p>
+										<p class="tr"><span class="sp_a">活动费用：</span><span class="sp_b"><input type="text" name="feiyong" id="feiyong" class="sys_form_ipt" value="{$feiyong}" size="20" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">活动名额：</span><span class="sp_b"><input type="text" name="minge" id="minge" class="sys_form_ipt" value="{$minge}" size="20" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">带队团长：</span><span class="sp_b"><input type="text" name="tuanzhang" id="tuanzhang" class="sys_form_ipt" value="{$tuanzhang$}" size="10" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">团长QQ：</span><span class="sp_b"><input type="text" name="chrqq" id="chrqq" class="sys_form_ipt" value="{$chrqq$}" size="20" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">讨论地址：</span><span class="sp_b"><input type="text" name="chrurl" id="chrurl" class="sys_form_ipt" value="{$chrurl$}" size="30" /></span><span class="sp_c"></span></p>
+										<p class="tr"><span class="sp_a">活动简介：</span><span class="sp_b"><textarea name="chrmark" id="chrmark" class="sys_form_ipt" style="height:80px;">{$chrmark$}</textarea></span><span class="sp_c"></span></p>
+										
+									</div>
+									<!--<div class="tab_cont" id="tabadcontent_11" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">幻灯图一：</span><span class="sp_b"><span id="str3" style="display:none;"><img src="{$url1}" class="img_block" id="for_url_1" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str3','str4');" class="sys_btn_small_blue">重新上传</a></span><span id="str4"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=1&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly1" value="1" /><input type="hidden" value="{$url1}" name="url1" id="url1" /><input type="hidden" value="680" name="filewidth1" /><input type="hidden" value="210" name="fileheight1" /></span><span class="sp_c">最佳尺寸：680x210</span></p>
+										<p class="tr"><span class="sp_a">幻灯图二：</span><span class="sp_b"><span id="str5" style="display:none;"><img src="{$url2}" class="img_block" id="for_url_2" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str5','str6');" class="sys_btn_small_blue">重新上传</a></span><span id="str6"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=2&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly2" value="1" /><input type="hidden" value="{$url2}" name="url2" id="url2" /><input type="hidden" value="680" name="filewidth2" /><input type="hidden" value="210" name="fileheight2" /></span><span class="sp_c">最佳尺寸：680x210</span></p>
+										<p class="tr"><span class="sp_a">幻灯图三：</span><span class="sp_b"><span id="str7" style="display:none;"><img src="{$url3}" class="img_block" id="for_url_3" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str7','str8');" class="sys_btn_small_blue">重新上传</a></span><span id="str8"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=3&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly3" value="1" /><input type="hidden" value="{$url3}" name="url3" id="url3" /><input type="hidden" value="680" name="filewidth3" /><input type="hidden" value="210" name="fileheight3" /></span><span class="sp_c">最佳尺寸：680x210</span></p>
+										<p class="tr"><span class="sp_a">幻灯图四：</span><span class="sp_b"><span id="str9" style="display:none;"><img src="{$url4}" class="img_block" id="for_url_4" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str9','str10');" class="sys_btn_small_blue">重新上传</a></span><span id="str10"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=4&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly4" value="1" /><input type="hidden" value="{$url4}" name="url4" id="url4" /><input type="hidden" value="680" name="filewidth4" /><input type="hidden" value="210" name="fileheight4" /></span><span class="sp_c">最佳尺寸：680x210</span></p>
+										<p class="tr"><span class="sp_a">幻灯图五：</span><span class="sp_b"><span id="str11" style="display:none;"><img src="{$url5}" class="img_block" id="for_url_5" width="300" height="93" alt="" /><a href="#" onClick="return upload_img_action_X('str11','str12');" class="sys_btn_small_blue">重新上传</a></span><span id="str12"><iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=5&table_id=active&reqfile=upload_X4.aspx"></iframe></span><input type="hidden" name="urlonly5" value="1" /><input type="hidden" value="{$url5}" name="url5" id="url5" /><input type="hidden" value="680" name="filewidth5" /><input type="hidden" value="210" name="fileheight5" /><input type="button" value="切换" id="for_url_5" class="display0" /></span><span class="sp_c">最佳尺寸：680x210</span></p>
+										
+										<input type="button" value="切换" id="for_btn_2" class="display0" onClick="upload_img_action_X('str6','str5');" />
+										<input type="button" value="切换" id="for_btn_3" class="display0" onClick="upload_img_action_X('str8','str7');" />
+										<input type="button" value="切换" id="for_btn_4" class="display0" onClick="upload_img_action_X('str10','str9');" />
+										<input type="button" value="切换" id="for_btn_5" class="display0" onClick="upload_img_action_X('str12','str11');" />
+									</div>-->
+									<input type="button" value="切换" id="for_btn_0" class="display0" onClick="upload_img_action_X('str2','str1');" />
+									<input type="button" value="切换" id="for_btn_1" class="display0" onClick="upload_img_action_X('str4','str3');" />
+									<div class="tab_cont" id="tabadcontent_11" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">活动详情：</span><span class="sp_d"><textarea class="sys_form_ipt" id="Chrcontent" name="Chrcontent">{$chrcontent$}</textarea></span><span class="sp_c"></span></p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_12" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">活动报道：</span><span class="sp_d"><textarea class="sys_form_ipt" id="chrbaodao" name="chrbaodao">{$chrbaodao}</textarea></span><span class="sp_c"></span></p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_13" style="padding:0; display:none;">
+										<p class="tr"><span class="sp_a">活动赞助商：</span><span class="sp_d"><textarea class="sys_form_ipt" id="chrzanzhu" name="chrzanzhu">{$chrzanzhu}</textarea></span><span class="sp_c"></span></p>
+									</div>
+								</div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+(function($){
+	if($('#url0').val() === ''){
+		upload_img_action_X('str1','str2');
+	}else{
+		upload_img_action_X('str2','str1');
+	}
+	if($('#url1').val() === ''){
+		upload_img_action_X('str3','str4');
+	}else{
+		upload_img_action_X('str4','str3');
+	}
+	if($('#url2').val() === ''){
+		upload_img_action_X('str5','str6');
+	}else{
+		upload_img_action_X('str6','str5');
+	}
+	if($('#url3').val() === ''){
+		upload_img_action_X('str7','str8');
+	}else{
+		upload_img_action_X('str8','str7');
+	}
+	if($('#url4').val() === ''){
+		upload_img_action_X('str9','str10');
+	}else{
+		upload_img_action_X('str10','str9');
+	}
+	if($('#url5').val() === ''){
+		upload_img_action_X('str11','str12');
+	}else{
+		upload_img_action_X('str12','str11');
+	}
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="Chrcontent"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '750px',height : '600px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="chrbaodao"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '750px',height : '600px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+KindEditor.ready(function(K) {
+	var editor = K.create('textarea[name="chrzanzhu"]', {
+		uploadJson : '/kindeditor/upload_json.ashx',
+		afterBlur: function(){this.sync();},
+		fileManagerJson : '/kindeditor/file_manager_json.ashx',
+		allowFileManager : true,width : '750px',height : '600px',
+		items : [
+				'source','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link','baidumap','multiimage']
+	});
+});
+
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	var btn = $('#for_btn_'+num);
+	tag.attr({'src':surl});
+	btn.trigger('click');
+}
+</script>
+</body>
+</html>

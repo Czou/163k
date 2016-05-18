@@ -1,0 +1,7 @@
+﻿<li onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;">
+<p title="{$alt}" style="text-align:center"><a href="{$filepath}"  class="lightwindow page-options"><img src="{$chrimage}"  border=0  class="thumb230Image"/></a></p>
+<p>分类：{$chrcategory}</p>
+<p>用户：{$chrname}</p>
+<p>状态：{$iskill}&nbsp;&nbsp;{$istop}&nbsp;&nbsp;<input name="ID" type="checkbox" value="{$ID}"></p>
+<p>操作：<a href="javascript:shenhe('?action=del&id={$ID}&styleid=3');">{$iskill1}</a> <a href="?action=edit&ID={$ID}">编辑</a>  <a href="javascript:del({$ID});">删除</a></p>
+</li>

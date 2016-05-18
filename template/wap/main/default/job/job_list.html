@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>职位列表-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+{$top$}
+<div class="nav_job_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/myzhiwei.aspx?action=add">
+     <span class="sjob"></span>
+     发布职位
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/myjianli.aspx">
+     <span class="post_resumes"></span>
+     登记简历
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <div class="job_tabs">
+  <ul>
+   <li class="current">找工作</li>
+   <li><a href="{$zpurl}rencai.html?key=0">找人才</a></li>
+  </ul>
+ </div>  
+ <!--排序-->
+ 
+ <div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="str_hangye_node">行业不限</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_daiyu_node">待遇不限</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_xueli_node">学历不限</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;" id="navbox_hangye">
+		<ul id="inner1"></ul>
+	</div>
+	<div class="inner" style="display:none;" id="navbox_xinzi">
+		<ul>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=0" id="s_daiyu0">待遇不限</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=1" id="s_daiyu1">面议</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=23" id="s_daiyu23">1000元以下</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=24" id="s_daiyu24">1000-1500元</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=25" id="s_daiyu25">1500-2000元</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=26" id="s_daiyu26">2000-3000元</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=27" id="s_daiyu27">3000-5000元</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=28" id="s_daiyu28">5000-8000元</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_daiyu=29" id="s_daiyu29">8000元以上</a></li>
+		</ul>
+	</div>
+	<div class="inner" style="display:none;" id="navbox_xueli">
+		<ul>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=0" id="s_xueli0">学历不限</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=42" id="s_xueli42">初中</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=31" id="s_xueli31">高中/中专</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=32" id="s_xueli32">大专及同等学历</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=33" id="s_xueli33">本科/学士及同等学历</a></li>
+			<li><a href="{$zpurl}zhiwei.html?s_xueli=34" id="s_xueli34">硕士及以上学历</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<!--搜索-->
+<div class="job_search">
+ <div class="sbox clearfix">
+ <form name="form11" method="get" action="zhiwei.html">
+	<input type="hidden" name="key" value="0" />
+	<input type="hidden" name="s_hangye" value="{$s_hangye}" id="s_hangye" />
+	<input type="hidden" name="s_gangwei" value="{$s_gangwei}" id="s_gangwei" />
+	<input type="hidden" name="s_daiyu" value="{$s_daiyu}" id="s_daiyu" />
+	<input type="hidden" name="s_xueli" value="{$s_xueli}" id="s_xueli" />
+	<input type="text" name="keyword" placeholder="关键字/职位/公司/地点" value="{$keyword}" />
+	<button type="submit">搜索</button>
+</form>
+ </div> 
+</div>
+<!--查询列表-->
+<div class="job_list">
+ <ul>
+  <tag:Loop ListType="listzhiweiqian" RecType="New" PageSize="25" ColorSplit="1" TitleLen="110" RecColumn="5" CusTpl="1" Template="job/list_zhiwei_tr.html" />
+ </ul>
+ <div class="pageNav2">{$PageSplit}</div>
+</div>
+{$bottom$}
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var current_host = window.location;
+var url_obj = $.url(current_host).param();
+
+$.fn.jobUrl = function(){
+	var that = $(this),txt_obj = {};
+	
+	for(var i in url_obj){
+		$('#'+i+url_obj[i]).parent().addClass('cur');
+	}
+	that.find('a').each(function(i,item){
+		var txt='?';
+		var txt_now = $(item).attr('href');
+		var txt_obj_now = $.url(txt_now).param();
+		txt_obj = $.extend({},url_obj,txt_obj_now);
+		
+		for(var v in txt_obj){
+			txt = txt+v+'='+txt_obj[v]+'&';
+		}
+		$(item).attr('href',txt);
+	});	
+}
+
+if(url_obj['s_daiyu'] !== '' && url_obj['s_daiyu'] !== '0'){
+	var txt=$('#s_daiyu'+url_obj['s_daiyu']).html();
+	$('#str_daiyu_node').html(txt);
+}
+if(url_obj['s_xueli'] !== '' && url_obj['s_xueli'] !== '0'){
+	var txt=$('#s_xueli'+url_obj['s_xueli']).html();
+	$('#str_xueli_node').html(txt);
+}
+
+function showCategory(node,d){
+	var url = nowdomain+'request.ashx?action=category&id=9&json=1&jsoncallback=?';
+	var s_daiyu = url_obj['s_daiyu'] || '';
+	var s_xueli = url_obj['s_xueli'] || '';
+	$.getJSON(url,function(data){
+		var d = data[0].MSG;
+		var txt='<li><a href="{$zpurl}zhiwei.html?s_hangye=0">全部行业</a></li>',txt2='';
+		for(var i=0;i<d.length;i++){
+			if(!jQuery.isEmptyObject(d[i].arr)){
+				txt2 = '<ul><li><a href="{$zpurl}zhiwei.html?s_hangye='+d[i].id+'&tt=0&s_daiyu='+s_daiyu+'&s_xueli='+s_xueli+'" id="s_'+d[i].id+'">全部岗位</a></li>';
+				for(var k in d[i].arr){
+					txt2 += '<li><a href="{$zpurl}zhiwei.html?s_hangye='+d[i].id+'&tt='+k+'&s_daiyu='+s_daiyu+'&s_xueli='+s_xueli+'" id="s_'+k+'">'+d[i].arr[k]+'</a></li>';
+				}
+				txt2 += '</ul>';
+				txt += '<li><a href="#" id="cat_'+d[i].id+'">'+d[i].name+'</a>'+txt2+'</li>';
+				
+			}else{
+				txt += '<li><a href="{$zpurl}zhiwei.html?s_hangye='+d[i].id+'&s_daiyu='+s_daiyu+'&s_xueli='+s_xueli+'" id="cat_'+d[i].id+'">'+d[i].name+'</a></li>';
+			}
+		}
+		$('#'+node).html(txt);
+		window['myScroll_parent'] = null;
+		window['myScroll_inner'] = null;
+		showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+		$('#navbox_hangye').jobUrl();
+		if(url_obj['s_hangye'] !== '' && url_obj['s_hangye'] !== '0'){
+			var txt=$('#cat_'+url_obj['s_hangye']).html();
+			$('#str_hangye_node').html(txt);
+			$('#cat_'+url_obj['s_hangye']).parent().addClass('cur');
+		}
+		
+		if(url_obj['tt'] !== '' && url_obj['tt'] !== '0'){
+			$('#s_'+url_obj['tt']).parent().addClass('cur');
+		}
+	});
+}
+(function($){
+	//showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	showCategory('inner1');
+	$('#navbox_xinzi').jobUrl();
+	$('#navbox_xueli').jobUrl();
+	$('.header .back').attr({'href':nowdomain,'onclick':''});
+})(jQuery);
+</script>
+</body>
+</html>

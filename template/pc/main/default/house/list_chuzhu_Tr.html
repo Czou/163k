@@ -1,0 +1,24 @@
+<li>
+			 <div class="pic">
+			   <a href="chuzhu_{$id}.html" target="_blank"><img src="{$filepath}" onerror="this.src='{$tplPath}images/morenfangyuan.gif';this.onerror='';" /></a>
+			 </div>
+			 <div class="con">
+			   <div class="hy_t">
+				 <a href="chuzhu_{$id}.html" target="_blank">{$chrtitle}</a><span class="youzhao" style="display:{$youzhao}">有照</span><span class="cz" style="display:{$daishouzhong}">出租中</span><span class="yz" style="display:{$yishouchu}">已租</span>
+			   </div>
+			   <p>{$chrloupan}　{$chrcategory}-{$smallcategory}　{$chraddress}</p>
+			   <ul>
+				<li>{$shi}室{$ting}厅</li>
+				<li>{$chrsize}</li>
+				<li>{$zhuangxiucategory}</li>
+				<li>楼层{$nowlou}/{$zonglou}&nbsp;&nbsp;（{$cengzhufangshi}）</li>
+			   </ul>
+			   <dl>
+				 <dt class="userName">{$truename}({$styleid})</dt>
+				 <dd class="date">{$updatedate}</dd>
+			   </dl>
+			   <div class="price"><span>{$price}</span></div>
+			   <div class="jing" style="display:{$jingxuan}">精</div>
+			   <div class="ji" style="display:{$jishou}">急</div>
+			 </div>
+		   </li>

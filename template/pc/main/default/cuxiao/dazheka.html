@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>打折卡-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_zhekouka.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 打折卡</div>
+	<div id="content">
+		<div class="banner"><img src="{$Default_tplPath}images/zhekouka_03.jpg" alt="" /></div>
+		<div class="grid_zkk_01 clearfix">
+			<div class="col_main">
+				<div class="oneBox">
+					<div class="hd"><img src="{$Default_tplPath}images/zhekouka_06.gif" alt="" /></div>
+					<div class="bd">　　打折卡是同城消费的会员卡，集餐饮、娱乐、购物、美容、旅行、家居于一体的消费优惠卡，持有打折卡即可享受特约商户在同城消费上提供的超低折扣优惠，并可以参加同城消费举办的各种活动，有免费获取同城消费纪念品的机会。</div>
+				</div>
+				<div class="oneBox top10px">
+					<div class="hd"><img src="{$Default_tplPath}images/zhekouka_16.gif" alt="" /></div>
+					<div class="bd">使用此卡可享受本站合作商家提供的折扣优惠<br />
+使用此卡可享受本站为您提供的打折服务<br />
+使用此卡可免费参与本站组织的团购会<br />
+商家提供的折扣信息请浏览本站的“商家打折优惠大全”频道</div>
+				</div>
+			</div>
+			<div class="col_sub">
+				<div class="twoBox">
+					<div class="hd"><img src="{$Default_tplPath}images/zhekouka_09.gif" /></div>
+					<div class="bd">1. 一次申请后可终身拥有,无需续费,无限次使用<br />
+2. 商家的折扣信息以本站”打折优惠大全“栏目公布的为准<br />
+3. 此卡如有遗失，须重新申领，不受理挂失<br />
+4. 持卡在商家消费时若遇到商家折扣问题产生异议,可及时按照卡上联系方式联系<br />　本站,由我们市场专员与商家进行沟通解决<br />
+5. 本卡实行实名制,仅限本人使用</div>
+				</div>
+				<div class="twoBox top10px">
+					<div class="hd"><img src="{$Default_tplPath}images/zhekouka_17.gif" /></div>
+					<div class="bd"><b>一、关于费用</b><br />
+　1. 在线申请使用{$jifenname}兑换,所需<span class="red_skin">{$jifenname}</span>为<span class="red_skin">50</span>个,免邮费<br />
+　2. 线下直接办理,一次性收取制卡工本费<span class="red_skin">20</span>元<br />
+　3. 对于本站的积极会员可免费申领,以做奖励<br />
+<b>二、领取办法</b><br />
+　1. 填写下面表格在线申请,使用{$jifenname}支付,免费邮寄给您<br />
+　2. 在本站的特约销售网点直接购买
+</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid_02">
+			<div class="shenqing">
+				<div class="hd"><img src="{$Default_tplPath}images/zhekouka_20.gif" style="vertical-align:top;" alt="" /></div>
+				<div class="bd">
+				<form name="form1" method="post" action="" onSubmit="return checksqhyk();" style="margin:0">
+					<ul id="login_info_cm" class="clearfix" style="padding-left:20px;"></ul>
+					<ul><!--<li class="clearfix"><div class="k_1">用户名：</div><div class="k_2"><input name="chrname" type="text" class="sq_input" onBlur="checkhykchrname()"/><span class="red_skin">*</span></div><div class="k_3" id=chkhykchrname>填写您在本站的用户名,如果没有，请先<a href="../member/register.html">快速注册</a>一个</div></li>
+						<li class="clearfix"><div class="k_1">密码：</div><div class="k_2"><input  name="chrpwd" type="password" class="sq_input"  onblur="checkhykchrpwd()"/><span class="red_skin">*</span></div><div class="k_3"  id=chkhykchrpwd></div></li>-->
+						
+						<li class="clearfix"><div class="k_1">真实姓名：</div><div class="k_2"><input name="truename" type="text" class="sq_input"  onblur="checkhyktruename()"/><span class="red_skin">*</span></div><div class="k_3"  id="chkhykchrtruename">填写联系人的真实姓名</div></li>
+						<li class="clearfix"><div class="k_1">联系电话：</div><div class="k_2"><input name="chrtel" type="text" class="sq_input" onBlur="checkhykchrtel()"/><span class="red_skin">*</span></div><div class="k_3" id="chkhykchrtel">建议填写手机</div></li>
+						<li class="clearfix"><div class="k_1">邮寄地址：</div><div class="k_2"><input name="chraddress" type="text" class="sq_input" onBlur="checkhykchraddress()"/><span class="red_skin">*</span></div><div class="k_3" id="chkhykchraddress">请认真填写，以便准确邮送</div></li>
+						<li class="clearfix"><div class="k_1">邮政编码：</div><div class="k_2"><input name="code"  type="text" class="sq_input" /></div><div class="k_3">不记得可不填</div></li>
+						<li class="orange_skin">*成功申领后本卡号将与您该用户名绑定，请注意及时更新并确保您的您的会员资料正确性</li>
+						<li style="padding-left:80px; _display:inline;"><input type="submit" class="sq_button" value=" " /></li>
+                                                     
+					</ul>
+					</form>
+				</div>
+				<div class="ft"><img src="{$Default_tplPath}images/zhekouka_29.gif" style="vertical-align:top;" alt="" /></div>
+			</div>
+		</div>
+
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<SCRIPT src="{$Default_tplPath}js/hyk.js"></SCRIPT>
+<script type="text/javascript" src="{$Default_tplPath}js/hover_bg.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

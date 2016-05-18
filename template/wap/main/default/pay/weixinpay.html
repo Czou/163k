@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$orderactionstr}</title>
+<link href="{$Default_tplPath}skin/site_login.css" type="text/css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0"/>
+<script>var nowdomain="{$SiteUrl}";</script>
+<style type="text/css">
+body { margin:0; padding:0; font-size:16px; background-color:#333; color:#fff; text-align:center; font-family:"微软雅黑";}
+.wrapper h3 { font-size:24px; font-weight:normal; margin:50px 0 20px; bprder}
+.wrapper img { background-color:#fff; padding:15px; vertical-align:top; display:block; margin:0 auto;}
+.wrapper p { padding:6px 0 0 20px; text-align:left; font-size:16px;}
+.price { font-size:20px; color:#C33}
+.impowerBox {
+  background-color: #232323;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  -moz-box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  -webkit-box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  width:259px; margin:35px auto 0;
+  padding:15px;
+  color:#aaa;
+}
+</style>
+<body>
+<div class="wrapper" data-orderid="{$orderid}" data-orderaction="{$orderaction}" data-orderactionstr="{$orderactionstr}">
+	<h3>微信支付</h3>
+	<p>订单号：{$chrorder}</p>
+	<p>支付金额：<span class="price">&yen;{$paymoney}</span></p>
+	<div class="impowerBox">本次请求请在60分钟内完成支付,超时请重新发起{$orderactionstr}支付请求</div>
+</div>
+</body>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+	function onBridgeReady(){
+    WeixinJSBridge.invoke(
+        'getBrandWCPayRequest', {
+            "appId" : "{$appId}", 
+            "timeStamp":"{$timeStamp}",    
+            "nonceStr" : "{$nonceStr}",  
+            "package" : "{$package}",     
+            "signType" : "MD5",             
+            "paySign" : "{$paySign}" 
+        },
+        function(res){     
+            if(res.err_msg == "get_brand_wcpay_request:ok" )
+             {
+             		window.location.href = '{$from}';
+             	}else
+             		{
+             			/*var str="";
+             			for(var x in res)
+             			{
+             				str =  str + x+"="+res[x];
+             			}*/
+             			
+             			
+             			alert("付款失败！");
+             		//	MSGwindowShow("pay","4","支付失败!","{$from}","");
+						window.location.href = '{$from}';
+             			}     
+        }
+    ); 
+ }
+var isweixin = false;
+if (typeof WeixinJSBridge == "undefined"){
+    
+	if( document.addEventListener ){
+        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		isweixin = true;
+    }else if (document.attachEvent){
+        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		isweixin = true;
+    }
+	if(!isweixin){
+		alert('请在微信客户端中进行支付！');
+	}
+ }else{
+    onBridgeReady();
+ } 
+
+</script>
+</body>
+</html>

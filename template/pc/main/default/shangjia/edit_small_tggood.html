@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>团购快捷操作</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<style type="text/css">
+body { margin:0; padding:0; color:#404040; background:#fff; color:#404040;}
+div,p { color:#404040;}
+.list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px;}
+.sp_a,.sp_b { float:left;}
+.sp_a { width:100px; text-align:right; color:#888;}
+.sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.name { font-weight:bold; color:#36c; display:block; height:40px; line-height:40px; font-size:18px; overflow:hidden; text-align:center;}
+.t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px; width:180px;}
+.t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+	<form id="myform" name="myform" action="?action=smallsave"  method="post" target="tijiao" style="margin:0; padding:0; border:0 none;">
+	<input type="hidden" name="ID" value="{$ID}" />
+	<input type="hidden" name="action" value="smallsave" />
+	
+	<span class="name">{$chrtitle}</span>
+	<div class="list">
+		<span class="sp_a">是否卖光：</span>
+		<span class="sp_b"><input type="checkbox" name="maiguang" value="1" {$maiguang_s_1} /> 卖光了 <em>前台能访问，但不能下单</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">状态属性：</span>
+		<span class="sp_b"><input type="radio" name="iskill" value="0" {$iskill_c_0} /> 下线　<input type="radio" name="iskill" value="1" {$iskill_c_1} /> 上线　<input type="radio" name="iskill" value="2" {$iskill_c_2} /> 秒杀上线</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">营业员组：</span>
+		<span class="sp_b"><select name="dhuserid">
+	  <option value="3" {$dhuserid_s_3}>营业员1组</option>
+	  <option value="4" {$dhuserid_s_4}>营业员2组</option>
+	  <option value="5" {$dhuserid_s_5}>营业员3组</option>
+	  <option value="6" {$dhuserid_s_6}>营业员4组</option>
+	  <option value="7" {$dhuserid_s_7}>营业员5组</option>
+	  <option value="8" {$dhuserid_s_8}>营业员6组</option>
+	  <option value="9" {$dhuserid_s_9}>营业员7组</option>
+	  <option value="10" {$dhuserid_s_10}>营业员8组</option>
+	  </select>  <em>消费兑换营业员分配</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">短信标题：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="smstitle" name="smstitle" value="{$smstitle}" /> <em>用来发送团购消费短信</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">商家电话：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="shoptel" name="shoptel" value="{$shoptel}" /> <em>发送团购消费短信时显示的商家联系电话</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">&nbsp;</span>
+		<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+	</div>
+	</form>
+	<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</div>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script src="{$Default_tplPath}js/commonX4_member.js"></script>
+</body>
+</html>

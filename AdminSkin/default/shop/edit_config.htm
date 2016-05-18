@@ -1,0 +1,147 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/javascript.js"></script>
+<script>
+function checkform(o){
+	
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">店铺默认设置(非签约商家的店铺将默认统一显示本内容)&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=Save" onsubmit="return checkform(this)">
+ 
+  
+  <tR><Td>非签约发布商品数量：</td><td class="category"><input type="text" name="shopnum" value="{$shopnum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+
+<tR><Td>非签约发布店铺展示图片数量：</td><td class="category"><input type="text" name="picnum" value="{$picnum}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+<tR><Td>非签约发布打折数量：</td><td class="category"><input type="text" name="cuxiao" value="{$cuxiao}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+<tR><Td>非签约发布优惠券数量：</td><td class="category"><input type="text" name="youhui" value="{$youhui}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+<tR><Td>非签约发布店铺动态数量：</td><td class="category"><input type="text" name="dongtai" value="{$dongtai}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+<tR><Td>非签约添加友好店铺数量：</td><td class="category"><input type="text" name="youhao" value="{$youhao}" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"> <em class="global_tip">(0表示不限制)</em>
+</td></tr>
+<tR><Td>非签约能否使用高级设置：</td><td class="category"><input type="radio" name="shezhi" value="0" {$shezhi0}> 否  <input type="radio" name="shezhi" value="1" {$shezhi1}>是  <em class="global_tip">(高级设置是指设置店铺模板，上传通栏背景图和幻灯片)</em>
+</td></tr>
+<tR><Td>非签约管理商品订单：</td><td class="category"><input type="radio" name="orders" value="0" {$orders0}> 否  <input type="radio" name="orders" value="1" {$orders1}>是
+</td></tr>
+<tR><Td>非签约回评店铺点评：</td><td class="category"><input type="radio" name="comments" value="0" {$comments0}> 否  <input type="radio" name="comments" value="1" {$comments1}>是
+</td></tr>
+<tR><Td>非签约回评商品点评：</td><td class="category"><input type="radio" name="shops" value="0" {$shops0}> 否  <input type="radio" name="shops" value="1" {$shops1}>是
+</td></tr>
+<tR><Td>非签约商家是否可以删除店铺点评：</td><td class="category"><input type="radio" name="livecomment" value="0" {$livecomment0}> 不允许  <input type="radio" name="livecomment" value="1" {$livecomment1}>允许
+</td></tr>
+<tR><Td>非签约商家是否可以使用自定义栏目：</td><td class="category"><input type="radio" name="zidingyi" value="0" {$zidingyi0}> 不允许  <input type="radio" name="zidingyi" value="1" {$zidingyi1}>允许
+</td></tr>
+<tr > 
+      <td height="25"  width="18%" >橙色风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt1" >{$background1$}</span><span id="tt1_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background1"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground1"  id="urlbackground1"   value="{$background1}"></td>
+    </tr>
+	<tr > 
+      <td height="25"  width="18%" >粉红风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt2" >{$background2$}</span><span id="tt2_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background2"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground2" id="urlbackground2"  value="{$background2}"></td>
+    </tr>
+	<tr > 
+      <td height="25"  width="18%" >黑色风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt3" >{$background3$}</span><span id="tt3_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background3"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground3" id="urlbackground3"  value="{$background3}"></td>
+    </tr>
+	<tr > 
+      <td height="25"  width="18%" >蓝色风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt4" >{$background4$}</span><span id="tt4_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background4"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground4"  id="urlbackground4" value="{$background4}"></td>
+    </tr>
+	<tr > 
+      <td height="25"  width="18%" >绿色风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt5" >{$background5$}</span><span id="tt5_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background5"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground5"  id="urlbackground5"  value="{$background5}"></td>
+    </tr>
+	<tr > 
+      <td height="25"  width="18%" >紫色风格默认背景图(950*148)<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <span id="tt6" >{$background6$}</span><span id="tt6_1" style="display:none">
+	  <table width="100%" cellpadding="0" cellspacing="0"><tr><td>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=background6"></iframe>
+	  </td></tr></table>
+	  </span><input type=hidden name="urlbackground6"  id="urlbackground6" value="{$background6}"></td>
+    </tr>
+	 <tr><td>店铺幻灯片：</td>
+	<td class="category" colspan="3">
+	 <table width="100%" cellpadding="0" cellspacing="0">
+	 {$huangdeng}
+	 </table>
+	</td>
+	</tr>
+   
+	<script>
+
+function hid2(tt)
+{
+	document.getElementById("tt"+tt).style.display="none";
+	document.getElementById("tt"+tt+"_1").style.display="block";
+}
+
+function hid(tt)
+{
+	document.getElementById("pict"+tt).style.display="none";
+	document.getElementById("pict1"+tt).style.display="block";
+}
+</script>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type="submit" name="Submit" class="global_btn_blue_big" value="提交保存">
+       </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}--会员登陆</title>
+<link href="{$Default_tplPath}skin/site_login.css" type="text/css" rel="stylesheet" />
+<script>var nowdomain="{$SiteUrl}";</script>
+<style type="text/css">
+body { margin:0; padding:0; font-size:14px; background-color:#333; color:#fff; text-align:center; font-family:"微软雅黑";}
+.wrapper h3 { font-size:20px; font-weight:normal; margin:50px 0 20px;}
+.wrapper img { background-color:#fff; padding:15px; vertical-align:top; display:block; margin:0 auto;}
+.impowerBox {
+padding:10px 0;
+  background-color: #232323;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  -moz-box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  -webkit-box-shadow: inset 0 5px 10px -5px #191919, 0 1px 0 0 #444444;
+  width:259px; margin:20px auto 0;
+}
+.txtBox { color:#ccc; font-size:14px; margin-bottom:12px;}
+</style>
+<body>
+<div class="wrapper">
+	<h3>微信登录</h3>
+	<div class="txtBox">请使用微信扫描二维码登录“{$SiteName}”</div>
+	<img src="{$urlimg}" id="wx_default_img" alt="" />
+	<div class="impowerBox" id="wx_default_msg">等待扫描</div>
+</div>
+
+
+</body>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+var apiaction="0";
+function loadweixinLogin(){
+	var url = nowdomain+'request.ashx?action=isloginweixin&apistate={$apistate}&apiaction=' + apiaction + '&jsoncallback=?';
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			$('#wx_default_msg').html('欢迎您使用微信登录“{$SiteName}”！<br><a href="{$from}">点击跳转</a>');
+			window.location.href = '{$from}';
+		}else if(data[0].islogin === '2'){
+			apiaction = data[0].action;
+			if(apiaction==='2'){
+				$('#wx_default_img').hide(); 
+			}
+			$('#wx_default_msg').html(data[0].actionstr); 
+			window.setTimeout(function(){loadweixinLogin();},100);
+		}else{
+			$('#wx_default_msg').html(data[0].error); 
+		}
+	});
+}
+loadweixinLogin();
+</script> 
+</body>
+</html>

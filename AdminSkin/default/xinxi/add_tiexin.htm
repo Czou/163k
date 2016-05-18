@@ -1,0 +1,75 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function clickcolor(tt)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) tt.value=aarr;
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">添加贴心服务&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至贴心服务列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="1" cellspacing="1" cellpadding="4" class="toptable grid">
+
+
+  <form name="form1" method="post" action="?action=addSave">
+    <tr > 
+      <td width="15%" height="25">标题<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="title" type="text" size="30" ></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">链接地址<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%" class="category"> <input name="chrurl" type="test" size="30" ></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">链接颜色： 
+      </td>
+      <td width="76%" class="category"> <input name="url1" type="text" id="cptext" value="" /> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="intorder" type="text" id="intorder" size="10" onKeyUp="if(isNaN(value))execCommand('undo')"> (排序越大,越排在前面)</td>
+    </tr>
+    <tr  > <td></td>
+      <td height="25"  class="category"><input type="hidden" name="gotourl" value="{$gotourl}" />
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	
+})(jQuery);
+</script>
+</body>
+</html>

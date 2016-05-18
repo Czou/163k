@@ -1,0 +1,28 @@
+﻿<ul id="list_nav_2013" class="list_nav_2013">
+	<li class="all"><a href="{$SiteUrl}member/">会员首页</a></li>
+	{$menu}
+</ul>
+<script src="{$Default_tplPath}js/dropDown2013.js?{$CacheHash}"></script>
+<script>
+$(document).ready(function(){
+	var that=$('#list_nav_2013'),
+		url = window.location.href,
+		url_L = url.toLowerCase(),
+		channel = that.find('a'),
+		forlink;
+	channel.each(function(){
+		forlink = $(this).attr("href").toLowerCase();
+		forlink = forlink.replace('?','\\?');
+		var rec = new RegExp(forlink+"$", 'gi');
+
+		
+		if(rec.test(url_L)){
+			
+			that.find('.cur').removeClass();
+			$(this).addClass("cur");
+			$(this).parents('.rights').removeClass().addClass('xias');
+			$(this).parents('.ul').show();
+		}
+	});
+});
+</script>

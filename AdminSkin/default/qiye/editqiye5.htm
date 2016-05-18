@@ -1,0 +1,97 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+#listcategory { list-style-type:none; width:100%; margin:0; padding:0}
+#listcategory ul{ margin:0; padding:0}
+#listcategory ul li{ margin-left:5px;float:left}
+#listpicall { list-style-type:none; width:100%; margin:0; padding:0}
+#listpicall ul{ margin:0; padding:0}
+#listpicall ul li{ margin-left:5px;float:left}
+</style>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起，请输入职位名称！");
+		o.chrtitle.focus();
+		return false;
+	}
+}
+function deleteqiyejob(qiyeid,jobid)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除职位吗？"))
+	{
+		setCookie("delurl",window.location.href);
+		location.href = "qiye.aspx?action=deljob&ID=" + qiyeid+"&jobid="+jobid
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">招贤纳士&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业列表" onClick="javscript:window.location.href='qiye.aspx';"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+   <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li><a href='qiye.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='qiye.aspx?action=e1&ID={$ID}'>关于我们</a></li><li><a href='qiye.aspx?action=e2&ID={$ID}'>新闻中心</a></li><li><a href='qiye.aspx?action=e3&ID={$ID}'>产品展示</a></li><li><a href='qiye.aspx?action=e4&ID={$ID}'>客户案例</a></li><li class="selected"><a href='qiye.aspx?action=e5&ID={$ID}'>招贤纳士</a></li><li><a href='qiye.aspx?action=e6&ID={$ID}'>友情链接</a></li><li><a href='qiye.aspx?action=e7&ID={$ID}'>其他</a></li>
+</ul>
+</div>
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <tr><td colspan=4 class="category">已经发布的职位：</td></tr>
+   		<tr><td colspan=4 class="category"><div id="listarticleall">
+                <ul >
+                  <tag:Loop ListType="listqiyejob" RecType="New" PageSize="200" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="qiye/listjob.htm" />
+                </ul>
+              </div></td></tr>
+          <form name="form1" method="post" action="?action=e5Save" onsubmit="return checkform(this)"  enctype="multipart/form-data">
+          <tR>
+            <td colspan="4" class="category" >添加/修改职位</td>
+          </tR>
+          <tr >
+            <td  height="25">职位名称<font color="#FF0000">*</font>： </td>
+            <td  class="category" colspan="3"> <input type="text" name="chrtitle" style="width:300px;" value="{$chrtitle}" /></td>
+          </tr>
+        
+        <tr >
+            <td  height="25">职位描述<font color="#FF0000"></font>： </td>
+            <td  class="category" colspan="3"> 
+            <textarea cols="80" id="chrmark" name="chrmark" rows="5" maxlength=200>{$chrmark}</textarea>
+            </td>
+          </tr>
+           <tr >
+            <td  height="25">任职资格<font color="#FF0000"></font>： </td>
+            <td  class="category" colspan="3"> 
+            <textarea cols="80" id="chrzhige" name="chrzhige" rows="5" maxlength=200>{$chrzhige}</textarea>
+            </td>
+          </tr>
+          
+          <tr >
+            <td></td>
+            <td height="25" colspan="5" class="category"><input type=hidden name=jobid value="{$jobid}"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type="hidden" name="id" value="{$ID}"><input type="button" name="button1" class="global_btn_big" value="下一页" onclick="window.location.href='qiye.aspx?action=e6&id={$ID}';"><input type="hidden" name="over" value="0"> &nbsp;  
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="提交">
+             </td>
+          </tr>
+         
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+</body></html>

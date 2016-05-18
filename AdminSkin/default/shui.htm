@@ -1,0 +1,98 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">水印设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=editsave">
+     <tr > 
+      <td  height="25" width="20%" >水印文字<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="text" size="30" name="shuizi"  value="{$shuizi}"/></td>
+    </tr>
+	 <tr > 
+      <td  height="25" >水印图片<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"><span id="str1" name="str1">
+	  {$filepath}
+	  </span>
+	  <span id="str2" name="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?type=1&action=index"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1" value="{$shuipic}"></td>
+    </tr>
+    <tr > 
+      <td  height="25" >使用类型<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuiopen" value="0" {$shuiopen_c_0}>文字水印 <input type="radio" name="shuiopen" value="1" {$shuiopen_c_1}>图片水印</td>
+    </tr>
+    <tr > 
+      <td  height="25" >分类信息<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuilive" value="0" {$shuilive_c_0}>不使用 <input type="radio" name="shuilive" value="1" {$shuilive_c_1}>使用</td>
+    </tr>
+	<tr > 
+      <td  height="25" >商家店铺相册<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuicompany" value="0" {$shuicompany_c_0}>不使用 <input type="radio" name="shuicompany" value="1" {$shuicompany_c_1}>使用</td>
+    </tr>
+	
+	<tr > 
+      <td  height="25" >图库/资讯<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuiphoto" value="0" {$shuiphoto_c_0}>不使用 <input type="radio" name="shuiphoto" value="1" {$shuiphoto_c_1}>使用</td>
+    </tr>
+	<tr > 
+      <td  height="25" >房产（房源）<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuihouse" value="0" {$shuihouse_c_0}>不使用 <input type="radio" name="shuihouse" value="1" {$shuihouse_c_1}>使用</td>
+    </tr>
+
+	<tr > 
+      <td  height="25" >贴吧<font color="#FF0000">*</font>： 
+      </td>
+      <td   class="category"> <input type="radio" name="shuitieba" value="0" {$shuitieba_c_0}>不使用 <input type="radio" name="shuitieba" value="1"  {$shuitieba_c_1}>使用</td>
+    </tr>
+	
+	
+	
+	
+	
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big" /></td>
+    </tr>
+  </form>
+ </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+</script>
+  </body>
+</html>
+

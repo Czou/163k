@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$cname}注册-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/reg-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; {$cname}注册</div>
+		<div class="fabu reg">
+		<form name="form1" id="form1" method="post" action="" onSubmit="return checkregister();">
+			<p><span class="label"><span class="mi">*</span>用户名：</span><span class="wd-arrow"><input onblur="checkuser(this)" type="text" name="chrname" id="chrname" class="codebox-input" /></span></p>
+			<p><span class="label"><span class="mi">*</span>密码：</span><span class="wd-arrow"><input onblur="checkpwd(this)" type="password" name="chrpwd" id="chrpwd" class="codebox-input" /></span></p>
+			<p><span class="label"><span class="mi">*</span>重复密码：</span><span class="wd-arrow"><input onblur="rcheckpwd(this)" type="password" name="chrpwd_1" name="chrpwd_1" class="codebox-input" /></span></p>
+			<p><span class="label"><span class="mi">*</span>电子邮件：</span><span class="wd-arrow"><input onblur="test_email(this);" type="text" name="chremail" id="chremail" class="codebox-input" /></span></p>
+			<p><span class="label"><span class="mi">{$telmust}</span>QQ号码：</span><span class="wd-arrow"><input type="hidden" name="qqmust" id="qqmust" value="{$qqmust}"><input type="text" name="chrqq" id="chrqq" class="codebox-input" /></span></p>
+			<p><span class="label"><span class="mi">{$telmust}</span>手机号码：</span><span class="wd-arrow"><input type="hidden" name="telmust" id="telmust" value="{$telmust}"><input type="text" name="chrtel" id="chrtel" class="codebox-input" /></span></p>
+			{$qiyeregister}
+			{$registerwenti}
+			<p><span class="label"><span class="mi">*</span>验证码：</span><span class="wd-arrow"><input type="text" class="codebox-input" name="code" id="code" style="width:120px; min-width:120px;" /><span class="yzm"><img src="" id="vadimg" onClick="this.src='../regcode.html?'+(new Date().getTime());" style="cursor:hand;" alt="看不清楚请刷新"/></span></span></p>
+			<script>document.form1.vadimg.src='../regcode.html?'+(new Date().getTime());</script>
+			<p class="txt"><input name="checkbox" type="checkbox" checked /> 我已经阅读并同意<a href="../request.aspx?action=showxieyi" target="_blank" class="blue">会员注册协议</a></p>
+			<input class="comn-submit reg-submit btn_block" type="submit" value="注册" /><input type="hidden" name="styleid" value="{$styleid}"><input type="hidden" id="allok" value="1">
+		</form>
+		</div>
+	</div>
+{$bottom$}
+<script src="{$Default_tplPath}js/wap_reg.js"></script>
+</body>
+</html>

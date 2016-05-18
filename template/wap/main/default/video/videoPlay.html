@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<style type="text/css">
+.user_reviews { margin-bottom:0!important; padding:10px; margin-top:8px;}
+.write2014 { margin-bottom:0!important;}
+.user_reviews .title {font-size:16px;border-bottom:1px solid #eeeeee;line-height:40px;margin:0; padding:0;}
+.user_reviews .title span {display:inline-block;border-bottom:1px solid #ff9933;height:40px;position:relative;top:0;}
+.user_reviews .ComentNum{color:#999999;font-size:14px;display:inline-block;padding:0 6px;margin:5px 0 0 15px;position:relative;border:1px solid #cacaca;line-height:18px;}
+.user_reviews .ComentNum:before{position:absolute;border-left:1px solid #cacaca;border-bottom:1px solid #cacaca;content:'';width:6px;height:6px;background:#ffffff;-webkit-transform:rotate(45deg);left:-5px;top:6px;}
+</style>
+{$top$}
+	<ShowVideo:{"width":"860", "height":"524"} />
+	<div class="video_info">
+		<h1>{$chrtitle}</h1>
+		<p class="num"><span class="ply right"><s title="播放"></s>{$views}</span><span class="date"><s title="日期"></s>{$dtappenddate}</span></p>
+		{$koubeishop}
+	</div>
+	<div class="share_fd" id="share_fd" style="margin-top:10px;">
+		<div class="title"><span>分享到朋友圈</span></div>
+		{$Mh163k_wap_整站通用_分享代码}
+	</div>
+	<div class="share_fd" style="margin-top:10px;">
+		<div class="title"><span>相关视频</span></div>
+		<div class="module_video">
+			<div class="bd main_list">
+				{$videos}
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="user_reviews">
+		<div class="title"><span>网友评论</span><div class="ComentNum" id="show_total_revert">2</div></div>
+		<div id="showcomment">正在加载数据，请稍等......</div>
+		<form id="myform">
+			<div class="write2014">
+				<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+				<input type="hidden" id="isrep" value="" />
+				<input type="hidden" id="istg" value="" />
+				<input type="hidden" id="parentid" value="" />
+				<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+				<div class="cmt_control clearfix">
+					<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+					<div class="left">文明上网 礼貌发帖 仅限300字</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = $('.video_info').find('img').eq(0).attr('src');
+if(filepath1 !== '' && typeof filepath1 !== 'undefined'){shareImg = nowdomain + filepath1.replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','{$lanmuname}-{$SiteName}',shareImg,'{$videourl}video_{$detailsid}.html');
+	});
+}
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$detailsid}';
+window['STYLEID'] = '9';
+(function($){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+})(jQuery);
+
+
+</script>
+</body>
+</html>

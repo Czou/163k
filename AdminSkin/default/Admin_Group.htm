@@ -1,0 +1,72 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "Admin_Group.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的用户吗？"))
+        {
+            document.getElementById("form").submit()
+        }
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>用户组管理</td>
+	  <td align="right"><a href="Admin_Group.aspx?action=Add" class="global_btn_blue">添加用户组</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按组名查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord$}">
+		<input type="hidden" name="xxxx"  value=""/>
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" width=70%>组名</td>
+    		<td width="80" class="category">操作</td>
+          	<td width="53"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong><a href="javascript:delAll(this);">删？</a></strong></td>
+          </tr>
+		  <tag:Loop ListType="ListGroup" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="List_Group_Tr.htm" />
+		  </form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+		{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

@@ -1,0 +1,9 @@
+﻿<li>
+	<img src="{$chrpic}" class="face" alt="" />
+	<div class="txt">
+		<p class="chd"><span class="name">{$chrname}</span><span class="i_star i_star_{$score1}">{$score1}星</span><span class="pj">总体评价：<span class="st_1"><img src="{$Default_tplPath}images/haoping_{$score}.gif" alt="" /></span></span></p>
+		<p class="cbd">{$chrmark}</p>
+		<p class="time clearfix"><a href="#" onclick="return putRevertPage(this,'{$revertid}','xianhua=1');" class="zan">赞 (<em class="num">{$xianhua}</em>)</a><a href="#" onclick="return edit_replay(this,'{$revertid}','{$isadmin}');" class="right display{$ismanage}" style="margin-right:10px;">回评</a><span class="inner">[发布于 {$dtappenddate}]</span></p>
+		<p class="reply display{$isrep}"><span class="red">{$replaytruename}回评：</span>{$replaycontent} <span class="time">{$replaydate}</span></p>
+	</div>
+</li>

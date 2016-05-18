@@ -1,0 +1,44 @@
+@charset "utf-8";
+.top10px { margin-top:10px;}
+.orange_skin { color:#f30;}
+.red_skin { color:#c00;}
+.grid_zkk_01 { margin-top:10px;}
+.grid_zkk_01 .col_main { float:left; width:595px;}
+.grid_zkk_01 .col_sub { float:right; width:595px;}
+.oneBox { text-align:left;}
+.oneBox .hd { border-bottom:2px solid #ff721e;}
+.oneBox .bd { margin-top:10px; line-height:25px; font-size:14px; padding:5px;}
+.twoBox { text-align:left;}
+.twoBox .hd { height:24px; background:url(../images/zhekouka_11.gif) repeat-x 0 0; border:1px solid #ddd;}
+.twoBox .bd { padding:8px; border:1px solid #ddd; border-top:none; line-height:20px; color:#666;}
+.shenqing { margin-top:10px;}
+.shenqing .bd { text-align:left; border-left:2px solid #d6d8e4; border-right:2px solid #d6d8e4; padding:15px; background:url(../images/zhekouka_22.gif) no-repeat right 0;}
+.shenqing .bd li { height:40px; line-height:40px;}
+.shenqing .bd li .k_1 { float:left; text-align:right; width:80px; color:#333;}
+.shenqing .bd li .k_2 { float:left; width:240px;}
+.shenqing .bd li span.red_skin {padding-left:8px;}
+.shenqing .bd li .k_3 { float:left; color:#999; _display:inline; margin-left:8px;}
+.shenqing .bd .sq_input { height:28px; width:220px; line-height:28px; color:#333; font-size:14px; border:1px solid #ccc;}
+.shenqing .bd .sq_button { width:117px; height:29px; border:none; cursor:pointer; background:url(../images/zhekouka_21.gif) no-repeat 0 0;}
+.shenqing .bd img { vertical-align:middle;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

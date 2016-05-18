@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>在线支付--{$SiteName}</title>
+<script src="{$tplPath}js/common.js"></script>
+<script>
+function settitle(val){
+	$$("kindid").value=val;
+}
+</script>
+
+{$top$}
+  <div id="content" class="video2011">
+    <table width="100%" align="center" style="margin:10px 0;border:#ccc solid 1px;padding:15px; text-align:left; font-size:10.5pt;">
+      <tr>
+        <td width="700" height="26" valign="top"><a href="{$SiteUrl}">{$SiteName}</a> &gt; 在线支付</td>
+        <td width="248" valign="top"><strong style="font-size:16px;color:#f30;">客服热线：{$sitetel}</strong></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center" style="border-top:1px solid #ccc;padding-top:10px;"><form action="?action=save" method="post" name="pay_form" onsubmit="javascript:return jc(this)">
+            <table width="700" border="0" cellpadding="2" cellspacing="2">
+              <tr>
+                <td width="150" height="50" align="right" valign="middle">支付金额：</td>
+                <td valign="middle" align="left"><input name="shu" type="text" size="30" maxlength="9" value=""   class="ind_log_input" style="height:25px; width:200px;line-height:25px;"/>
+                  元</td>
+              </tr>
+              <tr>
+                <td align="right" height="50">联系电话：</td>
+                <td align="left"><input name="tel" type="text" size="30" maxlength="13" value="" class="ind_log_input" style="height:25px; line-height:25px;width:200px;" />
+                  <font color="#888888">(您的联系手机/电话)</font></td>
+              </tr>
+              <tr>
+                <td align="right" height="50">支付款项说明：</td>
+                <td align="left"><input name="bz" type="text" size="30" maxlength="17" value="网络服务费" class="ind_log_input" style="height:25px; width:200px;line-height:25px;" />
+                  <font color="#888888">(简要说明一下即可)</font></td>
+              </tr>
+              <tr>
+                <td align="right" valign="top"><br />
+                  请选择支付方式：</td>
+                <td align="left"> {$paydetails}
+                  <input type="hidden" name="kindid"  id="kindid" value="{$kindid$}">
+                </td>
+              </tr>
+              <tr>
+                <td align="right" height="50">验证码：</td>
+                <td align="left"><input name="yzm" type="text" size="8"  class="ind_log_input" style="height:25px; width:200px;line-height:25px;">
+                  <img src="../getcode.html" alt=""   id="vadimg" title="看不清楚请刷新!" onClick="this.src='../getcode.html?'+(new Date().getTime());"  style="cursor:pointer" align="absmiddle"/> <font color="#888888">(不区分大小写)</font></td>
+              </tr>
+              <tr>
+                <td align="right">&nbsp;</td>
+                <td align="left"><input type="submit" name="submit" value="提交支付" style="margin-top:5px;width:100px;height:38px;" /></td>
+              </tr>
+            </table>
+          </form>
+<script type="text/javascript"> 
+function jc(aa) {
+    if (aa.shu.value == '') {
+        alert("请填写汇款支付金额!");
+        return false;
+    }
+    if (!/(^\d{1,9})(\.\d{1,2})?$/.test(aa.shu.value)) {
+        alert("支付金额不正确");
+        return false;
+    }
+    if (Math.ceil(aa.shu.value) < 1) {
+        alert("支付金额不能为0");
+        return false;
+    }
+    if (aa.bz.value == '') {
+        alert("请在款项说明中标明一下汇款事由!");
+        return false;
+    }
+    if (aa.tel.value == '') {
+        alert("请填写联系电话，方便与您确认!");
+        return false;
+    }
+    if (aa.yzm.value == '') {
+        alert("请输入字符验证码!");
+        return false;
+    }
+}
+</script>
+        </td>
+      </tr>
+    </table>
+  </div>
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

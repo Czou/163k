@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店订单-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '快店订单';
+</script>
+{$top$}
+<div class="p_tabs clearfix" id="p_tabs">
+   <ul>
+    <li id="s_skill"><a href="myorder.aspx">全部</a></li>
+	<li id="s_skill0"><a href="myorder.aspx?iskill=0">未支付</a></li>
+	<li id="s_skill1"><a href="myorder.aspx?iskill=1">已支付</a></li>
+	<li id="s_skill4"><a href="myorder.aspx?iskill=4">失败</a></li>
+	<li id="s_skill3"><a href="myorder.aspx?iskill=3">完成</a></li>
+   </ul>
+</div>
+	<div id="order_list" class="user_order_list">    
+     <tag:Loop ListType="listmyorder" RecType="New" PageSize="10" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_order_Tr.htm" />
+</div>
+    <div class="pageNavigation">
+			{$PageSplit}
+		</div>
+		<input type="hidden" value="{$system_datetime MM\/dd\/yyyy HH:mm:ss}" id="system_date" />
+{$bottom$}
+<input type="hidden" id="changeAddressId" value="" />
+<input type="hidden" id="addressid" value="">
+<script>
+$(function() {
+	$('.header .back').attr({'href':'index.html','onclick':''});
+	$('#s_skill{$iskill}').addClass('current');
+	$('#order_list').find('.view_order_detial').each(function(){
+		$(this).bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('.item').removeClass('cur');
+			$(this).parent().siblings('.item').find('.order_detial').hide();
+			$(this).parent().siblings('.item').find('.view_order_detial').removeClass('open');
+			var $order_detial = $(this).siblings('.order_detial');
+			$order_detial.toggle();
+			$(this).toggleClass('open');
+			$(this).parent().toggleClass('cur');
+		});
+	});
+});
+function getNewPage(page){
+	window.location.href="?page="+page;
+	return false;
+}
+function delMyOrder(o,orderid){
+	var url = siteUrl+'request.ashx?action=delmyorder&id='+orderid+'&remark=&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			MSGwindowShow('shopping','0','取消订单成功！','','');
+			$(o).parents('.item').remove();
+		}else{
+			MSGwindowShow('shopping','0',data[0].error,'','');
+		}
+	});
+}
+function changekill(o,sid){
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=3&skill=10&isadmin=2';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','收货成功！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+function tuikuan(o,sid){
+	if(!window.confirm('您确定要取消该订单吗？')){return false;}
+	var url = window['siteUrl']+'request.ashx?action=myorderiskill&id='+sid+'&iskill=4&skill=&isadmin=2';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	$.ajax({url:url,success:function(data){
+		if(data.islogin === '1'){
+			MSGwindowShow('revert','1','退款申请成功，请耐心等待系统处理！',window.location.href,'');
+		}else{
+			MSGwindowShow('revert','0',data.error,'','');
+		}
+	}});
+	return false;
+}
+//时间控件
+var secArr = [];
+function getInitTime(){
+  //$('#item_1')[0]&&$('#item_1').find('.order_detial').show().end().find('.view_order_detial').addClass('open');
+  var cur_time = Date.parse($('#system_date').val());
+  var start_time;
+  $('.time_left').each(function(){
+	 var jobj = $(this);
+	 var sec = {};
+	 var theid = jobj.attr('data-id');
+	 if(jobj.attr('data-iskill') === '3'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">已完成</p>');
+	 }else if(jobj.attr('data-state') === '7'){
+		 $("#time_"+theid).html('<p">派送失败</p>');
+	 }else if(jobj.attr('data-state') === '10'){
+		 $("#time_"+theid).html('<p style="color:#3e9b00;">派送完成</p>');
+	 } else if(jobj.attr('data-iskill') === '4'){
+		 $("#time_"+theid).html('<p">已取消</p>');
+	 }else if(jobj.attr('data-iskill') === '0'){
+		 if(jobj.attr('data-payid') === '99'){
+			 start_time = Date.parse(jobj.html());
+			 var SysSecond = parseInt(cur_time - start_time)/1000;
+			 sec['sec']= SysSecond;
+			 sec['sid'] = theid;
+			 secArr.push(sec);
+		 }else{
+			 $("#time_"+theid).html('<p">付款后开始计时</p>');
+		 }
+	 }else{
+		if(jobj.attr('data-payid') == '99'){
+			 start_time = Date.parse(jobj.html());
+		}else{
+			 start_time = Date.parse($('.time_left_'+theid).html());
+		}
+		 var SysSecond = parseInt(cur_time - start_time)/1000;
+		 sec['sec']= SysSecond;
+		 sec['sid'] = theid;
+		 secArr.push(sec);
+	 }
+  });
+}
+getInitTime();
+function SetRemainTime(){
+	for(var i=0;i<secArr.length;i++){
+		setRemainTimeSite(secArr[i]);
+	}
+}
+function setRemainTimeSite(secObj){
+  var second = Math.floor(secObj.sec % 60).toString();
+  var minite = Math.floor((secObj.sec / 60) % 60).toString();
+  var hour = Math.floor((secObj.sec / 3600) % 24).toString();
+  var day = Math.floor((secObj.sec / 3600) / 24).toString();
+  if(day > 0){
+	$("#time_"+secObj.sid).html('<span style="color:#999;">已超24小时</span>');
+  }else{
+	$("#time_"+secObj.sid).html('<s class="time_ico"></s><span style="color:#d00;">'+hour+'</span>时<span style="color:#d00;">'+minite+'</span>分<span style="color:#d00;">'+second+'</span>秒');
+ 	secObj.sec++;
+  }
+}
+window.setInterval(SetRemainTime,1000);
+</script>
+</body>
+</html>

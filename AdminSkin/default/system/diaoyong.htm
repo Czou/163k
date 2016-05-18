@@ -1,0 +1,84 @@
+﻿<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+	{
+		location.href = "?action=del&ID=" + id
+	}
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的记录吗？"))
+	{
+		document.getElementById("form").submit();
+	}
+}
+</script>
+<style>
+.dropmenu, .dropmenu1 { position:absolute;  margin-top:3px; white-space:nowrap; border:3px solid #A6C9D7; background:#F2F9FD; text-align:left; opacity:0.9; filter:Alpha(opacity=90);  float:left }
+.dropmenu1 { padding: 5px; width:100px;}
+.dropmenu a{  width:100px;background:none !important; color:#666 !important; }
+.dropmenu a:hover{ background:#DEEFFA !important; }
+.dropmenu ul{ list-style-type:none; margin:0; padding:0;width:100px; overflow:hidden;}
+.dropmenu li{ list-style-type:none; margin:0; padding:0; width:100px; height:20px; line-height:20px; overflow:hidden; clear:both;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>外部数据调用(根据自定义设置生成js,供外部调用) </td>
+	  <td align="left" width="200"><div id="addjs3" class="current" style="float:left;" onclick="dropmenu(this);" ><a href="#">添加数据调用</a><div id="addjs3child" class="dropmenu" style="display:none;">
+	  <ul>
+	  <li><a href="?action=add&type=live&key=1">最新生活信息</a></li>
+	  <li><a href="?action=add&type=news&key=2">最新文章</a></li>
+	  <li><a href="?action=add&type=tuangou&key=3">最新团购活动</a></li>
+	  <li><a href="?action=add&type=dazhe&key=4">优惠打折信息</a></li>
+	  <li><a href="?action=add&type=shop&key=5">口碑商家</a></li>
+	  <li><a href="?action=add&type=job&key=6">招聘信息</a></li>
+	  <li><a href="?action=add&type=chuzhu&key=7">出租房源</a></li>
+	  <li><a href="?action=add&type=chushou&key=8">出售房源</a></li>
+	  <li><a href="?action=add&type=xiangce&key=9">相册</a></li>
+	  <li><a href="?action=add&type=loupan&key=10">楼盘</a></li>
+	  <li><a href="?action=add&type=group&key=11">线上团购</a></li>
+	  </ul>
+	  </div></div></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<form name="form" id="form" method="post" action="?action=del">
+<table align="center" cellpadding="4" width="100%" cellspacing="1" class="toptable grid" border="1">
+				<tr align="center">
+				<td  width="80" class="category">序号</td>
+				<td class="category">模块名称</td><td class="category">类别</td>
+				<td class="category">描述</td>
+				<td class="category">生成时间</td>
+				<td class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				<strong><a href="javascript:delAll(this);">删？</a></strong></td>
+				</tr>
+				<tag:Loop ListType="LISTDIAOYONG" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="system/List_diaoyong_Tr.htm" />
+			<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+</form>
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

@@ -1,0 +1,153 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<script language="javascript">
+function check(o){
+	if($("email").value==""){
+		alert("对不起,请输入邮箱的后缀!");
+		$("email").focus();
+		return false;
+	}
+	if($("file").value==""){
+		alert("对不起,请选择要上传EXCEL文件!");
+		$("file").focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+  	
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_1.gif" alt="" /></font></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%"><font face="Verdana">会员导入与同步&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</font></td>
+          <td width="40%" align="right"><font face="Verdana"><input name="GoToGQList" type="submit" class="global_btn" id="GoToGQList" value="返回至用户列表" onClick="javscript:window.location.href='users.aspx';;"></font></td>
+      </tr>
+    </table></td>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_2.gif" alt="" /></font></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td> <font face="Verdana"> <!--startprint-->
+   	</font>
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style table_style2">
+   <tr>
+   	
+		<td colspan="2">
+		<p style="line-height: 150%; margin-top: 5px; margin-bottom: 5px">
+		<span style="font-size: 10.5pt"><font color="#FF0000" face="Verdana"><b>&nbsp; 1、点击这里将主站会员导入到UC/DZ实现同步</b></font></span></p>
+		<p style="line-height: 150%; margin-top: 5px; margin-bottom: 5px">
+		<font face="Verdana"><font color="#FF0000">
+		<span style="font-size: 10.5pt"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</b></span></font><span style="font-size: 10.5pt">
+			<form name="form1" method="post" action="?">
+			<input type="hidden" name="action" id="action" value="userphp">
+		会员同步ID：<input type="text" name="id" id="id" value="" size=8>（如果填写了，就从这个向后同步）
+		 <input type="radio" name="ids"   value="0">只同步之前未同步的会员.<input type="radio" name="ids"   value="1">同步所有会员
+		 <input type="submit" name="Submit" class="global_btn_blue" value="开始同步">
+     </form>
+		<p style="line-height: 150%; margin-top: 5px; margin-bottom: 5px">
+		<font face="Verdana">
+		<span style="font-size: 10.5pt">&nbsp;&nbsp;&nbsp;&nbsp; </span>
+		<span style="font-size: 9pt">（本功能是将主站中存在的老会员，即UC/DZ中没有的会员导入到UC中）</span></font></td>
+	</tr>
+<!--	<tr>
+		<td colspan="2">
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<font color="#FF0000" face="Verdana">
+		<span style="font-size: 10.5pt; font-weight: 700">&nbsp; 2、从UCenter中导出用户数据</span></font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<font face="Verdana"><span style="font-size: 10.5pt">
+		<font color="#FF0000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>
+		</font><font color="#0000FF">(1)运行我们开发的UC会员导出插件，即可将您的UC会员导出 （</font>运行:<font color="#FF0000"><font color="#000000">http://您论坛域名/uc_user.php</font><font color="#0000FF"> 
+		）</font></font></span></font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<font face="Verdana" style="font-size: 10.5pt" color="#0000FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		(2)将导出的uc_user.xls用EXCLE软件打开，另存为-保存格式选择如下图的格式类型（</font><font face="Verdana" style="font-size: 10.5pt" color="#FF0000">重要</font><font face="Verdana" style="font-size: 10.5pt" color="#0000FF">！解决兼容性问题）</font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<img border="0" src="{$atplPath}users/geshi.jpg" width="507" height="124"></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<font face="Verdana" style="font-size: 10.5pt" color="#0000FF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font><font face="Verdana"><span style="font-size: 10.5pt">
+		<font color="#0000FF">(3)然后通过下面的EXCLE导入功能即可导入到主站系统中</font></span></font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<span style="font-size: 10.5pt"><font color="#FF0000" face="Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font><font face="Verdana">如果您使用的是老论坛，或者存在有主站中没有的用户数据，则需要使用本方案能先将UC会员导出，然后</font></span></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 1px">
+		<font face="Verdana" style="font-size: 10.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</font><span style="font-size: 10.5pt"><font face="Verdana">再导入到主站上来 
+		</font></span>
+		</td>
+	</tr>-->
+  	<tr>
+		<td colspan="2">
+		<p style="line-height: 150%; margin-top: 5px; margin-bottom: 5px">
+		<font face="Verdana"><font color="#FF0000">
+		<span style="font-size: 10.5pt">&nbsp;2</span></font><span style="font-size: 10.5pt"><font color="#FF0000">、<b>批量注册会员</b></font></span>
+		</font></p>
+		<p style="line-height: 150%; margin-top: 5px; margin-bottom: 5px">
+		<span style="font-size: 10.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		注意：本功能只能用于将您从整合的UC中导出的用户数据进行导入到主站中</span></p></td>
+	</tr>
+  <form name="form1" method="post" action="?action=inSave" onsubmit="return check(this);" enctype="multipart/form-data">
+    <tr > 
+      <td width="15%" height="25">
+		<font face="Verdana" style="font-size: 10.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 邮箱的后缀<font color="#FF0000">*</font>： 
+       
+		</font> 
+      </td>
+      <td width="76%"> <font face="Verdana">
+		<span style="font-size: 10.5pt"> <input type="text" size=20 name="email"> <em class="global_tip">(邮箱如果为空,则直接由用户+此邮箱的后缀组成,如用户名@163k.com)</em></span></font></td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25">
+		<font face="Verdana" style="font-size: 10.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXCEL文件<font color="#FF0000">*</font>： 
+       
+		</font> 
+      </td>
+      <td width="76%"> <font face="Verdana">
+		<span style="font-size: 10.5pt"> <input type="file" size=40 name="file"> <em class="global_tip">(请上传EXCEL文件)</em></span></font></td>
+    </tr>
+	
+    <tr > 
+      <td height="25" colspan=2>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana" style="font-size: 10.5pt"><font color="#FF0000"><b>&nbsp;&nbsp; 友情提醒：
+	    <a href="{$atplPath}users/template.xls" target=_blank><font color=red><b>批量注册相关模板规范</b></font></a>
+		</b></font>
+	  	</font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 如果邮箱为空,则系统自动按照用户名加邮箱的后缀名来组合,请确认用户名和邮箱未被注册过，否则，导入不成功！ </font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana"><span style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+		导入的目标中如果已经存在同名用户，将被跳过</span></font></p>
+		<p style="line-height: 150%; margin-top: 2px; margin-bottom: 2px">
+		<font face="Verdana">
+		<span style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 若存在同名用户，其密码以在UC/DZ中的密码为正确登陆密码</span></font></td>
+      
+    </tr>
+	
+    <tr  > <td></td>
+      <td height="25" >
+		
+		<font face="Verdana">
+		
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交">
+       </font></td>
+    </tr>
+  </form>
+</table>
+ 	<font face="Verdana">
+ <!--endprint--></font></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_4.gif" alt="" /></font></td>
+    <td></td>
+    <td><font face="Verdana"><img src="{$atplPath}Images/r_3.gif" alt="" /></font></td>
+  </tr>
+</table>
+  <font face="Verdana">
+  </body>
+</font>
+</html>

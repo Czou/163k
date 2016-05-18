@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>全部商品-省啦商城-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+{$top$}
+	<div class="content tg_page">
+		<div class="select_01">
+			<ul>
+				<li><a href="{$tgurl}">最新</a></li><li class="current"><a href="{$tgurl}more.html">全部</a></li><li><a href="{$tgurl}miaosha.aspx">秒杀</a></li><li><a href="{$SiteUrl}member/mytgorder.aspx">订单</a></li>
+			</ul>
+		</div>
+		<div class="searchbar po_re">
+			<form name="searchform1" method="get" action="?">
+				<input type="text" name="_key" id="keyword" class="s_ipt" value="{$key}" />
+				<input type="submit" class="s_btn po_ab" value="搜索" />
+			</form>
+		</div>
+		<div class="filter">
+			<ul class="clearfix">
+				<li><a href="javascript:void(0);" id="show_categories">选择类别<em></em></a></li>
+				<li><a href="javascript:void(0);" id="show_district">选择区域<em></em></a></li>
+			</ul>
+		</div>
+		<div class="float-navbox" id="navbox_categories" style="display:none;">
+			<div class="inner">
+				
+				<a href="more_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$bigcategory_all}">全部</a>{$bigcategory}
+			</div>
+		</div>
+		<div class="float-navbox" id="navbox_district" style="display:none;">
+			<div class="inner">
+				<a href="more_a{$a}_b{$b}_c0_d0_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html" class="{$bigareaid_all}">全部</a>{$bigareaid}
+			</div>
+		</div>
+		<div class="fullbg" id="fullbg1" style="display:none;"><i class="pull"></i></div>
+		<div class="fullbg" id="fullbg2" style="display:none;"><i class="pull"></i></div>
+		<div class="mod_02">
+			
+			<div class="bd">
+				<ul class="list_normal list_tg">
+					<tag:Loop ListType="listtgqian" RecType="New" PageSize="24" ColorSplit="1" TitleLen="26" RecColumn="0" CusTpl="1" Template="tg/list_old.html" />
+				</ul>
+				<div class="pageNav">{$PageSplit}</div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+(function($){
+	IDC.showMore($('#show_categories'),$('#navbox_categories'),$('#fullbg1'));
+	IDC.showMore($('#show_district'),$('#navbox_district'),$('#fullbg2'));
+})(jQuery);
+</script>
+</body>
+</html>

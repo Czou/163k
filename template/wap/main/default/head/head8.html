@@ -1,0 +1,23 @@
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta name="format-detection" content="telephone=no" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+{$AppSDKJS}<!--必须在现有的script外-->
+<script>
+var isapp ="{$IsApp}";//在现有的js内:是否app平台
+</script>
+</head>
+<body>
+<div class="top_gg po_re" id="top_gg" style="display:none;">{$Mh163k_wap_首页_顶部广告}<span class="close po_ab">关闭</span></div>
+<div class="header">
+	<a href="javascript:void(0);" onClick="return window.history.go(-1);" class="back">返回</a>
+	<div class="search" id="search_ico" onClick="showNewPage('搜索',searchHtml,newPageSearch);" style="display:none;">搜索</div>
+	<a href="{$SiteUrl}member/" class="my" id="login_ico">我的</a>
+	<div class="type" id="nav_ico">导航</div>
+	<span id="ipageTitle" style="display:none;">{$lanmuname}</span>
+	<div class="nav_APP" id="nav_APP"><ul class="clearfix">{$Mh163k_APP_头部主导航菜单}</ul><span class="arrow-up"></span></div>
+</div>
+<div class="login_inner" id="login_inner"></div>

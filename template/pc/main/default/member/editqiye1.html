@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>管理公司企业网站--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 管理公司企业网站</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">管理公司企业网站</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />成功提交您的基本资料以后，您可以在“管理公司企业网站”中进行“编辑”，对您的内容进行资料填充和完善！<br />
+		</td>
+	</tr>
+</table>
+ 
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li ><a href='qiye.aspx?#tt13'>基本资料</a></li><li class="selected"><a href='qiye.aspx?action=e1#tt13'>关于我们</a></li>
+<li><a href='qiye.aspx?action=e2#tt13'>新闻中心</a></li><li><a href='qiye.aspx?action=e3#tt13'>产品展示</a></li>
+<li><a href='qiye.aspx?action=e4#tt13'>客户案例</a></li><li><a href='qiye.aspx?action=e5#tt13'>招贤纳士</a></li>
+<li><a href='qiye.aspx?action=e6#tt13'>友情链接</a></li><li><a href='qiye.aspx?action=e7#tt13'>其他</a></li>
+</ul>
+</div>
+ 
+<div style="padding-top:20px;padding-bottom:20px;">
+温馨提示：黄页试用时间到期后将暂停访问，您可以使用网站积分充值缴费恢复访问
+<table width="100%" cellpadding="1" cellspacing="1" class="table">
+<tR><td class="tdcontent">企业名称</td><td class="tdcontent">当前状态</td><td class="tdcontent">审核</td><td class="tdcontent">续费</td></tR>
+<tR><td class="tdcontent"><a href="{$qiyeurl}" target="_blank">{$qiyename}</a></td><td class="tdcontent">{$states}</td><td class="tdcontent">{$iskill}</td><td class="tdcontent"><a href="bianming.aspx?action=money&id={$ID}">立即在线续费</a></td></tR>
+</table>
+</div>
+<form name="form1" method="post" action="?action=e1Save" enctype="multipart/form-data">
+ <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr > 
+      <td  class="tdcontent" ><input type="text" name="title1" class="text" value="{$title1}" style="width:120px;"/><font color="#FF0000"></font>：上传一个图片供首页企业介绍中使用：推荐尺寸140*140<br />
+      <span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+	  <input type="file" class="text"  name="file" size="80">
+	  </span>
+	  <input type=hidden name="url1"  value="{$url1}"> 
+      
+     <textarea cols="80" id="Chrcontent1" name="Chrcontent1" rows="10">{$chrcontent1}</textarea>
+	  
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  class="tdcontent" ><input type="text" name="title2" class="text" value="{$title2}" style="width:120px;"/><font color="#FF0000"></font>：
+     <textarea cols="80" id="Chrcontent2" name="Chrcontent2" rows="10">{$chrcontent2}</textarea>
+	 
+
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent2"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  class="tdcontent" ><input type="text" name="title3" class="text" value="{$title3}" style="width:120px;"/><font color="#FF0000"></font>：
+     <textarea cols="80" id="chrcontent3" name="chrcontent3" rows="10">{$chrcontent3}</textarea>
+	  
+
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrcontent3"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  class="tdcontent" ><input type="text" name="title4" class="text" value="{$title4}" style="width:120px;"/><font color="#FF0000"></font>：
+     <textarea cols="80" id="chrcontent4" name="chrcontent4" rows="10">{$chrcontent4}</textarea>
+	 
+
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrcontent4"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  class="tdcontent" ><input type="text" name="title5" class="text" value="{$title5}" style="width:120px;"/><font color="#FF0000"></font>：
+     <textarea cols="80" id="Chrcontent5" name="Chrcontent5" rows="10">{$chrcontent5}</textarea>
+	  
+
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent5"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	 <tr > 
+      <td  class="tdcontent" ><input type="text" name="title6" class="text" value="{$title6}" style="width:120px;"/><font color="#FF0000"></font>：
+     <textarea cols="80" id="Chrcontent6" name="Chrcontent6" rows="10">{$chrcontent6}</textarea>
+	  
+
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent6"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px',
+				items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+			});
+		});
+	</script>
+      </td>
+    </tr>
+	<tr > 
+      <td align="center"><input type="submit" class="global_btn_blue_big" name="Submit" value=" 确认无误，提交 " id="Submit" /></td>
+    </tr>
+    
+				
+</table>
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+
+<script>
+
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>
+
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

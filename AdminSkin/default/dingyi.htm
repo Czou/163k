@@ -1,0 +1,105 @@
+﻿<script>
+function clickcolor(tt)
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) tt.value=aarr;
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">自定义广告</td>
+          <td width="40%" align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td ><!--startprint-->
+      <table align="center" width="100%"  cellspacing="1" cellpadding="4"  class="toptable grid" border="1">
+        <tr>
+          <td style="line-height:22px; padding-left:5px;" colspan=3> 说明：本系统的自定义广告独家采用可视化编辑器形式，具有最强的灵活性、可控性、您可以轻松的在可视化下制作出任意形式的广告 <br />
+            请选择您要管理的自定义广告所在栏目
+          </td>
+        </tr>
+		<tr><td>首页(含头部)</td><td class="category">内有：头部右上部、首页上部通栏、首页中部通栏、首页中下部通栏、首页尾部通栏、公告下方矩形位置、精英人才上方矩形位置</td><td class="category"><a href="?action=e1&key=1"><font color=blue>管理</font></a></td></tr>
+ 		<tr><td>生活信息</td><td class="category">内有：栏目首页通栏、信息列表右下、信息内容上方</td><td class="category"><a href="?action=e1&key=2"><font color=blue>管理</font></a></td></tr>
+		<tr><td>招聘求职</td><td class="category">内有：栏目首页中部通栏、简历详细的左侧</td><td class="category"><a href="?action=e1&key=3"><font color=blue>管理</font></a></td></tr>
+		<tr><td>文章资讯</td><td class="category">内有：栏目首页中部通栏、栏目首页右上部矩形位置、文章列表/内容页右上方、文章内容底部、列表页/内容页上方通栏</td><td class="category"><a href="?action=e1&key=4"><font color=blue>管理</font></a></td></tr>
+		<tr><td>口碑商家</td><td class="category">内有：分类目录下方</td><td class="category"><a href="?action=e1&key=5"><font color=blue>管理</font></a></td></tr>
+		<tr><td>团购活动</td><td class="category">内有：上部通栏自定义广告</td><td class="category"><a href="?action=e1&key=10"><font color=blue>管理</font></a></td></tr>
+		<tr><td>同城购物</td><td class="category">内有：搜索栏的下方、促销商品的上方</td><td class="category"><a href="?action=e1&key=9"><font color=blue>管理</font></a></td></tr>
+		<tr><td>上网导航</td><td class="category">内有：栏目首页上部通栏、栏目首页尾部通栏</td><td class="category"><a href="?action=e1&key=6"><font color=blue>管理</font></a></td></tr>
+		<tr><td>视频逛街</td><td class="category">内有：栏目列表右侧、栏目显示页右侧</td><td class="category"><a href="?action=e1&key=7"><font color=blue>管理</font></a></td></tr>
+ 		<tr><td>房产频道</td><td class="category">内有：栏目首页中部、栏目首页尾部、楼盘列表右下侧、房源列表右下侧、房源内页右下侧</td><td class="category"><a href="?action=e1&key=8"><font color=blue>管理</font></a></td></tr>
+   
+        <form name="form1" method="post" action="?action=editSave">
+          <tr>
+            <td style="line-height:22px; padding-left:5px;" colspan="3"> 文章内容页面的滚动，由文字和链接构成 </td>
+          </tr>
+          <tr >
+            <td width="15%" height="25" >文章内容页滚动广告一<font color="#FF0000">*</font>： </td>
+            <td   class="category" colspan=2> 标题:
+              <input type="Text" name="title1" value="{$title1}">
+              链接:
+              <input type="Text" name="url1"  id="url1"  value="{$url1}" size="30">
+              颜色:
+              <input type="Text" name="color1" value="{$color1}" size="8">
+              <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(color1)" align="absmiddle" /></td>
+          </tr>
+          <tr >
+            <td  height="25" >文章内容页滚动广告二<font color="#FF0000">*</font>： </td>
+            <td   class="category"  colspan=2> 标题:
+              <input type="Text" name="title2" value="{$title2}">
+              链接:
+              <input type="Text" name="url2"  id="url2" value="{$url2}" size="30">
+              颜色:
+              <input type="Text" name="color2" value="{$color2}" size="8">
+              <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(color2)" align="absmiddle" /></td>
+          </tr>
+          <tr >
+            <td height="25" >文章内容页滚动广告三<font color="#FF0000">*</font>： </td>
+            <td   class="category"  colspan=2> 标题:
+              <input type="Text" name="title3" value="{$title3}">
+              链接:
+              <input type="Text" name="url3"  id="url3" value="{$url3}" size="30">
+              颜色:
+              <input type="Text" name="color3" value="{$color3}" size="8">
+              <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(color3)" align="absmiddle" /></td>
+          </tr>
+          <tr  >
+            <td height="25"  align="right"></td>
+            <td class="category" align="left"  colspan=2><input type="submit" name="Submit" value="确定提交">
+              &nbsp;
+              <input name="Reset" type="reset" id="Reset" value="取消重写"></td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+
+function hid1()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+function hid2()
+{
+	document.all.str3.style.display="none";
+	document.all.str4.style.display="block";
+}
+
+</script>
+</body></html>

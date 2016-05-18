@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的求职管理--会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '我的求职管理';
+</script>
+{$top$}
+	<div class="content">
+		
+		<div class="user_order_list">
+			
+				<tag:Loop ListType="LISTMYTOUMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/list_mytou_tr.html" />
+			
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+</body>
+</html>

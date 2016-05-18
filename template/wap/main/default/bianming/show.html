@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chraddress}-{$chrcode}-{$chrtel}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/huangye-mb.css" />
+{$top$}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$bianmingurl}">{$lanmuname}</a> &gt; {$chrtitle}</div>
+		
+		<div class="huangye_header clearfix">
+			<div class="img"><img src="{$chrimage}" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="" /></div>
+			<h1>{$chrtitle}</h1>
+			<p class="cat">{$chrcategory}>{$smallcategory}</p>
+		</div>
+		<div class="huangye_info">
+			<p><em>电子邮件：</em>{$chremail}</p>
+			<p><em>联系地址：</em>{$chraddress}</p>
+			<p><em>认证情况：</em><img src="{$Default_tplPath}images/yellowurlicon_05.gif" style="display:{$iskill1show}" alt="手机认证" /> <img src="{$Default_tplPath}images/yellowurlicon_03.gif" style="display:{$iskill2show}" alt="邮箱认证" /> <img src="{$Default_tplPath}images/yellowurlicon_07.gif" alt="身份验证"  style="display:{$iskill3show}" /> <img src="{$Default_tplPath}images/yellowurlicon_09.gif" alt="执照验证"  style="display:{$iskill4show}" /></p>
+			{$Mh163k_wap_整站通用_分享代码}
+		</div>
+		<div class="yuan_inner" style="padding-top:0">
+			<div class="table">
+				<p class="p tele po_re"><a href="tel:{$chrtel}"><em>联系电话：</em>{$chrtel}<span class="jian"></span></a></p>
+			</div>
+		</div>
+		<div class="display0" id="tab01">
+			<ul class="tab-hd">
+				{$list1}
+			</ul>
+			{$list2}
+		</div>
+		<div class="huangye_content" id="tab01_inner"></div>
+	</div>
+{$bottom$}
+<script>
+$.fn.showPage = function(){
+	var $t = $(this),
+		inner = $('#tab01_inner'),
+		hd_list = $t.find('.tab-hd').find('a');
+		bd_list = $t.find('.tab-cont'),
+		len = bd_list.length,
+		i = 0,txt='';
+	for( ;i<len;i++){
+		txt = $('<div class="hd">'+hd_list.eq(i).detach().text()+'</div>')
+		inner.append(txt);
+		inner.append(bd_list.eq(i).detach());
+		IDC.resizeIMG(inner[0],300,480);
+	}
+}
+$('#tab01').showPage();
+</script>
+</body>
+</html>

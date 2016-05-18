@@ -1,0 +1,118 @@
+@charset "utf-8";
+.pageNav_2013 { padding:20px; text-align:center; vertical-align:middle;}
+.pageNav_2013 a,.pageNav_2013 .d { display:inline-block; *display:inline; *zoom:1; overflow:hidden; padding:12px 15px; background-color:#777; color:#fff; font-family:Arial; font-weight:bold; font-size:12px;}
+.pageNav_2013 .current { background-color:#f60; cursor:default;}
+.pageNav_2013 a:hover { background-color:#3973a6; color:#fff; text-decoration:none;}
+.pageNav_2013 .d { background-color:transparent; color:#888; padding:12px 8px;}
+.pageNav_2013 .current:hover { background-color:#f60;}
+.pageNav_2013 .kill { background-color:#eee; cursor:default;}.pageNav_2013 .kill:hover { background-color:#eee; text-decoration:none;}
+
+.rencai_form,.rencai_form .left .s,.rencai_form .s_btn,.list_1 .item .btn,.list_1 .item .tuijian,.list_1 .item .title .daiyue,.list_1 .item .title .yiyue,.list_1 .item .title .hasIMG,.filter .bd .guanzhu,.filter .bd .hasIMG,.filter .bd .hasTJ,.list_2 .zaixiao,.list_2 .feizaixiao,.sortbar .l { background:url(../images/rencai_2013.png) no-repeat 0 0;}
+
+.rencai_form { margin-top:5px; border:1px solid #a9c8e5; height:87px; background-repeat:repeat-x;}
+.rencai_form .left { float:left; width:60px; padding:18px 0 0 20px;}
+.rencai_form .left .s { display:block; width:46px; height:46px; background-position:0 -114px;}
+.rencai_form .right { float:left; width:860px;}
+.rencai_form .remen { text-align:left;}
+.rencai_form .remen a { margin:0 4px;}
+.rencai_form .green { font-size:14px; color:#188000; font-family:"微软雅黑"; margin-left:8px;}
+.rencai_form .l { float:left; display:inline; font-size:14px;}
+.rencai_form .title { margin-left:8px;}
+.rencai_form .sel { padding:14px 0 10px; line-height:28px;}
+.rencai_form .s_btn { display:block; width:69px; height:27px; overflow:hidden; border:0 none; background-position:-85px -88px; color:#fff; cursor:pointer; vertical-align:middle; line-height:27px; font-weight:bold;}
+/* select */
+.v2013 .selectbox-wrapper { position:absolute; z-index:9; background-color:white; border:1px solid #ddd; text-align:left; width:163px;}
+.v2013 .selectbox-wrapper ul li.selected { background-color:#e2f1fc;}
+.v2013 .selectbox-wrapper ul li.current { background-color:#c4dcec;}
+.v2013 .selectbox-wrapper ul li { display:block; margin:0; padding:3px; line-height:20px; cursor:pointer; width:157px;}
+.v2013 .selectbox { font-size:14px; display:block; width:165px; text-align:left; line-height:20px; cursor: pointer; border:1px solid #97b5ca; background:#fff url(../images/rencai_2013.png) no-repeat -151px -192px; color:#333; z_index:9999; vertical-align:middle; margin-top:0;
+
+	height:27px; padding:0 4px;
+}
+
+
+.list_1 .item { vertical-align:top; border-bottom:1px solid #eee; text-align:left; position:relative; z-index:2; *zoom:1; padding:12px;}
+.list_1 .bg2 { background-color:#fafafa;}
+.list_1 .hover { background-color:#f3f8e9;}
+.list_1 .item .po { position:absolute; top:15px; right:10px; overflow:hidden;}
+.list_1 .item .img { float:left; display:inline; margin-right:12px;}
+.list_1 .item .img img { vertical-align:top;}
+.list_1 .item .txt { float:left;}
+.list_1 .item .time { display:block; color:#999; padding:8px 0;}
+.list_1 .item .btn { display:block; width:84px; height:25px; line-height:25px; overflow:hidden; color:#fff; text-align:center; background-position:0 -88px;}
+.list_1 .item .tuijian { position:absolute; top:14px; right:150px; width:75px; height:75px; background-position:0 -161px; overflow:hidden; font:0pt/1000px Arial;}
+.list_1 .item .title { margin:5px 0 0; height:25px; overflow:hidden;}
+
+.list_1 .item .title .name { font-weight:bold; font-size:14px;}
+.list_1 .item .title .hasIMG { padding-right:32px; background-position:-232px -176px;}
+.list_1 .item .title .years { margin:0 6px; border:1px solid #5eaf0b; background-color:#daebc9; color:#387e12; font-size:11px; line-height:14px; padding:0 2px;}
+.list_1 .item .title .daiyue,.list_1 .item .title .yiyue { margin:0 10px; vertical-align:middle; display:inline-block; *display:inline; *zoom:1; width:35px; height:18px; overflow:hidden; font:0pt/1000px Arial;}
+.list_1 .item .title .daiyue { background-position:-191px -88px;}
+.list_1 .item .title .yiyue { background-position:-155px -88px;}
+.list_1 .item .title .read { color:#999;}
+.list_1 .item .info { line-height:24px; font-size:14px; color:#404040; margin-bottom:5px;}
+.list_1 .item .info2 em { color:#999;}
+.list_1 .item .info .em { color:#3366cc;} 
+.list_1 .big_font { font-size:14px;}
+
+.list_2 .fabu { float:right; margin-top:3px;}
+.list_2 .zaixiao,.list_2 .feizaixiao { margin:0 8px; display:inline-block; *display:inline; *zoom:1; height:18px; vertical-align:middle; overflow:hidden; font:0pt/1000px Arial;}
+.list_2 .zaixiao { width:35px; background-position:-155px -107px;}
+.list_2 .feizaixiao { width:48px; background-position:-191px -107px;}
+.list_2 .tel { margin-top:5px;}
+.list_2 .tel em { color:#f30;}
+
+.filter { margin-top:15px;}
+.filter .tab { border-bottom:1px solid #f60; padding-left:1px;}
+.filter .tab li { float:left; display:inline;}
+.filter .tab a { display:block; background-color:#f2f2f2; border:1px solid #e3e3e3; margin-left:-1px; padding:8px 40px; color:#404040; font-size:14px;}.filter .tab a:hover { color:#404040;}
+.filter .tab .select a { background-color:#f60; border:1px solid #f60; color:#fff;}.filter .tab .select a:hover { color:#fff;}
+.filter .bd { padding:8px; background-color:#f7f7f7;}
+.filter .bd .l,.filter .bd .p,.filter .bd .guanzhu,.sortbar .l { float:left; display:inline; margin-left:8px;}
+.filter .bd .r { float:right;}
+.filter .bd .p,.filter .bd .guanzhu { margin:0; border:1px solid #dadada; background-color:#fff; padding:2px 8px; color:#404040;}
+.filter .bd .p:hover,.filter .bd .guanzhu:hover { color:#f50;}
+.filter .bd .select { border:1px solid #99999b; background-color:#acafb4; color:#fff;}
+.filter .bd .select:hover { color:#fff;}
+.filter .bd .guanzhu { padding-right:20px;}
+.filter .bd .s_shang { background-position:-249px -214px;}
+.filter .bd .s_xia { background-position:-249px -232px;}
+.filter .bd .txt,.sortbar .txt { line-height:24px; color:#555; margin-top:3px;}
+.filter .bd a.txt:hover,.sortbar .txt:hover { color:#f50;}
+.filter .bd .hasIMG,.sortbar .hasIMG { padding-left:28px; background-position:-282px -173px;}
+.filter .bd .hasTJ ,.sortbar .hasTJ { padding-left:28px; background-position:-282px -147px;}
+.filter .bd .r em { color:#c00; font-weight:bold;}
+.filter .bd .r a { display:inline-block; *display:inline; *zoom:1; vertical-align:middle; border:1px solid #ddd; background-color:#fafafa; padding:3px 6px 2px;}
+
+.filter_2 { position:relative; z-index:2; *zoom:1;}
+.filter_2 .po { position:absolute; left:310px; top:6px;}
+.filter_2 .checkbox { vertical-align:middle; margin-right:6px;}
+.filter_2 .big { font-size:14px;}
+
+.filter_2 .po2 { position:absolute; right:5px; top:16px;}
+.filter_2 .po2 em { color:#c00; font-weight:bold;}
+
+
+
+
+.mask {display:none; position:absolute; z-index:99; top:0; right:0; width:100%; height:100%; background-color:#000; filter:alpha(opacity=50); opacity:.5;}
+.rencai_form .i .btns { display:block; cursor:pointer; width:220px; height:22px; padding:3px 5px 0px 8px; font-size:14px; line-height:18px; background:#fff url(../images/rencai_2013.png) no-repeat  -81px -192px; border:1px solid #ddd;}
+.rencai_form .i .btns_d { width:100px; background-position:-201px -192px;}
+.rencai_form .i .inner { display:none; position:absolute; z-index:100; background-color:#fff;}
+.rencai_form .i { position:relative; *zoom:1;}
+.rencai_form .i .inner_s { display:none; position:absolute; top:0; left:0; background-color:#fff; width:720px; padding:5px;}
+.rencai_form .i .inner_s li { float:left; width:180px; text-align:center;}
+.rencai_form .i .inner_s a { font-size:14px; padding:5px 0; display:block;}.i .inner_s a:hover { background-color:#f6f6f6;}
+.rencai_form .i .inner_s .cur { color:#36c;}.i .inner_s .cur:hover { color:#36c;}
+.zindex { z-index:100;}
+.mod_01 .bd .btns { width:200px; background-position:-239px -31px;}
+
+
+
+
+
+
+
+
+
+

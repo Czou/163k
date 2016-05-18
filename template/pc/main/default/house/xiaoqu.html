@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>小区-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_xq.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				{$Mh163k_房产2015_房产主导航}
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}xiaoqu.html">小区</a> <span class="cur_tit">全部小区</span>
+   </div>
+   <!--搜索条件-->
+   <div class="dlanBox">
+			<div class="zone">
+			<form action="">
+				<div class="daohang">
+					<p class="select"><em>区域：</em>{$Xiaoqu_quyu1}</p>
+					<p class="selectBD" id="selectBD">{$Xiaoqu_quyu2}</p>
+					<p><em>均价：</em>{$House_Searchprice}</p>
+					<p><em>类型：</em>{$Xiaoqu_Searchlei}</p>
+					
+					<p><em>拼音：</em><a href="{$House_Seurltt1}" class="{$House_CSS}">不限</a><a href="{$House_Seurltt1}A"  class="{$House_CSSA}">A</a><a href="{$House_Seurltt1}B"  class="{$House_CSSB}">B</a><a href="{$House_Seurltt1}C"  class="{$House_CSSC}">C</a><a href="{$House_Seurltt1}D"  class="{$House_CSSD}">D</a><a href="{$House_Seurltt1}E" class="{$House_CSSE}">E</a><a href="{$House_Seurltt1}F" class="{$House_CSSF}">F</a><a href="{$House_Seurltt1}G" class="{$House_CSSG}">G</a><a href="{$House_Seurltt1}H" class="{$House_CSSH}">H</a><a href="{$House_Seurltt1}I" class="{$House_CSSI}">I</a><a href="{$House_Seurltt1}J" class="{$House_CSSJ}">J</a><a href="{$House_Seurltt1}K" class="{$House_CSSK}">K</a><a href="{$House_Seurltt1}L" class="{$House_CSSL}">L</a><a href="{$House_Seurltt1}M" class="{$House_CSSM}">M</a><a href="{$House_Seurltt1}N" class="{$House_CSSN}">N</a><a href="{$House_Seurltt1}O" class="{$House_CSSO}">O</a><a href="{$House_Seurltt1}P" class="{$House_CSSP}">P</a><a href="{$House_Seurltt1}Q" class="{$House_CSSQ}">Q</a><a href="{$House_Seurltt1}R" class="{$House_CSSR}">R</a><a href="{$House_Seurltt1}S" class="{$House_CSSS}">S</a><a href="{$House_Seurltt1}T" class="{$House_CSST}">T</a><a href="{$House_Seurltt1}U" class="{$House_CSSU}">U</a><a href="{$House_Seurltt1}V" class="{$House_CSSV}">V</a><a href="{$House_Seurltt1}W" class="{$House_CSSW}">W</a><a href="{$House_Seurltt1}X" class="{$House_CSSX}">X</a><a href="{$House_Seurltt1}Y" class="{$House_CSSY}">Y</a><a href="{$House_Seurltt1}Z" class="{$House_CSSZ}">Z</a></p>    
+				</div>
+				<div class="cz_search clearfix">
+				  <input type="text" name="keyword" placeholder="请输入小区名称或地段关键字" class="inp_txt">
+				  <input type="submit" value="找小区" class="shouse">
+				</div>
+				</form>
+			</div>
+		</div>
+  <!--小区列表-->
+  <div class="xq_list_con">
+   <div class="select_title clearfix">
+    <ul>
+      <li>
+        <span class="fl">建筑年代</span>
+         <div class="selects sort" id="selects_1">
+			 <dl><dt id="year_txt">老-新</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt2}1" id="year_val_1">老-新</a></li>
+					<li><a href="{$House_Seurltt2}2" id="year_val_2">新-老</a></li>
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+      <li>
+        <span class="fl">均价</span>
+         <div class="selects sort" id="selects_2">
+			 <dl><dt id="price_txt">高-低</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt2}3" id="price_val_3">高-低</a></li>
+					<li><a href="{$House_Seurltt2}4" id="price_val_4">低-高</a></li>
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+	  <li>
+        <span class="fl">评分</span>
+         <div class="selects sort" id="selects_3">
+			 <dl><dt id="feng_txt">高-低</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt2}5" id="feng_val_5">高-低</a></li>
+					<li><a href="{$House_Seurltt2}6" id="feng_val_6">低-高</a></li>
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+	  <li>
+        <span class="fl">关注度</span>
+         <div class="selects sort" id="selects_4">
+			 <dl><dt id="guan_txt">高-低</dt></dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="{$House_Seurltt2}7" id="guan_val_7">高-低</a></li>
+					<li><a href="{$House_Seurltt2}8" id="guan_val_8">低-高</a></li>
+				</ul>
+			  </div>
+         	<div class="ico"></div>
+         </div>
+      </li>
+    </ul>
+   </div>
+   <div class="list">
+    <ul id="xiaoquList">
+     <tag:Loop ListType="LISTXIAOQULIST" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_XIAOQU_Tr.html" />
+    </ul>
+    
+   </div><div class="fc_pageNavigation">{$PageSplit}　每页显示15条</div>
+  </div>
+</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#selects_1').sel_filter();
+	$('#selects_2').sel_filter();
+	$('#selects_3').sel_filter();
+	$('#selects_4').sel_filter();
+	
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(!url_obj['tt1'] || url_obj['tt1'] === '' || url_obj['tt1'] === '0'){
+		$('#selectBD').hide();
+	}
+	if(!!url_obj['paixu'] && url_obj['paixu'] !== ''){
+		if(url_obj['paixu']==='1'){
+			$('#year_txt').html($('#year_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='2'){
+			$('#year_txt').html($('#year_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='3'){
+			$('#price_txt').html($('#price_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='4'){
+			$('#price_txt').html($('#price_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='5'){
+			$('#feng_txt').html($('#feng_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='6'){
+			$('#feng_txt').html($('#feng_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='7'){
+			$('#guan_txt').html($('#guan_val_'+url_obj['paixu']).html());
+		}else if(url_obj['paixu']==='8'){
+			$('#guan_txt').html($('#guan_val_'+url_obj['paixu']).html());
+		}
+	}
+	$('#xiaoquList').find('.item_pinfen').each(function(){
+		var val = parseInt($(this).attr('data-fen'));
+		if(val==='' || val==='0'){val=1;}
+		$(this).addClass('star_'+val);
+	});
+	
+});
+</script>
+</body>
+</html>

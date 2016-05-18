@@ -1,0 +1,278 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkform(o){
+	if(o.activenum.value==""){
+		alert("请输入活动编号!");
+		o.activenum.focus();
+		return false;
+	}
+	if(o.chrtitle.value==""){
+		alert("请输入活动名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("请选择活动分类!");
+		o.categoryid.focus();
+		return false;
+	}
+	if(o.quyu.value==""){
+		alert("请选择所在区域!");
+		o.quyu.focus();
+		return false;
+	}
+	if(o.jihe.value==""){
+		alert("请输入活动时间!");
+		o.jihe.focus();
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("请输入活动地点!");
+		o.chraddress.focus();
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("请输入活动地点!");
+		o.chraddress.focus();
+		return false;
+	}if(o.enddate.value==""){
+		alert("请选择结束时间!");
+		o.enddate.focus();
+		return false;
+	}
+	if(o.intorder.value==""){
+		alert("请输入排序！");
+		o.intorder.focus();
+		return false;
+	}
+	if(!isInt(o.intorder.value)){
+		alert("排序只能为数字！");
+		o.intorder.select();
+		return false;
+	}
+	if(o.quanbu.value==""){
+		alert("请选择状态设置！");
+		o.quanbu.focus();
+		return false;
+	}
+}
+</script>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/highslide/highslide.js"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/highslide/highslide.css" />
+<script type="text/javascript">
+	hs.graphicsDir = '{$atplPath}js/highslide/graphics/';
+	hs.wrapperClassName = 'wide-border';
+</script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<!--
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>-->
+ 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改活动信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至活动列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" target="tijiao" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+ <tr > 
+      <td height="25" width="10%" >活动编号<font color="#FF0000">*</font>： 
+      </td>
+      <td width="36%" class="category"> <input name="activenum" style="width:280px;" type="text" size="10" value="{$activenum$}"></td>
+	   <td height="25" width="10%" >活动名称<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" ><input name="chrtitle" type="text" style="width:280px;" size="40" value="{$chrtitle$}"></td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">活动分类<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$categoryid$}</td>
+     <td  height="25">所在区域<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> {$quyu$}</td>
+    </tr>
+	<tr > 
+      <td  height="25">活动时间<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="jihe" type="text" style="width:280px;" size="20" value="{$jihe$}"> <em class="global_tip">如：中秋节、周末、08-21</em></td>
+	  <td  height="25">活动地点<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" > <input name="chraddress" id="chraddress" style="width:280px;" type="text" size="20" value="{$chraddress$}"> <a href="#" onclick='set_newimage()'><font  color="red">标注地图位置</font></a>
+        <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+		<input type="hidden" id="shop_y" name="shop_y" value="{$shop_y}" >
+		<input type="hidden" id="shop_z" name="shop_z" value="0" ><input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}">
+		</td>
+	  
+    </tr>
+	 <tr > 
+      <td  height="25">报名截止时间<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="enddate" type="text" style="width:280px;" size="20" class="Wdate" value="{$enddate$}"></td>
+	  <td  height="25">活动性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input type="radio" value="0" checked name="styleid" {$styleid1$}>本站发起 
+		<input type="radio" value="1" name="styleid" {$styleid2$}>网友发起</td>
+    </tr>
+	 <tr > 
+      <td  height="25">活动费用<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="feiyong" type="text" style="width:280px;" size="20" value="{$feiyong}"></td>
+	  <td  height="25">活动名额<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="minge" type="text" style="width:280px;" size="20" value="{$minge}"></td>
+    </tr>
+	<tr > 
+      <td  height="25">带队团长： 
+      </td>
+      <td  class="category"> <input name="tuanzhang" type="text" style="width:280px;" size="20" value="{$tuanzhang$}"></td>
+	  <td  height="25">团长QQ： 
+      </td>
+      <td class="category" > <input name="chrqq" type="text" style="width:280px;" size="15"  value="{$chrqq$}" > <em class="global_tip">(供活动详情页面中 团长旁边的在线QQ调用)</em></td>
+    </tr>
+	<tr > <td  height="25">排序<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" > <input name="intorder" type="text" style="width:280px;" size="4" value="{$intorder$}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">数字越大越靠前</em></td>
+      <td  height="25">讨论地址： 
+      </td>
+      <td  class="category"> <input name="chrurl" type="text" style="width:280px;" size="30" value="{$chrurl$}"></td>
+    </tr>
+
+<tr > 
+      <td  height="25">报名人数： 
+      </td>
+      <td  class="category" colspan="3"> <input name="intnum" type="text" style="width:280px;" size="4" value="{$intnum}" onKeyUp="if(isNaN(value))execCommand('undo')"><font color=red> <em class="global_tip">更改活动报名人数的显示，可帮您提高虚假人气，增强网民报名意愿，新报名将在此数字基础上累加</em></font></td>
+    </tr>
+	
+	<tr > 
+      <td  height="25">活动简介： 
+      </td>
+      <td  class="category" colspan="3"> <textarea name="chrmark" cols="80" style="width:80%;"rows="3">{$chrmark$}</textarea></td>
+    </tr>
+	  <tR>
+	  <td  height="25">状态设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"> {$fenlei$} <em class="global_tip">(审核通过,正在召集，即将组团均自动开启报名，活动流产和活动结束则自动隐藏报名)</em></td>
+    </tr>
+	 <tr   > 
+      <td >活动小图<font color="#FF0000">*</font>： <br>(尺寸：150*150)
+      </td>
+      <td  colspan=5  class="category"><span id="str1" ><a href='{$url0}' class="highslide" onclick="return hs.expand(this)"><img src="{$url0}" style="margin:5px 0; display:block; width:150px; height:150px" border="0" /></a>  <span onclick="hid2('str1','str2')" class="global_btn">重新上传</span></span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=active&type=0"></iframe>
+	  </span>
+	  <input type=hidden name="url0" id="url0"  value="{$url0}">
+	  <p>缩略图截取宽度:<input name="filewidth" id="filewidth" type="text" size="8" value="150" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	缩略图截取高度:<input name="fileheight" id="fileheight" type="text" size="8" value="150" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"></p></td>
+    </tr>
+	<tr   > 
+      <td >活动大图<font color="#FF0000">*</font>： <br>(尺寸：680*210)
+      </td>
+      <td  colspan=5  class="category"><span id="str3" ><a href='{$url1}' class="highslide" onclick="return hs.expand(this)"><img src="{$url1}" style="margin:5px 0; display:block; width:170px; height:53px" border="0" /></a>  <span onclick="hid2('str3','str4')" class="global_btn">重新上传</span></span><span id="str4" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=active&type=1"></iframe>
+	  </span>
+	  <input type="hidden" name="url1" id="url1" value="{$url1}" />
+	  <input type="hidden" name="urlonly1" value="1" />
+	  <p>缩略图截取宽度:<input name="filewidth1" id="filewidth1" type="text" size="8" value="680" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	缩略图截取高度:<input name="fileheight1" id="fileheight1" type="text" size="8" value="210" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"> 上传大图前必须先上传小图，否则大图不能正确显示</p></td>
+    </tr>
+	
+	<tR><td valign="top">
+	活动详情： 
+	</td>
+	<td colspan="3" class="category">
+	<textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent$}
+      </textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '600px'
+			});
+		});
+	</script>
+	</td></tR>
+	<tR><td valign="top">
+	活动报道： 
+	</td>
+	<td colspan="3" class="category">
+	<textarea cols="80" id="chrbaodao" name="chrbaodao" rows="10">{$chrbaodao}
+      </textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrbaodao"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '600px'
+			});
+		});
+	</script>
+	</td></tR>
+	<tR><td valign="top">
+	活动赞助商： 
+	</td>
+	<td colspan="3" class="category">
+	<textarea cols="80" id="chrzanzhu" name="chrzanzhu" rows="10">{$chrzanzhu}</textarea>
+	  
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="chrzanzhu"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '400px'
+			});
+		});
+	</script>
+	</td></tR>
+	{$details$}
+
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+  <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+suitPic(150,150);
+function hid2(str1,str2){
+	document.getElementById(str1).style.display="none";
+	document.getElementById(str2).style.display="block";
+}
+</script>
+  </body>
+</html>

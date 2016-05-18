@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品搜索-{$lanmuname}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+<script>
+window['ipageTitleTxt'] = '商品搜索';
+</script>
+<!-- top不解析 内容开始 {$top$} -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0"/>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-common.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_common_2015.js?{$CacheHash}"></script>
+<style type="text/css">
+.foot_link { margin-top:0;}
+</style>
+</head>
+<body>
+<div class="top_gg po_re" id="top_gg" style="display:none;">{$Mh163k_wap_首页_顶部广告}<span class="close po_ab">关闭</span></div>
+<div class="header">
+	<a href="javascript:void(0);" onClick="return window.history.go(-1);" class="back">返回</a>
+	<div class="search" id="search_ico" onClick="showNewPage('搜索',searchHtml,newPageSearch);" style="display:none;">搜索</div>
+	<a href="{$SiteUrl}member/" class="my" id="login_ico">我的</a>
+	<div class="type" id="nav_ico">导航</div>
+	<span id="ipageTitle" style="display:none;">{$lanmuname}</span>
+</div>
+<div class="login_inner" id="login_inner"></div>
+<div class="nav_APP" id="nav_APP">
+	<ul class="clearfix">
+		{$Mh163k_APP_头部主导航菜单}
+	</ul>
+	<span class="arrow-up"></span>
+</div>
+<!-- top不解析 内容结束 -->
+<div class="p_main">
+ 	
+	<div class="goods_list" id="goodshopList" style="padding-top:10px;">
+		<div class="searchbar po_re" style="margin:0 10px;">
+			<form action="/k_good_a0_b0_c0_d0_e0_f0_g0_p1.html" method="get">
+				<input type="text" name="_key" class="s_ipt" value="{$key}" placeholder="输入您要找的美食、商品关键词" />
+				<input type="submit" class="s_btn po_ab" value="搜索">
+			</form>
+		</div>
+		<ul class="clearfix"><tag:Loop ListType="LISTSHOPGOODQIAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="k/good_search_list.html" /></ul>
+		<div class="sys_more pageNavigation">{$PageSplit}</div>
+	</div>
+
+<!-- bottom不解析 内容开始 {$bottom$} -->
+	<div class="foot_link" id="foot_link">
+		<p class="link"><a href="{$SiteUrl}">首页</a>|<a href="{$SiteUrl}request.ashx?action=iswap&iswap=0">电脑版</a>|<a href="#">客户端</a>|<a href="{$SiteUrl}service/">反馈留言</a>|<a href="{$SiteUrl}member/">商家管理</a></p>
+		
+	</div>
+</div>
+<div class="windowIframe" id="windowIframe">
+	<div class="header"><a href="javascript:;" class="back close">返回</a><span id="windowIframeTitle"></span></div>
+	<div class="body" id="windowIframeBody"></div>
+</div>
+<div id="l-map" style="display:none;"></div>
+<script src="{$Default_tplPath}js/wap_common.js"></script>
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+document.addEventListener('DOMContentLoaded',function(){
+	$('#nav_ico').click(function(e){
+		e.preventDefault();
+		$('#nav_APP').fadeToggle('fast');
+	});
+	IDC2.isLogin('{$SiteUrl}','{$SiteName}');
+	if(!window['ipageTitle']){
+		$('#ipageTitle').show();
+	}else{
+		$('#ipageTitle').html(window['ipageTitleTxt']).show();
+	}
+	
+	
+	var node = $('#goodshopList'),
+		list = node.find('.item'),
+		w_w = $(window).width(),
+		img_w = (w_w-70)/2,
+		item_w = (w_w-30)/2;
+	list.css({'width':item_w+'px'});
+	list.find('img').css({'width':img_w+'px','height':img_w+'px'});
+},false);
+</script>
+<!-- bottom不解析 内容结束 -->
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	getkill();
+});
+function getkill(){
+	var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	
+	$('#goodshopList').find('.shop').each(function(){
+		var state_node = $(this).find('.state'),
+			isopen = $(this).attr('data-isopen'),
+			shipkill = $(this).attr('data-shipkill'),
+			startkill = $(this).attr('data-startkill'),
+			start2kill = $(this).attr('data-start2kill'),
+			startdate = $(this).attr('data-startdate'),
+			enddate = $(this).attr('data-enddate'),
+			startdate2 = $(this).attr('data-startdate2'),
+			enddate2 = $(this).attr('data-enddate2');
+		if(isopen === '2'){
+			state_node.addClass('state_2').html('暂停营业');
+			return;
+		}
+		var thestartdate = Date.parse(today + startdate + ':00');
+		var theenddate = Date.parse(today + enddate + ':00');
+		var thestartdate2 = Date.parse(today + startdate2 + ':00');
+		var theenddate2 = Date.parse(today + enddate2 + ':00');
+		
+		if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+			showkill(!0);
+		}else{
+			showkill(!1);
+		}
+		function showkill(allow){
+			if(!!allow){
+				state_node.addClass('state_1').html('营业中');
+			}else{
+				shipkill === '0'?(state_node.addClass('state_3').html('打烊了')):(state_node.addClass('state_2').html('打烊了'));
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

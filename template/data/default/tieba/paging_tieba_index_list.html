@@ -1,0 +1,19 @@
+﻿<li>
+	<div class="rcount">{$hits}</div>
+	<div class="con">
+		<span class="category display0{$chrcategory}">[{$chrcategory}]</span> <a href="{$tiebaurl}../tieba_show_{$id}.html" target="_blank" style="color:{$color}" class="title bold{$isbold}">{$title}</a><img src="{$Default_tplPath}images/jing.gif" alt="精" class="ico display{$isjinghua}" /><img src="{$Default_tplPath}images/zd.gif" class="ico display{$iszhiding}" alt="置顶" />
+		<p>{$chrcontent}</p>
+		<div class="n_img">{$piclist}</div>
+	</div>
+	
+	<dl class="rele">
+	<dt>{$chrname}</dt>
+	<dd>{$dtappenddate yyyy-MM-dd}</dd>
+	</dl>
+	<dl class="reply display0{$repchrname}">
+	<dt>{$repchrname}</dt>
+	<dd>{$repdate yyyy-MM-dd}</dd>
+	</dl>
+	<div class="zan display{$num2}"><img src="{$Default_tplPath}images/zan_2.gif" data-zan="{$num1}" alt="赞" /></div>
+	<div class="manage"><a href="{$SiteUrl}tieba/addedit.aspx?action=edit&id={$id}" target="_blank" class="blue">编辑</a>　<a href="javascript:void(0);" onclick="superManage('{$id}');" class="blue">超级管理</a>　<a href="javascript:void(0);" onclick="$.managerTBisdel('{$id}');" class="blue">删除</a></div>
+</li>

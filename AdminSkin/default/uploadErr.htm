@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+	<title>上传文件</title>
+	<style>
+		body
+		{
+			margin-top:0px;
+			margin-left:0px;
+			font-size:9pt;
+		}
+	</style>
+	<script language="javascript">
+		//上传完后使用脚本通知前端进度条
+		var oProgressInfo = parent.document.getElementById("progressInfo");
+		parent.pb.UploadComplete();
+		parent.ClearTimer();
+		oProgressInfo.innerHTML ="{$Errmsg}";
+	</script>
+</head>
+<body>
+
+</body>
+</html>

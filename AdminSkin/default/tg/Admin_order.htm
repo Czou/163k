@@ -1,0 +1,317 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<!--
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;订单管理：</td>
+	  <td align="right">&nbsp;<a href="/request.ashx?action=tg_order_xls&isadmin=1&colname={$Colname}&payid={$payid}&quanbu={$quanbu}&KeyWord={$KeyWords}&date={dates}&ondate={$ondates}&offdate={$offdates}" class="global_btn_blue" target="_blank" >导出当前搜索到EXCEL表</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <form name="form2" method="post"  action="tgorder.aspx">
+          <tr>
+            <td height="25" style="line-height:32px; padding:10px;"class="category"> 查询条件：<select name='colname' id='colname'><option value=''>:: 请选择 ::</option>
+            		<option value='0' {colname0}>:: 按订单号 ::</option>
+            		<option value='1' {colname1}>:: 按用户昵称 ::</option>
+            		<option value='2' {colname2}>:: 按省啦项目 ::</option>
+            		<option value='3' {colname3}>:: 按手机号查询 ::</option>
+            		<option value='4' {colname4}>:: 按店铺ID查询 ::</option>
+            		<option value='5' {colname5}>: : 按省啦ID查询 : :</option>
+            	</select> &nbsp;   关键字：
+              <input name="KeyWord" type="text" id="KeyWord" value="{keyword}" size="40">
+              <br>
+              <script language="javascript" src="{$atplPath}WdatePicker.js"></script>
+              查询日期：<select name='date' id='date'><option value=''>:请选择日期类型:</option><option value='0' {date0}>:: 下单日期 ::</option>
+            		<option value='1' {date1}>:: 付款日期 ::</option>
+            		<option value='2' {date2}>申请/退款/消费日期</option>
+            	</select>
+                &nbsp;&nbsp;选择查询日期范围
+              <input type="text" name="ondate" class="Wdate" size="21" value="{$ondate}" />
+              &nbsp;至&nbsp;
+              <input type="text" name="offdate" class="Wdate" size="21"  value="{$offdate}" />
+             <br>
+              查找状态：<select name='quanbu' id='quanbu'><option value='' {quanbu}>:: 全部 ::</option>
+            		<option value='0' {quanbu0}>:: 未付款 ::</option>
+            		<option value='1' {quanbu1}>:: 付款失败 ::</option>
+            		<option value='2' {quanbu2}>:: 支付成功 ::</option> 
+            		<option value='3' {quanbu3}>:: 发货中 ::</option>
+            		<option value='4' {quanbu4}>:: 已经发货 ::</option>
+            		<option value='5' {quanbu5}>:: 交易完成 ::</option>
+            		<option value='9'  {quanbu9}>:: 申请退款 (在线)::</option>
+            		<option value='10' {quanbu10}>:: 退款成功 (在线)::</option>
+            		<option value='19' {quanbu19}>:: 申请退款 ({$daijinname}</option>
+            		<option value='20' {quanbu20}>:: 退款成功 ({$daijinname}</option>
+            		<option value='11' {quanbu11}>:: 未消费 ::</option>
+            		<option value='12' {quanbu12}>:: 已经消费 ::</option>
+            	</select>
+                &nbsp;支付方式：<select name='payid' id='payid'><option value='' {payid}>:: 全部 ::</option>
+				
+				
+				
+				<option value="1" {payid1}>支付宝</option>
+	<option value="2" {payid2}>网银在线</option>
+	<option value="3" {payid3}>财付通</option>
+	<option value="6" {payid6}>微信公众平台</option>
+	<option value="7" {payid7}>微信开放平台</option>
+	<option value="9" {payid9}>现金</option>
+	<option value="99" {payid99}>货到付款</option>
+	
+	
+	
+              <!--<option value='1' {payid1}>:: 支付宝 ::</option>
+              <option value='2' {payid2}>:: 网银 ::</option>
+              <option value='3' {payid3}>:: 财付通 ::</option>
+			  <option value='4' {payid4}>:: 银联 ::</option>
+			  <option value='5' {payid5}>:: 交行 ::</option>
+              <option value='9' {payid9}>:: 现金 ::</option>-->
+             </select>
+		        <!-- [[查询结果是否统计:<input type="radio" name="tongji" value="" {tongji}/>不统计 <input type="radio" name="tongji" value="1" {tongji1}/>统计 -->
+               <br />
+              <input type="submit" name="Submit3" value="搜索" class="global_btn_blue" />&nbsp;<a href="/request.ashx?action=tgordertongjidao&colname={$Colname}&payid={$payid}&quanbu={$quanbu}&KeyWord={$KeyWords}&date={dates}&ondate={$ondates}&offdate={$offdates}" target="_blank" >导出当前搜索到统计表</a><br/><span id="tgtongji"></span></td>
+          </tr>
+        </form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form" id="form" method="post" action="?action=del">
+				<tr  align="center">
+				<td width="25" class="category">ID</td>
+				<td class="category">订单编号</td><td class="category">用户昵称</td><td class="category">省啦项目标题</td><td class="category">类型</td><td class="category">数量</td><td class="category">总额/抵扣/支付</td>
+				<td class="category">下单时间</td>
+				<td class="category">状态</td>
+				<td class="category">省啦券号</td>
+				<td  align="center" class="category">操作</td>
+				<td width="53" align="center" class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选
+				</td>
+				</tr>
+				<tag:Loop ListType="Listtgorder" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="tg/List_order_Tr.htm" />
+				<tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+				<strong><a href="javascript:delAll(this,'2','支付成功');"><font color=red>支付成功？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'3','发货中');"><font color=blue>发货中？</font></a></strong><strong><a href="javascript:delAll(this,'4','已经发货');"><font color=red>已经发货？</font></a></strong>
+				<strong><a href="javascript:delAll(this,'5','交易完成');"><font color=blue>交易完成？</font></a></strong>
+				<strong><a href="javascript:delAll(this,10,'删除');">删除选中？</a></strong></td></tr><input type="hidden" name="styleid" id="styleid" value="1">
+				</form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=15>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+
+ <style>
+*html{ padding:0px; margin:0px;}
+A {text-decoration: NONE}
+.clearfix:after,.clearFix:after{content:"\020"; display: block; height:0; clear:both; visibility:hidden}
+.clearfix,.clearFix{zoom:1;}
+.sq_tuankuan{ width:730px; height:466px;color: #585858;zoom:1; background: url({$atplPath}images/tuikuanbg.jpg) no-repeat; position: absolute; left:36%; top:40%}
+.sq_tuankuan_ok{ width:730px; height:466px;color: #585858;zoom:1; background: url({$atplPath}images/tuikuanbg.jpg) no-repeat; position: absolute; left:36%; top:40%}
+.order_details_title{width:670px;margin: 16px 10px 0;padding:0 20px;border-bottom: 1px solid #d9d9d9;}
+.order_details_title strong{float: left;font: 22px/40px "Microsoft YaHei","SimHei"; margin-top:40px; margin-left:10px;}
+.order_details_title a{float: right;padding-top: 15px;}
+.a_nmq_module{ float:left; width:720px; text-align:left;padding: 18px 28px;font-size: 14px;}
+.a_nmq_list{ max-height:270px;_height:100px;margin: 0 10px;padding:6px 80px;overflow:auto;border: 1px solid #efefef;background-color: #f7fbfd;font-size: 14px; text-align:left;}
+.a_nmq_list label{display: block;padding: 3px 0;}
+.a_nmq_list input{vertical-align: top;*vertical-align: middle;margin-right: 15px;}
+.a_nmq_list span{margin-right: 24px;}
+.a_refund_list{padding: 12px 40px; text-align:left;font-size: 14px;border-bottom: 1px dotted #d9d9d9;overflow: hidden;zoom:1;}
+.tkfs .a_refund_content{overflow: hidden;zoom:1;}
+.a_refund_list .a_refund_money{line-height: 21px;display: inline-block;font-size: 18px;color: #fd4d7c; margin-top:10px;}
+.a_refund_list .a_refund_money span{color: #949494;margin-left: 20px;}
+.tkfs{padding: 12px 40px; text-align:left;font-size: 14px;border-bottom: 1px dotted #d9d9d9;overflow: hidden;zoom:1;}
+.tkfs .a_refund_way{font-weight: 700; position:relative; left:90px; bottom:16px;}
+.tkfs .a_refund_way label{display: block;padding-bottom: 5px;}
+.tkfs .a_refund_way input{vertical-align: top;*vertical-align: middle;margin-right: 5px;}
+.tkfs .a_refund_way span{display:block;color: #333;font-weight: 500;}
+.a_submit{padding: 28px 130px;}
+.a_submit .error{display: none;color: #cc0000;margin: -10px 0 10px 0;}
+.a_submit  a{margin-left: 20px;height: 22px; }
+.pink_btn_new{display: inline-block;width:85px;height:21px;line-height:21px;color:#fff;text-align:center;border: 1px solid #fc668f;background-color: #fa5d82;box-shadow: inset 0 0 0 1px #fb7595;*border:none;}
+.pink_quxiao{ margin-left:200px;display: inline-block;width:85px;height:21px;line-height:21px;color:#fff;text-align:center;border: 1px solid #fc668f;background-color: #fa5d82;box-shadow: inset 0 0 0 1px #fb7595;*border:none;}
+    </style>
+    
+<div class="sq_tuankuan" id="sq_tuankuan" style="display:none">
+   
+ <div class="order_details_title clearfix">
+            <strong>申请退款</strong>
+        </div>
+
+            <div class="a_nmq_module">
+                省啦项目：<span id="titlestr"></span></div>
+                <div class="a_nmq_list">生活券<span id="chrcodestr" style="margin-left:40px;"></span>
+                     </div>
+            
+            <div class="a_refund_list">退款金额：
+
+                    <span class="a_refund_money" id="intmoneystr"></span>
+               </div>
+                <div class="tkfs">
+                    退款方式：
+
+                    <div class="a_refund_content a_refund_way">
+                        <label><input type="radio" name="iskill" id="iskill" checked="checked" onclick="javascript:show_val('iskills','19');" value="">退至{$daijinname}账户余额（2个工作日内完成，无手续费）<span style="color:#949494; margin-left:24px; margin-top:6px;">账户余额可在下次购买商品时直接冲抵现金</span>
+                        </label>
+                        <label>
+                          <span id="iskill9" >  <input type="radio" name="iskill" id="iskill"  onclick="javascript:show_val('iskills','9');"  value="">原路退回（2-5个工作日内完成，无手续费） 钱款将退回您的原支付账户</span>
+                         
+                        </label>
+                    </div>
+                </div>
+			
+            <div class="a_submit">
+            
+                <a href="javascript:tgtuikuan_select();hide('sq_tuankuan');" class="pink_btn_new">申请退款</a>
+                <a href="javascript:hide('sq_tuankuan');" class="pink_quxiao">取消</a> 
+        
+            </div>
+ </div>
+ 
+<input type="hidden" name="iskills" id="iskills" value="19" />
+ <input type="hidden" name="chrcodes" id="chrcodes" value="" />
+ <div class="sq_tuankuan_ok" id="sq_tuankuan_ok" style="display:none">
+   
+ <div class="order_details_title clearfix">
+            <strong>确认退款: 请核实该笔订单的支付状态.</strong>
+        </div>
+
+            <div class="a_nmq_module">
+                省啦项目：<span id="titlestr_ok"></span></div>
+                <div class="a_nmq_list">生活券<span id="chrcodestr_ok" style="margin-left:40px;"></span>
+                     </div>
+            
+            <div class="a_refund_list">退款金额：
+
+                    <span class="a_refund_money" id="intmoneystr_ok"></span>
+               </div>
+                <div class="tkfs">
+                    退款方式：
+
+                    <div class="a_refund_content a_refund_way">
+                        <label><span  id="iskill_20" >退至 [ {$daijinname} ] 账户余额 </span></label>
+                        <label><span id="iskill_10" >原路退回 </span></label>
+                    </div>
+                </div>
+		
+            <div class="a_submit">
+
+                <a href="javascript:tgtuikuan_select();hide('sq_tuankuan_ok');" class="pink_btn_new">确认退款</a>
+                <a href="javascript:hide('sq_tuankuan_ok');" class="pink_quxiao">取消</a> 
+        
+            </div>
+			
+    </div>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+
+
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "tgorder.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的信息吗？"))
+        {
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+
+function tgtuikuan_get(chrcode,iskill,title,intmoney,payid){
+	var w_w = jQuery(window).width();
+	var s_w = jQuery('#sq_tuankuan').width();
+		
+		
+		
+	if(iskill== 9 || iskill== 19   ){
+		var div3 = document.getElementById('sq_tuankuan');     
+				show("sq_tuankuan");  
+   
+		jQuery('#sq_tuankuan').css({'position':'absolute','left':(w_w - s_w)/2+'px','top':(jQuery(document).scrollTop()+20)+'px','display':'block'});
+	
+         //if(iskill==9){hide("iskill19");show("iskill9");}else{ hide("iskill9");show("iskill19");}
+		 
+		echo("titlestr",title);
+		echo("intmoneystr",intmoney);
+		echo("chrcodestr",chrcode.substr(1));
+		show_val("chrcodes",chrcode.substr(1));
+		show_val("iskills",iskill);
+		//iskill=9:shuohuobi
+		//iskill=19 zaixiantuikuan
+		var iskill=document.getElementById("iskill").value;
+		
+		//iskill =
+		
+		//tgtuikuan(chrcode,iskill);
+	}else if(iskill== 10 || iskill== 20){
+		
+		if(iskill==20){hide("iskill_10");show("iskill_20");}else{ show("iskill_10");hide("iskill_20");}
+
+		var div3 = document.getElementById('sq_tuankuan_ok');     
+		    
+   show("sq_tuankuan_ok");
+		jQuery('#sq_tuankuan_ok').css({'position':'absolute','left':(w_w - s_w)/2+'px','top':(jQuery(document).scrollTop()+20)+'px','display':'block'}); 
+		echo("titlestr_ok",title);
+		echo("intmoneystr_ok",intmoney);
+		echo("chrcodestr_ok",chrcode.substr(1));
+		show_val("chrcodes",chrcode.substr(1));
+		show_val("iskills",iskill);
+			}
+		else{tgtuikuan(chrcode,iskill);
+		}
+		
+		
+	
+	}
+	
+	function tgtuikuan_select(){
+	
+	var iskill = document.getElementById("iskills").value;
+		var chrcode = "c" + document.getElementById("chrcodes").value;
+	//alert("chrcode=" + chrcode + ",iskill=" + iskill); 
+	
+	tgtuikuan(chrcode,iskill);
+
+	
+	
+	}
+
+
+	function Button1_onclick() {
+	    var url = "/request.ashx?action=tgordertongji&colname={$Colname}&payid={$payid}&quanbu={$quanbu}&KeyWord={$KeyWords}&date={dates}&ondate={$ondates}&offdate={$offdates}"; ;
+	    xmlhttpget(url, "0", "alert('请输入适当的搜索条件!');", "", "", "", "show(obj,xmlhttp.responseText);", "", "tgtongji");
+    
+	}
+
+</script>
+</body></html>

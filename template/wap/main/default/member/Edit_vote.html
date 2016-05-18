@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>投票报名-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<style type="text/css">
+#listEmpty { display:none;}
+</style>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script>
+window['ipageTitleTxt'] = '投票报名';
+function checkform(o){
+	if(o.voteid.value==""){
+		MSGwindowShow('vote','0',"对不起,请选择关联活动!",'','');
+		return false;
+	}
+	if(o.chrname.value==""){
+		MSGwindowShow('vote','0',"对不起,请填写选手姓名!",'','');
+		return false;
+	}
+	if(o.url0.value==""){
+		MSGwindowShow('vote','0',"对不起,请上传选手照片!",'','');
+		return false;
+	}
+	if(o.Chrcontent.value==""){
+		MSGwindowShow('vote','0',"对不起,请填写参赛文宣!",'','');
+		return false;
+	}
+	setStatenum('#onestatenum');
+}
+</script>
+{$top$}
+<div class="o_main">
+	<form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+	<div class="inp_Itembox">
+		<dl class="clearfix">
+			<dt>活动</dt>
+			<dd>{$voteid}</dd>
+			<div class="menu"><i></i><i></i><i></i></div>
+		</dl>
+     </div>
+     <div class="inp_Itembox">
+		<dl class="clearfix">
+			<dt>姓名</dt>
+			<dd><input type="text" name="chrname" placeholder="输入选手姓名" value="{$chrname}" /></dd>
+		</dl>
+		<dl class="clearfix">
+			<dt>年龄</dt>
+			<dd><input type="text" name="chrage" placeholder="输入选手年龄" value="{$chrage}" /><span class="yuan">岁</span></dd>
+		</dl>
+      </div>
+      <div class="inp_Itembox">  
+		<dl class="clearfix">
+			<dt>身高</dt>
+			<dd><input type="text" name="shenggao" placeholder="输入选手身高" value="{$shenggao}" /><span class="yuan">cm</span></dd>
+		</dl>
+        <dl class="clearfix">
+			<dt>体重</dt>
+			<dd><input type="text" name="tizhong" placeholder="输入选手体重" value="{$tizhong}" /><span class="yuan">kg</span></dd>
+		</dl>
+       </div> 
+       <div class="inp_Itembox">  
+		<dl class="clearfix">
+			<dt>来自</dt>
+			<dd><input type="text" name="laizhi" placeholder="某地区；某学校；某单位等" value="{$laizhi}" /></dd>
+		</dl>
+		<dl class="clearfix">
+			<dt>兴趣</dt>
+			<dd><input type="text" name="aihao" placeholder="输入选手兴趣爱好" value="{$aihao}" /></dd>
+		</dl>
+       </div>
+       <div class="inp_Itembox">   
+		<dl class="clearfix">
+			<dt>电话</dt>
+			<dd><input type="text" name="chrtel" placeholder="输入选手联系电话" value="{$chrtel}" /></dd>
+		</dl>
+	</div>
+	<div class="inp_Itembox">
+		<div class="my_prop_img">
+					
+					
+					<input name="state" type="hidden" id="ipt_state" />
+					<input name="url0" type="hidden" id="url0" value="{$url0}" data-img="{$chrimage}" />
+					<input name="filewidth" type="hidden" value="400" data-txt="控制代表图的宽度">
+					<input name="fileheight" type="hidden" value="300" data-txt="控制代表图的高度">
+				<!--<iframe name="ifm_upload" id="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="about:blank"></iframe>-->
+				<div id="J_imageView" class="my_prop_imgitem_node clearfix">
+					<div class="upimgFileBtnNode"><div id="pageLoaderNode"><span id="pageLoader">loadding</span></div><img src="{$Default_tplPath}images/upimg.png" id="upimgFileBtn" class="upimgFileBtn imgview" alt="" /></div>
+					<tag:Loop ListType="CLASSIDLISTxuanshoufile" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/Listvote_file_tr.htm" />
+				</div>
+		</div>
+	</div>
+	<div class="inp_Itembox">
+		<textarea class="txt" name="Chrcontent" placeholder="输入参赛文宣，仅限1000个字">{$chrcontent}</textarea>
+	</div>
+	<input type="hidden" name="id" value="{$ID}" />
+	<input type="hidden" id="onestatenum" name="onestatenum" value="" />
+	<button type="submit" class="fb">提 交</button>
+</form>
+{$bottom$}
+
+<form enctype="multipart/form-data" method="post" id="fileForm">
+	<input id="table_id" name="table_id" type="hidden" value="xuanshou_file" />
+	<input id="id" name="id" type="hidden" value="{$ID}" />
+	<input id="dir" name="dir" type="hidden" value="" />
+	<input id="state" name="state" type="hidden" value="&liveid={$ID}" />
+	<input id="filewidth" name="filewidth" type="hidden" value="900" />
+	<input id="fileheight" name="fileheight" type="hidden" value="0" />	
+	<input id="smallfilewidth" name="smallfilewidth" type="hidden" value="400" />
+	<input id="smallfileheight" name="smallfileheight" type="hidden" value="300" />
+	<input type="file" style="display:none;" id="imgFile" name="imgFile" />
+</form>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/upLoadImg2015.js"></script>
+<script>
+var table_id = 'xuanshou_file';
+window['state'] = '&liveid={$ID}';
+var imgURL = window['siteUrl']+"kindeditor/upload_one.aspx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val();
+function uploadsuccess(sid,url,num){//iframe提交
+	if($('#url0').val() === ''){
+		$('#url0').val(url);
+	}
+	if($('#listEmpty')[0]){$('#listEmpty').hide();}
+	var txt='',node = jQuery('#J_imageView');
+	txt='<div class="my_prop_imgitem">'+
+		'<div  class="imgviewNode"><img src="'+url+'" class="imgview" /></div>'+
+		'<a href="javascript:" onclick="delfile(this,\''+sid+'\')" class="del">删除</a>'+
+		'<a href="#" onclick="return set_FM(this,\''+url+'\');" class="set_FM">封面</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,0,0,\''+sid+'\');" class="move_prev">前移</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,1,0,\''+sid+'\');" class="move_next">后移</a>'+
+		'</div>';
+	node.append(jQuery(txt));
+	showMyImageHeight();
+	reset_moveBtn();
+}
+function saveMyImage(o){//ajax提交
+	if($('#url0').val() === ''){
+		$('#url0').val(o['url']);
+	}
+	if($('#listEmpty')[0]){$('#listEmpty').hide();}
+	var txt='',node = jQuery('#J_imageView');
+	txt='<div class="my_prop_imgitem">'+
+		'<div class="imgviewNode"><img src="'+o['url']+'" class="imgview" /></div>'+
+		'<a href="javascript:" onclick="delfile(this,\''+o['id']+'\')" class="del">删除</a>'+
+		'<a href="#" onclick="return set_FM(this,\''+o['url']+'\');" class="set_FM">封面</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o['id']+'\');" class="move_prev">前移</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o['id']+'\');" class="move_next">后移</a>'+
+		'</div>';
+	node.append(jQuery(txt));
+	showMyImageHeight();
+	reset_moveBtn();
+}
+
+$(document).ready(function(){
+	setStatenum('#onestatenum');
+	upLoad_init();
+	$('#url0').compareFM('#J_imageView');
+	//showMyImageHeight();
+});
+
+
+
+function showvotetishi(){}
+</script>
+</body>
+</html>

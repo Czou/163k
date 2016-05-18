@@ -1,0 +1,47 @@
+@charset "utf-8";
+.page_hd { text-align:left;}
+.page_hd .info { margin-top:10px;}
+.page_hd .info .k_1 { float:left; border:1px solid #eec09f; background:#fff4e2; padding:6px 8px; color:#d64700;}
+.page_hd .info .k_2 { float:left; font-size:14px; _display:inline; margin-left:20px;}
+.page_hd .info .k_3 { float:right;}
+.page_hd .info img { vertical-align:middle;}
+.page_hd .info .big_skin { font-size:24px; color:#e85811; line-height:24px;}
+
+.page_bd { margin-top:10px; text-align:left;}
+.page_bd img { vertical-align:middle;}
+.page_bd .d_1 { float:left; width:750px;}
+.page_bd .d_2 { float:left; width:310px;}
+.page_bd .d_3 { float:left; width:90px;}
+.page_bd .hd { font-size:14px; font-weight:bold; color:#7994ac; border-bottom:2px solid #a4b7ce; background:#e5ecf7; line-height:28px; height:28px; padding:0 15px;}
+.page_bd .hd .d_2 { background:url(../images/zhekouka2_18.gif) no-repeat 0 4px; text-indent:1.7em;}
+.page_bd .hd .d_3 { background:url(../images/zhekouka2_20.gif) no-repeat 0 4px; text-indent:1.7em;}
+.page_bd .hd a.link { font-weight:normal; font-size:12px; text-decoration:underline;}
+.page_bd .bd .list_module { padding:0 15px; line-height:35px;}
+.page_bd .bd .d_1 { font-size:14px; background:url(../images/zhekouka2_25.gif) no-repeat 0 8px; text-indent:1.5em;}
+.page_bd .bd .d_1 a { color:#555;}
+.page_bd .bd .d_1 a:hover { color:#777;}
+.page_bd .bd .d_2 a { text-decoration:underline;}
+.page_bd .bd .d_3 { color:#888; text-align:center;}
+.page_bd .bd .bg2 { background:#fcfdeb;}
+.orange { border:1px solid #fe8802; background-color:#fffae7; position:relative; margin:-1px -1px -1px -1px; zoom:1;}
+.category { padding:8px; border:1px solid #9ed9fe; background:#f2faff; margin-top:10px;}
+.category .hd { padding-left:8px; font-weight:bold; color:#555; background:url(../images/kicon_03.gif) no-repeat 0 5px; zoom:1;}
+.category .bd { margin-top:4px; line-height:22px;}
+.category .bd span.gray_skin { white-space:nowrap; color:#888;}
+.category .bd a { margin-right:9px;}
+.category .bd a.current { background:#08a2e1; color:#fff; font-weight:bold; padding:3px;}
+.top10 { margin-top:15px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

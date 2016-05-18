@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>HTTP 404 - 未找到文件</title>
+<style type="text/css">
+<!--
+body{ background:#FFF; margin:0; font:12px/18px Verdana; color:#4270A3; }
+a{ color:#4270A3; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+#wrap{ width:520px; margin:auto; padding-top:70px; }
+#logo{ float:left; padding:15px 0 0 25px; }
+#logo a{ float:left; width:118px; height:70px; line-height:200px; overflow:hidden; background:url(/images/logo.gif); }
+#search{ float:right; width:350px; text-align:center; padding:50px 0; border-left:3px solid #ACE; }
+form{ margin:0; padding:38px 0; }
+.txt{ width:200px; height:20px; font:14px/18px Verdana; padding:2px 1px 0; }
+.btn{ width:90px; height:26px; font:14px/20px Verdana; }
+.notfound{ float:right; margin:25px 15px 0 0; background:url(/images/not_found_404.gif); }
+.notfound a{ float:left; width:129px; height:124px; line-height:400px; overflow:hidden; }
+-->
+</style>
+</head>
+
+<body>
+<div id="wrap">
+  <div id="logo"><a href="http://tool.114la.com/"></a></div>
+  <div id="search">很抱歉，服务器找不到 指定的资源，请求的页面不存在。
+    <form name="" method="get" action="http://www.baidu.com/s" target="_blank">
+      <input name="tn" type="hidden" id="tn" value="ylmf_1_pg" />
+      <input name="" type="text" class="txt" onMouseOver="this.focus();" onfocus="this.select();" />
+      <input type="submit" value="搜  索" class="btn" />
+    </form>
+    </div>
+  <div class="notfound"><a href="javascript:history.back(1);">返回</a></div>
+</div>
+</body>
+</html>

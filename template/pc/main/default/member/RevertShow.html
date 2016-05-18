@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品评论管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>
+function checkform(o){
+	if(o.replaycontent.value==""){
+		alert("请输入回评内容!");
+		o.replaycontent.focus();
+		return false;
+	}
+	if(o.replaydate.value==""){
+		alert("请输入回评日期!");
+		o.replaydate.focus();
+		return false;
+	}
+}
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 商品评论管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">商品评论管理</div>
+
+<br />
+<form name="form1" action="?action=revert" method="post" onSubmit="return checkform(this);">
+<div class="smalltitle">1、评论内容</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:25%;">评论人：</td>
+        <td class="tdcontent" style="width:75%">
+            <span id="lbOrderId" style="color:Blue;">{$chrname}</span><input type="hidden" name="id" id="orderid" value="{$id$}" />
+        </td>
+    </tr>
+    <tr>
+        <td class="tditem">评论时间：</td>
+        <td class="tdcontent"><span id="ProName">{$Dtappenddate}</span></td>
+    </tr>
+	 <tr>
+        <td class="tditem">IP地址：</td>
+        <td class="tdcontent"><span id="ProName">{$Chrip}</span></td>
+    </tr>
+    <tr>
+        <td class="tditem">关联商品：</td>
+        <td class="tdcontent"><span id="ProPrice" style="color:Black;"><a href="{$url}" target="_blank">{$title}</a></span></td>
+    </tr>
+	 <tr>
+        <td class="tditem">内容：</td>
+        <td class="tdcontent"><span id="ProName">{$Chrmark}</span></td>
+    </tr>
+    
+</table><br />
+<div class="smalltitle">2、回评</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+   
+	<tr id="tr1">
+        <td class="tditem" style="width:25%;"><span style="color:Red">*</span> 回评内容：</td>
+        <td class="tdcontent"><textarea name="replaycontent"   class="text"  style="width:400px;height:50px;">{$replaycontent$}</textarea></td>
+    </tr>
+	<tr id="tr2">
+        <td class="tditem"><span style="color:Red">*</span> 回评日期：</td>
+        <td class="tdcontent"><input type="text" name="replaydate" value="{$replaydate$}"  size=25 class="text Wdate" /> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	
+	<tr id="tr2_1">
+        <td class="tditem"><span style="color:Red">*</span> 状态：</td>
+        <td class="tdcontent"><input type="radio" name="isopen" value="0"  {$isopen1$}> 等待审核 <input type="radio" name="isopen" value="1" {$isopen2$}> 通过审核</td>
+    </tr>
+	<tr id="tr2_1">
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" />　<input type="button" value=" 返 回 " onClick="javascript:location.href='mygood.aspx?action=revertlist';" class="global_btn" /></td>
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/cal/cal.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+});
+</script>
+</body>
+</html>

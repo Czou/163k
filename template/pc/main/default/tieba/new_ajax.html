@@ -1,0 +1,98 @@
+﻿例:大类ajax链接<a href="用于seo或不支持js原始链接地址" onclick="getPaging_a(this,"大类id");">大类名称</a>
+<script>
+	//ajax接口参数
+	var keyvalues = {"table_id":"25",
+	"pagesize":"50",
+	"tplpath":"tieba",
+	"tplname":"index.html",
+	"isjson":"0",
+	"p":"{$PageNo}",
+	"_key":"{$_key}",
+	"a":"{$a}",//板块
+	"b":"{$b}",//小类
+	"e":"{$e}",//排序(0默认回复时间倒,1发帖时间倒,2:精华前,3回复数,4:浏览数)
+	"g":"{$g}",//只查看某用户贴(userid)
+	"h":"{$h}",//只看精华
+	"i":"{$i}"//有图
+	};
+	var nowdomain ="{$SiteUrl}";//接口域名
+	function getPaging_s(_Skey)//关键字搜索
+	 {
+	 	keyvalues["_key"] = encodeURIComponent(_Skey);
+	 	keyvalues["p"]=1;
+	 	getNewPaging();
+   }
+	function getPaging_a(aid,_a)//大类链接
+	 {
+	 	keyvalues["a"]=_a;
+	 	getPaging_href(aid);
+   }
+   function getPaging_b(aid,_b)//小类链接
+	 {
+  	keyvalues["b"]=_b;
+	 	getPaging_href(aid);
+   }
+    function getPaging_e(_e)//排序链接
+	 {
+  	keyvalues["e"]=_e;
+  	keyvalues["p"]=1;
+	 	getNewPaging();
+   }
+    function getPaging_href(aid)//纯ajax需要清除href链接
+	 {
+	 	aid.href='javascript:void(0);';
+   	keyvalues["p"]=1;
+	 	keyvalues["_key"] = "";
+	 	getNewPaging();
+   }
+function getPaging(aid,_p) //翻页
+ {
+	//ajax分页调用...
+ 	aid.href='javascript:void(0);';
+	keyvalues["p"] = _p;
+ 	getNewPaging();
+ 	}	
+ 	 //-----------------------接口核心-------------------------------------------------
+ 	 //-----------------------分页接口核心
+	function getNewPaging() //核心接口参数配置
+ {
+	var ajaxUrl = nowdomain+"request_paging.ashx?";//接口地址
+	var functionID = "getNewPaging_data(data);"//配置数据返回需要执行的过程
+	getajax_common_set(ajaxUrl,keyvalues,functionID);
+ 	}	
+	
+
+	function getNewPaging_data(data) //分页返回数据处理
+ {
+ 	if(data[0].islogin !== '1'){MSGwindowShow('revert','0',data[0].error,'','');return;}
+ 	alert(data[0].islogin);
+ 	
+ }
+//-----------------------分页接口核心结束
+
+ //-----------------------数据接口核心
+ function getajax_common_set(ajaxUrl,_keyvalues,functionID) //接口核心参数封装
+ {
+ 	//ajaxUrl:接口地址
+ 	//_keyvalues:参数键值对对象,
+ 	//functionID:数据返回需要执行的过程
+ 	for(var _Tkey in _keyvalues){//遍历json对象的每个key/value对
+
+   ajaxUrl += _Tkey + "=" + _keyvalues[_Tkey] + "&";
+
+  }
+	getajax_common_data(ajaxUrl,functionID)
+}
+	function getajax_common_data(ajaxUrl,functionID)//ajax核心接口
+	{
+	var url = ajaxUrl+'&jsoncallback=?';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&_k="+encodeURIComponent(Digital);
+	$.getJSON(url,function(data){
+		eval(functionID);
+	});
+}
+ //-----------------------数据接口核心结束
+//-----------------------接口核心结束-----------------------------------------
+</script>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改投票比赛活动--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+<script>
+function checkform(o){
+	if(o.chrname.value==""){
+		alert("对不起，请填写选手姓名!");
+		o.chrname.focus();
+		return false;
+	}
+	if(o.voteid.value==""){
+		alert("对不起，请选择关联活动!");
+		o.voteid.focus();
+		return false;
+	}
+	if(o.url0.value==""){
+		alert("对不起，请上传选手照片，并设置一张封面图!");
+		return false;
+	}
+}
+</script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none; margin:0; padding:0; } /*提示层样式*/
+.my_prop_img{ font-size:12px; width:100%; margin:0; padding:0}
+.my_prop_imgitem{float:left; display:inline;margin-right:15px;margin-top:10px; position:relative; *zoom:1; z-index:1;}
+.my_prop_imgitem .imgview { width:80px; height:80px;}
+.my_prop_imgitem .move_prev,.my_prop_imgitem .move_next,.my_prop_imgitem .set_FM { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center; text-decoration:none;}
+.my_prop_imgitem .move_next { left:41px;}
+.my_prop_imgitem .set_FM { top:100px; width:auto; padding:0px 5px;}
+.my_prop_imgitem .global_btn,.my_prop_imgitem .global_btn_blue { margin-top:8px;}
+#showpic { width:80px; height:80px; vertical-align:top; display:block;}
+</style>
+<script>
+var youke="0";
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改投票比赛活动</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">修改投票比赛活动</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		提交资料后需审核通过才能投票
+
+		<br />
+		</td>
+	</tr>
+</table>
+
+  <form name="form1" method="post" action="?action=editSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+ 	<tr > 
+      <td  class="tditem" width="15%">参赛活动<font color="#FF0000">*</font>：</td>
+      <td   class="tdcontent" >{$voteid}</td>
+    </tr>
+    <tr > 
+      <td  class="tditem" >选手姓名<font color="#FF0000">*</font>：</td> 
+      <td   class="tdcontent" ><input type="text" name="chrname" class="text"  value="{$chrname}" style="width:120px;"/></td>
+    </tr>
+	 <tr > 
+      <td  class="tditem" >选手年龄<font color="#FF0000"></font>：</td>
+      <td   class="tdcontent" ><input type="text" name="chrage" class="text" value="{$chrage}" style="width:120px;"/> &nbsp;&nbsp;&nbsp;岁  (如果留空，前台显示未知)</td>
+    </tr>
+	 <tr > 
+      <td  class="tditem" >选手体重<font color="#FF0000"></font>：</td>
+      <td   class="tdcontent" ><input type="text" name="tizhong" class="text" value="{$tizhong}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;kg  (如果留空，前台显示未知)</td>
+    </tr>
+	 <tr > 
+      <td  class="tditem" >选手身高<font color="#FF0000"></font>：</td>
+      <td   class="tdcontent" ><input type="text" name="shenggao" class="text" value="{$shenggao}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;cm  (如果留空，前台显示未知)</td>
+    </tr>
+	 <tr > 
+      <td  class="tditem" >选手来自<font color="#FF0000"></font>：</td>
+      <td   class="tdcontent" ><input type="text" name="laizhi" class="text" value="{$laizhi}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;可以填如：某地区；某学校；某单位等  (如果留空，前台显示未知)</td>
+    </tr>
+	 <tr > 
+      <td  class="tditem" >兴趣爱好：</td>
+      <td   class="tdcontent" ><input type="text" name="aihao" class="text" value="{$aihao}" style="width:120px;"/>&nbsp;&nbsp;&nbsp;(如果留空，前台显示未知)</td>
+    </tr>
+	
+	<tr > 
+      <td  class="tditem" >联系电话<font color="#FF0000"></font>：</td>
+      <td   class="tdcontent" ><input type="text" name="chrtel" class="text" value="{$chrtel}" style="width:260px;"/>(联系方式仅供网站方查看)</td>
+    </tr>
+	
+	<tr > 
+      <td  class="tditem" >上传图片： 
+      </td>
+      <td class="tdcontent"  style="padding-left:4px;">
+		<input type="button" id="J_selectImage" value="批量上传" class="global_btn_blue_big" />
+		<div id="J_imageView" class="clearfix"><tag:Loop ListType="CLASSIDLISTxuanshoufile" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/Listvote_file_tr.htm" /></div>
+		<input id="filewidth" type="hidden" value="900">
+		<input id="fileheight" type="hidden" value="">	
+		<input type="hidden" id="smallfilewidth" value="400">
+		<input type="hidden" id="smallfileheight" value="300">
+		<input name="url0" type="hidden" id="url0"  value="{$url0}" />
+	    <input name="filewidth" type="hidden" value="400" data-txt="控制代表图的宽度">
+		<input name="fileheight" type="hidden" value="300" data-txt="控制代表图的高度">
+	 
+	 
+	 </td>
+    </tr>
+	<tr  > 
+      
+      <td class="tdcontent"  colspan=2> 参赛文宣： <Br><textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent}</textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '300px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'multiimage', 'link']
+				});
+		});
+	</script></td>
+    </tr>
+	<tr > 
+      <td  class="tditem" >&nbsp;</td>
+      <td   class="tdcontent" ><input type="hidden" name="gotourl" id="gotourl" value="{$gotourl}"><input type="hidden" name="id" id="id" value="{$ID}"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js"></script>
+<script src="{$Default_tplPath}js/upLoadImg2015.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+var table_id = 'xuanshou_file';
+window['state'] = '&liveid={$ID}';
+window['logincookieStr'] = $.cookie('{$logincookieName}');
+if(!!window['logincookieStr']){
+	var imgURL = window['siteUrl']+"kindeditor/upload_json.ashx?table_id="+table_id+"&id="+$('#id').val()+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val()+"&" + window['logincookieStr'];
+	newPLUploadImg();
+}
+$('#url0').compareFM('#J_imageView');
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>参与竞价--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+<script>
+function checklower(aa,bb){
+	aa.value = aa.value.replace(/[\D-]+/g,'')
+	if(parseInt(aa.value)<parseInt(bb)){
+		alert("对不起，您的竟价金额不能少于"+bb+"");
+		aa.value=bb;
+	}
+}
+function checklower2(aa,bb){
+	aa.value = aa.value.replace(/[\D-]+/g,'')
+	if(parseInt(aa.value)<parseInt(bb)){
+		alert("对不起，您的竟价金额不能少于"+bb+"");
+		aa.value=bb;
+	}
+}
+function addtotal(){
+	var total=0;
+	var user_jifennum = document.getElementById('user_jifennum').innerHTML;
+	var tt1= parseFloat(document.zhifutt.day.value)
+	var tt2= parseFloat(document.zhifutt.money.value)
+	total = total + tt1*tt2
+	if(document.zhifutt.c_color.checked){
+		var tt1= parseFloat(document.all.span_bigtop.innerText)
+		total = total + tt1
+	}
+	if(document.zhifutt.c_font.checked){
+		var tt1= parseFloat(document.all.span_fonttop.innerText)
+		total = total + tt1
+	}
+	document.all.span_total.innerHTML = total;
+	//console.info(document.getElementById('user_jifennum'));
+	if(parseInt(user_jifennum)<parseInt(total)){
+		alert('对不起，您的账户金币不足，请调整竞价参数！');
+	}
+}
+</script>
+<style>
+.mode{ width:100%; margin-bottom:6px; font-family:"arial",宋体}
+.mode a {color:#F54100 ;}
+.mode h3{ font-size:13px;line-height:28px;font-weight:bold; background: #FFF8E9;padding-left:10px; border-bottom: 1px solid #FAD6C8;text-align:left; }
+#openmsg { font-size:12px;font-weight : normal ;}
+.forange,.forange a{color:#F54100!important;}
+.fgreen,.fgreen a{color:#008000}
+.unline,.unline a{text-decoration:underline;}
+.uright{ float:left;text-align:left;margin-left:6px; font-size:14px;}
+.trdis { font-size:14px;color:#999; text-align:right;}
+</style>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 参与竞价</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main2">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+<div class="bigtitle">参与竞价推广</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		注：已进行付费推广的信息，如果违反版规，会被删除处理!
+
+		<br />
+		</td>
+	</tr>
+</table>
+
+<div class="mode" id="beginner" style="width:750px; float:left; font-size:14px;">
+	<div class="left" id="beginner_msg" style="line-height:24px;">
+  {$chrname}，您好！目前账上有<strong class="fgreen" id="user_jifennum">{$jifennum}</strong>{$jifenname}，<a href="modify.aspx?action=consume" class="unline">返回充值</a>。
+      <br />
+	  您要推广的信息是“<a href="{$liveurl}live_{$ID}.html" class="unline fgreen">{$chrtitle}</a>” 
+   <a href="?" class="unline">返回重新选择信息</a>
+   
+
+	</div>
+</div>
+		<form name="zhifutt" action="?action=jingjiasave" method="post" >
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="98%">
+    <tr>
+        <td  class="tdcontent" colspan="6"  style="text-align:left;color:#FF0000;font-weight:bold" >当前竞价实况</td>
+    </tr>
+    <tr style="height:23px; ">
+					<td colspan=6 class="tdcontent">{$toplist}</td>
+				</tr>
+
+				<tr>
+					<td class="tdcontent" style="text-align:left;color:#0000FF;font-weight:bold" colspan="6">
+					<div class="display_true_{$isnew}">选择天数：<input  size="5" type="text" name="day" class="text" value="1" onKeyUp="this.value=this.value.replace(/\D/g,'');addtotal();" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))"/>天 出价：<input  size="5" type="text" name="money" class="text" value="{$lowerfen}" onKeyUp="this.value=this.value.replace(/\D/g,'');addtotal();" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" onBlur="checklower(this,'{$lowerfen}');";/>{$jifenname}/天</div>
+					<!-- 追加 --><div class="display_false_{$isnew}">剩余天数：{$day}天 追加出价：<input  size="5" type="text" name="newmoney" class="text" value="1" onKeyUp="this.value=this.value.replace(/\D/g,'');addtotal();" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" onBlur="checklower2(this,'1');";/>{$jifenname}/天</div>
+					
+					
+					<input type="hidden" name="lower" value="{$lowerfen}" />
+					</td> 
+				</tr>
+				<tr style="font-weight:bold;height:23px; color:#FF0000;">
+					<td colspan=6 class="tdcontent">附加服务</td>
+				</tr>
+				<tr>
+					<td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox" onClick="addtotal()" NAME="c_color" checked value="1"/></td><td class="tdcontent" style="text-align:center">标题加红</td><td class="tdcontent" style="text-align:center"><span id="span_bigtop">{$colorfen}</span>{$jifenname}/次</td><td class="tdcontent" style="text-align:center">一次支付终生有效</td><td class="tdcontent" style="text-align:center"><span id="td_color">{$colorfen}</span>{$jifenname}</td>
+				</tr>
+				<tr>
+					<td class="tdcontent" style="text-align:center"><INPUT TYPE="checkbox" onClick="addtotal()" NAME="c_font" checked value="1"/></td><td class="tdcontent" style="text-align:center">标题加粗</td><td class="tdcontent" style="text-align:center"><span id="span_fonttop">{$fontfen}</span>{$jifenname}/次</td><td class="tdcontent" style="text-align:center">一次支付终生有效</td><td class="tdcontent" style="text-align:center"><span id="td_font">{$fontfen}</span>{$jifenname}</td>
+				</tr>
+				<tr>
+					<td COLSPAN="6" style="text-align:right;line-height:40px;padding-right:20px;background:#FFffff"><span id="money_pay_show">所需{$jifenname}总数：<span id="span_total" style="color:#ff0000;font-weight:bold;"> </span> {$jifenname}</span><br /><input type="hidden" name="id" value="{$ID}" />
+						<input type="image" src="{$Default_tplPath}images/queren.gif" />
+					</td>
+				</tr>
+	</table>
+</form>
+<div style="line-height:22px;font-size:13px;">
+<br>
+   竞价规则说明： <br>
+1、必须是“通过审核”状态的信息才能参与竞价 <br>
+2、竞价推广可以让您的信息在最显著的位置、以最显著的效果显示在网民面前，获得最佳的推广服务 <br>
+3、若信息a最高价竞得top1,top6则自动退到1楼(大类置顶以下计算)，top2-top5,依次后退1位 <br>
+4、若信息a选择天数为1天,1天后top2-top5自动上移，此时top6位置空出, 所需{$jifenname}为“底价” <br>
+5、信息若已经在竞价状态，若需要重新参与竞价，需等当前竞价完成 <br>
+6、当前系统设置的最低竞价标准（底价）:{$lowerfen}{$jifenname},即不得低于此值 <br>
+7、附加服务不受时间限制，一次支付终生有效 <br>
+8、竞价时间过后，信息自动恢复到常规状态和位置 <br>
+9、1天按照24小时计算
+</div>
+        </div>　
+	</div>
+
+			</div>
+		</div>
+		<div class="col_sub2">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script>
+addtotal();
+</script>
+
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

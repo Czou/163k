@@ -1,0 +1,64 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script language="javascript">
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+            location.href = "dao.aspx?action=del&ID=" + id
+        }
+}
+function delAll(o)
+{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的记录吗？"))
+        {
+            document.getElementById("form").submit();
+        }
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;网站导航设置（数字越小，显示越靠前）&nbsp;快捷查找: &nbsp;<A href="?styleid=0">主导航</A>&nbsp;<A href="?styleid=1">导航1</A>&nbsp;<A href="?styleid=2">导航2</A>&nbsp;<A href="?styleid=3">导航3</A>&nbsp;<A href="?styleid=4">导航4</A>&nbsp;<A href="?styleid=5">导航5</A>&nbsp;<A href="?styleid=6">导航6</A>&nbsp;<A href="?styleid=7">导航7</A>&nbsp;<A href="?styleid=8">导航8</A>&nbsp;<A href="?styleid=9">导航9</A>&nbsp;<A href="?styleid=10">导航10</A>&nbsp;<A href="?styleid=11">导航11</A>&nbsp;<A href="?styleid=12">导航12</A>
+          	
+          	</td>
+          <td align="right">&nbsp;<A href="?action=add" class="global_btn_blue">添加网站导航</A></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><form name="form" id="form" method="post" action="?action=del">
+        <table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <tr align="center">
+            <td width="25" class="category">ID</td>
+            <td class="category">标题</td>
+            <td class="category">类型</td>
+            <td class="category">链接地址</td>
+            <td class="category">打开方式</td>
+            <td class="category">小图标</td>
+            <td class="category">排序</td>
+             <td class="category">显示?</td>
+            <td width="80" align="center" class="category">操作</td>
+          </tr>
+          <tag:Loop ListType="Listdao" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="daohang/List_dao_Tr.htm" />
+        </table>
+      </form>
+  <tr >
+    <td height="24" align="right" bgcolor="#FFFFFF" colspan=9> {$PageSplit} </td>
+  </tr>
+</table>
+<!--endprint-->
+</td>
+<td></td>
+</tr>
+<tr>
+  <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+  <td></td>
+  <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+</tr>
+</table>
+</body></html>

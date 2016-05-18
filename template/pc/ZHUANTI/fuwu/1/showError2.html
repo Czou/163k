@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}访问出错了--{$SiteName}</title>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+{$top950$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 访问出错了</div>
+	<div id="content" class="yp2011">
+    	<div style="padding:100px;">
+		{$chrtitle}的超级黄页服务已经到期了，如果您需要继续使用，请您进行在线续费！如有疑问您可以联系网站客服  <br /><br />热线电话：{$sitetel}  客服QQ1：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey1}" target=_blank>{$siteqq1}</a>  客服QQ2：<a href="http://sighttp.qq.com/authd?IDKEY={$siteqqkey2}" target=_blank>{$siteqq2}</a>
+		</div>
+	</div>
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

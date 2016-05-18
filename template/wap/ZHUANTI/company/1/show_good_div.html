@@ -1,0 +1,50 @@
+<div class="pro_info">
+ 
+ <div class="show_pic">
+  <img src="{$Default_tplPath}images/kuaison_nofind_product2.gif" id="dialog_imgList" data-imgList='{$goodpiclist}' style="display:none; width:100%" alt="" />
+  <div id="slide" style="display:none;" class="clearfix">
+		<div id="content"></div>
+		<ul id="indicator"></ul>
+	</div>
+	<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+ <!-- <dl class="clearfix">
+   <dt class="proName">{$chrgood}</dt>
+   <dd class="price">&yen;{$price2}</dd>
+  </dl>-->
+  <div class="browse">{$views}</div>
+ </div>
+<div class="sp_info"> 
+ <h2>{$chrgood}</h2>
+ <span class="price">&yen;<strong>{$price2}</strong><del>&yen;{$price1}</del></span>
+ <span class="fav_0"><a href="javascript:void(0);" onClick="addFav(this,{'shopid':'{$shopid}','productid':'{$goodid}','styleid':'1'});" class="fav">加入收藏</a></span>
+ <span class="k_buy"><a href="{$SiteUrl}k_shop_a0_b0_c0_d0_e0_f{$shopid}_g{$goodid}_p1.html" id="kuaisonLink" data-styleid="{$styleid}" data-isgoodshop="{$isgoodshop}" class="kuaison">快店购买</a></span>
+</div>
+ <div class="e_condit">
+ <dl>
+  <dt>出品</dt>
+  <dd>{$goodnum}</dd>
+ </dl>
+ <dl>
+  <dt>供货</dt>
+  <dd>{$chrshop}</dd>
+ </dl>
+ <dl>
+  <dt>规格</dt>
+  <dd>{$xinghao}</dd>
+ </dl>                                                         
+</div>
+</div>
+<!--详情-->
+<div class="sp_detail">
+ <div class="title"><span>商品详情</span></div>
+ <div class="con" id="resizeIMG" style="padding:10px;">{$goodchrcontent}</div>
+ <div class="more">展开更多<em></em></div>
+</div>
+<input type="hidden" id="filepath" value="{$filepath}" />
+<!--分享--> 
+<div class="share_fd" id="share_fd">
+  <div class="title"><span>分享到</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>

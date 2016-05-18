@@ -1,0 +1,135 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delAll(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的店铺动态吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}	
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "dianpunotice.aspx?action=del&ID=" + id
+        }
+}
+
+function examAll(o)
+{
+	document.getElementById("form").action="?action=iskill"
+	if ( confirm("该操作将不可逆！\n您确定要审批所有选中的信息吗？"))
+        {
+            document.getElementById("form").submit();
+        }
+}
+
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>店铺动态管理</td>
+	  <td align="right">&nbsp;<!--<a href="dianpunotice.aspx?action=add" class="global_btn_blue">添加店铺动态信息</a>--></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		<select name="a" onchange="this.form.submit();"><option value="">不限制</option><option value="0" {$a_s_0}>店铺动态</option><option value="1" {$a_s_1}>快店公告</option><option value="2" {$a_s_2}>店铺介绍</option></select>&nbsp;<!--{$b_select}&nbsp;-->是否审核：<select name="c" onchange="this.form.submit();"><option value="">不限制</option><option value="0" {$c_s_0}>未审核</option><option value="1" {$c_s_1}>已审核</option></select>&nbsp;关键字类型：<select name="d"><option value="0" {$d_s_0}>标题</option><option value="1" {$d_s_1}>店铺名</option></select>&nbsp;<input name="_key" type="text" id="KeyWord" style="width:200px;" value="{$_key}">&nbsp;<input type="submit" name="Submit3" class="global_btn" value="Go"><div class="blank10"></div></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+     		<td class="category" >资讯标题</td>
+			<td class="category" >发布商家</td>
+			<td class="category" >发布时间</td>
+  		<td class="category" >审核状态</td>
+   		<td width="80" class="category">操作</td>
+          	<td width="63"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+          </tr>
+		  <tag:Loop ListType="Listshoparticle" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="shop/list_articlelist_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+			<strong><a href="javascript:examAll(this);"><font color="red">审批通过？</font></a> <a href="javascript:delAll(this);">删除选中</a></strong>
+		  </td></tr>
+		  </form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+		<div class="pageNavigation">{$PageSplit}</div>
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+function superManage(sid){
+	var f_id = 'super_tips';
+	var aHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd clearfix"><a href="#" class="close">关闭</a>超级管理</div><div class="bd">';
+	aHTML += '<iframe src="about:blank" id="'+f_id+'_iframe" scrolling="no" frameBorder="0" width="100%" height="280"></iframe>';
+	aHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(aHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var url = "dianpunotice.aspx?action=edit&id="+sid;
+	$('#'+f_id+'_iframe').attr('src',url);
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+}
+</script>
+</body></html>

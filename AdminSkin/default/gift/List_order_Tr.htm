@@ -1,0 +1,7 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><a href="duihuan.aspx?action=show&id={$ID}">{chrorder}</a></td><td><a href="users.aspx?action=edit&id={userid}">{chrname}</a></td><td>{chrtitle}</td><td>{contactname}</td><td>{contacttel}</td>
+	
+	<td>{dtappenddate}</td><td>{iskill}</td>
+	<td align="center"><a href="javascript:sheng('duihuan.aspx?action=close&id={$ID}&now={close}');">{cname}</a>  <a href="javascript:del({$ID});">删除</a></td>
+</tr>

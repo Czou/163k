@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>高级设置--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 高级设置</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+  <div class="col_main">
+  <div class="edit_box">
+  <div id="contentfloat">
+  <div id="content">
+  <form name="form1" action="?action=save"  method="post" enctype="multipart/form-data">
+    <div class="bigtitle">自定义栏目设置</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+      <tr>
+        <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+        <td class="tx_title"><span>重要提示：</span><br />
+          以下部分功能仅签约店铺才能生效使用</td>
+      </tr>
+    </table>
+    <div class="smalltitle">修改自定义栏目（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+	
+       <tr > 
+			  <td class="tditem">店铺自定义栏目1<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="tdcontent"><input  name="add1title"  class="text" maxlength=100 id="add1title"  value="{$add1title$}" >  <input name="add1kill" id="add1kill" {$add1kill1$} value="1" type="checkbox" >是否启用   </td>
+			 </tr>
+			 <tr> 
+			 
+			  <td  class="tdcontent" colspan="2">自定义栏目1内容：<br /><textarea cols="100" id="add1content" name="add1content" rows="10">{$add1content$}</textarea>
+			  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="add1content"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+			  </td>
+			</tr>
+			<tr > 
+			  <td  class="tditem">店铺自定义栏目2<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="tdcontent"><input  name="add2title"  class="text" maxlength=100 id="add2title"  value="{$add2title$}" >  <input name="add2kill" {$add2kill1$} id="add2kill" value="1" type="checkbox" >是否启用   </td>
+			 </tr>
+			 <tr> 
+			  
+			  <td  class="tdcontent" colspan="2">
+			  自定义栏目2内容<br />
+			  <textarea cols="100" id="add2content" name="add2content" rows="10">{$add2content$}</textarea>
+			 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="add2content"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+			  </td>
+			</tr>
+			<tr > 
+			  <td colspan="2" align="center"><input type="submit" class="global_btn_blue_big" name="submit" value=" 提交修改 " id="" /></td>
+			 </tr>
+    </table>
+    </form>
+    </div>
+　
+    </div>
+    </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+    </div>
+  
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">添加网址大类&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至网址大类列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave" ID="Form1">
+    <tr > 
+      <td  height="25" width=15%>网址大类名称<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="cname" type="text" size="30" ID="Text1"></td>
+    </tr>
+	  <tr > 
+      <td  height="25">类别： 
+      </td>
+      <td class="category"> {$kinds}</td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >排序<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="orders" type="text" id="orders" size="10" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo')"> (排序越小,越排在前面)</td>
+    </tr>
+    <tr > 
+      <td  height="25">是否显示<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="isopen" type="radio" value="0" checked ID="isopen">显示 <input name="isopen" type="radio" value="1" ID="isopen">关闭</td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" class="category"><input type="hidden" name="gotourl" value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1"></td>
+    </tr>
+  </form>
+  </table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>

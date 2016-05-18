@@ -1,0 +1,14 @@
+﻿<tr><td class="tditem"><span style="color:#f00;" class="display{$ismust}">*</span>{$chrtitle}：</td><td class="category"  colspan=10><input id="cptext{$c_name}" name="{$c_name}" class="textInt text global_ipt" style="color:{$value}" type="text" value="{$value}"/> <img src="/AdminSkin/Default/images/colorpicker.png" id="cpc{$c_name}" style="cursor:pointer"/> {$remark}
+<script>
+
+
+
+jQuery(document).ready(function(){
+	jQuery("#cpc{$c_name}").colorpicker({
+		fillcolor:true,
+		target:jQuery("#cptext{$c_name}")
+	});
+});
+
+</script>
+</td></tr>

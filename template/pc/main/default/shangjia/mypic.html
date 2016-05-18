@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>店铺展示图管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">店铺展示图管理</div>
+						<div class="right"><a href="myshop.aspx?action=picadd#tt9" class="sys_btn_small_blue">新建分类</a> <a href="myshop.aspx?action=picadd#tt9" class="sys_btn_small_blue">上传店铺图片</a></div>
+					</div>
+					<div class="bd">
+						<div class="nav_extra" style="z-index:9;">
+							<ul class="clearfix">
+								<li id="s_0"><a href="myshop.aspx?action=pic">全部图片</a></li>
+								{$smallcategory}
+							</ul>
+						</div>
+						<div style="border-top:1px solid #ccc; margin-top:-1px; position:relative;z-index:1; height:15px;"></div>
+						<div id="xiangce" class="clearfix">
+                          <form action="?" method="get" id="myform" target="tijiao">
+						  	<input type="hidden" name="action" value="picdel" />
+							<input type="hidden" name="ID" id="f_id" value="" />
+						  <ul>
+                            <tag:Loop ListType="LISTmypicMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_mypic_Tr.html" />
+                          </ul>
+						  </form>
+						  <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+                        </div>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script src="{$Default_tplPath}js/facebox.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script>
+var siteUrl = '{$SiteUrl}';
+jQuery(document).ready(function($) {
+	$('a[rel*=facebox]').facebox();
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['colname'] === '' || !url_obj['colname']){
+		$('#s_0').addClass('cur');
+	}
+
+});
+function delmypic(sid){
+	if ( confirm("该操作将不可逆！\n您确定要删除吗？")){
+		//location.href = "myshop.aspx?action=picdel&ID=" + id;
+		$('#f_id').val(sid);
+		$('#myform').submit();
+	}
+}
+function reset_moveBtn(){
+	var node = jQuery('#xiangce');
+	if(node.length<1){return;}
+	node.find('.move_next,.move_prev').show();
+	node.find('.move_next').css({'left':'41px'});
+	node.find('li:last .move_next').hide();
+	node.find('li:first .move_prev').hide();
+	node.find('li:first .move_next').css({'left':'0'});
+}
+reset_moveBtn();
+function move_PrevNext(o,index,sortval,picid,pageid,tableid,styleid){
+	var url = siteUrl+'request.ashx?action=picmove&pn='+index+'&id='+picid+'&intorder='+sortval+'&table_id='+tableid+'&styleid='+styleid;
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	var ht = jQuery('#'+pageid+sortval),ht2 = '';
+
+	jQuery.ajax({url:url,success:function(data){
+		if(data.islogin == '1'){
+			if(index === 1){
+				ht2 = ht.prev();
+				ht.detach().insertBefore(ht2);
+			}else{
+				ht2 = ht.next();
+				ht.detach().insertAfter(ht2);
+			}
+			reset_moveBtn();
+		}else{
+			alert(data['error']);
+		}
+	}});
+	return false;
+}
+</script>
+</body>
+</html>

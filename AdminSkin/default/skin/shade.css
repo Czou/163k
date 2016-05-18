@@ -1,0 +1,57 @@
+.shadetabs{
+border-bottom: 1px solid #ddd;
+/* width: 90%; width of menu. Uncomment to change to a specific width */
+margin:15px;
+height:36px;
+}
+
+.shadetabs ul{
+padding: 3px 0;
+margin-left: 15px;
+margin-top: 1px;
+margin-bottom: 0;
+list-style-type: none;
+ /*可设置菜单的位置 left, center,或者 right*/
+}
+
+.shadetabs li{
+display: inline;
+font-size:14px;
+}
+
+.shadetabs li a{
+	display:inline-block;
+	*diaplay:inine;
+	*zoom:1;
+text-decoration: none;
+padding: 8px 16px;
+margin-right: 3px;
+border: 1px solid #ddd;
+color: #2d2b2b;
+background-color:#f9f9f9;
+border-top-left-radius:3px;border-top-right-radius:3px;
+}
+
+.shadetabs li a:visited{
+color: #2d2b2b;
+}
+
+.shadetabs li a:hover{
+text-decoration: underline;
+color: #2d2b2b;
+}
+
+.shadetabs li.selected{
+	padding-top:1px;
+position: relative;
+margin-bottom: -1px;
+
+}
+
+.shadetabs li.selected a{ /*selected main tab style */
+border-bottom-color: white;background-color:#fff;
+}
+
+.shadetabs li.selected a:hover{ /*selected main tab style */
+text-decoration: none;
+}

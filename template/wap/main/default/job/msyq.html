@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>面试邀请-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-base.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+</head>
+<body>
+<div class="register-form">
+	<form name="form1" method="post" onsubmit="return checkmsyq(this)">
+		<input type="hidden" name="rencaiid" value="{$rencaiid}" />
+		<p class="box"><span class="form_label">面试地点：</span><span class="form_control"><input type="text" name="chraddress" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">面试时间：</span><span class="form_control"><input type="text" name="chrdate" class="codebox2-input" /></span></p>
+		<p class="box po_re"><span class="form_label">面试职位：</span><span class="form_control form_control_select"><select name="zhiweiid"><option value="">请选择职位</option>{$zhiweiid}</select></span></p>
+		<p class="box"><span class="form_label">联系人：</span><span class="form_control"><input type="text" name="chrman" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">联系电话：</span><span class="form_control"><input type="text" name="chrtel" class="codebox2-input" /></span></p>
+		<p class="box"><span class="form_label">其他说明：</span><span class="form_control"><textarea name="chrmark" class="codebox2-textarea" rows="2" data-max="800"></textarea></span></p>
+		
+		<p style="text-align:center;"><input class="comn-submit" type="submit" value="发出邀请" />　<input class="comn-submit gray" onClick="parent.LoginHide();" type="button" value="取消" /></p>
+	</form>
+</div>
+<script src="{$Default_tplPath}js/jquery-2.1.1.min.js"></script>
+<script>
+function checkmsyq(o){
+	if(o.chraddress.value==""){
+		alert("对不起,请输入面试地点!");
+		return false;
+	}
+	if(o.chrdate.value==""){
+		alert("对不起,请输入面试时间!");
+		return false;
+	}
+	if(o.zhiweiid.value=="" || o.zhiweiid.value=="0"){
+		alert("对不起,请选择面试职位!");
+		return false;
+	}
+	if(o.chrman.value==""){
+		alert("对不起,请输入联系人!");
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("对不起,请输入联系电话!");
+		return false;
+	}
+	msyqresult(o.rencaiid.value,o.chraddress.value,o.chrdate.value,o.zhiweiid.value,o.chrman.value,o.chrtel.value,o.chrmark.value);
+	return false;
+}
+function msyqresult(rencaiid,chraddress,chrdate,zhiweiid,chrman,chrtel,chrmark){
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url="../request.aspx?action=mysq&rencaiid="+encodeURIComponent(rencaiid)+"&chraddress="+encodeURIComponent(chraddress)+"&chrdate="+encodeURIComponent(chrdate)+"&zhiweiid="+encodeURIComponent(zhiweiid)+"&chrman="+encodeURIComponent(chrman)+"&chrtel="+encodeURIComponent(chrtel)+"&chrmark="+encodeURIComponent(chrmark);
+	url=url+"&k="+(Digital);
+	$.ajax({url:url}).done(function(msg){
+		if(msg=="1"){
+			alert("对不起,您没有登陆或者登录超时,请重新登录!");
+		}
+		else if(msg=="0"){
+			alert("面试邀请成功,请等待回复!");
+			parent.LoginHide();
+		}
+		else{
+			alert(msg);
+		}
+	}).error(function(e){alert(e);});
+}
+</script>
+</body>
+</html>

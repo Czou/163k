@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦订单-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '省啦订单';
+</script>
+<style type="text/css">
+body { background-color:#eee;}
+.content1 { margin:10px; text-align:center; max-height:56px; overflow:hidden; font-size:18px;}
+.content1 em { color:#999; font-size:12px;}
+.content2 { background-color:#f8f8f8; padding:15px 10px; border-bottom:1px solid #ddd; border-top:1px solid #ddd;}
+.content6 { padding:10px; margin:10px; font-size:14px; color:#666; border:1px solid #eee;}
+.content3 { padding:10px; border-bottom:1px solid #eee;}
+.content3 em { color:#999;}
+.content7 { text-align:center; padding:10px;}
+
+.card_con2,.quan,.qingdan { background-color:#fff; margin:10px 0;}
+.card_con2 { padding:10px 0;}
+.card_con2 h4 { color:#333; font-size:18px; font-weight:bold; padding:10px;}
+.comn-submit { display:block; padding:8px 10px; margin:0 auto; background-color:#f93; color:#fff; text-align:center; font-size:16px;}
+.card_con2 dl { position:relative; z-index:1; padding:2px 0;}
+.card_con2 dt { position:absolute; width:70px; left:10px; color:#aaa; text-align:right;}
+.card_con2 dd { padding-left:90px; color:#333; min-height:26px;}
+
+.qingdan { padding-top:10px; margin-bottom:0;}
+.qingdan .hd { color:#f60; font-size:16px; padding-left:10px;}
+.qingdan .bd { position:relative; z-index:1; padding:10px;}
+.qingdan .bd .pic { position:absolute; left:10px; top:10px;}
+.qingdan .bd .cont { margin-left:70px; min-height:60px; color:#aaa;} 
+.qingdan .bd .cont .tit { color:#333; display:inline-block; width:12em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:middle;}
+
+.quan { padding:0 10px;}
+.quan li { padding:5px 0; font-size:18px; margin:0; padding-left:26px; background:url('{$Default_tplPath}images/member_sp_2015.png') no-repeat 0 -303px; background-size:51px auto;}
+.quan .date { color:#096;}
+
+.price { background-color:#fff; border-top:1px solid #eee;display:-webkit-box; display:-moz-box; display:box;}
+.price li { -webkit-box-flex:1; width:100%; -webkit-flex:1; flex:1;text-align:center; border-right:1px solid #eee; padding:10px 0;}
+.price li .t { display:block; color:#aaa; font-size:14px;}
+.price li:last-child{border:0;}
+</style>
+
+{$top$}
+<div class="card_con2" style="padding-top:0;">
+<h4>{$chrorder$}</h4>
+<dl>
+    <dt>类型</dt>
+    <dd class="dh">{$styleid$}</dd>
+</dl>
+<dl>
+    <dt>状态</dt>
+    <dd class="dh">{$iskill$}</dd>
+</dl>
+</div>
+
+<div class="qingdan">
+	<div class="hd">商品清单</div>
+	<div class="bd">
+		<div class="pic"><a href="{$tgurl}tg_{$tgid$}.html"><img src="{$chrimage}" onerror="this.src='{$Default_tplPath}images/fabu_nopic1.gif';this.onerror='';" width="50" height="50" style="vertical-align:top" alt="" /></a></div>
+		<div class="cont"><span class="tit"><a href="{$tgurl}tg_{$tgid$}.html" style="color:#36c;">{$chrtitle$}</a></span>　x{$intnum$}</div>
+	</div>
+</div>
+<div class="quan">
+	<ul id="num" >{$tgone$}</ul>
+</div>
+<div class="card_con2">
+<dl>
+    <dt>总额</dt>
+    <dd class="dh"><span style="color:#f60;">{$moneytotal$}</span></dd>
+</dl>
+<dl>
+    <dt>下单时间</dt>
+    <dd class="dh">{$dtappenddate$}</dd>
+</dl>
+<dl>
+    <dt>有效期至</dt>
+    <dd class="dh">{$youxiao$}</dd>
+</dl>
+<dl>
+    <dt>手机号码</dt>
+    <dd class="dh">{$chrtel$}</dd>
+</dl>
+</div>
+
+<div class="content7"><a href="javascript:void(0);" onClick="return window.history.go(-1);" class="comn-submit">返回</a></div>
+
+{$bottom$}
+</body>
+</html>

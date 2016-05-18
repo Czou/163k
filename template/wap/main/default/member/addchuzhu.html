@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布出租房源-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['siteUrl'] = '{$SiteUrl}';
+window['ipageTitleTxt'] = '发布出租房源';
+</script>
+{$top$}
+
+<div class="o_main">
+<form name="form1" method="post" action="?action=AddSave" onSubmit="return checkaddchuzhu(this)" enctype="multipart/form-data">
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>标题</dt>
+   <dd><input type="text" name="chrtitle" value="" placeholder="输入标题，6-30字" /></dd>
+  </dl>
+  <dl class="clearfix"> 
+   <dt>小区</dt>
+   <dd class="xq"><input id="CommId" name="CommId" type="hidden"  value="" />
+				<input type="radio" value="1" name="R1" id="score1" checked /> <label for="score1">从小区中选择：</label><br>
+				<input id="xiaoqu" class="bottombox-input" placeholder="请输入检索关键字" name="xiaoqu" type="text" onKeyUp="getKeyWord();" onClick="getKeyWord();" onBlur="setTimeout('overtime()',200)" autocomplete="off" value="" /><br>
+				<span style="display:block; height:9px; overflow:hidden;"></span>
+				<input type="radio" value="2"  name="R1" id="score2" onClick="overtime();" /> <label for="score2">自定小区名称：</label><br>
+                <input type="text" name="zidingyi" class="bottombox-input" placeholder="请输入小区名称" value="" onClick="overtime();">
+				
+				<ul id="keytishi" class="po_ab"></ul>
+	</dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox"> 
+  <div style="display:none;">{$qu_classid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>区域</dt>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  <dl class="clearfix"> 
+   <dt>地址</dt>
+   <dd><input type="text" name="chraddress" id="chraddress" class="codebox2-input" placeholder="输入详细地址" value="" /></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>类型</dt>
+   <dd>{$leixing}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix">
+   <dt>户型</dt>
+   <dd class="hux">
+   <input type="text" name="shi" id="shi" value="" /><span>室</span>
+   <input type="text" name="ting" id="ting" value="" /><span>厅</span>
+   <input type="text" name="wei" id="wei" value="" /><span>卫</span>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>面积</dt>
+   <dd><input type="text" placeholder="面积" name="chrsize" value="" /><span class="yuan">m²</span></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>房龄</dt>
+   <dd><input type="text" placeholder="请输入房屋房龄" name="fangling" value="" /><span class="yuan">年</span></dd>
+  </dl>
+ </div>
+ 
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>装修</dt>
+   <dd>{$zhuangxiu}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix"> 
+   <dt>朝向</dt>
+   <dd><input type="text" placeholder="请输入房屋朝向" name="chaoxiang" value="" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>楼层</dt>
+   <dd class="floor">
+   <input type="text" name="zonglou" value="" /><span>总楼层</span>
+   <input type="text" name="nowlou" value="" /><span>房屋楼层</span>
+   </dd>
+  </dl> 
+  <dl class="clearfix">
+   <dt>房屋配置</dt>
+   <dd><ul class="ts clearfix">{$peizhi}</ul></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>基础设施</dt>
+   <dd><ul class="ts clearfix">{$sheshi}</ul></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>特色</dt>
+   <dd><ul class="ts clearfix">{$teshe}</ul></dd>
+  </dl>
+ </div>
+<!-- <div class="inp_Itembox">
+ 	<div class="my_prop_img">
+				<p class="title">图片：<span style="color:#999; font-size:12px;">(最多上传八张)</span></p>
+				<div class="my_prop_img_inner clearfix">{$filevalues}</div>
+	</div>
+ </div>-->
+ <div class="inp_Itembox">
+  <div class="my_prop_img">
+				<input name="state" type="hidden" id="ipt_state" />
+				<input name="url0" type="hidden" id="url0" />
+				<input name="filewidth" type="hidden" value="195" data-txt="控制代表图的宽度">
+				<input name="fileheight" type="hidden" value="145" data-txt="控制代表图的高度">
+			<!--<iframe name="ifm_upload" id="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="about:blank"></iframe>-->
+			<div id="J_imageView" class="my_prop_imgitem_node clearfix">
+				<div class="upimgFileBtnNode"><div id="pageLoaderNode"><span id="pageLoader">loadding</span></div><img src="{$Default_tplPath}images/upimg.png" id="upimgFileBtn" class="upimgFileBtn imgview" alt="" /></div>
+			</div>
+		</div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ <div class="inp_Itembox">
+ <dl class="clearfix">
+   <dt>付租方式</dt>
+   <dd><select size="1" name="fuzhufangshi">
+	<option selected value="付三押一" selected>付三押一</option>
+	<option value="付三押二">付三押二</option>
+	<option value="半年付">半年付</option>
+	<option value="年付">年付</option>
+	<option value="年付">年付</option>
+	<option value="单月付">单月付</option>
+	</select></dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix">
+   <dt>承租方式</dt>
+   <dd><select size="1" name="cengzhufangshi">
+	<option selected value="整租" selected>整租</option>
+	<option value="合租">合租</option>
+	</select></dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+ <dl class="clearfix">
+   <dt>租金</dt>
+   <dd><input type="text" placeholder="输入租金，0则表示“面议”" name="price" value="" /><span class="yuan">元/月</span></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>手机</dt>
+   <dd><input type="text" placeholder="请输入手机号码" name="chrtel" value="" /></dd>
+  </dl>
+  <p style="display:none;"><input type="checkbox" name="jingxuan" value="1" />精选房源</p>
+ </div>
+ <div class="inp_Itembox">
+  <textarea id="chrmark" name="chrmark" placeholder="请输入描述文字，仅限1000字" class="txt"></textarea>
+ </div>
+	<input type="hidden" name="typeid" value="0" />
+	<input type="hidden" name="styleid" value="{$styleid}">
+	<input type="hidden" id="onestatenum" name="onestatenum" value="" />
+ <button type="submit" class="fb">确 认</button>
+</form>
+{$bottom$}
+<form enctype="multipart/form-data" method="post" id="fileForm">
+	<input id="table_id" name="table_id" type="hidden" value="house_chuzhu_file" />
+	<input id="id" name="id" type="hidden" value="" />
+	<input id="dir" name="dir" type="hidden" value="house" />
+	<input id="state" name="state" type="hidden" value="" />
+	<input id="filewidth" name="filewidth" type="hidden" value="900" />
+	<input id="fileheight" name="fileheight" type="hidden" value="0" />	
+	<input id="smallfilewidth" name="smallfilewidth" type="hidden" value="195" />
+	<input id="smallfileheight" name="smallfileheight" type="hidden" value="145" />
+	<input type="file" style="display:none;" id="imgFile" name="imgFile" />
+</form>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/upLoadImg2015.js"></script>
+<script src="{$Default_tplPath}js/fangyuan.js"></script>
+<script>
+var youke="{$liveyouke}";
+var table_id = 'house_chuzhu_file';
+var mathState = Math.round(Math.random()*1E16);
+$('#ipt_state').val(mathState);
+$('#state').val(mathState);
+window['state'] = "&state="+mathState;
+var imgURL = window['siteUrl']+"kindeditor/upload_one.aspx?table_id="+table_id+window['state']+"&filewidth="+$('#filewidth').val()+"&fileheight="+$('#fileheight').val()+"&smallfilewidth="+$('#smallfilewidth').val()+"&smallfileheight="+$('#smallfileheight').val();
+$('#ifm_upload').attr('src',imgURL);
+
+$(document).ready(function(){
+	setStatenum('#onestatenum');
+	upLoad_init();
+	$('.sel_radio_form').radioForm();
+	$('#categoryid2').append($('#loupancategory').detach());
+	$('#categoryid1').append($('#qu_classid').detach());
+	$('#loupancategory').change(function(){
+		showloupancategory($(this).val());
+	});
+});
+
+
+function uploadsuccess(sid,url,num){
+	var txt='',node = jQuery('#J_imageView');
+	txt='<div class="my_prop_imgitem">'+
+		'<div class="imgviewNode"><img src="'+url+'" class="imgview" /></div>'+
+		'<a href="javascript:" onclick="delfile(this,\''+sid+'\')" class="del">删除</a>'+
+		'<a href="#" onclick="return set_FM(this,\''+url+'\');" class="set_FM">封面</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,0,0,\''+sid+'\');" class="move_prev">前移</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,1,0,\''+sid+'\');" class="move_next">后移</a>'+
+		'</div>';
+	node.append(jQuery(txt));
+	showMyImageHeight();
+	reset_moveBtn();
+}
+
+function saveMyImage(o){
+	var txt='',node = jQuery('#J_imageView');
+	txt='<div class="my_prop_imgitem">'+
+		'<div class="imgviewNode"><img src="'+o['url']+'" class="imgview" /></div>'+
+		'<a href="javascript:" onclick="delfile(this,\''+o['id']+'\')" class="del">删除</a>'+
+		'<a href="#" onclick="return set_FM(this,\''+o['url']+'\');" class="set_FM">封面</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,0,0,\''+o['id']+'\');" class="move_prev">前移</a>'+
+		'<a href="#" onclick="return move_PrevNext(this,1,0,\''+o['id']+'\');" class="move_next">后移</a>'+
+		'</div>';
+	node.append(jQuery(txt));
+	showMyImageHeight();
+	reset_moveBtn();
+}
+function showloupancategory(str,nowcc){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str;
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+(Digital);
+		$.get(url,function(data){
+			var sel=document.getElementById("qu_classid");
+			var val="选择地段";
+			var str =data;
+			sel.options.length=0;
+			var arrstr = new Array();
+			arrstr = str.split(",");
+			
+			sel.options.add(new Option( val,"")); 
+			if(str.length>0)   {
+				for(var i=0;i<arrstr.length-1;i++){
+					//分割字符串
+					var subarrstr=new Array
+					subarrstr=arrstr[i].split("|")
+					//生成下级菜单
+					sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+					if(nowcc==subarrstr[0])
+					{  sel.options[i+1].selected=true;
+					}
+				}
+			}
+		})
+	} 
+} 
+function checkaddchuzhu(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请输入标题!");
+		return false;
+	}
+	if(o.loupancategory.value==""){
+		alert("对不起,请选择区域!");
+		return false;
+	}
+	if(o.qu_classid.value==""){
+		alert("对不起,请选择地段!");
+		return false;
+	}
+	if(o.chraddress.value==""){
+		alert("对不起,请输入地址!");
+		return false;
+	}
+	if(o.leixing.value==""){
+		alert("对不起,请选择类型!");
+		return false;
+	}
+	if(o.shi.value==""){
+		alert("对不起,请输入房型!");
+		return false;
+	}
+	if(o.wei.value==""){
+		alert("对不起,请输入房型!");
+		return false;
+	}
+	if(o.ting.value==""){
+		alert("对不起,请输入房型!");
+		return false;
+	}
+	if(o.chrsize.value==""){
+		alert("对不起,请输入面积!");
+		return false;
+	}
+	if(o.zhuangxiu.value==""){
+		alert("对不起,请选择装修!");
+		return false;
+	}
+	if(o.price.value==""){
+		alert("对不起,请输入租金！");
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("对不起,请输入联系电话！");
+		return false;
+	}
+	setStatenum('#onestatenum');
+}
+</script>
+</body>
+</html>

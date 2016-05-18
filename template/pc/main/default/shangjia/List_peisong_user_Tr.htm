@@ -1,0 +1,12 @@
+﻿<li>
+	<form id="form_{$id}" method="post" target="tijiao" action="?action=editsave&id={$id}">
+	<span class="td sp_a">{$NID}</span>
+	<span class="td sp_b">{$chrname}</span>
+	<span class="td sp_b"><input type="text" name="chrtruename" class="sys_form_small_ipt" value="{$chrtruename}" style="width:100px;" /></span>
+	<span class="td sp_c"><input type="text" name="chrtel" class="sys_form_small_ipt" value="{$chrtel}" style="width:100px;" /></span>
+	<span class="td sp_d"><input type="text" name="dtappenddate" class="sys_form_small_ipt" value="{$dtappenddate}" style="width:120px;" /></span>
+	<span class="td sp_e" data-styleid="{$styleid}{$styleid$}">{$styleid_select}</span>
+	<span class="td sp_f" data-iskill="{$iskill}">{$iskill$}</span>
+	<span class="td sp_g"><button type="submit" class="sys_btn_small_blue">提交</button> <a href="?action=del&ID={$ID}" class="sys_btn_small_white">删除</a></span>
+	</form>
+</li>

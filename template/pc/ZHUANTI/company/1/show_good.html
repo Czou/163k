@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrgood}-{$shopmenustr}-{$chrshop}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/starShop.css" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/common.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/kuaisonCommon.js?{$CacheHash}"></script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_星级店铺_头部}
+	<div class="content moban{$moban}">
+		<div class="w-1200 po_re">
+			<div class="grid_starHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$chrshop}</span><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="i_qianyue" style="display:{$qianyue}">签约商家</span><span class="i_renzheng" style="display:{$renzheng}">认证商家</span></p>
+					<p class="p">地址：{$chraddress} <a href="#" onClick="return showMap('{$shopid}');" class="blue_font">[查看地图]</a></p>
+					<p class="p">交通路线：{$chrjiaotong}</p>
+					<p class="p">营业时间：{$chrdate}</p>
+					<div class="contact">
+						<span class="tel"><s class="s"></s>{$chrtel}</span>
+						<span class="weixin po_re" id="weixinX4"><s class="s"></s>{$weixin}<span style="display:none;" class="node"><img src="{$shopweixinimg}" id="weixinImg" alt="" />打开微信扫一扫</span></span>
+						<span class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=qq&menu=yes" target="_blank"><s class="s"></s>{$chrqq}</a></span>
+					</div>
+					<p class="p tese">本店特色：{$shoptese}　　　人均消费：<span class="red">{$consumption}</span>元</p>
+					<p class="p">会员折扣：{$zhe} <a href="{$SiteUrl}member/register.html" class="orange_font">[申请会员]</a></p>
+				</div></div>
+				<div class="col_sub">
+					<div class="slide" id="slide">
+						<a class="next" href="#" onClick="return false;"><i class="i"></i></a>
+						<ul class="hd dot" id="tabs"></ul>
+						<a class="prev" href="#" onClick="return false;"><i class="i"></i></a>
+						<div class="bd">
+							<ul class="picList fix" id="output"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mobile_href po_ab"><img onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" src="{$shopwapurlimg}" width="88" height="88" alt="" />手机访问</div>
+			<div class="ico_kuaison po_ab display{$MyGoodShopIskill}"><a href="{$MyGoodShopUrl}" target="_blank"><img src="{$Default_tplPath}images/ico_kuaison.gif" width="190" height="70" alt="" /></a></div>
+		</div>
+		<div class="star_nav">
+			<ul class="w-1200 clearfix">
+				{$shop_menu_list}
+			</ul>
+		</div>
+		<div class="bgk">
+			<div class="w-1200"><div class="breadcrumb"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">星级店铺</a> &gt; <a href="{$MyShopUrl}">{$chrshop}</a> &gt; <a href="{$shopurl}shop_{$shopid}.html">{$shopmenustr}</a> &gt; 商品详情</div></div>
+			{$show_good_div}
+		</div>
+	</div>
+	<div class="footer noMar" id="footer">
+		{$Mh163k_快送_页脚}
+	</div>
+</div>
+<form id="myiframe" action="{$SiteUrl}member/myorder.aspx" method="get" target="ipay">
+	<input type="hidden" name="action" value="myshoppay" />
+	<input type="hidden" name="shopid" value="{$shopid}" />
+</form>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="{$Default_tplPath}js/json2.js"></script>
+<script src="{$Default_tplPath}js/live2013.js"></script>
+<script>
+var nowdomain = "{$SiteUrl}";
+window['SHOPID'] = '{$shopid}';
+function addShopShoppingCart(sid,num,delid,typeid){
+	var url=nowdomain+'request.ashx?action=addmyshopping&id='+sid+'&styleid=1&num='+num+'&shopid='+window['SHOPID']+'&ishtml=1&delid='+delid+'&jsoncallback=?&timer='+Math.random();
+	$.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			$('#myiframe').submit();
+		}else{
+			MSGwindowShow('shopping','0',data[0].error,'','');
+			if(!!win){win.close();}
+		}
+	});
+	win = window.open("{$SiteUrl}member/myorder.aspx?action=myshoppay","ipay");
+	return false;
+}
+(function($){
+	$('#resizeIMG').resizeIMG(1158,1200);
+	var kuaisonLink = $('#kuaisonLink');
+	if(kuaisonLink.attr('data-isgoodshop') === '1' && kuaisonLink.attr('data-styleid') === '0'){
+		$('#kuaisonLink').attr('data-MyGoodShopUrl','{$MyGoodShopUrl}').removeClass('display0');
+	}
+	var dialog_imgList = $('#dialog_imgList');
+	var dialog_img = $('#dialog_img');
+	
+	
+	
+	
+	function showPicList(){
+		var data = JSON.parse(dialog_imgList.attr('data-imgList'));
+		var arr = data['smallimg'];
+		var arr_b = data['bigimg'];
+		if(!arr){
+			dialog_imgList.html('<li class="cur"><a href="{$Default_tplPath}images/kuaison_nofind_product2.gif" class="item"><img src="{$Default_tplPath}images/kuaison_nofind_product2.gif" alt="" /></a><s class="arrow"></s></li>');
+			return;
+		}
+		
+		
+		var len=arr.length,txt='',fristClass='',tPrev=$('#dialog_img_prev'),tNext=$('#dialog_img_next'),cellW=82,tIndex=0;
+		
+		
+		for(var i=0;i<len;i++){
+			if(i === 0){fristClass="cur";}else{fristClass='';}
+			txt += '<li class="'+fristClass+'"><a href="'+arr_b[i]+'" data-super="'+arr_b[i]+'" class="item"><img src="'+arr[i]+'" alt="" /></a><s class="arrow"></s></li>';
+		}
+		dialog_imgList.html(txt);
+		dialog_img.attr('src',arr_b[0]);
+		$('#superPIC').attr('src',arr_b[0]);
+		if(len<4){
+			tNext.addClass('btn_disabled');
+			return;
+		}
+		dialog_imgList.css({'width':cellW*len+'px'});
+		tPrev.click(function(e){
+			if(tIndex-1>-1){
+				tIndex--;
+				if(tIndex === 0){tPrev.addClass('btn_disabled');}
+				tNext.removeClass('btn_disabled');
+				dialog_imgList.animate({left:'+='+cellW},300,function(){});
+			}else{
+				tIndex = 0;
+			}
+			e.preventDefault();
+		});
+		tNext.click(function(e){
+			
+			
+			if(tIndex+1<len-3){
+				tIndex++;
+				if(tIndex === len-4){tNext.addClass('btn_disabled');}
+				tPrev.removeClass('btn_disabled');
+				dialog_imgList.animate({left:'-='+cellW},300,function(){});
+			}else{
+				tIndex=len-4;
+				
+			}
+			e.preventDefault();
+		});
+	}
+	showPicList();
+	dialog_imgList.on('click','.item',function(e){
+		e.preventDefault();
+		dialog_imgList.find('.item').parent().removeClass('cur');
+		$(this).parent().addClass('cur');
+		dialog_img.attr('src',$(this).attr('href'));
+		$('#superPIC').attr('src',$(this).attr('data-super'));
+	});
+	
+	var Lanterninfo=[{$huangdengpian}];
+	var txt = '',
+		txtImg = '';
+	if(Lanterninfo.length > 0){
+		for(var i=0;i<Lanterninfo.length;i++){
+			txtImg+='<li><a href="'+Lanterninfo[i][2]+'"><img src="'+Lanterninfo[i][0]+'" alt="'+Lanterninfo[i][1]+'" /></a></li>';
+			if(i === 0){
+				txt += '<li class="on">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		}
+		$('#output').html(txtImg);
+		$('#tabs').html(txt);
+		setTimeout(function(){$("#slide").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,scroll:1,autoPlay:true});},20);
+		showSlide($('#slide'));
+	}
+	function showSlide(node){
+		var prev = node.find('.prev'),next = node.find('.next');
+		node.hover(function(){
+			prev.toggleClass('show');
+			next.toggleClass('show');
+		});
+	}
+	$('#weixinX4')[0]&&weixinX4();
+	$('#superAlbum').superIMG2();
+})(jQuery);
+</script>
+</body>
+</html>

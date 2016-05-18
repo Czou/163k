@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>楼盘详情-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}loupan.html">新房</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>联系售楼部</h4>
+  <p>4006666666 转 88888</p>
+ </div>
+ <div class="email"><a href="sms:111111">111111</a></div>
+ <div class="phone"><a href="#12345678910">12345678910</a></div>
+</div>
+<div class="o_main mar_b_50">
+ <!--home focus-->
+ <div class="home_focus">
+  <div id="scroller">
+  	 <ul style="display:none;" id="slide_data">
+	   {$House_filepath}
+	  </ul>
+    <div id="slide" class="clearfix" style="display:none;">
+        <div id="content">
+         
+        </div>
+        <div class="num" id="indicator">
+        </div>
+        <div class="total">共<span id="total"></span>张</div>
+    </div>
+    <span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  </div>
+ </div>
+ <div class="tabs">
+  <ul>
+   <li class="current"><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+   <li><a href="fang_{$Loupan_loupanid}.html">户型图</a></li>
+   <li><a href="zb_{$Loupan_loupanid}.html">周边配套</a></li>
+  </ul>
+ </div>
+<!--楼盘信息-->
+<div class="lp_info">
+  <h2>{$Loupan_chrloupan}</h2>
+  <div class="price">{$Loupan_avgprice}</div>
+  <p>{$Loupan_biaoyu}</p>
+  <!--是否在售-->
+  <div class="{$Loupan_xiaoshoutypeid}"></div>
+</div> 
+ <div class="e_condit">
+ <dl>
+  <dt>期房/现房</dt>
+  <dd>{$Loupan_xiaoshoustyleid_str}</dd>
+ </dl>
+ <dl>
+  <dt>楼盘类型</dt>
+  <dd>{$Loupan_leixing}</dd>
+ </dl>
+ <dl>
+  <dt>建筑类型</dt>
+  <dd>{$Loupan_jianzhuleibie}</dd>
+ </dl>                                                         
+</div>
+<!--相关信息-->
+<div class="lp_related_info">
+ <dl>
+  <dt>开 发 商</dt>
+  <dd>{$Loupan_chrsupply}</dd>
+ </dl>
+ <dl> 
+  <dt>楼盘地址</dt>
+  <dd>{$Loupan_chraddress}</dd>
+ </dl>
+ <dl>
+  <dt>开盘时间</dt>
+  <dd>{$Loupan_kaipandate}</dd>
+ </dl>
+ <dl>
+  <dt>建筑类型</dt>
+  <dd>{$Loupan_jianzhuleibie}</dd>
+ </dl>
+</div>
+<!--相关信息-->
+<div class="lp_related_info">
+ <dl>
+  <dt>装修情况</dt>
+  <dd>{$Loupan_zhuangxiucategory}</dd>
+ </dl> 
+ <dl>
+  <dt>物管费用</dt>
+  <dd>{$Loupan_wuyeguanli}</dd>
+ </dl> 
+ <dl>
+  <dt>物业公司</dt>
+  <dd>{$Loupan_wuyecompany}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>占地面积</dt>
+  <dd>{$Loupan_zhangdi}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>建筑面积</dt>
+  <dd>{$Loupan_jianzhu}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>绿 化 率</dt>
+  <dd>{$Loupan_jianzhu}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>得 房 率</dt>
+  <dd>{$Loupan_defang}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>容 积 率</dt>
+  <dd>{$Loupan_rongji}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>车 位 数</dt>
+  <dd>{$Loupan_chewei}</dd>
+ </dl> 
+ <dl style="display:none;">
+  <dt>开工时间</dt>
+  <dd>{$Loupan_kaigongdate}</dd>
+ </dl>
+ <dl style="display:none;">
+  <dt>竣工时间</dt>
+  <dd>{$Loupan_jungongdate}</dd>
+ </dl>
+ <div class="more arr"><a href="javascript:void(0)">详细信息</a></div>
+</div>
+<!--最新动态-->
+<div class="new_active">
+ <div class="title"><span>最新动态</span></div>
+ <div class="new_arc">
+   <ul>
+    {$Mh163k_wap_房产频道_资讯}
+   </ul>
+   <div class="more arr"><a href="list.aspx?action=s&lid={$Loupan_loupanid}">更多动态</a></div>
+ </div>
+</div>
+<div class="new_active n_mb">
+<div class="title"><span>周边楼盘</span></div>
+<div class="info_list">
+  <ul>
+   {$Mh163k_wap_房产频道_周边楼盘}
+  </ul>
+  <div class="more arr"><a href="loupan.html">更多推介</a></div>
+ </div>
+ </div>
+ {$bottom$}
+ <script language="javascript">
+  (function($){
+    $('.lp_related_info .more').bind('click',function(){
+		$(this).addClass("show");
+		$(this).parent().find('dl').show();						
+	 });
+  var list = $('#slide_data').find('li');
+  var w_w = $(window).width();
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		var txt2 = '';
+		list.each(function(i){
+			txt2 += '<div class="cell"><img src="'+$(this).find('img').attr('src')+'" /></div>';
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#content').html(txt2);
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		$('#total').html(list.length);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}	
+  })(jQuery);
+ </script>
+</body>
+</html>

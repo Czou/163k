@@ -1,0 +1,155 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delaa(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+   document.getElementById("form").action="shipin.aspx?action=delaa"
+	if ( confirm("该操作将不可逆！\n您确定要未通过所有选中的视频信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+function delAll(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的视频信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}	
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "shipin.aspx?action=del&ID=" + id
+        }
+}
+function examAll(o)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	document.getElementById("form").action="shipin.aspx?action=exam"
+	if ( confirm("该操作将不可逆！\n您确定要审批所有选中的视频信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            document.getElementById("form").submit();
+        }
+	}
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<span class="blank">目前有视频信息</span><span class="STYLE11">{$total$}</span><span class="blank">条,</span><A href="?colname=1"><span class="redzhong STYLE11">正常</span></a><span class="blank">：{$num2$}</span> <A href="?colname=0"><span class="redzhong STYLE11">待审</span></a><span class="blank">：{$num1$}</span>   <A href="?colname=2"><span class="redzhong STYLE11">挂起</span></a><span class="blank">：{$num3$} </span></td>
+	  <td align="right">&nbsp;<a href="shipin.aspx?action=add" class="global_btn_blue">添加视频信息</a></td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="">
+<tr> 
+	<td height="25">
+		按视频标题或者店铺名称查询：
+		<input name="KeyWord" type="text" id="KeyWord" size="20" value="{$KeyWord}">
+		按视频分类查询：{$categoryid} 
+		<input type="submit" name="Submit3" class="global_btn" value="Go"></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=del">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" >标题</td>
+     		<td class="category" >发布人</td>
+      		<td class="category" >发布时间</td>
+      		<td class="category" >关联店铺</td>
+  		<td class="category" >状态</td>
+   		<td width="80" class="category">操作</td>
+          	<td width="60"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+          </tr>
+		  <tag:Loop ListType="LISTvideo" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="video/list_video_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+		  <a href="javascript:examAll(this);;">设为正常</a> <a href="javascript:delaa(this);">设为挂起</a>&nbsp;<a href="javascript:delAll(this);">删除选中</a>
+		  </td></tr>
+		  </form>
+	<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+		{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

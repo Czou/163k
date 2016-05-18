@@ -1,0 +1,42 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<form name="form1" method="post" action="?action=EditSave">
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+	 <tr > 
+      <td width="15%" height="25" ><font color=red>{$cname}</font>权限设置<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> 
+
+	  </td>
+    </tr>
+
+    
+	<tr > 
+      <td width="15%" height="25" >允许发布评论<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str2" value="0"  {$str2_c_0}/>不允许 <input type="radio" name="str2" value="1"  {$str2_c_1}/>允许 (店铺,商品,团购必须有消费订单才允许评论)</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >评论审核<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="radio" name="str3" value="0"  {$str3_c_0}/>需要审核 <input type="radio" name="str3" value="1"  {$str3_c_1}/>不需审核</td>
+    </tr>
+	<tr > 
+      <td width="15%" height="25" >评论字数限制<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="text" name="str4" value="{$str4}"/>字符(0不限制)</td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >每日评论条数限制<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input type="text" name="str13" value="{$str13}"/>条评论(0不限制)</td>
+    </tr>
+   
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+ </table>

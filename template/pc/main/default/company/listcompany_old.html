@@ -1,0 +1,15 @@
+<li class="item clearfix">
+	<div class="img"><a href="{$chrurl}" target="_blank"><img src="{$filepath}" alt="" /></a><p class="qianyue{$qianyue} display_true_{$qianyue}">已签约</p><p class="qianyue{$qianyue}  display_false_{$qianyue}">未签约</p></div>
+	<div class="txt">
+		<div class="title clearfix"><h3><a href="{$chrurl}" target="_blank">{$chrshop}</a></h3><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="xf display{$isconsumption}">人均消费：<em>&yen;{$consumption}</em>元</span><span class="tuan display{$istgid}">团</span><span class="quan display{$isyouhui}">券</span><span class="zhe display{$iszhe}">{$zhe}</span>{$zhiding}<span class="right">{$Chrcategory} - {$smallcategory}</span></div>
+		<!--<p class="info">{$chrmark}</p>-->
+		<p class="info2">{$chraddress}　{$chrtel}　交通路线：{$chrjiaotong}</p>
+		<p class="info2">本店特色：<em>{$shoptese}</em></p>
+		<p class="info2">最新动态：{$cuxiao}　{$article}</p>
+	</div>
+	<div class="btn">
+		<a href="{$chrurl}" target="_blank" class="go">进入店铺</a>
+		<a href="{$chrurl}#showcomment" target="_blank" class="cmt">网友评论({$revertnum})</a>
+	</div>
+	<s class="top top_{$list_num}">{$list_num}</s>
+</li>

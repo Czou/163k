@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>兼职简历列表-人才招聘</title>
+<link href="{$Default_tplPath}skin/jobs2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/job2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$zpurl}">{$lanmuname}</a> &gt; 兼职简历列表</div>
+	<div id="content" class="v2013">
+		<div class="mod_01">
+			<div class="hd clearfix"><h3 class="left">人才搜索</h3><p class="more right"><a href="{$SiteUrl}member/myzhiwei.aspx?action=add" target="_blank" class="btn_1">发布招聘</a><a href="{$SiteUrl}member/myjianli.aspx" target="_blank" class="btn_2">登记简历</a></p></div>
+			<div class="bd">
+				<div class="clearfix">
+					<form name="form11" id="form11" method="get" action="jianzhi.aspx">
+					<input type="hidden" name="xueli" value="{$xueli}" id="xueli" />
+					<input type="hidden" name="sex" value="{$sex}" id="sex" />
+					<input type="hidden" name="colname" value="{$colname}" id="colname" />
+					<p class="t">学历要求：</p>
+					<div id="form_5" class="i">
+						<span class="btns">{$chrxueli}</span>
+						<ul class="inner_s">
+							<li><a href="zhiwei.html?tt=" class="link cur" data-id="" target="_blank">不限制学历</a></li>
+							<li><a href="zhiwei.html?tt=42" class="link" data-id="42" target="_blank">初中</a></li>
+							<li><a href="zhiwei.html?tt=31" class="link" data-id="31" target="_blank">高中/中专</a></li>
+							<li><a href="zhiwei.html?tt=32" class="link" data-id="32" target="_blank">大专</a></li>
+							<li><a href="zhiwei.html?tt=33" class="link" data-id="33" target="_blank">本科</a></li>
+							<li><a href="zhiwei.html?tt=34" class="link" data-id="34" target="_blank">硕士</a></li>
+						</ul>
+					</div>
+					<p class="t">性别：</p>
+					<div id="form_6" class="i">
+						<span class="btns">{$chrsex}</span>
+						<ul class="inner_s">
+							<li><a href="zhiwei.html?tt=" class="link cur" data-id="" target="_blank">不限制性别</a></li>
+							<li><a href="zhiwei.html?tt=1" class="link" data-id="1" target="_blank">男</a></li>
+							<li><a href="zhiwei.html?tt=2" class="link" data-id="2" target="_blank">女</a></li>
+						</ul>
+					</div>
+					
+					<p class="i">
+						<button type="submit" class="text_submit">搜 索</button>
+					</p>
+					</form>
+				</div>
+				<p class="hot_keys">热门职位：{$renmmenzhiwei}</p>
+			</div>
+		</div>
+		
+		<div class="filter filter_2">
+			<ul class="clearfix tab">
+				<li><a href="rencai.html">全职简历</a></li>
+				<li class="select"><a href="jianzhi.aspx">兼职简历</a></li>
+			</ul>
+			
+			<div class="po">是否在校：<select id="zaixiao"><option value="">不限</option><option value="1"  {$$colname_s_1}>在校</option><option value="0"  {$$colname_s_0}>非在校</option></select><!--<input type="checkbox" class="checkbox" id="zaixiao" {$$colname_c_1} /><label for="zaixiao">仅显示在校</label>-->　<a href="{$SiteUrl}member/myjzjianli.aspx" class="big">我要兼职！</a></div>
+			<div class="po2">共有人才：<em>{$total}</em>位</div>
+		</div>
+		<div class="list_1 list_2">
+			<ul id="hover_bg">
+				 <tag:Loop ListType="listjzzhiweiqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="110" RecColumn="5" CusTpl="1" Template="job/list_rencaijz_Tr.html" />
+			</ul>
+			<div class="pageNav_2013">
+				{$PageSplit}
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div class="mask" id="mask"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jobs2013.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#form_5').showSelect('xueli',!1);
+	$('#form_6').showSelect('sex',!1);
+	$('#hover_bg').find('.item').hover(function(){
+		$(this).addClass('hover');
+	},function(){
+		$(this).removeClass('hover');
+	});
+	var colname = $('#colname');
+	$('#zaixiao').change(function(){
+		colname.val($(this).val());
+		$('#form11').submit();
+	});
+});
+</script>
+</body>
+</html>

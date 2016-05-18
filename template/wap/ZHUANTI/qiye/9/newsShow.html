@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$chrtitle} - {$chrcategory} - {$text4}  - {$qiyename}</title>
+<meta name="keywords" content="{$chrkeyword}">
+<meta name="description" content="{$chrdescription}">
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/global.css" />
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/style.css" />
+<script src="{$Default_tplPath}js/common.js"></script>
+</head>
+
+<body>
+<div class="wrapper"><div class="wrapper2">
+	<div class="header fix">
+		<h1 class="logo"><a href="{$qiyeurl}">{$chrlogo}</a></h1>
+		<div class="fav"><a href="javascript:window.external.AddFavorite('{$qiyeurl}','{$qiyename}')" >加入收藏</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$qiyeurl}');">设为首页</a></div>
+	</div>
+	<div class="content">
+		<div class="nav">
+			<ul class="clearfix">
+				<li><a href="{$qiyeurl}">{$text1}</a></li>
+				<li ><a href="about_{$qiyeid}.html">{$text2}</a></li>
+				<li ><a href="ld_{$qiyeid}.html">{$text3}</a></li>
+				<li  class="current"><a href="news_{$qiyeid}.html">{$text4}</a></li>
+				<li><a href="pic_{$qiyeid}.html">{$text5}</a></li>
+				<li><a href="anli_{$qiyeid}.html">{$text6}</a></li>
+				<li><a href="job_{$qiyeid}.html">{$text7}</a></li>
+				<li><a href="liuyan_{$qiyeid}.html">{$text8}</a></li>
+				<li><a href="lianxi_{$qiyeid}.html">{$text9}</a></li>                            
+			</ul>
+		</div>
+		<div class="white_wrap">
+		<div class="banner2">
+			<img src="{$tplPath}images/news_banner.jpg" alt="" />
+		</div>
+		<div class="grid_04 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_main">
+					<h1>{$aboutname}</h1>
+					<div class="bd">
+						<h2>{$chrtitle}</h2>
+						<div class="artInfo">发布者：{$zuoze}　　发布时间：{$dtappenddate}　　字体：<a href="javascript:void(0);" id="big_font">大</a> <a href="javascript:void(0);" id="mid_font">中</a> <a href="javascript:void(0);" id="sma_font">小</a></div>
+						<div class="news_content" id="contentid" >
+							<table width="100%" cellpadding="0"  cellspacing="0" border="0">
+                            <tr><td style="WORD-BREAK: break-all;" id="livearticle">{$chrcontent}</td></tr>
+                            </table>
+                            <script type="text/javascript" >
+							function ResizeImages()
+							{
+							   var myimg,oldwidth,oldheight;
+							   var maxwidth=670;
+							   var maxheight=700
+							   var imgs = document.getElementById('livearticle').getElementsByTagName('img');   
+							   
+							   for(i=0;i<imgs.length;i++){
+								 myimg = imgs[i];
+							
+								 if(myimg.width > myimg.height)
+								 {
+									 if(myimg.width > maxwidth)
+									 {
+										oldwidth = myimg.width;
+										myimg.height = myimg.height * (maxwidth/oldwidth);
+										myimg.width = maxwidth;
+										
+									 }
+								 }else{
+									 if(myimg.height > maxheight)
+									 {
+										oldheight = myimg.height;
+										myimg.width = myimg.width * (maxheight/oldheight);
+										myimg.height = maxheight;
+										
+									 }
+								 }
+							   }
+							}
+							ResizeImages();
+							</script>
+                             <style>
+							.manu{ padding-top:15px;}
+							.manu span{padding-right:16px;}
+							</style>
+                            <div style="text-align:center" class="manu">{$split}</div>
+						</div>
+						<div class="vote_box">
+<table>
+<tbody><tr>
+      <td colspan="6" scope="col" valign="middle" align="left" height="20" style=" color:#000;">&nbsp;&nbsp;您看到此篇文章时的感受是：  
+    </td></tr>
+    <tr>
+      <td scope="col" valign="bottom" width="60" align="center" >
+      	{$xin1}<br>
+   	  <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height1}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin2}<br>
+
+   	  <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height2}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin3}<br>
+   	  <img src="{$tplPath}images/vote/100.gif" width="20" height="{$height3}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin4}<br>
+   	  <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height4}"></td>
+
+      <td scope="col" valign="bottom" width="60" align="center">
+
+      	{$xin5}<br>
+   	  <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height5}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+     	 {$xin6}<br>
+      <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height6}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+      	{$xin7}<br>
+
+   	  <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height7}"></td>
+      <td scope="col" valign="bottom" width="60" align="center">
+     	 {$xin8}<br>
+      <img src="{$tplPath}images/vote/101.gif" width="20" height="{$height8}"></td>
+    </tr>
+    <tr>
+      <td align="center" height="50"><label id="mood1"><img src="{$tplPath}images/vote/1.gif" width="40" height="40"></label></td>
+      <td align="center"><img src="{$tplPath}images/vote/2.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/3.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/4.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/5.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/6.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/7.gif" width="40" height="40"></td>
+      <td align="center"><img src="{$tplPath}images/vote/8.gif" width="40" height="40"></td>
+    </tr>
+    <tr>
+      <td align="center">欠扁</td>
+      <td align="center">支持</td>
+      <td align="center">很棒</td>
+      <td align="center">找骂</td>
+      <td align="center">搞笑</td>
+      <td align="center">软文</td>
+      <td align="center">不解</td>
+      <td align="center">吃惊</td>
+    </tr>
+    <tr>
+      <td align="center"><input name="mood" id="mood1" value="mood1" onclick="setqiyearticle(1,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood2" value="mood2" onclick="setqiyearticle(2,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood3" value="mood3" onclick="setqiyearticle(3,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood4" value="mood4" onclick="setqiyearticle(4,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood5" value="mood5" onclick="setqiyearticle(5,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood6" value="mood6" onclick="setqiyearticle(6,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood7" value="mood7" onclick="setqiyearticle(7,{$newsid});" type="radio"></td>
+      <td align="center"><input name="mood" id="mood8" value="mood8" onclick="setqiyearticle(8,{$newsid});" type="radio"></td>
+    </tr>
+  </tbody>
+</table>
+				</div>
+						<div class="news_foot clearfix">
+							<div class="left" style="width:280px; height:22px; line-height:22px; overflow:hidden;">上一条：{$lastone}</div>
+							<div class="right" style="width:280px; height:22px; line-height:22px; overflow:hidden;">下一条：{$nextone}</div>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="news_nav">
+					<div class="searchBar">
+						<div class="hd">新闻搜索</div>
+						<div class="bd"><form method="get"  action="news_{$qiyeid}.html"><input class="txt" type="text" name="keyword" id="keyword" /><button type="submit" class="btn">搜索</button></form></div>
+					</div>
+					<ul>
+						{$listnewscategory}
+					</ul>
+				</div>
+			</div>
+		</div></div>
+	</div>
+	<div class="footer">
+    	<p>{$bottomlink}</p>
+		{$chrbottom}
+	</div>
+
+</div></div>
+<script type="text/javascript" src="{$Default_tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/font_change.js"></script>
+</body>
+</html>

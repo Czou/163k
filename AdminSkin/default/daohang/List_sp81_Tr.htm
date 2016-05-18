@@ -1,0 +1,8 @@
+﻿         <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$ID}</td>
+	<td align="center"><input type="text" name="title{$ID}" value="{$title}" size="12"><input name="ID" type="hidden" id="ID" value="{$ID}"></td>
+	<td align="center"><input type="text" name="chrurl{$ID}" value="{$chrurl}" size="52"  ></td>
+	<td align="center"><input type="text" name="color{$ID}" value="{$color}" size="7"  > <img src="{$atplPath}images/qita_07.jpg" width="20" height="19" style="cursor:pointer" onClick="clickcolor(document.form.color{$ID})" align="absmiddle" /></td>
+	<td align="center"><input type="checkbox" name="isbold{$ID}" value="1" {$isbold{$ID}1}/>加粗</td>
+	<td align="center"><input type="radio" name="target{$ID}" value="0" {$target{$ID}0}  >原窗口 <input type="radio" name="target{$ID}" value="1" {$target{$ID}1}  >新窗口</td>
+</tr>

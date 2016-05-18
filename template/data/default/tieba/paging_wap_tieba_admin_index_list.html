@@ -1,0 +1,14 @@
+<div class="item2 hasPic{$picid}" data-id="{$id}">
+	<input type="checkbox" class="checkbox" name="ID" value="{$id}" style="display:none;" />
+	
+	<div class="pic n_img">{$piclist}</div>
+	<a href="{$tiebaurl}../tieba_show_{$id}.html" class="link">
+	<div class="cont">
+		<p class="tit" style="color:{$color};">{$title}<span class="display{$isjinghua}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#096; padding:2px 4px;">精华</span> <span class="display{$iszhiding}" style="color:#fff; font-size:12px; font-weight:normal; background-color:#F30; padding:2px 4px;">置顶</span></p>
+		<p>{$chrname}　{$dtappenddate}</p>
+		<p class="ico"><span class="view">{$hits}</span><span class="replay">{$revertnum}</span><span class="zan">{$num1}</span></p>
+	</div>
+	<span class="state2 display2{$iskill}">待审</span><span class="state3 display3{$iskill}">已审</span>
+	</a>
+	<div class="btn"><a href="admin_tieba.aspx?action=revert&id={$id}" class="btn_view display3{$iskill}">查看回复</a><a href="{$tiebaurl}addedit.aspx?action=edit&id={$id}" class="btn_edit">编辑</a><a href="javascript:void(0);" onclick="$.managerTBisdel('{$id}');" class="btn_del">删除</a><a href="javascript:void(0);" onclick="superManage('{$id}');" class="global_btn_blue displaysuper">超级管理</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','1');" class="global_btn_blue displaysuper display2{$iskill}">通过审核</a> <a href="javascript:void(0);" onclick="$.managerTBiskill('{$id}','0');" class="global_btn_blue displaysuper display3{$iskill}">取消审核</a></div>
+</div>

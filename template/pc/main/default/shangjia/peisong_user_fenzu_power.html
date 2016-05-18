@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>员工管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<style type="text/css">
+.qx_list_hd { background-color:#f6f6f6; font-size:14px; font-weight:bold; color:#333; border-bottom:1px solid #e6e6e6; padding:8px 10px;}
+.qx_list li { float:left; width:190px; padding:5px 0;}
+.qx_list div { font-size:14px; font-weight:bold; color:#369; padding:20px 0 4px; border-bottom:1px solid #e6e6e6; padding-left:12px;}
+.qx_list li input,.tg_list li input { vertical-align:middle; margin-right:5px;}
+.qx_list ul:after {content:'\20';display:block;height:0;clear:both;}
+.qx_list ul {*zoom:1; padding-left:12px;}
+.tg_list li { border-bottom:1px solid #e6e6e6; padding:10px;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+			<form name="form1" method="post" action="?action=powerSave" target="tijiao" >
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">{$styleid_select} 分组权限配置管理</div>
+						<div class="right"><a href="mypeisong_user.aspx?action=fenzulist" class="sys_btn_small_white">返回员工分组管理</a></div>
+					</div>
+					<div class="bd">
+						<div class="qx_list_hd">可兑换的团购项目</div>
+						<div class="tg_list"><ul>{$peisong_user_fenzu_tg}</ul></div>
+						<div class="qx_list_hd" style="margin-top:20px;">可协助我管理的商家内容 备注：本功能ceshi3生效</div>
+						<div class="qx_list">{$peisong_user_fenzu_Menu}</div>
+						<div style="padding:15px 0; text-align:center"><button type="submit" class="sys_btn_blue">提交保存</button></div>
+					</div>	
+				</div>
+				</form>
+				<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+(function($){
+	$('#categoryid').change(function(){
+		window.location.href='mypeisong_user.aspx?action=fenzupower&categoryid='+$(this).val();
+	});
+})(jQuery);
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿<div id="player_iframe">{$wapchrvideo}</div>
+
+<script>
+(function($){
+		  var w_w = $(window).width();
+		  var h = w_w/4*2.5;
+	$('#player_iframe iframe').attr({'width':'100%','height':h+'px'})
+})(jQuery);
+</script>

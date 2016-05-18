@@ -1,0 +1,139 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function Allselect(form)  {
+	if(form.ID){
+		if (form.ID.length>1){
+			for (var i=0;i<form.ID.length;i++){
+				var e = form.ID[i];
+				e.checked = true;
+			}
+		}
+	}
+}
+function delAll(o)
+{
+	//多ID删除
+	if ( confirm("该操作将不可逆,并且只能删除此会员信息！\n您确定要删除所有选中的用户吗？"))
+    {
+    	 document.getElementById("styleid").value="0";
+	    document.getElementById("form").submit();
+   }
+}
+function newdelAll(o){
+	if ( confirm("该操作将不可逆！您确定要执行该操作吗？")){
+	Allselect(document.getElementById("form"));
+	document.getElementById("styleid").value=o;
+	    setTimeout(function(){document.getElementById("form").submit();},100);
+		
+	}
+}
+
+function newiskillall(iskill)
+{
+//批量加锁解锁0加锁，1解锁
+if ( confirm("该操作将不可逆,并且只能删除此会员信息！\n您确定要删除所有选中的用户吗？"))
+    {
+    	 Allselect(document.getElementById("form"));
+		 document.getElementById("styleid").value="1";
+    	 document.getElementById("iskill").value=iskill;
+	   document.getElementById("form").submit();
+   }
+    	 
+
+}
+function iskillall(iskill)
+{
+//批量加锁解锁0加锁，1解锁
+if ( confirm("该操作将不可逆,并且只能删除此会员信息！\n您确定要删除所有选中的用户吗？"))
+    {
+    	 document.getElementById("styleid").value="1";
+    	 document.getElementById("iskill").value=iskill;
+	    document.getElementById("form").submit();
+   }
+    	 
+
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>会员管理　个人会员：<span class="orange_font">{$num0}</span>　普通企业会员：<span class="orange_font">{$num1}</span>　高级企业会员：<span class="orange_font">{$num2}</span>
+</td>
+	  <td align="right"><a href="users.aspx?action=add" class="global_btn_blue">添加前台会员</a> <a href="?action=in&key={$key}" class="global_btn">批量导入会员</a></td>
+    </tr>
+
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tR><td align=right colspan=3></td></tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<form name="form2" method="get" action="?">
+<tr> 
+	<td height="25">
+		 <p><select name="key" onchange="this.form.submit();"><option value="">全部会员</option><option value="0" {$key_s_0}>个人会员</option><option value="1" {$key_s_1}>普通企业会员</option><option value="2" {$key_s_2}>高级企业会员</option></select>&nbsp;<select name="colname"><option value="">关键字类型</option><option value="0">昵称</option><option value="1" {$colname_s_1}>企业名</option><option value="2" {$colname_s_2}>邮箱</option><option value="3" {$colname_s_3}>电话</option><option value="4" {$colname_s_4}>注册IP</option></select>&nbsp;<input name="KeyWord" type="text" id="KeyWord" class="global_ipt" value="{$keyword}" size="30">　注册日期：<input name="startdate" value="{$startdate}" type="text" size="10" class="global_ipt Wdate" style="background-color:#FFFFFF;" /> 到：<input name="enddate" value="{$enddate}" type="text" size="10" class="global_ipt Wdate" style="background-color:#FFFFFF;" />&nbsp;<input type="submit" name="Submit3" class="global_btn" value="Go"></p>
+		 <p style="padding:5px 0;"><a href="javascript:newdelAll(0);"><b><font color=red>批量删除当前列表所有会员</font></b></a> <a href="javascript:newiskillall(1);"><b><font color=blue>批量锁定当前列表所有会员</font></b></a>  <a href="javascript:newiskillall(0);"><b>批量解锁当前列表所有会员</b></a></p></td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="0" width="100%" cellspacing="0" class="toptable grid table_style table_style2" border="0">
+				<form name="form" id="form" method="post" action="?action=del&key={$key}">
+					<input name="styleid" type="hidden" id="styleid" value="1" >
+					<input name="iskill" type="hidden" id="iskill" value="" >
+				<tr  align=center>
+				<td class="category small_font" nowrap="nowrap">会员ID</td>
+				<td class="category small_font">昵称</td>
+				<td class="category small_font">姓名/企业名</td>
+				<td class="category small_font">会员类型</td>
+				<td class="category small_font">联系QQ</td>
+				<td class="category small_font" nowrap="nowrap">{$jifenname}</td>
+				<td class="category small_font" nowrap="nowrap">{$daijinname}</td>
+				<td class="category small_font">注册日期</td>
+				<td class="category small_font">注册IP</td>
+				<td class="category small_font">状态</td>
+				<td width="80" align="center" class="category small_font">操作</td>
+				<td width="53" align="center" class="category small_font"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+				</td>
+				</tr>
+				<tag:Loop ListType="ListallUsers" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="users/List_Users_Tr.htm" />
+				
+		<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=19>
+			<input type="button" value="批量锁定" onclick="iskillall(1);" class="global_btn_blue" > <input type="button" value="批量解锁" class="global_btn_blue" onclick="iskillall(0);" > <input type="button" value="批量删除" class="global_btn_blue" onclick="delAll(this);" >
+	  </td>
+    </tr></form>
+		<tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=19>
+			{$PageSplit}
+	  </td>
+    </tr>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+</body></html>

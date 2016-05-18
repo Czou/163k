@@ -1,0 +1,377 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script>
+function checkform(o){
+	
+	if(o.chrgood.value==""){
+		alert("请输入商品名称!");
+		o.chrgood.focus();
+		return false;
+	}
+	if(o.qu_catgoryid.value==""){
+		alert("请选择商品分类!");
+		o.qu_catgoryid.focus();
+		return false;
+	}
+	
+	if(o.price1.value==""){
+		alert("请输入市场价格!");
+		o.price1.focus();
+		return false;
+	}
+	if(o.price2.value==""){
+		alert("请输入我们价格!");
+		o.price2.focus();
+		return false;
+	}
+	if(o.R1[0].checked){
+		if(o.chrsupply.value==""){
+			alert("请输入自定义供货的商家！");
+			o.chrsupply.focus();
+			return false;
+		}
+	}else{
+		if(o.shopid.value==""){
+			alert("请从选择商家！");
+			o.shopid.focus();
+			return false;
+		}
+	}
+}
+</script>
+ 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改商品信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至商品列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   <iframe name="tijiao" id="tijiao" width="0" height="0" border="0"></iframe>
+  <form name="form1" method="post" action="?action=editSave" target="tijiao" onsubmit="return checkform(this)">
+{$daishen$}    
+<tr > 
+      <td height="25" >发布平台<font color="#FF0000">*</font>：</td>
+      <td colspan="3" class="category"  >该商品发布到 <input type="checkbox" name="isgoodshop" value="1" {$isgoodshop_c_1} />我的快店　<input type="checkbox" name="isshop" value="1" {$isshop_c_1} />我的店铺</td>
+	   
+    </tr>
+	<tr > 
+	  <td  height="25">所属商家<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" colspan="3"> <input type="radio" value="0"  name="R1" {$r11$}>自定义:<input name="chrsupply" type="text" size="20"  value="{$chrsupply$}" > <em class="global_tip">(请填写为此商品供货的商家)</em>　<input type="radio" value="1" {$r12$} name="R1">从口碑商家中选择：{$shopid$}	  </td>
+	  
+    </tr>
+	<tr > 
+      <td height="25">商品名称<font color="#FF0000">*</font>：</td>
+      <td colspan="3" class="category"><input name="chrgood" type="text" size="40"  value="{$chrgood$}"></td>
+	   
+    </tr>
+	<tr > 
+ 	  <td  height="25">商品分类<font color="#FF0000">*</font>：</td>
+      <td  class="category" colspan="3"> {qu_classid}</td>
+    </tr>
+	 <tr  > 
+      <td >商品主图<font color="#FF0000">*</font>： 
+      </td>
+      <td  colspan=3  class="category">
+	  为了前台显示美观，建议采用高宽为400px*400px的图片，格式为jpg/gif/png
+	后台自动生成大（280*280）、中（170*170）、小（100*100）、小（80*80）四种缩略图
+	  
+	  
+	  <span id="str1" ><img src="{$url0$}" style="margin:5px 0; display:block; width:200px; height:200px" id="showpic" border="0" />  <span onclick="hid2()" class="global_btn">重新上传</span></span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=good&type=0"></iframe>
+	  <br>主图截取宽度:<input name="filewidth" id="filewidth" type="text" size="8" value="400" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	主图截取高度:<input name="fileheight" id="fileheight" type="text" size="8" value="400" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+	  </span>	  
+	  <input type=hidden name="url0"  id="url0"  value="{$url0$}">
+	  <input type=hidden name="filepath1" id="filepath1" value="{$filepath1$}">
+	  <input type=hidden name="filepath2" id="filepath2" value="{$filepath2$}">
+	  <input type=hidden name="filepath3" id="filepath3" value="{$filepath3$}">
+	  <input type=hidden name="filepath4" id="filepath4" value="{$filepath4$}">
+	   </td>
+    </tr>
+	 <tr > 
+      <td  height="25">市场价格<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"> <input name="price1" type="text" size="12" onKeyUp="if(isNaN(value))execCommand('undo')" value="{$price1$}"> <em class="global_tip">(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</em></td>
+	
+    </tr>
+	 <tr > 
+      <td  height="25">我们的价格<font color="#FF0000">*</font>：</td>
+      <td  class="category" colspan="3"> <input name="price2" type="text" size="20" value="{$price2$}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">(只可填写数字格式，如100.00，<font color="#0000FF">如果填0则表示面议</font>)</em></td>
+	
+    </tr>
+	<tr>
+     <td  height="25">商品品牌：</td>
+      <td  class="category" colspan="3"> <input type="radio" value="0"  name="p1">自定义:<input name="pinpai" type="text" size="20" value="{$pinpai$}" >　<input type="radio" value="1"  name="p1" >从商品品牌中选择:{$pinpaiid$}</td>
+    </tr>
+
+	<tr > 
+      <td  height="25">商品编号：</td>
+      <td  class="category"> <input name="goodnum" type="text" size="16"  value="{$goodnum$}"> <input type="button" name="button" class="global_btn" value="随机生成" onclick="setbianhao(this.form.goodnum)"> <em class="global_tip">11位纯数字</em></td>
+	  <td  height="25">商品规格：</td>
+	  <td  class="category"> <input name="xinghao" type="text" size="30" value="{$xinghao$}"> <em class="global_tip">如：400ml，1.5L,80g,2kg</em></td>
+    </tr>
+	
+	<tr > 
+      <td  height="25">货源情况： 
+      </td>
+      <td  class="category" colspan="3">
+      	<select name='styleid' id='styleid'> 
+      				<option value='0'>::本站商品::</option>
+      				<option value='1' {$styleid_s_1}>::外链商品::</option>
+      				</select> 
+					<span id="styleid1" style="display:none;">库存量:<input name="kcnum" type="text" size="20" value="{$kcnum}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">外链商品不显示库存量</em></span>
+					<span id="styleid2" style="display:none;">外链地址:
+      				<input name="httpurl" type="text" size="30" value="{$httpurl$}"></span>
+        </td>
+    </tr>	
+	<!--<tr>
+	  <td  height="25">客服QQ1： 
+      </td>
+      <td class="category" > <input name="chrqq1" value="{$chrqq1$}" type="text" size="20" > <em class="global_tip">(如果此项不填写，则默认调用网站客服QQ号码)</em></td>
+	  <Td>客服QQ2</td>
+	  <td  class="category" > <input name="chrqq2" type="text" size="20" value="{$chrqq2$}"> <em class="global_tip">(如果此项不填写，则默认调用网站客服QQ号码)</em></td>
+    </tr>
+	<tr>
+	  <td  height="25">属性： 
+      </td>
+      <td class="category"  colspan="3"> <input name="shu1" value="0" type="checkbox"{$shu1} ><input type="text" size="12" name="shutext1" value="{$shutext1}" />  
+	  <input name="shu2" type="checkbox" size="20" value="0" {$shu2} ><input type="text" size="12" name="shutext2" value="{$shutext2}" /> 
+	  <input name="shu3" type="checkbox" size="20" value="0" {$shu3}><input type="text" size="12" name="shutext3" value="{$shutext3}" /> 
+	  <input name="shu4" type="checkbox" size="20" value="0" {$shu4}><input type="text" size="12" name="shutext4" value="{$shutext4}" />
+	  <input name="shu5" type="checkbox" size="20" value="0" {$shu5}><input type="text" size="12" name="shutext5" value="{$shutext5}" /> 
+	  <input name="shu6" type="checkbox" size="20" value="0" {$shu6}><input type="text" size="12" name="shutext6" value="{$shutext6}" /> 
+	  </td>
+	  
+    </tr><tr  > 
+      <td >售后服务：
+
+      </td>
+      <td  colspan=3  class="category">
+      			<select name='isfuwu' id='isfuwu'> 
+      				<option value='0'>::使用公用设置::</option>
+      				<option value='1' {$isfuwu_s_1}>::使用自定义内容::</option>
+      				<option value='2' {$isfuwu_s_2}>::用户自定义::</option>
+      				</select> 
+	  <span id="fuwu1" style="display:none"><br /><br />
+	  <textarea cols="80" id="fuwu" name="fuwu" rows="10">{$fuwu$}
+      </textarea>
+	   
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fuwu"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	  </span>
+	   </td>
+    </tr>
+	 <tr  > 
+      <td >付款方式：
+
+      </td>
+      <td  colspan=3  class="category">
+      	<select name='isfukuan' id='isfukuan'> 
+      				<option value='0'>::使用公用设置::</option>
+      				<option value='1' {$isfukuan_s_1}>::使用自定义内容::</option>
+      				<option value='2' {$isfukuan_s_2}>::用户自定义::</option>
+      				</select> 
+
+	  <span id="fukan1" style="display:none"><br /><br />
+	  <textarea cols="80" id="fukuan" name="fukuan" rows="10">{$fukuan$}
+      </textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="fukuan"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	  </span>
+	   </td>
+    </tr> <tr  > 
+      <td >配送/取货方式：
+
+      </td>
+      <td  colspan=3  class="category">
+      	<select name='ispeisong' id='ispeisong'> 
+      				<option value='0'>::使用公用设置::</option>
+      				<option value='1' {$ispeisong_s_1}>::使用自定义内容::</option>
+      				<option value='2' {$ispeisong_s_2}>::用户自定义::</option>
+      				</select> 
+	  <span id="peisong1" style="display:none"><br /><br />
+	  <textarea cols="80" id="peisong" name="peisong" rows="10">{$peisong$}
+      </textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="peisong"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	  </span>
+	   </td>
+    </tr>-->
+	 <tr  > 
+      <td >详细介绍：
+
+      </td>
+      <td  colspan=3  class="category">
+	 
+	  <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent$}
+      </textarea>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+	   </td>
+    </tr>
+	<tr> 
+	 <td  height="25">属性设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"> <input type="checkbox" name="istop" value="1" {$istop$}>本店推荐（招牌）　<input type="checkbox" name="cuxiao" value="1" {$cuxiao$}>本店促销  <input type="checkbox" name="remai" value="1" {$remai$}>本店新品</td>
+	</tr>
+	<tr>
+	  <td  height="25">排序： 
+      </td>
+      <td class="category" colspan="3"> <input name="intorder" type="text" size="4" value="{$intorder$}" onKeyUp="if(isNaN(value))execCommand('undo')"> <em class="global_tip">数字越大越靠前</em></td>
+	  <!--<Td>赠送礼品</td>
+	  <td  class="category" > <input name="zengsong" type="text" size="20" value="{$zengsong$}"></td>-->
+    </tr>
+	<tr > 
+      <td height="25" >点击率： 
+      </td>
+      
+      <td class="category" colspan=3> <input type="text" name="views" value="{$views}" size="10" onKeyUp="value=value.replace(/\D+/g,'')"/> <em class="global_tip">(更改后将在新值+实际浏览数的算法继续统计)</em></td>
+    </tr>
+	
+	<tr> 
+	 <td  height="25">状态： 
+      </td>
+      <td  class="category" colspan="3"><input type="radio" name="iskill" {$iskill_c_1} value="1">上架　<input type="radio" name="iskill" {$iskill_c_2} value="2" >下架　<input type="radio" name="iskill" value="0" {$iskill_c_0} >待审</td>
+	</tr>
+	
+	<script>
+
+function hid2()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+</script>
+    <tr > <td></td>
+      <td height="25" colspan="3" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script>
+var pinpai='{$pinpai$}';
+if(pinpai!=""){
+	document.all.p1[0].checked=true;
+}
+else{
+	document.all.p1[1].checked=true;
+}
+
+var isfuwu = $('#isfuwu');
+if(isfuwu.val() === '2'){
+	$('#fuwu1').show();
+}
+isfuwu.bind('change',function(){
+	if(isfuwu.val() === '2'){
+		$('#fuwu1').show();
+	}else{
+		$('#fuwu1').hide();
+	}
+});
+
+var isfukuan = $('#isfukuan');
+if(isfukuan.val() === '2'){
+	$('#fukan1').show();
+}
+isfukuan.bind('change',function(){
+	if(isfukuan.val() === '2'){
+		$('#fukan1').show();
+	}else{
+		$('#fukan1').hide();
+	}
+});
+
+var ispeisong = $('#ispeisong');
+if(ispeisong.val() === '2'){
+	$('#peisong1').show();
+}
+ispeisong.bind('change',function(){
+	if(ispeisong.val() === '2'){
+		$('#peisong1').show();
+	}else{
+		$('#peisong1').hide();
+	}
+});
+
+var styleid = $('#styleid');
+if(styleid.val() === '0'){
+	$('#styleid1').show();
+}else{
+	$('#styleid2').show();
+}
+styleid.bind('change',function(){
+	if($(this).val() === '0'){
+		$('#styleid1').show();
+		$('#styleid2').hide();
+	}else{
+		$('#styleid2').show();
+		$('#styleid1').hide();
+	}
+});
+
+$('#pinpaibigid').bind('change',function(){
+	showPPCategory('8',$(this).val(),'pinpaiid')
+});
+
+
+
+</script>
+  </body>
+</html>

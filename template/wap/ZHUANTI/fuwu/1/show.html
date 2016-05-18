@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chraddress}-{$chrcode}-{$chrtel}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>{$chrtitle}</h4>
+  <p>{$chrtel}</p>
+ </div>
+ <div class="email"><a href="sms:{$chrtel}">{$chrtel}</a></div>
+ <div class="phone"><a href="tel:{$chrtel}">{$chrtel}</a></div>
+</div>
+<div class="o_main mar_b_50">
+<div class="company_info2">
+ <dl>
+  <dt><img src="{$chrimage}" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="{$chrtitle}" /></dt>
+  <dd>
+   <h3>{$chrtitle}</h3>
+   <p>{$chrcategory}>{$smallcategory}</p>
+   <div class="serives"><img src="{$Default_tplPath}images/yellowurlicon_05.gif" style="display:{$iskill1show}" alt="手机认证" /> <img src="{$Default_tplPath}images/yellowurlicon_03.gif" style="display:{$iskill2show}" alt="邮箱认证" /> <img src="{$Default_tplPath}images/yellowurlicon_07.gif" alt="身份验证"  style="display:{$iskill3show}" /> <img src="{$Default_tplPath}images/yellowurlicon_09.gif" alt="执照验证"  style="display:{$iskill4show}" /></div>
+  </dd>
+ </dl>
+</div>
+<!--其他信息-->
+<div class="o_info">
+ <dl>
+  <dt>邮箱</dt>
+  <dd>{$chremail}</dd>
+ </dl> 
+ <dl>
+  <dt>地址</dt>
+  <dd>{$chraddress}</dd>
+ </dl>
+</div>
+<div class="slide_tabs" id="wrapper2">
+ <ul id="scroller2">
+  {$list1}
+ </ul>
+ <div class="more" id="iscrollto"><span></span></div>
+</div>
+{$list2}
+<div class="huangye_content" id="tab01_inner"></div>
+
+ <div class="d_more">详细信息<em></em></div>
+ 
+<!--分享--> 
+<div class="share_fd n_mb" id="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   <ul class="clearfix">
+    {$Mh163k_wap_整站通用_分享代码}
+   </ul>
+</div>
+{$bottom$}
+<script type="text/javascript" src="{$Default_tplPath}js/iscroll5/iscroll-probe.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+var shareImg = '';
+var filepath1 = '{$chrimage}';
+if(filepath1 !== ''){shareImg = nowdomain + filepath1.replace('../','');}
+if(isapp === '1'){
+	$('#share_fd').hide();
+	$('body').append('<span class="appShareBtn" id="appShareBtn">分享</span>');
+	$('#appShareBtn').bind('click',function(e){
+		e.preventDefault();
+		YDB.Share('{$chrtitle}','{$chrtel}',shareImg,'{$bianmingurl}fuwu_{$detailsid}.html');
+	});
+}
+(function($){
+	$.fn.showPage = function(){
+		var $t = $(this),
+			inner = $('#tab01_inner'),
+			hd_list = $t.find('.tab-hd').find('a');
+			bd_list = $t.find('.tab-cont'),
+			len = bd_list.length,
+			i = 0,txt='';
+		for( ;i<len;i++){
+			IDC.resizeIMG(inner[0],300,480);		
+		}
+		$('.tab-cont').css({"height":300});
+	}
+	$('#tab01').showPage();
+    var tab_cont = $(".tab-cont");
+	IDC.resizeIMG(document.getElementById('resizeIMG'),300,480);
+	$('#scroller2').css('width',(90*$('#scroller2').find('li').length)+40+'px'); 
+	tab_cont.eq(0).show();
+	var myScroll = new IScroll('#wrapper2', {
+		scrollX: true,
+		scrollY: false,
+		click:true,
+		keyBindings: true
+	});
+	
+	$('#iscrollto').click(function(){
+		myScroll.scrollBy(-100,0,500)
+	});
+	
+	//tabs切换
+	var ind_a = 0;
+	$("#scroller2 li").bind("click",function(){
+	   ind_a = $(this).index();
+	   var tabH = $('.tab-cont').eq(ind_a).height();
+	   
+	  $(this).addClass("select").siblings().removeClass("select");
+	  tab_cont.eq(ind_a).show().siblings(".tab-cont").hide();
+	  if(tabH == 300){
+		 $(".d_more").removeClass("current"); 
+		  }
+	  else{
+		  $(".d_more").addClass("current");
+		  }
+	});
+	
+	$('.d_more').on('click',function(){
+		var hCur = $(this).hasClass("current");	
+	    if(!hCur){
+			$(this).addClass("current");
+		    $('.tab-cont').eq(ind_a).css({"height":"auto"});	
+			}	
+		else{
+			$(this).removeClass("current");
+		    $('.tab-cont').eq(ind_a).css({"height":300});	
+			}	
+	 });
+ })(jQuery);
+</script>
+</body>
+</html>

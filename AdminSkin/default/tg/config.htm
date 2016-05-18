@@ -1,0 +1,109 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+td{ font-size:9.5pt}
+</style> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;线上省啦参数配置</td>
+          <td width=150 align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+	 <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=AddSave"  enctype="multipart/form-data" >
+    
+		<tr > 
+			<td  height="25" width="15%" nowrap="nowrap">省啦兑换平台独立域名前缀</td>
+			<td colspan=3  class="category">
+			<input type="text" name="dhost" id="dhost" size="60" value="{$dhost}"> <em class="global_tip">直接使用该地址也可以兑换：{$SiteUrl}?d</em></td>
+		</tr>
+		<tr > 
+			<td  height="25">交流论坛</td>
+			<td colspan=3  class="category">
+			<input type="text" name="luntan" id="luntan" size="60" value="{$luntan}"> </td>
+		</tr>
+		<tr > 
+			<td  height="25">省啦显示地区</td>
+			<td colspan=3  class="category">
+			{$checkbox_areaids} <em class="global_tip">选择希望在前台显示的地区,不选为全部显示.</em></td>
+		</tr>
+		
+        <tr > 
+			<td  height="25">省啦流程名称</td>
+			<td colspan=3  class="category">
+			<input type="text" name="liuchengname" id="liuchengname" size="60" value="{$liuchengname}"> </td>
+		</tr>
+    <tr > 
+      <td  height="25">省啦流程<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"> <textarea cols="80" id="liucheng" name="liucheng" rows="10">{$liucheng}</textarea>
+				 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="liucheng"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	<tr > 
+      <td  height="25">常见帮助<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"> <textarea cols="80" id="bangzhu" name="bangzhu" rows="10">{$bangzhu}</textarea>
+				  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="bangzhu"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	<tr > 
+      <td  height="25">商家合作<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="category"> <textarea cols="80" id="hezuo" name="hezuo" rows="10">{$hezuo}</textarea>
+				  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="hezuo"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	 <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" value="确定提交" class="global_btn_blue_big"></td>
+    </tr>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

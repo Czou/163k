@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chrcategory}-{$bigcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$chrcategory},{$bigcategory},{$SiteName}" />
+<meta name="description" content="{$chrtitle}" />
+<link href="{$Default_tplPath}skin/classified2013.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+		<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$liveurl}">{$lanmuname}</a> &gt; <a href="{$liveurl}default.html?colname={$bigid}">{$bigcategory}</a> &gt; <a href="{$liveurl}default.html?colname={$bigid}&key={$categoryid}">{$chrcategory}</a> &gt; {$chrtitle}</div>
+		<div class="adv">{$Mh163k_信息内容页_通栏广告}</div>
+		<div class="grid_j02 clearfix">
+			<div class="col_main">
+				<div class="mod_03 clearfix">
+					<div class="hd">
+						<div class="ar_hd clearfix">
+							<div class="left mar10"><span class="s_gr{$shuxing}">{$shuxingstr}</span><h1 class="left">{$chrtitle}</h1><span class="left bh">信息编号：{$chrlive}</span></div>
+							<div class="right share">
+								<div class="left">分享到：</div>
+								<div class="left">{$Mh163k_整站通用_分享代码}</div>
+							</div>
+						</div>
+						<div class="ar_bd clearfix">
+							<p class="left"><span class="user">{$chrtruename}</span><span class="date">{$dtappenddate}</span><span class="num">{$views}</span><span class="period">{$youxiao}</span></p>
+							<p class="right"><a href="javascript:showjubaolive({$detailsid});" class="jubao">举报</a><a href="javascript:void(0)" data-scrolld="main_03" class="huifu">回复</a></p>
+						</div>
+						<span class="guoqi" style="display:{$guoqi}">信息已过期</span>
+					</div>
+					<div class="bd clearfix">
+						<div class="left_pic">
+<div class="gallery po_re" id="dialog_pro">
+	<div class="big_photo_inner" id="superAlbum">
+		<img src="{$Default_tplPath}images/houseGalleryDefault.png" id="dialog_img" class="viewimg" />
+		<a id="preArrow" title="上一张" class="contextDiv" href="javascript:void(0)" style="display:none;"><span id="preArrow_A"></span></a>
+		<a id="nextArrow" title="下一张" class="contextDiv" href="javascript:void(0)"><span id="nextArrow_A"></span></a>
+	</div>
+	<div class="imgListNode po_re">
+		<ul class="imgList clearfix" id="dialog_imgList"></ul>
+		<ul id="dialog_data" style="display:none;">{$chrpics}<!--live/showsmallfile.html--></ul>
+	</div>
+	<a href="javascript:void(0);" class="btn_prev btn_disabled" id="dialog_img_prev">上一个</a><a href="javascript:void(0);" class="btn_next" id="dialog_img_next">下一个</a>
+</div>
+						</div>
+						<div class="right_txt">
+							<table width="100%" class="table_2 fast_{$fastfabu}" border="0" cellspacing="0">
+							{$showsaixuan}
+							</table>
+							<div class="fast_false_{$fastfabu}">
+								<p class="line"><span class="sp_1">区域</span><span class="sp_2">{$chrquyu} {$chrdiduan}</span></p>
+								<p class="line"><span class="sp_1">属性</span><span class="sp_2">{$shuxingstr}</span></p>
+							</div>
+							{$contact}
+							<div class="security">
+								<p>①预付定金均存在欺骗行为！<br>②价格低廉、在更多介绍里填写电话的要谨慎！<br>③当面交易，当面验货！</p>
+								<p class="small">通过上面 查看此电话发帖记录 可以辅助辨别信息的真实性。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="fl-detail" id="fixed_can">
+					<div class="tabs" id="fixed">
+						<ul class="clearfix">
+							<li><a href="javascript:void(0)" data-scrolld="main_01" class="current">信息内容</a></li>
+							<li><a href="javascript:void(0)" data-scrolld="main_02">图片</a></li>
+							<li><a href="javascript:void(0)" data-scrolld="main_03">网友留言</a></li>
+						</ul>
+					</div>
+					<div class="bd" id="main_01">
+						{$Mh163k_信息详情页_自定义html}
+						<table width="100%" class="table_1 fast_{$fastfabu}" border="0" cellspacing="0">
+							{$custom_div_all}
+						</table>
+						<div class="main_content" id="resizeIMG">
+							{$chrmark}
+						</div>
+						<!--<div class="mod_06 po_re mar10">
+							<a href="fabu.html" target="_blank" class="btn po_ab">免费发布信息</a>
+							{$xinxi}
+						</div>-->
+					</div>
+				</div>
+				<div class="comment" id="main_02">
+					<div class="hd clearfix"><h6 class="left">图片</h6></div>
+					<div class="bd">
+						<div class="pp_list" id="pp_list"></div>
+					</div>
+				</div>
+				<div class="comment" id="main_03">
+					<div class="hd clearfix"><h6 class="left">网友留言评论</h6><p class="right"><em id="show_total_revert">0</em>条评论</p></div>
+					<div class="bd">
+						<div class="comment_zone" id="showcomment">
+							正在加载数据，请稍等......
+						</div>
+						<div class="write2014">
+							<input type="hidden" id="needLogin" value="" />
+							<input type="hidden" id="isrep" value="" />
+							<input type="hidden" id="istg" value="" />
+							<input type="hidden" id="parentid" value="" />
+							<form id="myform">
+								<input id="chrmarkForm" name="chrmark" type="hidden" />
+								<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+								<div class="cmt_control clearfix">
+									<div class="left">
+										<div class="emot po_re">
+											<a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+										</div>
+									</div>
+									<div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+									<div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col_sub">
+				<div id="fixed">
+					<div class="list_nav_2013">
+						<ul>
+							<li class="open"><a href="default.html?colname={$bigid}" class="t">{$bigcategory}</a>
+								<ul>
+									{$leftsmallcategory}
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="mod_02">
+						<div class="hd">热点推荐</div>
+						<div class="bd">
+							<ul>
+								{$Mh163k_信息详情页_热点推荐}
+							</ul>
+						</div>
+					</div>
+					<a href="#" class="jisu_btn">极速发布信息</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<div class="po_jisu po_ab" id="po_jisu" style="display:none;">
+	<div class="hd clearfix"><h3 class="left">极速发布信息</h3><a href="#" class="close_all right">关闭</a></div>
+	<div class="bd" id="inner_iframe"></div>
+</div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/live2013.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script type="text/javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$detailsid}';
+window['STYLEID'] = '5';
+$(function() {
+    $('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#resizeIMG').resizeIMG(998,1200);
+	$('#dialog_pro').houseGallery();
+	$('#pp_list').detailPicList();
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$('#po_jisu').jisu();
+});
+window.onload = function(){
+	$('#fixed').fixed($('#fixed_can'));
+	$('#fixed').doMaodian();
+	$('[data-scrolld]').scrolld({speed: 500,callback: function(){}});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@charset "utf-8";
+.qtVideo .hd,.qtVideo .bd .prev,.qtVideo .bd .next { background:url(../images/video_kk9.gif) no-repeat 0 0;}
+
+.qtVideo .hd { height:34px; padding-left:20px;}
+.qtVideo .hd .fr { float:right; display:inline; margin:0 10px 0 0; font-size:12px; font-weight:normal; color:#888;}
+.qtVideo .hd .fr b { color:#d00;}
+.qtVideo .bd .prev,.qtVideo .bd .next { width:13px; height:26px;}
+.qtVideo .bd .prev { background-position:0 -34px;}
+.qtVideo .bd .next { background-position:-14px -34px;}
+
+.comment { border-top:1px dotted #bcd1e2;}
+.comment .item p { margin-bottom:5px; text-align:left;}
+.comment .item { border-bottom:1px dotted #bcd1e2; padding:5px;}
+.comment .item .floor { color:#f50; font-weight:bold;}
+.comment .item .user { color:#3366cc;}
+
+.comment_write {}
+.comment_write .hdt { padding-left:4px; text-align:left; color:#333; font-size:14px; font-weight:bold;}
+.comment_input { width:915px; padding:2px 5px; line-height:20px; color:#444; height:90px; border:1px solid #ddd;}
+.comment_login { margin-top:8px; color:#666; line-height:20px;}
+.comment_login .left { display:inline; float:left; margin-left:5px;}
+.comment_login .login_test { border:1px solid #ddd; height:18px; line-height:18px; width:80px;}
+.comment_login .send { background:url(../images/live_bg.png) no-repeat -228px -32px; width:68px; height:22px; color:#7d4800; font-size:12px; border:0; cursor:pointer; line-height:22px; font-weight:bold;}

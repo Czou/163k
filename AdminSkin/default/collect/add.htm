@@ -1,0 +1,176 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;采集管理</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center">   <a href="Admin_Collect.aspx">采集管理首页</a> | <a href="Admin_Collect.aspx?Action=Add">采集添加</a> | <a href="Admin_Inflow.aspx">采集入库</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table align="center" cellpadding="4" cellspacing="1" class="toptable grid" >
+ <form name="Form" action="Admin_Collect.aspx?Action=Add2" method="post">
+  <tbody>
+    <tr>
+      <td colspan="4" background="{$atplPath}Images/r_0.gif" >采集项目添加</td>
+    </tr>
+    <tr>
+					<td height="25" align="right">
+						所属分类<font color="#FF0000">*</font>：</td>
+					<td align="left" class="category"><input type="radio" name="stypeid" value="0"  checked/>&nbsp;新闻资讯 {$classid1}<br /><br />
+					<input type="radio" name="stypeid" value="1"  />&nbsp;招聘资讯 {$classid2}<br /><br />
+					<input type="radio" name="stypeid" value="2" />&nbsp;房产资讯 {$classid3}<br /><br /></td>
+				
+					
+				</tr>
+				<tr>
+      <td width="15%" align="right" >采集名称：</td>
+      <td height=7 align="left" class="category"><input name="CollectName" type="text" id="CollectName" size="40"></td>
+    </tr>
+	
+        <tr>
+      <td align="right" >目标编码：</td>
+      <td height=7 align="left" class="category"><select name="selEncoding" size="1">
+          <option value="GB2312" selected="selected">GB2312</option>
+          <option value="UTF-8">UTF-8</option>
+          <option value="BIG5">BIG5</option><option value="gbk">gbk</option>
+        </select></td>
+    </tr>
+        <tr>
+      <td  align="right" >分页设置：</td>
+      <td align="left" class="category"><input type="radio" value="0" name="ListPaingType" checked="checked" onClick="ChangeCutPara(0);">
+不分页&nbsp;&nbsp;
+<input type="radio" value="1" name="ListPaingType" onClick="ChangeCutPara(1);" />
+批量分页&nbsp;<!--
+<input type="radio" value="2" name="ListPaingType" onClick="ChangeCutPara(2);"/>
+手动分页--></td>
+      </tr>
+    <tr >
+      <td height=32 align="right" id="title1">采集对象页：</td>
+      <td height=7 align="left" class="category"><span ID="IndexCutPage"> <input name="ListPaingStr" type="text" size="60"></span>
+<span ID="HandCutPage" style="display:none">
+<input name="ListPaingStr2" type="text" value="" size="60">
+        分页代码 <font color=red>{$ID}</font><br>
+格式：http://faq.tfwed.com/List_01/index_{$ID}.shtml<br>
+生成范围：
+<input name="ListPaingID1" type="text" size="4" value="1">
+<span lang="en-us"> To </span>
+<input name="ListPaingID2" type="text" size="4" value="2">
+例如：1 - 9
+</span>
+<span ID="ListContent" style="display:none">
+<textarea name="ListPaingStr3" cols="60" rows="7"></textarea>
+</span>
+</td>
+    </tr>
+    
+     <tr  >     <td align="right">内容分页方式：</td>     <td align="left" class="category"><select name="PaginationType">           <option value="0" >不分页</option>                    <option value="1" >采用原文分页</option>         </select>   ( 只有在内容设置分页的时候有用)       </td></tr>  
+    <tr>
+      <td align="right" >采集参数：</td>
+      <td height=7 align="left" class="category"><input name="ruku" type="checkbox" value="1" >
+立即入库   <input name="SaveFiles" type="checkbox" value="1">
+保存图片
+  <input name="CollecOrder" type="checkbox" value="1">
+开启破解图片防盗链(如果图片可以打开,请不要选此选项,因为浪费资源)</td>
+    </tr>
+    <tr>
+      <td height=32 align="right" >过滤选项：</td>
+      <td height=16 align="left" class="category"><input name="Script_Iframe" type="checkbox" value="1">
+Iframe
+<input name="Script_Object" type="checkbox" value="1">
+Object
+<input name="Script_Script" type="checkbox" value="1">
+Script
+<input name="Script_Div" type="checkbox"  value="1">
+Div
+<input name="Script_Class" type="checkbox"  value="1">
+Class
+<input name="Script_Table" type="checkbox"  value="1">
+Table
+<input name="Script_Tr" type="checkbox"  value="1">
+Tr
+<input name="Script_Span" type="checkbox"  value="1">
+Span<br>
+<input name="Script_Img" type="checkbox" value="1">
+Img
+<input name="Script_Font" type="checkbox"  value="1">
+Font
+<input name="Script_A" type="checkbox" value="1">
+A
+<input name="Script_Html" type="checkbox" value="1">
+Html
+<input name="Script_Td" type="checkbox"  value="1">
+Td </td>
+    </tr>
+ <tr>
+      <td height=32 align="right" >过滤文章页面标签：</td>
+      <td height=7 align="left" class="category"><textarea name="biaoqian" cols=60 rows=5></textarea>(多个请换行,主要是用来替换掉文章页面的一些标签,以免采集不到我们想要的信息)</td>
+    </tr>
+ <tr>
+      <td height=32 align="right" >过滤文章内容标签：</td>
+      <td height=7 align="left" class="category"><textarea name="biaoqian1" cols=60 rows=5></textarea>(格式 替换前的字符串|替换后的字符串
+每条替换规则之间用回车隔开)</td>
+    </tr>
+    <tr><td></td>
+      <td height=32 align="left" class="category" ><input type="submit" name="Submit" value="下一步"></td>
+    </tr>
+  </tbody>
+</form>
+</table>
+
+</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script language="JavaScript">
+function ChangeCutPara(Flag)
+{
+	switch (Flag)
+	{
+		case 0 :
+			IndexCutPage.style.display='';
+			HandCutPage.style.display='none';
+			ListContent.style.display='none';
+			title1.innerHTML="采集对象页：";
+			break;
+		case 1 :
+			IndexCutPage.style.display='none';
+			HandCutPage.style.display='';
+			ListContent.style.display='none';
+			title1.innerHTML="批量分页：";
+			break;
+		case 2 :
+			IndexCutPage.style.display='none';
+			HandCutPage.style.display='none';
+			ListContent.style.display='';
+			title1.innerHTML="手动分页：";
+			break;
+		default :
+			IndexCutPage.style.display='none';
+			HandCutPage.style.display='none';
+			ListContent.style.display='none';
+			title1.innerHTML="";
+			break;
+	}
+}
+</script>
+</body></html>

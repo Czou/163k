@@ -1,0 +1,8 @@
+<div class="my_prop_imgitem" id="setfile{$num}" name="setfile{$num}">
+  <div id="pre_8_{$num}" name="pre_8_{$num}" style="border:1px solid #cccccc; margin-bottom:5px;"><img src="{$chrimage}" width="120"  height="120" id="imgview_apf_id_8_{$num}" name="imgview_apf_id_8_{$num}" style="vertical-align:middle;"/></div>
+  <input type="text" value="{$chrmark}" onblur="editMark(this,'{$ID}')" class="i_img_alt" />
+  <a href="javascript:" onclick="delfile(this,'{$ID}','5')">删除</a>
+  <a href="#" onclick="return set_FM(this,'{$filepath}','{$ID}');" class="set_FM" data-istop="{$istop}">设为封面</a>
+	<a href="#" onclick="return move_PrevNext(this,0,{$num},{$ID},'setfile','{$table_id}',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,{$num},{$ID},'setfile','{$table_id}',8);" class="move_next">后移</a>
+</div>

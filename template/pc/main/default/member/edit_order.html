@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品订单管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 商品订单管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">商品订单管理</div>
+
+
+<form name="form1" method="post" action="?action=editsave">
+<div class="smalltitle">1、订单基本信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:25%;">订单编号：</td>
+        <td class="tdcontent" style="width:75%">
+            <span id="lbOrderId" style="color:Blue;">{$chrorder$}</span><input type="hidden" name="orderid" id="orderid" value="{$ID}" />
+        </td>
+    </tr>
+    <tr>
+        <td class="tditem">商品名称：</td>
+        <td class="tdcontent"><span id="ProName"><a href="{$goodurl}shop_{$shopid$}.html" target="_blank">{$chrgood$}</a></span></td>
+    </tr>
+    <tr>
+        <td class="tditem">我们价格：</td>
+        <td class="tdcontent"><span id="ProPrice" style="color:Black;">{$price2$}</span>元</td>
+    </tr>
+	<tr>
+        <td class="tditem">交易价格：</td>
+        <td class="tdcontent"><input type="text" name="chrmoney" class="text" value="{$chrmoney1$}" onKeyUp="value=value.replace(/\D+/g,'')" style="width:40px;" >(元)</td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 订购数量：</td>
+        <td class="tdcontent"><input name="intnum" type="text" value="{$intnum$}" maxlength="10" onKeyUp="value=value.replace(/\D+/g,'')" class="text" style="width:40px;" /> 件</td>
+    </tr>
+</table><br />
+<div class="smalltitle">2、交易方式及联系方式</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:25%;"><span style="color:Red">*</span> 交易方式：</td>
+        <td class="tdcontent" style="width:75%"><input name="styleid" type="radio"  value="0" onClick="set(1)"  {$styleid1$}>网上交易
+	   <input name="styleid" type="radio"  value="1"  onclick="set(2)" {$styleid2$}>上门自取
+	    <input name="styleid" type="radio"  value="2" onClick="set(3)"  {$styleid3$}>送货上门
+	   <input name="styleid" type="radio"  value="3" onClick="set(4)"  {$styleid4$}>预约交易
+            </td>
+    </tr>
+	<tr id="tr1">
+        <td class="tditem"><span style="color:Red">*</span> 联 系 人：</td>
+        <td class="tdcontent"><input name="chrman" type="text" size="16" class="text"  value="{$chrman$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr2">
+        <td class="tditem"><span style="color:Red">*</span> 取货时间：</td>
+        <td class="tdcontent"><input name="quhuodate" type="text" size="16" class="text"  value="{$quhuodate$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr2_1">
+        <td class="tditem"><span style="color:Red">*</span> 取 货 人：</td>
+        <td class="tdcontent"><input name="quhuo" type="text" size="16" class="text"  value="{$chrman$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr3">
+        <td class="tditem"><span style="color:Red">*</span> <span id="shouhuodizhi">送货地址</span>：</td>
+        <td class="tdcontent"><input name="chraddress" type="text" class="text" size="16"  value="{$chraddress$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr3_1">
+        <td class="tditem"><span style="color:Red">*</span> 邮政编码：</td>
+        <td class="tdcontent"><input name="chrcode" type="text" size="16" class="text"  value="{$chrcode$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr4">
+        <td class="tditem"><span style="color:Red">*</span> 预约地点：</td>
+        <td class="tdcontent"><input name="yuyuedi" type="text" size="16" class="text"  value="{$chraddress$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+	<tr id="tr4_1">
+        <td class="tditem"><span style="color:Red">*</span> 预约时间：</td>
+        <td class="tdcontent"><input name="yuyueshi" type="text" size="16" class="text"  value="{$quhuodate$}"> 
+            <span>(请如实填写)</span></td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 固定电话：</td>
+        <td class="tdcontent"><input name="chrtel" type="text" size="16" class="text"  value="{$chrtel$}"> 
+            <span>(固定电话和手机号码必填其一)</span></td>
+    </tr>
+    <tr>
+        <td class="tditem"><span style="color:Red">*</span> 手机号码：</td>
+        <td class="tdcontent"><input name="chrmobile" type="text" size="16"  class="text"  value="{$chrmobile$}"> 
+            <span>(同上)</span></td>
+    </tr>
+    <tr>
+        <td class="tditem">  联系QQ：</td>
+        <td class="tdcontent"><input name="chrqq" type="text" size="16" class="text"  value="{$chrqq$}"></td>
+    </tr>
+	<tr > 
+      <td  class="tditem">状态<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="tdcontent"> <input name="iskill" type="radio"  value="0" {$iskill1$}> 等待处理 <input name="iskill" type="radio"  value="1" {$iskill2$} > 已付款
+	    <input name="iskill" type="radio"  value="2" {$iskill3$} > 已发货 <input name="iskill" type="radio"  value="3" {$iskill4$}> 交易成功
+	    <input name="iskill" type="radio"  value="4" {$iskill5$}> 交易失败</td>
+    </tr>
+   <tr>
+        <td class="tditem">简短附言：</td>
+        <td class="tdcontent"><textarea name="chrmark" class="text"  style="width:400px;height:50px;" id="chrmark">{$chrmark$}</textarea>
+            <span>(限定200字)</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" />　<input type="button" value=" 返 回 " class="global_btn" onClick="javascript:location.href='manage_order.aspx';" /></td>
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script>
+var ss="{$styleid$}";
+if(ss=="0"){
+		$$("tr1").style.display="";
+		$$("tr2").style.display="none";
+		$$("tr2_1").style.display="none";
+		$$("tr3").style.display="";
+		$$("tr3_1").style.display="none";
+		$$("tr4").style.display="none";
+		$$("tr4_1").style.display="none";
+		$$("shouhuodizhi").innerHTML="收货地址";
+	}
+	else if(ss=="1"){
+		$$("tr1").style.display="none";
+		$$("tr2").style.display="";
+		$$("tr2_1").style.display="";
+		$$("tr3").style.display="none";
+		$$("tr3_1").style.display="none";
+		$$("tr4").style.display="none";
+		$$("tr4_1").style.display="none";
+	}
+	else if(ss=="2"){
+		$$("tr1").style.display="";
+		$$("tr2").style.display="none";
+		$$("tr2_1").style.display="none";
+		$$("tr3").style.display="";
+		$$("tr3_1").style.display="";
+		$$("tr4").style.display="none";
+		$$("tr4_1").style.display="none";
+	}
+	else if(ss=="3"){
+		$$("tr1").style.display="";
+		$$("tr2").style.display="none";
+		$$("tr2_1").style.display="none";
+		$$("tr3").style.display="none";
+		$$("tr3_1").style.display="none";
+		$$("tr4").style.display="";
+		$$("tr4_1").style.display="";
+	}
+function set(val){
+	for(var i=1;i<5;i++){
+		if(i==val){
+			if($$("tr"+i)){
+				$$("tr"+i).style.display="";
+			}
+			if($$("tr"+i+"_1")){
+				$$("tr"+i+"_1").style.display="";
+			}
+		}else{
+			if($$("tr"+i)){
+				$$("tr"+i).style.display="none";
+			}
+			if($$("tr"+i+"_1")){
+				$$("tr"+i+"_1").style.display="none";
+			}
+		}
+	}
+	if(val==1){
+		$$("shouhuodizhi").innerHTML="收货地址";
+	}
+	else if(val==3){
+		$$("shouhuodizhi").innerHTML="送货地址";
+	}
+	if(val==3 || val==4){
+		$$("tr1").style.display="";
+	}
+	if(val==1 ){
+		$$("tr3").style.display="";
+	}
+}
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>
+
+
+
+
+

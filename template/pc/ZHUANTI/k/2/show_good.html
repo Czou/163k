@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品详情</title>
+<style>
+* { margin:0; padding:0;}
+body { font-size:14px; font-family:"微软雅黑";}
+.wrapper { width:836px; overflow:hidden;}
+</style>
+</head>
+<body>
+<div class="wrapper" id="resizeIMG">
+{$good_chrcontent}
+</div>
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js"></script>
+<script>
+$.fn.imagesLoaded=function(callback){var $this=$(this),$images=$this.find('img').add($this.filter('img')),len=$images.length,blank='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';function triggerCallback(){callback.call($this,$images)}function imgLoaded(event){if(--len<=0&&event.target.src!==blank){setTimeout(triggerCallback);$images.unbind('load error',imgLoaded)}}if(!len){triggerCallback()}$images.bind('load error',imgLoaded).each(function(){if(this.complete||typeof this.complete==="undefined"){var src=this.src;this.src=blank;this.src=src}});return $this};
+if(typeof document!=="undefined"&&!("classList" in document.createElement("a"))){(function(j){var a="classList",f="prototype",m=(j.HTMLElement||j.Element)[f],b=Object,k=String[f].trim||function(){return this.replace(/^\s+|\s+$/g,"")},c=Array[f].indexOf||function(q){var p=0,o=this.length;for(;p<o;p++){if(p in this&&this[p]===q){return p}}return -1},n=function(o,p){this.name=o;this.code=DOMException[o];this.message=p},g=function(p,o){if(o===""){throw new n("SYNTAX_ERR","An invalid or illegal string was specified")}if(/\s/.test(o)){throw new n("INVALID_CHARACTER_ERR","String contains an invalid character")}return c.call(p,o)},d=function(s){var r=k.call(s.className),q=r?r.split(/\s+/):[],p=0,o=q.length;for(;p<o;p++){this.push(q[p])}this._updateClassName=function(){s.className=this.toString()}},e=d[f]=[],i=function(){return new d(this)};n[f]=Error[f];e.item=function(o){return this[o]||null};e.contains=function(o){o+="";return g(this,o)!==-1};e.add=function(o){o+="";if(g(this,o)===-1){this.push(o);this._updateClassName()}};e.remove=function(p){p+="";var o=g(this,p);if(o!==-1){this.splice(o,1);this._updateClassName()}};e.toggle=function(o){o+="";if(g(this,o)===-1){this.add(o)}else{this.remove(o)}};e.toString=function(){return this.join(" ")};if(b.defineProperty){var l={get:i,enumerable:true,configurable:true};try{b.defineProperty(m,a,l)}catch(h){if(h.number===-2146823252){l.enumerable=false;b.defineProperty(m,a,l)}}}else{if(b[f].__defineGetter__){m.__defineGetter__(a,i)}}}(self))};
+
+function resizeIMG(node,width,height){
+	var imgList = $(node).find('img');
+	var len = imgList.length,i=0;
+	if(len>0){
+		imgList.each(function(i,item){
+			$(item).imagesLoaded(function(){
+				AutoResizeImage(width,height,item);
+			});
+		});
+	}
+	function AutoResizeImage(maxWidth,maxHeight,objImg){
+		var img = new Image();
+		img.src = objImg.src;
+		var hRatio;
+		var wRatio;
+		var Ratio = 1;
+		var w = img.width;
+		var h = img.height;
+		wRatio = maxWidth / w;
+		hRatio = maxHeight / h;
+		if (maxWidth ==0 && maxHeight==0){
+		Ratio = 1;
+		}else if (maxWidth==0){//
+		if (hRatio<1) Ratio = hRatio;
+		}else if (maxHeight==0){
+		if (wRatio<1) Ratio = wRatio;
+		}else if (wRatio<1 || hRatio<1){
+		Ratio = (wRatio<=hRatio?wRatio:hRatio);
+		}
+		if (Ratio<1){
+		w = w * Ratio;
+		h = h * Ratio;
+		}
+		objImg.height = h;
+		objImg.width = w;
+	}
+}
+	
+resizeIMG($('#resizeIMG'),836,10000);
+</script>
+</body>
+</html>
+
+
+

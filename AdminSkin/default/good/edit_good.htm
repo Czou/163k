@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品超级管理</title>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/cal/calendar.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+body { margin:0; padding:0; color:#404040; background:#fff; color:#404040;}
+div,p { color:#404040;}
+.list { font-size:14px; padding:5px; overflow:hidden; *zoom:1; line-height:30px;}
+.sp_a,.sp_b { float:left;}
+.sp_a { width:100px; text-align:right; color:#888;}
+.sp_b em { font-weight:normal; color:#999; font-style:normal; font-size:12px;}
+.name { font-weight:bold; color:#36c;}
+.t_ipt { border:1px solid #bbb; font-size:12px; padding:6px 5px; border-radius:4px;}
+.t_btn { border:1px solid #0D6EB8; background-color:#1575d5; border-radius:3px; color:#fff; padding:8px 15px; font-size:14px; cursor:pointer; text-shadow:0 -1px 0 rgba(0,0,0,.5); box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 1px 0 rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+	<form id="myform" name="myform" action="?" target="tijiao" method="post" style="margin:0; padding:0; border:0 none;">
+	<input type="hidden" name="ID" value="{$goodid}" />
+	<input type="hidden" name="action" value="editsave" />
+	<div class="list">
+		<span class="sp_a">发布平台：</span>
+		<span class="sp_b"><input type="checkbox" name="isgoodshop" value="1" {$isgoodshop_c_1} /> 我的快店　<input type="checkbox" name="isshop" value="1" {$isshop_c_1} /> 我的店铺</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">商品名称：</span>
+		<span class="sp_b"><span class="name">{$chrgood}</span></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">录入信息：</span>
+		<span class="sp_b">由用户<span class="orange_font">{$chrname}</span>于{$dtappenddate}录入</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">所属店铺：</span>
+		<span class="sp_b">{$shopid$} <em>企业用户，已开通店铺</em></span>
+	</div>
+	<div class="list">
+		<span class="sp_a">浏览人数：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="views" name="views" value="{$views}" onKeyUp="value=value.replace(/\D+/g,'')" /></span>
+		<span class="sp_a">排序：</span>
+		<span class="sp_b"><input type="text" class="t_ipt" id="intorder" name="intorder" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo')" /></span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">属性设置：</span>
+		<span class="sp_b"><input type="checkbox" name="istop" value="1" {$istop_c_1}> 本店推荐（招牌）　<input type="checkbox" name="cuxiao" value="1" {$cuxiao_c_1}> 本店促销  <input type="checkbox" name="remai" value="1" {$remai_c_1}> 本店新品</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">首页推荐：</span>
+		<span class="sp_b"><input type="radio" name="isindex" value="1" {$isindex_c_1} > 推荐　<input type="radio" name="isindex" value="0" {$isindex_c_0} > 不推荐</span>
+	</div>
+	<div class="list">
+		<span class="sp_a">商品状态：</span>
+		<span class="sp_b"><input type="radio" name="iskill" {$iskill_c_0} value="0"> 上架　<input type="radio" name="iskill" {$iskill_c_1} value="1" > 下架　<input type="radio" name="iskill" value="2" {$iskill_c_2} > 待审</span>
+	</div>
+	
+	<div class="list">
+		<span class="sp_a">&nbsp;</span>
+		<span class="sp_b"><button type="submit" class="t_btn">确认提交</button></span>
+	</div>
+	</form>
+	<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+</div>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/MSGwindowShow.js"></script>
+<script>
+(function($){
+	
+})(jQuery);
+</script>
+</body>
+</html>

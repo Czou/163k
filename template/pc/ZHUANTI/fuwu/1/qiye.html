@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>公司企业-{$SiteName}</title>
+<link href="{$tplPath}skin/yp2011.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/javascript.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+<base href="{$bianmingurl}" />
+</head>
+<body bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}
+	<div id="content" class="yp2011">
+		<span class="t_title"></span>
+		<div class="searchbar clearfix">
+        <form name="inputStyle" method="post" action="index.html" style="margin:0" onsubmit="return searchbianming(this);">
+			<div class="left"><input type="text" class="s_input" onBlur="if(this.value==''){this.value='输入您要查找的机构名称关键词';this.style.color='#aaa'}" onFocus="if(this.value=='输入您要查找的机构名称关键词'){this.value='';this.style.color='#333'}" value="输入您要查找的机构名称关键词" name="keyword" id="keyword"/></div>
+			<div class="left"><select style="display: none;" name="mySle" id="mySle"><option selected="selected" value="0">服务机构</option><option value="1">公司企业</option></select></div>
+			<div class="left"><button type="submit" class="s_button">搜索</button></div>
+			<div class="left"><span class="join"><a href="?action=add" class="link">免费加入超级黄页</a></span></div>
+            </form>
+		</div>
+		<div class="grid_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="list_tab">
+					<ul class="clearfix">
+						<li ><a href="{$bianmingname}">服务机构</a></li>
+						<li class="select"><a href="qiyelist.html">公司企业</a></li>
+						<li><a href="{$shopname}">商家店铺</a></li>
+					</ul>
+					<div class="topPnav pageNavigation">
+						{$pagelist}
+						<!-- 如果是第一页或者最后一页  a标签上加 class="nopage" -->
+					</div>
+				</div>
+				<div class="conditions" >
+					{$quyu}
+				</div>
+ 				
+				<div class="t_list">
+					<ul class="clearfix">
+                    	<tag:Loop ListType="listqiye" RecType="New" PageSize="20" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="bianming/list_qiye_tr.html" />
+ 					</ul>
+					<div class="blank10"></div>
+					<div class="pageNavigation" style="text-align:center; width:740px;">
+                    <div class="pagination_module clearfix" style="margin-top:4px; text-align:center;">
+						<span class="right2">{$PageSplit}</span>	
+						<span class="right2">每页显示20条</span>
+					</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				 <div class="y_cate">
+					{$114categoryid}
+				</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/selectbox.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#mySle').selectbox();
+});
+</script>
+</body>
+</html>

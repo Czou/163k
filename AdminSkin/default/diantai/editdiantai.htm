@@ -1,0 +1,92 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script >
+function set(val){
+	if(val=="0"){
+	{$script1}
+		// document.all.tr1.style.display="none";
+		//document.all.tr2.style.display=""; 
+	}else{
+		document.all.tr1.style.display="none";
+		document.all.tr2.style.display="none";
+	}
+}
+function uploadImgs()
+{
+	document.all.tr1.style.display="block";
+	document.all.tr2.style.display="none";
+}
+</script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td width="60%">修改电台&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至电台列表" onClick="javscript:window.history.go(-1);"></td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"><!--startprint-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style"  bordercolor="navy">
+        <form name="form1" method="post" action="?action=editsave" ID="Form1" >
+          <tr >
+            <td >电台名称<font color="#FF0000">*</font>： </td>
+            <td colspan=3 class="category"><input name="Chrtitle" type="text" size="30" ID="Text1" value="{$chrtitle}"></td>
+          </tr>
+          <tr >
+            <td> 播放地址<font color="#FF0000">*</font>：</td>
+            <td colspan=3  class="category"><input name="chrurl" type="text" size="30" ID="Text1" value="{$chrurl}"></td>
+          </tr>
+          <tr  >
+            
+            <td>电台图标<font color="#FF0000"></font>：<br>
+              宽*高=34*34</td>
+            <td colspan=3 class="category"><input type="hidden" name="url1"  id="url1"  value="{$url1}"><span style="display:{$display2}" id="tr2"> <img src="{$url1}" width=34 height=34><a href="javascript:uploadImgs()">重新上传</a> </span> <span  id="tr1" style="display:{$dispaly1}">
+              <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="Upload.aspx?action=link&type=1"></iframe>
+              </span> </td>
+          </tr>
+          <tr >
+            <td>电台官网<font color="#FF0000"></font>：</td>
+            <td colspan=3  class="category"><input name="website" type="text" size="60" value="{$website}"></td>
+          </tr>
+          <tr >
+            <td>网友交流地址<font color="#FF0000"></font>：</td>
+            <td colspan=3  class="category"><input name="bbsurl" type="text" size="60" value="{$bbsurl}"></td>
+          </tr>
+          <tr >
+            <td>电台备注<font color="#FF0000"></font>：</td>
+            <td colspan=3  class="category"><input name="chrmark" type="text" size="60" value="{$chrmark}"></td>
+          </tr>
+          <tr >
+            <td>排序<font color="#FF0000"></font>：</td>
+            <td class="category"><input name="Intorder" type="text" size="30" ID="Text1" value="{$Intorder}" onKeyUp="if(isNaN(value))execCommand('undo')">
+            </td>
+          </tr>
+          <tr >
+            <td>是否发布：</td>
+            <td colspan=3 class="category"><input type="checkbox" name="Isopen" value="0" {$Isopen}>
+              发布&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+          </tr>
+          <tr  >
+            <td></td>
+            <td height="25" colspan="3" class="category"><input name="gotourl" type="hidden" size="30" ID="Text1" value="{$gotourl}">
+              <INPUT TYPE="hidden" NAME="ID" value="{$ID}" ID="Hidden1">
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1">
+             </td>
+          </tr>
+        </form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

@@ -1,0 +1,325 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入省啦买活动标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+
+	if(o.chrmark.value==""){
+		alert("请输入活动亮点!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrmark.value.length>200){
+		alert("活动亮点长度不能大于200!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrdate.value==""){
+		alert("请输入结束时间!");
+		o.chrdate.focus();
+		return false;
+	}
+	if(o.chrmoney1.value==""){
+		alert("请输入市场原价!");
+		o.chrmoney1.focus();
+		return false;
+	}
+	if(o.chrmoney2.value==""){
+		alert("请输入省啦价格!");
+		o.chrmoney2.focus();
+		return false;
+	}
+	if(o.chrzhekou.value==""){
+		alert("请输入折扣!");
+		o.chrzhekou.focus();
+		return false;
+	}
+	if(o.chrnum.value==""){
+		alert("请输入省啦人数！");
+		o.chrnum.focus();
+		return false;
+	}
+}
+function jishuan()
+{
+	if($("chrmoney1").value!="" && $("chrmoney2").value!="")
+	{
+		var aa=parseFloat($("chrmoney1").value);
+		var bb=parseFloat($("chrmoney2").value);
+		var tt=(bb/aa);
+		$("chrzhekou").value= (tt*10).toFixed(2);
+	}
+}
+var ismouse="0";
+</script> 
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none;} /*提示层样式*/
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">修改省啦&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至省啦列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style table_style2">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)">
+  <tr > 
+      <td  height="25">友情提示： 
+      </td>
+      <td class="category"  colspan=3>此省啦由 {$chrtruename} 发布,发布IP: {$userip} ,发布时间: {$dtappenddate} </td>
+	  
+    </tr>
+	<tr > 
+      <td height="25" width="13%" >省啦标题<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" ><input name="chrtitle" type="text" value="{$chrtitle}" size="40" maxlength=100 >(最多支持100汉字)</td>
+    </tr>
+        <tr > 
+      <td height="25" width="13%" >风格模板套系<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" > ../TempLate/Zhuanti/Tg/<span id="sel_template"><select name='template' id='template'></select></span> 选择您的省啦风格模板<script>show_sel_template(6,"{$ID}","{$moban}","sel_template");</script> </td>
+    </tr>
+	<tr > 
+      <td height="25"  >所属分类<font color="#FF0000">*</font>： 
+      </td>
+       <td class="category" >{$categoryid}      {$areaid} </td>
+    </tr>
+    <tr > 
+ 	  <td  height="25">活动商家<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input id="xiaoqu" title="请输入商家名称" name="xiaoqu"  class="text" style="width: 200px;" type="text" onkeyup="getKeyWordShop();" onclick="getKeyWordShop();" autocomplete="off"  value="{$shopid1}" onblur='if(ismouse=="0"){document.getElementById("keytishi").style.display = "none";}'>
+            输入关键字,会自动列出商家名称供选择
+            <div>
+              <div id="keytishi" onmouseover="ismouse='1';" onmouseout="ismouse='0';">
+                <iframe id="listComm" src=""  scrolling="no" width="330" frameborder="0" ></iframe>
+              </div>
+              
+            </div>
+            <input id="shopid" name="shopid" type="hidden"  value="{$shopid2}"/>
+</td>
+    </tr>
+            <tr > 
+ 	  <td  height="25">短信设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> 
+	  短信标题:<input id="smstitle" title="请输入短信标题" name="smstitle"  class="text" style="width: 150px;" type="text" value="{$smstitle}"  >
+            请输入发送省啦消费短信时显示的简短标题(商家名称).
+            <br>
+     商家电话:<input id="shoptel" title="请输入商家联系电话号码" name="shoptel"  class="text" style="width: 150px;" type="text" value="{$shoptel}" >
+            请输入发送省啦消费短信时显示的商家咨询联系电话(商家电话).
+            
+  </td>
+    </tr>
+ 
+    
+    
+    
+    
+	<tr > 
+ 	  <td  height="25">商品主图<font color="#FF0000">*</font>：
+      </td>
+      <td style="font-weight:normal;"> 
+      	<p><strong>主图:</strong> 尺寸:900*425</p>
+	  <span id="str1" ><a href='{$filepath}' class="lightwindow page-options"><img src="{$filepath}" style="margin:5px 0; display:block; width:300px; height:142px" id="showpic" border="0" /></a>  <span onclick="hid2()" class="global_btn">重新上传</span></span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=tg&type=1"></iframe>
+	  <br>主图截取宽度:<input name="filewidth" id="filewidth" type="text" size="8" value="900" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+      	主图截取高度:<input name="fileheight" id="fileheight" type="text" size="8" value="425" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();">
+	  </span>
+	  <input type=hidden name="url1"  id="url1"  value="{$filepath}">
+	  
+      	<p style="margin:15px 0 5px;"><strong>缩略图:</strong> 尺寸：285*190</p>
+		<p><input type="radio" name="smallpic" value="0" onclick="hid4()" checked >自动截取  <input type="radio" name="smallpic"  onclick="hid5()"  value="1">自定缩略图</p>
+		
+      	<span id="str3" style="display:none;"><a href='{$filepath2}' class="lightwindow page-options"><img src="{$filepath2}" style="margin:5px 0; display:block; width:285px; height:190px;" id="showsmallpic" border="0" /></a>  <span onclick="hid3()" class="global_btn">重新上传</span></span><span id="smallup" Style="display:none;"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=tg&type=2"></iframe></span><input type=hidden name="url2" value="{$filepath2}" id="url2" >
+        <p>
+       	缩略图截取宽度:<input name="smallfilewidth" id="smallfilewidth" type="text" size="8" value="285" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">
+      	缩略图截取高度:<input name="smallfileheight" id="smallfileheight" type="text" size="8" value="190" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"></p>
+      	
+    
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25">商品亮点<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" > <textarea name="chrmark" type="text" cols="80" rows="5">{$chrmark}</textarea></td>
+    </tr>
+	 <tr > 
+      <td  height="25">结束时间<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category"> <input name="chrdate" type="text" size="20" class="Wdate" value="{$chrdate}" >(到期后将不能下单，前台状态显示为“往日省啦”、“已结束”)</td>
+    </tr>
+	
+	<tr > <td  height="25">本团性质<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" ><select name="styleid">
+	  <option value="0" {$styleid0}>消费、服务类</option>
+	  <option value="1" {$styleid1}>实物-网购类</option>
+	  <option value="2" {$styleid2}>实物-订单类</option>
+	  <option value="3" {$styleid3}>代金券</option>
+	  </select> 请选择本次省啦项目的性质 <br>
+	    a、消费、服务类商品：消费者在线全额支付，凭码消费  <br>
+		b、实物-网购类商品：消费者在线全额支付,商家包邮快递 <br>
+		c、实物-订单类商品：消费者只需在线支付定金下单,线下与商家取货或送货,余款于线下商家自行结算<br>
+		提示：如果是消费、服务类商品，添加完省啦后，必须要生成消费券！<br>
+		d、代金券:无套餐,购买任意商家许可产品冲抵相应额度现金.   </td>
+     
+    </tr>
+	<tr > 
+      <td  height="25">市场原价： 
+      </td>
+      <td  class="category" colspan="3"> <input name="chrmoney1" type="text" size="8" value="{$chrmoney1}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"><font color=red>请输入本省啦商品的市场原价</font></td>
+    </tr>
+	<tr > 
+      <td  height="25">省啦价： 
+      </td>
+      <td  class="category" colspan="3"> <input name="chrmoney2" type="text" size="8" value="{$chrmoney2}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();jishuan();"><font color=red>必须是数字，如果是实物类，建议是包邮价格 ；若是定金类型省啦，本价格为定金</font></td>
+    </tr>
+	<tr > 
+      <td  height="25">折扣</td>
+      <td  class="category" colspan="3"> <input name="chrzhekou" type="text" size="8" value="{$chrzhekou}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"><font color=red>请输入省啦价相对市场价的折扣.必须是数字，如4.1</font></td>
+    </tr>
+    <tr > 
+      <td  height="25">实际参团人数： 
+      </td>
+      <td  class="category" colspan="3"> {$schrnum} 份</td>
+    </tr>
+	<tr > 
+      <td  height="25">参团人数： 
+      </td>
+      <td  class="category" colspan="3"> <input name="chrnum" type="text" size="8" value="{$chrnum}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"><font color=red>人工修改后会在下次购买成功是自动修复为:实际人数+修正数据</font></td>
+    </tr>
+    <tr > 
+      <td  height="25">参团人数修正： 
+      </td>
+      <td  class="category" colspan="3"> <input name="typeid" type="text" size="8" value="{$typeid}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"><font color=red>实际人数+修正数据=参团人数</font></td>
+    </tr>
+	<tr > 
+      <td  height="25">其它： 
+      </td>
+      <td  class="category" colspan="3"> 优先排序：<input name="intorder" type="text" size="8" value="{$intorder}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"> 单ID购买数量限制：<input name="num1" type="text" size="8" value="{$num1}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();">   总量限制：<input name="num2" type="text" size="8" value="{$num2}" onKeyUp="if(isNaN(value))execCommand('undo');this.value=this.value.trim();"></td>
+    </tr>
+	  <tR>
+	  <td  height="25">属性<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"><input type="checkbox" name="kill1" value="1"  {$kill11}>新单(新单标志会在有效期开始3天后自动删除) 	 <br><input type="checkbox" name="isindex" value="1" {$isindex1}>设为今日推荐  <input type="checkbox" name="maiguang"  value="1" {$maiguang1}>卖完了(设为“已售完”前台的列表中将显示"卖光了"了图标，即使是省啦未结束，本团也将无法继续购买)
+	  <br>
+	   <input type="checkbox" name="kill2" value="1" {$kill21}>特惠   <input type="checkbox" name="kill3" value="1" {$kill31}>多套餐 <input type="checkbox" name="kill4" value="1" {$kill41}>免预约  
+	  <input type="checkbox" name="k1" value="1" {$k1}  >支持退款 
+	  <input type="checkbox" name="k2" value="1" {$k2}  >闪发   
+	  <input type="checkbox" name="k3" value="1" {$k3}  >七夕   
+	  <input type="checkbox" name="k4" value="1" {$k4}  >中秋   
+	  <input type="checkbox" name="k5" value="1" {$k5}  >国庆   
+	  <input type="checkbox" name="k6" value="1" {$k6}  >圣诞   
+	  <input type="checkbox" name="k7" value="1" {$k7}  >元旦   
+	  <input type="checkbox" name="k8" value="1" {$k8}  >春节   
+	  <input type="checkbox" name="k9" value="1" {$k9}  >端午   
+	  <input type="checkbox" name="k10" value="1" {$k10} >教师  
+	  <input type="checkbox" name="k11" value="1" {$k11} >父亲  
+	  <input type="checkbox" name="k12" value="1" {$k12} >母亲  
+	  <input type="checkbox" name="k13" value="1" {$k13} >妇女  
+	  <input type="checkbox" name="k14" value="1" {$k14} >自定标志
+	                                                       
+	  </td>
+    </tr>
+	
+	  <tR>
+	  <td  height="25">状态设置<font color="#FF0000">*</font>： 
+      </td>
+      <td  class="category" colspan="3"> <input type="radio" name="iskill" value="0" {$iskill0}>待审(前台不显示)  <input type="radio" name="iskill" {$iskill1} value="1">上线(前台显示)</td>
+    </tr>
+	<tr > 
+      <td  height="25">省啦券有效期<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category" >从:<input name="startdate" value="{$startdate}" type="text" size="20" class="Wdate" readonly="true"  style="background-color:#FFFFFF;">到:<input name="enddate" value="{$enddate}" type="text" size="20" class="Wdate"  style="background-color:#FFFFFF;"   ><br>
+	  
+	  <!--<input type="radio" name="typeid" value="4" {$typeid4}>永久有效-->
+	  </td>
+    </tr>
+	<tr > 
+      <td  height="25">本团详情： 
+      </td>
+      <td class="category" > 
+	  <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent}</textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '500px'
+			});
+		});
+	</script>
+	  </td>
+    </tr>
+	<script>
+	var getID = function(ids){return document.getElementById(ids);}
+	function hid2()
+	{
+		document.all.str1.style.display="none";
+		document.all.str2.style.display="block";
+	}
+	function hid3()
+	{
+		document.all.str3.style.display="none";
+		document.all.smallup.style.display="block";
+	}
+	function hid4()
+	{
+		getID('smallup').style.display="none";
+		getID('str3').style.display="none";
+	}
+	function hid5()
+	{
+		//getID('smallup').style.display="block";
+		getID('str3').style.display="block";
+	}
+	</script>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=ID value="{$ID}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script src="{$atplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+suitPic(150,150);
+</script>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>申请经纪人入驻--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+
+<script>
+function checkform(o){
+	if(o.truename.value==""){
+		alert("对不起,请输入经纪人姓名!");
+		o.truename.focus();
+		return false;
+	}
+	if(o.file1.value==""){
+		alert("对不起,请上传您的个人头像!");
+		o.file1.focus();
+		return false;
+	}
+	if(o.chrcompany.value==""){
+		alert("对不起,请输入所属中介公司/门店!");
+		o.chrcompany.focus();
+		return false;
+	}
+	if(o.chrtel.value==""){
+		alert("对不起,请填写您的业务联系手机号码!");
+		o.chrtel.focus();
+		return false;
+	}
+}
+</script>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 申请经纪人入驻</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">申请经纪人入驻</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />欢迎您免费入驻，享受专业的网上房产信息发布、推广服务！<br />
+		</td>
+	</tr>
+</table>
+<!--<div style="margin-bottom:6px;">您的店铺网址：<a href="{$SiteUrl}house/shop_{$manid}.html" target=_blank>{$SiteUrl}house/shop_{$manid}.html</a></div>-->
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+     <tr >
+          <td class="tditem"  style="width:35%;">经纪人姓名<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 ><input type="text" name="truename" value="" class="text" size=30></td>
+        </tr>
+        <tr >
+          <td class="tditem"  >服务区域<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  colspan=3 > {$qu_classid}</td>
+        </tr>
+        <tr >
+          <td class="tditem">个人标准头像<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 >
+		<input type="file" name="file1" size="60" class="text" >&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+	
+	  <input type=hidden name="url1" value="">
+	  <input type="hidden" name="filewidth" value="130">
+	  <input type="hidden" name="fileheight" value="160">
+	  <input type="hidden" name="smallfilewidth" value="130">
+	  <input type="hidden" name="smallfileheight" value="160">
+	  <br />宽*高=130*160</td>
+        </tr>
+		 <tr >
+          <td class="tditem" >所属中介公司<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="chrcompany" value="" class="text" size=30></td>
+        </tr>
+		 <tr >
+          <td class="tditem">公司LOGO，非必须： </td>
+          <td  class="tdcontent" colspan=3 >
+		<input type="file" name="file2" size="60" class="text">&nbsp; 
+		宽*高=130*90，限制50K以内，JPG/GIF&nbsp; 
+		</td>
+        </tr>
+        <tr >
+          <td class="tditem">店铺通栏背景： </td>
+          <td  class="tdcontent" colspan=3 ><input type="radio" value="1" checked   name="R">使用默认：<input type="radio" value="1" checked  name="R1">默认1&nbsp;
+		<input type="radio" value="2"  name="R1">默认2&nbsp;
+		<input type="radio" value="3" name="R1">默认3&nbsp;
+		<input type="radio" value="4"   name="R1">默认4&nbsp;
+		<input type="radio" value="5"   name="R1">默认5<BR><BR>
+		<input type="radio" value="2" disabled  name="R">自定义：
+		<input type="file" name="file3" size="30" class="text" >（只有认证经纪人才可以显示自定义背景）
+		</span>
+	  <input type=hidden name="url3" value="{$url3}">
+		</td>
+        </tr>
+		 <tr >
+          <td class="tditem" >通栏背景是否显示名字： </td>
+          <td  class="tdcontent" colspan=3><input type="radio" name="ifshow" value="0" checked>显示 <input type="radio" name="ifshow" value="1" {$ifshow1} >不显示</td>
+        </tr>
+       
+         <tr >
+          <td class="tditem" >手机号码<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="chrtel" value="" class="text" size=30>(请填写您的业务联系手机号码)</td>
+        </tr>
+        <tr >
+          <td class="tditem" >联系QQ： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="chrqq" value="" class="text" size=30>(请填写您的业务联系QQ)</td>
+        </tr>
+		<tr >
+          <td class="tditem" >个人介绍： </td>
+          <td  class="tdcontent" colspan=3><input type="checkbox" name="gereniskill"  value="1" class="text" >(启用， 只有设置为“启用”状态，且为认证经纪人，前台其店铺才显示出来，否则不显示)</td>
+        </tr>
+		 <tr >
+		<td class="tditem" >个人介绍： </td>
+		<td  class="tdcontent"  colspan=3>
+		 <textarea cols="80" id="gerencontent" name="gerencontent" rows="10"></textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="gerencontent"]', {
+				resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '300px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+		</td>
+		</tr>
+		<tr >
+		<td class="tditem" >门店介绍： </td>
+		<td  class="tdcontent" colspan=3><input type="checkbox" name="mendianiskill" value="1"  class="text" >(启用， 只有设置为“启用”状态，且为认证经纪人，前台其店铺才显示出来，否则不显示)</td>
+		</tr>
+		<tr >
+		<td class="tditem">门店介绍： </td>
+		<td  class="tdcontent"  colspan=3>
+		 <textarea cols="80" id="mendiancontent" name="mendiancontent" rows="10"></textarea>
+             <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="mendiancontent"]', {
+				resizeType : 1,
+					allowPreviewEmoticons : false,uploadJson : '/kindeditor/upload_json.ashx',
+					afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+					allowFileManager : false,width : '100%',height : '300px',
+					items : [
+						'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+						'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+						'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+				});
+		});
+	</script>
+		</td>
+		</tr>
+				
+</table>
+<div class="submit">
+<input type="submit" name="Submit" value=" 确认无误，提交 " id="Submit" />
+    </div>
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

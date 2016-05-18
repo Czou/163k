@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+{$top$}
+<div class="nav_house_bottom">
+ <ul>
+  <li>
+    <a href="{$SiteUrl}">
+     <span class="home"></span>
+     首页
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/manage_chuzhu.aspx">
+     <span class="sm"></span>
+     发信息
+    </a> 
+  </li>
+  <li>
+    <a href="{$goodurl}">
+     <span class="nearby"></span>
+     附近
+    </a> 
+  </li>
+  <li>
+    <a href="{$SiteUrl}member/">
+     <span class="mine"></span>
+     我的
+    </a> 
+  </li>
+ </ul>
+</div>
+<div class="o_main mar_b_50">
+ <div class="cinfo_menu clearfix">
+  <ul>
+   <li><a href="loupan.html"><i style="background:#3399ff;"><img src="{$Default_tplPath}images/house/house_icon1.png" /></i>新房</a></li>
+   <li><a href="chushou.html"><i style="background:#fb9031;"><img src="{$Default_tplPath}images/house/house_icon2.png" /></i>二手房</a></li>
+   <li><a href="chuzhu.html"><i style="background:#52bc42;"><img src="{$Default_tplPath}images/house/house_icon3.png" /></i>出租房</a></li>
+   <li><a href="zhongjie.html"><i style="background:#ff645a;"><img src="{$Default_tplPath}images/house/house_icon4.png" /></i>中介</a></li>
+   <li><a href="xuqiu.html"><i style="background:#9c74c7;"><img src="{$Default_tplPath}images/house/house_icon5.png" /></i>求租求购</a></li>
+  </ul>
+ </div>
+<!--新盘推介-->
+<div class="new_active">
+ <div class="title"><a href="loupan.html"><span>新盘推介</span></a></div>
+ <div class="house_info">
+  <ul class="clearfix" id="tuiLoupan">
+   {$Mh163k_wap_房产首页_推荐楼盘}
+  </ul>
+ </div>
+</div>
+<!--二手房推介-->
+<div class="new_active">
+ <div class="title"><a href="chushou.html"><span>二手房推介</span></a></div>
+<div class="info_list">
+  <ul>
+   {$Mh163k_wap_房产首页_二手房推介}
+  </ul>
+  <div class="more"><a href="chushou.html">查看更多</a></div>
+ </div>
+ </div>
+<!--出租房推介-->
+<div class="new_active">
+ <div class="title"><a href="chuzhu.html"><span>出租房推介</span></a></div>
+<div class="info_list">
+  <ul>
+   {$Mh163k_wap_房产首页_出租房推介}
+  </ul>
+  <div class="more"><a href="chuzhu.html">查看更多</a></div>
+ </div>
+ </div>
+{$bottom$}
+
+<script>
+var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="search.aspx" method="get">'+
+		'<select name="mySle" class="s_sel">'+
+						'<option value="0" selected="selected">新楼盘</option>'+
+                        '<option value="1">二手房</option>'+
+                        '<option value="2">出租房</option>'+
+                        '<option value="3">小区</option>'+
+                        '<option value="4">经纪人</option>'+
+					'</select>'+
+		'<input type="text" name="keyword" id="keyword" class="s_ipt" value="" placeholder="输入关键字" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	$('#windowIframe .back').show();
+	$('#myform').submit(function(){
+		if($('#keyword').val() === ''){
+			MSGwindowShow('index','0','请输入搜索关键字','','')
+		}
+	});
+}
+$.fn.priceList = function(){
+	$(this).find('.price').each(function(index,item){
+		if($(item).attr('data-price') == '0'){
+			$(item).html('面议');
+		}
+	});
+}
+$.fn.tuiLoupan = function(){
+	var list = $(this).find('img');
+	var w_w = ($(window).width()-30)/2;
+	var h_h = Math.floor(w_w*3/4);
+	list.css({'height':h_h+'px'});
+}
+
+
+$(document).ready(function(){
+	$('.info_list').priceList();
+	$('#login_ico').hide();
+	$('#search_ico').show();
+	$('#tuiLoupan').tuiLoupan();
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@charset "utf-8";
+#header .channel_nav { background-position:0 -629px;}
+#header .channel_nav li { background-position:80px -729px;}
+#header .channel_nav li.index { background-position:63px -729px;}
+#header .channel_nav li span.current { background-position:-151px -687px;}
+#header .channel_nav li.index span.current { background-position:0 -687px;}
+#header .channel_nav .telephone em { color:#80643c;}

@@ -1,0 +1,66 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+td{ font-size:9.5pt}
+</style>
+<script>
+function checkform(o){
+	if(o.file.value==""){
+		alert("请上传TXT文件!");
+		o.file.focus();
+		return false;
+	}
+	if(o.chrcontent.value==""){
+		alert("请输入要发送的短信内容!");
+		o.chrcontent.focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;短信群发</td>
+          <td width=150 align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+        <form name="form1" method="post" action="?action=qunsave" onsubmit="return checkform(this);"  enctype="multipart/form-data">
+        <tr >
+          <td  height="25" width=14%>TXT文件：<font color="#FF0000">*</font></td>
+          <td colspan=3  class="category"><input type="file" name="file" id="file" size=40><a href="{$atplPath}sms/sms.txt"  target="_blank"> <em class="global_tip">下载样板示例，每行一个</em></a>
+          </td>
+        </tr>
+        <tr >
+          <td  height="25">短信内容：<font color="#FF0000">*</font></td>
+          <td  colspan=3  class="category"><textarea name="chrcontent" id="chrcontent" style="width:400px;height:80px;"></textarea></td>
+        </tr>
+         <tr >
+          <td></td>
+          <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+            <input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+        </tr>
+        <tr>
+          <Td colspan="4"  class="category" style="line-height:22px;"> <div class="global_tip">单条短信可发字数为: 70 个字。<br>
+            超出70个字的长短信按 67 个字/条计费，长短信最多发260个字。</div><br>
+<iframe src="http://211.155.25.158:8080/LSBsms/detect_content.jsp" width=850  height="452" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="No" allowTransparency="true"></iframe>
+          </td>
+        </tr>
+       
+		</form>
+      </table>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

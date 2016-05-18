@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>添加网址--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script>
+function checkform(o){
+	if(o.title.value==""){
+		alert("对不起,请输入网址标题!");
+		o.title.focus();
+		return false;
+	}
+	if(o.classid.value==""){
+		alert("对不起,请选择所属类别!");
+		o.classid.focus();
+		return false;
+	}
+	if(o.url.value==""){
+		alert("对不起,请输入网址!");
+		o.url.focus();
+		return false;
+	}
+}
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 添加网址</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">添加网址</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		网址添加后,将需要管理员审核
+
+		<br />
+		</td>
+	</tr>
+</table>
+
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" >
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 网址标题：</td>
+        <td class="tdcontent" style="width:85%;" ><input name="title" type="text" class="text" size="40">
+            </td>
+			
+    </tr>
+	<tr id="tr1">
+	 <td class="tditem" style="width:15%;"><span style="color:Red">*</span> 所属类别：</td>
+        <td class="tdcontent" style="width:30%"  >{$classid}
+            </td>
+        
+    </tr>
+	<tr id="tr2">
+        <td class="tditem"><span style="color:Red">*</span> 网址链接：</td>
+        <td class="tdcontent" colspan=3><input name="url" type="text" size="40"  class="text" value=""><input name="orders" type="hidden" id="orders" size="10" value="{$intorder}" >
+            <span>(比如{$SiteUrl})</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">&nbsp;</td>
+        <td class="tdcontent"><input type="hidden" name="gotourl" value="{$gotourl}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+			
+    </tr>
+</table>
+
+</form>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

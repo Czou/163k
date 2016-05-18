@@ -1,0 +1,220 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" /> 
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">其它&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至企业列表" onClick="javscript:window.location.href='qiye.aspx';"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+    
+    <link rel="stylesheet" type="text/css" href="{$atplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li><a href='qiye.aspx?action=edit&ID={$ID}'>基本资料</a></li><li><a href='qiye.aspx?action=e1&ID={$ID}'>关于我们</a></li><li><a href='qiye.aspx?action=e2&ID={$ID}'>新闻中心</a></li><li><a href='qiye.aspx?action=e3&ID={$ID}'>产品展示</a></li><li><a href='qiye.aspx?action=e4&ID={$ID}'>客户案例</a></li><li><a href='qiye.aspx?action=e5&ID={$ID}'>招贤纳士</a></li><li><a href='qiye.aspx?action=e6&ID={$ID}'>友情链接</a></li><li class="selected"><a href='qiye.aspx?action=e7&ID={$ID}'>其他</a></li>
+</ul>
+</div>
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=e7Save" >
+    <tr > 
+      <td  colspan=2  class="category">网站导航名称自定义 <em class="global_tip">（备注：导航对应的内容链接是固定的，您修改仅是导航的文字名称）</em></td>
+    </tr>
+	 <tr > 
+      <td  colspan=2  class="category"><input type="text" name="text1" style="width:100px;"  value="{$text1}"/>
+      <input type="text" name="text2" style="width:100px;" value="{$text2}"/>
+      <input type="text" name="text3" style="width:100px;" value="{$text3}"/>
+      <input type="text" name="text4" style="width:100px;" value="{$text4}"/>
+      <input type="text" name="text5" style="width:100px;" value="{$text5}"/>
+      <input type="text" name="text6" style="width:100px;" value="{$text6}"/>
+      <input type="text" name="text7" style="width:100px;" value="{$text7}"/>
+      <input type="text" name="text8" style="width:100px;" value="{$text8}"/>
+      <input type="text" name="text9" style="width:100px;" value="{$text9}"/>
+      </td>
+    </tr>
+    <tr > 
+      <td  colspan=2  class="category">网站首页大幅幻灯片</td>
+    </tr>
+    <tr > 
+      <td  colspan=2  class="category">1.标题：<input type="text" name="pictitle1"  id="pictitle1" value="{$pictitle1}" />图片930*247 (jpg/gif/png)：<span id="str11" >{$filepath1$}</span><span id="str12" style="display:none">
+          <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=bianming&type=path1"></iframe>
+          </span>
+          <input type=hidden name="urlpath1"   id="urlpath1"  value="{$picpath1}">  链接：<input type="text" name="picurl1"  value="{$picurl1}" /></td>
+    </tr>
+     <tr > 
+      <td  colspan=2  class="category">2.标题：<input type="text" name="pictitle2"  value="{$pictitle2}" />图片930*247 (jpg/gif/png)：<span id="str21" >{$filepath2$}</span><span id="str22" style="display:none">
+          <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=bianming&type=path2"></iframe>
+          </span>
+          <input type=hidden name="urlpath2"  id="urlpath2" value="{$picpath2}">  链接：<input type="text" name="picurl2"  value="{$picurl2}"/></td>
+    </tr>
+     <tr > 
+      <td  colspan=2  class="category">3.标题：<input type="text" name="pictitle3"  value="{$pictitle3}" />图片930*247 (jpg/gif/png)：<span id="str31" >{$filepath3$}</span><span id="str32" style="display:none">
+          <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=bianming&type=path3"></iframe>
+          </span>
+          <input type=hidden name="urlpath3" id="urlpath3"  value="{$picpath3}">  链接：<input type="text" name="picurl3" value="{$picurl3}"  /></td>
+    </tr>
+     <tr > 
+      <td  colspan=2  class="category">网站底部导航及内容管理</td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom1" class="myinput" value="{$bottom1}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill1" value="1" {$kill11} />启用<input type="radio" name="kill1" value="0" {$kill10} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url1"  id="url1" class="myinput" value="{$url1}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content1" name="content1" rows="10">{$content1}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content1"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	 <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom2" class="myinput" value="{$bottom2}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill2" value="1" {$kill21} />启用<input type="radio" name="kill2" value="0" {$kill20} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url2"  id="url2" class="myinput" value="{$url2}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content2" name="content2" rows="10">{$content2}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content2"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+     <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom3" class="myinput" value="{$bottom3}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill3" value="1" {$kill31} />启用<input type="radio" name="kill3" value="0" {$kill30} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url3"  id="url3" class="myinput" value="{$url3}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content3" name="content3" rows="10">{$content3}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content3"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+     <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom4" class="myinput" value="{$bottom4}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill4" value="1" {$kill41} />启用<input type="radio" name="kill4" value="0" {$kill40} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url4"  id="url4" class="myinput" value="{$url4}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content4" name="content4" rows="10">{$content4}</textarea>
+	 <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content4"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+     <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom5" class="myinput" value="{$bottom5}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill5" value="1" {$kill51} />启用<input type="radio" name="kill5" value="0" {$kill50} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url5"  id="url5" class="myinput" value="{$url5}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content5" name="content5" rows="10">{$content5}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content5"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+     <tr > 
+      <td  height="25" width="100px"><input type="text" name="bottom6" class="myinput" value="{$bottom6}" style="width:120px;"/>：</td>
+      <td class="category"><input type="radio" name="kill6" value="1" {$kill61} />启用<input type="radio" name="kill6" value="0" {$kill60} />不启用
+      我要将此链接跳转到指定网址：<input type="text" name="url6"  id="url6" class="myinput" value="{$url6}" style="width:220px;"/>
+      </td>
+    </tr>
+	<tr  > 
+      <td  colspan=2  class="category"> <textarea cols="80" id="content6" name="content6" rows="10">{$content6}</textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="content6"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+    
+    <tr > 
+	<td></td>
+      <td height="25"  class="category" ><input type=hidden name=gotourl value="{$gotourl}"><input type="hidden" name="id" value="{$ID}"><input type="hidden" name="over" value="0"> &nbsp;  
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" class="global_btn_big" value="直接确定完成"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid2(tt)
+{
+	document.getElementById("str"+tt+"1").style.display="none";
+	document.getElementById("str"+tt+"2").style.display="block";
+}
+</script>
+  </body>
+</html>

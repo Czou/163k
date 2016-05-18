@@ -1,0 +1,23 @@
+﻿<li class="item" data-x="{$shop_x}" data-y="{$shop_y}">
+   <a href="{$chrurl}">
+     <div class="pic sign{$qianyue}"><img src="{$filepath}" width="120" height="80" onerror="this.src='{$Default_tplPath}images/not_find_pic.jpg';this.onerror='';" alt="{$chrshop}" /></div>
+     <div class="info">
+      <h3>{$chrshop}</h3>
+      <dl>
+       <dt class="star">
+         <i class="s_{$koubei}"></i>
+       </dt>
+       <dd class="ly">评论&nbsp;&nbsp;({$revertnum})</dd>
+      </dl>
+      <div class="per_capita">人均<span class="price">&yen;{$consumption}</span></div>
+      <span class="tuan display{$istgid}">团</span>
+      <span class="zk display{$iszhe}">{$zhe}</span>
+      <dl>
+        <dt class="address">{$chraddress}</dt>
+        <dd class="distance juli">距离未知</dd>
+      </dl>
+	  {$zhiding}
+     </div>
+   </a>
+   
+  </li>

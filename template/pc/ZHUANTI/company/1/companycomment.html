@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$shopmenustr}-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/starShop.css" />
+<script src="{$Default_tplPath}js/jquery-1.10.2.min.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/commonX4.js?{$CacheHash}"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+</script>
+</head>
+<body>
+<div class="wrapper">
+	{$Mh163k_星级店铺_头部}
+	<div class="content moban{$moban}">
+		<div class="w-1200 po_re">
+			<div class="grid_starHead clearfix">
+				<div class="col_main"><div class="main_wrap">
+					<p><span class="shop_name">{$chrshop}</span><span class="i_star i_star_{$koubei}">{$koubei}星</span><span class="i_qianyue" style="display:{$qianyue}">签约商家</span><span class="i_renzheng" style="display:{$renzheng}">认证商家</span></p>
+					<p class="p">地址：{$chraddress} <a href="#" onClick="return showMap('{$shopid}');" class="blue_font">[查看地图]</a></p>
+					<p class="p">交通路线：{$chrjiaotong}</p>
+					<p class="p">营业时间：{$chrdate}</p>
+					<div class="contact">
+						<span class="tel"><s class="s"></s>{$chrtel}</span>
+						<span class="weixin po_re" id="weixinX4"><s class="s"></s>{$weixin}<span style="display:none;" class="node"><img src="{$shopweixinimg}" id="weixinImg" alt="" />打开微信扫一扫</span></span>
+						<span class="qq"><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=qq&menu=yes" target="_blank"><s class="s"></s>{$chrqq}</a></span>
+					</div>
+					<p class="p tese">本店特色：{$shoptese}　　　人均消费：<span class="red">{$consumption}</span>元</p>
+					<p class="p">会员折扣：{$zhe} <a href="{$SiteUrl}member/register.html" class="orange_font">[申请会员]</a></p>
+				</div></div>
+				<div class="col_sub">
+					<div class="slide" id="slide">
+						<a class="next" href="#" onClick="return false;"><i class="i"></i></a>
+						<ul class="hd dot" id="tabs"></ul>
+						<a class="prev" href="#" onClick="return false;"><i class="i"></i></a>
+						<div class="bd">
+							<ul class="picList fix" id="output"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mobile_href po_ab"><img onerror="this.src='{$Default_tplPath}images/p/notmobile.gif';this.onerror='';" src="{$shopwapurlimg}" width="88" height="88" alt="" />手机访问</div>
+			<div class="ico_kuaison po_ab display{$MyGoodShopIskill}"><a href="{$MyGoodShopUrl}" target="_blank"><img src="{$Default_tplPath}images/ico_kuaison.gif" width="190" height="70" alt="" /></a></div>
+		</div>
+		<div class="star_nav">
+			<ul class="w-1200 clearfix">
+				{$shop_menu_list}
+			</ul>
+		</div>
+		<div class="w-1200">
+			<div class="module_all">
+				<div class="hd">网友点评</div>
+				<div class="bd comments">
+					<div class="grid_cmt clearfix">
+						<div class="col_main"><div class="main_wrap">
+							<div class="cmt_statistical">
+								<ul class="clearfix">
+									<li><span>好评[{$num11}%]</span><span class="inner"><em style="width:{$num11}px;"></em></span><span>[{$num1}]</span></li>
+									<li><span>中评[{$num12}%]</span><span class="inner"><em style="width:{$num12}px;"></em></span><span>[{$num2}]</span></li>
+									<li><span>差评[{$num13}%]</span><span class="inner"><em style="width:{$num13}px;"></em></span><span>[{$num3}]</span></li>
+								</ul>
+							</div>
+							
+						</div></div>
+						<div class="col_sub">
+							<div class="percentage"><em>{$num11}<s>%</s></em>好评度</div>
+						</div>
+						<div class="col_extra">
+							<div class="btn_write"><a href="#write" class="btn po_re">我来点评<s class="s"></s></a></div>
+						</div>
+					</div>
+					<div class="module_02"><div class="filter po_re">
+						<ul class="clearfix" id="filter">
+							<li class="cur"><a href="#" class="item" data-val="">全部</a></li>
+							<li><a href="#" class="item" data-val="1">好评</a></li>
+							<li><a href="#" class="item" data-val="2">中评</a></li>
+							<li><a href="#" class="item" data-val="3">差评</a></li>
+						</ul>
+						<input type="hidden" id="fscore" value="" />
+						<div class="num"><a href="#">共有 <em id="show_total_revert">0</em> 人参与评论</a></div>
+					</div></div>
+					<div id="showcomment"></div>
+					<div class="write" id="write">
+						<div class="hds">发布点评</div>
+						<form id="myform">
+							<input id="chrmarkForm" name="chrmark" type="hidden" />
+							<input type="hidden" id="needLogin" value="0">
+							<input type="hidden" id="needScore" value="1">
+							<input type="hidden" id="isrep" value="">
+							<input type="hidden" id="istg" value="0">
+							<input type="hidden" id="parentid" value="">
+							<input type="hidden" id="total_score" value="" />
+							<input type="hidden" id="score_1" value="" />
+							<div class="select_star" id="selScore">
+								<span class="sp">总体评价：</span>
+								<a href="#" class="btn" data-index="1"><span class="btn_1">好评</span></a>
+								<a href="#" class="btn" data-index="2"><span class="btn_2">中评</span></a>
+								<a href="#" class="btn" data-index="3"><span class="btn_3">差评</span></a>
+								<span class="sp">　星级：</span>
+								<span class="i_star_0" id="selStar"><a href="#" class="s_star" data-index="1">1星</a><a href="#" class="s_star" data-index="2">2星</a><a href="#" class="s_star" data-index="3">3星</a><a href="#" class="s_star" data-index="4">4星</a><a href="#" class="s_star" data-index="5">5星</a></span>
+							</div>
+							<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+							<div class="cmt_control clearfix">
+								<p class="left">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></p>
+								<div class="right"><button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		{$Mh163k_快送_页脚}
+	</div>
+</div>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '0';
+window['SHOPID'] = '{$shopid}';
+window['STYLEID'] = '1';
+window['TPLNUM'] = '2';
+
+(function($){
+	$.fn.selStar = function(){
+		var t = $(this),list = t.find('.s_star'),score_1 = $('#score_1');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.parent().removeClass().addClass('i_star_'+val);
+			score_1.val(val);
+		});
+	};
+	$.fn.selScore = function(){
+		var t = $(this),list = t.find('.btn'),total_score = $('#total_score');
+		list.click(function(e){
+			e.preventDefault();
+			var val = $(this).attr('data-index');
+			list.removeClass('cur');
+			$(this).addClass('cur');
+			total_score.val(val);
+		});
+	};
+	$.fn.cmtfilter = function(){
+		var t= $(this),list = t.find('.item'),fscore = $('#fscore');
+		list.bind('click',function(e){
+			e.preventDefault();
+			$(this).parent().siblings('li').removeClass('cur');
+			$(this).parent().addClass('cur');
+			fscore.val($(this).attr('data-val'));
+			getNewRevertPage('1');
+		});
+	}
+	$('#filter').cmtfilter();
+	$('#selStar').selStar();
+	$('#selScore').selScore();
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	getNewRevertPage('1');
+	
+	var Lanterninfo=[{$huangdengpian}];
+	var txt = '',
+		txtImg = '';
+	if(Lanterninfo.length > 0){
+		for(var i=0;i<Lanterninfo.length;i++){
+			txtImg+='<li><a href="'+Lanterninfo[i][2]+'"><img src="'+Lanterninfo[i][0]+'" alt="'+Lanterninfo[i][1]+'" /></a></li>';
+			if(i === 0){
+				txt += '<li class="on">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		}
+		$('#output').html(txtImg);
+		$('#tabs').html(txt);
+		setTimeout(function(){$("#slide").slide({ mainCell:".bd ul",effect:"leftLoop",vis:1,scroll:1,autoPlay:true});},20);
+		showSlide($('#slide'));
+	}
+	function showSlide(node){
+		var prev = node.find('.prev'),next = node.find('.next');
+		node.hover(function(){
+			prev.toggleClass('show');
+			next.toggleClass('show');
+		});
+	}
+	$('#weixinX4')[0]&&weixinX4();
+})(jQuery);
+</script>
+</body>
+</html>

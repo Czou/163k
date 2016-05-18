@@ -1,0 +1,45 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;清理数据库日志</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+				<form name="form1" method="post" action="?action=basesave">
+				<tr align="center">
+				<td  class="category">数据库ID</td>
+				<td class="category">数据库名称</td>
+				<td class="category">数据库总计大小</td>
+				<td class="category">数据库所有者</td>
+				<td class="category">数据库创建的日期</td>
+				<td class="category">数据库兼容级别</td>
+				
+				
+				</tr>
+				<tr align=center><td>{$dbid}</td><td>{$name}</td><td>{$db_size}</td><td>{$owner}</td><td>{$created}</td><td>{$compatibility_level}</td></tr>
+				<tR><td colspan=9 align=center><input type="submit" name="submit" class="global_btn_blue_big" value="清理数据库日志">  <em class="global_tip">(清理后数据库日志文件的大小可降低到1M)</em></td></tR>
+				</form>
+			
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

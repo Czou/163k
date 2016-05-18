@@ -1,0 +1,11 @@
+﻿ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$NID}</td>
+	<td><a href="{$articleurl}article_{$ID}.html" target=_blank>{$chrtitle}</a></td>
+<td><a href="{$articleurl}article_{$ID}.html" target=_blank >{$articleurl}article_{$ID}.html</a></td>
+<td>{$dtappenddate}</td>
+<!--<td>{$chrauthor}</td>-->
+	
+	
+	<td align="center"><a href="danye.aspx?action=edit&ID={$ID}">编辑</a> <a href="javascript:del({$ID});">删除</a>  </td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

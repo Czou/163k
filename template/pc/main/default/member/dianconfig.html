@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>高级设置--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 高级设置</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+  <div class="col_main">
+  <div class="edit_box">
+  <div id="contentfloat">
+  <div id="content">
+  <form name="form1" action="?action=save"  method="post" enctype="multipart/form-data">
+    <div class="bigtitle">店铺域名绑定</div>
+    <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+      <tr>
+        <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+        <td class="tx_title"><span>重要提示：</span><br />
+          如果您是非签约店铺，则无绑定店铺二级域名的权限</td>
+      </tr>
+    </table>
+    <div class="smalltitle">修改高级设置（打 <span style="color:Red">*</span> 为必填项）</div>
+    <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr><td class="tdcontent" colspan="2">当前服务器二级域名服务状态：{$yumingkillstate}</td></tr>
+	
+    <tr > 
+ 	  <td  height="25" class="tditem" width="25%">该店铺二级域名状态<font color="#FF0000"></font>： 
+      </td>
+      <td  class="tdcontent" >{$yumings1} {$yumings2}  </td>
+     </tr>
+    <tr><td class="tditem">是否启用店铺域名：</td>
+	<td class="tdcontent" >
+	<input name="yumingkill" type="radio" value="0" {$yumingkill0}  {$disabled1}>不启用（暂停） <input name="yumingkill" type="radio" value="1" {$yumingkill1} {$disabled2} >启用(正常) 
+    <input name="yumingkill" type="radio" value="2" {$yumingkill2} {$disabled3} >禁止使用 
+	</td>
+	</tr>
+	 
+	 	 <tr > 
+			  <td  class="tditem">申请绑定店铺域名<font color="#FF0000">*</font>： 
+			  </td>
+			  <td  class="tdcontent" ><input type="text" name="yumingname" id="yumingname" maxlength="20" value="{$yumingname}" style="width:100px;"  onblur="checkyuming(this.value,'yumingshow',{$ID},0)" class="text"  >.{$SiteYuming}<span id="yumingshow">(请设置一个域名前缀)</span> </td>
+			 </tr>
+			 
+      <tr > 
+			  <td  class="tditem">&nbsp;</td>
+			  <td  class="tdcontent" ><input class="global_btn_blue_big" type="submit" name="submit" value=" 提交修改 " id="" /></td>
+			 </tr>
+    </table>
+    </form>
+    </div>
+　
+    </div>
+    </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+    </div>
+  
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('a[rel*=facebox]').facebox();
+});
+</script>
+</body>
+</html>

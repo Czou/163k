@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$cname}房源管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+<DIV id=floatwin>
+	<DIV id=fw_title>
+	<div class="left"></div><div class="right" onClick="javascript:$('#floatwin').hide('fast');"><img src="{$Default_tplPath}images/closezhi.gif" /></div>
+	</DIV>
+	<DIV id=fw_body></DIV>
+	<iframe id='fw_hiddenifr' name='fw_hiddenifr' width='98%' height='260px' style="display:none" frameborder=0 marginwidth=0 marginheight=0 scrolling='No' src=''></iframe>
+	<div id=fw_button><input id="fw_submit" type=button value='确定' onClick="javascript:submit_fw()"><input id="fw_close" type=button value='取消' onClick="javascript:$('#floatwin').hide('fast');" ></div>
+	<div id=fw_load><img src="{$Default_tplPath}images/loader.gif" align="absmiddle"/> 正在操作中，请稍等...</div>
+</DIV>
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; {$cname}房源管理</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">我的{$cname}房源管理</div>
+
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		此处是您发布的所有{$cname}房源信息
+
+		<br />
+		</td>
+	</tr>
+</table>
+<span ><div class="ptag"><form name="search" method="post" action="manage_chuzhu.aspx?key={$key}#tt3"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="width:100px" class="{$style0$}">{$url0$}</td><td class="card_line"></td><td style="width:100px" class="{$style1$}">{$url1$}</td>
+<td class="card_line"></td>
+<td align="right">
+<input type="text" name="keyword" id="keyword" style="width:150px; border:1px solid #999; padding:2px 3px; vertical-align:middle;" /> <input type="submit" style="height:24px; line-height:24px; padding:0 6px; vertical-align:middle;" class="global_btn" value="搜索" />
+&nbsp;</td></tr></table></form></div><br /></span><table id="ProOrderList" width="100%">
+	<tr>
+		<td>          
+        <table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+            <tr class="tabletitle"> 
+			 <td  style="width:80px;"><b>房源编号</b></td>
+                <td><b>标题</b></td>
+                <td><b>状态</b></td><td><b>属性</b></td>
+                <td><b>发布时间</b></td>
+                <td><b>操作</b></td>
+            </tr> 
+            <form name="aspnetForm" method="post" action="../request.aspx?action=other" id="aspnetForm">     
+     <tag:Loop ListType="LISTCHUZHU" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/list_chuzhu_tr.html" />
+     <tr class="tabletitle" style="height:28px;">
+                <td ><input type="checkbox" id="chkall" value="checkbox" onClick="CheckAll(this.form);" /></td>
+                <td colspan="5" style="text-align:left;">选中/取消所有
+					<input type="button" name="submits" class="global_btn_blue"  value="批量刷新" onClick="set_fw(1,0);"  id="submits" /></td>     
+            </tr>
+     </form>
+        </table>
+    <div class="manu clearfix" style="text-align:center;">
+			{$PageSplit}
+		</div></td>
+	</tr>
+</table>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/zhiqian.js"></script>
+
+
+
+<script>
+function funfangyuan(){
+
+}
+</script>
+<SCRIPT LANGUAGE="JavaScript">
+var fw_ac,fw_id;
+
+function submit_fw() {
+	$("#fw_button").hide();	$("#fw_load").show();
+	$.ajax({ url: "../request.aspx", data: "action=flushtime&tt="+escape(fw_id), type: "GET", cache: false, dataType:"text",
+		success: function(data){ 
+			$("#floatwin").css({width:'300px',height:'200px'});
+			if (data=='1') {
+				data="恭喜您，本条信息刷新发布成功！";
+				$("#im_"+fw_id).html("<span class='green'>刷新成功</span>");
+			}
+			else{
+				$("#im_"+fw_id).html("<span class='green'>出错啦</span>");
+			}
+			$("#fw_hiddenifr").hide();$("#fw_body").html(data);
+			$("#fw_submit").hide();
+			$("#fw_close").val("关闭");
+			$("#fw_button").show();	$("#fw_load").hide();
+		} ,
+		error: function() {
+			$("#fw_body").html("程序出错，操作未能完成！");
+			$("#fw_submit").hide();
+			$("#fw_close").val("关闭");
+			$("#fw_button").show();	$("#fw_load").hide();
+		}
+	});
+}
+function set_fw(ac,id) {
+	fw_ac=ac;fw_id=id;
+	if(fw_id=="0")
+		fw_id="";
+	if(fw_id=="")
+	{
+		var arrChk=$("input[name='ID']:checked");
+		$(arrChk).each(function(){
+			if(this.value!="0"){
+				if(fw_id!="")
+					fw_id +=",";
+				fw_id +=this.value;  
+			}
+		}); 
+	}
+	$("#fw_submit").show();$("#fw_hiddenifr").hide();
+	$("#fw_close").val("取消");
+	$("#floatwin").css({width:'500px',height:'200px'});
+	if (ac==1){
+		$("#fw_title div.left").html("刷新信息");
+		var val="<p>&nbsp;&nbsp;为了避免同一条房源重复发布，您可以使用“刷新发布”功能<Br>&nbsp;&nbsp;刷新发布后，您的该条信息将视同最新发布的信息<br>&nbsp;&nbsp;每刷新一次房源，需要扣除{$flushfen}{$jifenname}</p>";
+		$("#fw_body").html(val);
+		$("#floatwin").runfloatwin();
+	}
+	
+}
+</SCRIPT>
+</body>
+</html>

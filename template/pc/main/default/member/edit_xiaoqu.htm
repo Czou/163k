@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改小区--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+
+<script src="{$Default_tplPath}js/CJL.0.1.min.js"></script>
+<script src="{$Default_tplPath}js/ImagePreview.js"></script>
+<script>
+var imgsrc="{$Default_tplPath}images/fabu_nopic.gif";
+var loadingsrc="{$Default_tplPath}images/upload_120x120.gif";
+</script>
+<Style>
+#keytishi { width:330px; height:auto;  position:absolute; display:none; margin:0; padding:0; } /*提示层样式*/
+.my_prop_img{ width:100%; margin:0; padding:0}
+.my_prop_imgitem{ width:125px;float:left;margin-right:25px;margin-top:5px;}
+</style>
+<script src="{$Default_tplPath}WdatePicker.js"></script>
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改小区</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">修改小区</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  填写小区详细信息 <br />
+                </td>
+              </tr>
+            </table>
+            <br />
+          <form name="form1" method="post" action="?action=editSave" onSubmit="return checkaddxiaoqu(this)" enctype="multipart/form-data">
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+		  <tr >
+          <td height="20" class="tdcontent"   colspan=6>小区本资料： </td>
+        </tR>
+        <tr >
+          <td class="tditem"  >小区名称<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 ><input type="text" name="chrloupan" class="text" value="{$chrloupan}" size=70></td>
+        </tr>
+        <tr >
+          <td class="tditem"   >小区位置<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent"  colspan=3 > {$qu_classid} 地址：
+            <input type="text" name="chraddress" id="chraddress"  value="{$chraddress}" class="text" size=40>
+            <a href="#" onclick='set_image()'><font  color="red">标注地图位置</font></a>
+            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
+            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
+            <input type="hidden" id="shop_z" name="shop_z"  value="{$shop_z}"></td>
+        </tr>
+        <tr >
+          <td class="tditem" >小区形象图片<br>(400*298)<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3 ><span id="str3" >{$filepath$}</span><span id="str4" style="display:none">
+		<input type="file" name="file" size="70" class="text">&nbsp; 
+		限制50K以内，JPG/GIF&nbsp; 
+		</span>
+			<input type=hidden name="url1" value="{$url1}">
+			<input type="hidden" name="filewidth" value="400">
+			<input type="hidden" name="fileheight" value="298">
+			<input type="hidden" name="smallfilewidth" value="195">
+			<input type="hidden" name="smallfileheight" value="145">
+		</td>
+        </tr>
+
+        <tr >
+          <td class="tditem"  >小区类型： </td>
+          <td  class="tdcontent" colspan=3><ul class="i_list_li clearfix">{$categoryids}</ul></td>
+        </tr>
+		<tr >
+          <td class="tditem"  >建筑类别： </td>
+          <td  class="tdcontent"  ><input type="text" name="jianzhuleibie" class="text" value="{$jianzhuleibie}" size=20></td>
+		  <td class="tditem"  >业主论坛： </td>
+          <td  class="tdcontent" ><input type="text" name="yezhu" class="text" value="{$yezhu}" size=30></td>
+        </tr>
+        <tr >
+          <td class="tditem"  >小区形态与栋数： </td>
+          <td  class="tdcontent" ><input type="text" name="xingtai" class="text"  value="{$xingtai}" size=30></td>
+		   <td class="tditem"  >建筑年代： </td>
+          <td  class="tdcontent" ><input type="text" name="niandai" class="text"  value="{$niandai}" size=10>如:2009</td>
+        </tr>
+        <tr >
+          <td class="tditem"  >总占地面积： </td>
+          <td  class="tdcontent" ><input type="text" name="zhangdi" class="text"  value="{$zhangdi}" size=20>平方米</td>
+          <td class="tditem"  >总建筑面积： </td>
+          <td  class="tdcontent" ><input type="text" name="jianzhu" class="text"  value="{$jianzhu}" size=20>平方米</td>
+        </tr>
+         <tr >
+          <td class="tditem"  >开发商： </td>
+          <td  class="tdcontent" ><input type="text" name="chrsupply" class="text" value="{$chrsupply}" size=30></td>
+           <td class="tditem"  >总户数： </td>
+          <td  class="tdcontent" ><input type="text" name="hushu" class="text" value="{$hushu}" size=20></td>
+       </tr>
+        <tr >
+          <td class="tditem"  >物业公司： </td>
+          <td  class="tdcontent" ><input type="text" name="wuyecompany" class="text" value="{$wuyecompany}" size=20></td>
+          <td class="tditem"  >物业管理费： </td>
+          <td  class="tdcontent" ><input type="text" name="wuyeguanli" class="text" value="{$wuyeguanli}" size=10>
+            平米/月</td>
+        </tr>
+        <tr >
+          <td class="tditem"  >绿化率： </td>
+          <td  class="tdcontent" ><input type="text" name="lvhua" class="text" value="{$lvhua}" size=20></td>
+          <td class="tditem"  >得房率： </td>
+          <td  class="tdcontent" ><input type="text" name="defang" class="text" value="{$defang}" size=20></td>
+        </tr>
+        <tr >
+          <td class="tditem"  >容积率： </td>
+          <td  class="tdcontent" ><input type="text" name="rongji" class="text" value="{$rongji}" size=20></td>
+          <td class="tditem"  >车位数： </td>
+          <td  class="tdcontent" ><input type="text" name="chewei" class="text" value="{$chewei}" size=20></td>
+        </tr>
+         <tr >
+          <td class="tditem"  >小区介绍： </td>
+          <td  class="tdcontent" colspan=3><textarea name="chrmark" class="text" style="width:500px;height:90px;" >{$chrmark}</textarea></td>
+        </tr>
+        
+        <tr>
+          <td  class="tdcontent"   colspan=4>周边配套、小区配套</td>
+        </tr>
+        <tr>
+          <td  class="tditem" >交通：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="jiaotong"  class="text" value="{$jiaotong}" size="48"></td>
+        </tr>
+        <tr>
+          <td  class="tditem">学校：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="xuexiao" class="text" value="{$xuexiao}" size="48"></td>
+        </tr>
+        <tr>
+          <td  class="tditem">购物：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="gouwu" class="text" value="{$gouwu}" size="48"></td>
+        </tr>
+        <tr>
+          <td class="tditem" >医院：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="yiyuan" class="text"  value="{$yiyuan}"size="48"></td>
+        </tr>
+        <tr>
+          <td class="tditem" >银行：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="yinghan" class="text" value="{$yinghan}" size="48"></td>
+        </tr>
+        <tr>
+          <td  class="tditem">餐饮：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="canyin" class="text" value="{$canyin}" size="48"></td>
+        </tr>
+        <tr>
+          <td class="tditem" >其他：</td>
+          <td class="tdcontent" colspan="3"><input type="text" name="qita" class="text" value="{$qita}" size="48"></td>
+        </tr>
+        
+        <tr >
+          <td   class="tdcontent"   colspan=4>其他信息： </td>
+        </tR>
+        <tr>
+          <td class="tditem"  >小区二手房均价<font color="#FF0000">*</font>： </td>
+          <td  class="tdcontent" colspan=3><input type="text" name="avgprice"  class="text" value="{$avgprice}" onKeyUp="value=value.replace(/\D+/g,'')">
+            元/平米 （必须填写数字，<font color=red>如果填0则表示“不详”</font>）</td>
+        </tr>
+		 <tr>
+          <td  class="tditem">专家点评：</td>
+          <td class="tdcontent" colspan="3"><textarea  name="peitao"  class="text" style="width:500px;height:80px;">{$peitao}</textarea></td>
+        </tr>
+       
+			<tr  > <td class="tditem"></td>
+			  <td class="tdcontent" colspan="3" ><input type=hidden name=gotourl value="{$gotourl}"><input type=hidden name=id value="{$id}">
+		 <input type="submit" name="Submit" value="继续下一页"> &nbsp;  <input type="submit" name="Submit"  onclick="over.value='1';" value="直接确定完成"><input type="hidden" name="over" value="0"> <input type="button" value=" 返 回 " onClick="javascript:location.href='xiaoqu.aspx';" />
+              
+			  </table>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>
+<script>
+function hid1()
+{
+	$$("str1").style.display="none";
+	$$("str2").style.display="block";
+}
+function hid2()
+{
+	$$("str3").style.display="none";
+	$$("str4").style.display="block";
+}
+</script>

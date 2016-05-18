@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/tuan2013.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/mt_h.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/mt_style.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$tgurl}">{$lanmuname}</a> &gt; {$chrtitle}</div>
+	<div class="content mt">
+		<div class="tuan_nav">
+			<ul class="clearfix">
+				<li ><a href="{$tgurl}">今日推荐</a></li>
+				<li><a href="{$tgurl}more.html">更多省啦</a></li>
+				<li><a href="{$tgurl}miaosha.aspx" target="_blank">限量秒杀</a><s class="s_new"></s></li>
+				<li class="{$current1}"><a href="{$tgurl}liucheng.html">省啦流程</a></li>
+				<li class="{$current2}"><a href="{$tgurl}wenti.html">常见问题</a></li>
+				<li class="{$current3}"><a href="{$tgurl}hezuo.html">商家合作</a></li>
+				<li><a href="{$SiteUrl}service/" target="_blank">省啦反馈</a></li>
+			</ul>
+			<div class="po"><a href="{$SiteUrl}member/mytgorder.aspx" target="_blank">[订单管理]</a></div>
+		</div>
+		
+		<div class="grid_mt clearfix">
+			
+				<div class="c_box">
+					<div class="hd">{$chrtitle}</div>
+					<div class="bd wqtg clearfix">
+						{$chrcontent}
+					</div>
+				</div>
+
+			
+		</div>
+	</div>
+	
+	{$Mh163k_团购频道_页脚}
+	<!-- 页脚 -->
+	{$bottom$}
+	<!-- 页脚 结束 -->
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script language="javascript">
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+</script>
+</body>
+</html>

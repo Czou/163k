@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的资讯管理--会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '我的资讯管理';
+</script>
+<style type="text/css">
+body { background-color:#eee;}
+.inner_html2 { padding:10px; margin:0; background-color:#fff; border-bottom:1px solid #ddd;}
+</style>
+{$top$}
+	<div class="content">
+		<div class="p_tabs clearfix">
+		   <ul>
+		    <li class="{$style2$}">{$url2$}</li>
+			<li class="{$style0$}">{$url0$}</li>
+			<li class="{$style1$}">{$url1$}</li>
+		   </ul>
+		</div>
+		
+		<div class="inner_html2"><a href="{$SiteUrl}member/myarticle.aspx?action=add" class="comn-submit btn_block">资讯投稿</a></div>
+		<div class="user_order_list">
+			<ul id="tgorderList">
+				<tag:Loop ListType="LISTJOBZHIXUNMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_zixun_Tr.html" />
+			</ul>
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+function delarticle(id){
+    if(confirm("该操作将不可逆！\n您确定要删除此篇文章吗？")){
+      	var url="myarticle.aspx?action=del&id="+escape(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		
+		$.ajax({url:url}).done(function(msg){
+			if(msg!=='1'){
+				alert(msg);	
+			}else{
+				alert("删除成功！");
+				window.location.href="myarticle.aspx";
+			}
+		}).error(function(e){alert(e);});
+    }
+}
+</script>
+</body>
+</html>

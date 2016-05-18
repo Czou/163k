@@ -1,0 +1,12 @@
+<div class="item2 post_item noPic" data-id="{$id}">
+	
+	<div class="cont">
+		<p class="tit"><input type="checkbox" class="checkbox displaysuper" name="ID" value="{$revertid}" /> {$title}</p>
+		<div style="padding:10px 0;"><div class="replaycontent1">{$chrmark}</div><p class="manage_replay display{$isrep}" data-isrep="{$isrep}" style="font-size:16px; color:#f60;">{$replaytruename}回复：<span class="replaycontent2">{$replaycontent}</span>　<span class="time" style="font-size:12px; color:#999;">{$replaydate}</span></p></div>
+		
+		<p class="ico"><span class="zan">{$xianhua}</span>{$chrname}　{$dtappenddate}</p>
+	</div>
+	<span class="state2 display2{$isopen}">待审</span><span class="state3 display3{$isopen}">已审</span>
+	
+	<div class="btn displaysuper2"><a href="#" onclick="return edit_replay(this,'{$revertid}');" class="btn_edit">编辑</a> <a href="#" onclick="return loadDelQuick(this,'{$revertid}');" class="global_btn">更多操作</a></div>
+</div>

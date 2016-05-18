@@ -1,0 +1,10 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$NID}</td>
+	<td><a href="{$liveurl}live_{$liveid}.html" target=_blank>{$chrtitle}</a></td>
+	<td>{$chrmark}</td>
+	<td>{$chrname}</td>
+	<td>{$Dtappenddate}</td>
+	<td>{$chrip}</td>
+	<td align="center"><a href='live.aspx?action=edit&id={$liveid}'>维护</a> <a href="javascript:del({$detailsid});">删除</a></td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$detailsid}"></td>
+</tr>

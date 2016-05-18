@@ -1,0 +1,12 @@
+﻿<form name="fott{$ID}tt"  method="post" action="?action=baosave" style="margin:0" encType=multipart/form-data >
+        <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> <input type="hidden" name="ID" value="{$ID}" />
+    	  <td ><a href="javascript:document.fott{$ID}tt.submit();">更新</a> <a href="qiyemoban.aspx">取消</a></td>
+    	  <td><input type="text" size="40"  name="mobanname" value="{$mobanname}" /></td>
+    	  <td>
+		  <input type="hidden" name="url1"  value="{$filepath}">
+		  <span id="td1">{$img},<span onclick="$('td2').style.display='';$('td1').style.display='none';" style='cursor:hand'>我要上传</span></span>
+		  
+		  <span id="td2" style="display:none"><input type="file" name="file"  /></span></td>
+      	  <td><input type="text"  name="intorder" value="{$intorder}" size="5"  class="agannum"  onkeyup="this.value=this.value.replace(/\D/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /></td>
+       </tr>
+	   </form>

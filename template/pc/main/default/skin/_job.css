@@ -1,0 +1,104 @@
+@charset "utf-8";
+.grid_01 .talent_search,.grid_01 .top_news,.find_job,.cv_vote,.find_talent,.published_job,.grid_01 .talent_search .hd li,.grid_01 .talent_search .hd li .selected,.grid_01 .top_news .ft,.grid_01 .top_news .hd span.tit,.grid_03 .main_module .hd,.recommend_personnel .ft { background-image:url(../images/job_bg.png); background-repeat:no-repeat;}
+.grid_02 .mingqi .hd { background-image:url(../images/bg_960.png); background-repeat:no-repeat;}
+.grid_03 .main_module .bd li { background-image:url(../images/icon.gif); background-repeat:no-repeat;}
+
+#content { position:relative; zoom:1;}
+.grid_01 .col_main { width:612px; float:left;}
+.grid_01 .col_sub { width:328px; float:right; background:#cc;}
+.grid_01 .menu_box { float:left; width:350px; height:184px; background-color:#f7fcfe; border:1px solid #dcdddd; border-right:0;}
+.grid_01 .menu_box li { float:left; width:153px; text-align:left; margin:10px 0px 10px 10px; display:inline; padding-right:10px;}
+.grid_01 .menu_box li.bor { border-right:1px dashed #afafb0; position:relative;}
+.grid_01 .menu_box li a.menu { margin-bottom:10px; display:block; width:154px; height:47px; text-indent:-999em; overflow:hidden;}
+.find_job { background-position:0 -218px;}
+.cv_vote { background-position:-154px -218px;}
+.find_talent { background-position:-308px -218px;}
+.published_job { background-position:-462px -218px;}
+.grid_01 .menu_box li p.tit { font-size:14px; color:#333; font-weight:bold;padding-top:6px;}
+.grid_01 .menu_box li p.cont { color:#666;}
+.grid_01 .talent_search { float:left; width:261px; height:186px; background-position:0 -32px; position:relative;}
+.grid_01 .talent_search .hd { position:absolute; top:6px; left:6px; z-index:999;}
+.grid_01 .talent_search .hd li { float:left; background-position:-589px -73px; height:25px; width:71px; line-height:25px;}
+.grid_01 .talent_search .hd li a { color:#796652;}
+.grid_01 .talent_search .hd li.selected { background-position:-589px -48px; height:25px;}
+.grid_01 .talent_search .hd li.selected a {color:#d70404; font-weight:bold; font-size:14px;}
+.grid_01 .talent_search .bd { border:1px solid #f4c16c; background-color:#fff; width:247px; height:148px; position:absolute; top:30px; left:6px;}
+.grid_01 .top_news { position:relative; text-align:left;}
+.grid_01 .top_news .hd { padding:11px 0 0 10px;}
+.grid_01 .top_news .hd span.tit { display:block; background-position:-589px -32px; height:16px; width:67px; font-size:14px; font-weight:bold; padding-left:10px; line-height:18px; overflow:hidden;}
+.grid_01 .top_news .bd { padding:15px; padding-bottom:0;}
+.grid_01 .top_news .bd li { line-height:22px; height:22px; overflow:hidden;}
+.grid_01 .top_news .bd li span { color:#999;}
+.grid_01 .top_news .ft { position:absolute; top:10px; right:10px; background-position:-589px -98px; width:71px; height:20px; line-height:20px; text-align:left; text-indent:.7em;}
+.grid_01 .top_news .ft a { color:#909090;}.grid_01 .top_news .ft a:hover { color:#666;}
+.grid_02 .mingqi { margin-top:10px;}
+.grid_02 .mingqi .hd { background-position:0 -211px; height:25px; line-height:25px; text-align:left; text-indent:.5em; font-size:14px; color:#fff; font-weight:bold;}
+.grid_02 .mingqi .bd { padding:5px 0 0 3px;}
+.grid_02 .mingqi .bd li { float:left; display:inline; margin:0 0 3px 2px; height:62px; border:1px solid #ddd; text-align:center;}
+.grid_02 .mingqi .bd li img { vertical-align:top;}
+.grid_02 .mingqi .bd li a { color:#f00; line-height:22px;}
+.grid_02 .mingqi .ft { position:absolute; top:4px; right:8px;}
+.grid_02 .mingqi .ft a { color:#1e3986;}
+.grid_03 { margin-top:10px;}
+.grid_03 .col_main { float:right; width:664px;}
+.grid_03 .col_sub { float:left; width:276px;}
+.grid_03 .main_module { position:relative;}
+.grid_03 .main_module .hd { background-position:0 0; height:23px; text-align:left; padding:9px 0 0 26px; font-weight:bold; font-size:14px; color:#2e609c;}
+.grid_03 .k2 .hd { background-position:0 -288px!important;}
+.grid_03 .main_module .bd { border:1px solid #6296d2; border-top:0; padding:15px; padding-top:5px;}
+.grid_03 .main_module .bd ul { clear:both; text-align:left; padding:10px; border-bottom:1px dotted #b7b7b7;}
+.grid_03 .main_module .bd li { float:left; width:188px; overflow:hidden; padding-left:15px; background-position:0 -291px;}
+.grid_03 .k2 .bd li { background-position:0 -244px!important;}
+.grid_03 .main_module .bd li span { display:block; width:180px; overflow:hidden; line-height:24px; height:24px;}
+.grid_03 .main_module .bd li span.title { font-size:14px;}
+.grid_03 .main_module .bd li span.other a { color:#f30;}
+.grid_03 .main_module .bd li span.other img { vertical-align:middle;}
+.grid_03 .k2 .bd li span.other a { color:#277a0b!important;}
+.grid_03 .main_module .ft { position:absolute; top:8px; right:13px;}
+.news_module { text-align:left; position:relative; border:1px solid #b8cbe4;}
+.news_module .hd { background:url(../images/bg_repeatX.png) repeat-x 0 -138px; height:23px; padding-top:3px; text-indent:.5em; font-size:14px; font-weight:bold; color:#2a5792;}
+.news_module .hd span.tit { display:block; background:url(../images/news_tit.png) no-repeat 6px 0; padding-left:8px;}
+.news_module .bd { padding:10px;}
+.news_module .bd li { padding-left:8px; background:url(../images/dian.gif) no-repeat 0 8px; font-size:12px; line-height:20px; height:20px; overflow:hidden;}
+.news_module .bd li span { padding-left:8px; color:#999; font-size:12px;}
+.news_module .bd li.line_ge { background:url(../images/line_xu.gif) repeat-x 0 8px; height:16px; line-height:14px;}
+.news_module .ft { position:absolute; top:4px; right:5px;}
+.news_module .ft a { color:#2a5792; text-decoration:underline;}.news_module .ft a:hover { color:#4375b5;}
+.recommend_personnel { position:relative; border:1px solid #d7d7d7;}
+.recommend_personnel .hd { background:url(../images/bg_repeatX.png) repeat-x 0 -164px; height:32px; line-height:32px; text-align:left; padding-left:10px; font-size:14px; font-weight:bold; color:#2362a3;}
+.recommend_personnel .bd { padding-bottom:0; text-align:center; overflow:hidden; width:252px; margin:0 auto;}
+.recommend_personnel .bd li { float:left; width:84px; height:128px;}
+.recommend_personnel .bd li b { display:block; margin-top:5px;}
+.recommend_personnel .bd li span.title { display:block; width:80px; height:22px; line-height:22px; overflow:hidden;}
+.recommend_personnel .ft { position:absolute; top:5px; right:5px; background-position:0 -265px; width:109px; height:23px; line-height:23px; font-size:14px; font-weight:bold; text-align:left; padding-left:8px;}
+.recommend_personnel .ft a {color:#fff;}.recommend_personnel .ft a:hover {color:#a4d3ff; text-decoration:none;}
+.grid_01 .top_news { width:328px; height:186px; background-position:-261px -32px;}
+.job_search1 { margin-top:12px; text-align:left; margin-left:18px; zoom:1;}
+.job_submit1 { margin-right:20px; width:65px; height:24px; border:0; cursor:pointer; background:url(../images/job_bg.png) no-repeat -589px -118px;}
+.choose{ width:100px; height:25px; margin:0;}
+.choose input { font-size:12px; text-align:left; border:1px solid #b8d4e7; border-top:1px solid #80888f; border-left:1px solid #80888f; color:#8d8d8d; line-height:14px; height:18px; padding-left:5px;}
+.choose input.searchtype{ width:209px; background:url(../images/search_input.gif) no-repeat 192px 6px;}
+.choose input.searchtext { width:202px; height:15px; line-height:15px;}
+.choose ul { position:absolute; left:18px; border:2px solid #0099FF; background:#fff; width:205px; display:none; list-style:none; z-index:999; FILTER: alpha(opacity=90); moz-opacity: 0.9; opacity: 0.9;}
+ul.ch_1 { top:30px;}
+ul.ch_2 { top:55px;}
+ul.ch_3 { top:80px;}
+.choose li{ width:100%; line-height:20px;}
+.choose li.pad { text-indent:1em;}
+.choose li a { display:block; height:20px; color:#333; text-decoration:none; text-align:left; padding-left:5px;}
+.choose li.pad a { color:#666;}
+.choose li a:hover{ background:#7b9dd0; color:#fff;}
+.service_box { margin-top:10px; border:1px solid #ddd;}
+.service_box h3 { background-image:url(../images/zi.png); background-repeat:no-repeat;}
+.service_box ul li.ser_tel,.service_box ul li.ser_qq,.service_box ul li.ser_qqs { background-image:url(../images/icon.gif); background-repeat:no-repeat;}
+.service_box { text-align:left; padding:10px 0 0 5px;}
+.service_box h3 { background-position:5px -99px; width:62px; height:15px; text-indent:-999em; overflow:hidden; display:block;}
+.service_box ul { padding:10px; padding-top:5px;}
+.service_box ul li { line-height:23px; color:#333; padding-left:28px; zoom:1; margin-top:0px;}
+.service_box ul li.ser_tel { background-position:5px 6px;}
+.service_box ul li.ser_qq { background:url(../images/qq_online.gif) no-repeat 0 3px;}
+.service_box ul li.ser_qqs { background-position:7px -20px;}
+.service_box ul li a:link { color:#36c; text-decoration:underline;}
+.service_box ul li a:hover { color:#f30;}
+
+

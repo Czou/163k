@@ -1,0 +1,19 @@
+﻿ <form name="form1" method="post" action="?action=edit">
+ <tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="center">{$sid}</td>
+	<td align="center">{$cname}</td>
+	<td align="center"><input type="text" name="chrname" value="{$chrname}" /></td>
+	<td align="center"><input type="password" name="chrpwd" value="{$chrpwd}" /></td>
+	<td align="center"><input type="text" name="chrurl" value="{$chrurl}" /></td>
+		<td align="center"><p class="getnum_{$NID}">{$num}</p> {$caozuo}</td>
+	<td align="left">
+		<input type="checkbox" name="kill1" value="1" {$checked1}>移动<br>
+		<input type="checkbox" name="kill2" value="2" {$checked2}>联通<br>
+		<input type="checkbox" name="kill3" value="3" {$checked3}>电信<br>
+		<input type="checkbox" name="kill4" value="4" {$checked4}>大(小灵通)<br>
+		<input type="checkbox" name="kill5" value="5" {$checked5}>群(单)发专用
+		</td>
+	<td align="center">{$chrtel}</td>
+	<td align="center"><input type="hidden" name="id" value="{$NID}"><input type="hidden" name="iskill" value="{$iskill}"><input type="submit" name="submit" class="global_btn" value="保存"> </td>
+</tr>
+</form>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>店铺展示图管理--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<style>
+#xiangce{ width:100%; }
+#xiangce ul{ width:100%;margin:0; padding:0;}
+#xiangce li{
+	padding:0;
+	clear:none;
+	font-size:12px;
+	margin:0 18px 15px 16px;
+	float:left;
+	width:160px;
+	border-bottom:none;
+	position:relative;
+	z-index:1;
+	*zoom:1;
+}
+#xiangce .move_prev,#xiangce .move_next { display:block; position:absolute; top:0; left:0; width:40px; background:#000; opacity:.8; color:#fff; font-weight:normal; padding:2px 0; text-align:center;}
+#xiangce .move_next { left:41px;}
+</style>
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 店铺展示图管理</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">我的店铺展示图管理</div>
+  
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  我的店铺展示图列表,您可以修改和删除! <br />
+                </td>
+              </tr>
+            </table>
+ <div class="bigtitle" style="margin-bottom:15px;"><a href="{$SiteUrl}member/myshop.aspx?action=picadd#tt9" class="global_btn_blue" style="font-size:14px; padding:10px 20px;background-position:0 -64px">上传店铺图片</a></div>
+            <span >
+            <div class="ptag">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <!--<td style="width:100px" class="{$style0$}">{$url0$}</td><td class="card_line"></td><td style="width:100px" class="{$style1$}">{$url1$}</td><td class="card_line"></td>-->
+                  <td style="width:100px" class="{$style2$}">{$url2$}</td>
+                  <td class="card_line"></td>
+                  <td>&nbsp;<img src="{$Default_tplPath}member/images/icon_arrow.gif" alt="" />点击左侧书签进行切换</td>
+                </tr>
+              </table>
+            </div>
+            <br />
+            </span>
+            <table id="ProOrderList" width="100%">
+              <tr>
+                <td><table border="0" cellpadding="1" cellspacing="1"  width="100%">
+                    <tr>
+                      <td><div id="xiangce">
+                          <ul>
+                            <tag:Loop ListType="LISTmypicMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_mypic_Tr.html" />
+                          </ul>
+                        </div></td>
+                    </tr>
+                  </table>
+                  <div class="manu clearfix" style="text-align:center;"> {$PageSplit} </div></td>
+              </tr>
+            </table>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>var siteUrl = '{$SiteUrl}';</script>
+<script src="{$Default_tplPath}js/movePic2014.js"></script>
+<script>
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+}) 
+</script>
+
+</body>
+</html>

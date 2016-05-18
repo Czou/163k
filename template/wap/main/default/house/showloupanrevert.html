@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>在线问房-{$Loupan_chrloupan}-{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/mb-index.css" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/house_mb_n.css" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$fcurl}xq_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>联系售楼部</h4>
+  <p>{$Loupan_shouloutel}</p>
+ </div>
+ <div class="phone"><a href="tel:{$Loupan_shouloutel}">{$Loupan_shouloutel}</a></div>
+ <div class="addtg"><a href="javascript:void(0);" onClick="return showloupanAddTG('{$Loupan_loupanid}');">加入团购</a></div>
+</div>
+<div class="o_main mar_b_50">
+ <!--home focus-->
+ <div class="home_focus">
+  <div id="scroller">
+  	 <ul style="display:none;" id="slide_data">
+	   {$House_filepath}
+	  </ul>
+    <div id="slide" class="clearfix" style="display:none;">
+        <div id="content">
+         
+        </div>
+        <div class="num" id="indicator">
+        </div>
+        <div class="total">共<span id="total"></span>张</div>
+    </div>
+    <span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+  </div>
+ </div>
+ <!--户型图-->
+ <div class="star_nav" id="star_nav">
+  <ul data-scrollable="x" class="clearfix" style="width:450px;">
+   <li><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+   <li><a href="fang_{$Loupan_loupanid}.html">户型图</a></li>
+   <li><a href="video_{$Loupan_loupanid}.html">视频</a></li>
+   <li><a href="pic_{$Loupan_loupanid}.html">相册</a></li>
+   <li><a href="zb_{$Loupan_loupanid}.html">周边配套</a></li>
+   <li class="current"><a href="revert_{$Loupan_loupanid}.html">在线问房</a></li>
+  </ul>
+  <div class="more"><span></span></div>
+ </div>
+<div class="user_reviews">
+	<div class="title"><span>在线问房</span><div class="ComentNum" id="show_total_revert">0</div></div>
+	<div id="showcomment">正在加载数据，请稍等......</div>
+	<form id="myform">
+		<div class="write2014">
+			<ul id="login_info_cm" class="login_info_cm clearfix"></ul>
+			<input type="hidden" id="isrep" value="" />
+			<input type="hidden" id="istg" value="" />
+			<input type="hidden" id="parentid" value="" />
+			<div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+			<div class="cmt_control clearfix">
+				<div class="right">　<button type="submit" class="cmt_btn">提交</button></div>
+				<div class="left">文明上网 礼貌发帖 仅限300字</div>
+			</div>
+		</div>
+	</form>
+</div>
+ {$bottom$}
+<div class="mask" id="mask" style="display:none;"></div>
+<img class="picInner" id="picInner" style="display:none;" src="" alt="" />
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/housePic.js"></script>
+<script src="{$Default_tplPath}js/wap_comments.js"></script>
+<script language="javascript">
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$Loupan_loupanid}';
+window['STYLEID'] = '7';
+
+  (function($){
+
+	//getnum('{$activeid}');
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+		  
+	  
+  var list = $('#slide_data').find('li');
+  var w_w = $(window).width();
+	if(list.length > 0){
+		$('#slide').show();
+		var txt = '';
+		var txt2 = '';
+		list.each(function(i){
+			txt2 += '<div class="cell"><img src="'+$(this).find('img').attr('src')+'" /></div>';
+			if(i === 0){
+				txt += '<li class="active">1</li>';
+			}else{
+				txt += '<li>'+(i+1)+'</li>';
+			}
+		});
+		$('#content').html(txt2);
+		var hei_arr = [];
+		$('#content').find('img').each(function(){
+			$(this).imagesLoaded(function(){		  
+				hei_arr.push($(this).height());
+			});	
+		});
+		$(window).load(function (){
+			var min_height=Math.min.apply(null, hei_arr);
+			$('#content').find('img').css({'height':min_height+'px'});
+		});
+		$('#indicator').html(txt);
+		$('#total').html(list.length);
+		setTimeout(function(){new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:5000,lazyIMG:!!0});},20);
+	}	
+	
+	
+  })(jQuery);
+document.addEventListener('DOMContentLoaded',function(){
+	setTimeout(function(){
+		$('#star_nav').find('.current')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.current').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+},false);
+   </script>
+<div id="inner_iframe" style="display:none"></div>
+<div class="mask" id="mask" style="display:none;"></div>
+</body>
+</html>

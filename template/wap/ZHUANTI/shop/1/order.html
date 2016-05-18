@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>团购商品订单</title>
+<style type="text/css">
+<!--
+body {
+	padding: 0px;
+	margin-top: 1px;
+	margin-left: 1px;
+}
+#center {
+	width: 930px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border: 1px solid #bacce2;
+}
+.title {
+	background-image: url({$tplPath}images/tgxqbg.jpg);
+	background-repeat: repeat-x;
+	height: 51px;
+	font-size: 14px;
+	color: #101a5f;
+}
+.title a {
+	color: #1f0dd3;
+	text-decoration: underline;
+}
+.content {
+	padding-left: 70px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #e2eaf3;
+}
+.content_1 {
+	float: left;
+	width: 600px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.content_1 .hj {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.content_1 strong {
+	color: #0e1446;
+}
+.content_1 b {
+	color: #c83406;
+}
+.content_2 {
+	line-height: 24px;
+	float: right;
+	width: 170px;
+	padding-right: 15px;
+	font-size: 14px;
+	color: #a7a7aa;
+	margin-top: 20px;
+}
+.content_2 span {
+	color: #e91116;
+}
+.clear {
+	clear: both;
+}
+a:hover {
+	color: #FF0000;
+}
+.content_11 {	float: left;
+	width: 580px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.cont {
+	padding-left: 70px;
+	margin-bottom: 10px;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #e2eaf3;
+}
+.cont_1 {
+	float: left;
+	width: 600px;
+	line-height: 24px;
+	font-size: 14px;
+	color: #a7a7aa;
+}
+.nr {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.nr em {
+	font-style: normal;
+	color: #FF0000;
+}
+.nr b {
+	color: #c83406;
+}
+.input0 {
+	border: 1px solid #b9cde3;
+	height: 22px;
+	vertical-align: middle;
+	width: 150px;
+	line-height: 22px;
+}
+textarea {
+	border: 1px solid #b9cde3;
+	height: 35px;
+	width: 496px;
+	vertical-align: middle;
+}
+.cont_2 {
+	line-height: 24px;
+	float: right;
+	width: 80px;
+	padding-right: 80px;
+	font-size: 14px;
+	color: #a7a7aa;
+	margin-top: 20px;
+}
+.cont_2 span {
+	color: #FFFFFF;
+	background-color: #ae2020;
+	padding: 2px;
+	width: 80px;
+	float: left;
+	margin-top: 2px;
+	margin-bottom: 1px;
+}
+-->
+</style>
+</head>
+<SCRIPT language=javascript src="{$tplPath}js/common.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT language=javascript src="{$tplPath}js/addorder.js"></SCRIPT>
+<body>
+<div id="center">
+<form id="Main" name="Main" method="post" onsubmit="return checkaddorder();">
+<div class="title">
+<div style="float:left;margin-left:20px;margin-top:10px;"><img src="{$tplPath}images/bz.jpg" width="33" height="34" align="absmiddle" />直接购买<a href="shop/shop_{$goodid}.html" target="_blank">{$chrgood}</a></a>无需等待，照样享受超低的团购价格</div>
+<div style="float:right;margin-right:20px;margin-top:20px;"><font color="#bc5864">有问题吗？</font>：<a href="{$siteqqkey1}"  target=_blank ><img src="{$tplPath}images/qq_onlineaa.gif" align="absmiddle" border=0/>{$siteqq1}</a><a href="{$siteqqkey2}"  target=_blank ><img src="{$tplPath}images/qq_onlineaa.gif" align="absmiddle" border=0/>{$siteqq2}</a></div>
+<div class="clear"></div>
+</div>
+<div class="content">
+<div class="content_1"><input type="hidden" name="shopid" value="{$goodid}">
+<div class="hj"><b>第一步：请选择合适、方便的交易方式：</b></div>
+<div class="hj"><input type="radio" name="styleid" value="0" checked onclick="set(1)"/>
+<strong>网上交易</strong> 小件商品、虚拟类物品建议选择该方式 </div>
+<div class="hj"><input type="radio" name="styleid" value="2" onclick="set(2)"/>
+<strong>上门自取</strong> 直接到该商品供货商店铺或指定地点看货和交易，具体细节下单后与客服联系。</div>
+<div class="hj"><input type="radio" name="styleid" value="3" onclick="set(3)"/>
+<strong>送货上门</strong> 我们将货送达您指定的地点。 </div>
+<div class="hj"><input type="radio" name="styleid" value="1" onclick="set(4)"/>
+<strong>预约交易</strong> 双方约定时间和地点进行看货和交易，具体细节下单后与客服联系。</div>
+
+
+
+
+</div><input type="hidden" name="typeid" value="0">
+<div class="content_2"><span>1、选择交易方式</span><br />
+<span>2、填写订单</span><br />
+3、联系与确认交易细节<br />
+4、看货与交易<br />
+5、售后服务</div>
+<div class="clear"></div>
+</div>
+<div class="cont">
+<div class="cont_1">
+<div class="nr"><b>第二步：请填写订单信息</b></div>
+<div class="nr"><span>订单数量：</span>
+  <input name="intnum" id="intnum" type="text" value="1" class="input0" onKeyUp="if(isNaN(value))execCommand('undo')" />
+ <span id=""><em>*</em> 请填写您要订购的数量</span> </div>
+<div class="nr" id="tr1" name="tr1"><span>联 系 人：</span>
+  <input name="chrman" id="chrman" type="text" value="" class="input0" onblur="checkorderchrman()"  onpropertychange="with(this)if(/[^\u3447-\uFA29]/ig.test(value))value=value.replace(/[^\u3447-\uFA29]/ig,'')"//>
+ <span id="chkchrman"><em>*</em> 请填写联系人真实姓名</span> </div>
+
+<div class="nr" id="tr2"  name="tr2" style="display:none"><span>取货时间：</span>
+  <input name="quhuodate" id="quhuodate" type="text" value="" class="input0" onblur="checkorderquhuodate()"/>
+ <span id="chkquhuodate"><em>*</em> 请填写取货时间</span> </div>
+<div class="nr" id="tr2_1"  style="display:none"><span>取 货 人：</span>
+  <input name="quhuo" id="quhuo" type="text" value="" class="input0" onblur="checkorderquhuo()"/>
+ <span id="chkquhuo"><em>*</em> 请填写取货人</span> </div>
+<div class="nr" id="tr3" ><span id="shouhuodizhi">收货地址：</span>
+  <input name="chraddress" id="chraddress" type="text" value="" class="input0" onblur="checkorderchraddress()"  />
+ <span id="chkchraddress"><em>*</em> <span id="shouhuodizhi1">请填写收货地址</span></span> </div>
+<div class="nr" id="tr3_1"  style="display:none"><span>邮政编码：</span>
+  <input name="chrcode" id="chrcode" type="text" value="" class="input0" onblur="checkorderchrcode()"/>
+ <span id="chkchrcode"><em>*</em> 请填写邮政编码</span> </div>
+<div class="nr" id="tr4"  style="display:none"><span>预约地点：</span>
+  <input name="yuyuedi"  id="yuyuedi"type="text" value="" class="input0" onblur="checkorderyuyuedi()"/>
+ <span id="chkyuyuedi"><em>*</em> 请填写预约地点</span> </div>
+<div class="nr" id="tr4_1" style="display:none"><span>预约时间：</span>
+  <input name="yuyueshi" id="yuyueshi" type="text" value="" class="input0" onblur="checkorderyuyueshi()"/>
+ <span id="chkyuyueshi"><em>*</em> 请填写预约时间</span> </div>
+
+<div class="nr"><span>固定电话：</span>
+  <input name="chrtel" id="chrtel" type="text" value="" class="input0" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/>
+  &nbsp;  固定电话联系方式 </div>
+ <div class="nr"><span>手机号码：</span>
+   <input name="chrmobile" id="chrmobile" type="text" value="" class="input0" onblur="checkorderchrmobile()" onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false"/>
+  <span id="chkchrmobile"><em>*</em>请填写手机号码，方便及时联系</span> </div>
+ <div class="nr"><span>联系 Q Q：</span>
+   <input name="chrqq" id="chrqq" type="text" value="{$chrqq}" class="input0"/>
+  &nbsp; 常用网络联系方式</div>
+ <div class="nr"><span>简短附言：</span><input type="hidden" name="order_flag" id="order_flag" value="0" />
+   <textarea name="chrmark" id="chrmark" onblur="checkorderchrmark()"></textarea><span id="chraamark">(100字以内)</span
+ ></div>
+</div>
+<div class="cont_2">
+<span>真正零风险</span><br />
+<span>超低价格</span><br />
+<span>品质保障</span><br />
+<span>售后保障</span></div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div style="float:left;width:700px;text-align:center"><input type="image" src="{$tplPath}images/tgqr.gif" height="27" /> &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp; <img src="{$tplPath}images/qktb.gif" style="cursor:hand" onclick="reset()"/></div>
+<div style="float:right;margin-right:10px;"><img src="{$tplPath}images/close.gif" onclick="parent.LoginHide();" style="cursor:hand"/></div>
+<div class="clear"></div>
+</form>
+</div>
+<script>
+function set(val){
+	$$("typeid").value=parseInt(val)-1;
+	if(val==1){
+		$$("shouhuodizhi").innerHTML="收货地址：";
+		$$("shouhuodizhi1").innerHTML="请填写收货地址";
+	}
+	else if(val==3){
+		$$("shouhuodizhi").innerHTML="送货地址：";
+		$$("shouhuodizhi1").innerHTML="请填写送货地址";
+	}
+	for(var i=1;i<5;i++){
+		if(i==val){
+			if($$("tr"+i)){
+				$$("tr"+i).style.display="";
+			}
+			if($$("tr"+i+"_1")){
+				$$("tr"+i+"_1").style.display="";
+			}
+		}else{
+			if($$("tr"+i)){
+				$$("tr"+i).style.display="none";
+			}
+			if($$("tr"+i+"_1")){
+				$$("tr"+i+"_1").style.display="none";
+			}
+		}
+	}
+	if(val==3 || val==4){
+		$$("tr1").style.display="";
+	}
+	if(val==1 ){
+		$$("tr3").style.display="";
+	}
+}
+</script>
+</body>
+</html>

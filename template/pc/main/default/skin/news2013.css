@@ -1,0 +1,86 @@
+@charset "utf-8";
+.list_text li,.search .bar,.focus .list li,.list_dd li,.mod_03 .bd li,.slide .prev,.slide .next { background:url(../images/sp2013.gif) no-repeat 0 0;}
+
+.grid_k01 .main_wrap { margin:0 290px 0 480px;}
+.grid_k01 .col_sub { width:460px; margin-left:-100%;}
+.grid_k01 .col_extra { width:270px; margin-left:-270px;}
+.grid_k02 .main_wrap { margin:0 280px 0 0; width:920px; overflow:hidden;}
+.grid_k02 .col_sub { width:270px; margin-left:-270px;}
+
+.mod_01 { border:1px solid #cfcfcf; border-top:2px solid #044c82;}
+.mod_01 .hd { border-bottom:1px solid #cfcfcf; background:url(../images/sp_repeat_x_2013.gif) repeat-x 0 -64px; height:29px; line-height:29px; padding:0 8px;}
+.mod_01 .hd h3 { font-size:14px; color:#333;}
+.mod_02 {}
+.mod_02 .hd { border-bottom:1px solid #cfcfcf;}
+.mod_02 .hd li { float:left; padding:0 12px; height:32px; line-height:32px; font-size:14px; font-weight:bold;}
+.mod_02 .hd .selected { position:relative; padding-left:11px; padding-right:11px; border-top:2px solid #044c82; height:31px; line-height:28px; margin-bottom:-1px; background-color:#fff; border-left:1px solid #cfcfcf; border-right:1px solid #cfcfcf;}
+
+.wp { width:930px; overflow:hidden;}
+.mod_03 { float:left; width:455px; display:inline; margin-right:10px;}
+.mod_03 .hd { border-top:5px solid #d3d3d3; border-bottom:1px solid #d3d3d3; font-size:16px; padding:7px 3px; color:#333;}
+.mod_03 .hd .more { display:inline; margin:4px 0 0 0; font-size:12px;}
+.mod_03 .hd .more a { margin-left:8px;}
+.mod_03 .bd { padding:5px 9px; height:234px;}
+.mod_03 .bd li { padding-left:12px; background-position:-853px -253px; font-size:14px; line-height:24px; height:24px; overflow:hidden;}
+.mod_03 .bd .inner { padding:10px 10px 10px 100px;}
+.mod_03 .bd .topic { font-size:16px; font-weight:bold; padding:0; background:none; margin-bottom:3px;}
+.mod_03 .bd .img { width:100px; float:left; display:inline; margin:4px 15px 0 -100px; font-size:12px; height:auto; padding-left:0; background:none;}
+.mod_03 .bd .img .title { margin-top:5px; display:block; line-height:18px; height:36px; overflow:hidden; cursor:pointer;}
+.mod_03 .bd .img img { vertical-align:top; width:100px; height:100px;}
+.mod_03 .bd .ft { border-top:1px dotted #ccc; padding-top:8px;}
+
+.list_text { padding:8px 12px 11px;}
+.list_text li { line-height:26px; height:26px; overflow:hidden; font-size:14px; padding-left:12px; background-position:-853px -253px;}
+.list_text .date { color:#999; font-size:12px;}
+.search { padding:12px 0 15px 13px;}
+.search label { margin:0 12px 0 3px; vertical-align:middle;}
+.search input { vertical-align:middle;} 
+.search .bar { margin-top:12px; width:242px; height:30px; background-position:-29px -380px;}
+.search .bar .s_input { vertical-align:top; border:0 none; width:162px; background-color:transparent; float:left; padding:6px 4px;}
+.search .bar .s_button { vertical-align:top; float:left; text-indent:-9999px; width:72px; height:30px; cursor:pointer; background-color:transparent; border:0 none;}
+.adv { margin-top:10px; padding:5px 10px; border:1px solid #ccc;}
+.adv img { display:block; margin:5px 0; vertical-align:top;}
+.focus {}
+.focus h2 { font-size:18px; font-weight:bold; text-align:center; height:27px; overflow:hidden;}
+.focus h2 a { color:#c00;}.focus h2 a:hover { color:#d00;}
+.focus .inner li { float:left; width:200px; display:inline; margin-right:10px; line-height:22px; overflow:hidden; height:22px;}
+.focus .inner { margin-top:5px;}
+.focus .list { padding-top:6px; margin-top:8px; font-size:14px; border-top:1px dotted #ccc;}
+.focus .list li { line-height:27px; height:27px; overflow:hidden; padding-left:12px; background-position:-853px -253px;}
+
+.list_pic { padding:10px 0 10px 5px;}
+.list_pic li { float:left; width:100px; margin:8px 16px; display:inline;}
+.list_pic .tit { display:block; height:32px; line-height:16px; color:#36c; margin-top:4px; overflow:hidden; cursor:pointer;}
+.list_pic a:hover .tit { color:#d00; text-decoration:underline;}
+.list_pic img { vertical-align:top;}
+
+.list_ph { padding:5px 0; background:url(../images/news2013_sorting.png) no-repeat 5px 11px;}
+.list_ph li { height:30px; line-height:30px; border-bottom:1px dotted #ccc; overflow:hidden; vertical-align:top; padding-left:30px;}
+.list_ph a { float:left; width:220px; vertical-align:baseline;}
+.list_ph .num { float:left; display:inline; margin:0 8px 0 6px; width:20px; text-align:center; margin-top:6px; background-color:#747474; color:#fff; line-height:18px;}
+.list_ph .num.red { background-color:#c00;} 
+
+.list_dd { padding:5px 10px 10px;} 
+.list_dd li { line-height:30px; height:30px; border-bottom:1px dotted #ccc; overflow:hidden; vertical-align:top; padding-left:12px; background-position:-853px -252px;} 
+
+.dot li { background-color:#777; border-radius:5px;}
+.dot li.on { background-color:#fff;}
+
+.slide{ position:relative; z-index:1; zoom:1; height:285px; overflow:hidden;}
+.slide .bg { width:460px; height:40px; position:absolute; z-index:3; background-color:#000; left:0; bottom:0; _bottom:-1px; FILTER: alpha(opacity=70); moz-opacity: 0.7; opacity: 0.7;}
+.slide .prev,.slide .next { position:absolute; z-index:3; top:120px; display:block; width:20px; height:35px; overflow:hidden; cursor:pointer; FILTER: alpha(opacity=60); moz-opacity: 0.6; opacity: 0.6;}
+.slide .prev { background-position:-29px -411px; left:5px;}
+.slide .next { background-position:-51px -411px; right:5px;}
+.slide .prev:hover,.slide .next:hover { FILTER: alpha(opacity=80); moz-opacity: 0.8; opacity: 0.8;}
+
+.slide .dot{ position:absolute; z-index:5; bottom:14px; right:6px;}
+.slide .dot li{ display:inline; float:left; width:8px; height:8px; overflow:hidden; margin-right:6px; text-indent:-999px; cursor:pointer;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:460px; height:285px;}
+.slide .picList .title { position:absolute; z-index:4; bottom:0; _bottom:-1px; left:0; height:40px; line-height:40px; font-size:16px; font-weight:bold; padding-left:5px; width:455px; color:#ccc;}
+.slide .picList .title a { color:#ccc;}
+
+
+
+
+

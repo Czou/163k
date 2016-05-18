@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我们的家乡-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_newsList.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/hometown2013.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 我们的家乡</div>
+	<div class="mod_1">
+		<div class="tab">
+			<ul class="clearfix">
+				<li class="select"><a href="#">我们的家乡</a></li>
+				<li><a href="#">自定义页面</a></li>
+				<li><a href="#">自定义页面</a></li>
+				<li><a href="#">自定义页面</a></li>
+			</ul>
+		</div>
+		<div class="bd">
+			<h2>我们的家乡</h2>
+			<div class="inner">
+				{$chrcontent}
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

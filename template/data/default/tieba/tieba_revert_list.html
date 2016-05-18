@@ -1,0 +1,10 @@
+﻿			<div class="comment_item">
+				<div class="comment_face"><img src="{$chrpic}" alt="" /></div>
+				<div class="comment_box">
+					<div class="comment_user clearfix"><span class="right">{$dtappenddate}</span> [{$PNum}楼] <span class="userName">{$chrname}</span></div>
+					{$repsmall}
+					<p class="comment_content">{$chrmark}</p>
+					<div class="comment_vote"><a href="#" onclick="return edit_replay(this,'{$revertid}','{$isadmin}');" class="edit_btn display{$ismanage}">回评</a>　<a href="#" onclick="return loadDelQuick(this,'{$revertid}');" class="edit_btn display{$isadmin}">更多</a>　<a href="#" onclick="return putRevertPage(this,'{$revertid}','xianhua=1');" class="zan_btn">赞(<em class="num">{$xianhua}</em>)</a>　<a href="#" onclick="return loadRevertReplay(this,'{$revertid}','{$parentid}');" class="replay_btn replay_life">回复</a><!--<a href="#" onclick="return putRevertPage(this,'{$revertid}','isyes=1');">支持(<em class="num">{$number1}</em>)</a>,<a href="#" onclick="return putRevertPage(this,'{$revertid}','isyes=2');">反对(<em class="num">{$number2}</em>)</a>--><!--<span class="display{$isrep}">官方回复:{$isrep}{$replaycontent}{$replaydate}<br></span><p color="blue"  class="display{$huifunum}">网友回复:</p>{$repsmall_rep}--></div>
+					<p class="manage_replay display{$isrep}" data-isrep="{$isrep}">{$replaytruename}回复：{$replaycontent}　<span class="time">{$replaydate}</span></p>
+				</div>
+			</div>

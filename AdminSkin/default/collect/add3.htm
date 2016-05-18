@@ -1,0 +1,165 @@
+﻿<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>&nbsp;采集管理</td>
+          <td align="right">&nbsp;</td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center"><a href="Admin_Collect.aspx">采集管理首页</a> | <a href="Admin_Collect.aspx?Action=Add">采集添加</a> | <a href="Admin_Inflow.aspx">采集入库</a></td>
+        </tr>
+        </tbody>
+        
+      </table>
+      <table align="center" cellpadding="4" cellspacing="1" class="toptable grid" >
+        <form name="Form" action="Admin_Collect.aspx?Action=Add4" method="post">
+          <tbody>
+            <tr>
+              <td colspan=2  background="{$atplPath}Images/r_0.gif">采集内容与资源地址设置</td>
+            </tr>
+            <tr>
+              <td width="21%" height=32 align="right" >文章标题开始代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.Htitle.rows>2)document.Form.Htitle.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.Htitle.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="Htitle" cols="70" rows="4"></textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >文章标题结束代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.Ftitle.rows>2)document.Form.Ftitle.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.Ftitle.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="Ftitle" cols="70" rows="4"></textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >文章内容开始代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.Hcontent.rows>2)document.Form.Hcontent.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.Hcontent.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="Hcontent" cols="70" rows="4" id="Hcontent"></textarea></td>
+            </tr>
+            <tr>
+              <td height=32 align="right" >文章内容结束代码：</td>
+              <td height=7 align="left" class="category">&nbsp;&nbsp;输入区域： <span onClick="if(document.Form.Fcontent.rows>2)document.Form.Fcontent.rows-=1" style='cursor:hand'><b>缩小</b></span> <span onClick="document.Form.Fcontent.rows+=1" style='cursor:hand'><b>扩大</b></span><br>
+                <textarea name="Fcontent" cols="70" rows="4" id="Fcontent"></textarea></td>
+            </tr>
+            <tr>
+              <td  align="right"  >作&nbsp; 者&nbsp;       设&nbsp; 置：</td>
+              <td align="left" class="category"><input type="radio" value="0" name="AuthorType" checked  onClick="Author1.style.display='none';Author2.style.display='none'">
+                不作设置&nbsp;
+                <input type="radio" value="1" name="AuthorType"  onClick="Author1.style.display='';Author2.style.display='none'">
+                设置标签&nbsp;
+                <input type="radio" value="2" name="AuthorType"  onClick="Author1.style.display='none';Author2.style.display=''">
+                指定作者</td>
+            </tr>
+            <tr id="Author1" style="display:none" >
+              <td  align="right" ><font color=blue>作者开始标记：</font>
+                <p>　</p>
+                <font color=blue>作者结束标记：</font></td>
+              <td ><textarea name="Hname" cols="70" rows="3"></textarea>
+                <br>
+                <textarea name="Fname" cols="70" rows="3"></textarea></td>
+            </tr>
+            <tr  id="Author2" style="display:none">
+              <td align="right" ><font color=blue>请指定作者：</font></td>
+              <td ><input name="AuthorStr" type="text" id="AuthorStr" value="">
+              </td>
+            </tr>
+            <tr >
+              <td align="right">来&nbsp; 源&nbsp;      设&nbsp; 置：</td>
+              <td align="left" class="category"><input type="radio" value="0" name="CopyFromType" checked onClick="CopyFrom1.style.display='none';CopyFrom2.style.display='none'">
+                不作设置&nbsp;
+                <input type="radio" value="1" name="CopyFromType"  onClick="CopyFrom1.style.display='';CopyFrom2.style.display='none'">
+                设置标签&nbsp;
+                <input type="radio" value="2" name="CopyFromType"  onClick="CopyFrom1.style.display='none';CopyFrom2.style.display=''">
+                指定来源</td>
+            </tr>
+            <tr   id="CopyFrom1" style="display:none">
+              <td align="right"  ><font color=blue>来源开始标记：</font>
+                <p>　</p>
+                <font color=blue>来源结束标记：</font></td>
+              <td align="left"><textarea name="Htupian" cols="70" rows="3"></textarea>
+                <br>
+                <textarea name="Ftupian" cols="70" rows="3"></textarea></td>
+            </tr>
+            <tr   id="CopyFrom2" style="display:none">
+              <td  align="right"><font color=blue>请指定来源：</font></td>
+              <td align="left"><input name="CopyFromStr" type="text" id="CopyFromStr" value="">
+              </td>
+            </tr>
+            <tr >
+              <td align="right">关键字词设置：</td>
+              <td align="left" class="category"><input type="radio" value="0" name="KeyType" checked onClick="Key1.style.display='none';Key2.style.display='none'">
+                不作设置&nbsp;
+                <input type="radio" value="1" name="KeyType"  onClick="Key1.style.display='';Key2.style.display='none'">
+                标签生成&nbsp;
+                <input type="radio" value="2" name="KeyType" onClick="Key1.style.display='none';Key2.style.display=''">
+                自定义关键字</td>
+            </tr>
+            <tr   id="Key1" style="display:none">
+              <td align="right" ><font color=blue>关键词开始标记：</font>
+                <p>　</p>
+                <font color=blue>关键词结束标记：</font></td>
+              <td alang="left"><textarea name="KsString" cols="70" rows="3"></textarea>
+                <br>
+                <textarea name="KoString" cols="70" rows="3"></textarea></td>
+            </tr>
+            <tr  id="Key2" style="display:none">
+              <td align="right" ><font color=blue>请指定关键：</font></td>
+              <td align=left><input name="KeyStr" type="text" id="KeyStr" value="">
+              </td>
+            </tr>
+            <tr >
+              <td align="right">正文分页设置：</td>
+              <td align="left" class="category"><input type="radio" value="0" name="NewsPageType"  checked  onClick="NewsPage1.style.display='none';NewsPage12.style.display='none';NewsPage13.style.display='none';">
+                不作设置&nbsp;
+                <input type="radio" value="1" name="NewsPageType"    onClick="NewsPage1.style.display='';NewsPage12.style.display='';NewsPage13.style.display='';">
+                源代码中获取分页URL &nbsp; </td>
+            </tr>
+            <tr id="NewsPage1" style="display:none">
+              <td align="right"><font color=blue>分页代码开始：</font>
+                <p>　</p>
+                <font color=blue>分页代码结束：</font></td>
+              <td align=left><textarea name="NPsString" cols="70" rows="3"></textarea>
+                <br>
+                <textarea name="NPoString" cols="70" rows="3"></textarea></td>
+            </tr>
+            <tr  id="NewsPage12" style="display:none">
+              <td align="right"><font color="#0000FF">分页URL开始代码：</font></td>
+              <td align=left><input name="NewsPageStr" type="text" size="70" value=""></td>
+            </tr>
+            <tr  id="NewsPage13" style="display:none">
+              <td align="right"><font color="#0000FF">分页URL结束代码：</font></td>
+              <td align=left><input name="NewsPageEnd" type="text" size="70" value=""></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td height=32 align="left" class="category" ><input name="button"  type="button" id="button" onClick="window.location.href='javascript:history.go(-1)'" value="上一步">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="hidden" name="ID" id="ID" value="{$ID}">
+                <input name="Submit" type="submit" id="Submit" value="下一步"></td>
+            </tr>
+          </tbody>
+        </form>
+      </table>
+	  
+	  <br>
+      <table cellpadding="4" cellspacing="1" class="toptable grid" border="1" >
+        <tr>
+          <td height="22" colspan="2" class="sort"><div align="center"><strong>分 析 列 表 链 接 测 试</strong></div></td>
+        </tr>
+        <tr>
+          <td height="30" colspan="2"><font color=red>列表链接地址:</font>{$options} <br></td>
+        </tr>
+      </table>
+	  </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>求租求购-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_fb.css" type="text/css" rel="stylesheet" />
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+		<div class="fc_nav w-1200" id="fc_nav">
+			<ul>
+				{$Mh163k_房产2015_房产主导航}
+			</ul>
+		</div>
+	</div>
+	<div class="layout_house w-1200">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a> <a href="{$fcurl}">房产频道</a> <a href="{$fcurl}xuqiu.html">求租求购</a> <span class="cur_tit">全部求租求购</span>
+   </div>
+   <div class="dlanBox">
+		<div class="zone" style="padding-bottom:5px;">
+			<div class="daohang">
+				<p><em>区域：</em>{$House_Xuqiuquyu}</p>
+			</div>
+		</div>
+	</div>
+  <!--发布信息-->
+  <div class="fb_info_btn"><a href="{$fcurl}qiugou.aspx" target="_blank">发布求租求购信息</a></div>
+  <div class="fb_info_con">
+    <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li class="{$House_LeixingClass1}"><a href="xuqiu.html?quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}">全部信息</a></li>
+        <li class="{$House_LeixingClass2}"><a href="xuqiu.html?tt=0&quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}">求租信息</a></li>
+        <li class="{$House_LeixingClass3}"><a href="xuqiu.html?tt=1&quyuid={$House_xuqiuxuquid}&day={$House_xuqiuday}">求购信息</a></li>
+      </ul>
+     </div>
+     <div class="fr">
+       <ul>
+         <li>
+           <span class="fl">时间</span>
+           <div class="selects sort" id="selects_1">
+             <dl>
+               <dt id="year_txt">全部</dt>
+             </dl>
+			 <div class="po">
+			  	<ul>
+					<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}" class="{$House_Leixingday1}">全部</a></li>
+					<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=1" class="{$House_Leixingday2}">今天</a></li>
+					<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=2" class="{$House_Leixingday3}">本周</a></li>
+					<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=3" class="{$House_Leixingday4}">本月</a></li>
+					<li><a href="xuqiu.html?tt={$House_xuqiutt}&quyuid={$House_xuqiuxuquid}&day=4" class="{$House_Leixingday5}">本季度</a></li>
+				</ul>
+			  </div>
+             <div class="ico"></div>
+             </div>
+         </li>
+       </ul>
+     </div>
+   </div>
+   <!--列表-->
+   <div class="list">
+     <ul id="xuqiuList">
+       <tag:Loop ListType="listxuqiulist" RecType="New" PageSize="15" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="house/list_xuqiu_Tr.html" />
+     </ul>
+   </div>
+   <div class="fc_pageNavigation">{$PageSplit}　每页显示15条</div>
+  </div>
+</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#selects_1').sel_filter();
+	$('#year_txt').html($('#selects_1').find('.current').html());
+	$('#xuqiuList').find('.link').bind('click',function(e){
+		e.preventDefault();
+		var itarget = $(this).parent().parent().parent();
+		if(itarget.hasClass('show')){
+			itarget.removeClass('show');
+		}else{
+			itarget.siblings('li').removeClass('show');
+			itarget.addClass('show');
+		}
+		
+	});
+	$('#xuqiuList').find('li').eq(0).addClass('show');
+});
+</script>
+</body>
+</html>

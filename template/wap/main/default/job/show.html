@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-mb.css" />
+<style type="text/css">
+.list_normal .time { display:none;}
+.pageNav2 span { margin:0 3px;}
+.pageNav2 .disabled { border:1px solid #f1f1f1; color:#aaa;}
+</style>
+<script>
+window['ipageTitleTxt'] = '{$chrcategory}';
+</script>
+{$top$}
+	<div class="content">
+		<div class="news_nr">
+			<h1>{$chrtitle}</h1>
+			<div class="news_info">
+				<p>{$dtappenddate}　{$chrfrom}　人气：{$hits}</p>
+			</div>
+			<div class="article_content" id="resizeIMG">
+				{$chrcontent}
+			</div>
+			<div class="inner_html"><a href="javascript:history.go(-1);" class="comn-submit gray btn_block">返回查看更多信息<span class="jian"></span></a></div>
+			<div class="mod_01">
+				<div class="hd">相关阅读</div>
+				<div class="bd">
+					<ul class="list_normal">
+						{$xiangguan}
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+{$bottom$}
+</body>
+</html>

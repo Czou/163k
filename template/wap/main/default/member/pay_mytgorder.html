@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦订单支付-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/tg-mb.css" />
+<script>
+window['ipageTitleTxt'] = '省啦订单支付';
+</script>
+{$top$}
+	<div class="content">
+		
+		
+		<div class="order_inner">
+			<form name="Form11" id="Form11" method="post" action="../pay/default.aspx" target="pay">
+			
+			<div class="table">
+				<p class="p"><em>订单编号：</em>{$chrorder$}</p>
+				<p class="p"><em>商品名称：</em><span class="blue">{$chrtitle$}</span></p>
+				<p class="p"><em>交易价格：</em>&yen;{$moneytotal$}</p>
+				<p class="p number"><em>数量：</em>{$intnum$}</p>
+				<p class="p"><em>应付：</em>&yen;{$moneytotal$}</p>
+				<p class="p"><em>{$daijinname}：</em>¥{$daijinnumtotal} <em>可抵扣：</em>¥{$daijinnum}</p>
+				<p class="p" style="color:#d00"><em>支付差额：</em>¥<span class="zonge">{$intmoney$}</span></p>
+			</div>
+			
+			
+			
+			<div id="payact">
+			 	<div class="table_hd">支付方式</div>
+				<div class="table_p">	
+					<ul class="zhifu">{$paydetails}</ul>
+				</div>
+				
+				<div class="bankradio" id="bankradio" style="display:none;">
+				<div class="table_hd">选择银行</div>
+				<div class="table_p">
+	    <ul class="bank">
+          
+	    <li><input id="gsyh" name="bank" type="radio"  style="vertical-align:middle; margin-right:6px;" onClick="show1(this,'2');" value="gsyh" /><img src="{$Default_tplPath}images/bank/bank_gsyh2.gif" alt="中国工商银行" align="middle" /></li>	
+
+	         
+	     
+	     <li><input id="zsyh" name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'11');" value="zsyh" /><img src="{$Default_tplPath}images/bank/bank_zsyh2.gif" alt="招商银行" align="middle" /></li>	
+	     
+		
+         
+	     <li><input id="ccb" name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'5');" value="jsyh" /><img src="{$Default_tplPath}images/bank/bank_jsyh2.gif" alt="中国建设银行" align="middle" /></li>	
+         
+         <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'3');" value="nyyh" /><img src="{$Default_tplPath}images/bank/bank_nyyh2.gif" alt="中国农业银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'4');" value="zgyh" /><img src="{$Default_tplPath}images/bank/bank_zgyh2.gif" alt="中国银行" align="middle" /></li>
+     
+       
+         
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'1');" value="jtyh" /><img src="{$Default_tplPath}images/bank/bank_jtyh.gif" alt="交通银行" align="middle" /></li>
+		 
+	     
+	    
+	     <li><input id="hxb" name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'8');" value="hxb" /><img src="{$Default_tplPath}images/bank/bank_hxyh.gif" alt="华夏银行" align="middle" /></li>	
+	     
+	     
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'12');" value="xyyh" /><img src="{$Default_tplPath}images/bank/bank_xyyh.gif" alt="兴业银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'9');" value="msyh" /><img src="{$Default_tplPath}images/bank/bank_msyh2.gif" alt="中国民生银行" align="middle" /></li>
+         
+        
+        <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'10');" value="gfyh" /><img src="{$Default_tplPath}images/bank/bank_gdfz.gif" alt="广东发展银行" align="middle" /></li>
+	     
+		   
+	     <li><input name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'16');" value="szfzyh" /><img src="{$Default_tplPath}images/bank/bank_payh.gif" alt="平安银行" align="middle" /></li>
+	     
+         
+         <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'13');" value="shpfyh" /><img src="{$Default_tplPath}images/bank/bank_pfyh.gif" alt="上海浦东发展银行" align="middle" /></li>
+		 
+		 <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'6');" value="zxyh" /><img src="{$Default_tplPath}images/bank/bank_zxyh.gif" alt="中信银行" align="middle" /></li>
+	     
+		
+	     
+	     <li><input name="bank" type="radio"  style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'7');" value="gdyh" /><img src="{$Default_tplPath}images/bank/bank_gdyh.gif" alt="光大银行" align="middle" /></li>
+	     
+         
+	     
+	     <li><input name="bank" type="radio" style="vertical-align:middle;margin-right:6px;" onClick="show1(this,'20');" value="njyh" /><img src="{$Default_tplPath}images/bank/bank_njyh.gif" alt="南京银行" align="middle" /></li>
+         
+		
+	     <li><input id="psbc" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'14');" value="psbc" /><img src="{$Default_tplPath}images/bank/bank_psbc.gif" alt="邮政储蓄银行" align="middle" /></li>	
+		 
+		 <li><input id="hzyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'21');" value="hzyh" /><img src="{$Default_tplPath}images/bank/bank_hangzhou.jpg" alt="杭州银行" align="middle" /></li>
+	     
+	       
+	     <li><input id="nbyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'22');" value="nbyh" /><img src="{$Default_tplPath}images/bank/bank_nbyh.gif" alt="宁波银行" align="middle" /></li>
+	     
+		<li><input id="dyyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'15');" value="dyyh" /><img src="{$Default_tplPath}images/bank/bank_dyyh.gif" alt="东亚银行" align="middle" /></li>
+		 
+		  <li><input id="hbyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'17');" value="hbyh" /><img src="{$Default_tplPath}images/bank/bank_hbyh.gif" alt="河北银行" align="middle" /></li>
+	     
+	     
+		   <li><input id="hsyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'18');" value="hsyh" /><img src="{$Default_tplPath}images/bank/bank_hsyh.gif" alt="徽商银行" align="middle" /></li>
+		  
+		  <li><input id="tjyh" name="bank" style="vertical-align:middle;margin-right:6px;" type="radio" onClick="show1(this,'19');" value="tjyh" /><img src="{$Default_tplPath}images/bank/bank_tjyh.gif" alt="天津银行" align="middle" /></li>
+             
+	    </ul></div>
+		
+				<div class="table_hd">选择银行卡类型</div>
+				<div class="table">
+					<p class="p"><input name="pmode_kid" type="radio" checked value="1" /> 储蓄卡</p>
+					<p class="p"><input name="pmode_kid" type="radio" value="2" /> 信用卡</p>
+					<p class="p"><input name="pmode_kid" type="radio" value="4" /> 企业对公户</p>
+				</div>		 
+	   </div>
+			</div>
+			<input type="hidden" name="orderid" id="orderid" value="{$ID}" />
+			<input type="hidden" name="chrorder" value="{$chrorder$}">
+			<input type="hidden" name="action" value="2">
+			<input type="hidden" name="pmode_id"  id="pmode_id" value="" />
+			<input name="pmode_zid" type="hidden" value="4" />
+			</form>
+			<div style="padding-bottom:20px; text-align:center"><a href="javascript:;" onClick="GetsubmitGo(0);" class="comn-submit">立即支付</a> <a href="javascript:history.go(-1)" class="comn-submit gray">返回</a></div>
+		</div>
+	</div>
+<iframe src="about:blank" id="pay" name="pay" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<form id='submitpay' name='submitpay' target="_top" action='{$SiteUrl}pay/default.aspx' method='POST'>
+<input type='hidden' name='formcode' id='formcode' value='payok'/>
+<input type='SUBMIT' value='支付' style='display:none;'></form>
+{$bottom$}
+<script>
+function submittgorder(val){
+	var kindid = document.getElementsByName("payid");
+	for(var i=0;i<kindid.length;i++){
+		if(kindid[i].checked && kindid[i].value=="2" && val=="0"){
+			var p_mode = document.getElementById("Form11").pmode_id.value;
+			if(p_mode == "" || p_mode == 0){
+				alert("请选择支付银行和类型");
+				return false;	
+			}
+		}
+	}
+	document.Form11.submit();
+	return true;
+}
+
+function show1(thiz,pid){
+	document.getElementById("Form11").pmode_id.value=pid;
+}
+
+function bankradio(payid){
+	if(!is_weixn() && payid=='6'){alert('请在微信客户端中使用该支付方式');return false;}
+	if(payid=='2' ||payid=='5'){
+		 $("#bankradio").show();
+	}else{
+		$("#bankradio").hide();
+	}
+}
+var rank_list = $("input[name='payid']");
+rank_list.each(function(){
+	if($(this).prop("checked")&&($(this).val() === '2' || $(this).val() === '5')){
+		$("#bankradio").show();
+	}
+});
+
+function GetsubmitGo(val){
+	var oform = document.getElementById("Form11");
+	oform.submit();
+}
+
+
+</script>
+</body>
+</html>

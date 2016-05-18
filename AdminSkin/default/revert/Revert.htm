@@ -1,0 +1,234 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+<style type="text/css">
+.form_td { margin-bottom:10px;}
+.form_td input { padding:0; margin:0;}
+.revertList { background-color:#fff; padding:0 10px; border-left:1px solid #C9DBEF; border-right:1px solid #C9DBEF;}
+.display20 { display:inline;}
+.display21 { display:none;}
+.table_style td { color:#666;}
+.red0 { color:#d00;}
+</style>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;{$styleidstr}管理</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+
+<form name="form2" method="get" action="" ID="Form1">
+<tr> 
+	<td style=" padding:10px; background-color:#ffffff; border-left:1px solid #C9DBEF; border-right:1px solid #C9DBEF;">
+		<div class="form_td">
+		评论类型：<input type="radio" value="-1" onclick="this.form.submit();" name="a" {$a_c_-1} /> 全部　<input type="radio" value="0" onclick="this.form.submit();" {$a_c_0} name="a" /> 网站留言　<input type="radio" value="1" onclick="this.form.submit();" {$a_c_1} name="a" /> 店铺点评　<input type="radio" value="2" onclick="this.form.submit();" {$a_c_2} name="a" /> 活动点评　<input type="radio" value="3" onclick="this.form.submit();" {$a_c_3} name="a" /> 商品点评　<input type="radio" value="5" onclick="this.form.submit();" {$a_c_5} name="a" /> 分类信息点评　<input type="radio" value="6" onclick="this.form.submit();" {$a_c_6} name="a" /> 小区点评　<input type="radio" value="7" onclick="this.form.submit();" {$a_c_7} name="a" /> 楼盘点评　<input type="radio" value="8" onclick="this.form.submit();" {$a_c_8} name="a" /> 文章点评　<input type="radio" value="9" onclick="this.form.submit();" {$a_c_9} name="a" /> 视频点评　<input type="radio" value="10" onclick="this.form.submit();" {$a_c_10} name="a" /> 投票选手点评<!--　<input type="radio" value="11" onclick="this.form.submit();" {$a_c_11} name="a" /> 投票点评-->　<input type="radio" value="12" onclick="this.form.submit();" {$a_c_12} name="a" /> 图集点评　<input type="radio" value="13" onclick="this.form.submit();" {$a_c_13} name="a" /> 省啦点评　<input type="radio" value="16" onclick="this.form.submit();" {$a_c_16} name="a" /> 黄页点评<!--　<input type="radio" value="15" onclick="this.form.submit();" {$a_c_15} name="a" /> 企业网站评论-->
+		
+		</div>
+		
+		审核状态：<select name="b" onchange="this.form.submit();">
+		<option value="">所有</option>
+		<option value="0" {$b_s_0}>未审核</option>
+		<option value="1" {$b_s_1}>审核通过</option>
+		</select>　内容id：<input type="text" name="c" value="{$c}" style="width:50px;" >
+		店铺id：<input type="text" name="d" value="{$d}" style="width:50px;" >
+		
+		
+	关键字：<input type="text" name="_key" value="{$key}" >
+	关键字类型：<select  name="e">
+		<option value="0">会员名</option><option value="1"  {$e_s_1}>内容(商品)标题名</option><option value="2"  {$e_s_2}>店铺名(店铺点评)</option>
+		</select>　时间类型：<select  name="f">
+		<option value="0">发布时间</option><option value="1"  {$f_s_1}>审核时间</option>
+		</select>
+		从：<input name="startdate" type="text" style="width:80px;" class="Wdate"  style="background-color:#ffffff" value="{$startdate}" > 到 <input name="enddate"  type="text" size="25" class="Wdate"   style="background-color:#ffffff;width:80px;" value="{$enddate}">
+		<input type="submit" value="Go" class="global_btn" ID="Submit1">
+		<!--<br> 返回值:{$a},{$b},{$c},{$d},{$e},{$f}, {$startdate},{$enddate},{$key},{$_startdate},{$_enddate},{$_key}-->
+		</td>
+</tr>
+</form>
+</table>
+<form name="form" method="post" action="?" ID="form">
+<div class="revertList">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td>
+	<tag:Loop ListType="LISTREVERTQIAN" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="revert/ListRevert.htm" />
+	</td></tr></table>
+	<div class=""><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">全选　<a href="javascript:void(0);" onclick="return iskillAllRevert('1');" class="global_btn_blue">审批通过</a> <a href="javascript:void(0);" onclick="return delAllRevert('0');" class="global_btn">清空选中</a> <a href="javascript:void(0);" onclick="return delAllRevert('2');" class="global_btn">删除选中</a> <a href="javascript:void(0);" onclick="return delAllRevert('1');" class="global_btn">删除包括后续回复</a></div>
+	<div class="pageNavigation">{$PageSplit}</div>
+</div>
+</form>
+				
+
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+window['$a'] = '{$a}';
+window['$id'] = '';
+window['$shopid'] = '';
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+	/*if($('#listEmpty')[0]){
+		$('#listEmpty').parent().parent().detach();
+	}*/
+})(jQuery);
+
+function tgQuick(o,sid,styleid){
+	window['$a'] = styleid;
+	var tgQuickid='tgQuick';
+	
+	if(!$('#'+tgQuickid)[0]){
+		var tgQuickHTML = '<div class="tgQuick" id="'+tgQuickid+'"><a href="javascript:delRevert(\'0\');">清空该贴内容</a> <a href="javascript:delRevert(\'2\');">仅删除该帖</a> <a href="javascript:delRevert(\'1\');">删除包括后续回复</a><s class="s"></s></div>';
+		$('body').append(tgQuickHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+tgQuickid+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + tgQuickid).length === 0) && !$target.hasClass('event_lift')){
+				$('#'+tgQuickid).hide();
+			}
+		});
+	}
+	$('#'+tgQuickid).attr('data-id',sid).css({'left':($(o).offset().left-33)+'px','top':($(o).offset().top+22)+'px'}).show();
+	return false;
+}
+function delRevert(action,sid){
+	if( confirm("该操作将不可逆！\n您确定要处理所有选中的信息吗？")){
+		var nsid = sid||$('#tgQuick').attr('data-id');
+		var url = '../request.ashx?jsoncallback=?&action=revert_del&id='+nsid+'&styleid='+window['$a']+'&isadmin=1&isdel='+action;
+		var Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		jQuery.getJSON(url,function(data){
+			if(data[0].islogin === '1'){
+				alert('操作成功！');
+				window.location.reload();
+			}else{
+				alert(data[0].error);
+			}
+		});
+	}
+}
+function delAllRevert(action){
+	var sid = '',sidArr = [];
+	
+	jQuery('input[name="ID"]:checked').each(function(){
+		sidArr.push(jQuery(this).attr('value'));
+	});
+	sid = sidArr.join(',');
+	delRevert(action,sid);
+	return false;
+}
+function killRevert(sid,action){
+	if( confirm("该操作将不可逆！\n您确定要审批所有选中的信息吗？")){
+		var url = '../request.ashx?jsoncallback=?&action=revert_isopen&id='+sid+'&styleid='+window['$a']+'&isadmin=1&isopen='+action;
+		var Digital=new Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		jQuery.getJSON(url,function(data){
+			if(data[0].islogin === '1'){
+				alert('操作成功！');
+				window.location.reload();
+			}else{
+				alert(data[0].error);
+			}
+		});
+	}
+}
+function iskillAllRevert(action){
+	var sid = '',sidArr = [];
+	jQuery('input[name="ID"]:checked').each(function(){
+		sidArr.push(jQuery(this).val());
+	});
+	sid = sidArr.join(',');
+	killRevert(sid,action);
+	return false;
+}
+function show_replay(sid,shopid,styleid){
+	window['$a'] = styleid;
+	window['$id'] = sid;
+	window['$shopid'] = shopid;
+	var f_id = 'replay_tips';
+	var replayHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd"><a href="#" class="close">关闭</a>查看回复</div><div class="bd" id="'+f_id+'_bd">';
+	replayHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(replayHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+	$('#'+f_id+'_bd').empty();
+	//载入回复内容
+	var url= '../request.ashx?jsoncallback=?&action=getrevertrep&id='+window['$id']+'&styleid='+window['$a']+'&isadmin=1&tplid=1';
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.getJSON(url,function(data){
+		$('#'+f_id+'_bd').append(data[0].MSG);
+		d_h = f_node.height(),top_val = (w_h-d_h)/2+s_h;
+		f_node.css({'top':top_val+'px'});
+		if(window['$a'] === '0' || window['$a'] === '1'){
+			$('#write_replay')[0]&&$('#write_replay').show();
+			$('#write_btn_1')[0]&&$('#write_btn_1').hide();	
+		}
+		if(window['$a'] === '1' || window['$a'] === '3'){
+			$('#score1_img,#score_img,#score_node').show();
+		}
+	});
+}
+function post_replay(){
+	var txt2 = $('#replay_tips_textarea').val();
+	var txt1 = $('#replay_tips_input').html();
+	if(txt1 === ''){alert('评论内容不能为空！');return false;}
+	//if(txt2 === ''){alert('回复内容不能为空！');return false;}
+	var score_select = $('#score_select').val();
+	var star_score1 = $('#star_score1').val();
+	var url= '../request.ashx?jsoncallback=?&action=saverevert_rep&id='+window['$id']+'&styleid='+window['$a']+'&score='+score_select+'&score1='+star_score1+'&isadmin=1&Chrmark='+encodeURIComponent(txt1)+'&replaycontent='+encodeURIComponent(txt2)+'&shopid='+window['$shopid'];
+	var Digital=new Date();
+	Digital=Digital+40000;
+	url=url+"&k="+encodeURIComponent(Digital);
+	jQuery.getJSON(url,function(data){
+		if(data[0].islogin === '1'){
+			alert('提交回复成功！');
+			window.location.reload();
+		}else{
+			alert(data[0].error);
+		}
+	});
+	return false;
+}
+function change_score(o,sid){
+	var val = $(o).val();
+	$('#'+sid).val(val);
+}
+</script>
+</body></html>

@@ -1,0 +1,8 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td>{$NID}</td>
+	<td>{$Chrcategory}</td>
+	<td>{$intorder} <a href="javascript:showIntorder('1','{$ID}','{$key}')">↑</a> <a href="javascript:showIntorder('0','{$ID}','{$key}')">↓</a></td>
+	<td>{$isopenstr}</td><td>{$chrmark}</td>
+	<td align="center"><a href="javascript:hideCategory('{$_isopen}','{$ID}','{$key}');">{$_isopenstr}</a> <a href="Categoryc.aspx?key={$styleid}&parentid={$ID}" class="displaynone{$key}">二级分类</a> <a href="Category.aspx?action=edit&ID={$ID}&key={$key}">编辑</a> <a href="javascript:delCategory('{$ID}','{$key}');">删除</a></td>
+	<!--<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>-->
+</tr>

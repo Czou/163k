@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布视频--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写视频名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起,请选择视频分类!");
+		o.categoryid.focus();
+		return false;
+	}
+}
+</script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 发布视频</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">发布视频</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		发布视频,需要管理员审核
+
+		<br />
+		</td>
+	</tr>
+</table>
+  <form name="form1" method="post" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+	 <tr > 
+      <td  class="tditem" style="width:18%;">视频标题<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent"><input type="text" name="chrtitle"   style="width:260px;" class="text"/></td>
+    </tr>
+	<tr > 
+      <td   class="tditem">视频分类<font color="#FF0000">*</font>：</td>
+      <td  colspan=3  class="tdcontent">{$categoryid}</td>
+    </tr>
+	<tr > 
+      <td  class="tditem">视频简介：</td>
+      <td  colspan=3  class="tdcontent"><textarea name="chrmark" style="width:500px;height:50px;" class="text"/></textarEa></td>
+    </tr>
+	<tr > 
+      <td  class="tditem">视频封面图片：</td>
+      <td  colspan=3  class="tdcontent"><input type=file name="file" value=""  class="text" size=50></td>
+    </tr>
+	
+	<tr > 
+      <td  class="tditem">视频源：</td>
+      <td  colspan=3  class="tdcontent">支持格式:swf、flv、asf、wmv、avi,如果本地上传数据，建议您使用flv格式！</td>
+    </tr>
+	<tr > 
+      <td  class="tditem"><input type="radio" name="typeid" value="0" checked>本地上传视频数据</td>
+      <td  colspan=3  class="tdcontent"><input type=file name="file" value=""  class="text" size=50></td>
+    </tr>
+	<tr > 
+      <td  class="tditem"><input type="radio" name="typeid" value="1" >调用外部视频地址</td>
+      <td  colspan=3  class="tdcontent">视频文件地址：<input type="text" name="filepath2" class="text"style="width:500px;"></td>
+    </tr>
+	<tr > 
+      <td  class="tditem"><input type="radio" name="typeid" value="2" >引用第三方站点</td>
+      <td  colspan=3  class="tdcontent">支持调用如youku tudou ku6等知名视频站点的数据，请输入引用代码<br />例如:http://player.ku6.com/refer/QTivefb2wSdpwKqt/v.swf<br>
+	  <p><input type="text" name="filepath3" style="width:500px;" class="text"></p>
+	  </td>
+    </tr>
+	<tr > 
+      <td  class="tditem">&nbsp;</td>
+      <td  colspan=3  class="tdcontent"><input type=hidden name=gotourl value="{$gotourl}">
+<input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+    </tr>
+	
+</table>
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

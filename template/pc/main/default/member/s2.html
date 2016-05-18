@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>会员邮件激活验证-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+
+
+
+
+<body bgcolor="{$SiteColor}">
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 会员邮件激活验证</div>
+	<form name="formt" id="formt" onsubmit="return resendemail('{$chrname}',document.getElementById('oldemail').innerHTML,document.getElementById('chremail').value);" >
+	<div id="content" class="v2013">
+		<div class="yanzheng clearfix">
+			<div class="left"><s class="email"></s></div>
+			<div class="right">
+				<p>系统已经发送了一封激活验证邮件到您的邮箱：<span id="oldemail" name="oldemail">{$chremail}</span></p>
+				<p class="blue">点击您邮箱里面的激活地址即可完成验证</p>
+				<div class="form">修改您的邮箱为：<input type="text" class="t_ipt" name="chremail" id="chremail" value="{$chremail}" /><button type="submit" class="btn_2013">重新发送<s class="s"></s></button></form></div>
+				
+			</div>
+		</div>
+	</div>
+	</form>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

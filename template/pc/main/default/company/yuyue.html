@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-预约服务-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_kbShop.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_kbShop_yuyue.css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/swfobject.js"></script>
+{$top950$}{$Mh163k_口碑商家_独立头部}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; <a href="{$indexurl}">{$chrshop}</a> &gt; 预约服务</div>
+	<!-- 主体 -->
+	<div id="content" class="{$moban}">
+		<div class="banner">
+			<div class="swf" id="topflashcontent"></div>
+			<div class="positionS">
+				<div class="shopName clearfix">
+					<div class="pic show{$showlogo}" id="shop_logo"><img src="{$filepath}" alt="" width="140" height="60">&nbsp;</div><div class="text show{$showname}">{$chrshop}</div>
+				</div>
+			</div>
+			<div class="navC" style="clear:both;" >
+				<ul class="clearfix">
+				<li class="first"><a href="{$indexurl}" >店铺首页</a></li>
+				<li ><a href="{$TargetUrl}content_{$shopid}.html" >店铺介绍</a></li>
+				<li><a href="{$TargetUrl}notice_{$shopid}.html" >店铺动态</a></li>
+				<li><a href="{$TargetUrl}pic_{$shopid}.html">店铺展示</a></li>
+				<li><a href="{$TargetUrl}shop_{$shopid}.html"  >商品展厅</a></li>
+				<li><a href="{$TargetUrl}cuxiao_{$shopid}.html" >团购与打折</a></li>
+				<li><a href="{$TargetUrl}comment_{$shopid}.html" >网友点评</a></li>
+				{$sslist}
+				<li><a href="{$TargetUrl}contact_{$shopid}.html" >联系方式</a></li>
+				<li><a href="{$TargetUrl}yuyue_{$shopid}.html" class="current" >在线预约</a></li>
+				
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var tonglang="{$tonglang}";
+			if(tonglang.indexOf(".swf")!=-1){
+				var so = new SWFObject(tonglang, "sotester", "950", "148", "9", "#ffffff");
+				so.addParam("wmode", "opaque");
+				so.write("topflashcontent");
+			}
+			else{
+				document.getElementById("topflashcontent").innerHTML="<img src='"+tonglang+"' onerror=\"javascript:this.src='{$Default_tplPath}images/transparent_1px.gif'\" />";
+			}
+			$('#shop_logo').find('img').bind('error',function(e){
+				$(this).attr({'src':'{$Default_tplPath}images/wscbp.gif'});
+			});
+		</script>
+		<div class="kb_contact">
+			<div class="grid_c01 clearfix">
+				<div class="col_main">
+					<div class="yuyue">
+						<div class="clearfix">
+							<div class="pic"><img src="{$Default_tplPath}images/shopyuyue_03.gif" alt="预约" /></div>
+							<div class="txt">欢迎您在这里向本商家提交意向订单<br>订单提交后系统将立即以手机短信形式通知商家<br>商家查阅订单后将会主动联系您确认详细事项</div>
+						</div>
+						<div class="form">
+							<form name="yuyueform" id="yuyueform" onSubmit="return checkyuyue();"  method="post">
+							<ul>
+								<li class="line"><span class="sp_01">您的姓名<font color=red>*</font></span><span class="sp_02"><input type="text" id="chrname" name="chrname" /></span></li>
+								<li class="line"><span class="sp_01">收货地址</span><span class="sp_02"><input type="text"  id="chraddress" name="chraddress"/>　可留空</span></li>
+								<li class="line"><span class="sp_01">联系电话<font color=red>*</font></span><span class="sp_02"><input type="text"  id="chrtel" name="chrtel"/></span></li>
+								<li class="line"><span class="sp_01">电子邮件</span><span class="sp_02"><input type="text"  id="chremail" name="chremail"/></span></li>
+								<li class="line"><span class="sp_01">给商家留言<font color=red>*</font></span><span class="sp_02"><textarea id="chrmark" name="chrmark"></textarea></span></li>
+								<li class="line"><span class="sp_01">验证码<font color=red>*</font></span><span class="sp_02"><input type="text"  id="chrcode" name="chrcode" style=" width:120px;" /> <img src="{$HeadSiteUrl}getcode.html" alt=""   id="vadimg" title="看不清楚请刷新!" onClick="this.src='{$HeadSiteUrl}getcode.html?'+(new Date().getTime());"  style="cursor:pointer" align="absmiddle"/></span></li>
+								<li class="line"><span class="sp_01">&nbsp;</span><span class="sp_02"><button type="submit">提交</button><input type="hidden" name="shopid" id="shopid" value="{$shopid}"></span></li>
+							</ul>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col_sub shopInfo">
+						<p class="clearfix"><span class="b">店铺地址：</span><span class="c">{$chraddress}</span></p>
+						<p class="clearfix"><span class="b">交通路线：</span><span class="c">{$chrjiaotong}</span></p>
+						<p>营业时间：<span class="d">{$chrdate}</span></p>
+						<p>联系QQ：<img src="{$Default_tplPath}images/qq_online.gif" alt="" /> <a href="tencent://message/?uin={$chrqq}&Site=&Menu=yes">{$chrqq}</a></p>
+						<p class="menu_tel"><em>{$chrtel}</em></p>
+						<p class="tips"><b>小提示：</b>咨询时注明来自<em>{$SiteName}</em>，将会获得更好的接待</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom950$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

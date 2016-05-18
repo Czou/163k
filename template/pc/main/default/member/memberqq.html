@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}{$loginstyleidstr}登陆</title>
+<style type="text/css">
+.qqband .hd0,.qqband .hd1,.qqband .form .btn { background:url(../template/pc/main/default/images/qqbd.png) no-repeat 0 0;}
+.qqband { margin-top:5px; border:1px solid #d4efff; *zoom:1;}
+.qqband .hd0,.qqband .hd1 { height:145px; border-bottom:1px solid #d4efff;}
+.qqband .hd1 { background-position:0 -183px;}
+.qqband .bd { padding:40px; text-align:left;}
+.qqband .bd input { vertical-align:middle;}
+.qqband .bd .left { float:left; width:580px;}
+.qqband .bd .right { float:left; width:480px;}
+.qqband .bd h3 { font:bold 14px/1.5 Arial;}
+.qqband .bd .txt { display:block; padding:15px 0; color:#073ece;}
+.qqband .form {}
+.qqband .form li { overflow:hidden; *zoom:1; padding:8px 0;}
+.qqband .form span { display:block; float:left; display:inline;}
+.qqband .form .sp_a { text-align:right; width:64px;}
+.qqband .form .sp_c { padding-left:12px; color:#999;}
+.qqband .form .ipt { border:1px solid #a5afc3; line-height:16px; height:16px; padding:2px 4px; width:150px;}
+.qqband .form .btn { display:block; width:115px; height:27px; border:0 none; font:0pt/1000px Arial; overflow:hidden; cursor:pointer;}
+.qqband .form .newuser { background-position:0 -146px;}
+.qqband .form .olduser { background-position:-116px -146px;}
+.qqband .form .tologin { background-position:-232px -146px;}
+</style>
+{$top$}
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/purl.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/common.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/javascript.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="{$Default_tplPath}js/member.js"></SCRIPT>
+<script type="text/javascript" src="{$Default_tplPath}js/java.js"></script>
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; {$SiteName}{$loginstyleidstr}登陆</div>
+	<div id="content" class="video2011">
+		<div class="qqband">
+			<div class="hd{$loginstyleid}"></div>
+			<div class="bd clearfix">
+				<div class="left">
+					<div style="float:left;margin-top:30px;"><h3>一: 直接用{$loginstyleidstr}账户登录,显示<span style="color:#F60">{$unionchrname}</span>用户名.</h3>
+					<ul class="form">
+						<li><span class="sp_a">&nbsp;</span><span class="sp_b"><a href="{$from}" class="btn tologin">直接登录</a></span><span class="sp_c">&nbsp;</span></li>
+					</ul>
+					</div>
+				</div>
+				<div class="right">
+					<form name="form1" id="form1" method="post" target="tijiao" action="?action=qqlogin&state={$state}"  style="margin:0" onSubmit="return checkqqregister();">
+					<div style="float:left;margin-top:30px;"><h3>二、如果您已经有一个账户，可以与您的{$loginstyleidstr}号绑定</h3>
+					
+					<ul class="form">
+						<li><span class="sp_a">登录名：</span><span class="sp_b"><input type="text" value="" class="ipt" name="chrname" id="chrname"  /></span><span class="sp_c">用户名/邮箱/手机号码</span></li>
+						<li><span class="sp_a">用户密码：</span><span class="sp_b"><input type="password" name="chrpwd" id="chrpwd" class="ipt" /></span><span class="sp_c">登录密码</span></li>
+
+						<li><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="btn olduser">确认绑定</button></span><span class="sp_c">&nbsp;</span></li>
+					</ul>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	{$bottom$}
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

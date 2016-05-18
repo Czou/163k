@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$chrtitle} - {$chrcategory} - {$text5}  - {$qiyename}</title>
+<meta name="keywords" content="{$chrkeyword}">
+<meta name="description" content="{$chrdescription}">
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/global.css" />
+<link type="text/css" rel="stylesheet" href="{$tplPath}skin/style.css" />
+<script src="{$tplPath}js/common.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="header clearfix">
+		<h1 class="logo"><a href="{$qiyeurl}">{$chrlogo}</a></h1>
+		<div class="fav"><a href="javascript:window.external.AddFavorite('{$qiyeurl}','{$qiyename}')" >加入收藏</a> | <a href="javascript:;" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{$qiyeurl}');">设为首页</a></div>
+	</div>
+	<div class="content">
+		<div class="nav">
+			<ul class="clearfix">
+				<li><a href="{$qiyeurl}">{$text1}</a></li>
+				<li ><a href="about_{$qiyeid}.html">{$text2}</a></li>
+				<li ><a href="ld_{$qiyeid}.html">{$text3}</a></li>
+				<li><a href="news_{$qiyeid}.html">{$text4}</a></li>
+				<li  class="current"><a href="pic_{$qiyeid}.html">{$text5}</a></li>
+				<li><a href="anli_{$qiyeid}.html">{$text6}</a></li>
+				<li><a href="job_{$qiyeid}.html">{$text7}</a></li>
+				<li><a href="liuyan_{$qiyeid}.html">{$text8}</a></li>
+				<li><a href="lianxi_{$qiyeid}.html">{$text9}</a></li>                             
+			</ul>
+		</div>
+		<div class="banner2">
+			<img src="{$tplPath}images/p/product_banner.jpg" alt="" />
+		</div>
+		<div class="grid_04 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="product_main">
+					<h1>{$aboutname}</h1>
+					<div class="bd">
+						<div class="product_top clearfix">
+							<div class="pic"><img src="{$chrpic}" width="280" height="280" alt="" onerror="this.src='{$tplPath}bianming/33.png'" /></div>
+							<div class="txt">
+								<h3>{$chrtitle}</h3>
+								<table width="100%" cellpadding="4" cellspacing="0">
+									<tr>
+										<td align="right" width="60">产品类型:</td><td align="left">{$chrcategory}</td>
+									</tr>
+									<tr>
+										<td align="right">浏览人次:</td><td align="left">{$views}</td>
+									</tr>
+									<tr>
+										<td align="right">发布时间:</td><td align="left">{$dtappenddate}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="product_detail">
+							<div class="hd">产品详情</div>
+							<div class="bd">
+								<table width="100%" cellpadding="0"  cellspacing="0" border="0">
+                                <tr><td style="WORD-BREAK: break-all;" id="livearticle">{$chrcontent}</td></tr>
+                                </table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="news_nav">
+					<div class="searchBar">
+						<div class="hd">产品搜索</div>
+						<div class="bd"><form method="get" action="pic_{$qiyeid}.html" ><input class="txt" type="text" name="keyword" id="keyword" /><button type="submit" class="btn">搜索</button></form></div>
+					</div>
+					<ul>
+						{$listnewscategory}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+    	<p>{$bottomlink}</p>
+		{$chrbottom}
+	</div>
+
+</div>
+</body>
+</html>

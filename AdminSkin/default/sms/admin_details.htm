@@ -1,0 +1,105 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/cookies.js"></script>
+<script language="javascript">
+function delAll(o,str,astr)
+{
+	var showflag=false;
+	if(document.getElementById("form").ID){
+	  if (document.getElementById("form").ID.length>1) {
+		 for (var i=0;i<document.getElementById("form").ID.length;i++)  
+		 {  
+			var e = document.getElementById("form").ID[i];
+			if(e.checked){showflag=true;}
+		 } 
+  	  } 
+	  else{
+		if(document.getElementById("form").ID.checked){showflag=true;}
+	  }
+	}
+  if(!showflag){
+  	alert("对不起,请至少选择一条!");
+  }
+  else{
+	if ( confirm("该操作将不可逆！\n您确定要删除所有选中的短信信息吗？"))
+        {
+			setCookie("delurl",window.location.href);
+			document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+	}
+}	
+function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+        {
+			setCookie("delurl",window.location.href);
+            location.href = "tongxunlu.aspx?action=deltt&ID=" + id
+        }
+}
+function uploadsave(o)
+{
+	if(o.file.value==""){
+		alert("对不起，请上传通讯录TXT文件。！");
+		o.file.focus();
+		return false;
+	}
+}
+</script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;<span class="blank">通讯录电话管理</span></td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<form name="form2" method="post" action="?action=esvesave" onsubmit="return uploadsave(this)"  enctype="multipart/form-data">
+<tr> 
+	<td height="25">
+	<input type="hidden" name="id" id="id" value="{$colname}">
+		上传到此通讯录：<input type="file" name="file" id="file" size=40>  <input type="submit" name="submit" class="global_btn" value="提交">  (txt格式，每行一个号码，<a href="{$atplPath}sms/sms.txt"  target="_blank">下载样板文件</a>)</td>
+</tr>
+</form>
+</table>
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+          <form name="form" id="form" method="post" action="?action=deltt">
+		  <tr align="center">
+    		<td width="25" class="category">ID</td>
+    		<td class="category" >通讯录名称</td>
+     		<td class="category" >手机号码</td>
+      		<td class="category" >建立时间</td>
+			<td width="80" class="category">操作</td>
+          	<td width="53"  class="category"><input name="alldel" type="checkbox" id="alldel" value="on" onclick="Allaction(this.form)">
+            <strong>全选</strong></td>
+         </tr>
+		  <tag:Loop ListType="LISTTONGXUNLUDETAILS" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="sms/list_DETAILS_tr.htm" />
+		  <tr><td align="right" bgcolor="#FFFFFF" colspan=16>
+		  <a href="javascript:delAll(this,1,'删除');">删除选中</a>
+		  <input type="hidden" name="styleid" id="styleid" value="1">
+		  </td></tr>
+		  <tr > 
+       <td height="24" align="right" bgcolor="#FFFFFF" colspan=9>
+		{$PageSplit}
+	  </td>
+    </tr>
+		  </form>
+</table>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

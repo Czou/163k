@@ -1,0 +1,79 @@
+﻿<style>
+td{ line-height:22px; text-align:left}
+</style>
+<div align=right style="width:500;"><a href="#" onclick="window.print();" style="cursor:hand;"><font color=red><b>我要打印</b></font></a></div>
+<table width="570" border="0" cellpadding="10" cellspacing="0" style="font-size:12px;">  <tr>
+    <td></td>
+    <td > <!--startprint-->
+    <table width="100%" border="0" cellpadding="5" cellspacing="5" style="border:#006699 1px solid;font-size:12px; ">              <tr>
+      <td  width="20%"  >订单编号： 
+      </td>
+      <td > {$chrorder$}</td>
+    </tr>
+<tr > 
+      <td  >下单人： 
+      </td>
+      <td > {$chrname$}</td>
+    </tr>
+    <tr > 
+ 	  <td  >下单时间： 
+      </td>
+      <td  > {$dtappenddate$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >商品名称： 
+      </td>
+      <td  > <A href="{$goodurl}shop_{$goodid$}.html" target=_blank>{$chrgood$}</a></td>
+    </tr>
+ <tr > 
+ 	  <td  >我们价格： 
+      </td>
+      <td  > {$price2$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >交易价格： 
+      </td>
+      <td  > {$chrmoney$}</td>
+    </tr>
+ <tr > 
+ 	  <td  >订购数量： 
+      </td>
+      <td  > {$intnum$}件</td>
+    </tr>
+	<tr > 
+      <td  >交易方式： 
+      </td>
+      <td  > {$styleid$}</td>
+    </tr>
+	{$one$}
+ <tr> 
+      <td >固定电话： 
+      </td>
+      <td    >{$chrtel$}</td>
+    </tr>
+	 <tr> 
+      <td >手机号码： 
+      </td>
+      <td   >{$chrmobile$}</td>
+    </tr>
+<tr> 
+      <td >地址： 
+      </td>
+      <td   >{$chraddress$}</td>
+    </tr>
+	 <tr> 
+      <td >QQ/MSN： 
+      </td>
+      <td   >{$chrqq$}</td>
+    </tr>
+    <tr> 
+      <td >简短附言： 
+      </td>
+      <td   >{$chrmark$}</td>
+    </tr>
+	<tr > 
+      <td  >状态： 
+      </td>
+      <td   > {$iskill$}</td>
+    </tr>
+</table>

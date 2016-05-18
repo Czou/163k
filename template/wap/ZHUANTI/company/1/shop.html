@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$add2title}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<div class="contact_info clearfix">
+ <div class="user_info">
+  <h4>{$chrshop}</h4>
+  <p>{$chrtel}</p>
+ </div>
+ <div class="email"><a href="sms:{$chrtel}">{$chrtel}</a></div>
+ <div class="phone"><a href="tel:{$chrtel}">{$chrtel}</a></div>
+</div>
+<style type="text/css">
+.headerblack {background-color:#000;}
+#slide{position:fixed; top:0; left:0; width:100%; z-index:1000; overflow:visible;}
+#mask{z-index:999; opacity:1;}
+#slide #indicator {text-align:center; left:0; right:0; width:100%; margin-left:0; bottom:-30px;}
+.filter2{border-top:1px solid #eee;background:#fafafa;}
+#slide #indicator li{float:none; display:inline-block;}
+</style>
+<div class="star_nav mb_15" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main" id="b_main">
+ <div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="str_b_node">全部分类</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_e_node">默认排序</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;" id="list_nav_2013">
+		<ul><li><a href="/c_shop_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_p1.html">全部类别</a></li>{$ListCategory5}</ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul>
+			<li id="s_e_0"><a href="/c_shop_a{$a}_b{$b}_c{$c}_d{$d}_e0_f{$f}_g{$g}_p1.html">全部商品</a></li>
+			<li id="s_e_1"><a href="/c_shop_a{$a}_b{$b}_c{$c}_d{$d}_e1_f{$f}_g{$g}_p1.html?_key={$key}">新品</a></li>
+			<li id="s_e_2"><a href="/c_shop_a{$a}_b{$b}_c{$c}_d{$d}_e2_f{$f}_g{$g}_p1.html?_key={$key}">促销</a></li>
+			<li id="s_e_3"><a href="/c_shop_a{$a}_b{$b}_c{$c}_d{$d}_e3_f{$f}_g{$g}_p1.html?_key={$key}">推荐</a></li>
+			<li id="s_e_4"><a href="/c_shop_a{$a}_b{$b}_c{$c}_d{$d}_e4_f{$f}_g{$g}_p1.html?_key={$key}">人气</a></li>
+		</ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+ <div class="commodity_list">
+ 
+  <ul>
+   <tag:Loop ListType="LISTSHOPQIAN" RecType="New" PageSize="20" ColorSplit="1" TitleLen="40" RecColumn="5" CusTpl="1" Template="company/list_shop_tr.html" />
+  </ul>
+  <div class="pageNavigation">{$PageSplit}</div>
+ </div>
+{$bottom$}
+<script src="{$Default_tplPath}js/iscroll5/iscroll.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	/*if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}*/
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	$('#s_e_{$e}').addClass('cur');
+	$('#cat_{$a}').addClass('cur');
+	$('#s_b_{$b}').parent().addClass('cur');
+	showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+	
+	var s_a_txt = ''
+	
+	if('{$a}' !== '' && '{$a}' !== '0'){
+		s_a_txt = $('#cat_{$a} .rights').text();
+		if('{$b}' !== '' && '{$b}' !== '0'){
+			s_a_txt = $('#s_b_{$b}').text();
+		}
+		$('#str_b_node').html(s_a_txt);
+	}
+	if('{$e}' !== '' && '{$e}' !== '0'){
+		$('#s_e_{$e}').addClass('cur');
+		$('#str_e_node').html($('#s_e_{$e}').text());
+	}
+	
+},false);
+function showHide(){}
+</script>
+</body>
+</html>

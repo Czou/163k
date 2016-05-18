@@ -1,0 +1,68 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="90%">二级域名设置&nbsp;&nbsp;&nbsp; <font color="#FF0000">提示：您只有使用的是独立服务器或具有独立IP的VPS，且需要正确的对您的域名和服务器做相应的配置，方可使店铺二级域名系统正常使用。</font></td>
+          <td width="10%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+ 
+  <form name="form1" method="post" action="?action=AddSave">
+  <tr><td colspan="2" class="category">
+  <div class="global_tip">在具备以下全部条件下，您才能正常使用二级域名系统<br />
+1、具备独立服务器或独立IP的VPS，且机房开放支持泛解析<br />
+2、网站必须使用的是顶级域名，网站本身不得是二级域名<br />
+3、将您的域名泛解析到您的服务器IP<br />
+4、网站必须是空主机头<br />
+<font color="#FF0000">如果不符合二级域名的使用环境条件 千万不要开启</div></font>
+  </td></tr>
+     
+	 <tr > 
+      <td width="15%" height="25" >网站根域名<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="yuming" type="text" id="yuming" size="40" value="{$yuming}"> <em class="global_tip">(比如163k.com 不需要加www，不支持二级域名，网站的二级域名均基予本主域名下)</em></td>
+    </tr>
+     <tr > 
+      <td width="15%" height="25" >是否启用二级域名：<font color="#FF0000">*</font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="yumingkill" type="radio" value="0" {$yumingkill0} >不启用 <input name="yumingkill" type="radio" value="1" {$yumingkill1} >启用 <em class="global_tip">(是否启用黄页，经纪人，店铺二级域名)</em></td>
+    </tr>
+    <tr > 
+      <td width="15%" height="25" >保留域名：<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"> <textarea name="yumingbaoliu" cols="70"  rows="6">{$yumingbaoliu}</textarea> <em class="global_tip">(用户将无法申请使用这些保留域名，多个用,隔开)</em></td>
+    </tr>
+	
+   
+    <tr  > 
+       <td height="25"  align="right">
+	  </td>
+	  <td class="category" align="left">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+    
+  </form>
+ </table>
+ 
+ 
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+	
+  </body>
+</html>
+

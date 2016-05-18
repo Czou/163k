@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的投票活动-会员管理中心-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/order2015.css" />
+<script>
+window['ipageTitleTxt'] = '我的投票活动';
+</script>
+<style type="text/css">
+body { background-color:#eee;}
+.inner_html2 { padding:10px; margin:0; background-color:#fff; border-bottom:1px solid #ddd;}
+</style>
+{$top$}
+	<div class="content">
+		<div class="p_tabs clearfix">
+		   <ul>
+		    <li class="{$style2$}">{$url2$}</li>
+			<li class="{$style0$}">{$url0$}</li>
+			<li class="{$style1$}">{$url1$}</li>
+		   </ul>
+		</div>
+		
+		<div class="inner_html2"><a href="{$SiteUrl}member/myvote.aspx?action=add#tt7" class="comn-submit btn_block">参加新的投票活动</a></div>
+		<div class="user_order_list">
+			<ul id="tgorderList">
+				<tag:Loop ListType="LISTXUANSHOULIST" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/list_vote_tr.html" />
+			</ul>
+			<div class="pageNav">{$PageSplit}</div>
+		</div>
+	</div>
+{$bottom$}
+<script>
+function delvote(id){
+    if(confirm("该操作将不可逆！\n您确定要删除吗？")){
+      	var url="myvote.aspx?action=del&id="+escape(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		
+		$.ajax({url:url}).done(function(msg){
+			if(msg!=='1'){
+				alert(msg);	
+			}else{
+				alert("删除成功！");
+				window.location.href="myvote.aspx";
+			}
+		}).error(function(e){alert(e);});
+    }
+}
+</script>
+</body>
+</html>

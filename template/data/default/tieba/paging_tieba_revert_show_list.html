@@ -1,0 +1,19 @@
+﻿<div class="post_item user_{$userid} clearfix" data-userid="{$userid}">
+	<div class="t_author">
+		<i class="icon_online" title="在线"></i>
+		<div class="author_face"><img src="{$chrpic}" /></div>
+		<div class="username">{$chrname}</div>
+		<div class="badge">{$chrlevel}<em>{$djid}</em></div>
+		<div class="bazhu display{$isbazhu}">版主</div>
+		<ul>
+			<li>帖子：{$tiebanum}</li>
+			<li>精华：{$tiebajinghuanum}</li>
+			<li>注册：{$regdate yyyy-MM-dd}</li>
+	   </ul>
+	</div>
+	<div class="post_con">
+		<div class="con">{$repsmall}<div class="replaycontent1">{$chrmark}</div></div>
+		<p class="manage_replay display{$isrep}" data-isrep="{$isrep}">{$replaytruename}回复：<span class="replaycontent2">{$replaycontent}</span>　<span class="time">{$replaydate}</span></p>
+		<div class="comment_vote"><span class="floor">{$PNum}</span>　<span class="r_time">{$dtappenddate}</span>　<span class="manage"><a href="#" onclick="return edit_replay(this,'{$revertid}');" class="blue">编辑和回评</a><a href="#" onclick="return loadDelQuick(this,'{$revertid}');" class="blue" style="padding:0 13px;">更多操作</a></span><a href="#" onclick="return putRevertPage(this,'{$revertid}','styleid=0&xianhua=1');" class="zan_btn">赞(<em class="num">{$xianhua}</em>)</a>　<a href="#" onclick="return loadRevertReplay(this,'{$revertid}','{$parentid}');" class="replay_btn replay_life">回复</a></div>
+	</div>
+</div>

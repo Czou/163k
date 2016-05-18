@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$add2title}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/business-mb.css" rel="stylesheet" />
+<script>
+window['ipageTitleTxt'] = '<a href="{$indexurl}">{$chrshop}</a>';
+</script>
+{$top$}
+<style type="text/css">
+.headerblack { background-color:#fb9032;}
+#slide { position:fixed; top:0; left:0; width:100%; z-index:1000!important; overflow:visible;}
+#mask { z-index:999; opacity:1;}
+#slide #indicator { text-align:center; left:0; right:0; width:100%; margin-left:0; bottom:-30px;}
+#slide #indicator li { float:none; display:inline-block;}
+</style>
+<div class="star_nav" id="star_nav">
+	<ul class="clearfix" data-scrollable="x" style="width:800px;">
+		{$shop_menu_list}
+	</ul>
+	<div class="more"><span></span></div>
+</div>
+<div class="b_main bgk_main n_mb" id="b_main">
+ <div class="shop_intro">
+    <div class="shop_tabs">
+		<ul>
+			<li id="s_id_0"><a href="{$TargetUrl}pic_{$shopid}.html">全部相册</a></li>
+			{$smallcategory}
+		</ul>
+	  </div>
+	  <div class="pictures">
+	  <div class="p_list" id="p_list">
+	   <ul class="clearfix">
+		<tag:Loop ListType="Listshoppic" RecType="New" PageSize="30" ColorSplit="1" TitleLen="50" RecColumn="5" CusTpl="1" Template="company/list_pic_tr.html" />
+	   </ul>
+	   <div class="pageNavigation">{$PageSplit}</div>
+	  </div>
+	 </div>
+ </div>
+{$bottom$}
+<div id="slide" class="clearfix" style="display:none;">
+<div class="header headerblack">
+	<a href="javascript:void(0);" onClick="return closeViewPic();" class="back">返回</a>
+</div>
+	<div id="content"></div>
+	<ul id="indicator"></ul>
+</div>
+<span class="prev" id="slide_prev" style="display:none">上一张</span><span class="next" id="slide_next" style="display:none">下一张</span>
+<div class="mask" id="mask" style="display:none;"></div>
+<script src="{$Default_tplPath}js/Scroller/Animate.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/Scroller/EasyScroller.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="{$Default_tplPath}js/purl.js?{$CacheHash}"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	/*if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		showMapBD(myPoint[0],myPoint[1]);
+	}*/
+	setTimeout(function(){
+		$('#star_nav').find('.cur')[0]&&window['EasyScroller1'].scrollByX($('#star_nav').find('.cur').offset().left);
+		$('#star_nav').find('.more').click(function(){
+			window['EasyScroller1'].scrollByX(400)
+		});
+	},100);
+	IDC.resizeIMG(document.getElementById('resizeIMG'),$(window).width()-20,480);
+	var current_host = window.location;
+	var url_obj = $.url(current_host).param();
+	if(url_obj['key'] === '' || !url_obj['key']){
+		$('#s_id_0').addClass('cur');
+	}
+},false);
+$.fn.shopPicList = function(){
+	var node = $(this),list = node.find('.item'),slide = $('#slide'),mask = $('#mask'),b_main = $('#b_main'),t_id='';
+	window['closeViewPic'] = function (){
+		slide.hide();
+		mask.hide();
+		b_main.show();
+	}
+	list.click(function(){
+		slide.show();
+		mask.css({'height':$(window).height()+'px'}).show();
+		b_main.hide();
+		t_id = $(this).attr('data-id');
+		$('#tab_'+t_id).trigger('click');
+	});
+	var Lanterninfo=list;
+	var txt = '',
+		txtImg = '',i=0;
+	if(Lanterninfo.length > 0){
+		list.each(function(){
+			txtImg+='<div class="cell" id="img_'+$(this).attr('data-id')+'"><img src="'+$(this).attr('data-src')+'" alt=""><span class="title">'+$(this).attr('alt')+'</span></div>';
+			txt += '<li id="tab_'+$(this).attr('data-id')+'">'+(i+1)+'</li>';
+			i++;
+		});
+		$('#content').html(txtImg);
+		$('#indicator').html(txt);
+		var w_w = $(window).width();
+		setTimeout(function(){window['EasyScroller2'] = new C_Scroll({container:'slide',content:'content',ct:'indicator',size:w_w,intervalTime:0,lazyIMG:!!0});},20);
+	}
+}
+$('#p_list').shopPicList();
+
+$(function(){
+  var w_win = document.body.clientWidth;
+  var li_win = (w_win-70)/2;
+      $("#p_list li").css("width",li_win+"px");
+	  $("#p_list li").find("img").css({"width":li_win+"px","height":li_win*3/4+"px"});
+});
+</script>
+</body>
+</html>

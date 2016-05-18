@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+#allmap { height:442px; box-shadow:0px 2px 4px rgba(0,0,0,.4); border-bottom:3px solid #3189f3;}
+.bottom { padding:10px; text-align:center;}
+.btn_blue,.btn_gray,.search_btn { padding:8px 45px; font-size:14px; font-weight:bold; display:inline-block; vertical-align:top; *display:inline; *zoom:1; border-radius:3px; text-decoration:none;}
+.btn_blue { color:#fff; background-color:#0b73ec; border:1px solid #055ec6;}
+.btn_gray,.search_btn { color:#666; background-color:#e1e1e1; border:1px solid #ddd;}
+.left { float:left; padding-top:4px;}
+.right { float:right;}
+.search_txt { border:1px solid #ddd; padding:4px; vertical-align:middle;}
+.search_btn { padding:4px 20px; cursor:pointer;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<title>地图标注</title>
+</head>
+<body>
+<div id="allmap"></div>
+<div class="bottom">
+	<div class="left"><input type="text" class="search_txt" id="search_txt" /><button type="button" class="search_btn" onClick="get_point()">查找</button></div>
+	<div class="right"><a href="javascript:void(0);" onClick="return bz_ok();" class="btn_blue">确定标注</a>　<a href="javascript:void(0);" onClick="return bz_cancel();" class="btn_gray">取消</a></div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+</script>
+<script type="text/javascript">
+//var action="{$action}";
+var icity = "{$city}";
+var iaddress = "{$chraddress}";
+var maparea = '{$maparea}';
+var mapdomid = '{$mapdomid}';
+var bz_x = 0;
+var bz_y = 0;
+
+var map = new BMap.Map("allmap");
+map.addControl(new BMap.NavigationControl());
+var marker,latitude={$shop_x},longitude={$shop_y},point;
+
+function get_point(){
+	var search_txt = document.getElementById('search_txt');
+	if(search_txt.value === '' || !search_txt.value){alert('请输入搜索关键字'); return false;}
+	var myGeo = new BMap.Geocoder();
+	myGeo.getPoint(search_txt.value, function(point){
+	  if (point) {
+		map.removeOverlay(marker);
+		marker = new BMap.Marker(point);
+		map.centerAndZoom(point, 15);
+		bz_x = point.lng;
+		bz_y = point.lat;
+		map.addOverlay(marker);
+	  }else{
+		 alert('没有找到相关地址！');
+	  }
+	}, icity);
+}
+point=new BMap.Point(latitude,longitude)
+translateCallback(point);
+function translateCallback(ggpoint){
+	if(latitude===0||longitude===0){
+		if(maparea !== '' ){
+				if(maparea.indexOf(',')!='-1'){
+					var i_point = new BMap.Point({$maparea});
+					map.centerAndZoom(i_point,15);
+					//marker = new BMap.Marker(i_point);
+					//map.addOverlay(marker);
+				}else{
+					map.centerAndZoom(maparea,15);
+				}
+			}else{
+				
+				map.centerAndZoom(icity,15);
+			}
+	}else{
+		marker = new BMap.Marker(ggpoint);
+		map.centerAndZoom(ggpoint, 15);
+		map.addOverlay(marker);
+		bz_x = ggpoint.lng;
+		bz_y = ggpoint.lat;
+	}
+}
+map.addEventListener("click",function(e){
+	var point2 = new BMap.Point(e.point.lng, e.point.lat);
+	map.removeOverlay(marker);
+	marker = new BMap.Marker(point2);
+	map.addOverlay(marker);
+	bz_x = e.point.lng;
+	bz_y = e.point.lat;
+	
+});
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT, type: BMAP_NAVIGATION_CONTROL_PAN}));  //左下角，仅包含平移按钮
+
+function bz_cancel(){
+	//window.close();  opener
+	window.parent.document.getElementById("map_iframe").style.display='none';
+}
+function bz_ok(){
+	if(bz_x === 0 || bz_y === 0){
+		alert('请在地图上找到您要的位置单击地图进行标注！');
+		return false;
+	}
+	if(window.parent.document.getElementById("shop_x")){
+		window.parent.document.getElementById("shop_x").value = bz_x;
+	}
+	if(window.parent.document.getElementById("shop_y")){
+		window.parent.document.getElementById("shop_y").value = bz_y;
+	}
+	
+	//window.opener.document.getElementById("ggmap").value = '2';
+	if(window.parent.document.getElementById(mapdomid)){
+		window.parent.document.getElementById(mapdomid).value = bz_x+','+bz_y;
+	}
+	window.parent.document.getElementById("map_iframe").style.display='none';
+}
+</script>
+

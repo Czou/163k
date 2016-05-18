@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}访问出错了--{$SiteName}</title>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/javascript.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; 访问出错了</div>
+	<div id="content" class="yp2011">
+    	<div style="padding:100px; font-size:14px;">
+		该超级黄页被管理员关闭了，如有疑问您可以联系网站客服 <br /><br />热线电话：{$sitetel}  客服QQ1：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$siteqq1}&amp;site=qq&amp;menu=yes" target="_blank">{$siteqq1}</a>　客服QQ2：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin={$siteqq2}&amp;site=qq&amp;menu=yes" target="_blank">{$siteqq2}</a>
+        </div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

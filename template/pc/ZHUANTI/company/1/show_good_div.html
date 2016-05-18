@@ -1,0 +1,57 @@
+			<div class="w-1200 product_detail">
+				
+				<div class="grid_product_detail clearfix">
+					<div class="col_main"><div class="main_wrap">
+						
+						<div class="info">
+							<span class="num">{$views}</span>
+							<div class="title"><span class="inner">{$chrgood}</span><s class="s_1 display{$istop}">推荐</s><s class="s_2 display{$cuxiao}">促销</s><s class="s_3 display{$remai}">新品</s></div>
+							<ul class="other clearfix">
+								<li class="display0{$chrpinpai}">品牌：{$chrpinpai}</li>
+								<li class="display0{$goodnum}">出品商：{$goodnum}</li>
+								<li class="display0{$xinghao}">规格：{$xinghao}</li>
+								<li>供货商家：{$chrshop}</li>
+							</ul>
+							<div class="price">&yen;{$price2}</div>
+							<div class="old_price">原价：&yen;{$price1}</div>
+							<div class="btn"><a href="javascript:void(0);" onClick="addFav(this,{'shopid':'{$shopid}','productid':'{$goodid}','styleid':'1'});" class="fav">加入收藏</a><a href="{$httpurl}" target="_blank" class="taobao display{$styleid}">去淘宝购买</a><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=0&menu=yes" target="_blank" class="consulting">欢迎咨询</a><a href="{$SiteUrl}k_shop_a0_b0_c0_d0_e0_f{$shopid}_g{$goodid}_p1.html" id="kuaisonLink" data-styleid="{$styleid}" data-isgoodshop="{$isgoodshop}" class="kuaison display0" title="该商品在同城快店有售，欢迎前往快店下单购买">快店购买</a><!--<a href="#" class="tuangou">参加团购</a>--></div>
+							<div class="contact"><span class="sp">在线咨询：</span><a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=0&menu=yes" target="_blank" class="display0{$chrqq}"><img src="http://wpa.qq.com/pa?p=2:{$chrqq}:41" alt="点击咨询" /></a> <a href="http://wpa.qq.com/msgrd?v=3&uin={$chrqq}&site=0&menu=yes" target="_blank" class="sp blue_font">{$chrqq}</a><span class="sp">　　或致电：<em class="tel">{$chrtel}</em></span></div>
+							<div class="clearfix"><div class="bdsharebuttonbox" style="float:left;"><span class="txt">分享到：</span><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script></div>
+							<div class="update">更新：{$dtappenddate}</div>
+						</div>
+					</div></div>
+					<div class="col_sub">
+						<div class="img po_re" id="dialog_pro">
+							<!--<img src="{$Default_tplPath}images/kuaison_nofind_product2.gif" id="dialog_img" alt="" />-->
+							
+							
+							<div class="big_photo_inner" id="superAlbum">
+								<img src="{$Default_tplPath}images/kuaison_nofind_product2.gif" data-superbig="" id="dialog_img" class="" alt="" />
+								<span class="img_mask" id="img_mask"></span>
+							</div>
+							<div class="po_bigView" id="po_bigView"><img src="" class="superPIC" onerror="this.src='{$Default_tplPath}images/kuaison_nofind_product2.gif';this.onerror='';" id="superPIC" /></div>
+							
+							<div class="imgListNode po_re">
+								<ul class="imgList clearfix" id="dialog_imgList" data-imgList='{$goodpiclist}'></ul>
+							</div>
+							<a href="javascript:void(0);" class="btn_prev btn_disabled" id="dialog_img_prev">上一个</a><a href="javascript:void(0);" class="btn_next" id="dialog_img_next">下一个</a>
+						</div>
+					</div>
+				</div>
+				<div class="module_04">
+					<div class="hd">商品详情</div>
+					<div class="bd product_info" id="resizeIMG">{$goodchrcontent}</div>
+				</div>
+				<div class="module_04">
+					<div class="hd">推荐商品</div>
+					<div class="bd tui_product">
+						<ul class="clearfix">
+							{$Mh163k_星级店铺_商家大全_推荐商品}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" id="filepath" value="{$filepath}" />

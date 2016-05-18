@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>省啦管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<ul class="left">
+						<li><a href="?iskill=" class="{$iskill_s_}">全部商品</a></li>
+						<li><a href="?iskill=1" class="{$iskill_s_1}">上线</a></li>
+						<li><a href="?iskill=2" class="{$iskill_s_2}">秒杀上线</a></li>
+						<li><a href="?iskill=0" class="{$iskill_s_0}">下线</a></li>
+						<li><a href="?iskill=-1" class="{$iskill_s_-1}">待审</a></li>
+						<li><a href="?iskill=-2" class="{$iskill_s_-2}">秒杀待审</a></li>
+					</ul>
+					<div class="right"><a href="mytg.aspx?action=add" class="sys_btn_small_blue">发布省啦</a></div>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">编辑修改后前台将暂停显示，待网站方审核通过后恢复显示</div>
+						</div>
+						<div class="tips">
+							<div class="t_hd">省啦项目统计</div>
+							<div class="t_bd">您共有省啦项目：<span style="color:#f60; font-size:16px;">{$goodnumall}</span>　上架：<span style="color:#f60; font-size:16px;">{$iskill1num}</span>　下架：<span style="color:#f60; font-size:16px;">{$iskill0num}</span>　待审：<span style="color:#f60; font-size:16px;">{$iskill-1num}</span>　秒杀上线：<span style="color:#f60; font-size:16px;">{$iskill2num}</span>　秒杀待审：<span style="color:#f60; font-size:16px;">{$iskill-2num}</span></div>
+							
+							     
+						</div>
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8"> 
+								<td>省啦标题</td>
+								<td>类型</td>
+								<td>发布时间</td>
+								<td>结束时间</td>
+								<td>状态</td>
+								<td>订单数</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="LISTTGMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_tggood_Tr.htm" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+function superManage(sid){
+	var f_id = 'super_tips';
+	var aHTML = '<div class="replay_tips" id="'+f_id+'" style="display:none"><div class="hd clearfix"><a href="#" class="close">关闭</a>快捷操作</div><div class="bd">';
+	aHTML += '<iframe src="about:blank" id="'+f_id+'_iframe" scrolling="no" frameBorder="0" width="100%" height="300"></iframe>';
+	aHTML += '</div></div>';
+	if(!$('#'+f_id)[0]){
+		$('body').append(aHTML);
+		$(document).mousedown(function(event){
+			if(!$('#'+f_id+':visible')) return;
+			var $target = $(event.target);
+			if(($target.parents('#' + f_id).length === 0)){
+				 $('#'+f_id).hide();
+			}
+		});
+		$('#'+f_id).on('click','.close',function(e){
+			e.preventDefault();
+			$('#'+f_id).hide();
+		});
+	}
+	var url = "mytg.aspx?action=smalledit&id="+sid;
+	$('#'+f_id+'_iframe').attr('src',url);
+	var f_node = $('#'+f_id);
+	var w_h = $(window).height(),d_h = f_node.height(),s_h = $(document).scrollTop(),top_val = (w_h-d_h)/2+s_h;
+	f_node.css({'top':top_val+'px','display':'block'});
+}
+</script>
+</body>
+</html>

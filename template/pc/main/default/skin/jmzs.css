@@ -1,0 +1,134 @@
+.jmzs {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.jmzs1 {
+	float: left;
+	width: 726px;
+	font-size: 14px;
+	color: #585554;
+	line-height: 26px;
+	padding-left: 22px;
+}
+.jmzs2 {
+	float: right;
+	width: 200px;
+}
+.jmzs3 {
+	float: left;
+	font-size: 14px;
+	color: #585554;
+	line-height: 26px;
+	padding-left: 22px;
+	padding-right: 22px;
+}
+.jmzs4 {
+	float: left;
+	font-size: 14px;
+	color: #585554;
+	line-height: 34px;
+	padding-left: 22px;
+	padding-right: 22px;
+	background-image: url(../images/jqhs.jpg);
+	background-repeat: no-repeat;
+	background-position: right 0px;
+	height: 179px;
+	width: 920px;
+	padding-top: 10px;
+}.jmzs5 {
+	font-size: 14px;
+	color: #636366;
+	padding-left: 22px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.jmzs5 a {
+	color: #0b27f1;
+	text-decoration: underline;
+}
+.jmzs5 a:hover {
+	color: #FF0000;
+}
+
+.font{
+	color: #b5400c;
+}
+.jmzs5 span {
+	
+}
+.jmzs5 em {
+	font-style: normal;
+	color: #e74005;
+}
+.input0 {
+	width: 229px;
+	border: 1px solid #d5d2d2;
+	height: 22px;
+	vertical-align: middle;	
+}
+.input1 {
+	height: 157px;
+	width: 914px;
+	border: 1px solid #d5d2d2;
+	vertical-align: middle;	
+}
+.jmzs0 {
+	float: left;
+	width: 716px;
+	font-family: "ËÎÌו";
+}
+.jmzs6 {
+	float: right;
+	width: 225px;
+}
+.jmzs6_1 {
+	width: 60px;
+	padding-left: 100px;
+	padding-top: 40px;
+	font-size: 14px;
+	color: #96979b;
+	font-weight: bold;
+	text-align: center;
+}
+.jmzs6_1 img {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.jmzs6_1 span {
+	color: #c83811;
+}
+.jmzs6_2 {
+	padding-top: 50px;
+	color: #666666;
+	margin-left: 40px;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #ffc678;
+	padding-bottom: 10px;
+	font-family: "ËÎÌו";
+}
+.jmzs6_2 img {
+	margin-right: 6px;
+	margin-bottom: 6px;
+}
+.jmzs7 {
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: #f67e44;
+	font-size: 14px;
+	color: #52504f;
+	padding-bottom: 10px;
+	padding-left: 15px;
+	margin: 22px;
+}
+.jmzs7 a {
+	color: #0a1fe5;
+	text-decoration: underline;
+}
+.jmzs7 a:hover {
+	color: #FF0000;
+}
+a:hover {
+	color: #FF0000;
+}

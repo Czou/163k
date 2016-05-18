@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>出错啦--{$SiteName}</title>
+<link href="{$tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/modify.js"></script>
+<style>
+#content { margin-top:10px;}
+#showwrong { font-size:14px;}
+#showwrong a{ color:#000080; text-decoration:underline; font-size:14px;}
+#showwrong a:hover{ color:#000080}
+</style>
+{$top$}
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+		   <table width="100%" height="100%">
+		  <tr><td valign="middle" style="padding-top:50px;">
+		  <table border="0" width="600" align="center" id="table1">
+	<tr>
+		<td width="55">
+		<img border="0" src="{$tplPath}images/MinIcons_001.png" width="48" height="48"></td>
+		<td> <div id="showwrong">抱歉，因为您还不是“签约店铺”，所以暂时无法使用该功能<br>
+		1、可能网站没有开放该功能给非签约店铺<br>
+		2、可能您已经达到非签约店铺使用该功能的数量上限<br>
+		<A href="rengzheng.aspx">点击这里可以在线申请签约</a> </div>
+				</td>
+			</tr>
+		</table></td></tr></table>
+          </div>
+　     </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

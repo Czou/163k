@@ -1,0 +1,58 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style>
+#main{ width:auto; list-style-type:none; }
+#main li{ width:60px; line-height:22px; height:22px; float:left; text-align:center}
+</style>
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+<tr>
+<td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+<td width="100%" background="{$atplPath}Images/r_0.gif">
+  <table cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td>&nbsp;常用软件站管理</td>
+	  <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+<td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+</tr>
+<tr>
+<td></td>
+<td>
+<div id="main">
+<ul style="list-style:none;">
+{$slist}
+</ul>
+</div>
+<form name="form" method="post" action="?action=softsave">
+<table align="center" cellpadding="2" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+			
+				<tr align="center">
+				<td width="35" class="category">ID</td>
+				<td class="category">标题</td>
+				<td class="category">网址</td>
+				<td class="category">图片</td>
+				<td class="category">字体颜色</td>
+				<td class="category">排序</td>
+				</tr>
+				<tag:Loop ListType="LISTkuzhan" RecType="New" PageSize="16" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="wangzhi/List_soft_Tr.htm" />
+				<input name="totalid" value="{$totalid}"   type="hidden"/>
+			<tr > 
+       <td height="24" align="center" bgcolor="#FFFFFF" colspan=9>
+		<input type="submit" name="submit" class="global_btn_blue_big" value="批量保存网址" />
+	  </td>
+    </tr>	
+			
+</table></form>
+<!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+</body></html>

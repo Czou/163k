@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/bm-mb.css" />
+<script>
+var nowdomain = '{$SiteUrl}';
+window['ipageTitleTxt'] = '{$chrtitle}';
+</script>
+{$top$}
+<div class="o_main mar_b_50">
+ <!--默认排行-->
+ <div class="vit_banner">{$chrcontent}</div>
+ <div class="tabs">
+  <ul>
+   <li class="{$colname0}"><a href="?colname=0">默认排行</a></li>
+   <li class="{$colname4}"><a href="?colname=4">最新报名</a></li>
+   <li class="{$colname1}"><a href="?colname=1">得票排行</a></li>
+   <li class="{$colname2}"><a href="?colname=2">浏览排行</a></li>
+  </ul>
+ </div>
+ <div class="vit_rank_list">
+  <ul>
+   <tag:Loop ListType="listvoteqian" RecType="New" PageSize="20" ColorSplit="1" TitleLen="26" RecColumn="5" CusTpl="1" Template="vote/list_vote.html" />
+  </ul>
+  <div class="pageNav pageNav2">{$PageSplit}</div>
+ </div>
+{$bottom$}
+<script>
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),$(window).width(),480);
+})(jQuery);
+</script>
+<div class="signUp"><a href="{$SiteUrl}member/myvote.aspx?action=add&id={$voteid}">报名参加</a></div>
+
+</body>
+</html>

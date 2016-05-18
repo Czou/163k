@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<!-- UC默认竖屏 ，UC强制全屏 -->
+<meta name="full-screen" content="yes"/>
+<meta name="browsermode" content="application"/>
+<!-- QQ强制竖屏 QQ强制全屏 -->
+<meta name="x5-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="x5-page-mode" content="app"/>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/kd-mb.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news-scroll5.css" />
+<style type="text/css">
+#pageNavigation { display:none;}
+#wrapper { top:125px}
+#scroller .noMore { padding-left:0; padding-right:0;}
+</style>
+<script type="text/javascript">
+var sys_time = Date.parse('{$system_datetime MM\/dd\/yyyy HH:mm:ss}');
+</script>
+{$top$}
+<div class="nav_bottom">
+ <ul>
+  <li><a href="{$SiteUrl}">首页</a></li>
+  <li class="current"><a href="../kd_a{$a}_b{$b}_c0_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}">附近</a></li>
+  <li><a href="{$SiteUrl}member/myorder.aspx">订单</a></li>
+  <li><a href="{$SiteUrl}member/myorder.aspx?action=myshoppay">购物车</a></li>
+  <li><a href="{$SiteUrl}member/">我的</a></li>
+ </ul>
+</div>
+<div class="wrapper p_main" style="margin:0;">
+ <div class="guess_local clearfix" id="hideHead">
+  <dl>
+   <dt id="curLocation">未知位置</dt>
+   <dd><a href="javascript:void(0);" onClick="showNewPage('切换位置',locationHtml,locationCallBack);">切换</a></dd>
+  </dl>
+ </div>
+<div class="filter2" id="filter2">
+	<ul class="tab clearfix">
+		<li class="item"><a href="javascript:void(0);"><span id="str_b_node">全部分类</span><em></em></a></li>
+		<li class="item"><a href="javascript:void(0);"><span id="str_d_node">全部区域</span><em></em></a></li>
+	</ul>
+	<div class="inner" style="display:none;">
+		<ul id="inner1"></ul>
+	</div>
+	<div class="inner" style="display:none;">
+		<ul id="inner2"></ul>
+	</div>
+	<div class="inner_parent" id="parent_container" style="display:none;"><div class="innercontent"></div></div>
+	<div class="inner_child" id="inner_container" style="display:none;"><div class="innercontent"></div></div>
+</div>
+<div class="fullbg" id="fullbg" style="display:none;"><i class="pull2"></i></div>
+<!--商家列表-->
+
+
+<input id="pagenum" type="hidden" value="1" />
+<div id="wrapper">
+	<div id="scroller">
+		<div id="pullDown" style="display:none;"><span class="loader" style="display:none;">loadding</span></div>
+		<div class="sj_box" id="mapPoint" style="background-color:#fff;">
+			<ul id="pagingList"></ul>
+			<div id="pullUp" style="display:none;"><span class="loader">loadding</span></div>
+			<div class="sys_more pageNavigation" id="pageNavigation"></div>
+		</div>
+		<div style="height:54px; background-color:#eee;"></div>
+	</div>
+	
+	<div id="reload" style="display:none;"><s class="s"></s><span class="txt">下拉可以刷新</span><br>最后更新：<span class="time">未知</span></div>
+	<span class="loader" id="pageLoader">loadding</span>
+</div>
+{$bottom$}
+<script type="text/javascript" src="{$Default_tplPath}js/purl.js"></script>
+<script src="{$Default_tplPath}js/iscroll5/iscroll-probe.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.cookie.js?{$CacheHash}"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={$ggmapkey}"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="{$Default_tplPath}js/commonPaging.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/wap_kuaisonCommon.js?{$CacheHash}"></script>
+<script type="text/javascript" src="{$Default_tplPath}js/getKuaidianPage.js"></script>
+<script>
+window['isIscroll5'] = true; //列表是否启用iscroll5
+window['isIscroll5_hideHead']= true;
+var nowdomain ="{$SiteUrl}";
+var keyvalues = {"table_id":24,
+	"pagesize":20,
+	"tplpath":"k",
+	"tplname":"paging_wap_k_index_list.html", //原k/listproducts.htm复制得来
+	"strlen":100,	
+	"titleLen":80,
+	"isjson":0,
+	"p":"{$PageNo}",
+	"_key":"{$_key}",
+	"a":"{$a}",////kd_a(区大)_b(区小)_c排序(1新2推荐3排序)_d(1营业中,2可预订)_e(1免费配送)_f店类大_g店类小_h0_i0_p().html?_key={$_key}
+	"b":"{$b}",
+	"c":"{$c}",
+	"d":"{$d}",
+	"e":"{$e}",
+	"f":"{$f}",
+	"g":"{$g}",
+	"h":"{$h}",
+	"i":"{$i}",
+	"x":"",//用户坐标x
+	"y":""//用户坐标y
+};
+
+
+window['loadCat'] = 0;
+document.addEventListener('DOMContentLoaded',function(){
+	$('#search_ico').show();
+	$('#login_ico').hide();
+	getCategory('inner1','21',showCategory);
+	getCategory('inner2','0',showQuyu);
+	if($('#listEmpty')[0]){
+		$('#listEmpty').html('抱歉，没有找到符合条件的店家');
+	}
+	loaded_page();
+	
+	if($.cookie('myPoint') === undefined){
+		getLocation();
+	}else{
+		var myPoint = decodeURIComponent($.cookie('myPoint')).split(',');
+		getPagingGlobal({'x':myPoint[0],'y':myPoint[1]},true);
+	}
+},false);
+function showFilterTxt(){
+	var s_a_txt = '';
+	var s_c_txt = '';
+	if('{$a}' !== '' && '{$a}' !== '0'){
+		$('#s_a_{$a}').addClass('cur');
+		s_c_txt = $('#s_a_{$a} > a').text();
+		if('{$b}' !== '' && '{$b}' !== '0'){
+			$('#s_b_{$b}').addClass('cur');
+			s_c_txt = $('#s_b_{$b}').text();
+		}
+		$('#str_d_node').html(s_c_txt);
+	}
+	
+	if('{$f}' !== '' && '{$f}' !== '0'){
+		$('#cat_{$f}').addClass('cur');
+		s_a_txt = $('#cat_{$f} > a').text();
+		if('{$g}' !== '' && '{$g}' !== '0'){
+			$('#s_{$g}').addClass('cur');
+			s_a_txt = $('#s_{$g}').text();
+		}
+		$('#str_b_node').html(s_a_txt);
+	}
+}
+function showCategory(node,d){
+	var txt='<li><a href="../kd_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f0_g0_h{$h}_i{$i}_p1.html?_key={$_key}">全部分类</a></li>',txt2='';
+	for(var i=0;i<d.length;i++){
+		if(!jQuery.isEmptyObject(d[i].arr)){
+			txt2 = '<ul><li id="s_'+d[i].id+'"><a href="../kd_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f'+d[i].id+'_g0_h{$h}_i{$i}_p1.html?_key={$_key}">全部小类</a></li>';
+			for(var k in d[i].arr){
+				txt2 += '<li id="s_'+k+'"><a href="../kd_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f'+d[i].id+'_g'+k+'_h{$h}_i{$i}_p1.html?_key={$_key}">'+d[i].arr[k]+'</a></li>';
+			}
+			txt2 += '</ul>';
+			txt += '<li id="cat_'+d[i].id+'"><a href="#">'+d[i].name+'</a>'+txt2+'</li>';
+			
+		}else{
+			txt += '<li id="cat_'+d[i].id+'"><a href="../kd_a{$a}_b{$b}_c{$c}_d{$d}_e{$e}_f'+d[i].id+'_g0_h{$h}_i{$i}_p1.html?_key={$_key}">'+d[i].name+'</a></li>';
+		}
+	}
+	$('#'+node).html(txt);
+	if(window['loadCat'] === 2){
+		window['myScroll_parent'] = null;
+		window['myScroll_inner'] = null;
+		showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+		showFilterTxt();
+	}
+}
+function showQuyu(node,d){
+	var txt='<li><a href="../kd_a0_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}">全部区域</a></li>',txt2='';
+	for(var i=0;i<d.length;i++){
+		if(!jQuery.isEmptyObject(d[i].arr)){
+			txt2 = '<ul><li id="s_b_'+d[i].id+'"><a href="../kd_a'+d[i].id+'_b0_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}">全部地段</a></li>';
+			for(var k in d[i].arr){
+				txt2 += '<li id="s_b_'+k+'"><a href="../kd_a'+d[i].id+'_b'+k+'_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}">'+d[i].arr[k]+'</a></li>';
+			}
+			txt2 += '</ul>';
+			txt += '<li id="s_a_'+d[i].id+'"><a href="#">'+d[i].name+'</a>'+txt2+'</li>';
+			
+		}else{
+			txt += '<li id="s_a_'+d[i].id+'"><a href="../kd_a'+d[i].id+'_b{$b}_c{$c}_d{$d}_e{$e}_f{$f}_g{$g}_h{$h}_i{$i}_p1.html?_key={$_key}">'+d[i].name+'</a></li>';
+		}
+	}
+	$('#'+node).html(txt);
+	if(window['loadCat'] === 2){
+		window['myScroll_parent'] = null;
+		window['myScroll_inner'] = null;
+		showFilter({ibox:'filter2',content1:'parent_container',content2:'inner_container',fullbg:'fullbg'});
+		showFilterTxt();
+	}
+}
+var locationHtml = '<div class="searchbar2">'+
+	'<div class="guess_local clearfix">我们猜您在：<span id="curLocation2">未知位置</span></div>'+
+	'<form id="myform2" method="get">'+
+		'<input type="text" id="meSleKey2" class="s_ipt" placeholder="输入小区、单位、学校、商圈、地址..." />'+
+		'<input type="submit" class="submit" value="确定">'+
+	'</form></div><ul id="r-result" class="r-result"></ul>';
+function locationCallBack(){
+	var form = $('#myform2'),ipt = $('#meSleKey2');
+	reloadLocation();
+	$('#curLocation2').bind('click',function(e){
+		e.preventDefault();
+		$.removeCookie('myPoint');
+		getLocation();
+		$('#windowIframe').find('.close').trigger('click');
+	});
+	form.submit(function(e){
+		if(ipt.val() === '' || !ipt.val()){
+			MSGwindowShow('location','4','请输入小区、单位、学校、商圈、地址','','');
+			return false;
+		}
+		searchLocation('{$city}',ipt.val());
+		e.preventDefault();
+	});
+}
+function searchLocation(city,val){
+	var map = new BMap.Map("l-map");        
+	map.centerAndZoom(city,11);
+	var options = {
+		onSearchComplete: function(results){
+			if (local.getStatus() == BMAP_STATUS_SUCCESS){
+				var txt = '';
+				for (var i = 0; i < results.getCurrentNumPois(); i ++){
+					txt += '<li data-point-lng="'+results.getPoi(i).point.lng+'" data-point-lat="'+results.getPoi(i).point.lat+'"><p>'+results.getPoi(i).title+'</p><span>'+results.getPoi(i).address+'</span></li>';
+				}
+				document.getElementById("r-result").innerHTML = txt;
+				$('#r-result').on('click','li',function(e){
+					e.preventDefault();
+					$.cookie('myPoint',$(this).attr('data-point-lng')+','+$(this).attr('data-point-lat'),{path:'/',expires:10});
+					$('#windowIframe').find('.close').trigger('click');
+					showMapBD($(this).attr('data-point-lng'),$(this).attr('data-point-lat'));
+				});
+			}
+		}
+	};
+	var local = new BMap.LocalSearch(map, options);
+	local.search(val);
+}
+var searchHtml = '<div class="searchbar2">'+
+	'<form id="myform" action="../k_good_a0_b0_c0_d0_e0_f0_g0_p1.html" method="get">'+
+		'<select id="mySle" class="s_sel"><option value="2" selected="selected">商品</option><option value="1">快店</option></select>'+
+		'<input type="text" name="_key" id="meSleKey" class="s_ipt" value="{$key}" placeholder="输入您要找的美食、商品关键词" />'+
+		'<input type="submit" class="s_btn po_ab" value="搜索">'+
+	'</form></div>';
+function newPageSearch(){
+	var myform = $('#myform');
+	if($('#meSleKey').val() !== ''){$('#mySle').val('1');myform.attr({'action':'?'});}
+	$('#mySle').change(function(){
+		var val = $(this).val();
+		if(val === '1'){
+			myform.attr({'action':'?'});
+		}else{
+			myform.attr({'action':'../k_good_a0_b0_c0_d0_e0_f0_g0_p1.html'});
+		}
+	}); 
+}
+function getkill(){//营业状态
+	var iDate = new Date();
+	var theYear = iDate.getFullYear();
+	var theMonth = iDate.getMonth()+1;
+	theMonth = theMonth>9?theMonth.toString():'0' + theMonth;
+	var theDay = iDate.getDate();
+	var today = theMonth + '/' + theDay + '/' + theYear + ' ';
+	
+	$('#pagingList').find('.item').each(function(){
+		var state_node = $(this).find('.state'),
+			isopen = $(this).attr('data-isopen'),
+			shipkill = $(this).attr('data-shipkill'),
+			startkill = $(this).attr('data-startkill'),
+			start2kill = $(this).attr('data-start2kill'),
+			startdate = $(this).attr('data-startdate'),
+			enddate = $(this).attr('data-enddate'),
+			startdate2 = $(this).attr('data-startdate2'),
+			enddate2 = $(this).attr('data-enddate2');
+		if(isopen === '2'){
+			state_node.addClass('state_2').html('暂停营业');
+			return;
+		}
+		var thestartdate = Date.parse(today + startdate + ':00');
+		var theenddate = Date.parse(today + enddate + ':00');
+		var thestartdate2 = Date.parse(today + startdate2 + ':00');
+		var theenddate2 = Date.parse(today + enddate2 + ':00');
+		
+		if((startkill === '1' && thestartdate < sys_time && sys_time<theenddate)||(start2kill === '1' && thestartdate2 < sys_time && sys_time<theenddate2)){
+			showkill(!0);
+		}else{
+			showkill(!1);
+		}
+		function showkill(allow){
+			if(!!allow){
+				state_node.addClass('state_1').html('营业中');
+			}else{
+				shipkill === '0'?(state_node.addClass('state_3').html('打烊了')):(state_node.addClass('state_2').html('打烊了'));
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>

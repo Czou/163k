@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+body { text-align:left;}
+.service .hd .icon,.service .bd li,.zone .l_4 button,#content .zone .regMenu {background:url(../images/sp5/login2.gif) no-repeat 0 0;}
+
+.wrapper { width:1200px; margin:0 auto;}
+#content .thd { background:url(../images/sp5/login2.gif) no-repeat 0 0;}
+
+.topBar { background-color:#f6f6f6; border-bottom:1px solid #e6e6e6; height:22px; line-height:22px; text-align:right; color:#aaa;}
+.topBar a { padding:0 6px;} 
+.logo { padding:5px; text-align:left;}
+#content { border:1px solid #cacaca; text-align:left;}
+#content .thd { background-repeat:repeat-x; padding:0 8px; height:35px; font-size:14px; font-weight:bold; color:#333; line-height:35px; background-position:0 -71px;}
+#content .left { float:left; width:470px; padding:25px;}
+#content .right { float:right; width:376px; padding:25px; border-left:1px solid #e6e6e6; background-color:#fafafa;}
+
+
+#content h3 { font-size:20px; color:333; font-family:"黑体"; font-weight:normal;}
+#content .zone { margin-top:10px;}
+#content .zone .regMenu { display:block; width:125px; height:41px; overflow:hidden; background-position:-73px 0; font:0pt/1000px Arial; margin-top:10px;}
+#content .left .zone { padding-left:40px; margin-top:24px;}
+
+.zone li { padding:8px 0;}
+.zone .s_t { line-height:14px; padding:4px 4px; border:1px solid #aaa; width:180px;}
+.zone .sp_01,.zone .sp_02,.zone .sp_03 { display:block; float:left; color:#404040;}
+.zone .sp_01 { width:60px; line-height:27px; font-size:14px;}
+.zone .sp_02 { width:200px;}
+.zone .sp_03 { width:80px; line-height:27px;}
+.zone .l_3 { padding-left:55px;}
+.zone .cb { vertical-align:middle; margin-right:5px;}
+.zone .l_3 .t { color:#892608;}
+.zone .l_4 { padding-left:59px;}
+.zone .l_4 button { text-indent:-999em; border:0 none; overflow:hidden; width:73px; height:27px; cursor:pointer;}
+
+.service { border-top:1px dotted #999; margin-top:20px; padding-top:20px;}
+.service .hd { padding-left:28px; color:#f50;}
+.service .hd .icon { position:absolute; margin:1px 0 0 -22px; display:block; background-position:-198px 0; width:16px; height:14px; overflow:hidden;}
+.service .hd strong { display:block; position:relative; font-weight:normal;}
+.service .bd { margin-top:5px;}
+.service .bd li { padding:0 10px 0 38px; background-position:-268px 7px; line-height:20px; color:#666;}
+
+
+
+
+
+
+
+

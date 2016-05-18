@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>您收到的面试邀请--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+<link  media="screen" rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+}) 
+</script>
+
+
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 您收到的面试邀请</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">您收到的面试邀请</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  这里罗列所有的您收到的面试邀请<br />
+                </td>
+              </tr>
+            </table>
+            <span >
+            <div class="ptag">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="width:180px" class="card_down">您收到的面试邀请</td>
+                  <td class="card_line"></td>
+                  <td style="width:210px" class="card_normal"><a href="?action=zhiwei#tt4">您申请过的职位记录</a></td>
+                  <td class="card_line"></td>
+                  <td>&nbsp;<img src="{$Default_tplPath}member/images/icon_arrow.gif" alt="" />点击左侧书签进行切换</td>
+                </tr>
+              </table>
+            </div>
+            <br />
+            </span>
+            <table id="ProOrderList" width="100%">
+              <tr>
+                <td><form name="aspnetForm" method="post" action="?action=look" id="aspnetForm">
+                    <table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+                      <tr class="tabletitle"> <td  ><b>序号</b></td>
+			 <td  ><b>内容</b></td>
+              
+                <td><b>操作</b></td>
+            </tr> 
+                      <tag:Loop ListType="LISTMYMSYQMANAGE" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_MSYQ_Tr.html" />
+                      
+                    </table>
+                  </form>
+                  <div class="manu clearfix" style="text-align:center;"> {$PageSplit} </div></td>
+              </tr>
+            </table>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

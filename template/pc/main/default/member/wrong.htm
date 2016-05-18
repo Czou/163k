@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/member.js"></script>
+
+
+
+
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 出错啦</div>
+
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+		  <table width="100%" height="100%">
+		  <tr><td valign="middle" style="padding-top:50px;">
+		  <table border="0" width="625" align="center" id="table2">
+	<tr>
+		<td width="55" rowspan="2">
+		<img border="0" src="{$Default_tplPath}images/MinIcons_001.png" width="48" height="48"></td>
+		<td><span style="font-size: 10.5pt"><b><font color="#FF0000">
+		抱歉，您没有此功能权限！</font></b><font color="#808080">原因：1、您可能不是企业会员&nbsp; 
+		2、不是高级企业会员 </font></span></td>
+	</tr>
+	<tr>
+		<td><font color="#808080"><span style="font-size: 10.5pt">
+		如果您需要获得更高网站使用的权限，请联系网站管理人员</span></font></td>
+	</tr>
+</table>
+		  </td></tr></table>
+		  
+		  
+           
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

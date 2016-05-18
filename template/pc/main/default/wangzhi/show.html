@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$cname}-{$wangzhiname}-{$SiteName}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link href="{$tplPath}skin/_daohangShow.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script src="{$tplPath}js/daohang.js"></script>
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$daohangurl}">{$lanmuname}</a> &gt; {$cname}</div>
+	<!-- 主体 -->
+	<div id="content">
+		 <div id="cates">
+            <h2><b>分类导航：</b></h2>
+            <ul class="clearfix">
+				{$daohangfenlei}
+            </ul>
+        </div>       
+        
+		<div id="list">
+
+                {$daohanglist}
+		</div>
+		<div id="Pagefooter">
+        	<a href="javascript:window.history.back(-1);" class="back"><img src="{$tplPath}images/goback.jpg" alt="返回"></a>&nbsp;<a href="javascript:window.close();" class="close"><img src="{$tplPath}images/close.jpg" alt="关闭"></a>
+            <div class="gotop"><a href="#top"><img src="{$tplPath}images/gotop.jpg" alt="返回顶部"></a></div>       
+        </div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

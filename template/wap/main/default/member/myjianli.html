@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的简历-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/member-mb.css?{$CacheHash}" rel="stylesheet" type="text/css">
+<script>
+window['ipageTitleTxt'] = '我的简历';
+</script>
+{$top$}
+<div class="o_main">
+ <form name="form1" method="post" action="?action=editSave" enctype="multipart/form-data">
+ <!--填写信息-->
+<div id="mytabs">
+<div class="tabs">
+ <ul class="tab-hd">
+  <li class="item current">基本信息</li>
+  <li class="item">教育背景</li>
+  <li class="item">工作经历</li>
+  <li class="item">求职意向</li>
+ </ul>
+</div>
+<div class="tabItem tab-cont" style="display:block;">
+ <div class="inp_Itembox">
+  <dl class="clearfix sel_radio_form" data-name="isshow">
+   <dt>状态</dt>
+   <dd>
+   <span class="display0"><input type="radio" name="isshow" value="0" {$isshow0} title="开启显示"/><input type="radio" name="isshow" value="1" {$isshow1} title="暂停显示"/> </span>
+    <span class="gx_radio current" data-val="0">开启显示</span>
+    <span class="gx_radio" data-val="1">暂停显示</span>
+   </dd>
+  </dl>
+  
+ </div>
+ <div class="inp_Itembox">
+ 
+  <dl class="clearfix">
+   <dt>照片</dt>
+   <dd><span id="hidurl1"><a href="javascript:void(0);"><img src="{$url1}" border="0"></a> <span onClick="hidden1()" class="blue">重新上传</span></span>
+   <span id="hidurl2" style="display:none"><input type="file" name="file1" class="text"></span><input type="hidden" name="url1" id="filepath" value="{$url1}">
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>姓名</dt>
+   <dd><input type="text" name="chrname" value="{$chrname}" placeholder="输入真实姓名" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>出生</dt>
+   <dd><input type="text" name="chusheng" value="{$chusheng}"  placeholder="输入出生年份" /><div class="menu">年</div></dd>
+  </dl>
+ <dl class="clearfix sel_radio_form" data-name="chrsex">
+   <dt>性别</dt>
+   <dd>
+   <span class="display0"><input type="radio" name="chrsex" value="1" {$chrsex1}><input type="radio" name="chrsex" value="2" {$chrsex2} /></span>
+    <span class="gx_radio current" data-val="1">男</span>
+    <span class="gx_radio" data-val="2">女</span>
+   </dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>籍贯</dt>
+   <dd><input type="text" name="jiguan" value="{$jiguan}" placeholder="输入籍贯" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>民族</dt>
+   <dd><input type="text" name="mingzu" value="{$mingzu}" placeholder="输入民族" /></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox">
+  <dl class="clearfix">
+   <dt>手机</dt>
+   <dd><input type="text" name="chrmobile" value="{$chrmobile}" placeholder="请输入手机号码" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>Q  Q </dt>
+   <dd><input type="text" placeholder="请输入QQ号码" name="chrqq" value="{$chrqq}"  /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>邮箱</dt>
+   <dd><input type="mail" placeholder="请输入邮箱地址" name="chremail" value="{$chremail}" /></dd>
+  </dl>
+ </div>
+</div>
+<!--教育背景-->
+<div class="tabItem tab-cont">
+  <div class="inp_Itembox words">
+   <dl class="clearfix">
+   <dt>最高学历</dt>
+   <dd>{$xueli}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  
+  <dl class="clearfix">
+   <dt>毕业院校</dt>
+   <dd><input type="text" name="biyexuexiao" value="{$biyexuexiao}" placeholder="输入毕业院校" /></dd>
+  </dl>
+  <dl class="biyeshijian clearfix">
+   <dt>毕业时间</dt>
+   <dd>{$year} <span class="txts">年</span><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd>{$month} <span class="txts">月</span><div class="menu"><i></i><i></i><i></i></div></dd>
+  </dl>
+  
+  <dl class="clearfix">
+   <dt>所属专业</dt>
+   <dd><input type="text" name="zhuangye" value="{$zhuangye}" placeholder="请输入专业类别" /></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox words">
+  <dl class="clearfix">
+   <dt>外语水平</dt>
+   <dd><input type="text" name="waiyu" value="{$waiyu}"  placeholder="请输入外语水平" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>电脑水平</dt>
+   <dd><input type="text" name="diannao" value="{$diannao}"  placeholder="请输入电脑水平平" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>其他教育</dt>
+   <dd><textarea name="qita" class="qita" placeholder="输入您的其他教育" rows="6">{$qita}</textarea></dd>
+  </dl>
+ </div>
+</div>
+<!--工作经历-->
+<div class="tabItem tab-cont">
+ <div class="inp_Itembox words">
+  <dl class="clearfix">
+   <dt>工作经验</dt>
+   <dd><input type="text" placeholder="请输入工作年限" name="gongzuoyear" value="{$gongzuoyear}" /><div class="menu">年</div></dd>
+  </dl>
+  <textarea name="gongzuojingli" placeholder="请描述详细工作经历" class="txt">{$gongzuojingli}</textarea>
+ </div>
+</div>
+<!--求职意向-->
+<div class="tabItem tab-cont">
+ <div class="inp_Itembox words">
+  <dl class="clearfix">
+   <dt>求职类型</dt>
+   <dd>{$qiuzhileixing}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <div style="display:none;">{$categoryid}</div>
+  <dl class="biyeshijian clearfix">
+   <dt>希望岗位</dt>
+   <dd id="categoryid1"><div class="menu"><i></i><i></i><i></i></div></dd>
+   <dd id="categoryid2"><div class="menu"><i></i><i></i><i></i></div></dd>
+   
+  </dl>
+  <dl class="clearfix">
+   <dt>期望薪资</dt>
+   <dd>{$yuexin}</dd>
+   <div class="menu">
+    <i></i>
+    <i></i>
+    <i></i>
+   </div>
+  </dl>
+  <dl class="clearfix">
+   <dt>希望地点</dt>
+   <dd><input type="text" placeholder="输入您的希望地区" name="gongzuodiqu" value="{$gongzuodiqu}" /></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox words">
+  <dl class="clearfix">
+   <dt>到岗时间</dt>
+   <dd><input type="text" placeholder="请输入具体日期" name="daogang" value="{$daogang}" /></dd>
+  </dl>
+  <dl class="clearfix">
+   <dt>擅长技能</dt>
+   <dd><input type="text" placeholder="请输入掌握的工具和技术" name="jineng" value="{$jineng}" /></dd>
+  </dl>
+ </div>
+ <div class="inp_Itembox">
+  <textarea name="jianyan" placeholder="请做自我评价，仅限500字" class="txt">{$jianyan}</textarea>
+ </div>
+</div>
+</div>
+ <button type="submit" class="save">保 存</button>
+</div>
+</form>
+{$bottom$}
+<script>
+IDC2.tabADS($('#mytabs'));
+$('#categoryid1').append($('#hangyecategory').detach());
+$('#categoryid2').append($('#categoryid').detach());
+$('.sel_radio_form').radioForm();
+if(document.getElementById('filepath').value==''){
+	hidden1();
+}
+function hidden1(){
+   $("#hidurl1").hide();
+   $("#hidurl2").show();
+}
+function showhangyecategory(str){ 
+	if (str.length > 0){ 
+		var url="../request.aspx?action=quyu&id="+str;
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+encodeURIComponent(Digital);
+		
+		$.ajax({url:url}).done(function(msg){
+			BuildSel(msg ,document.getElementById("categoryid"))
+		}).error(function(e){alert(e);});		
+	} 
+} 
+function BuildSel(str,sel,val){
+	sel.options.length=0;
+	var arrstr = new Array();
+	arrstr = str.split(",");
+	//开始构建新的Select.
+	sel.options.add(new Option( "::请选择::","")); 
+	if(str.length>0){
+		for(var i=0;i<arrstr.length-1;i++){
+			//分割字符串
+			var subarrstr=new Array
+			subarrstr=arrstr[i].split("|")
+			//生成下级菜单
+			sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+		}
+		sel.options[0].selected=true
+	}
+}
+function checkaddrencaiform(o){
+	if(o.chrname.value==""){
+		alert("对不起,请输入姓名!");
+		return false;
+	}
+	if(o.chusheng.value==""){
+		alert("对不起,请输入出生年份!");
+		return false;
+	}
+	if(o.jiguan.value==""){
+		alert("对不起,请输入籍贯!");
+		return false;
+	}
+	if(o.mingzu.value==""){
+		alert("对不起,请输入民族!");
+		return false;
+	}
+	if(o.xueli.value==""){
+		alert("对不起,请选择学历!");
+		return false;
+	}
+	if(o.biyexuexiao.value==""){
+		alert("对不起,请输入毕业学校!");
+		return false;
+	}
+	if(o.hangyecategory.value==""){
+		alert("对不起,请选择希望行业分类!");
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起,请选择希望岗位!");
+		return false;
+	}
+	if(o.qiuzhileixing.value==""){
+		alert("对不起,请选择求职类型!");
+		return false;
+	}
+}
+</script>
+
+</body>
+</html>

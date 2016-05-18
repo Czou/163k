@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的兼职简历--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 我的兼职简历</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">我的兼职简历</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  认真、真实、详细填写您的兼职简历，有利于您快速获得职位 <br />
+                </td>
+              </tr>
+            </table>
+			<form name="form1" method="post" action="?action=editSave" enctype="multipart/form-data">
+			<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td  style="height:25px; line-height:25px; padding:5px;" >控制选项：<input type="radio" name="isshow" value="0" {$isshow0} /> 展示我的兼职简历（您的兼职简历将公开显示在网站中心）<input type="radio" name="isshow" value="1" {$isshow1} /> 暂停显示我的兼职简历（您的兼职简历暂时不在网站中显示）</td>
+                
+              </tr>
+            </table>
+            
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+               
+                <tr >
+                  <td height="25" class="tditem"  width="11%" >姓名<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><input type="text" name="zhiweiname" value="{$zhiweiname}"  class="text" size=12></td>
+                  <td height="25"  class="tditem">年龄<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><input type="text" name="zhiweiage" value="{$zhiweiage}" class="text" onKeyUp="if(isNaN(value))execCommand('undo')" size=8>
+                    岁</td>
+                  <td height="25" class="tditem"  >性别<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><input type="radio" name="zhiweisex" value="男" {$chrsex1}>
+                    男
+                    <input type="radio" name="zhiweisex" value="女" {$chrsex2}>
+                    女</td>
+                </tr>
+                <tr >
+                  <td height="25"  class="tditem">联系手机<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><input type="text" name="chrtel" value="{$chrtel}" size=12  class="text"></td>
+                  <td height="25" class="tditem" >学历<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" >{$xueli}</td>
+                  <td height="25" class="tditem" >是否在校<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><input type="radio" name="zhiweixuesheng" value="0" {$zhiweixuesheng0}> 是  <input type="radio" name="zhiweixuesheng" value="1" {$zhiweixuesheng1} > 否</td>
+                </tr>
+                <tr >
+                  <td height="25"  class="tditem">想兼职<font color="#FF0000"></font>： </td>
+                  <td  class="tdcontent" colspan=5 ><input type="text" name="zhiweimark" value="{$zhiweimark}" size=30 class="text"  maxlength=30> 填写您想兼职的内容，比如：礼仪模特，不要超过15个汉字</td>
+                 
+                </tr>
+                
+                <tr >
+                  <td height="25"  class="tditem" >简要说明<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" colspan=5 ><textarea name="zhiweicontent" style="width:500px;height:100px;" class="text" >{$zhiweicontent}</textarea>(不超过300汉字)</td>
+                </tr>
+				<tr >
+                  
+                  <td colspan="6" align="center"><input type="submit" name="Submit" value=" 确认无误，提交 " class="global_btn_blue_big" id="Submit" /></td>
+                </tr>
+                
+              </table>
+             
+            </form>
+          </div>
+　           </div>
+
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

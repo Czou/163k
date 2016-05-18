@@ -1,0 +1,94 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkaddphtoo(o){
+	if(o.photocategoryid.value==""){
+		alert("对不起,请选择图集分类! ");
+		o.photocategoryid.focus();
+		return false;
+	}
+	if(o.classid.value==""){
+		alert("对不起,请选择图集! ");
+		o.classid.focus();
+		return false;
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改图片&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至图片列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+   
+
+  <form name="form1" method="post" action="?action=editsave" ID="Form1" onsubmit="return checkaddphtoo(this)">
+    <tr > 
+      <td  height="25" width=15%>所属图集<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> {$classid}</td>
+    </tr>
+	 <tr  > 
+      <td >图片<font color="#FF0000">*</font>： 
+      </td>
+      <td  colspan=5  class="category"> 
+	  <span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=photo&type=1"></iframe>
+	  </span>
+	  <input type=hidden name="url1"  id="url1" value="{$url1}">
+	</td>
+    </tr>
+	<tr > 
+      <td  height="25" width=15%>图片描述<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input type="text" name="chrmark" value="{$chrmark}" size=40></td>
+    </tr>
+    <tr > 
+      <td  height="25">是否显示<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="iskill" type="radio" value="0" {$Isopen0} ID="iskill">未审 <input name="iskill" type="radio" value="1" ID="iskill" {$Isopen1}>通过</td>
+    </tr>
+	<tr > 
+      <td  height="25">是否推荐<font color="#FF0000">*</font>： 
+      </td>
+      <td class="category"> <input name="istop" type="radio" value="0" {$istop0} ID="istop">正常 <input name="istop" type="radio" value="1" ID="istop" {$istop1}>推荐</td>
+    </tr>
+    <tr > <td></td>
+      <td height="25"  class="category"><input type=hidden name=gotourl value="{$gotourl}">
+		<INPUT TYPE="hidden" NAME="ID" value="{$ID}" ID="Hidden1">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交" ID="Submit1"></td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+  </body>
+</html>
+<script>
+
+function hid2()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+</script>

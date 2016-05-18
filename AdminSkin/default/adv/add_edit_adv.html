@@ -1,0 +1,295 @@
+﻿<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<STYLE>
+body {
+	background:#75a4d2;
+	margin:0px;
+	padding:10px;
+}
+a {
+	color:red;
+	text-decoration:none;
+}
+TD {
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+}
+#keytishi {
+	width:330px;
+	height:auto;
+	position:absolute;
+	display:none;
+} /*提示层样式*/
+.my_prop_img {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+.my_prop_imgitem {
+	width:125px;
+	float:left;
+	margin-right:25px;
+	margin-top:5px;
+}
+.table01 {
+	background:url({$atplPath}Images/r_1.gif) repeat-x 0px -3px #c5d6f4;
+	padding:10px;
+}
+.table02 tr td {
+	line-height:25px;
+	height:25px;
+}
+.canshu{ font-size:15px; font-weight:bold; color:#333}
+</STYLE>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+    <TR>
+      <TD bgColor=#73a3d4 height=4></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<TABLE height="100%" cellSpacing=2 cellPadding=0 width="100%" border=0 class="table02">
+  <TBODY>
+    <TR>
+      <TD  align=left  nowrap="nowrap"><table class="table01" width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+          <tr>
+            <td></td>
+            <td width="100%" background=" "><table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td width="60%">添加/编辑广告位&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+                  <td width="40%" align="right"><input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至广告列表" onClick="javscript:window.history.go(-1);"></td>
+                </tr>
+              </table></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="category"><!--startprint-->
+              
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptable grid table_style table_style2">
+                <form name="form1" method="post" action="?" >
+                	<input type="hidden" name="action" value="{$action}" >
+                  <input type="hidden" name="Type" value="{$type}" >
+                  <input type="hidden" name="ID" value="{$ID}" >
+                  <tr>
+                    <td height="25" colspan="2"><span class="canshu">广告位参数配置</span> </td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告位编号<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text" value="{$advnum}"  name="advnum" id="advnum" maxlength="30" onfocus="this.style.imeMode='disabled'">
+                      <font color="#FF0000"> <em class="global_tip">编号必须是字母开始(不大于30字符)</em></font></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告位名称<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text" value="{$advname}"  name="advname" id="advname"></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告位价格</td>
+                    <td width="76%" class="category"><input type="text" value="{$advmoney}"   name="advmoney" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告位展示地址<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text" size=100 value="{$advhttpurl}"   name="advhttpurl" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                   <tr id="k">
+                    <td width="15%" height="25">固定广告位宽度</td>
+                    <td width="76%" class="category"><input type="text" value="{$advwidth}"   name="advwidth" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                  <tr id="g">
+                    <td width="15%" height="25">固定广告位高度</td>
+                    <td width="76%" class="category"><input type="text" value="{$advheight}"   name="advheight" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告状态<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input name="iskill" type="radio" value="0"  ID="Radio0" {$iskill0$}>隐藏 <input name="iskill" type="radio" value="1" ID="Radio1" {$iskill1$}>显示</td>
+                  </tr>
+                  <tr>
+                    <td height="25" colspan="2"><span class="canshu">广告内容配置</span></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告显示标题<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text"  size=50 value="{$advtitle}"   name="advtitle"></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">开始时间<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text"    value="{$startdate}" class="Wdate" name="startdate" /></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">结束时间<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text"   value="{$enddate}"  class="Wdate" name="enddate" /></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">广告类型<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category">
+                      <select name="styleid"  id="styleid" onchange="listchange();return false;">
+                        <option value="0" {$styleid0}>JPG,GIF,PNG图片</option>
+                        <option value="1" {$styleid1}> Flash动画 </option>
+                        <option value="2" {$styleid2}> 列表 </option>
+                        <option value="3" {$styleid3}> 幻灯片 </option>
+                        <option value="4" {$styleid4}> 自定义纯代码 </option>
+                      </select></td>
+                  </tr>
+                  <tr  id="inttr">
+                    <td width="15%" height="25">显示顺序</td>
+                    <td width="76%" class="category"><input type="text" value="{$intorder}"   name="intorder" onfocus="this.style.imeMode='disabled'">
+                      <font color="#FF0000"> <em class="global_tip">类型为'列表'和'幻灯片'时有效</em></font></td>
+                  </tr>
+                  <tr>
+                    <td width="15%" height="25">可选附件地址</td>
+                    <td width="76%" class="category"><input type="text" value="{$advfileurl}"  size=70  id="url1"  name="url1" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                  <tr id="img">
+                    <td width="15%" height="25">可选附件上传(JPG,GIF,PNG图片)</td>
+                    <td width="76%" class="category"><iframe name="ifm_upload" frameborder=0 height=50 width="100%" scrolling=no src="Upload.aspx?action=image&type=1"> </iframe></td>
+                  </tr>
+                  <tr id="flash">
+                    <td width="15%" height="25">可选附件上传(Flash动画)</td>
+                    <td width="76%" class="category"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="Upload.aspx?action=adv&type=1"> </iframe></td>
+                  </tr>
+           
+                  <tr id="link">
+                    <td width="15%" height="25">广告链接地址<font color="#FF0000">*</font>：</td>
+                    <td width="76%" class="category"><input type="text" value="{$advurl}" size=50    name="advurl" onfocus="this.style.imeMode='disabled'"></td>
+                  </tr>
+                  <tr id="fbt1">
+                    <td width="15%" height="25">副标题1(时间)</td>
+                    <td width="76%" class="category"><input type="text" value="{$advdate}"  size=50   name="advdate"></td>
+                  </tr>
+                  <tr id="fbt2">
+                    <td width="15%" height="25">副标题2(地址)</td>
+                    <td width="76%" class="category"><input type="text" value="{$advdizhi}"  size=50   name="advdizhi"></td>
+                  </tr>
+                  <tr id="fbt3">
+                    <td width="15%" height="25">副标题3(说明)</td>
+                    <td width="76%" class="category"><input type="text" value="{$advtitlec}"  size=50   name="advtitlec"></td>
+                  </tr>
+                  <tr id="html">
+                     <td  colspan="2" >纯代码：(当类型选择为"自定义纯代码"时有效) <br>
+                     	<textarea cols="80" id="advtext" name="advtext" rows="10">{$advtext}
+                         </textarea>
+                       <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+                   	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+                   	<script>
+                   		KindEditor.ready(function(K) {
+                   			var editor = K.create('textarea[name="advtext"]', {
+                   				uploadJson : '/kindeditor/upload_json.ashx',
+                   				afterBlur: function(){this.sync();},
+                   				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+                   				filterMode:false,
+                   				allowFileManager : true,width : '100%',height : '300px'
+                   			});
+                   		});
+                   	</script>
+                   
+                   </td>
+                   </tr>
+
+                  <tr>
+                    <td width="15%" height="25"></td>
+                    <td width="76%" class="category"><input type="submit" name="Submit4" class="global_btn_blue_big" value="提交添加/更改"></td>
+                  </tr>
+                </form>
+              </table>
+              
+              <!--endprint--></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+            <td></td>
+            <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+          </tr>
+        </table></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script>
+$.noConflict();
+(function($){
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+</script>
+<script>
+	var advtypes="{$type}";
+function listchange()
+{    
+    var sel=document.getElementsByName("styleid")[0].value; //获取下拉表单的value值  
+
+loadstr();
+		  
+    if(sel=='0')
+     {
+          document.getElementById( "k").style.display= "";
+		  document.getElementById( "g").style.display= ""; 
+          document.getElementById("link").style.display= "";
+		  document.getElementById( "img").style.display= "";
+     }
+                
+    if(sel=='1')
+     {
+           document.getElementById( "k").style.display= "";
+		  document.getElementById( "g").style.display= ""; 
+          document.getElementById("link").style.display= "";
+		  document.getElementById( "flash").style.display= "";
+     } 
+	 
+	  if(sel=='2')
+     {
+ 
+		  document.getElementById( "fbt1").style.display= ""; 
+          document.getElementById("fbt2").style.display= "";
+		  document.getElementById( "fbt3").style.display= ""; 
+           document.getElementById( "k").style.display= "";
+		  document.getElementById( "g").style.display= ""; 
+          document.getElementById("link").style.display= "";
+		  document.getElementById( "img").style.display= "";
+		  
+     } 
+	 
+	  if(sel=='3')
+     {
+          document.getElementById( "k").style.display= "";
+		  document.getElementById( "g").style.display= ""; 
+          document.getElementById("link").style.display= "";
+		  document.getElementById( "img").style.display= "";
+		  
+     } 
+	   if(sel=='4')
+     {
+          document.getElementById( "html").style.display= "";
+		  document.getElementById( "img").style.display= "";
+		  
+		  
+     } 
+}
+      function loadstr()
+{    
+          document.getElementById( "k").style.display= "none";
+		  document.getElementById( "g").style.display= "none"; 
+          document.getElementById("link").style.display= "none";
+          document.getElementById( "flash").style.display= "none";
+		  document.getElementById( "fbt1").style.display= "none"; 
+          document.getElementById("fbt2").style.display= "none";
+		  document.getElementById( "fbt3").style.display= "none"; 
+          document.getElementById("html").style.display= "none";
+		  document.getElementById( "img").style.display= "none";
+		  
+}
+listchange();
+
+    if(advtypes =='0')
+     {
+          document.getElementById( "k").style.display= "";
+		  document.getElementById( "g").style.display= ""; 
+          document.getElementById("link").style.display= "";
+		  document.getElementById( "img").style.display= "";
+     }
+	 
+	 
+</script>
+</body>
+</html>

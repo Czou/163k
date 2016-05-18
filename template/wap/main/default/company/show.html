@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrshop}-{$seotitle}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$seokeyword}" />
+<meta name="description" content="{$seodescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/huangye-mb.css" />
+<style type="text/css">
+.pageNav2 { display:none;}
+</style>
+{$top$}
+{$Mh163k_wap_口碑商家_独立头部_层1}
+	<div class="content">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; <a href="{$shopurl}">{$lanmuname}</a> &gt; {$chrshop}</div>
+		<div class="huangye_header clearfix">
+			<div class="img show{$showlogo}" style="margin:8px 10px 0 0"><img src="{$filepath}" width="98" height="42" onerror="this.src='{$Default_tplPath}images/qiyelogo.jpg';" alt="" /></div>
+			<h1>{$chrshop}</h1>
+			<p><img src="{$Default_tplPath}/images/koubei/{$chrimage}" style="vertical-align:middle" alt="{$chrlevel}" /> <span style="color:#090">{$koubei}</span></p>
+		</div>
+		<div class="lp_nav">
+			<a href="{$indexurl}" class="comn-submit btn_block">店铺首页</a>
+			<a href="{$TargetUrl}content_{$shopid}.html" class="comn-submit gray btn_block">店铺介绍<span class="jian"></span></a>
+			<a href="{$TargetUrl}notice_{$shopid}.html" class="comn-submit gray btn_block">店铺动态<span class="jian"></span></a>
+			<a href="{$TargetUrl}pic_{$shopid}.html" class="comn-submit gray btn_block">店铺展示<span class="jian"></span></a>
+			<a href="{$TargetUrl}comment_{$shopid}.html" class="comn-submit gray btn_block">网友点评<span class="jian"></span></a>
+		</div>
+		<div class="yuan_inner">
+			<div class="table">
+				<p class="p tele po_re"><a href="tel:{$chrtel}"><em>联系电话：</em>{$chrtel}<span class="jian"></span></a></p>
+				<p class="p adr po_re"><a href="{$TargetUrl}contact_{$shopid}.html"><em>店铺地址：</em>{$chraddress}<span class="jian"></span></a></p>
+				<p class="p luxian"><em>交通路线：</em>{$chrjiaotong}</p>
+			</div>
+		</div>
+		<div class="huangye_content">
+			<div class="hd po_re">团购<a href="{$tgurl}" class="more">团购频道<span class="jian"></span></a></div>
+		</div>
+		<ul class="list_normal list_tg">
+			{$Mh163k_wap_商家主页_团购}
+		</ul>
+		<div class="huangye_content">
+			<div class="hd po_re">打折<a href="{$SiteUrl}cuxiao/" class="more">打折频道<span class="jian"></span></a></div>
+		</div>
+		<ul class="list_normal">
+			{$Mh163k_wap_商家主页_打折}
+		</ul>
+		<div class="huangye_content">
+			<div class="hd po_re">网友点评<a href="{$TargetUrl}comment_{$shopid}.html#inputStyle" class="more">发表点评<span class="jian"></span></a></div>
+		</div>
+		<div class="comment">
+			<div class="bd" id="showcomment"></div>
+		</div>
+		<div class="inner_html"><a href="{$TargetUrl}comment_{$shopid}.html" class="comn-submit gray btn_block">查看更多点评<span class="jian"></span></a></div>
+		<div class="huangye_info" style="background-color:#f6f6f6;">
+			
+			<p><em>营业时间：</em>{$chrdate}</p>
+			<p><em>认证情况：</em><img src="{$Default_tplPath}images/ren.gif" style="display:{$renzheng}" alt="通过认证" /> <img src="{$Default_tplPath}images/qian.gif" alt="通过认证" style="display:{$qianyue}" /> <img src="{$Default_tplPath}images/ren_no.gif" alt="通过认证" style="display:{$renzheng1}" /> <img src="{$Default_tplPath}images/qian_no.gif" alt="通过认证" style="display:{$qianyue1}" /></p>
+		</div>
+	</div>
+{$bottom$}
+<script>
+var nowdomain = '{$SiteUrl}';
+function setclassname(tt){
+	for(var i=0;i<4;i++){
+		if(i==tt){
+			$("#selected"+i).addClass("current");
+		}
+		else{
+			$("#selected"+i).removeClass();
+		}
+	}
+}
+function getdata(url,obj1){
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+(Digital);
+	var node = $('#'+obj1);
+	node.html("正在加载数据，请稍等......");
+	$.ajax({url: url}).done(function( msg ) {
+		node.html(msg);
+	});
+}
+getdata("../request.aspx?action=showcompanycomment&shopid={$shopid}","showcomment");
+</script>
+</body>
+</html>

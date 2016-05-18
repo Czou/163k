@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>商品管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="nav_extra clearfix">
+					<!--?a={$a}&b={$b}&c={$c}&d={$d}&e={$e}&f={$f}&g={$g}&h={$h}-->
+						
+					
+					
+					<ul class="left">
+						<li><a href="?a={$a}&b={$b}&c={$c}&d={$d}&e={$e}&f=&g=&h={$h}" id="s_f">全部商品</a></li>
+						<li><a href="?a={$a}&b={$b}&c={$c}&d={$d}&e={$e}&f=1&g=0&h={$h}" id="s_f1">店铺商品</a></li>
+						<li><a href="?a={$a}&b={$b}&c={$c}&d={$d}&e={$e}&f=0&g=1&h={$h}" id="s_f2">快店商品</a></li>
+					</ul>
+					
+					<div class="right"><a href="mygood.aspx?action=add" class="sys_btn_small_blue">发布商品</a></div>
+				</div>
+				<div class="sys_module">
+					<div class="bd">
+						<!--<div class="tips">
+							<div class="t_hd">温馨提示</div>
+							<div class="t_bd">编辑修改后前台将暂停显示，待网站方审核通过后恢复显示</div>
+						</div>-->
+						
+						<div class="tips">
+							<div class="t_hd">商品统计</div>
+							<div class="t_bd">您共有商品：<span style="color:#f60; font-size:16px;">{$goodnumall}</span>　上架：<span style="color:#f60; font-size:16px;">{$iskill0num}</span>　下架：<span style="color:#f60; font-size:16px;">{$iskill1num}</span>　待审：<span style="color:#f60; font-size:16px;">{$iskill2num}</span></div>
+						</div>
+						<div class="searcher">
+							<form name="form2" action="?" method="get">
+							<input type="hidden" name="f" value="{$f}" />
+							<input type="hidden" name="g" value="{$g}" />
+							<input type="hidden" name="h" value="{$h}" />
+		状态：<select name='e' onChange="this.form.submit();">
+			<option value=''>全部</option>
+			<option value='0' {$e_s_0} >上架</option>
+			<option value='1' {$e_s_1}>下架</option>
+			<option value='4' {$e_s_4}>待审</option>
+			<option value='2' {$e_s_2}>推荐</option>
+			<option value='3' {$e_s_3}>促销</option>
+			</select>　分类：{$categoryid$}　<!--品牌：{$pinpaiid$}--><input name="_key" type="text" value="{$key}" class="sys_form_small_ipt" />&nbsp;<button type="submit" class="sys_btn_small_green">Go</button>
+</form>
+						</div>
+						
+	<form action="?" id="myform" target="tijiao" method="get" onSubmit="return checkmyform(this);">					
+<tag:Loop ListType="Listgoodmanage" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_good_Tr.htm" />
+
+<input onClick="Allaction(this.form);" name="alldel" type="checkbox" title="全选" /> 归类到：{$categoryid_all$} <button type="button" id="changeCat" class="sys_btn_small_green">确定</button>　<a href="javascript:void(0);" onClick="return submitF('0');" class="sys_btn_small_blue">上架</a> <a href="javascript:void(0);" onClick="return submitF('1');" class="sys_btn_small_blue">下架</a> <a href="javascript:void(0);" onClick="return submitF('2');" class="sys_btn_small_blue">推荐</a> <a href="javascript:void(0);" onClick="return submitF('3');" class="sys_btn_small_blue">促销</a> <a href="javascript:void(0);" onClick="return submitF('4');" class="sys_btn_small_blue">新品</a> <a href="#" id="delgood" class="sys_btn_small_white">删除</a>
+							<input type="hidden" name="action" id="action" value="all" />
+							<input type="hidden" name="styleid" id="styleid" value="2" />
+							<input type="hidden" name="iskill" id="iskill" value="" />
+						</form>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+{$Mh163k_商家平台_页脚}
+<script>
+function checkmyform(o){
+	var chk_value =[]; 
+	$('input[name="ID"]:checked').each(function(){ 
+		chk_value.push($(this).val()); 
+	});
+	if(chk_value.length==0){
+		alert('你还没有选择任何内容！');
+		$('#styleid').val('2');
+		return false;
+	}
+}
+function submitF(val){
+	$('#iskill').val(val);
+	$('#myform').submit();
+}
+(function($){
+	
+	if('{$f}' === '0' && '{$g}' === '0'){
+		$('#s_f').addClass('cur');
+	}else if('{$f}' === '1'){
+		$('#s_f1').addClass('cur');
+	}else if('{$g}' === '1'){
+		$('#s_f2').addClass('cur');
+	}else{}
+	
+	$('#changeCat').click(function(){
+		if($('#categoryid').val() === ''){alert('必须先选择商品小类'); return false;}
+		$('#styleid').val('1');
+		$('#myform').submit();
+	});
+	$('#delgood').click(function(e){
+		e.preventDefault();
+		if( confirm("该操作将不可逆！\n您确定要删除此条商品吗(删除商品此商品的订单将会连同删除)？")){
+			$('#styleid').val('0');
+			$('#myform').submit();
+		}
+	});
+	$('#bigcategoryid').bind('change',function(){
+		showTgCategory('5',$(this).val(),'categoryid')
+	});
+	$('#a').bind('change',function(){
+		showTgCategory('5',$(this).val(),'b');
+	});
+	$('#c').bind('change',function(){
+		showTgCategory('8',$(this).val(),'d')
+	});
+
+})(jQuery);
+function delmygood(id){
+    if( confirm("该操作将不可逆！\n您确定要删除此条商品吗(删除商品此商品的订单将会连同删除)？")){
+      	var url="../request.ashx?action=gooddel&id="+escape(id)+"&isadmin=0";
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		$.ajax({url:url,success: function(data){
+			if(data.islogin==='1'){
+				MSGwindowShow('shangjia','1','删除成功！','{$SiteUrl}member/mygood.aspx','');
+			}else{
+				MSGwindowShow('shangjia','0',data.error,'','');
+			}
+		}});
+    }
+}
+function Allaction(form){
+	if(form.ID){
+		if (form.ID.length>1) {
+			for (var i=0;i<form.ID.length;i++){
+				var e = form.ID[i];
+				e.checked = form.alldel.checked;
+			}
+		} else {
+			form.ID.checked=form.alldel.checked;
+		}
+	}
+}
+</script>
+</body>
+</html>

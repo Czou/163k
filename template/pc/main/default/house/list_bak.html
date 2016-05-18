@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_lou.css" type="text/css" rel="stylesheet" />
+{$top$}
+</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><span class="cur_tit">{$chrcategory}</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>{$Loupan_biaoyu}</p>
+    <span class="{$Loupan_xiaoshoutypeid}_middle">在售</span><span class="{$Loupan_xiaoshoutypeid}_true">待售</span><span class="{$Loupan_xiaoshoutypeid}_false">售罄</span>
+    <span class="xianfang">{$Loupan_xiaoshoustyleid}</span>
+  </div>
+  <div class="house_source">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="loupan_{$Loupan_loupanid}.html">楼盘概况</a></li>
+        <li><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+        <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+        <li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li class="current"><a href="list.aspx?action=s&lid={$Loupan_loupanid}" target="_blank">销售动态</a></li>
+        <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+        <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+        <li><a href="revert_{$Loupan_loupanid}.html">在线咨询</a></li>  
+        <!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+        <li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+      </ul>
+     </div>
+   </div>
+   <!--销售动态-->
+   <div class="xs_news">
+     <ul>
+       <tag:Loop ListType="listhousearticleqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="40" RecColumn="5" CusTpl="1" Template="house/listarticle.htm" />
+     </ul>
+   </div>
+   <div class="pageNavigation mb_48">{$PageSplit} 　每页显示10条</div>
+ </div> 
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$('#fc_home').removeClass('select');
+	$('#fc_loupan').addClass('select');
+});
+</script>
+</body>
+</html>

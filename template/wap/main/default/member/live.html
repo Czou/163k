@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>我的信息管理--会员管理中心--{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/member-mb.css" />
+<script>
+window['ipageTitleTxt'] = '我的信息';
+</script>
+{$top$}
+<div class="o_main mar_b_50">
+ <div class="my_info">
+  <ul>  
+     <tag:Loop ListType="Listlivemanage" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="member/List_live_Tr.html" />
+   </ul>
+    <div class="pageNav">{$PageSplit}</div>
+ </div>
+{$bottom$}
+<a href="{$liveurl}fabu.html"><button type="submit" class="input_message">发布信息</button></a>
+<div id="inner_iframe" style="display:none;padding:10px 10px 0;">
+	<p>刷新发布后，您的该条信息将视同最新发布的信息。<br>每刷新一次信息，需要扣除<span style="color:#f30;">{$flushfen}</span>{$jifenname}。</p>
+	<div class="inner_html" style="text-align:center;"><a href="javascript:javascript:submit_fw();" class="comn-submit">确定</a> <a href="javascript:javascript:LoginHide();" class="comn-submit gray">取消</a></div>
+</div>
+<div class="mask" id="mask" style="display:none;"></div>
+<script>
+function dellive(id){
+    if ( confirm("该操作将不可逆！\n您确定要删除此条信息吗？"))    {
+      	var url="../member/mylive.aspx?action=del&id="+escape(id);
+		var  Digital=new  Date();
+		Digital=Digital+40000;
+		url=url+"&k="+Digital;
+		
+		$.ajax({url: url}).done(function(msg){
+			if(msg!=='1'){
+				alert(msg);
+			}else{
+				alert("删除成功！");
+				window.location.href="mylive.aspx";
+			}
+		});
+    }
+}
+
+//刷新
+var fw_id="";
+function set_fw(ac,val){
+	fw_id = val;
+	var mask = $('#mask');
+	mask.css({'height':$(document).height()+'px'});
+	var inner_iframe = $('#inner_iframe');
+	var heightV = inner_iframe.height();
+	var martop = Math.ceil(($(window).height()-heightV)/2 + $(document).scrollTop());
+	inner_iframe.css({'top':martop+'px'});
+	mask.show();
+	inner_iframe.show();
+	return false;
+}
+function LoginHide(){
+	$('#inner_iframe').hide();
+	$('#mask').hide();
+}
+function submit_fw() {
+	$("#fw_button").hide();	$("#fw_load").show();
+	$.ajax({
+		url:"../request.aspx?action=flushfenlei&tt="+escape(fw_id),
+		success:function(data){
+			if (data=='1'){
+				alert('恭喜您，本条信息刷新发布成功！');
+				LoginHide();
+			}else{
+				alert(data);
+			}
+		},
+		error: function() {
+			alert('对不起，操作未能完成！');
+		}
+	});
+}
+</script>
+
+</body>
+</html>

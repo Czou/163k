@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{$SiteName}--管理后台</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+<script>
+function changeDisplayMode(){
+	if(document.getElementById("bottomframes").cols=="180,7,*"){
+		document.getElementById("bottomframes").cols="0,7,*"; 
+		document.getElementById("separator").contentWindow.document.getElementById('ImgArrow').src="{$atplPath}images/separator2.gif"
+	}else{
+		document.getElementById("bottomframes").cols="180,7,*"
+		document.getElementById("separator").contentWindow.document.getElementById('ImgArrow').src="{$atplPath}images/separator1.gif"
+	}
+}
+</script>
+</head>
+
+<frameset id="mainframes" framespacing="0" border="false" rows="63,*" frameborder="0" scrolling="yes">
+<frame name="top" scrolling="no" src="Admin_Main.aspx?action=top1">
+<frameset id="bottomframes" framespacing="0" border="false" cols="180,7,*" frameborder="0" scrolling="yes">
+	<frame name="left" scrolling="auto" marginwidth="0" marginheight="0" src="Admin_Main.aspx?action=menu" noresize />
+	<frame id="separator" name="separator" src="Admin_Main.aspx?action=center" noresize scrolling="no" />
+	<frame name="right" scrolling="auto" src="Admin_Main.aspx">
+</frameset>
+</frameset>
+
+<noframes>
+<body >
+<p>This page uses frames, but your browser doesn't support them.</p>
+</body>
+</noframes>
+</html><script type="text/javascript">
+if (window.top.location.href.toLowerCase().indexOf("/admin_index.aspx") == -1 && window.top.location.href.toLowerCase().indexOf("/admin_index.aspx") == -1){
+	var initializationUrl = "/admin_index.aspx";
+	window.top.location.href = initializationUrl;
+}
+</script>

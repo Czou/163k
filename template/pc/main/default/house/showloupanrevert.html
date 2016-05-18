@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$Loupan_chrloupan}-在线咨询-{$lanmuname}-{$SiteName}</title>
+<link href="{$Default_tplPath}skin/fangchan2015_common.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/fangchan2015_lou.css" type="text/css" rel="stylesheet" />
+<script src="{$Default_tplPath}js/javascript.js"></script>
+<script src="{$Default_tplPath}js/java.js"></script>
+<script src="{$Default_tplPath}js/common.js"></script>
+<script>var nowdomain="http://www.mh163k.com/";</script>
+{$top$}
+	</div>
+	<div class="fc_navWrap clearfix">
+	<div class="fc_nav w-1200" id="fc_nav">
+		<ul>
+			{$Mh163k_房产2015_房产主导航}
+		</ul>
+	</div>
+</div>
+
+<div class="layout_house w-1200 clearfix">
+   <div class="house_crumb clearfix">
+    <span>当前位置：</span><a href="{$SiteUrl}">首页</a><a href="{$fcurl}">{$lanmuname}</a><a href="loupan_{$Loupan_loupanid}.html">{$Loupan_chrloupan}</a> <span class="cur_tit">在线咨询</span>
+   </div>
+  <div class="house_name clearfix">
+    <h3>{$Loupan_chrloupan}</h3>
+    <p>{$Loupan_biaoyu}</p>
+    <span class="middle_{$Loupan_xiaoshoutypeid}">在售</span><span class="true_{$Loupan_xiaoshoutypeid}">待售</span><span class="false_{$Loupan_xiaoshoutypeid}">售罄</span>
+	<span class="xianfang{$Loupan_xiaoshoustyleid}">{$Loupan_xiaoshoustyleid_str}</span>
+	  
+  </div>
+  <div class="house_source mar_b20">
+   <div class="title">
+     <div class="tabs clearfix">
+      <ul>
+        <li><a href="loupan_{$Loupan_loupanid}.html">楼盘概况</a></li>
+        <li ><a href="xq_{$Loupan_loupanid}.html">楼盘详情</a></li>
+        <li><a href="pic_{$Loupan_loupanid}.html">楼盘相册</a></li>
+        <li><a href="fang_{$Loupan_loupanid}.html">房型图</a></li>
+        <li><a href="list.aspx?action=s&lid={$Loupan_loupanid}" target="_blank">销售动态</a></li>
+        <li><a href="video_{$Loupan_loupanid}.html">楼盘视频</a></li>
+        <li><a href="zb_{$Loupan_loupanid}.html">位置与周边</a></li>
+        <li class="current"><a href="revert_{$Loupan_loupanid}.html">在线咨询</a></li>  
+        <!--<li><a href="price_{$Loupan_loupanid}.html">房价走势</a></li>
+        <li><a href="{$yezhu}" target=_blank>业主论坛</a></li>-->
+      </ul>
+     </div>
+   </div>
+   <!--在线咨询-->
+   <div class="user_comment">
+			<div class="bd comment">
+				<div id="showcomment"></div>
+			</div>
+		</div>
+  </div>
+<div class="write2014">
+    <input type="hidden" id="isrep" value="" />
+    <input type="hidden" id="istg" value="" />
+    <input type="hidden" id="parentid" value="" />
+    <form id="myform">
+		<input id="chrmarkForm" name="chrmark" type="hidden" />
+        <div class="cmt_txt" id="cmt_txt" contenteditable="true"></div>
+        <div class="cmt_control clearfix">
+            <div class="left">
+                <div class="emot po_re">
+                    <a href="#" onClick="return insertEmot(this,'cmt_txt');" class="emot_btn">插入表情</a>
+                </div>
+            </div>
+            <div class="right">　<button type="submit" id="cmt_btn" class="cmt_btn">提交</button></div>
+            <div class="right">文明上网 礼貌发帖　<span id="cmt_tip">0/300</span></div>
+        </div>
+    </form>
+</div>
+{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/fc2015.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script src="{$Default_tplPath}js/jquery.form.js"></script>
+<script src="{$Default_tplPath}js/comments2014.js"></script>
+<script src="{$Default_tplPath}images/emotion/emotData.js"></script>
+<script>
+var nowdomain = '{$SiteUrl}';
+window['Default_tplPath'] = '{$Default_tplPath}';
+window['ACTIVEID'] = '{$Loupan_loupanid}';
+window['STYLEID'] = '7';
+$(function(){
+	getNewRevertPage('1');
+	$("#myform").chackTextarea(600,"cmt_txt","cmt_tip","cmt_btn",postRevertPage);
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+        $('#fc_home').removeClass('select');
+	$('#fc_loupan').addClass('select');
+});
+</script>
+<script>getdata("../request.aspx?action=showloupancomment&styleid=0&loupanid={$Loupan_loupanid}","showcomment","showcomment");</script>   
+</body>
+</html>

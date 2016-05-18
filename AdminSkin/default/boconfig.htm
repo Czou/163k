@@ -1,0 +1,110 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script src="{$atplPath}js/javascript.js"></script>
+<script>
+function checkform(o){
+	
+}
+</script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/shade/css/lightwindow.css" />
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/prototype.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/effects.js"></script>
+<script type="text/javascript" src="{$atplPath}js/shade/javascript/lightwindow.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+          <td width="60%">播放器配置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000"><strong>*</strong></font>号的是必填项目</td>
+          <td width="40%" align="right"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=Save" >
+  <tr   > 
+      <td width="15%" height="25" >初始图片地址<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"  > 
+	  <span id="str1" >{$filepath1$}</span><span id="str2" style="display:none">（在没有广告的时候播放前将显示此图片）<br>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=video1&type=1"></iframe>
+	  </span>
+	  <input type=hidden name="url1" id="url1"  value="{$loadimg}">
+	  </td>
+    </tr>
+	  <tr   > 
+      <td width="15%" height="25" >暂停时播放的广告<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"  > 
+	  <span id="str3" >{$filepath2$}</span><span id="str4" style="display:none"> 暂停时播放的广告，只支持flash和图片<br>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=video2&type=2"></iframe>
+	  </span>
+	  <input type=hidden name="url2" id="url2" value="{$pauseflash}">
+	  </td>
+    </tr>
+	 
+    <tr > 
+      <td width="15%" height="25" >暂停时播放图片链接<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="pauseurl" type="text" id="pauseurl" value="{$pauseurl}" >  <em class="global_tip">暂停时播放图片时需要加一个链接</em>
+        </td>
+    </tr>
+	
+	 <tr   > 
+      <td width="15%" height="25" >视频开始前播放的广告<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"  > 
+	  <span id="str5" >{$filepath3$}</span><span id="str6" style="display:none"> 视频开始前播放的广告，可以是flash,也可是视频格式，只支持mp4和swf格式<br>
+	  <iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=video3&type=3"></iframe>
+	  </span>
+	  <input type=hidden name="url3" id="url3" value="{$loadadv}">
+	  </td>
+    </tr>
+	 <tr > 
+      <td width="15%" height="25" >视频开始前广告的链接<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="loadurl" type="text" id="loadurl" value="{$loadurl}" >  <em class="global_tip">视频开始前广告的链接地址，主要针对视频广告，如果是flash可以不填写</em>
+        </td>
+    </tr>	 <tr > 
+      <td width="15%" height="25" >视频开始前广告播放的秒数<font color="#FF0000"></font>： 
+      </td>
+      <td width="76%"  class="category"> <input name="loadtime" type="text" id="loadtime" value="{$loadtime}"  onkeypress="return event.keyCode>=48&&event.keyCode<=57||event.keyCode==46" onpaste="return !clipboardData.getData('text').match(/\D/)" ondragenter="return false">  <em class="global_tip">视频开始前广告播放的秒数,只针对flash或图片有效</em>
+        </td>
+    </tr>
+    <tr > <td></td>
+      <td height="25" colspan="5" class="category"><input type="submit" name="Submit" class="global_btn_blue_big" value="提交保存">
+       </td>
+    </tr>
+  </form>
+</table>
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script>
+function hid1()
+{
+	$("str1").style.display="none";
+	$("str2").style.display="block";
+}
+function hid2()
+{
+	$("str3").style.display="none";
+	$("str4").style.display="block";
+}
+function hid3()
+{
+	$("str5").style.display="none";
+	$("str6").style.display="block";
+}
+</script>
+  </body>
+</html>

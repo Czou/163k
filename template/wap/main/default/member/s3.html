@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>会员手机激活验证-{$SiteName}</title>
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/reg-mb.css" />
+{$top$}
+	<div class="content gray_bg">
+		<div class="crumbs"><a href="{$SiteUrl}">首页</a> &gt; 会员手机激活验证</div>
+	
+		<div class="fabu reg">
+			<form name="register" id="register" onSubmit="return resendmobile('{$chrname}',document.getElementById('oldtel').value,document.getElementById('chrtel').value);">
+				<div class="box">
+				<p class="txt">手机激活码已发送至手机：<span style="color:#f30">{$chrtel}</span>，请注意查收！</p>
+				<p class="txt">输入手机激活码：</p>
+				<p><span class="wd-arrow"><input type="text" name="chrcode" id="chrcode" style="width:120px; min-width:120px; display:inline-block;" class="codebox-input" /> <input type="button" value="激活账号" onClick="return checksmscode('{$chrname}')" class="comn-submit" id="sendvalue"></span></p>
+				
+				</div>
+				<div class="box">
+				<p class="txt">如果您的手机填写有误，<span class="daojishi" id="daojishi">60秒后</span>可重新修改</p>
+				<p class="txt">修改您的手机：</p>
+				<p><span class="wd-arrow"><input type="text" name="chrtel" id="chrtel" value="{$chrtel}" class="codebox-input" style="width:120px; min-width:120px; display:inline-block;" /> <input class="comn-submit reg-submit" id="sendvaluess" name="sendvaluess" style="display:none" type="submit" value="重新发送" /><input type="hidden" name="oldtel" id="oldtel" value="{$chrtel}"></span></p>
+				
+				</div>
+			</form>
+		</div>
+	
+	
+	</div>
+{$bottom$}
+<script>
+ var i = 61;
+function send(){
+ i--;
+ if(i==-1){
+    $("#sendvaluess").show();
+    $("#daojishi").hide() ;
+	return null;
+ }
+  $("#daojishi").html(i + "秒后") ;
+  //$("#sendvaluess").hide();
+  setTimeout("send();",1000);
+}
+send();
+function resendmobile(aa,bb,cc){
+	var url="../request.aspx?action=show1&str1=2&str2="+escape(aa)+"&str3="+escape(bb)+"&str4="+escape(cc);
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert("短信发送成功，请在上方输入您手机收到的验证码");
+			document.getElementById('oldtel').value=cc;
+			i = 61;
+			send();
+			$("#daojishi").show() ;
+			return false;
+		}else{
+			alert(data.error);	
+			return false;
+		}
+	});
+	return false;	
+}
+function checksmscode(aa){
+	var bb=document.getElementById('oldtel').value;
+	var cc=document.getElementById('chrcode').value;
+	var url="../request.aspx?action=show1&str1=3&str2="+encodeURIComponent(aa)+"&str3="+encodeURIComponent(bb)+"&str4="+encodeURIComponent(cc);
+	
+	$.get(url,function(data){
+		if(data.islogin === '1'){
+			alert("恭喜您，验证成功！");
+			var   f=document.createElement("IFRAME")   
+					f.height=0;   
+					f.width=0   
+					f.src="../other.aspx?action=login"  
+					document.body.appendChild(f) ;
+					setTimeout(function(){window.location.href='../index.html';},1000);
+					return false;
+		}else{
+			alert(data.error);	
+			return false;
+		}
+	});
+	return false;
+}
+</script>
+</body>
+</html>

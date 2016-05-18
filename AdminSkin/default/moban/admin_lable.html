@@ -1,0 +1,112 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+    	top_init()
+        //tsjx_top_clear();
+    });
+    function del(id)
+{
+    if ( confirm("该操作将不可逆！\n您确定要删除吗？"))
+   {
+
+        location.href = "?action=del&ID=" + id
+    }
+}
+function delAll(o,str,astr)
+{
+	if ( confirm("您确定要"+astr+"所有选中的标签吗？"))
+        {
+  	    document.getElementById("styleid").value=str;
+       document.getElementById("form").submit();
+        }
+}
+</script>
+<link href="{$atplPath}skin/admin2013_child.css" type="text/css" rel="stylesheet" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>标签管理</td>
+          <td align="right"><div class="bq_menu"><a href="admin_Lable.aspx?action=add" class="gre">添加新标签</a><a href="/request.ashx?action=lablesqldao&sqlname=lable" target="_blank">备份所有标签</a><a href="javascript:void(0);" id="import_tag" target="_blank" class="blu">导入标签</a><a href="http://fuwu.163k.com/forum-49-1.html" target="_blank" class="yel">帮助教程</a>
+		  	<div id="import_tag_inner" class="import_tag_inner">
+				<form name="form" id="form" method="post" action="?action=daosql">
+        			<p><strong>导入备份sql</strong>　<span style="color:#f00;">(警告:执行此操作会清空现有所有标签数据)</span></p>
+					<p>上传备份txt文件</p>
+					<div id="ifm_upload_inner"></div>
+					<input type="hidden" name="url1" value="" id="url1" > 
+          			<p class="btn"><input type="submit" class="global_btn_blue_big" name="submit" value="确定导入" /></p>
+        		</form>
+				<span class="close">关闭</span>
+			</div>
+		  </div>
+		  	
+			<script type="text/javascript">
+				$.fn.pop_label = function(){
+					var $this = $(this),po = $('#import_tag_inner'),closeBtn = $('.close');
+					$this.bind('click',function(e){
+						e.preventDefault();
+						var myiframe = '<iframe src="upload.aspx?action=adv&type=1" scrolling="no" frameBorder="0" width="100%" height="50"></iframe>';
+						$('#ifm_upload_inner')[0].innerHTML=myiframe;
+						po.toggleClass('show');
+					});
+					closeBtn.bind('click',function(e){
+						e.preventDefault();
+						po.toggleClass('show');
+					});
+				}
+				$('#import_tag').pop_label();
+			</script>
+		  </td>
+        </tr>
+      </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td bgcolor="#e1edf9">
+	<form action="?" method="post" id="form1" style="padding:8px 2px;">
+          查询条件：客户端<select name='sel_clienttype' id='sel_clienttype'></select>　模版套系<select name='sel_template' id='sel_template'></select>　使用范围栏目<select name='sel_column1' id='sel_column1'></select>　<span id="s_column2">二级栏目<select name='sel_column2' id='sel_column2'></select></span>　标签名<input id="txt_name" name="txt_name" type="text" value="{$keyword}" class="global_ipt" />
+ <input id="hid_clienttype" name="hid_clienttype" type="hidden" value="{$l_clienttype}"/>
+<input id="hid_template" name="hid_template" type="hidden" value="{$l_template}"/>
+<input id="hid_column" name="hid_column" type="hidden" value="{$l_column}"/>
+<input type="submit" class="global_btn" name="submit" value="查询" />
+        </form>
+      <form name="form" id="form" method="post" action="?action=copy">
+	  <table align="center" cellpadding="0" width="100%" cellspacing="0" class="toptable grid table_style" border="0">
+        
+          <tr  align="center">
+            <td width="25" class="category">&nbsp;</td>
+            <td class="category">标签</td>
+            <td class="category">客户端</td>
+            <td class="category">套系</td>
+            <td class="category">范围</td>
+            <td class="category">标签说明</td>
+            <td  align="center" class="category">操作</td>
+			<td bgcolor="#ffffff" class="category">&nbsp;</td>
+          </tr>
+		  
+          <tag:Loop ListType="ListMobanLable" RecType="New" PageSize="50" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="0" Template="moban/List_lable_Tr.htm" />
+          
+		  <tr>
+            <td align="right" bgcolor="#FFFFFF" colspan=16></td>
+          </tr>
+          <input type="hidden" name="styleid" id="styleid" value="1">
+		  <tr>
+          <td height="24" align="center" bgcolor="#FFFFFF" colspan=15><input type="submit" value="批量复制" class="global_btn_blue" /></td>
+        </tr>
+        
+        <tr>
+          <td height="24" align="right" bgcolor="#FFFFFF" colspan=15> {$PageSplit} </td>
+        </tr>
+       
+      </table> </form>
+     
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="6"><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td height="6"></td>
+    <td height="6"><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>

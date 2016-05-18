@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<TITLE>系统桌面</TITLE>
+<link href="{$atplPath}skin/g2013.css" type="text/css" rel="stylesheet" />
+<link href="{$atplPath}skin/admin2013.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{$atplPath}js/IncJS.js"></script>
+<style>
+html {-overflow-y: scroll;}
+</style>
+</HEAD>
+<BODY>
+<div class="wrapper">
+	
+	<div class="content clearfix">
+		<div class="user_info">
+			<div class="left">您好，<span class="user_name">{$UserName}</span>。 欢迎登陆 {$SiteName}管理系统！</div>
+			<div class="right">登陆时间：{$logindate} 登陆IP：{$loginip} 上次登陆时间：{$logindate1}      上次登陆IP：{$loginip1}</div>
+		</div>
+		<div class="admin_index">
+		  <div class="hd">待审工作报告</div>
+		  <div class="bd">
+			<table class="tab_01" cellpadding="0" cellspacing="0" width="100%">
+			  <tr>
+				<td>信息：<a class="em" href="live.aspx?key=0&startdate=1900-1-1">{$live}</a></td>
+				<td>商家：<a class="em" href="shop.aspx?quanbu=0">{$shop}</a></td>
+				<td>出租：<a class="em" href="chuzhu.aspx?colname=0">{$chuzhu}</a></td>
+				<td>商品：<a class="em" href="good.aspx?quanbu=4">{$good}</a> </td>
+				<td>招聘：<a class="em" href="zhiwei.aspx?colname=0">{$zhiwei}</a></td>
+				<td>签约：<a class="em" href="dianpuqianyue.aspx?colname=0">{$qianyue}</a></td>
+			  </tr>
+			  <tr>
+				
+				<td>出售：<a class="em" href="shoulou.aspx?colname=0">{$chushou}</a></td>
+				<td>订单：<a class="em" href="order.aspx?quanbu=0">{$order}</a> </td>
+				<td>简历：<a class="em" href="rencai.aspx?colname=0">{$rencai}</a></td>
+				<td>视频：<a class="em" href="shipin.aspx?colname=0">{$video}</a></td>
+				<td>需求：<a class="em" href="xuqiu.aspx?colname=4">{$xuqiu}</a></td>
+				<td>活动：<a class="em" href="active.aspx?quanbu=0">{$tuangou}</a></td>
+			  </tr>
+			  <tr>
+				<td>文章：<a class="em" href="news.aspx?quanbu=0">{$article}</a></td>
+				<td>相片：<a class="em" href="photo.aspx?keyword2=0">{$photo}</a></td>
+				<td>认证：<a class="em" href="houseconfig.aspx?action=rz&colname=0">{$jingjiren}</a> </td>
+				<td>报名：<a class="em" href="baoming.aspx?isopen=0">{$baoming}</a></td>
+				<td>黄页：<a class="em" href="bianming.aspx?colname=0">{$bianming}</a></td>
+				<td>认领：<a class="em" href="dianpurenling.aspx?colname=0">{$rengling}</a></td>
+			  </tr>
+			  <tr>
+				
+				<td>选手评论：<a class="em" href="revert.aspx?key=10&isopen=0">{$xuanshourevert}</a> </td>
+				<td>选手报名：<a class="em" href="xuanshou.aspx?colname=0">{$xuanrevert$}</a></td>
+				<td>打折信息：<a class="em" href="cuxiao.aspx?colname=0">{$dazhexinxi}</a></td>
+				<td>小区管理：<a class="em" href="xiaoqu.aspx?colname=0">{$xiaoqu}</a></td>
+				<td>经纪人：<a class="em" href="jingjiren.aspx?colname=0">{$jingjirennum}</a> </td>
+				<td>优惠券：<a class="em" href="youhui.aspx?colname=0">{$youhuiquannum}</a></td>
+			  </tr>
+			  <tr>
+				<td>线上团购：<a class="em" href="tg.aspx?quanbu=2">{$tgnum}</a></td>
+				<td>团购未付款：<a class="em" href="tgorder.aspx?quanbu=0&date=0&ondate=2014%2f1%2f1+0%3a00%3a00">{$tgordernum}</a></td>
+				<td>房源举报：<a class="em" href="houseconfig.aspx?action=jb&colname=0">{$housejubao}</a> </td>
+				<td>企业网站申请：<a class="em" href="qiye.aspx?colname=0">{$qiyenum}</a></td>
+				<td >信息回复：<a class="em" href="Revert.aspx?key=5&isopen=0">{$liverevert}</a></td>
+				<td >店铺点评：<a class="em" href="revert.aspx?key=1&isopen=0">{$companyrevert}</a></td>
+			  </tr>
+			  <tr>
+				<td >小区评价：<a class="em" href="activerevert.aspx?key=6&isopen=0">{$xiaoqurevert}</a></td>
+				<td >留言反馈：<a class="em" href="revert.aspx?key=0&isopen=0">{$revert}</a></td>
+				<td>商品评论：<a class="em" href="activerevert.aspx?key=3&isopen=0">{$shoprevert}</a></td>
+				<td >楼盘点评：<a class="em" href="activerevert.aspx?key=7&isopen=0">{$loupanrevert}</a></td>
+				<td >礼品兑换：<a class="em" href="duihuan.aspx?colname=0">{$gift}</a></td>
+				<td >网址录入：<a class="em" href="wangzhi.aspx?key=1">{$wangzhi}</a></td>
+			  </tr>
+			  <tr>
+				<td >打折卡申请：<a class="em" href="card.aspx?Colname=0">{$dazheka}</a></td>
+				<td >视频评论：<a class="em" href="Revert.aspx?key=9&isopen=0">{$videorevert}</a></td>
+				<td >文章评论：<a class="em" href="Revert.aspx?key=8&isopen=0">{$newsrevert}</a></td>
+				<td >在线问房：<a class="em" href="loupanwen.aspx?isopen=0">{$loupanwen}</a></td>
+				<td>楼盘录入：<a class="em" href="loupan.aspx?colname=0">{$loupan}</a></td>
+				<td>相册评论：<a class="em" href="revert.aspx?key=12&isopen=0">{$picrevert}</a></td>
+			  </tr>
+			</table>
+		  </div>
+		</div>
+		<div class="footer clearfix">
+			<div class="logo"><a href="{$SiteUrl}" title="{$SiteName}"><img src="{$topurl}" alt="{$SiteName}" /></a></div>
+			<div class="ft">
+				<div class="none_true_{$IsNewVer$}">
+					<p class="version">系统版本：系统版本不是最新版，您当前的版本：{$SystemVersion$}　<a href="http://fuwu.163k.com" target="_blank" style="color:#36c;">升级介绍</a></p>
+					<p>可以到官方论坛下载最新版手动升级：<span class="red">{$NewVersion$}</span></p>
+					<p>或选择自动升级：<a href="admin_update.aspx?action=auto" target="_blank" style="font-weight:bold;color:#36c;">点此进入自动升级</a></p>
+				</div>
+	
+				<div class="none_false_{$IsNewVer$}">
+				<p class="version">系统版本：系统版本已经是最新版，您当前的版本：{$SystemVersion$}</p>
+				<p>或选择自动升级：<a href="admin_update.aspx?action=auto" target="_blank" class="red">点此进入自动升级</a> <a href="http://fuwu.163k.com" target="_blank" style="font-weight:bold;color:#36c;">查看官方最新进展</a></p>
+				</div>
+				<div class="jinjigonggao">{$NewReport$}</div>
+			</div>
+		</div>
+	</div>
+</div>
+</BODY>
+</HTML>

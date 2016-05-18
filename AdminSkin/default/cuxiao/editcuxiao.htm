@@ -1,0 +1,169 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<script>
+function checkform(o){
+	if(o.p1[0].checked){
+		if(o.zidingyi.value==""){
+			alert("对不起,请输入自定义商家!");
+			o.zidingyi.focus();
+			return false;
+		}
+		if(o.zidingcategoryid.value==""){
+			alert("对不起,请选择自商家归类!");
+			o.zidingcategoryid.focus();
+			return false;
+		}
+		/*if(o.zidingdiqu.value==""){
+			alert("对不起,请选择商家地区!");
+			o.zidingdiqu.focus();
+			return false;
+		}*/
+	}
+	else{
+		if(o.shopid.value==""){
+			alert("对不起,请选择商家名称!");
+			o.shopid.focus();
+			return false;
+		}
+	}
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写促销标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.startdate.value==""){
+		alert("对不起,请选择促销开始时间!");
+		o.startdate.focus();
+		return false;
+	}
+	if(o.enddate.value==""){
+		alert("对不起,请选择促销结束时间!");
+		o.enddate.focus();
+		return false;
+	}
+	 
+}
+</script>
+<script>
+function clickcolor()
+{
+	 var aarr=showModalDialog("{$atplPath}js/selcolor.htm", "", "dialogWidth:18em; dialogHeight:17.5em; status:0;help:0");
+	 if (aarr != null) $("color").value=aarr;
+}
+</script>
+<link href="{$atplPath}js/cal/calendar.css" rel="stylesheet" type="text/css">
+<script src="{$atplPath}js/jquery.js"></script>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">修改商家促销信息&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;<input name="GoToGQList" type="submit" id="GoToGQList" class="global_btn" value="返回至促销信息列表" onClick="javscript:window.history.go(-1);"></td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+   <table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+  <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this);" >
+    <input type="hidden" name="id" value="{$ID}" />
+	<tr > 
+      <td width="14%" height="25">商家名称<font color="#FF0000">*</font>： 
+      </td>
+      <td  colspan=3  class="category"> <input type="radio" value="0"  name="p1">自定义:<input name="zidingyi" type="text" value="{$zidingyi}" size="30"  > 商家归类：{$categoryid} 商家地区：{$diqu}<br><input type="radio" value="1"  name="p1" checked>从发行商家选择{$shopid}</td>
+    </tr>
+    <tr > 
+      <td  height="25">促销标题<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="chrtitle" value="{$chrtitle}" class="myinput" style="width:260px;"/></td>
+	  <td  height="25">是否推荐到首页<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="isindex" type="radio" value="0"  {$isindex0}/>否
+                <input name="isindex" type="radio" value="1"  {$isindex1} />是</td>
+    </tr>
+	<tr > 
+      <td  height="25">促销时间<font color="#FF0000">*</font>：</td>
+      <td    class="category"><table border="0" cellspacing="1" cellpadding="0">
+            <tr>
+              <td align="right" class="blank"> <input type="text" name="startdate" value="{$startdate}" class="myinput Wdate" /></td>
+              <td align="right" class="blank">&nbsp;到：</td>
+              <td align="right" class="STYLE10"><input type="text" name="enddate" value="{$enddate}" class="myinput Wdate"></td>
+            </tr>
+          </table></td>
+		   <td  height="25">浏览量<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="views" class="myinput"  value="{$views}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')"/></td>
+    </tr>
+	<tr > 
+      <td  height="25">排序<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="intorder" class="myinput"  value="{$intorder}" size=7 onKeyUp="if(isNaN(value))execCommand('undo')"/></td>
+	  <td  height="25">状态<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="iskill" type="radio" value="0"  {$iskill0}/>等待审核
+                <input name="iskill" type="radio" value="1"  {$iskill1}/>审核通过<input name="iskill" type="radio" value="2"  {$iskill2}/>审核失败</td>
+    </tr>
+	<tr > 
+      <td  height="25">颜色<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input type="text" name="color" id="cptext" value="{$color}"  size="8"/> <img src="{$atplPath}images/colorpicker.png" id="cp" style="cursor:pointer"/></td>
+	  <td  height="25">是否加粗<font color="#FF0000">*</font>：</td>
+      <td   class="category"><input name="fontbold" type="radio" value="0"  {$fontbold0}/>否
+                <input name="fontbold" type="radio" value="1" {$fontbold1}  />是</td>
+    </tr>
+	
+	 <tr > 
+      <td  height="25">促销内容<font color="#FF0000">*</font>： 
+      </td>
+      <td   colspan=3 class="category">
+	  <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$chrcontent}
+      </textarea>
+	  <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script></td>
+    </tr>
+	
+    <tr > 
+	<td></td>
+      <td height="25"  class="category"  colspan=3><input type=hidden name=gotourl value="{$gotourl}">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td>
+    </tr>
+  </form>
+</table> <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+<script type="text/javascript" src="{$atplPath}js/cal/cal.js"></script>
+<script src="{$atplPath}js/jquery.colorpicker.js"></script>
+<script>
+$.noConflict();
+(function($){
+	$("#cp").colorpicker({
+		fillcolor:true,
+		target:$("#cptext")
+	});
+	var d = new Date(),y = d.getFullYear();
+	$('.Wdate').simpleDatepicker({ startdate: 2014, enddate: y+2 });
+})(jQuery);
+
+var tt ="{$shopidtt}";
+if(tt=="0"){
+	document.form1.p1[0].checked=true;
+}
+else{
+	document.form1.p1[1].checked=true;
+}
+</script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<table width="100%" border="0" cellpadding="0" cellspacing="0"  style="line-height:25px;">
+  <tr>
+    <td></td>
+    <td class="category"><form name="form1" method="post"  onsubmit="return checkformtt(this)">
+        <table style="width:100%" border="0" cellpadding="2" cellspacing="0"  class="toptable grid table_style">
+          <tr >
+            <td height="25" >展示图片： </td>
+            <td   class="category">{$filepath$} </td>
+          </tr>
+          <tr >
+            <td height="25" >重新上传： </td>
+            <td   class="category"><iframe name="ifm_upload" frameborder=0 width=100% height=50 scrolling=no src="upload.aspx?action=shop&type=t1"></iframe>
+              <input type=hidden name="urlt1" id="urlt1" value="{$url1}">
+            </td>
+          </tr>
+          <tr >
+            <td height="25" >图片描述<font color="#FF0000">*</font>： </td>
+            <td   class="category"><input type=test name="chrmark" size=30  value="{$chrmark}">
+              若不填，则前台显示“未添加描述” </td>
+          </tr>
+          <tr >
+            <td></td>
+            <td height="25"  class="category">
+              <input type=hidden name=EDITID value="{$ID}">
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="修改保存"></td>
+          </tr>
+        </table>
+      </form>
+      <!--endprint--></td>
+    <td></td>
+  </tr>
+</table>
+</body></html>

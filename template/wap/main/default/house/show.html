@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$chrtitle}-{$SiteName}</title>
+<meta name="keywords" content="{$ckeywords}" />
+<meta name="description" content="{$ckeywords},{$daohangweizhi}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/news2016-mb.css" />
+<style type="text/css">
+body { padding-bottom:0!important;}
+.list_normal .time { display:none;}
+.pageNav2 span { margin:0 3px;}
+.pageNav2 .disabled { border:1px solid #f1f1f1; color:#aaa;}
+.zx_list2 li {min-height:28px!important; height:28px; overflow:hidden; line-height:28px; font-size:16px; padding-left:15px;}
+.zx_list2 li a { display:inline-block; vertical-align:middle; width:19em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.zx_list2 li .time { color:#aaa; font-size:12px; padding-left:10px;}
+</style>
+<script>
+window['ipageTitleTxt'] = '{$chrcategory}';
+</script>
+{$top$}
+<div class="o_main mar_b_50">
+<!--详情-->
+<div class="zx_detail">
+ <h1>{$chrtitle}</h1>
+ <span class="r_time">{$dtappenddate}</span>
+ <span class="source">{$chrfrom}</span>
+ <span class="num">{$hits}</span>
+ 
+ <div class="info">
+  	<div class="article_content" id="resizeIMG">
+		{$chrcontent}
+		<div style="text-align:center" class="manu pageNav2">{$split}</div>
+	</div>
+ </div>
+</div>
+<!--分享-->
+<div class="share_fd">
+  <div class="title"><span>分享到朋友圈</span></div>
+   {$Mh163k_wap_整站通用_分享代码}
+  <div class="tips"><i></i>频道所载文章、图片、数据等类容以及相关文章评论纯属个人观点和网友上传，并不代表本站立场。如有发现违法信息或侵权行为，请留言或直接与本站联系，我们将在收到您的信息后24小时内作出删除处理。</div> 
+</div>
+<!--列表-->
+ <div class="zx_list zx_list2 mb_10">
+ <div class="title"><span>相关阅读</span></div>
+  <ul>
+   {$xiangguan}
+ </ul>
+ </div>
+{$bottom$}
+<script>
+(function($){
+	IDC.resizeIMG(document.getElementById('resizeIMG'),parseInt($(window).width())-20,480);
+})(jQuery);
+</script>
+</body>
+</html>
+

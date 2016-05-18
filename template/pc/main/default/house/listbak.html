@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$chrcategory}-{$daohangweizhi}-{$SiteName}</title>
+<link href="{$tplPath}skin/v2013.css" type="text/css" rel="stylesheet" />
+<link id="themecss" rel="stylesheet" rev="stylesheet" href="{$tplPath}skin/theme/theme1.css" type="text/css">
+<script src="{$tplPath}js/common.js"></script>
+<script type="text/javascript" src="{$tplPath}js/jquery.js"></script>
+<script type="text/javascript" src="{$tplPath}js/rbtCss.js"></script>
+</head>
+<script>loadss();</script>
+<body class="home-page" bgcolor="{$SiteColor}">
+<div class="wrapper">
+	{$top$}<DIV class="bod_yy"><SCRIPT> document.write(F1);</SCRIPT></div><DIV class="bod_yy" style="margin-top:3px;"><SCRIPT> document.write(F2);</SCRIPT></div>
+	<!-- 主体 -->
+	<div id="content" class="v2013">
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="news_list news_list2 news_list3">
+					<div class="hd">{$chrcategory}</div>
+					<ul>
+						<tag:Loop ListType="listhousearticleqian" RecType="New" PageSize="10" ColorSplit="1" TitleLen="40" RecColumn="5" CusTpl="1" Template="house/listarticle.htm" />
+					</ul>
+					<div class="pageNav_2013">
+						{$PageSplit}
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mo_2 loupan">
+					<div class="hd">热门楼盘</div>
+					<div class="bd">
+						<ul>
+							{$renmenloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+				<div class="mo_2 marTop10 loupan">
+					<div class="hd">推荐楼盘</div>
+					<div class="bd">
+						<ul>
+							{$rentuiloupan}
+						</ul>
+					</div>
+					<div class="ft"><a href="loupan.html" target=_blank>更多</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+</body>
+</html>

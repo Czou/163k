@@ -1,0 +1,11 @@
+﻿<tr align="center" onMouseOver="c=this.style.backgroundColor;this.style.backgroundColor='#99CCFF'" onMouseOut="this.style.backgroundColor=c;"> 
+	<td class="Number" align="left">{$NID}</td>
+	<td  align="left">{$l_name}</td>
+	<td>{$l_clienttype}</td>
+	<td>{$l_template}</td>
+	<td>{$l_column}</td>
+	<td>{$l_remark}</td>
+	<td align="center"><a href='admin_lable.aspx?action=edit&ID={$ID}' style='color:red;'>编辑</a>&nbsp;/&nbsp;<a href='admin_lable.aspx?action=del&ID={$ID}'><font color=\"#c0c0c0\">删除</font></a>&nbsp;/&nbsp;<a href='admin_lable.aspx?action=copy&ID={$ID}'>复制</a>
+</td>
+	<td ><input name="ID" type="checkbox" id="ID" value="{$ID}"></td>
+</tr>

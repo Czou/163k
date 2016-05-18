@@ -1,0 +1,16 @@
+﻿<tr><td  colspan="2" style="background-color:#f8f8f8">
+	 第{$num}个：
+	 </td></tr>
+	 <tr><td width="60">
+	 标题</td><td><input type="text" name="title{$num}" value="{$title{$num}}" class="sys_form_ipt" />
+	 </td></tr>
+	  <tr><td >
+	 链接</td><td><input type="text" name="chrurl{$num}" value="{$chrurl{$num}}" class="sys_form_ipt" /><input type="hidden" name="styleid{$num}" value="0" />
+	 </td></tr>
+	  <tr><td  valign="top">
+	 图片</td><td>
+	 <span id="str{$num}_1" style="display:none;"><a href="{$url{$num}}" rel="facebox"><img src="{$url{$num}}" id="for_url_{$num}" class="img_block" width="100" height="85" alt="" /></a><a href="#" onClick="return upload_img_action_X('str{$num}_1','str{$num}_2')" class="sys_btn_small_blue">重新上传</a></span>
+	 <span id="str{$num}_2" style="display:none">
+	<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type={$num}&table_id=good_shop&reqfile=upload_X4.aspx"></iframe>
+	</span><input type="hidden" value="680" name="filewidth{$num}" /><input type="hidden" value="510" name="fileheight{$num}" /><input type="hidden" value="{$url{$num}}" name="url{$num}" id="url{$num}" class="url_file" data-num="{$num}" />
+</td></tr>

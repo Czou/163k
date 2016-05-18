@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>修改团购商品--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+<link   rel="stylesheet" type="text/css" href="{$Default_tplPath}js/facebox.css" />
+<script type="text/javascript" src="{$Default_tplPath}js/facebox.js"></script>
+<script>
+jQuery(document).ready(function($) {
+  $('a[rel*=facebox]').facebox() 
+}) 
+</script>
+
+
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("请输入团购买活动标题!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.chrmark.value==""){
+		alert("请输入活动亮点!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrmark.value.length>200){
+		alert("活动亮点长度不能大于200!");
+		o.chrmark.focus();
+		return false;
+	}
+	if(o.chrdate.value==""){
+		alert("请输入结束时间!");
+		o.chrdate.focus();
+		return false;
+	}
+	if(o.chrmoney1.value==""){
+		alert("请输入市场原价!");
+		o.chrmoney1.focus();
+		return false;
+	}
+	if(o.chrmoney2.value==""){
+		alert("请输入团购价格!");
+		o.chrmoney2.focus();
+		return false;
+	}
+	if(o.chrzhekou.value==""){
+		alert("请输入折扣!");
+		o.chrzhekou.focus();
+		return false;
+	}
+}
+
+</script> 
+<script src="{$Default_tplPath}WdatePicker.js"></script> 
+
+ {$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 修改团购商品</div>
+  <!-- 主体 -->
+  <div id="content" class="clearfix">
+    <div class="col_main">
+      <div class="edit_box">
+        <div id="contentfloat">
+          <div id="content">
+            <div class="bigtitle">修改团购商品</div>
+            <table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+              <tr>
+                <td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+                <td class="tx_title"><span>重要提示：</span><br />
+                  修改团购商品,需要管理员审核 <br />
+                </td>
+              </tr>
+            </table>
+            <br />
+            <form name="form1" method="post" action="?action=editSave" onsubmit="return checkform(this)" enctype="multipart/form-data">
+              <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+                <tr >
+                  <td class="tditem" width="15%" ><span style="color:Red">*</span> 团购标题： </td>
+                  <td class="tdcontent" ><input name="chrtitle" value="{$chrtitle}" type="text" class="text" size="40" maxlength=100 >
+                    (最多支持100汉字)</td>
+                </tr>
+				 <tr >
+                  <td class="tditem" ><span style="color:Red">*</span> 所属分类： </td>
+                  <td class="tdcontent" >{$categoryid}      {$areaid}</td>
+                </tr>
+                <tr >
+                  <td  class="tditem"><span style="color:Red">*</span>商品主图：<br>
+                    尺寸:680*425  </td>
+                  <td  class="tdcontent"><span id="str1" >{$filepath$}</span><span id="str2" style="display:none">
+					<input type="file" name="file1" size="60" class="text">&nbsp; 
+					限制50K以内，JPG/GIF&nbsp; 
+					</span>
+				  <input type=hidden name="filepath" value="{$filepath}"></td>
+                </tr>
+                <tr >
+                  <td  class="tditem">商品亮点： </td>
+                  <td class="tdcontent" ><textarea name="chrmark" class="text" type="text" style="width:400px;height:80px;">{$chrmark}</textarea></td>
+                </tr>
+                <tr >
+                  <td  class="tditem">结束时间<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent"><input name="chrdate" type="text" size="20" class="text" value="{$chrdate}" readonly   >
+                    (到期后将不能下单，前台状态显示为“往日团购”、“已结束”)</td>
+                </tr>
+                <tr >
+                  <td  class="tditem">本团性质<font color="#FF0000">*</font>： </td>
+                  <td  class="tdcontent" ><select name="styleid">
+                      <option value="0" {$styleid0}>消费、服务类</option>
+                      <option value="1" {$styleid1}>实物-网购类</option>
+                      <option value="2" {$styleid2}>实物-订单类</option>
+                    </select>
+                    请选择本次团购项目的性质 <br>
+                    a、消费、服务类商品：消费者在线全额支付，凭码消费 <br>
+                    b、实物-网购类商品：消费者在线全额支付,商家包邮快递 <br>
+                    c、实物-订单类商品：消费者只需在线支付定金下单,线下与商家取货或送货,余款于线下商家自行结算<br>
+                    提示：如果是消费、服务类商品，添加完团购后，必须要生成消费券！ </td>
+                </tr>
+                <tr >
+                  <td  class="tditem">市场原价： </td>
+                  <td  class="tdcontent"><input name="chrmoney1" type="text" size="8"  class="text"  value="{$chrmoney1}" onKeyUp="if(isNaN(value))execCommand('undo')">
+                    <font color=red>请输入本团购商品的市场原价</font></td>
+                </tr>
+                <tr >
+                  <td  class="tditem">团购价： </td>
+                  <td  class="tdcontent"><input name="chrmoney2" type="text" size="8"  class="text"  value="{$chrmoney2}" onKeyUp="if(isNaN(value))execCommand('undo')">
+                    <font color=red>必须是数字，如果是实物类，建议是包邮价格 ；若是定金类型团购，本价格为定金</font></td>
+                </tr>
+                <tr >
+                  <td  class="tditem">折扣</td>
+                  <td  class="tdcontent"><input name="chrzhekou" type="text" size="8"  class="text"  value="{$chrzhekou}" onKeyUp="if(isNaN(value))execCommand('undo')">
+                    <font color=red>请输入团购价相对市场价的折扣.必须是数字，如4.1</font></td>
+                </tr>
+                <tr > 
+                  <td  class="tditem">其它： 
+                  </td>
+                  <td  class="tdcontent" > 单ID购买数量限制：<input name="num1" class="text"  type="text" size="8" value="{$num1}" onKeyUp="if(isNaN(value))execCommand('undo')">   总量限制：<input name="num2" type="text" size="8" class="text"  value="{$num2}" onKeyUp="if(isNaN(value))execCommand('undo')"></td>
+                </tr>
+				<tr > 
+      <td  class="tditem">团购券有效期<font color="#FF0000">*</font>： 
+      </td>
+      <td class="tdcontent" > <input type="radio" name="typeid" value="0" {$typeid0}>从:<input name="startdate" value="{$startdate}" type="text" size="30" class="Wdate" readonly  style="background-color:#FFFFFF;"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"   >到:<input name="enddate" value="{$enddate}" type="text" size="30" class="Wdate" readonly  style="background-color:#FFFFFF;"  onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"    ><br>
+	  
+	  <input type="radio" name="typeid" value="4" {$typeid4}>永久有效
+	  </td>
+    </tr>
+                <tr >
+                  <td class="tdcontent" colspan="2" > 本团详情：<br>
+                    <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10">{$Chrcontent}</textarea>
+                    <script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+                  </td>
+                </tr>
+              </table>
+              <div class="submit">
+                <input type="hidden" name="id" value="{$ID}" /><input type=hidden name=gotourl value="{$gotourl}">
+                <input type="submit" name="Submit" value=" 确认无误，提交 " id="Submit" />
+              </div>
+            </form>
+          </div>
+　           </div>
+      </div>
+    </div>
+    <div class="col_sub">
+      <!-- 侧边栏菜单 开始 -->
+      <div class="side_bar">
+        <ul>
+          {$usermenu}
+        </ul>
+      </div>
+      <!-- 侧边栏菜单 结束 -->
+    </div>
+  </div>
+  </form>
+  <!-- 主体 结束 -->
+  {$bottom$} </div>
+<script>
+function hid2()
+{
+	document.all.str1.style.display="none";
+	document.all.str2.style.display="block";
+}
+</script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

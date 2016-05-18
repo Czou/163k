@@ -1,0 +1,89 @@
+﻿<link rel="stylesheet" type="text/css" href="{$atplPath}skin/admin2013_child.css" />
+<style type="text/css">
+.list_p p { padding:6px; border-bottom:1px solid #C9DBEF; line-height:30px; text-align:center;}
+.table_style td { padding:0;}
+.table_hd td { padding:6px; text-align:center;}
+</style>
+
+
+
+<!--前台页面:
+所有涉及到这些项目的添加页面添加:
+{$IsFabuKill}:是否允许发布发表.对应配置ctr项目返回0(不允许)或1(允许)
+{$IsSaveKill}:允许发布时:发布的信息初始审核状态,对应str配置项目返回:0(需要审核)1(直接审核通过)
+-->
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#C4D8ED">
+  <tr>
+    <td><img src="{$atplPath}Images/r_1.gif" alt="" /></td>
+    <td width="100%" background="{$atplPath}Images/r_0.gif"><table cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+         <td width="60%">会员权限设置&nbsp;&nbsp;&nbsp; 有<font color="#FF0000">*</font>号的是必填项目</td>
+          <td width="40%" align="right">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td><img src="{$atplPath}Images/r_2.gif" alt="" /></td>
+  </tr>
+   <form name="form1" method="post" action="?action=EditSave" target="tijiao">
+  <tr>
+    <td></td>
+    <td class="category"> <!--startprint-->
+
+
+      	
+		
+		
+		
+		<table width="100%" border="0" cellspacing="0" cellpadding="2" class="toptable grid table_style">
+      		<tr class="table_hd"><td>功能项目</td><td>非签约商家</td><td>签约商家</td></tr>
+      	  <tr>
+      	  	<td class="list_p" valign="top" style="text-align:right;">
+
+<p>开通快店平台</p>
+<p>发布商品(店铺/快店)</p>
+<p>发布活动信息</p>
+<p>发布资讯(动态、打折促销、优惠券)</p>
+<p>发布商家视频、全景</p>
+<p>发布商家相册图片</p>
+<p>域名绑定服务</p>
+<p>店铺首页自定义HTML</p>
+<p>自定义栏目</p>
+<p>线下业务与活动深入合作</p>
+
+      	  	</td>
+      	 <td class="list_p">{$list100}</td>
+      	  <td class="list_p">{$list101}</td>
+
+      	  </tr>
+		  <tr><td colspan="3" align="center" style="padding:10px 0;">
+		<input type="submit" name="Submit" class="global_btn_blue_big" value="确定提交"></td></tr>
+      	</table>
+
+		</td>
+
+  </form>
+
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+
+
+		</td>
+
+
+
+ <!--endprint--></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="{$atplPath}Images/r_4.gif" alt="" /></td>
+    <td></td>
+    <td><img src="{$atplPath}Images/r_3.gif" alt="" /></td>
+  </tr>
+</table>
+ <iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+<script src="{$atplPath}js/jquery-1.10.2.min.js"></script>
+  </body>
+</html>
+

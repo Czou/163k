@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>发布视频-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<style>
+.tit1 { margin:10px 0;}
+</style>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">发布视频</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=addSave" onSubmit="return checkform(this)" enctype="multipart/form-data">
+								<p class="tr"><span class="sp_a">视频标题：</span><span class="sp_b"><input type="text" name="chrtitle" id="chrtitle" class="sys_form_ipt" /></span><span class="sp_c">必填</span></p>
+								<p class="tr"><span class="sp_a">视频分类：</span><span class="sp_b">{$categoryid}</span><span class="sp_c">必填</span></p>
+								<p class="tr"><span class="sp_a">视频简介：</span><span class="sp_b"><textarea name="chrmark" style="height:50px;" class="sys_form_ipt"></textarea></span><span class="sp_c">&nbsp;</span></p>
+								<p class="tr"><span class="sp_a">封面图片：</span><span class="sp_b"><span id="str1" style="display:none;"><img src="" id="for_url_0" class="img_block" width="223" height="152" alt="" /><a href="#" onClick="return upload_img_action_X('str1','str2');" class="sys_btn_small_blue">重新上传</a></span><span id="str2">
+								<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=5&type=0&table_id=video&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url0" id="url0" /></span><input type="hidden" value="223" name="filewidth" /><input type="hidden" value="152" name="fileheight" /></span><span class="sp_c">最佳尺寸：223x152</span></p>
+								<p class="tr"><span class="sp_a">视频源：</span><span class="sp_d">支持格式:mp4、swf、flv、asf、wmv、avi，强烈推荐您使用mp4格式！<span style="color:#f60;">手机端仅能支持mp4格式播放</span>。</span></p>
+								<div class="nav_extra" style="padding:20px 20px 0; border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a href="javascript:void(0);" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,3)',200);document.getElementById('typeid').value='0';">本地上传视频</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,3)',200);document.getElementById('typeid').value='1';">调用外部视频</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_12" onClick="setTimeout('Show_TabADSMenu(1,2,3)',200);document.getElementById('typeid').value='2';">引用第三方站点</a></li>
+									</ul>
+									<input type="hidden" name="typeid" id="typeid" value="0" />
+									<input type="hidden" value="" name="url1" id="url1" />
+									<input type="hidden" value="" name="url13" id="url13" />
+									<div class="tab_cont" id="tabadcontent_10">
+										<p class="tit1"><strong style="color:#333;">PC端：</strong> (推荐flv格式，文件限制{$IsSaveKill}M)</p>
+										<p class="bd1">
+											<span id="str3" style="display:none"><a href="{$url1}" id="for_url_1" class="global_btn_blue">查看视频</a>  <span onClick="return upload_img_action_X('str3','str4')" style="cursor:hand" class="global_btn">重新上传</span></span>
+											<span id="str4"><iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="/kindeditor/upload_one.aspx?action=10&type=1&table_id=shop_video&reqfile=upload_X4.aspx"></iframe></span>
+										</p>
+										<p class="tit1"><strong style="color:#333;">移动端：</strong><span style="color:#d00;">(必须mp4格式，文件限制{$IsSaveKill}M)</span></p>
+										<p class="bd1">
+											<span id="str5" style="display:none"><a href="{$url13}" id="for_url_13" class="global_btn_blue">查看视频</a>  <span onClick="return upload_img_action_X('str5','str6')" style="cursor:hand" class="global_btn">重新上传</span></span>
+											<span id="str6">
+												<iframe name="ifm_upload" frameborder=0 width="100%" height=50 scrolling=no src="/kindeditor/upload_one.aspx?action=10&type=13&table_id=shop_video&reqfile=upload_X4.aspx"></iframe>
+											</span>
+										</p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_11" style="display:none;">
+										<p class="tit1"><strong style="color:#333;">PC端：</strong> (推荐flv格式)</p>
+										<p class="bd1"><input type="text" name="url2" id="url2" value="" class="sys_form_ipt" /></p>
+										<p class="tit1"><strong style="color:#333;">移动端：</strong> <span style="color:#d00;">(必须mp4格式)</span></p>
+										<p class="bd1"><input type="text" id="filepath2wap" class="sys_form_ipt" value=""></p>
+									</div>
+									<div class="tab_cont" id="tabadcontent_12" style="display:none;">
+										<p class="tit1">
+											<strong style="color:#333;">PC端：</strong>支持调用如优酷、土豆等知名视频站点的数据，请输入<span style="color:#f60;">“flash地址”</span><br /><em class="global_tip">例如：http://player.youku.com/player.php/sid/XMTM3ODYyMTExMg==/v.swf</em>
+										</p>
+										<p class="bd1">
+											<input type="text" name="url3" id="url3" class="sys_form_ipt" value="" />
+										</p>
+										<p class="tit1">
+											<strong style="color:#333;">移动端：</strong>请输入<span style="color:#f60;">“通用代码”</span><br /><em class="global_tip">例如：&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XMTM3ODYyMTExMg==" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;</em>
+										</p>
+										<p class="bd1">
+											<input type="text" id="filepath3wap" class="sys_form_ipt" value="" />
+										</p>
+									</div>
+								</div>
+								<!--<div class="nav_extra" style="padding:20px 20px 0; border-bottom:1px solid #f2f2f2;">
+									<ul class="clearfix">
+										<li><a class="cur" href="javascript:void(0);" id="tabadmenu_10" onClick="setTimeout('Show_TabADSMenu(1,0,3)',200);document.getElementById('typeid').value='0';">本地上传视频</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_11" onClick="setTimeout('Show_TabADSMenu(1,1,3)',200);document.getElementById('typeid').value='1';">调用外部视频</a></li>
+										<li><a href="javascript:void(0);" id="tabadmenu_12" onClick="setTimeout('Show_TabADSMenu(1,2,3)',200);document.getElementById('typeid').value='2';">引用第三方站点</a></li>
+									</ul>
+									<input type="hidden" name="typeid" id="typeid" value="0" >
+									<div class="tab_cont" id="tabadcontent_10"><span id="str3" style="display:none;"><span id="for_url_1"></span> <a href="#" onClick="return upload_img_action2()" class="sys_btn_small_blue">重新上传</a></span><span id="str4">
+								文件限制：{$IsSaveKill}M<iframe name="ifm_upload" frameborder="0" width="100%" height="40" scrolling="no" src="/kindeditor/upload_one.aspx?action=10&type=1&table_id=shop_video&reqfile=upload_X4.aspx"></iframe>
+								<input type="hidden" value="" name="url1" id="url1" /></div>
+									<div class="tab_cont" id="tabadcontent_11" style="display:none;">视频文件地址：<input type="text" name="url2" id="url2" class="sys_form_ipt" /></div>
+									<div class="tab_cont" id="tabadcontent_12" style="display:none;">支持调用如优酷、土豆等知名视频站点的数据，请输入“通用代码”<br />例如：&lt;iframe height=498 width=510 src="http://player.youku.com/embed/XODA2NDg0OTg0" frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;<br>
+	  <p><input type="text" name="url3" id="url3" class="sys_form_ipt"></div>
+								</div>-->
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+							<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起,请填写视频名称!");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起,请选择视频分类!");
+		o.categoryid.focus();
+		return false;
+	}
+	var typeid = $('#typeid').val();
+	if(typeid ==='0' && $('#url1').val() ===''){
+		alert("请先上传你的本地视频!");
+		return false;
+	}else if(typeid ==='1' && $('#url2').val() ===''){
+		alert("请先填写你的视频地址!");
+		$('#url2').focus();
+		return false;
+	}else if(typeid ==='2' && $('#url3').val() ===''){
+		alert("请先填写你的第三方视频地址!");
+		$('#url3').focus();
+		return false;
+	}else{
+		
+	}
+	if(typeid ==='1'){
+		o.url13.value = document.getElementById('filepath2wap').value;
+	}
+	if(typeid ==='2'){
+		o.url13.value = document.getElementById('filepath3wap').value;
+	}
+	return true;
+}
+function uploadsuccess(sid,surl,num){
+	document.getElementById('url'+num).value=surl;
+	var tag = $('#for_url_'+num);
+	tag.attr({'href':surl});
+	
+	if(num === '0'){
+		tag.attr({'src':surl});
+		upload_img_action_X('str2','str1');
+	}else if(num === '1'){
+		upload_img_action_X('str4','str3');
+		tag.html(surl);
+	}else if(num === '13'){
+		upload_img_action_X('str6','str5');
+		tag.html(surl);
+	}
+}
+</script>
+</body>
+</html>

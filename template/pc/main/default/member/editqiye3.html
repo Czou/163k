@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>管理公司企业网站--会员管理中心--{$SiteName}</title>
+<link href="{$Default_tplPath}skin/_userIndex.css" type="text/css" rel="stylesheet" />
+<link href="{$Default_tplPath}skin/_userEdit.css" type="text/css" rel="stylesheet" />
+
+<script src="{$Default_tplPath}js/common.js"></script>
+<script src="{$Default_tplPath}js/modify.js"></script>
+
+
+
+
+<style>
+#listcategory { list-style-type:none; width:100%; margin:0; padding:0}
+#listcategory ul{ margin:0; padding:0}
+#listcategory ul li{ margin-left:5px;float:left}
+#listpicall { list-style-type:none; width:100%; margin:0; padding:0}
+#listpicall ul{ margin:0; padding:0}
+#listpicall ul li{ margin-left:5px;float:left}
+</style>
+<script>
+function checkform(o){
+	if(o.chrtitle.value==""){
+		alert("对不起，请输入产品名称！");
+		o.chrtitle.focus();
+		return false;
+	}
+	if(o.categoryid.value==""){
+		alert("对不起，请选择分类！");
+		o.categoryid.focus();
+		return false;
+	}
+}
+</script>
+
+
+	{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; <a href="{$SiteUrl}member/">会员管理中心</a> &gt; 管理公司企业网站</div>
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">管理公司企业网站</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="{$Default_tplPath}member/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />成功提交您的基本资料以后，您可以在“管理公司企业网站”中进行“编辑”，对您的内容进行资料填充和完善！<br />
+		</td>
+	</tr>
+</table>
+<link rel="stylesheet" type="text/css" href="{$Default_tplPath}skin/shade.css" />
+<div class="shadetabs">
+<ul>
+<li ><a href='qiye.aspx?#tt13'>基本资料</a></li><li><a href='qiye.aspx?action=e1#tt13'>关于我们</a></li>
+<li><a href='qiye.aspx?action=e2#tt13'>新闻中心</a></li><li class="selected"><a href='qiye.aspx?action=e3#tt13'>产品展示</a></li>
+<li><a href='qiye.aspx?action=e4#tt13'>客户案例</a></li><li><a href='qiye.aspx?action=e5#tt13'>招贤纳士</a></li>
+<li><a href='qiye.aspx?action=e6#tt13'>友情链接</a></li><li><a href='qiye.aspx?action=e7#tt13'>其他</a></li>
+</ul>
+</div> 
+<div style="padding-top:20px;padding-bottom:20px;">
+温馨提示：黄页试用时间到期后将暂停访问，您可以使用网站积分充值缴费恢复访问
+<table width="100%" cellpadding="1" cellspacing="1" class="table">
+<tR><td class="tdcontent">企业名称</td><td class="tdcontent">当前状态</td><td class="tdcontent">审核</td><td class="tdcontent">续费</td></tR>
+<tR><td class="tdcontent"><a href="{$qiyeurl}" target="_blank">{$qiyename}</a></td><td class="tdcontent">{$states}</td><td class="tdcontent">{$iskill}</td><td class="tdcontent"><a href="bianming.aspx?action=money&id={$ID}">立即在线续费</a></td></tR>
+</table>
+</div>
+ <table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+     <form name="formt1" method="post" >
+          <tr >
+            <td class="tditem" width="120px" >新建分类<font color="#FF0000">*</font>： </td>
+            <td  class="tdcontent" colspan="3"><input name="chrcategory" type="text" size="20"  value="" class="text">
+            排序:<input type="text" name="paixu" style="width:100px;" onKeyUp="value=value.replace(/\D+/g,'')" value="1"  class="text"/>字越大越靠前）
+              <input type="button"  value="建立分类"  style="color:#FF0000" onClick="addqiyecategory('{$ID}',1);"/>
+            </td>
+          </tr>
+          <Tr>
+            <td class="tditem"  >已经建立的分类： </td>
+            <td  class="tdcontent" colspan=3><div id="editcategory" name="editcategory"  style="color:blue;display:none">修改分类<font color="#FF0000">*</font>：
+                <input name="editchrcategory" id="editchrcategory" type="text" size="20"  value="" class="text">
+                排序:<input type="text" name="editpaixu" id="editpaixu" style="width:100px;" class="text" onKeyUp="value=value.replace(/\D+/g,'')" value=""  />（数字越大越靠前）
+                <input name="editcategoryid" id="editcategoryid" type="hidden" size="20"  value="">
+                <input type="button"  value="修改分类"  style="color:#FF0000" onClick="editqiyecategory(1);"/>
+              </div>
+              <div id="listcategory">
+                <ul id="listcategoryshow">
+                  loading……
+                </ul>
+              </div></td>
+          </tR><input type=hidden name=ID value="{$ID}">
+          </form>
+          <form name="form1" method="post" action="?action=e3Save" onSubmit="return checkform(this)"  enctype="multipart/form-data">
+          <tR>
+            <td colspan="4" class="tdcontent" >添加产品</td>
+          </tR>
+          <tr >
+            <td  class="tditem">产品名称<font color="#FF0000">*</font>： </td>
+            <td  class="tdcontent" colspan="3"> <input type="text" class="text" name="chrtitle" style="width:300px;" /></td>
+          </tr>
+          <tr >
+            <td  class="tditem">产品类别<font color="#FF0000">*</font>： </td>
+            <td  class="tdcontent" colspan="3"> {$categoryid}</td>
+          </tr>
+          <tr  > 
+          <td class="tditem">代表图片(1:1)：
+          </td>
+          <td  colspan=3  class="tdcontent">
+          <input type="file" class="text"  name="file" size="80">
+          <input type=hidden name="url1" value=""> </td>
+        </tr>
+          <tr >
+            <td  class="tditem">其它<font color="#FF0000"></font>： </td>
+            <td  class="tdcontent" colspan="3"> <input type="checkbox" name="tuijian" id="tuijian" value="1" />设为推荐产品
+            排序:<input type="text" name="intorder" style="width:100px;" class="text" onKeyUp="value=value.replace(/\D+/g,'')" value="{$intorder}"  />（数字越大越靠前）
+            </td>
+          </tr>
+          <tr >
+        
+          <td  class="tdcontent" colspan=4>
+          <textarea cols="80" id="Chrcontent" name="Chrcontent" rows="10"></textarea>
+         
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+	<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor = K.create('textarea[name="Chrcontent"]', {
+				uploadJson : '/kindeditor/upload_json.ashx',
+				afterBlur: function(){this.sync();},
+				fileManagerJson : '/kindeditor/file_manager_json.ashx',
+
+				allowFileManager : true,width : '100%',height : '300px'
+			});
+		});
+	</script>
+          </td>
+        </tr>
+          <tr >
+            
+            <td class="tdcontent" colspan="4"  style="text-align:center;"><input type=hidden name=gotourl value="{$gotourl}">
+              <input type=hidden name=ID value="{$ID}">
+              <input type="submit" name="Submit" class="global_btn_blue_big" value="确认无误，提交">
+             </td>
+          </tr>
+    </form>
+
+				
+</table>
+        </div>　
+	</div>
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					{$usermenu}
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script>
+loadqiyecategoryid('{$ID}',1);
+function hid2()
+{
+	document.getElementById("str1").style.display="none";
+	document.getElementById("str2").style.display="block";
+}
+</script>
+
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>

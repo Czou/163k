@@ -1,0 +1,13 @@
+﻿<div class="my_prop_imgitem" id="setfile{$num}" name="setfile{$num}">
+  <div id="pre_8_{$num}" name="pre_8_{$num}" style="border:1px solid #cccccc; "><img src="{$url}" class="imgview" id="imgview_apf_id_8_{$num}" name="imgview_apf_id_8_{$num}" style="vertical-align:top;" width="120" height="120" /></div>
+  <div id="div_apf_id_8_{$num}" name="div_apf_id_8_{$num}" style="text-align:center; line-height:20px;text-align:center">
+  <span id="show_id_{$num}_1" name="show_id_{$num}_1">
+	
+	<a href="#" onclick="return i_upload_img(this,'{$SiteUrl}upload.aspx?type={$num}&action=house');" class="global_btn_blue">上传图片</a>
+	
+    </span><span id="show_id_{$num}_2"  name="show_id_{$num}_2" style="display:none;text-align:center;width:120px;"><a href="javascript:" onclick="delfilevalue2('{$ID}','{$num}','{$table_id}')" class="global_btn">删除</a></span> </div>
+	<a href="#" onclick="return move_PrevNext(this,0,{$num},{$ID},'setfile','{$table_id}',8);" class="move_prev">前移</a>
+	<a href="#" onclick="return move_PrevNext(this,1,{$num},{$ID},'setfile','{$table_id}',8);" class="move_next">后移</a>
+	<script>var gg="{$urltt}";if(gg!=""){document.getElementById("show_id_{$num}_2").style.display="";document.getElementById("show_id_{$num}_1").style.display="none";}</script>
+</div>
+<input type=hidden name="url{$num}" id="url{$num}" value="{$urltt}">

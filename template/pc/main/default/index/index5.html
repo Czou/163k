@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$SiteName}—{$ctitle$}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link href="{$Default_tplPath}skin/index2013_5.css?{$CacheHash}" type="text/css" rel="stylesheet" />
+{$top$}
+		<div class="advs mar10">{$Mh163k_首页头部通栏广告}</div>
+		<div class="grid_06 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="focus">
+					{$Mh163k_焦点新闻_置顶_index2+4+5+6}
+					<ul class="list">
+						{$Mh163k_焦点新闻_index5}
+					</ul>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="slide-img">
+					<div class="slide">
+						<a class="next png_ie6" href="#"></a>
+						<ul class="hd dot" id="tabs"><li class="on">1</li><li class="">2</li><li class="">3</li><li class="">4</li></ul>
+						<a class="prev png_ie6" href="#"></a>
+						<div class="bd">
+							<ul class="picList fix" id="output">
+								{$Mh163k_首页幻灯广告}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="mod_6 mar10">
+					<div class="hd clearfix">
+						<h3 class="left">线上团购</h3><span class="jian"></span>
+						<p class="right more"><a href="{$tgurl}" target="_blank">更多</a></p>
+					</div>
+					<div class="bd tuangou2 clearfix">
+						{$Mh163k_团购_index5}
+					</div>
+				</div>
+			</div>
+			<div class="col_extra">
+				<div class="mod_1">
+					<div class="hd clearfix"><h3 class="left">公告栏</h3><p class="right more"><a href="notice/index.html" target="_blank">更多 &gt;</a></p></div>
+					<div class="bd announcement">
+						<ul>
+							{$Mh163k_网站公告}
+						</ul>
+					</div>
+				</div>
+				<div class="mod_5 mar10 po_re">
+					<div class="hd clearfix"><h3 class="left">同城活动</h3><p class="right more"><a href="{$tuangouurl}" target="_blank">更多 &gt;</a></p></div>
+					<div class="bd tchd">
+						<ul>
+							{$Mh163k_同城活动_index5+6}
+						</ul>
+						<div class="po_ab"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="wp"><div class="wp_inner clearfix">
+			<div class="mod_7 mar10 left">
+				<div class="hd clearfix"><h3 class="left">今日头版</h3><p class="right more"><a href="help/help_314.html" target="_blank" class="orange">想上头版？</a></p></div>
+				<div class="bd announcement">
+					<ul>
+						{$Mh163k_分类信息_今日头版_index5}
+					</ul>
+				</div>
+			</div>
+			{$indexlivecategory1}
+			{$indexlivecategory2}
+			{$indexlivecategory3}
+			{$indexlivecategory4}
+			{$indexlivecategory5}
+		</div></div>
+		{$Mh163k_论坛数据调用}
+		<div class="advs mar10">{$Mh163k_首页通栏广告_2}</div>
+		<div class="mod_2 mar10" id="fangchan">
+			<div class="hd clearfix po_re">
+				<ul class="tab-hd">
+					<li class="selected" data-cat="0"><a href="{$fcurl}loupan.html" target="_blank">最新楼盘</a></li>
+					{$Mh163k_楼盘区域列表_index5}
+				</ul>
+				<p class="right more"><a href="{$fcurl}loupan.html" target="_blank">更多 &gt;</a></p>
+				<s class="s po_ab">热</s>
+			</div>
+			<div class="bd fangchan fangchan_ajax">
+				<ul class="pic clearfix tab-cont" data-success="1">
+					{$Mh163k_热销楼盘_index5+6}
+				</ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+                <ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+                <ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+                <ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+                <ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+				<ul class="pic clearfix loadding tab-cont" data-success="0" style="display:none;"></ul>
+			</div>
+		</div>
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+                <div class="mod_2">
+					<div class="hd clearfix">
+						<ul>
+							<li class="selected"><a href="javascript:void(0);" id="tabadmenu_40" onMouseOver="setTimeout('Show_TabADSMenu(4,0,3)',200);">最新出售</a></li>
+							<li><a href="javascript:void(0);" id="tabadmenu_41" onMouseOver="setTimeout('Show_TabADSMenu(4,1,3)',200);">紧急出售</a></li>
+							<li><a href="javascript:void(0);" id="tabadmenu_42" onMouseOver="setTimeout('Show_TabADSMenu(4,2,3)',200);">推荐房源</a></li>
+						</ul>
+						<p class="right more"><a href="{$fcurl}chushou.html" target="_blank">更多 &gt;</a></p>
+					</div>
+					<div class="bd fangchan" id="fc_zushou">
+						<ul class="clearfix" id="tabadcontent_40" style="">
+							{$Mh163k_首页房产_最新出售_index5+6}
+						</ul>
+						<ul class="clearfix" id="tabadcontent_41" style="display:none;">
+							{$Mh163k_首页房产_紧急出售_index5+6}
+						</ul>
+						<ul class="clearfix" id="tabadcontent_42" style="display:none;">
+							{$Mh163k_首页房产_推荐出售_index5+6}
+						</ul>
+					</div>
+				</div>
+				<div class="mod_2 mar10">
+					<div class="hd clearfix">
+						<ul>
+							<li class="selected"><a href="javascript:void(0);" id="tabadmenu_30" onMouseOver="setTimeout('Show_TabADSMenu(3,0,3)',200);">最新出租</a></li>
+							<li><a href="javascript:void(0);" id="tabadmenu_31" onMouseOver="setTimeout('Show_TabADSMenu(3,1,3)',200);">紧急出租</a></li>
+							<li><a href="javascript:void(0);" id="tabadmenu_32" onMouseOver="setTimeout('Show_TabADSMenu(3,2,3)',200);">推荐房源</a></li>
+						</ul>
+						<p class="right more"><a href="{$fcurl}chuzhu.html" target="_blank">更多 &gt;</a></p>
+					</div>
+					<div class="bd fangchan" id="fc_zushou2">
+						<ul class="clearfix" id="tabadcontent_30" style="">
+							{$Mh163k_首页房产_最新出租_index5+6}
+						</ul>
+						<ul class="clearfix" id="tabadcontent_31" style="display:none;">
+							{$Mh163k_首页房产_紧急出租_index5+6}
+						</ul>
+						<ul class="clearfix" id="tabadcontent_32" style="display:none;">
+							{$Mh163k_首页房产_推荐出租_index5+6}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mod_2 estate">
+					<div class="hd clearfix">
+						<ul>
+							<li class="selected"><a href="javascript:void(0);" id="tabadmenu_50" onMouseOver="setTimeout('Show_TabADSMenu(5,0,2)',200);">推荐经纪人</a></li>
+							<li><a href="javascript:void(0);" id="tabadmenu_51" onMouseOver="setTimeout('Show_TabADSMenu(5,1,2)',200);">最新经纪人</a></li>
+							
+						</ul>
+						<p class="right more"><a href="{$fcurl}zhongjie.html" target="_blank">更多 &gt;</a></p>
+					</div>
+					<div class="bd picList" id="tabadcontent_50">
+						<ul class="inner clearfix">
+							{$Mh163k_首页房产_推荐经纪人_index5+6}
+						</ul>
+					</div>
+					<div class="bd picList" id="tabadcontent_51" style="display:none;">
+						<ul class="inner clearfix">
+							{$Mh163k_首页房产_最新经纪人_index5+6}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mod_4 hotShop po_re mar10">
+			<div class="hd clearfix"><h3 class="left">火<em>热</em>店铺排行</h3></div>
+			<div class="bd">
+				<ul class="clearfix">
+					{$Mh163k_首页火热店铺排行_index5}
+				</ul>
+				<div class="video">
+					<ul class="inner clearfix">
+						{$Mh163k_首页火热店铺排行_视频_index5}
+					</ul>
+				</div>
+			</div>
+			<div class="menu">{$Mh163k_店铺分类}</div>
+			<div class="more"><a href="{$shopurl}join.aspx" class="ruzhu" target="_blank">商家入驻</a><a href="{$shopurl}" class="shangjia" target="_blank">更多商家</a></div>
+		</div>
+		<div class="advs mar10">{$Mh163k_首页通栏广告_3}</div>
+		<div class="grid_02 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="mod_1">
+					<div class="hd clearfix">
+						<h3 class="left">热点招聘</h3><span class="jian"></span>
+						<p class="right more"><a href="{$zpurl}zhiwei.html" target="_blank">更多工作机会 &gt;</a></p>
+					</div>
+					<div class="bd job">
+						<ul class="clearfix">
+							{$Mh163k_招聘职位_index1}
+						</ul>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="mod_1">
+					<div class="hd clearfix"><h3 class="left">精英人才</h3><span class="jian"></span><p class="right more"><a href="{$zpurl}rencai.html" target="_blank">更多 &gt;</a></p></div>
+					<div class="bd announcement" id="slide2">
+						<ul class="inner">
+							{$Mh163k_精英人才}
+						</ul>
+					</div>
+				</div>
+				<a href="{$zpurl}rencai.html" class="job_btn" target="_blank">聘：企业免费找人才</a>
+				<a href="{$zpurl}zhiwei.html" class="job_btn_2" target="_blank">求：个人免费找工作</a>
+			</div>
+		</div>
+		<div class="mod_3 mar10">
+			<div class="hd clearfix">
+				<h3 class="left">美图·相册</h3><span class="jian"></span>
+				<p class="right more"><span class="small_nav">{$Mh163k_美图相册分类列表}</span>　　　<a href="photo/" target="_blank">更多 &gt;</a></p>
+			</div>
+			<div class="bd meitu">
+				<ul class="clearfix">
+					{$Mh163k_美图相册}
+				</ul>
+			</div>
+		</div>
+		<div class="mod_1 mar10">
+			<div class="hd clearfix">
+				<h3 class="left">便民电话 与 同城服务</h3><span class="jian"></span>
+				<p class="right more"><span class="yellow">想让您的电话显示在这里吗？请联系客服 特惠300元/年</span></p>
+			</div>
+			<div class="bd">
+				<ul class="bianmin clearfix">
+					{$Mh163k_便民电话}
+				</ul>
+				<ul class="fuwu clearfix">
+					{$Mh163k_同城服务}
+				</ul>
+			</div>
+		</div>
+		<div class="advs mar10">{$Mh163k_首页通栏广告_4}</div>
+		<div class="friendLink mar10">
+			<div class="hd">友情链接</div>
+			<div class="bd">
+				<ul class="pic clearfix">
+					{$Mh163k_友情链接_图片连接}
+				</ul>
+				<div class="text">{$Mh163k_友情链接_文字连接}</div>
+			</div>
+		</div>
+	</div>
+	{$bottom$}
+</div>
+<script src="{$Default_tplPath}js/select.jQuery.js?{$CacheHash}"></script>
+<script src="{$Default_tplPath}js/jquery.SuperSlide.2.1.1.js?{$CacheHash}"></script>
+<script>
+$(function(){
+	$('#mySle').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+	$(".slide").slide({ mainCell:".bd ul",effect:"topLoop",vis:1,scroll:1,autoPlay:true});
+	$("#slide2").slide({ mainCell:".inner",effect:"topLoop",vis:3,scroll:1,autoPlay:true});
+	$("#tabadcontent_50").slide({ mainCell:".inner",effect:"topLoop",vis:3,scroll:1,autoPlay:true});
+	$('#fangchan').TabADS();
+	$("#tab_ajax_01")[0]&&$("#tab_ajax_01").TabADS2('{$bbsurl}',10,'bbs',true);
+	$("#fangchan").TabADS2('{$SiteUrl}',10,'loupan',false);
+	$('#fc_zushou').format_zushou();
+	$('#fc_zushou2').format_zushou();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿<li>
+        <div class="pic"><a href="loupan_{$loupanid}.html" target="_blank"><img src="{$smallfilepath}" onerror="this.src='{$tplPath}images/morenloupan.gif';" alt="" /></a><sup class="tj" style="display:{$tuijiancss}"></sup></div>
+        <div class="con">
+         <h4><a href="loupan_{$loupanid}.html" target="_blank">{$chrloupan}</a><span class="{$xiaoshoutypeid}_middle">在售</span><span class="{$xiaoshoutypeid}_true">待售</span><span class="{$xiaoshoutypeid}_false">售罄</span>{$biaoyu}</h4>
+         <dl class="clearfix">
+          <dt>开&nbsp;&nbsp;发&nbsp;&nbsp;商：</dt>
+          <dd>{$chrsupply}</dd>
+          <dt>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</dt>
+          <dd>{$chraddress}</dd>   
+          <dt>开盘时间：</dt>
+          <dd>{$kaipandate}<span class="phone">{$shouloutel}</span></dd>
+         </dl>
+         <div class="count">
+           <a href="{$fcurl}list.aspx?action=s&lid={$loupanid}" target="_blank">最新动态</a> <span>({$count1})</span> <a href="{$fcurl}pic_{$loupanid}.html" target="_blank">相册</a> <span>({$count2})</span> <a href="{$fcurl}fang_{$loupanid}.html" target="_blank">户型图</a> <span>({$count3})</span> <a href="{$fcurl}revert_{$loupanid}.html" target="_blank">点评</a> <span>({$count4})</span>
+         </div>
+         <div class="pos_t42">
+          均价：<span class="price"><strong>{$avgprice}</strong></span>
+         </div>
+         <div class="xf xf{$xiaoshoustyleid}">{$xiaoshoustyleid_str}</div>
+       </div>
+      </li>

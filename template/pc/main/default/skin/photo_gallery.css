@@ -1,0 +1,241 @@
+@charset "utf-8";
+body { background-color:#000; text-align:left;}
+.wrapper { width:982px; margin:0 auto;}
+
+a{text-decoration:none;color:#808080;}
+a:hover{text-decoration:underline;}
+
+.header .logo .m_logo,.header .sub_logo,.header .site_position .s,.wrapper .control_panel .link .s,.wrapper .share a,.gallery .scroll_left,.gallery .scroll_right,.end .tips .tips_menu .replay .s,.end .close,.cmt .bd .item .s,.comment_login .send { background:url(../images/gqzt_sp.png) no-repeat 0 0;}
+
+.cmt { margin-top:15px; position:relative; z-index:2; *zoom:1; border:1px solid #121212; background-color:#0d0d0d;}
+.cmt .hd { border-bottom:1px solid #121212; height:30px; line-height:30px; font-weight:bold; color:#999; font-size:14px; padding-left:10px; text-align:left;}
+.cmt .ft { position:absolute; top:6px; right:8px;}
+.cmt .ft .em { font-weight:bold;}
+.cmt .bd { padding:10px 15px;}
+.cmt .bd .item { border-bottom:1px dotted #282828; padding:15px 8px 15px 30px; text-align:left; position:relative; z-index:2; *zoom:1;}
+.cmt .bd .item .em { color:#292929;}
+.cmt .bd .item .s { position:absolute; top:17px; left:10px; width:14px; height:13px; overflow:hidden; background-position:-96px -26px;}
+
+.comment_write { margin-top:15px; border:1px solid #191919; padding:10px 15px 15px; text-align:left;}
+.comment_write .hdt { padding-bottom:4px; text-align:left; color:#999; font-size:14px; font-weight:bold;}
+.comment_input { width:906px; padding:2px 5px; line-height:20px; color:#ffffff; height:90px; border:1px solid #222; background-color:#121212;}
+.comment_login { margin-top:8px; color:#333; line-height:20px;}
+.comment_login .left { display:inline; float:left; margin-left:5px;}
+.comment_login .login_test { border:1px solid #222; background-color:#121212; height:18px; line-height:18px; width:80px; color:#ffffff}
+.comment_login .send { background-position:-234px -120px; width:68px; height:22px; color:#7d4800; font-size:12px; border:0 none; cursor:pointer; line-height:22px; font-weight:bold;}
+
+/* 分页 */
+.pagination_module { margin-top:15px;}
+.pagination_module .left { display:block; float:left;}
+.pagination_module .right { display:block; float:right;}
+.pagination_module .right2 { margin-top:8px; display:inline; float:right; margin-right:5px; line-height:24px;}
+.pagination_module  a { display:block; float:left; border:1px solid #252525; background:#191919; color:#555; padding:4px 6px;line-height:14px; margin-right:3px;}
+.pagination_module  a.current { color:#fff; border:1px solid #f60; background:#f60; font-weight:bold;}
+.pagination_module  span.kill { display:block; float:left; padding:4px 6px; line-height:14px; margin-right:3px;}
+.pagination_module  span.invalid{ border:1px solid #181818; background:#090909; color:#282828;}
+.pagination_module .jump_box { display:block; float:right; margin-top:-4px; color:#666;}
+.pagination_module .jump_box input.jump_input { line-height:18px; border:1px solid #a7a6aa; height:18px; margin-top:5px; width:30px; margin-left:2px;}
+.pagination_module .jump_box input.jump_menu { background:url(../images/hd_320.png) no-repeat -240px -291px; width:20px; height:20px; border:0; margin-left:2px; cursor:pointer;}
+
+
+.header { height:52px; overflow:hidden; padding:18px 20px 0; position:relative; border-bottom:1px solid #121212; background-color:#0d0d0d;}
+.header .logo { float:left;}
+.header .logo .m_logo { display:block; width:233px; height:32px; background-position:0 -120px; text-indent:-9999em; overflow:hidden;}
+.header .sub_logo { display:block; position:absolute; left:150px; top:22px; background-position:-111px 0; text-indent:-9999em; overflow:hidden; width:72px; height:25px;}
+.header .m_sub_logo { display:block; height:25px;}
+.header .site_position { position:absolute; left:290px; top:26px;}
+.header .site_position .s { display:block; position:absolute; left:0; top:0; width:16px; height:15px; overflow:hidden; background-position:-262px 0;}
+.header .site_position .bd { display:block; position:relative; margin-left:22px;}
+.header .channel_nav { float:right; margin-top:10px;}
+.header .channel_nav a { padding:0 8px;}
+.wrapper .article_title { color:#b8b8b8; margin:20px 0 20px; text-align:center; font:bold 24px/1.5 "微软雅黑";}
+.wrapper .control_panel { text-align:left;}
+.wrapper .control_panel .link { display:inline-block; *display:inline; *zoom:1; position:relative; *zoom:1; padding:0 10px 0 25px;}
+.wrapper .control_panel .link .s { display:block; position:absolute; left:7px; top:1px; overflow:hidden;}
+.wrapper .control_panel .play .s { width:11px; height:10px; background-position:-290px 0; top:4px; left:10px;}
+.wrapper .control_panel .stop .s { width:10px; height:11px; background-position:-279px 0; top:3px; left:10px;}
+.wrapper .control_panel .mode,.wrapper .control_panel .comment { padding-left:30px;}
+.wrapper .control_panel .mode .s { width:16px; height:16px; background-position:-145px -26px; top:1px; left:10px;}
+.wrapper .control_panel .comment em { color:#f60;}
+.wrapper .control_panel .comment .s { width:16px; height:16px; background-position:-162px -26px; top:1px; left:10px;}
+.wrapper .control_panel .updata .s { width:16px; height:16px; background-position:-335px 0; top:0; left:5px;}
+.wrapper .control_panel .other_txt { padding:0 10px 0 10px;}
+.wrapper .control_panel .view_photo .s { width:15px; height:15px; background-position:-319px 0;}
+.wrapper .share { text-align:right; margin:-18px 0 10px 700px; position:relative;}
+.wrapper .share a { display:inline-block; *display:inline; *zoom:1; width:16px; height:16px; overflow:hidden; margin-right:6px; text-indent:-9999em; cursor:pointer; vertical-align:middle; text-align:left;}
+.wrapper .share .sina-share { background-position:-208px -39px;}
+.wrapper .share .netease-share { background-position:-229px -39px;}
+.wrapper .share .tencent-share { background-position:-250px -39px;}
+.wrapper .share .sohu-share { background-position:-271px -39px;}
+.wrapper .share .kaixin001-share { background-position:-292px -39px;}
+.wrapper .share .renren-share { background-position:-313px -39px;}
+.wrapper .share .douban-share { background-position:-334px -39px;}
+.wrapper .share .qqZone-share { background-position:-355px -39px;}
+.wrapper .info_txt { text-align:left; margin-top:15px; border:1px solid #121212; background-color:#0d0d0d; border-radius:8px; padding:10px 15px; color:#808080;}
+.wrapper .info_txt p { margin:8px 0;}
+.footer { text-align:center; color:#4c4c4c; padding:30px 0 20px;}
+
+.gallery { border:1px solid #121212; background-color:#0d0d0d; padding-top:20px; border-radius:8px; position:relative; *zoom:1;}
+.graphicsHead { width:846px; margin:0 auto; height:115px; margin-bottom:6px;}
+.graphicsHead .tab_item { float:left; _display:inline; position:relative; *zoom:1; width:141px; text-align:center;}
+.graphicsHead .tab_item img { height:87px; border:3px solid #2a2a2a; vertical-align:top; overflow:hidden; font-size:0}
+.graphicsHead .select img { border:3px solid #aeaeae;}
+.graphicsHead .tab_item s { display:block; background-color:#000; color:#eee; padding:0 4px; position:absolute; bottom:5px; right:8px; text-decoration:none; font-size:11px; border-bottom:1px solid #666; border-right:1px solid #666;}
+.gallery .scroll_left { position:absolute; top:41px; left:15px; display:block; width:38px; height:38px; overflow:hidden; text-indent:-9999em; background-position:-184px 0;}
+.gallery .scroll_right { position:absolute; top:41px; right:15px; display:block; width:38px; height:38px; overflow:hidden; text-indent:-9999em; background-position:-223px 0;}
+.graphicsContent { border-top:1px solid #121212; border-bottom:1px solid #121212; text-align:center; position:relative; *zoom:1; height:600px;}
+.gallery .photoMenu { position:absolute; width:490px;}
+.gallery .prev { left:0; top:0}
+.gallery .next { right:0; top:0}
+.gallery .menuPrev { display:none; position:absolute; left:0; top:0; width:100%; z-index:1001; cursor:pointer;}
+.gallery .menuNext { display:none; position:absolute; left:0; top:0; width:100%; z-index:1001; cursor:pointer;}
+.gallery .photoMenu .s { display:block; margin-top:100px;}
+.gallery .prev .s { float:left; _display:inline; margin:150px 0 0 20px; background:url(../images/gqzt_prev.png) no-repeat 0 0;}
+.gallery .next .s { float:right; _display:inline; margin:150px 20px 0 0; background:url(../images/gqzt_next.png) no-repeat 0 0;}
+.gallery .prev .s a,.gallery .next .s a { display:block; width:102px; height:95px; overflow:hidden; font:0pt/1000px Arial; position:relative;}
+.gallery .bg { position:absolute; left:0; right:0; width:100%; z-index:1000; background:#fff;filter:alpha(opacity=0); /*IE*/-moz-opacity:0; /*MOZ , FF*/opacity:0;/*CSS3, FF1.5*/}
+.gallery .graphicsInfo { padding:6px 8px; overflow:hidden; *zoom:1; color:#808080;}
+.gallery .graphicsTitle { float:left;}
+.gallery .graphicsTime { float:right;}
+.gallery .graphics { vertical-align:top; font-size:0;}
+
+.end { border:1px solid #313131; background-color:#202020; padding:15px; position:absolute; z-index:9999; width:500px; height:300px; border-radius:3px; display:none;}
+.end .tips { text-align:center;}
+.end .tips .tips_info { display:block; color:#888; padding:25px 15px 35px; font-size:14px;}
+.end .tips .tips_menu a { display:inline-block; *display:inline; *zoom:1; padding:4px 12px; border:1px solid #3f3f3f; background-color:#252525; margin:0 8px; border-radius:4px;}
+.end .tips .tips_menu .replay { padding-left:34px; position:relative;}
+.end .tips .tips_menu .replay .s { display:block; position:absolute; width:16px; height:16px; background-position:-111px -26px; overflow:hidden; left:11px; top:5px;}
+.end .tips .tips_menu a:hover { text-decoration:none; color:#999; border:1px solid #555;}
+.end .close { display:block; position:absolute; top:8px; right:8px; width:16px; height:16px; background-position:-128px -26px; font:0pt/1000px Arial; overflow:hidden;}
+.end .new_tj { margin-top:20px;}
+.end .new_tj .hd { color:#888; padding:0 0 10px 8px;}
+.end .new_tj .item { float:left; width:166px; zoom:1; _display:inline;}
+.end .new_tj .item a { border:1px solid #444; text-align:center; display:block; width:150px; margin:0 auto; padding:10px 0;}
+.end .new_tj .item img { display:block; margin:0 auto; width:130px; height:90px;}
+.end .new_tj .item .title { display:block; margin-top:6px; height:18px; overflow:hidden;}
+
+.hidden-container { padding-bottom:40px;}
+.hidden-container a { display:block; _display:inline; float:left; width:135px; text-align:center; padding:4px; border:1px solid #444; border-radius:4px; margin:18px 25px 0; zoom:1;}
+.hidden-container img { font-size:0; overflow:hidden; vertical-align:top; height:90px;}
+.hidden-container a:hover { border:1px solid #555; background-color:#333;}
+
+.c_login li { float:left; display:inline; margin-right:8px;}
+.c_login .yellow { color:#f50; font-weight:bold; font-size:14px;}
+
+.jspHorizontalBar,.jspDrag,.jspDrag .jspDragRight,.jspDrag .jspDragLeft { background: url(../images/gqzt_scrollBar.png) no-repeat 0 0;}
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 16px;
+	height: 100%;
+	background: red;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 13px;
+	background-position:0 -40px;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	position: relative;
+}
+
+.jspDrag
+{
+	background-position:0 -13px;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+.jspDrag .jspDragRight { width:9px; height:13px; background-position:-14px 0; overflow:hidden; float:right;}
+.jspDrag .jspDragLeft { width:14px; height:8px; overflow:hidden; position:absolute; top:3px; left:50%; margin-left:-7px;}
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
+
+.wid980 { width:980px;}

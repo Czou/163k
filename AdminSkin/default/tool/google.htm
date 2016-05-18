@@ -1,0 +1,56 @@
+﻿
+<link href="{$atplPath}css/tool.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{$atplPath}js/tool.js"></script>
+<div ondblclick="this.style.display='none'" align="center" valign="middle" style="display:none;Z-INDEX: 101; LEFT: 300px; WIDTH: 393px; POSITION: absolute; TOP: 120px; HEIGHT: 50px;border:2px solid #CFE7FF;background:#F8FCFF;color:#ff000;font-size:14px;font-weight:normal;" name="loaddiv" id="loaddiv" width="200" height="200"><br>正在运行，请耐心等候！</div>
+<!--主体-->
+<style type="text/css">
+<!--
+.m { BORDER-RIGHT: #99ccff 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #99ccff 1px solid; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; BORDER-LEFT: #99ccff 1px solid; WIDTH: 100%; WORD-BREAK: break-all; LINE-HEIGHT: 22px; PADDING-TOP: 5px; BORDER-BOTTOM: #99ccff 1px solid }
+.m A { CURSOR: hand; COLOR: #0033cc; FONT-FAMILY: Verdana; TEXT-DECORATION: none }
+.m IMG { BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; CURSOR: hand; BORDER-BOTTOM: 0px }
+.t { BORDER-RIGHT: #dfe8ff 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #dfe8ff 1px solid; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; BORDER-LEFT: #dfe8ff 1px solid; WIDTH: 100%; PADDING-TOP: 5px; BORDER-BOTTOM: #dfe8ff 1px solid; BACKGROUND-COLOR: #dfe8ff; WORD-WRAP: break-word }
+.r{ display:block ; float:left; clear:both; width:100%; word-spacing:normal; font-size:24px; margin-top:6px; margin-bottom:-2px;}
+.l{ width:100%;}
+.f { display:none;}
+-->
+</style><div id="box">
+
+  <div class="frame">
+    <h1>Google收录查询</h1>
+    <div class="Content_1">
+      <form action="?action=google" method="post" name="f" class="form_1">
+        <img src="{$atplPath}Images/tool/ico_Earth.gif" />
+        <input name="q" type="text" value="{$q}" class="input_2"  size="50"/>
+        <select name="t" class="input_1">
+          <option selected=selected value=1>查询昨日收录情况</option>
+          <option value=7>查询最近1星期收录情况 </option>
+          <option value=30>查询最近1月收录情况</option>
+          <option value=360>查询最近1年收录情况</option>
+          <option value=0>查询总的（所有日期）收录情况</option>
+        </select>        
+        
+        <input name="提交" type="submit" class="btn_1" value="Google收录查询" />
+        <div class="clear"></div>
+        <p>友情提示：Google收录查询系统可查询Google在近几天内收录贵网站的情况，可精确到仅昨天收录哪些页面。</p>
+      </form>
+    </div>
+  </div>
+  
+  
+{$details}
+<div class="clear"></div>
+
+
+
+<div class="frame">
+<h6>在线服务</h6>
+<div class="Content_1 service"><a title="万年历" href="tool.aspx">万年历</a> <a href="tool.aspx?action=ji">计算器</a> <a title="今天到期域名" href="tool.aspx?action=jin">今天到期域名</a><a title="昨天到期域名" href="tool.aspx?action=jin&tt=2">昨天到期域名</a> <a title="前天到期域名" href="tool.aspx?action=jin&tt=3">前天到期域名</a> <a title="明天拟删除域名" href="tool.aspx?action=jin&tt=4">明天拟删除域名</a> <a title="后天拟删除域名" href="tool.aspx?action=jin&tt=5">后天拟删除域名</a> </div>
+</div>
+
+
+
+
+
+
+</div>
+<!--主体结束-->

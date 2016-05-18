@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<BaseConfigInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Dbconnectstring>Data Source={$server1$};User ID={$userid1$};Password={$password1$};Initial Catalog={$database1$};Pooling=true</Dbconnectstring>
+    <Tableprefix>dnt_</Tableprefix>
+    <Forumpath>/bbs/</Forumpath>
+    <Founderuid>0</Founderuid>
+    <Dbtype>SqlServer</Dbtype>
+</BaseConfigInfo> 

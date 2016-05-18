@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>快店公告管理-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="right"><a href="good_shop_active.aspx?action=add#tt9" class="sys_btn_small_blue">发布公告</a></div>快店公告管理
+					</div>
+					<div class="bd">
+						<table border="0" cellpadding="0" cellspacing="0" class="tablelist" width="100%">
+							<tr class="tabletitle" bgcolor="#f8f8f8"> 
+								<td class="td_first">序号</td>
+								<td>标题</td>
+								<td>状态</td>
+								<td>排序</td>
+								<td>发布时间</td>
+								<td>操作</td>
+							</tr> 
+<tag:Loop ListType="Listshoparticle" RecType="New" PageSize="20" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="shangjia/List_notice_Tr.html" />
+						</table>
+						<div class="pageNavigation">{$PageSplit}</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{$Mh163k_商家平台_页脚}
+<script>
+function delnotice(id){
+    if ( confirm("该操作将不可逆！\n您确定要删除？")){
+        location.href = "good_shop_active.aspx?action=del&ID=" + id
+    }
+}
+</script>
+</body>
+</html>
+
+
+

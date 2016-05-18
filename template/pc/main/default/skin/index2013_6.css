@@ -1,0 +1,122 @@
+@charset "utf-8";
+.mod_1 .hd,.mod_2 .hd h3,.mod_2 .hd .jian,.mod_3 .hd .jian,.mod_4 .hd .jian,.estate .picList .text .menu,.fangchan .shou,.fangchan .zu,#fangchan .hot,.wrapper .tchd .po_ab,.tuangou2 .info .btn,.touban .text li,#fangchan .hot,.koubei .text li,.koubei .btn { background:url(../images/index2013_6_sp.gif) no-repeat 0 0;}
+
+.mod_1 .hd { background-position:0 -523px; background-repeat:repeat-x;}
+.mod_1 .hd li,.mod_1 .hd h3 { padding:2px 0 5px; float:left; font-size:18px; font-weight:normal; width:96px; color:#0087bd; text-align:center; position:relative; z-index:2; *zoom:1;}
+.mod_1 .hd .sp { display:none;}
+.mod_1 .hd .selected .sp,.mod_1 .hd h3 .sp { display:block; width:100%; left:0; top:33px; height:1px; overflow:hidden; background-color:#fff;}
+.mod_1 .hd .selected .sp span,.mod_1 .hd h3 .sp span { display:block; height:1px; overflow:hidden; background-color:#0087bd; margin:0 3px;}
+.mod_1 .hd h3 .sp span { margin:0 3px 0 0;}
+.mod_1 .hd li a { color:#666;}.mod_2 .hd li a:hover { color:#d00;}
+.mod_1 .hd .selected a { color:#0087bd;}.mod_2 .hd .selected a:hover { color:#0087bd;}
+.mod_1 .s { display:block; width:3px; height:1px; background-color:#fff; overflow:hidden; top:33px; left:0; z-index:3}
+.mod_1 .more { display:inline; margin:10px 6px 0 0;}
+.mod_1 .bd { padding:10px 0 0;}
+
+.mod_2 .hd { background-color:#ff702d;}
+.mod_2 .hd h3 { color:#fff; font-size:18px; font-weight:normal; padding:8px 0 6px 50px; background-position:-456px -467px;}
+.mod_2 .hd .jian { display:inline; float:left; width:9px; height:9px; background-position:-311px -80px; overflow:hidden; margin:17px 0 0 5px;}
+.mod_2 .hd .more { display:inline; margin:13px 13px 0 0;}
+.mod_2 .hd .more a,.mod_2 .hd .more a:hover { color:#fff;}
+.mod_2 .bd { border:1px solid #eee; border-top:0 none;}
+
+.mod_3 .hd {}
+.mod_3 .hd h3 { color:#0087bd; font-size:18px; font-weight:normal; padding:8px 0 4px 5px;}
+.mod_3 .hd .jian,.mod_4 .hd .jian { display:inline; float:left; width:11px; height:11px; background-position:-321px -80px; overflow:hidden; margin:17px 0 0 5px;}
+.mod_3 .hd .more { display:inline; margin:13px 13px 0 0;}
+.mod_3 .bd { padding:10px; border:1px solid #eee;}
+
+.mod_4 .hd { margin-top:10px; background:none;}
+.mod_4 .hd h3 { color:#0087bd; font-size:14px; font-weight:normal; padding:2px 0 2px 8px; width:auto;}
+.mod_4 .hd .jian { margin:8px 0 0 5px;}
+.mod_4 .bd { padding:10px;}
+.mod_4 .hd .more { margin:5px 8px 0 0;}
+
+.slide{ position:relative; z-index:1; zoom:1; height:179px; overflow:hidden;}
+.slide .dot{ position:absolute; z-index:5; bottom:7px; right:2px;}
+.slide .dot li{ display:inline; float:left; font-size:14px; line-height:20px; padding:2px 8px; margin-right:5px; cursor:pointer; background-color:#222; color:#fff; text-align:center;}
+.slide .dot .on { background-color:#0087bd;}
+.slide .picList li{ float:left; position:relative; zoom:1;}
+.slide .picList li img { display:block; width:460px; height:179px;}
+
+.touban .text { margin-top:10px;}
+.touban .text li { width:197px; float:left; background-position:-494px -230px; padding-left:13px; line-height:25px; height:25px; font-size:14px; overflow:hidden; vertical-align:middle; _display:inline; margin-right:10px;}
+.touban .pic li { float:left; display:inline; margin:7px 10px 0 14px; width:90px;}
+.touban .pic .tit { display:block; margin-top:3px; text-align:center; cursor:pointer; height:36px; overflow:hidden;}
+.touban .pic img { display:block; width:90px; height:90px; vertical-align:top;}
+.touban .pic a:hover .tit { text-decoration:underline;}
+
+.wrapper .content .focus { padding:12px 5px 5px;}
+.focus .topic h3 { font-size:18px; text-align:center; height:27px; line-height:27px; overflow:hidden;}
+.focus .topic .more { color:#d00;}
+.focus .topic .info { color:#777; margin:5px 0 10px; line-height:22px; height:44px; overflow:hidden;}
+.focus .list { border-top:1px dotted #ddd; padding:6px 0;}
+.focus .list li { line-height:26px; height:26px; overflow:hidden; font-size:14px;}
+.focus .list em { margin-left:9px; font-size:12px; color:#999;}
+.focus .list .cat { color:#777; margin-right:3px;}.focus .list .cat:hover { color:#d00;}
+.focus .list .line { border-top:1px dotted #ddd; padding-top:8px; margin-top:10px;}
+
+.friendLink { background-color:#f3f3f3; padding:10px;}
+.friendLink .hd { color:#222; font-size:18px; font-weight:normal; border-bottom:1px solid #dadada; padding:8px 0 8px 8px; background-position:0 -520px; background-repeat:repeat-x;}
+.wrapper .content .friendLink .bd .pic li { width:105px;}
+
+.wrapper .content .estate .bd { padding:4px 10px 0;}
+.estate .picList li { overflow:hidden; *zoom:1; vertical-align:top; padding:4px 4px 8px; border-bottom:1px dotted #ccc; color:#333;}
+.estate .picList .pic { float:left; width:96px; padding:3px 0 0 5px;}
+.estate .picList .pic img { display:block; vertical-align:top;}
+.estate .picList .text { float:left; width:107px; text-align:left;}
+.estate .picList .text h3 { font-size:14px; font-weight:bold; padding:1px 0;}
+.estate .picList .text p { line-height:22px; height:22px; overflow:hidden;}
+.estate .picList .text p em { color:#999;}
+.estate .picList .text .menu { background-position:-25px -80px; height:21px; width:100px; display:block; line-height:21px; color:#fff; text-align:center; margin-top:3px;}
+
+.wrapper .content .fangchan { padding:5px 0 10px 8px;}
+.fangchan_ajax ul { height:131px;}
+.fangchan .item { float:left; width:198px; padding:6px 0 6px 30px; border-bottom:1px dotted #e0e0e0;}
+.fangchan .item .title { display:block; height:22px; line-height:22px; font-size:14px; overflow:hidden; color:#4e4e4e;}
+.fangchan .item .price_line { display:block; height:18px; overflow:hidden; color:#0041d9;}
+.fangchan .item a:hover .title,.fangchan .item a:hover .price_line { text-decoration:underline; color:#c00; cursor:pointer;}
+.fangchan .shou { background-position:-475px -346px;}
+.fangchan .zu { background-position:-475px -281px;}
+.fangchan .pic { padding:4px 0 5px;}
+.fangchan .pic li { float:left; width:100px; display:inline; margin:10px 8px 0 10px; text-align:center;}
+.fangchan .pic img { vertical-align:top; margin:0 auto;}
+.fangchan .pic .title { display:block; margin-top:4px; height:20px; line-height:20px; overflow:hidden;}
+.fangchan .pic .price { color:#f30; font-weight:bold;} 
+.fangchan .pic a:hover .title,.fangchan .pic a:hover .price { text-decoration:underline; color:#d00;}
+#fangchan .hot { display:block; top:-10px; left:82px; width:16px; height:16px; overflow:hidden; text-indent:-999em; background-position:-8px -80px;}
+
+.tuangou2 { padding:11px 5px 11px 10px; text-align:left;}
+.tuangou2 .buy { font-size:14px;}
+.tuangou2 .buy .people { font:bold 24px/28px tahoma; color:#c00;}
+.tuangou2 .title { margin-bottom:12px; font:bold 16px/24px "微软雅黑"; height:24px; overflow:hidden;}
+.tuangou2 .title a { color:#333;}.tuangou2 .title a:hover { color:#c00;}
+.tuangou2 .img { position:relative; z-index:1; *zoom:1; float:left; overflow:hidden;}
+.tuangou2 .img img { vertical-align:top; width:285px; height:190px; display:block;}
+.tuangou2 .img .s { display:block; position:absolute; bottom:0; right:0; overflow:hidden; font:0pt/1000px Arial;}
+.tuangou2 .info { float:right; width:127px;}
+.tuangou2 .info li { line-height:27px;}
+.tuangou2 .info .em { font:bold 14px/27px Arial;}
+.tuangou2 .info .btn { margin-top:9px; vertical-align:top; display:block; width:127px; height:39px; overflow:hidden; font:0pt/1000px Arial; background-position:0 -28px;}
+.tuangou2 .info .red { color:#d00;}
+
+.wrapper .content .koubei { padding:0;}
+.koubei .col_1 { width:198px;}
+.koubei .col_2 { width:712px;}
+.koubei .col_3 { width:278px;}
+.koubei .img { padding:1px 0 0 10px;}
+.koubei .img li { float:left; display:inline; text-align:center;}
+.koubei .img img { vertical-align:top; display:block;}
+.koubei .img .tit { display:block; height:18px; overflow:hidden; margin-top:5px; cursor:pointer;}
+.koubei .shop_logo li { width:120px; margin:10px 15px 0 5px; display:inline; height:90px; position:relative; z-index:1; *zoom:1;}
+.koubei .shop_logo img { width:120px; height:80px; vertical-align:top;}
+.koubei .shop_logo .tit { position:absolute; left:0; bottom:10px; width:120px; height:24px; line-height:24px; color:#fff; background-color:#999; background-color:rgba(0,0,0,.5);}
+.koubei .shop_video li { width:92px; margin:10px 15px 0 9px;}
+.koubei .text { padding:5px 0 0 5px;}
+.koubei .text li { line-height:24px; height:24px; overflow:hidden; padding-left:15px; background-position:-491px -231px;}
+.koubei .btn { display:block; margin-top:10px; width:184px; height:41px; background-position:-126px -80px; text-indent:-999em; overflow:hidden;}
+
+.wrapper .content .job2 { padding:6px 0 0;}
+.job2 li { width:205px;}
+
+.wrapper .tchd .po_ab { background-position:0 -65px;}

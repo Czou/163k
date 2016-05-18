@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>上传店铺展示图-商家管理平台-{$SiteName}</title>
+<meta name="keywords" content="{$SiteKeyWord}" />
+<meta name="description" content="{$SiteDescription}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/g2013.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}skin/styleX4_member.css?{$CacheHash}" />
+<link rel="stylesheet" rev="stylesheet" href="{$Default_tplPath}js/facebox.css?{$CacheHash}" />
+<style>
+#listcategoryshow a { color:#36c;}#listcategoryshow a:hover { color:#d00; text-decoration:underline;}
+#SignFrame td { padding:5px 0;}
+#J_imageView li { position:relative; *zoom:1; z-index:1; list-style:none; float:left; width:120px; height:151px; overflow:hidden; margin:10px 15px 0 0; display:inline; vertical-align:top; padding:0; text-align:left;}
+#J_imageView img { vertical-align:top; display:block;}
+#J_imageView .i_img_alt { position:absolute; left:0; bottom:0; width:112px; border:1px solid #ccc; margin:5px 0 0 0; display:block; padding:0 3px;}
+#upload_way_2 { padding:10px; background-color:#f8f8f8; border:1px solid #e8e8e8;}
+
+#listcategoryshow li { float:left; display:inline; margin-right:15px;}
+</style>
+<link rel="stylesheet" href="{$SiteUrl}/kindeditor/themes/default/default.css?{$CacheHash}" />
+<script charset="utf-8" src="{$SiteUrl}/kindeditor/kindeditor.js?{$CacheHash}"></script>
+<script charset="utf-8" src="{$SiteUrl}/kindeditor/lang/zh_CN.js?{$CacheHash}"></script>
+<script>
+function myforms(o){
+	if(document.getElementById('categoryid').value == ''){
+		alert('请选择分类！');
+		return false;
+	}
+	if(document.getElementById('urlhidden').value == ''){
+		alert('请先上传图片！');
+		return false;
+	}
+	
+	return true;
+}
+</script>
+</head>
+<body>
+{$Mh163k_商家平台_头部}
+<div class="nav">
+	<ul class="w-1200 clearfix">
+		<li><a href="{$SiteUrl}member/userindex_s.aspx" id="nav_index_0">首页</a></li>
+		{$usermenu}
+	</ul>
+</div>
+<div class="content">
+	<div class="w-1200">
+		<div class="grad_01 clearfix">
+			<div class="col_main"><div class="main_wrap">
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">管理图片分类</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<p class="tr"><span class="sp_a">新建分类：</span><span class="sp_d"><input name="chrcategory" id="chrcategory" type="text" class="sys_form_ipt sys_form_ipt_narrow" size="20" /> <input type="button" value="建立分类" class="sys_btn_white" onClick="addcategory();" /></span></p>
+							<div class="tr"><span class="sp_a">已经建立的分类：</span>
+							<div class="sp_d">
+								<div id="editcategory" style="color:blue;display:none">修改分类：<input name="editcategoryid" id="editcategoryid" type="hidden" /><input name="editchrcategory" id="editchrcategory" type="text" size="20" class="sys_form_ipt sys_form_ipt_narrow" /> <input type="button" class="sys_btn_white" value="修改分类" onClick="editcategory();"/></div><ul id="listcategoryshow" class="clearfix">loading……</ul></div>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+				<div class="blank10"></div>
+				<div class="sys_module">
+					<div class="hd clearfix">
+						<div class="left title">上传店铺展示图</div>
+						<div class="right">&nbsp;</div>
+					</div>
+					<div class="bd">
+						<div class="forms">
+							<form name="form1" method="post" target="tijiao" action="?action=picaddSave" enctype="multipart/form-data" onSubmit="return myforms(this)" >
+								<p class="tr"><span class="sp_a">上传到的分类：</span><span class="sp_b">{$categoryid}</span><span class="sp_c">&nbsp;</span></p>
+								
+								<div class="tr">
+									<span class="sp_a">上传图片：</span>
+									<div class="sp_d" style="width:860px;">
+										<!--<table cellpadding="0" cellspacing="0" border="0" id="SignFrame">
+											<tr id="SignItem1"><td><input type="file" name="file" class="sys_form_ipt sys_form_ipt_narrow" onChange="setupload('1',this.value);"/>　描述：<input type="text" name="chrmark" size="30" class="sys_form_ipt sys_form_ipt_narrow"> <a href="javascript:DeleteSignRow('SignItem1');" class="sys_btn_white">删除</a></td></tr>
+										</table>
+										<a href="#" onClick="return addmypicrow(1);" class="sys_btn_small_blue">添加图片</a>-->
+			<div id="upload_way_2">
+				<input type="button" id="J_selectImage" class="sys_btn_white" value="批量上传" />　图片长宽比为1:1
+				<div id="J_imageView"></div>
+				
+				<script>
+					var i_urlmark2 = {};
+					KindEditor.ready(function(K) {
+						var editor = K.editor({
+							uploadJson : '/kindeditor/upload_json.ashx',
+							afterBlur: function(){this.sync();},
+							fileManagerJson : '/kindeditor/file_manager_json.ashx',
+			
+							allowFileManager : true,width : '100%',height : '500px'
+						});
+						K('#J_selectImage').click(function() {
+							editor.loadPlugin('multiimage', function() {
+								editor.plugin.multiImageDialog({
+									clickFn : function(urlList) {
+										var div = document.getElementById('J_imageView'),i=0,i_html='';
+										div.innerHTML = '';
+										document.getElementById("urlhidden").value="";
+										document.getElementById("urlmark").value="";
+										i_urlmark2 = {};
+										K.each(urlList, function(i, data) {
+											
+											i_html += "<li><img src=\"" + data.url + "\" width=\"120\" height=\"120\" /><input type=\"text\" value=\"\" onblur=\"up_blur(this,"+i+",'urlmark',i_urlmark2)\" class=\"i_img_alt\" /></li>"
+											if( document.getElementById("urlhidden").value=="" )
+											{
+												document.getElementById("urlhidden").value=data.url;
+											}
+											else
+											{
+												document.getElementById("urlhidden").value=document.getElementById("urlhidden").value+","+data.url;
+											}
+											i++;
+										});
+										div.innerHTML = "<ul class=\"clearfix\">"+i_html+"</ul>"
+										editor.hideDialog();
+									}
+								});
+							});
+						});
+					});
+				</script>
+			</div>
+<script>
+var i_url= {};
+var i_urlmark= {};
+</script>
+<input type="hidden" name="urlhidden" id="urlhidden" value="" />
+<input type="hidden" name="urlmark" id="urlmark" value="" />
+<input type="hidden" name="total" id="total" value="1" />
+<input type="hidden" name="count" id="count" value="1" />
+<input name="filewidth" id="filewidth" type="hidden" value="300">
+<input name="filewidth" id="fileheight" type="hidden" value="200">
+<input name="filewidth" id="smallfilewidth" type="hidden" value="300">
+<input name="filewidth" id="smallfileheight" type="hidden" value="200">
+									</div>
+								</div>
+								<p class="tr"><span class="sp_a">&nbsp;</span><span class="sp_b"><button type="submit" class="sys_btn_blue">确认提交</button></span><span class="sp_c">&nbsp;</span></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div></div>
+			<div class="col_sub">
+				<div class="nav_sub">
+					<ul id="nav_sub"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<iframe src="about:blank" id="tijiao" name="tijiao" height="0" width="0" scrolling="no" frameborder="no" border="0"></iframe>
+{$Mh163k_商家平台_页脚}
+<script>
+function deletecategoryid(categoryid){
+	if(!confirm("您确定要删除此分类名称吗？此分类名称下面的展示图片也会一起删除!")){return false;}
+	var url="myshop.aspx?action=showvalue&styleid=3&categoryid="+categoryid;
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	$.ajax({url:url,success:function(data){
+		if(data=="1"){
+			loadcategoryid();
+			loadcategoryidselect();
+			return false;
+		}else{
+			alert(data);	
+			return false;
+		}
+	}});
+	return false;
+}
+function addcategory(){
+	if(document.getElementById('chrcategory').value==""){
+		alert("对不起,请输入分类名称!");
+		document.getElementById('chrcategory').focus();
+		return false;
+	}
+	var aa=document.getElementById('chrcategory').value;
+	var url="myshop.aspx?action=addcategory&chrcategory="+escape(aa);
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	
+	$.ajax({url:url,success:function(data){
+		if(data=="1"){
+			loadcategoryid();
+			loadcategoryidselect();
+			return false;
+		}else{
+			alert(data);	
+			return false;
+		}
+	}});
+}
+function loadcategoryidselect(id){
+	var url="myshop.aspx?action=showvalue&styleid=1";
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	$.ajax({url:url,success:function(data){
+		BuildSel(data ,document.getElementById("categoryid"))
+	}});
+}
+function loadcategoryid(){
+	var url="myshop.aspx?action=showvalue&styleid=2";
+	var Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	
+	$.ajax({url:url,success:function(data){
+		document.getElementById("listcategoryshow").innerHTML=data;
+	}});
+}
+function editcategory(){
+	if(document.getElementById("editchrcategory").value==""){
+		alert("对不起,请输入分类名称!");
+		document.getElementById("editchrcategory").focus();
+		return false;
+	}
+	var aa=document.getElementById("editchrcategory").value;
+	var bb=document.getElementById("editcategoryid").value;
+	var url="myshop.aspx?action=editcategory&categoryid="+bb+"&chrcategory="+escape(aa);
+	var  Digital=new  Date();
+	Digital=Digital+40000;
+	url=url+"&k="+Digital;
+	$.ajax({url:url,success:function(data){
+		if(data=="1"){
+			loadcategoryid();
+			loadcategoryidselect();
+			document.getElementById("editchrcategory").value="";
+			document.getElementById("editcategoryid").value="";
+			document.getElementById("editcategory").style.display='none';
+			return false;
+		}
+		else{
+			alert(data);	
+			return false;
+		}
+	}});
+}
+function seteditcategory(categoryid,chrcategory){
+	document.getElementById("editchrcategory").value=chrcategory;
+	document.getElementById("editcategoryid").value=categoryid;
+	document.getElementById("editcategory").style.display='';
+}
+function base_name(pFilePath){
+	var temp_win = pFilePath.lastIndexOf("\\");
+	var temp_unix = pFilePath.lastIndexOf("/");
+	if (temp_win>0)
+	{
+		temp = temp_win;
+	}
+	else if (temp_unix>0)
+	{
+		temp = temp_unix;
+	}
+	else
+	{
+		temp = -1;    
+	}
+	file_name = pFilePath.substr(temp+1);
+	return(file_name);
+}
+function setupload(aa,val){
+	var tt=base_name(val);
+	obj=document.form1.chrmark[(parseInt(aa)-1)]
+	if(obj){
+		
+	}
+	else{
+		obj=document.form1.chrmark;
+	}
+	if(obj){
+		if(obj.value=="")
+		{
+			if(tt.lastIndexOf(".")!=-1){
+				tt=tt.substring(0,tt.lastIndexOf("."));
+			}
+			obj.value = tt;
+		}
+	}
+}
+function DeleteSignRow(rowid){
+	var signFrame = findObj("SignFrame",document);
+	var signItem = findObj(rowid,document);
+	//获取将要删除的行的Index
+	if(signItem){
+		var rowIndex = signItem.rowIndex;
+		//删除指定Index的行
+		signFrame.deleteRow(rowIndex);
+	}
+	if(document.getElementById("total")){
+		document.getElementById("total").value = parseInt(document.getElementById("total").value)-1;	
+	}
+}
+function addmypicrow(){
+	if(parseInt(document.getElementById("total").value)>=10){
+		alert("对不起,一次只能上传十张展示图!");
+		return false;
+	}
+	var txtTRLastIndex = findObj("count",document);
+	var rowID = parseInt(txtTRLastIndex.value);
+	var signFrame = findObj("SignFrame",document);
+	//添加行
+	var ab = rowID+1;
+	var newTR = signFrame.insertRow(signFrame.rows.length);
+	newTR.id = "SignItem" + ab;
+	//添加列:付款时间
+	var newNameTD=newTR.insertCell(0);
+	//添加列内容
+	newNameTD.innerHTML = "<input type=\"file\" class=\"sys_form_ipt sys_form_ipt_narrow\" name=\"file\" onchange=\"setupload('"+ab+"',this.value);\"/>　描述：<input type=\"text\" name=\"chrmark\" size=\"30\" class=\"sys_form_ipt sys_form_ipt_narrow\" /> <a href=\"javascript:DeleteSignRow('SignItem"+ab+"')\" class=\"sys_btn_white\">删除</a>";
+	//将行号推进下一行
+	document.getElementById("count").value = (rowID + 1).toString() ;
+	document.getElementById("total").value = parseInt(document.getElementById("total").value)+1;
+	return false;
+}
+function findObj(theObj, theDoc){var p, i, foundObj;if(!theDoc) theDoc = document;if( (p = theObj.indexOf("?")) > 0 && parent.frames.length){    theDoc = parent.frames[theObj.substring(p+1)].document;    theObj = theObj.substring(0,p);}if(!(foundObj = theDoc[theObj]) && theDoc.all) foundObj = theDoc.all[theObj];for (i=0; !foundObj && i < theDoc.forms.length; i++)     foundObj = theDoc.forms[i][theObj];for(i=0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++)     foundObj = findObj(theObj,theDoc.layers[i].document);if(!foundObj && document.getElementById) foundObj = document.getElementById(theObj);return foundObj;}
+
+
+function up_blur(that,index,sid,obj){
+	
+	var ivalue = that.value;
+	var node = document.getElementById(sid);
+	var i_txt='';
+	if(typeof ivalue === 'undefined')return false;
+	if(ivalue === ''){obj[index] = '';}
+	//console.info(ivalue);
+	//console.info(ivalue);
+	obj[index] = ivalue;
+	for(var i in obj){
+		i_txt+=obj[i]+',';
+	}
+	i_txt = i_txt.slice(0,i_txt.length - 1);
+	node.value = i_txt;
+}
+</script>
+<script>
+loadcategoryid();
+</script>
+</body>
+</html>

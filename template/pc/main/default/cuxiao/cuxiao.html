@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>{$lanmuname}-{$SiteName}</title>
+<meta name="keywords" content="{$lanmukeyword}" />
+<meta name="description" content="{$lanmucontent}" />
+<link href="{$Default_tplPath}skin/_cuxiao.css" type="text/css" rel="stylesheet" />
+{$top$}
+	<div class="breadcrumb">您当前的位置：<a href="{$SiteUrl}">首页</a> &gt; {$lanmuname}</div>
+	<!-- 主体 -->
+	<div id="content">
+		<div class="page_hd">
+			<div class="title"><img src="{$Default_tplPath}images/zhekouka2_03.gif" alt="" /></div>
+			<div class="info clearfix">
+				<div class="k_1"><img src="{$Default_tplPath}images/zhekouka2_12.gif" alt="" /> 注意：您必须持有本站“打折一卡通”才能享有以下优惠、折扣、促销</div>
+				<div class="k_2">鲜活信息:<span class="big_skin">{$total}</span>条</div>
+				<div class="k_3"><a href="{$shopurl}join.aspx"><img src="{$Default_tplPath}images/zhekouka2_07.gif" alt="" /></a> <a href="../cuxiao/card.aspx"><img src="{$Default_tplPath}images/zhekouka2_09.gif" alt="" /></a></div>
+			</div>
+			<div class="category">
+				<div class="box_1">
+					<div class="hd">区域查找</div>
+					<div class="bd">{$areaidlist}</div>
+				</div>
+				<div class="box_1 top10">
+					<div class="hd">商家分类</div>
+					<div class="bd">{$allfenlei}</div>
+				</div>
+			</div>
+		</div>
+		<div class="page_bd">
+			<div class="hd clearfix">
+				<div class="d_1">打折信息 <a href="../member/mycuxiao.aspx?action=add" class="link">我要发布</a></div>
+				<div class="d_2">发布商家</div>
+				<div class="d_3">截止时间</div>
+			</div>
+			<div class="bd">
+				<tag:Loop ListType="LISTCUXIAOQIAN" RecType="New" PageSize="30" ColorSplit="1" TitleLen="55" RecColumn="4" CusTpl="1" Template="cuxiao/list_cuxiao_tr.html" />
+				<div class="pageNavigation">{$PageSplit}　每页显示30条</div>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	{$bottom$}
+</div>
+<script type="text/javascript" src="{$Default_tplPath}js/hover_bg.js"></script>
+<script src="{$Default_tplPath}js/select.jQuery.js"></script>
+<script>
+$(function() {
+	$('#mySle').selectbox();$('#mySle2').selectbox();
+	$(document).modCity();
+	$('#fabu').showMore();
+	$('#weixin').showMore();
+	$.returnTop();
+});
+</script>
+</body>
+</html>
