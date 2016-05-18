@@ -89,10 +89,35 @@ var loadingsrc="{$atplPath}images/upload_120x120.gif";
     </tr>
     <tr > 
       <td  height="25">联系地址<font color="#FF0000"></font>：</td>
-      <td  colspan=3  class="category"><input type="text" name="chraddress" id="chraddress" class="myinput" style="width:260px;" value="{$chraddress}"/> <a href="#" onclick='set_newimage()'><font  color="red">在地图上标注该机构所作位置</font></a>
-            <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" >
-            <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}">
-            <input type="hidden" id="shop_z" name="shop_z"  value="0"><input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"></td>
+      <td  colspan=3  class="category"><input type="text" name="chraddress" id="chraddress" class="myinput" style="width:260px;" value="{$chraddress}"/>
+
+<script src="{$atplPath}js/jquery.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<link rel="stylesheet" type="text/css" href="{$atplPath}js/jquery-gmaps-latlon-picker.css"/>
+<script src="{$atplPath}js/jquery-gmaps-latlon-picker.js"></script>
+<fieldset class="gllpLatlonPicker">
+	<input type="text" class="gllpSearchField" value="{$chraddress}">
+	<input type="button" class="gllpSearchButton" value="search">
+	<br/><br/>
+	<div class="gllpMap">Google Maps</div>
+	<br/>
+	lat/lon:
+	<input type="text" class="gllpLatitude" id="shop_y" name="shop_y" value="{$shop_y}"/>
+	/
+	<input type="text" class="gllpLongitude" id="shop_x" name="shop_x" value="{$shop_x}"/>
+	zoom: <input type="text" class="gllpZoom" id="shop_z" name="shop_z" value="13"/>
+	<input type="button" class="gllpUpdateButton" value="update map">
+  <input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}">
+</fieldset>
+
+
+        <!-- <a href="#" onclick='set_newimage()'><font  color="red">在地图上标注该机构所作位置</font></a> -->
+        <!--     <input type="hidden" id="shop_x" name="shop_x" value="{$shop_x}" > -->
+        <!--     <input type="hidden" id="shop_y" name="shop_y"  value="{$shop_y}"> -->
+        <!--     <input type="hidden" id="shop_z" name="shop_z"  value="0"><input type="hidden" id="ggmap" name="ggmap"  value="{$ggmap}"> -->
+
+        
+      </td>
     </tr>
     
         <tr >
